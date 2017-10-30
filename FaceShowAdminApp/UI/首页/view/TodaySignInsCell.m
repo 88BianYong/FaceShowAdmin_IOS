@@ -54,7 +54,7 @@
 - (void)setupLayout {
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(15.0f);
-        make.bottom.equalTo(self.contentView.mas_centerY).offset(-6.0f);
+        make.bottom.equalTo(self.contentView.mas_centerY).offset(-1.0f);
     }];
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(15.0f);

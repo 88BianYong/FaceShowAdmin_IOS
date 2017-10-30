@@ -117,6 +117,7 @@
 		9234278F1FA722E4003BCEFD /* GetCurrentClazsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */; };
 		923427901FA722E4003BCEFD /* GetCourseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427891FA722E4003BCEFD /* GetCourseRequest.m */; };
 		923427911FA722E4003BCEFD /* GetCourseListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */; };
+		923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -330,6 +331,7 @@
 		923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCurrentClazsRequest.m; sourceTree = "<group>"; };
 		923427891FA722E4003BCEFD /* GetCourseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseRequest.m; sourceTree = "<group>"; };
 		9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseListRequest.m; sourceTree = "<group>"; };
+		923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "METRO-LIGHT PLAYTYPE.otf"; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -783,6 +785,7 @@
 		7CEFC9601FA6D796001D8C84 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */,
 				7CEFC9611FA6D7B3001D8C84 /* Metro Playtype.otf */,
 			);
 			path = Resource;
@@ -897,6 +900,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */,
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
 				7CEFC82B1FA063A7001D8C84 /* env_config.json in Resources */,
 				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,

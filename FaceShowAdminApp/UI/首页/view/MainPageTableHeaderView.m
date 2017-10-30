@@ -36,13 +36,13 @@
         }];
         self.numberLabel = [[UILabel alloc] init];
         self.numberLabel.textColor = [UIColor colorWithHexString:@"333333"];
-        self.numberLabel.font = [UIFont systemFontOfSize:37.0f];
+        self.numberLabel.font = [UIFont fontWithName:YXFontMetro_Light size:37.0f];
         [self addSubview:self.numberLabel];
         [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.nameLabel.mas_bottom).offset(5.0f);
+            make.top.equalTo(self.nameLabel.mas_bottom).offset(8.0f);
             make.centerX.equalTo(self.nameLabel.mas_centerX);
             make.bottom.equalTo(self.mas_bottom);
-            make.height.mas_offset(28.0f);
+            make.height.mas_offset(35.0f);
         }];
     }
     return self;

@@ -27,6 +27,7 @@
 #define kPhoneHeightRatio SCREEN_HEIGHT/667
 
 #define YXFontMetro_Regular     @"Metro"
+#define YXFontMetro_Light        @"Metro-Light"
 
 extern int ddLogLevel;
 
