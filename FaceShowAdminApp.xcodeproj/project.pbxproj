@@ -91,6 +91,18 @@
 		7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9361FA0816D001D8C84 /* TaskViewController.m */; };
 		7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC93A1FA0819B001D8C84 /* ClassMomentViewController.m */; };
 		7CEFC93D1FA0866C001D8C84 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC93C1FA0866C001D8C84 /* Empty.xib */; };
+		7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9521FA6D330001D8C84 /* PasswordInputView.m */; };
+		7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9541FA6D330001D8C84 /* VerifyCodeInputView.m */; };
+		7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9551FA6D330001D8C84 /* LoginActionView.m */; };
+		7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9571FA6D330001D8C84 /* LoginInputView.m */; };
+		7CEFC95F1FA6D331001D8C84 /* AccountInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9581FA6D330001D8C84 /* AccountInputView.m */; };
+		7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC9611FA6D7B3001D8C84 /* Metro Playtype.otf */; };
+		7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9641FA6DA26001D8C84 /* PhoneInputView.m */; };
+		7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9671FA6DA55001D8C84 /* PasswordResetView.m */; };
+		7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9691FA6DEEA001D8C84 /* ForgotPasswordViewController.m */; };
+		7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC96D1FA6DF77001D8C84 /* PasswordSubmitView.m */; };
+		7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9701FA702C5001D8C84 /* ClassListRequest.m */; };
+		7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9731FA70805001D8C84 /* ClassSelectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +268,29 @@
 		7CEFC9391FA0819B001D8C84 /* ClassMomentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentViewController.h; sourceTree = "<group>"; };
 		7CEFC93A1FA0819B001D8C84 /* ClassMomentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentViewController.m; sourceTree = "<group>"; };
 		7CEFC93C1FA0866C001D8C84 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
+		7CEFC9511FA6D330001D8C84 /* LoginActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginActionView.h; sourceTree = "<group>"; };
+		7CEFC9521FA6D330001D8C84 /* PasswordInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordInputView.m; sourceTree = "<group>"; };
+		7CEFC9531FA6D330001D8C84 /* VerifyCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyCodeInputView.h; sourceTree = "<group>"; };
+		7CEFC9541FA6D330001D8C84 /* VerifyCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCodeInputView.m; sourceTree = "<group>"; };
+		7CEFC9551FA6D330001D8C84 /* LoginActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginActionView.m; sourceTree = "<group>"; };
+		7CEFC9561FA6D330001D8C84 /* LoginInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInputView.h; sourceTree = "<group>"; };
+		7CEFC9571FA6D330001D8C84 /* LoginInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInputView.m; sourceTree = "<group>"; };
+		7CEFC9581FA6D330001D8C84 /* AccountInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInputView.m; sourceTree = "<group>"; };
+		7CEFC9591FA6D330001D8C84 /* PasswordInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordInputView.h; sourceTree = "<group>"; };
+		7CEFC95A1FA6D331001D8C84 /* AccountInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInputView.h; sourceTree = "<group>"; };
+		7CEFC9611FA6D7B3001D8C84 /* Metro Playtype.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metro Playtype.otf"; sourceTree = "<group>"; };
+		7CEFC9631FA6DA26001D8C84 /* PhoneInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneInputView.h; sourceTree = "<group>"; };
+		7CEFC9641FA6DA26001D8C84 /* PhoneInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneInputView.m; sourceTree = "<group>"; };
+		7CEFC9661FA6DA55001D8C84 /* PasswordResetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordResetView.h; sourceTree = "<group>"; };
+		7CEFC9671FA6DA55001D8C84 /* PasswordResetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordResetView.m; sourceTree = "<group>"; };
+		7CEFC9691FA6DEEA001D8C84 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
+		7CEFC96A1FA6DEEB001D8C84 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		7CEFC96C1FA6DF77001D8C84 /* PasswordSubmitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordSubmitView.h; sourceTree = "<group>"; };
+		7CEFC96D1FA6DF77001D8C84 /* PasswordSubmitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordSubmitView.m; sourceTree = "<group>"; };
+		7CEFC96F1FA702C5001D8C84 /* ClassListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassListRequest.h; sourceTree = "<group>"; };
+		7CEFC9701FA702C5001D8C84 /* ClassListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassListRequest.m; sourceTree = "<group>"; };
+		7CEFC9721FA70805001D8C84 /* ClassSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassSelectionViewController.h; sourceTree = "<group>"; };
+		7CEFC9731FA70805001D8C84 /* ClassSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassSelectionViewController.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +337,7 @@
 		7CEFC8101FA05FBB001D8C84 /* FaceShowAdminApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CEFC9601FA6D796001D8C84 /* Resource */,
 				7CEFC8F01FA0680E001D8C84 /* UI */,
 				7CEFC8D01FA06670001D8C84 /* Business */,
 				7CEFC89F1FA06627001D8C84 /* Categoty */,
@@ -570,6 +606,8 @@
 				7CEFC8E41FA06790001D8C84 /* GetVerifyCodeRequest.m */,
 				7CEFC8E21FA06790001D8C84 /* ResetPasswordRequest.h */,
 				7CEFC8E31FA06790001D8C84 /* ResetPasswordRequest.m */,
+				7CEFC96F1FA702C5001D8C84 /* ClassListRequest.h */,
+				7CEFC9701FA702C5001D8C84 /* ClassListRequest.m */,
 			);
 			name = request;
 			sourceTree = "<group>";
@@ -631,8 +669,13 @@
 		7CEFC9281FA07F4F001D8C84 /* 登录注册 */ = {
 			isa = PBXGroup;
 			children = (
+				7CEFC9501FA6D315001D8C84 /* View */,
 				7CEFC9291FA07F8A001D8C84 /* LoginViewController.h */,
 				7CEFC92A1FA07F8A001D8C84 /* LoginViewController.m */,
+				7CEFC96A1FA6DEEB001D8C84 /* ForgotPasswordViewController.h */,
+				7CEFC9691FA6DEEA001D8C84 /* ForgotPasswordViewController.m */,
+				7CEFC9721FA70805001D8C84 /* ClassSelectionViewController.h */,
+				7CEFC9731FA70805001D8C84 /* ClassSelectionViewController.m */,
 			);
 			path = "登录注册";
 			sourceTree = "<group>";
@@ -671,6 +714,37 @@
 				7CEFC93A1FA0819B001D8C84 /* ClassMomentViewController.m */,
 			);
 			path = "班级圈";
+			sourceTree = "<group>";
+		};
+		7CEFC9501FA6D315001D8C84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CEFC95A1FA6D331001D8C84 /* AccountInputView.h */,
+				7CEFC9581FA6D330001D8C84 /* AccountInputView.m */,
+				7CEFC9511FA6D330001D8C84 /* LoginActionView.h */,
+				7CEFC9551FA6D330001D8C84 /* LoginActionView.m */,
+				7CEFC9561FA6D330001D8C84 /* LoginInputView.h */,
+				7CEFC9571FA6D330001D8C84 /* LoginInputView.m */,
+				7CEFC9591FA6D330001D8C84 /* PasswordInputView.h */,
+				7CEFC9521FA6D330001D8C84 /* PasswordInputView.m */,
+				7CEFC9531FA6D330001D8C84 /* VerifyCodeInputView.h */,
+				7CEFC9541FA6D330001D8C84 /* VerifyCodeInputView.m */,
+				7CEFC9631FA6DA26001D8C84 /* PhoneInputView.h */,
+				7CEFC9641FA6DA26001D8C84 /* PhoneInputView.m */,
+				7CEFC9661FA6DA55001D8C84 /* PasswordResetView.h */,
+				7CEFC9671FA6DA55001D8C84 /* PasswordResetView.m */,
+				7CEFC96C1FA6DF77001D8C84 /* PasswordSubmitView.h */,
+				7CEFC96D1FA6DF77001D8C84 /* PasswordSubmitView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7CEFC9601FA6D796001D8C84 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				7CEFC9611FA6D7B3001D8C84 /* Metro Playtype.otf */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		8F53EA17A9C3FA2D8A8CF5A9 /* Pods */ = {
@@ -743,6 +817,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
 				7CEFC82B1FA063A7001D8C84 /* env_config.json in Resources */,
 				7CEFC8461FA06577001D8C84 /* MockConfig.plist in Resources */,
 				7CEFC9021FA06A5C001D8C84 /* Default-568h@2x.png in Resources */,
@@ -819,13 +894,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */,
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC86B1FA065B3001D8C84 /* ConfigManager.m in Sources */,
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
+				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
+				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
@@ -834,9 +912,11 @@
 				7CEFC8E61FA06791001D8C84 /* LoginRequest.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
+				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
 				7CEFC89B1FA06614001D8C84 /* YXGradientView.m in Sources */,
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
+				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
@@ -844,18 +924,22 @@
 				7CEFC8991FA06614001D8C84 /* CollectionViewEqualSpaceFlowLayout.m in Sources */,
 				7CEFC8FA1FA068D3001D8C84 /* BaseViewController.m in Sources */,
 				7CEFC85E1FA06593001D8C84 /* MJRefreshFooterView.m in Sources */,
+				7CEFC95F1FA6D331001D8C84 /* AccountInputView.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
+				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
+				7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */,
 				7CEFC8481FA06577001D8C84 /* YXMockManager.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
+				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
 				7CEFC85D1FA06593001D8C84 /* MJRefreshConst.m in Sources */,
 				7CEFC8EF1FA067B2001D8C84 /* UserModel.m in Sources */,
 				7CEFC8CA1FA06627001D8C84 /* UIImage+YXImage.m in Sources */,
@@ -867,6 +951,7 @@
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
+				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
@@ -888,6 +973,7 @@
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
 				7CEFC8C81FA06627001D8C84 /* UIImage+Color.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
+				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,

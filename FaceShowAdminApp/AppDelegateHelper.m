@@ -16,6 +16,7 @@
 #import "MineViewController.h"
 #import "FSTabBarController.h"
 #import "YXDrawerViewController.h"
+#import "ClassSelectionViewController.h"
 
 @interface AppDelegateHelper ()
 @property (nonatomic, strong) UIWindow *window;
@@ -34,8 +35,9 @@
     if ([ConfigManager sharedInstance].testFrameworkOn.boolValue) {
         return [self testViewController];
     }else if (![UserManager sharedInstance].loginStatus) {
-//        return [self loginViewController];
-        return [self mainViewController];
+        return [self loginViewController];
+    }else if (![UserManager sharedInstance].userModel.currentClass) {
+        return [self classSelectionViewController];
     }else {
         return [self mainViewController];
     }
@@ -48,6 +50,11 @@
 
 - (UIViewController *)loginViewController {
     LoginViewController *vc = [[LoginViewController alloc] init];
+    return [[FSNavigationController alloc] initWithRootViewController:vc];
+}
+
+- (UIViewController *)classSelectionViewController {
+    ClassSelectionViewController *vc = [[ClassSelectionViewController alloc] init];
     return [[FSNavigationController alloc] initWithRootViewController:vc];
 }
 
@@ -94,11 +101,17 @@
 - (void)handleLoginSuccess {
     [self.window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
     self.window.rootViewController.view.hidden = YES;
-    self.window.rootViewController = [self mainViewController];
+    self.window.rootViewController = [self rootViewController];
 }
 
 - (void)handleLogoutSuccess {
     [self.window.rootViewController presentViewController:[self loginViewController] animated:YES completion:nil];
+}
+
+- (void)handleClassChange {
+    [self.window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    self.window.rootViewController.view.hidden = YES;
+    self.window.rootViewController = [self rootViewController];
 }
 
 @end

@@ -22,8 +22,13 @@
     NSArray *vcArray = self.navigationController.viewControllers;
     if (!isEmpty(vcArray)) {
         if (vcArray[0] != self) {
+//            WEAK_SELF
+//            [self nyx_setupLeftWithImageName:@"返回页面按钮正常态-" highlightImageName:@"返回页面按钮点击态" action:^{
+//                STRONG_SELF
+//                [self backAction];
+//            }];
             WEAK_SELF
-            [self nyx_setupLeftWithImageName:@"返回页面按钮正常态-" highlightImageName:@"返回页面按钮点击态" action:^{
+            [self nyx_setupLeftWithImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 30, 30)] action:^{
                 STRONG_SELF
                 [self backAction];
             }];

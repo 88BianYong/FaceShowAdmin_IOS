@@ -20,5 +20,8 @@
 - (void)handleLoginSuccess;
 - (void)handleLogoutSuccess;
 
+// class selection
+- (void)handleClassChange;
+
 
 @end

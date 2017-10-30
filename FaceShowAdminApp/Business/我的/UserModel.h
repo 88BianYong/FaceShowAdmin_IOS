@@ -7,8 +7,10 @@
 //
 
 #import <JSONModel/JSONModel.h>
-//#import "GetUserInfoRequest.h"
-//#import "GetCurrentClazsRequest.h"
+#import "GetUserInfoRequest.h"
+#import "ClassListRequest.h"
+
+extern NSString * const kClassDidSelectNotification;
 
 @interface UserModel : JSONModel
 @property (nonatomic, copy) NSString<Optional> *userID;
@@ -30,8 +32,9 @@
 @property (nonatomic, copy) NSString<Optional> *token;
 @property (nonatomic, copy) NSString<Optional> *passport;
 
-//@property (nonatomic, strong) GetCurrentClazsRequestItem<Optional> *projectClassInfo;
+@property (nonatomic, strong) NSArray<Optional,ClassListRequestItem_clazsInfos> *clazsInfos;
+@property (nonatomic, strong) ClassListRequestItem_clazsInfos<Optional> *currentClass;
 //
-//+ (UserModel *)modelFromUserInfo:(GetUserInfoRequestItem_Data *)userInfo;
-//- (void)updateFromUserInfo:(GetUserInfoRequestItem_Data *)userInfo;
++ (UserModel *)modelFromUserInfo:(GetUserInfoRequestItem_Data *)userInfo;
+- (void)updateFromUserInfo:(GetUserInfoRequestItem_Data *)userInfo;
 @end

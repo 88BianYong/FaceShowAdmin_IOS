@@ -39,6 +39,10 @@
         STRONG_SELF
         [self.appDelegateHelper handleLogoutSuccess];
     }];
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kClassDidSelectNotification object:nil]subscribeNext:^(id x) {
+        STRONG_SELF
+        [self.appDelegateHelper handleClassChange];
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

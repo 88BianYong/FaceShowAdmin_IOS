@@ -26,6 +26,8 @@
 #define kPhoneWidthRatio SCREEN_WIDTH/375
 #define kPhoneHeightRatio SCREEN_HEIGHT/667
 
+#define YXFontMetro_Regular     @"Metro"
+
 extern int ddLogLevel;
 
 #pragma mark - Pod lib
