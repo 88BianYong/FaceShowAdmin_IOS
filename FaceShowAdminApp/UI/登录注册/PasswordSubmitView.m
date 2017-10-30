@@ -25,6 +25,7 @@
     self.actionButton = [[UIButton alloc]init];
     [self.actionButton setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateNormal];
     [self.actionButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateNormal];
+    [self.actionButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"004594"]] forState:UIControlStateHighlighted];
     UIColor *color = [UIColor colorWithHexString:@"a6abad"];
     [self.actionButton setBackgroundImage:[UIImage imageWithColor:color] forState:UIControlStateDisabled];
     self.actionButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
