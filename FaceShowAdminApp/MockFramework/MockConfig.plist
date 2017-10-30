@@ -62,7 +62,7 @@
 				</dict>
 			</array>
 		</dict>
-		<key>GetCurrentClazsRequest</key>
+		<key>ClazsGetClazsRequest</key>
 		<dict>
 			<key>mockEnable</key>
 			<true/>

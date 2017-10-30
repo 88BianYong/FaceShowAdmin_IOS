@@ -11,7 +11,6 @@
 #import "ClassListRequest.h"
 
 extern NSString * const kClassDidSelectNotification;
-
 @interface UserModel : JSONModel
 @property (nonatomic, copy) NSString<Optional> *userID;
 @property (nonatomic, copy) NSString<Optional> *realName;

@@ -103,6 +103,20 @@
 		7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC96D1FA6DF77001D8C84 /* PasswordSubmitView.m */; };
 		7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9701FA702C5001D8C84 /* ClassListRequest.m */; };
 		7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9731FA70805001D8C84 /* ClassSelectionViewController.m */; };
+		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
+		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
+		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
+		9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427701FA722CF003BCEFD /* MainPageFooterView.m */; };
+		9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427731FA722CF003BCEFD /* CourseListCell.m */; };
+		9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427751FA722CF003BCEFD /* CourseListHeaderView.m */; };
+		9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427781FA722CF003BCEFD /* MainPageTableHeaderView.m */; };
+		9234278B1FA722E4003BCEFD /* GetCourse_Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 923427801FA722E3003BCEFD /* GetCourse_Mock.json */; };
+		9234278C1FA722E4003BCEFD /* GetCourseListRequest_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 923427811FA722E4003BCEFD /* GetCourseListRequest_mock.json */; };
+		9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 923427821FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json */; };
+		9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427831FA722E4003BCEFD /* ClazsGetClazsRequest.m */; };
+		9234278F1FA722E4003BCEFD /* GetCurrentClazsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */; };
+		923427901FA722E4003BCEFD /* GetCourseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427891FA722E4003BCEFD /* GetCourseRequest.m */; };
+		923427911FA722E4003BCEFD /* GetCourseListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -291,6 +305,31 @@
 		7CEFC9701FA702C5001D8C84 /* ClassListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassListRequest.m; sourceTree = "<group>"; };
 		7CEFC9721FA70805001D8C84 /* ClassSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassSelectionViewController.h; sourceTree = "<group>"; };
 		7CEFC9731FA70805001D8C84 /* ClassSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassSelectionViewController.m; sourceTree = "<group>"; };
+		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
+		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
+		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
+		9234276E1FA722CE003BCEFD /* MainPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageScrollView.m; sourceTree = "<group>"; };
+		9234276F1FA722CF003BCEFD /* MainPageTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageTopView.m; sourceTree = "<group>"; };
+		923427701FA722CF003BCEFD /* MainPageFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageFooterView.m; sourceTree = "<group>"; };
+		923427711FA722CF003BCEFD /* MainPageFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageFooterView.h; sourceTree = "<group>"; };
+		923427721FA722CF003BCEFD /* CourseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListCell.h; sourceTree = "<group>"; };
+		923427731FA722CF003BCEFD /* CourseListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListCell.m; sourceTree = "<group>"; };
+		923427741FA722CF003BCEFD /* MainPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageScrollView.h; sourceTree = "<group>"; };
+		923427751FA722CF003BCEFD /* CourseListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListHeaderView.m; sourceTree = "<group>"; };
+		923427761FA722CF003BCEFD /* CourseListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListHeaderView.h; sourceTree = "<group>"; };
+		923427771FA722CF003BCEFD /* MainPageTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTableHeaderView.h; sourceTree = "<group>"; };
+		923427781FA722CF003BCEFD /* MainPageTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageTableHeaderView.m; sourceTree = "<group>"; };
+		923427801FA722E3003BCEFD /* GetCourse_Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetCourse_Mock.json; sourceTree = "<group>"; };
+		923427811FA722E4003BCEFD /* GetCourseListRequest_mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetCourseListRequest_mock.json; sourceTree = "<group>"; };
+		923427821FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetCurrentClazsRequest_mock.json; sourceTree = "<group>"; };
+		923427831FA722E4003BCEFD /* ClazsGetClazsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClazsGetClazsRequest.m; sourceTree = "<group>"; };
+		923427841FA722E4003BCEFD /* GetCourseListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseListRequest.h; sourceTree = "<group>"; };
+		923427851FA722E4003BCEFD /* ClazsGetClazsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClazsGetClazsRequest.h; sourceTree = "<group>"; };
+		923427861FA722E4003BCEFD /* GetCourseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseRequest.h; sourceTree = "<group>"; };
+		923427871FA722E4003BCEFD /* GetCurrentClazsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCurrentClazsRequest.h; sourceTree = "<group>"; };
+		923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCurrentClazsRequest.m; sourceTree = "<group>"; };
+		923427891FA722E4003BCEFD /* GetCourseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseRequest.m; sourceTree = "<group>"; };
+		9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseListRequest.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -531,6 +570,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				923427421FA6C3EB003BCEFD /* 首页 */,
 				7CEFC8FF1FA0693E001D8C84 /* 我的 */,
 				7CEFC8FE1FA06924001D8C84 /* 登录注册 */,
 				7CEFC8D21FA066B8001D8C84 /* FSDataMappingTable.h */,
@@ -683,6 +723,7 @@
 		7CEFC92C1FA0804C001D8C84 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				9234274F1FA6C8AC003BCEFD /* view */,
 				7CEFC92D1FA08067001D8C84 /* MainPageViewController.h */,
 				7CEFC92E1FA08067001D8C84 /* MainPageViewController.m */,
 			);
@@ -756,6 +797,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		923427421FA6C3EB003BCEFD /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				923427851FA722E4003BCEFD /* ClazsGetClazsRequest.h */,
+				923427831FA722E4003BCEFD /* ClazsGetClazsRequest.m */,
+				923427801FA722E3003BCEFD /* GetCourse_Mock.json */,
+				923427811FA722E4003BCEFD /* GetCourseListRequest_mock.json */,
+				923427841FA722E4003BCEFD /* GetCourseListRequest.h */,
+				9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */,
+				923427861FA722E4003BCEFD /* GetCourseRequest.h */,
+				923427891FA722E4003BCEFD /* GetCourseRequest.m */,
+				923427821FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json */,
+				923427871FA722E4003BCEFD /* GetCurrentClazsRequest.h */,
+				923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		9234274F1FA6C8AC003BCEFD /* view */ = {
+			isa = PBXGroup;
+			children = (
+				923427721FA722CF003BCEFD /* CourseListCell.h */,
+				923427731FA722CF003BCEFD /* CourseListCell.m */,
+				923427761FA722CF003BCEFD /* CourseListHeaderView.h */,
+				923427751FA722CF003BCEFD /* CourseListHeaderView.m */,
+				923427711FA722CF003BCEFD /* MainPageFooterView.h */,
+				923427701FA722CF003BCEFD /* MainPageFooterView.m */,
+				923427741FA722CF003BCEFD /* MainPageScrollView.h */,
+				9234276E1FA722CE003BCEFD /* MainPageScrollView.m */,
+				923427771FA722CF003BCEFD /* MainPageTableHeaderView.h */,
+				923427781FA722CF003BCEFD /* MainPageTableHeaderView.m */,
+				9234276B1FA722CE003BCEFD /* MainPageTopView.h */,
+				9234276F1FA722CF003BCEFD /* MainPageTopView.m */,
+				9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */,
+				9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -819,12 +899,15 @@
 			files = (
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
 				7CEFC82B1FA063A7001D8C84 /* env_config.json in Resources */,
+				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,
+				9234278B1FA722E4003BCEFD /* GetCourse_Mock.json in Resources */,
 				7CEFC8461FA06577001D8C84 /* MockConfig.plist in Resources */,
 				7CEFC9021FA06A5C001D8C84 /* Default-568h@2x.png in Resources */,
 				7CEFC93D1FA0866C001D8C84 /* Empty.xib in Resources */,
 				7CEFC8471FA06577001D8C84 /* neterror_mock.json in Resources */,
 				7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */,
 				7CEFC8451FA06577001D8C84 /* errorcode_mock.json in Resources */,
+				9234278C1FA722E4003BCEFD /* GetCourseListRequest_mock.json in Resources */,
 				7CEFC82C1FA063A7001D8C84 /* Config.plist in Resources */,
 				7CEFC85B1FA06593001D8C84 /* MJRefresh.bundle in Resources */,
 			);
@@ -901,23 +984,29 @@
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
+				923427911FA722E4003BCEFD /* GetCourseListRequest.m in Sources */,
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
+				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
+				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
 				7CEFC8E61FA06791001D8C84 /* LoginRequest.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
+				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
 				7CEFC89B1FA06614001D8C84 /* YXGradientView.m in Sources */,
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
+				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
+				923427901FA722E4003BCEFD /* GetCourseRequest.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
 				7CEFC8861FA065D6001D8C84 /* YXPostRequest.m in Sources */,
@@ -937,6 +1026,7 @@
 				7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */,
 				7CEFC8481FA06577001D8C84 /* YXMockManager.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
+				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
@@ -952,6 +1042,7 @@
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
+				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
@@ -967,13 +1058,16 @@
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
+				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
 				7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */,
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
 				7CEFC8C81FA06627001D8C84 /* UIImage+Color.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
+				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
+				9234278F1FA722E4003BCEFD /* GetCurrentClazsRequest.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
