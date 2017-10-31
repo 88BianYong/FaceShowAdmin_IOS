@@ -59,11 +59,12 @@
     self.titleView.typingAttributes = dic;
     self.titleView.textContainerInset = UIEdgeInsetsMake(20, 15, 20, 15);
     self.titleView.delegate = self;
+    self.titleView.scrollEnabled = NO;
     [self.contentView addSubview:self.titleView];
     [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(5);
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(100);
+        make.height.mas_greaterThanOrEqualTo(60);
     }];
     UIView *dateContainerView = [[UIView alloc]init];
     dateContainerView.backgroundColor = [UIColor whiteColor];
@@ -167,6 +168,7 @@
     self.promptView.typingAttributes = dic;
     self.promptView.textContainerInset = UIEdgeInsetsMake(20, 15, 20, 15);
     self.promptView.delegate = self;
+    self.promptView.scrollEnabled = NO;
     [self.contentView addSubview:self.promptView];
     [self.promptView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(switchContainerView.mas_bottom).mas_offset(5);
