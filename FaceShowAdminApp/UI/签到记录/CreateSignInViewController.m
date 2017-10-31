@@ -156,13 +156,14 @@
     }];
     self.promptView = [[SAMTextView alloc]init];
     self.promptView.backgroundColor = [UIColor whiteColor];
-    self.promptView.font = [UIFont systemFontOfSize:16];
+    self.promptView.font = [UIFont systemFontOfSize:14];
     self.promptView.textColor = [UIColor colorWithHexString:@"333333"];
     placeholderStr = @"签到成功提示语（最多20字）";
     attrStr = [[NSMutableAttributedString alloc]initWithString:placeholderStr];
     [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"cccccc"] range:NSMakeRange(0, placeholderStr.length)];
     [attrStr addAttribute:NSFontAttributeName value:self.promptView.font range:NSMakeRange(0, placeholderStr.length)];
     self.promptView.attributedPlaceholder = attrStr;
+    dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:14]};
     self.promptView.typingAttributes = dic;
     self.promptView.textContainerInset = UIEdgeInsetsMake(20, 15, 20, 15);
     self.promptView.delegate = self;
