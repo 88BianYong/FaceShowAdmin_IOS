@@ -41,7 +41,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.method = @"app.manage.clazs.getClazs";
-        self.token = @"ac962d7045d51dbfedfdd35d2b1d97c5";
+//        self.token = @"ac962d7045d51dbfedfdd35d2b1d97c5";
     }
     return self;
 }

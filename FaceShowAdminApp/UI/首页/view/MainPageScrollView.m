@@ -29,7 +29,7 @@
     CGFloat spacingFloat = (SCREEN_WIDTH - 10.0f - 25.0f - (4 * 50.0f))/4.0f;
     [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.tag = [obj[@"tag"] integerValue] + 1;
+        button.tag = [obj[@"tag"] integerValue];
         [button setImage:[UIImage imageNamed:obj[@"image"]] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -46,6 +46,11 @@
                 make.size.mas_offset(CGSizeMake(50.0f, 50.0f));
             }];
         }
+        WEAK_SELF
+        [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            STRONG_SELF
+            BLOCK_EXEC(self.actionBlock,[obj[@"tag"] integerValue]);
+        }];
         UILabel *label = [[UILabel alloc] init];
         label.textColor = [UIColor colorWithHexString:@"666666"];
         label.font = [UIFont systemFontOfSize:12.0f];

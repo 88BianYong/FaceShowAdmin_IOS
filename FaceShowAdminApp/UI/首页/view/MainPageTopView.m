@@ -29,12 +29,23 @@
 - (void)setupUI {
     self.bgImageView = [[UIImageView alloc]init];
     self.bgImageView.image = [UIImage imageNamed:@"背景图片"];
+    self.bgImageView.userInteractionEnabled = YES;
     self.bgImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.bgImageView.clipsToBounds = YES;
     [self addSubview:self.bgImageView];
     [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+    WEAK_SELF
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] init];
+    [[gestureRecognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
+        STRONG_SELF
+        if (x.state == UIGestureRecognizerStateEnded) {
+            BLOCK_EXEC(self.mainPagePushDetailBlock);
+        }
+    }];
+    [self.bgImageView addGestureRecognizer:gestureRecognizer];
+    
     UIView *topView = [[UIView alloc]init];
     [self addSubview:topView];
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,7 +106,7 @@
     }];
     self.studentLabel = [[UILabel alloc] init];
     self.studentLabel.textColor = [UIColor whiteColor];
-    self.studentLabel.font = [UIFont systemFontOfSize:12.0f];
+    self.studentLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     self.studentLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.studentLabel];
     [self.studentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -104,7 +115,7 @@
     }];
     self.teacherLabel = [[UILabel alloc] init];
     self.teacherLabel.textColor = [UIColor whiteColor];
-    self.teacherLabel.font = [UIFont systemFontOfSize:12.0f];
+    self.teacherLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     [self addSubview:self.teacherLabel];
     [self.teacherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(lineView.mas_right).offset(15.0f);

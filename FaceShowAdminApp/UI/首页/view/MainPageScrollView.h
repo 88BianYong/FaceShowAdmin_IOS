@@ -16,4 +16,5 @@ typedef NS_ENUM(NSInteger, MainPagePushType){
 };
 @interface MainPageScrollView : UIScrollView
 @property (nonatomic, strong) void (^actionBlock)(MainPagePushType type);
+
 @end

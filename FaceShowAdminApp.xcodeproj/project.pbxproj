@@ -110,6 +110,7 @@
 		7CEFC9861FA82C40001D8C84 /* CreateSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9851FA82C40001D8C84 /* CreateSignInViewController.m */; };
 		7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9881FA84DCE001D8C84 /* SignInDateTimeView.m */; };
 		7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */; };
+		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -125,6 +126,10 @@
 		923427901FA722E4003BCEFD /* GetCourseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427891FA722E4003BCEFD /* GetCourseRequest.m */; };
 		923427911FA722E4003BCEFD /* GetCourseListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */; };
 		923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */; };
+		923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427951FA817FA003BCEFD /* MainPageDetailViewController.m */; };
+		9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234279E1FA81CB6003BCEFD /* DetailContainerView.m */; };
+		923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A41FA823AE003BCEFD /* MainProjectDetailView.m */; };
+		923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A71FA823C7003BCEFD /* MainClassDetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -327,6 +332,8 @@
 		7CEFC9881FA84DCE001D8C84 /* SignInDateTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDateTimeView.m; sourceTree = "<group>"; };
 		7CEFC98A1FA850E6001D8C84 /* SignInSwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInSwitchView.h; sourceTree = "<group>"; };
 		7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInSwitchView.m; sourceTree = "<group>"; };
+		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
+		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -353,6 +360,14 @@
 		923427891FA722E4003BCEFD /* GetCourseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseRequest.m; sourceTree = "<group>"; };
 		9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseListRequest.m; sourceTree = "<group>"; };
 		923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "METRO-LIGHT PLAYTYPE.otf"; sourceTree = "<group>"; };
+		923427941FA817FA003BCEFD /* MainPageDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageDetailViewController.h; sourceTree = "<group>"; };
+		923427951FA817FA003BCEFD /* MainPageDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageDetailViewController.m; sourceTree = "<group>"; };
+		9234279D1FA81CB6003BCEFD /* DetailContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailContainerView.h; sourceTree = "<group>"; };
+		9234279E1FA81CB6003BCEFD /* DetailContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailContainerView.m; sourceTree = "<group>"; };
+		923427A31FA823AE003BCEFD /* MainProjectDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainProjectDetailView.h; sourceTree = "<group>"; };
+		923427A41FA823AE003BCEFD /* MainProjectDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainProjectDetailView.m; sourceTree = "<group>"; };
+		923427A61FA823C7003BCEFD /* MainClassDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainClassDetailView.h; sourceTree = "<group>"; };
+		923427A71FA823C7003BCEFD /* MainClassDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainClassDetailView.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -748,9 +763,12 @@
 		7CEFC92C1FA0804C001D8C84 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				921860561FA9658E0018D982 /* 通知管理 */,
 				9234274F1FA6C8AC003BCEFD /* view */,
 				7CEFC92D1FA08067001D8C84 /* MainPageViewController.h */,
 				7CEFC92E1FA08067001D8C84 /* MainPageViewController.m */,
+				923427941FA817FA003BCEFD /* MainPageDetailViewController.h */,
+				923427951FA817FA003BCEFD /* MainPageDetailViewController.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -859,6 +877,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		921860561FA9658E0018D982 /* 通知管理 */ = {
+			isa = PBXGroup;
+			children = (
+				921860571FA965E00018D982 /* NoticeListViewController.h */,
+				921860581FA965E00018D982 /* NoticeListViewController.m */,
+			);
+			path = "通知管理";
+			sourceTree = "<group>";
+		};
 		923427421FA6C3EB003BCEFD /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,6 +921,12 @@
 				9234276F1FA722CF003BCEFD /* MainPageTopView.m */,
 				9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */,
 				9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */,
+				9234279D1FA81CB6003BCEFD /* DetailContainerView.h */,
+				9234279E1FA81CB6003BCEFD /* DetailContainerView.m */,
+				923427A31FA823AE003BCEFD /* MainProjectDetailView.h */,
+				923427A41FA823AE003BCEFD /* MainProjectDetailView.m */,
+				923427A61FA823C7003BCEFD /* MainClassDetailView.h */,
+				923427A71FA823C7003BCEFD /* MainClassDetailView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1049,6 +1082,7 @@
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
+				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
 				923427911FA722E4003BCEFD /* GetCourseListRequest.m in Sources */,
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
@@ -1074,6 +1108,7 @@
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				923427901FA722E4003BCEFD /* GetCourseRequest.m in Sources */,
+				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
 				7CEFC8861FA065D6001D8C84 /* YXPostRequest.m in Sources */,
@@ -1083,6 +1118,7 @@
 				7CEFC85E1FA06593001D8C84 /* MJRefreshFooterView.m in Sources */,
 				7CEFC95F1FA6D331001D8C84 /* AccountInputView.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
+				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
@@ -1091,6 +1127,7 @@
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
+				921860591FA965E00018D982 /* NoticeListViewController.m in Sources */,
 				7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */,
 				7CEFC8481FA06577001D8C84 /* YXMockManager.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
@@ -1111,6 +1148,7 @@
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
 				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
+				923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,

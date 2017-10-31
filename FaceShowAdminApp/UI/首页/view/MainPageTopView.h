@@ -12,4 +12,5 @@
 @property (nonatomic, strong) ClazsGetClazsRequestItem_Data_ProjectInfo *projectInfo;
 @property (nonatomic, strong) ClazsGetClazsRequestItem_Data_ClazsInfo *clazsInfo;
 @property (nonatomic, strong) ClazsGetClazsRequestItem_Data_ClazsStatisticView *clazsStatistic;
+@property (nonatomic, strong) void(^mainPagePushDetailBlock)(void);
 @end

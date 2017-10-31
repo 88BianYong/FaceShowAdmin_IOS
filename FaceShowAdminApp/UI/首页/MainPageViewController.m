@@ -20,6 +20,8 @@
 #import "MainPageFooterView.h"
 #import "TodaySignInsCell.h"
 #import "SignInListViewController.h"
+#import "MainPageDetailViewController.h"
+#import "NoticeListViewController.h"
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -64,15 +66,24 @@
 #pragma mark - setupUI
 - (void)setupUI {
     self.topView = [[MainPageTopView alloc] init];
+    WEAK_SELF
+    self.topView.mainPagePushDetailBlock = ^{
+        STRONG_SELF
+        MainPageDetailViewController *VC = [[MainPageDetailViewController alloc] init];
+        VC.itemData = self.itemData;
+        [self.navigationController pushViewController:VC animated:YES];
+    };
     self.topView.hidden = YES;
     [self.view addSubview:self.topView];
     self.scrollView = [[MainPageScrollView alloc] initWithFrame:CGRectZero];
-    WEAK_SELF
     [self.scrollView setActionBlock:^(MainPagePushType type) {
         STRONG_SELF
         if (type == MainPagePushType_Check) {
             SignInListViewController *vc = [[SignInListViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
+        }else if(type == MainPagePushType_Notice){
+            NoticeListViewController *VC = [[NoticeListViewController alloc] init];
+            [self.navigationController pushViewController:VC animated:YES]l;
         }
     }];
     self.scrollView.hidden = YES;
@@ -129,7 +140,7 @@
 - (void)requestMainPageClassInfo {
     [self.clazsRequest stopRequest];
     self.clazsRequest = [[ClazsGetClazsRequest alloc] init];
-    self.clazsRequest.clazsId = @"9";
+    self.clazsRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.clazsRequest startRequestWithRetClass:[ClazsGetClazsRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
