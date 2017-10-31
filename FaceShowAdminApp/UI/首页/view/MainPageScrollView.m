@@ -31,6 +31,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.tag = [obj[@"tag"] integerValue] + 1;
         [button setImage:[UIImage imageNamed:obj[@"image"]] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         if (idx == 0) {
             [button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -55,6 +56,10 @@
             make.centerX.equalTo(button.mas_centerX);
         }];
     }];
+}
+
+- (void)btnAction:(UIButton *)sender {
+    BLOCK_EXEC(self.actionBlock,sender.tag-1);
 }
 
 @end

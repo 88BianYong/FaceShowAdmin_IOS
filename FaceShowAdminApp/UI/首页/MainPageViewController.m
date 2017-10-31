@@ -19,6 +19,7 @@
 #import "ClazsGetClazsRequest.h"
 #import "MainPageFooterView.h"
 #import "TodaySignInsCell.h"
+#import "SignInListViewController.h"
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -66,6 +67,14 @@
     self.topView.hidden = YES;
     [self.view addSubview:self.topView];
     self.scrollView = [[MainPageScrollView alloc] initWithFrame:CGRectZero];
+    WEAK_SELF
+    [self.scrollView setActionBlock:^(MainPagePushType type) {
+        STRONG_SELF
+        if (type == MainPagePushType_Check) {
+            SignInListViewController *vc = [[SignInListViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
     self.scrollView.hidden = YES;
     [self.view addSubview:self.scrollView];
     self.tableView = [[YXNoFloatingHeaderFooterTableView alloc] init];
@@ -86,7 +95,6 @@
     [self.view addSubview:self.emptyView];
     self.errorView = [[ErrorView alloc] init];
     self.errorView.hidden = YES;
-    WEAK_SELF
     [self.errorView setRetryBlock:^{
         STRONG_SELF
         [self requestMainPageClassInfo];

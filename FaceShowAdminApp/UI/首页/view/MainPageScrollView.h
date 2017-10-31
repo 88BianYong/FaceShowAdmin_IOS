@@ -15,5 +15,5 @@ typedef NS_ENUM(NSInteger, MainPagePushType){
     MainPagePushType_Resources = 5//资源管理
 };
 @interface MainPageScrollView : UIScrollView
-
+@property (nonatomic, strong) void (^actionBlock)(MainPagePushType type);
 @end
