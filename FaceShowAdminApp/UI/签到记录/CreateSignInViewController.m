@@ -10,6 +10,9 @@
 #import <SAMTextView.h>
 #import "SignInDateTimeView.h"
 #import "SignInSwitchView.h"
+#import "SignInDateTimeSettingView.h"
+#import "AlertView.h"
+#import "CreateSignInRequest.h"
 
 @interface CreateSignInViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) SAMTextView *titleView;
@@ -20,6 +23,8 @@
 @property (nonatomic, strong) SignInSwitchView *validView;
 @property (nonatomic, strong) SignInSwitchView *dynamicView;
 @property (nonatomic, strong) UIButton *submitButton;
+@property (nonatomic, strong) AlertView *alertView;
+@property (nonatomic, strong) CreateSignInRequest *createSignInRequest;
 @end
 
 @implementation CreateSignInViewController
@@ -78,6 +83,7 @@
     WEAK_SELF
     [self.dateView setSelectionBlock:^{
         STRONG_SELF
+        [self showSelectionViewFrom:self.dateView];
     }];
     [dateContainerView addSubview:self.dateView];
     [self.dateView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -97,6 +103,7 @@
     self.begintimeView.title = @"开始时间";
     [self.begintimeView setSelectionBlock:^{
         STRONG_SELF
+        [self showSelectionViewFrom:self.begintimeView];
     }];
     [dateContainerView addSubview:self.begintimeView];
     [self.begintimeView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,6 +123,7 @@
     self.endtimeView.title = @"结束时间";
     [self.endtimeView setSelectionBlock:^{
         STRONG_SELF
+        [self showSelectionViewFrom:self.endtimeView];
     }];
     [dateContainerView addSubview:self.endtimeView];
     [self.endtimeView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -190,8 +198,61 @@
     }
 }
 
+- (void)showSelectionViewFrom:(SignInDateTimeView *)from {
+    [self.titleView resignFirstResponder];
+    [self.promptView resignFirstResponder];
+    SignInDateTimeSettingView *settingView = [[SignInDateTimeSettingView alloc]init];
+    if (from == self.dateView) {
+        settingView.mode = UIDatePickerModeDate;
+    }else {
+        settingView.mode = UIDatePickerModeTime;
+    }
+    WEAK_SELF
+    [settingView setCancelBlock:^{
+        STRONG_SELF
+        [self.alertView hide];
+    }];
+    [settingView setConfirmBlock:^(NSString *result){
+        STRONG_SELF
+        from.content = result;
+        [self refreshSubmitButton];
+        [self.alertView hide];
+    }];
+    self.alertView = [[AlertView alloc]init];
+    self.alertView.contentView = settingView;
+    [self.alertView showWithLayout:^(AlertView *view) {
+        view.contentView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 250);
+        [UIView animateWithDuration:0.3 animations:^{
+            view.contentView.frame = CGRectMake(0, SCREEN_HEIGHT-250, SCREEN_WIDTH, 250);
+        }];
+    }];
+}
+
 - (void)submit {
-    
+    [self.createSignInRequest stopRequest];
+    self.createSignInRequest = [[CreateSignInRequest alloc]init];
+    self.createSignInRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    self.createSignInRequest.title = self.titleView.text;
+    self.createSignInRequest.successPrompt = self.promptView.text;
+    self.createSignInRequest.antiCheat = [NSString stringWithFormat:@"%@",@(self.validView.isOn)];
+    self.createSignInRequest.qrcodeRefreshRate = [NSString stringWithFormat:@"%@",@(self.dynamicView.isOn)];
+    NSString *date = [self.dateView.content stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+    NSString *start = [NSString stringWithFormat:@"%@ %@",date,self.begintimeView.content];
+    NSString *end = [NSString stringWithFormat:@"%@ %@",date,self.endtimeView.content];
+    self.createSignInRequest.startTime = start;
+    self.createSignInRequest.endTime = end;
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.createSignInRequest startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view nyx_showToast:error.localizedDescription];
+            return;
+        }
+        BLOCK_EXEC(self.comleteBlock);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - UITextViewDelegate

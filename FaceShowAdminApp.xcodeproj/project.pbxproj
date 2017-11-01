@@ -111,6 +111,8 @@
 		7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9881FA84DCE001D8C84 /* SignInDateTimeView.m */; };
 		7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */; };
 		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
+		7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */; };
+		7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -334,6 +336,10 @@
 		7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInSwitchView.m; sourceTree = "<group>"; };
 		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
 		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
+		7CEFC9B21FA9672A001D8C84 /* SignInDateTimeSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDateTimeSettingView.h; sourceTree = "<group>"; };
+		7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDateTimeSettingView.m; sourceTree = "<group>"; };
+		7CEFC9B51FA9734E001D8C84 /* CreateSignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateSignInRequest.h; sourceTree = "<group>"; };
+		7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateSignInRequest.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -839,6 +845,8 @@
 				7CEFC9771FA81106001D8C84 /* SignInListRequest.m */,
 				7CEFC97D1FA8145F001D8C84 /* SignInListFetcher.h */,
 				7CEFC97E1FA8145F001D8C84 /* SignInListFetcher.m */,
+				7CEFC9B51FA9734E001D8C84 /* CreateSignInRequest.h */,
+				7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */,
 			);
 			path = "签到记录";
 			sourceTree = "<group>";
@@ -864,6 +872,8 @@
 				7CEFC9881FA84DCE001D8C84 /* SignInDateTimeView.m */,
 				7CEFC98A1FA850E6001D8C84 /* SignInSwitchView.h */,
 				7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */,
+				7CEFC9B21FA9672A001D8C84 /* SignInDateTimeSettingView.h */,
+				7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1145,6 +1155,7 @@
 				7CEFC89C1FA06614001D8C84 /* YXImagePickerController.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
+				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
 				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
@@ -1175,6 +1186,7 @@
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
+				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				9234278F1FA722E4003BCEFD /* GetCurrentClazsRequest.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,

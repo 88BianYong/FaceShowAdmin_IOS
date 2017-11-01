@@ -47,6 +47,11 @@
 
 - (void)createSignIn {
     CreateSignInViewController *vc = [[CreateSignInViewController alloc]init];
+    WEAK_SELF
+    [vc setComleteBlock:^{
+        STRONG_SELF
+        [self firstPageFetch];
+    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

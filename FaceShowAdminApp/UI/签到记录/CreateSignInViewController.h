@@ -9,5 +9,5 @@
 #import "ScrollBaseViewController.h"
 
 @interface CreateSignInViewController : ScrollBaseViewController
-
+@property (nonatomic, strong) void (^comleteBlock)(void);
 @end
