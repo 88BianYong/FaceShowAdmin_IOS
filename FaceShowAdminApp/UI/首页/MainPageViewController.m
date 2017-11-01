@@ -83,7 +83,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else if(type == MainPagePushType_Notice){
             NoticeListViewController *VC = [[NoticeListViewController alloc] init];
-            [self.navigationController pushViewController:VC animated:YES]l;
+            [self.navigationController pushViewController:VC animated:YES];
         }
     }];
     self.scrollView.hidden = YES;
