@@ -64,7 +64,7 @@
 }
 
 - (void)btnAction:(UIButton *)sender {
-    BLOCK_EXEC(self.actionBlock,sender.tag-1);
+//    BLOCK_EXEC(self.actionBlock,sender.tag);
 }
 
 @end

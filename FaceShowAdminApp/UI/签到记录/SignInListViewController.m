@@ -10,6 +10,7 @@
 #import "SignInListFetcher.h"
 #import "SignInListCell.h"
 #import "CreateSignInViewController.h"
+#import "SignInDetailViewController.h"
 
 @interface SignInListViewController ()
 
@@ -68,6 +69,12 @@
     SignInListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SignInListCell"];
     cell.data = self.dataArray[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SignInDetailViewController *vc = [[SignInDetailViewController alloc]init];
+    vc.data = self.dataArray[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

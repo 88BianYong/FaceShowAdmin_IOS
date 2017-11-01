@@ -110,7 +110,6 @@
 		7CEFC9861FA82C40001D8C84 /* CreateSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9851FA82C40001D8C84 /* CreateSignInViewController.m */; };
 		7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9881FA84DCE001D8C84 /* SignInDateTimeView.m */; };
 		7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */; };
-		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
 		7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */; };
 		7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */; };
 		921860631FA978A90018D982 /* NoticeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860621FA978A90018D982 /* NoticeListCell.m */; };
@@ -121,6 +120,12 @@
 		921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860721FA9B0400018D982 /* NoticeDeleteRequest.m */; };
 		921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860751FA9B0550018D982 /* NoticeUpDateRequest.m */; };
 		921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860781FA9B0680018D982 /* NoticeSaveRequest.m */; };
+		7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */; };
+		7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9BC1FA9A102001D8C84 /* SignInDetailHeaderView.m */; };
+		7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */; };
+		7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */; };
+		7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */; };
+		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -337,8 +342,6 @@
 		7CEFC9881FA84DCE001D8C84 /* SignInDateTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDateTimeView.m; sourceTree = "<group>"; };
 		7CEFC98A1FA850E6001D8C84 /* SignInSwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInSwitchView.h; sourceTree = "<group>"; };
 		7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInSwitchView.m; sourceTree = "<group>"; };
-		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
-		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
 		7CEFC9B21FA9672A001D8C84 /* SignInDateTimeSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDateTimeSettingView.h; sourceTree = "<group>"; };
 		7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDateTimeSettingView.m; sourceTree = "<group>"; };
 		7CEFC9B51FA9734E001D8C84 /* CreateSignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateSignInRequest.h; sourceTree = "<group>"; };
@@ -359,6 +362,18 @@
 		921860751FA9B0550018D982 /* NoticeUpDateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeUpDateRequest.m; sourceTree = "<group>"; };
 		921860771FA9B0680018D982 /* NoticeSaveRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveRequest.h; sourceTree = "<group>"; };
 		921860781FA9B0680018D982 /* NoticeSaveRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveRequest.m; sourceTree = "<group>"; };
+		7CEFC9B81FA99F08001D8C84 /* SignInDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDetailViewController.h; sourceTree = "<group>"; };
+		7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDetailViewController.m; sourceTree = "<group>"; };
+		7CEFC9BB1FA9A102001D8C84 /* SignInDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDetailHeaderView.h; sourceTree = "<group>"; };
+		7CEFC9BC1FA9A102001D8C84 /* SignInDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDetailHeaderView.m; sourceTree = "<group>"; };
+		7CEFC9BE1FA9ADB5001D8C84 /* SignInTabContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInTabContainerView.h; sourceTree = "<group>"; };
+		7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInTabContainerView.m; sourceTree = "<group>"; };
+		7CEFC9C11FA9B293001D8C84 /* SignedMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignedMemberListViewController.h; sourceTree = "<group>"; };
+		7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignedMemberListViewController.m; sourceTree = "<group>"; };
+		7CEFC9C41FA9B2B5001D8C84 /* UnsignedMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsignedMemberListViewController.h; sourceTree = "<group>"; };
+		7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnsignedMemberListViewController.m; sourceTree = "<group>"; };
+		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
+		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -871,6 +886,12 @@
 				7CEFC97B1FA813E3001D8C84 /* SignInListViewController.m */,
 				7CEFC9841FA82C40001D8C84 /* CreateSignInViewController.h */,
 				7CEFC9851FA82C40001D8C84 /* CreateSignInViewController.m */,
+				7CEFC9B81FA99F08001D8C84 /* SignInDetailViewController.h */,
+				7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */,
+				7CEFC9C11FA9B293001D8C84 /* SignedMemberListViewController.h */,
+				7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */,
+				7CEFC9C41FA9B2B5001D8C84 /* UnsignedMemberListViewController.h */,
+				7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */,
 			);
 			path = "签到记录";
 			sourceTree = "<group>";
@@ -886,6 +907,10 @@
 				7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */,
 				7CEFC9B21FA9672A001D8C84 /* SignInDateTimeSettingView.h */,
 				7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */,
+				7CEFC9BB1FA9A102001D8C84 /* SignInDetailHeaderView.h */,
+				7CEFC9BC1FA9A102001D8C84 /* SignInDetailHeaderView.m */,
+				7CEFC9BE1FA9ADB5001D8C84 /* SignInTabContainerView.h */,
+				7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1154,6 +1179,7 @@
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
+				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
 				7CEFC8861FA065D6001D8C84 /* YXPostRequest.m in Sources */,
@@ -1168,10 +1194,12 @@
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
 				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
+				7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */,
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
 				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
+				7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
 				921860591FA965E00018D982 /* NoticeListViewController.m in Sources */,
 				7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */,
@@ -1227,11 +1255,13 @@
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				9234278F1FA722E4003BCEFD /* GetCurrentClazsRequest.m in Sources */,
+				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
+				7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
