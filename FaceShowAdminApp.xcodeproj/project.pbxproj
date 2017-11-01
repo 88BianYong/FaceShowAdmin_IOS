@@ -113,6 +113,14 @@
 		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
 		7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */; };
 		7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */; };
+		921860631FA978A90018D982 /* NoticeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860621FA978A90018D982 /* NoticeListCell.m */; };
+		921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860651FA97FEC0018D982 /* FSDefaultHeaderFooterView.m */; };
+		921860691FA99C3C0018D982 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860681FA99C3C0018D982 /* NoticeDetailViewController.m */; };
+		9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218606B1FA9B0150018D982 /* NoticeListFetcher.m */; };
+		921860701FA9B0160018D982 /* NoticeListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218606D1FA9B0150018D982 /* NoticeListRequest.m */; };
+		921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860721FA9B0400018D982 /* NoticeDeleteRequest.m */; };
+		921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860751FA9B0550018D982 /* NoticeUpDateRequest.m */; };
+		921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860781FA9B0680018D982 /* NoticeSaveRequest.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -120,13 +128,8 @@
 		9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427731FA722CF003BCEFD /* CourseListCell.m */; };
 		9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427751FA722CF003BCEFD /* CourseListHeaderView.m */; };
 		9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427781FA722CF003BCEFD /* MainPageTableHeaderView.m */; };
-		9234278B1FA722E4003BCEFD /* GetCourse_Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 923427801FA722E3003BCEFD /* GetCourse_Mock.json */; };
-		9234278C1FA722E4003BCEFD /* GetCourseListRequest_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 923427811FA722E4003BCEFD /* GetCourseListRequest_mock.json */; };
 		9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 923427821FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json */; };
 		9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427831FA722E4003BCEFD /* ClazsGetClazsRequest.m */; };
-		9234278F1FA722E4003BCEFD /* GetCurrentClazsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */; };
-		923427901FA722E4003BCEFD /* GetCourseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427891FA722E4003BCEFD /* GetCourseRequest.m */; };
-		923427911FA722E4003BCEFD /* GetCourseListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */; };
 		923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */; };
 		923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427951FA817FA003BCEFD /* MainPageDetailViewController.m */; };
 		9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234279E1FA81CB6003BCEFD /* DetailContainerView.m */; };
@@ -340,6 +343,22 @@
 		7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDateTimeSettingView.m; sourceTree = "<group>"; };
 		7CEFC9B51FA9734E001D8C84 /* CreateSignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateSignInRequest.h; sourceTree = "<group>"; };
 		7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateSignInRequest.m; sourceTree = "<group>"; };
+		921860611FA978A90018D982 /* NoticeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListCell.h; sourceTree = "<group>"; };
+		921860621FA978A90018D982 /* NoticeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListCell.m; sourceTree = "<group>"; };
+		921860641FA97FEC0018D982 /* FSDefaultHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDefaultHeaderFooterView.h; sourceTree = "<group>"; };
+		921860651FA97FEC0018D982 /* FSDefaultHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDefaultHeaderFooterView.m; sourceTree = "<group>"; };
+		921860671FA99C3C0018D982 /* NoticeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeDetailViewController.h; sourceTree = "<group>"; };
+		921860681FA99C3C0018D982 /* NoticeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeDetailViewController.m; sourceTree = "<group>"; };
+		9218606B1FA9B0150018D982 /* NoticeListFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeListFetcher.m; sourceTree = "<group>"; };
+		9218606C1FA9B0150018D982 /* NoticeListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeListRequest.h; sourceTree = "<group>"; };
+		9218606D1FA9B0150018D982 /* NoticeListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeListRequest.m; sourceTree = "<group>"; };
+		9218606E1FA9B0160018D982 /* NoticeListFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeListFetcher.h; sourceTree = "<group>"; };
+		921860711FA9B0400018D982 /* NoticeDeleteRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeDeleteRequest.h; sourceTree = "<group>"; };
+		921860721FA9B0400018D982 /* NoticeDeleteRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeDeleteRequest.m; sourceTree = "<group>"; };
+		921860741FA9B0550018D982 /* NoticeUpDateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeUpDateRequest.h; sourceTree = "<group>"; };
+		921860751FA9B0550018D982 /* NoticeUpDateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeUpDateRequest.m; sourceTree = "<group>"; };
+		921860771FA9B0680018D982 /* NoticeSaveRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveRequest.h; sourceTree = "<group>"; };
+		921860781FA9B0680018D982 /* NoticeSaveRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveRequest.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -354,17 +373,9 @@
 		923427761FA722CF003BCEFD /* CourseListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListHeaderView.h; sourceTree = "<group>"; };
 		923427771FA722CF003BCEFD /* MainPageTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTableHeaderView.h; sourceTree = "<group>"; };
 		923427781FA722CF003BCEFD /* MainPageTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageTableHeaderView.m; sourceTree = "<group>"; };
-		923427801FA722E3003BCEFD /* GetCourse_Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetCourse_Mock.json; sourceTree = "<group>"; };
-		923427811FA722E4003BCEFD /* GetCourseListRequest_mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetCourseListRequest_mock.json; sourceTree = "<group>"; };
 		923427821FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetCurrentClazsRequest_mock.json; sourceTree = "<group>"; };
 		923427831FA722E4003BCEFD /* ClazsGetClazsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClazsGetClazsRequest.m; sourceTree = "<group>"; };
-		923427841FA722E4003BCEFD /* GetCourseListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseListRequest.h; sourceTree = "<group>"; };
 		923427851FA722E4003BCEFD /* ClazsGetClazsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClazsGetClazsRequest.h; sourceTree = "<group>"; };
-		923427861FA722E4003BCEFD /* GetCourseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseRequest.h; sourceTree = "<group>"; };
-		923427871FA722E4003BCEFD /* GetCurrentClazsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCurrentClazsRequest.h; sourceTree = "<group>"; };
-		923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCurrentClazsRequest.m; sourceTree = "<group>"; };
-		923427891FA722E4003BCEFD /* GetCourseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseRequest.m; sourceTree = "<group>"; };
-		9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseListRequest.m; sourceTree = "<group>"; };
 		923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "METRO-LIGHT PLAYTYPE.otf"; sourceTree = "<group>"; };
 		923427941FA817FA003BCEFD /* MainPageDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageDetailViewController.h; sourceTree = "<group>"; };
 		923427951FA817FA003BCEFD /* MainPageDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageDetailViewController.m; sourceTree = "<group>"; };
@@ -614,6 +625,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				9218606A1FA9AFE90018D982 /* 通知 */,
 				7CEFC9751FA810BD001D8C84 /* 签到记录 */,
 				923427421FA6C3EB003BCEFD /* 首页 */,
 				7CEFC8FF1FA0693E001D8C84 /* 我的 */,
@@ -890,10 +902,41 @@
 		921860561FA9658E0018D982 /* 通知管理 */ = {
 			isa = PBXGroup;
 			children = (
+				921860601FA9788B0018D982 /* view */,
 				921860571FA965E00018D982 /* NoticeListViewController.h */,
 				921860581FA965E00018D982 /* NoticeListViewController.m */,
+				921860671FA99C3C0018D982 /* NoticeDetailViewController.h */,
+				921860681FA99C3C0018D982 /* NoticeDetailViewController.m */,
 			);
 			path = "通知管理";
+			sourceTree = "<group>";
+		};
+		921860601FA9788B0018D982 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				921860641FA97FEC0018D982 /* FSDefaultHeaderFooterView.h */,
+				921860651FA97FEC0018D982 /* FSDefaultHeaderFooterView.m */,
+				921860611FA978A90018D982 /* NoticeListCell.h */,
+				921860621FA978A90018D982 /* NoticeListCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		9218606A1FA9AFE90018D982 /* 通知 */ = {
+			isa = PBXGroup;
+			children = (
+				9218606E1FA9B0160018D982 /* NoticeListFetcher.h */,
+				9218606B1FA9B0150018D982 /* NoticeListFetcher.m */,
+				9218606C1FA9B0150018D982 /* NoticeListRequest.h */,
+				9218606D1FA9B0150018D982 /* NoticeListRequest.m */,
+				921860711FA9B0400018D982 /* NoticeDeleteRequest.h */,
+				921860721FA9B0400018D982 /* NoticeDeleteRequest.m */,
+				921860741FA9B0550018D982 /* NoticeUpDateRequest.h */,
+				921860751FA9B0550018D982 /* NoticeUpDateRequest.m */,
+				921860771FA9B0680018D982 /* NoticeSaveRequest.h */,
+				921860781FA9B0680018D982 /* NoticeSaveRequest.m */,
+			);
+			path = "通知";
 			sourceTree = "<group>";
 		};
 		923427421FA6C3EB003BCEFD /* 首页 */ = {
@@ -901,15 +944,7 @@
 			children = (
 				923427851FA722E4003BCEFD /* ClazsGetClazsRequest.h */,
 				923427831FA722E4003BCEFD /* ClazsGetClazsRequest.m */,
-				923427801FA722E3003BCEFD /* GetCourse_Mock.json */,
-				923427811FA722E4003BCEFD /* GetCourseListRequest_mock.json */,
-				923427841FA722E4003BCEFD /* GetCourseListRequest.h */,
-				9234278A1FA722E4003BCEFD /* GetCourseListRequest.m */,
-				923427861FA722E4003BCEFD /* GetCourseRequest.h */,
-				923427891FA722E4003BCEFD /* GetCourseRequest.m */,
 				923427821FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json */,
-				923427871FA722E4003BCEFD /* GetCurrentClazsRequest.h */,
-				923427881FA722E4003BCEFD /* GetCurrentClazsRequest.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -1006,14 +1041,12 @@
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
 				7CEFC82B1FA063A7001D8C84 /* env_config.json in Resources */,
 				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,
-				9234278B1FA722E4003BCEFD /* GetCourse_Mock.json in Resources */,
 				7CEFC8461FA06577001D8C84 /* MockConfig.plist in Resources */,
 				7CEFC9021FA06A5C001D8C84 /* Default-568h@2x.png in Resources */,
 				7CEFC93D1FA0866C001D8C84 /* Empty.xib in Resources */,
 				7CEFC8471FA06577001D8C84 /* neterror_mock.json in Resources */,
 				7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */,
 				7CEFC8451FA06577001D8C84 /* errorcode_mock.json in Resources */,
-				9234278C1FA722E4003BCEFD /* GetCourseListRequest_mock.json in Resources */,
 				7CEFC82C1FA063A7001D8C84 /* Config.plist in Resources */,
 				7CEFC85B1FA06593001D8C84 /* MJRefresh.bundle in Resources */,
 			);
@@ -1088,13 +1121,13 @@
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */,
+				921860701FA9B0160018D982 /* NoticeListRequest.m in Sources */,
 				7CEFC86B1FA065B3001D8C84 /* ConfigManager.m in Sources */,
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
-				923427911FA722E4003BCEFD /* GetCourseListRequest.m in Sources */,
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
@@ -1107,17 +1140,19 @@
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
 				7CEFC8E61FA06791001D8C84 /* LoginRequest.m in Sources */,
+				921860691FA99C3C0018D982 /* NoticeDetailViewController.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
+				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
+				921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
 				7CEFC89B1FA06614001D8C84 /* YXGradientView.m in Sources */,
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
-				923427901FA722E4003BCEFD /* GetCourseRequest.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
@@ -1134,6 +1169,7 @@
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
 				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
+				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
@@ -1152,8 +1188,10 @@
 				7CEFC8851FA065D6001D8C84 /* YXGetRequest.m in Sources */,
 				7CEFC8811FA065D6001D8C84 /* HttpBaseRequest.m in Sources */,
 				7CEFC89D1FA06614001D8C84 /* YXNoFloatingHeaderFooterTableView.m in Sources */,
+				921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */,
 				7CEFC89C1FA06614001D8C84 /* YXImagePickerController.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
+				921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
@@ -1172,6 +1210,7 @@
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
+				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
 				7CEFC9331FA0808A001D8C84 /* CourseViewController.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
