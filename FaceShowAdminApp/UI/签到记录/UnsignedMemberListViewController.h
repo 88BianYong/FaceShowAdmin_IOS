@@ -8,6 +8,8 @@
 
 #import "PagedListViewControllerBase.h"
 
-@interface UnsignedMemberListViewController : PagedListViewControllerBase
+extern NSString * const kReplenishSignInDidSuccessNotification;
 
+@interface UnsignedMemberListViewController : PagedListViewControllerBase
+@property (nonatomic, strong) NSString *stepId;
 @end

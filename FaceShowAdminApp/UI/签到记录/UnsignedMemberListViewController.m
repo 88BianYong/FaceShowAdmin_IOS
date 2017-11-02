@@ -7,16 +7,34 @@
 //
 
 #import "UnsignedMemberListViewController.h"
+#import "UserUnsignedCell.h"
+#import "UserSignInListFetcher.h"
+#import "SignInDelayView.h"
+#import "AlertView.h"
+#import "ReplenishSignInRequest.h"
+
+NSString * const kReplenishSignInDidSuccessNotification = @"kReplenishSignInDidSuccessNotification";
 
 @interface UnsignedMemberListViewController ()
-
+@property (nonatomic, strong) AlertView *alertView;
+@property (nonatomic, strong) ReplenishSignInRequest *request;
 @end
 
 @implementation UnsignedMemberListViewController
 
 - (void)viewDidLoad {
+    UserSignInListFetcher *fetcher = [[UserSignInListFetcher alloc]init];
+    fetcher.stepId = self.stepId;
+    fetcher.status = @"0";
+    WEAK_SELF
+    [fetcher setNoMoreBlock:^{
+        STRONG_SELF
+        [self.view performSelector:@selector(nyx_showToast:) withObject:@"暂无更多" afterDelay:1];
+    }];
+    self.dataFetcher = fetcher;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +42,62 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupUI {
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.rowHeight = 51;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerClass:[UserUnsignedCell class] forCellReuseIdentifier:@"UserUnsignedCell"];
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UserUnsignedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserUnsignedCell"];
+    cell.data = self.dataArray[indexPath.row];
+    WEAK_SELF
+    [cell setSignBlock:^{
+        STRONG_SELF
+        [self showAlertWithElement:self.dataArray[indexPath.row]];
+    }];
+    return cell;
+}
+
+- (void)showAlertWithElement:(UserSignInListRequestItem_elements *)element {
+    SignInDelayView *settingView = [[SignInDelayView alloc]init];
+    settingView.name = element.userName;
+    WEAK_SELF
+    [settingView setConfirmBlock:^(NSString *result){
+        STRONG_SELF
+        [self replenishSignInWithElement:element time:result];
+        [self.alertView hide];
+    }];
+    self.alertView = [[AlertView alloc]init];
+    self.alertView.contentView = settingView;
+    self.alertView.hideWhenMaskClicked = YES;
+    [self.alertView showWithLayout:^(AlertView *view) {
+        view.contentView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 250);
+        [UIView animateWithDuration:0.3 animations:^{
+            view.contentView.frame = CGRectMake(0, SCREEN_HEIGHT-250, SCREEN_WIDTH, 250);
+        }];
+    }];
+}
+
+- (void)replenishSignInWithElement:(UserSignInListRequestItem_elements *)element time:(NSString *)time{
+    [self.request stopRequest];
+    self.request = [[ReplenishSignInRequest alloc]init];
+    self.request.stepId = self.stepId;
+    self.request.userId = element.userId;
+    self.request.signInTime = time;
+    [self.parentViewController.view nyx_startLoading];
+    WEAK_SELF
+    [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.parentViewController.view nyx_stopLoading];
+        if (error) {
+            [self.parentViewController.view nyx_showToast:error.localizedDescription];
+            return;
+        }
+        [self firstPageFetch];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kReplenishSignInDidSuccessNotification object:nil];
+    }];
+}
 
 @end

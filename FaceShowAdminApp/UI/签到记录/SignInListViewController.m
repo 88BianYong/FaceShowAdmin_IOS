@@ -11,6 +11,7 @@
 #import "SignInListCell.h"
 #import "CreateSignInViewController.h"
 #import "SignInDetailViewController.h"
+#import "UnsignedMemberListViewController.h"
 
 @interface SignInListViewController ()
 
@@ -25,11 +26,20 @@
     self.navigationItem.title = @"签到记录";
     [self nyx_setupRightWithCustomView:[self signInCreateButton]];
     [self setupUI];
+    [self setupObserver];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupObserver {
+    WEAK_SELF
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kReplenishSignInDidSuccessNotification object:nil]subscribeNext:^(id x) {
+        STRONG_SELF
+        [self firstPageFetch];
+    }];
 }
 
 - (UIButton *)signInCreateButton {

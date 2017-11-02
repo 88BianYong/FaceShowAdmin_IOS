@@ -9,5 +9,5 @@
 #import "PagedListViewControllerBase.h"
 
 @interface SignedMemberListViewController : PagedListViewControllerBase
-
+@property (nonatomic, strong) NSString *stepId;
 @end

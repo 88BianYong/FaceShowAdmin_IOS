@@ -11,10 +11,14 @@
 #import "SignInTabContainerView.h"
 #import "SignedMemberListViewController.h"
 #import "UnsignedMemberListViewController.h"
+#import "SignInDetailRequest.h"
+#import "QRCodeSignInViewController.h"
 
 @interface SignInDetailViewController ()
 @property (nonatomic, strong) NSMutableArray<UIViewController *> *tabControllers;
 @property (nonatomic, strong) UIView *tabContentView;
+@property (nonatomic, strong) SignInDetailRequest *detailRequest;
+@property (nonatomic, strong) SignInDetailHeaderView *headerView;
 @end
 
 @implementation SignInDetailViewController
@@ -24,6 +28,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"签到详情";
     [self setupUI];
+    [self setupObserver];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,9 +36,40 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupObserver {
+    WEAK_SELF
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kReplenishSignInDidSuccessNotification object:nil]subscribeNext:^(id x) {
+        STRONG_SELF
+        [self refreshDetail];
+    }];
+}
+
+- (void)refreshDetail {
+    [self.detailRequest stopRequest];
+    self.detailRequest = [[SignInDetailRequest alloc]init];
+    self.detailRequest.stepId = self.data.stepId;
+    WEAK_SELF
+    [self.detailRequest startRequestWithRetClass:[SignInDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        if (error) {
+            return;
+        }
+        SignInDetailRequestItem *item = (SignInDetailRequestItem *)retItem;
+        self.headerView.data = item.data.signIn;
+    }];
+}
+
 - (void)setupUI {
     SignInDetailHeaderView *headerView = [[SignInDetailHeaderView alloc]init];
+    self.headerView = headerView;
     headerView.data = self.data;
+    WEAK_SELF
+    [headerView setQrBlock:^{
+        STRONG_SELF
+        QRCodeSignInViewController *vc = [[QRCodeSignInViewController alloc]init];
+        vc.data = self.data;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(0);
@@ -41,7 +77,6 @@
     }];
     SignInTabContainerView *tabContainerView = [[SignInTabContainerView alloc]init];
     tabContainerView.tabNameArray = @[@"未签到",@"已签到"];
-    WEAK_SELF
     [tabContainerView setTabClickBlock:^(NSInteger index){
         STRONG_SELF
         [self switchToVCWithIndex:index];
@@ -53,8 +88,12 @@
         make.height.mas_equalTo(40);
     }];
     self.tabControllers = [NSMutableArray array];
-    [self.tabControllers addObject:[[SignedMemberListViewController alloc]init]];
-    [self.tabControllers addObject:[[UnsignedMemberListViewController alloc]init]];
+    SignedMemberListViewController *signedVC = [[SignedMemberListViewController alloc]init];
+    signedVC.stepId = self.data.stepId;
+    UnsignedMemberListViewController *unsignedVC = [[UnsignedMemberListViewController alloc]init];
+    unsignedVC.stepId = self.data.stepId;
+    [self.tabControllers addObject:unsignedVC];
+    [self.tabControllers addObject:signedVC];
     for (UIViewController *vc in self.tabControllers) {
         [self addChildViewController:vc];
     }
