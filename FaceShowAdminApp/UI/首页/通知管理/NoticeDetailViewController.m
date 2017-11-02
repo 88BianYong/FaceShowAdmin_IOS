@@ -104,6 +104,8 @@
     
     WEAK_SELF
     self.imageView = [[UIImageView alloc] init];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.clipsToBounds = YES;
     self.imageView.hidden = YES;
     self.imageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
     [self.containerView addSubview:self.imageView];
@@ -130,12 +132,14 @@
 
 - (void)setupNavRightView {
     UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    navRightBtn.frame = CGRectMake(0, 0, 75, 30);
+    navRightBtn.frame = CGRectMake(0, 0, 65, 30);
+//    navRightBtn.backgroundColor = [UIColor redColor];
     navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [navRightBtn setTitle:@"更多" forState:UIControlStateNormal];
     [navRightBtn setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-正常态"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-点击态"] forState:UIControlStateHighlighted];
+    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 24);
+    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -38);
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF

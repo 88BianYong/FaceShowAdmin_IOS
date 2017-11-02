@@ -21,6 +21,7 @@
     DDLogDebug(@"release========>>%@",NSStringFromClass([self class]));
 }
 - (void)viewDidLoad {
+    self.studentNum = @"0";
     NoticeListFetcher *fetcher = [[NoticeListFetcher alloc] init];
     fetcher.pagesize = 20;
     fetcher.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
@@ -52,18 +53,19 @@
     [self setupNavRightView];
 }
 - (void)setupLayout {
-    
+    //15901259665
 }
 - (void)setupNavRightView {
     UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    navRightBtn.frame = CGRectMake(0, 0, 75, 30);
+    navRightBtn.frame = CGRectMake(0, 0, 65, 30);
+//    navRightBtn.backgroundColor = [UIColor redColor];
     navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [navRightBtn setTitle:@"发布" forState:UIControlStateNormal];
     [navRightBtn setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-正常态"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-点击态"] forState:UIControlStateHighlighted];
-    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 24);
-    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -38);
+    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 4);
+    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -58);
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
@@ -77,7 +79,6 @@
             [self.tableView reloadData];
         };
         [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
-            
         }];
     }];
     [self nyx_setupRightWithCustomView:navRightBtn];

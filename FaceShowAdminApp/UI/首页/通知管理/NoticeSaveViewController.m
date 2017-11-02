@@ -130,7 +130,11 @@
     WEAK_SELF
     [[self.navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
-        [self requestForUploadImage];
+        if (self.imageCell.isContainImage) {
+            [self requestForUploadImage];
+        }else {
+            [self requestForNoticeSave:nil];
+        }
     }];
     [self nyx_setupRightWithCustomView:self.navRightBtn];
 }
@@ -243,8 +247,9 @@
     self.saveRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     self.saveRequest.title = self.titleCell.textField.text;
     self.saveRequest.content = self.contentCell.textView.text;
-    self.saveRequest.url = [NSString stringWithFormat:@"http://upload.ugc.yanxiu.com/img/%@.jpg?from=%@&resId=%@",result.md5,result.from,result.resid];
-    self.saveRequest.url = @"http://upload.ugc.yanxiu.com/img/22b6e1dbef664ba519262d2a214b42b3.jpg?from=101&rid=31841639";
+    if (result != nil) {
+        self.saveRequest.url = [NSString stringWithFormat:@"http://upload.ugc.yanxiu.com/img/%@.jpg?from=%@&resId=%@",result.md5,result.from,result.resid];
+    }
     WEAK_SELF
     [self.saveRequest startRequestWithRetClass:[NoticeSaveRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
