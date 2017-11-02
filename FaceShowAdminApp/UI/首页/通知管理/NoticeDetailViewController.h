@@ -11,4 +11,5 @@
 @interface NoticeDetailViewController : BaseViewController
 @property (nonatomic, strong) NoticeListRequestItem_Data_NoticeInfos_Elements *element;
 @property (nonatomic, strong) NSString *studentNum;
+@property (nonatomic, copy) void(^noticeDetailDeleteBlock)(void);
 @end

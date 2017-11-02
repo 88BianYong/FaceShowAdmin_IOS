@@ -1,0 +1,266 @@
+//
+//  NoticeSaveViewController.m
+//  FaceShowAdminApp
+//
+//  Created by 郑小龙 on 2017/11/1.
+//  Copyright © 2017年 niuzhaowang. All rights reserved.
+//
+
+#import "NoticeSaveViewController.h"
+#import "NoticeSaveTitleCell.h"
+#import "NoticeSaveContentCell.h"
+#import "NoticeSaveImageCell.h"
+#import "FSDefaultHeaderFooterView.h"
+#import "YXNoFloatingHeaderFooterTableView.h"
+#import "YXImagePickerController.h"
+#import "QADataManager.h"
+
+@interface NoticeSaveViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
+@property (nonatomic, strong) NoticeSaveTitleCell *titleCell;
+@property (nonatomic, strong) NoticeSaveContentCell *contentCell;
+@property (nonatomic, strong) NoticeSaveImageCell *imageCell;
+@property (nonatomic, strong) UIButton *navRightBtn;
+@property (nonatomic, strong) YXImagePickerController *imagePickerController;
+@property (nonatomic, strong) NoticeSaveRequest *saveRequest;
+
+@end
+
+@implementation NoticeSaveViewController
+- (void)dealloc {
+    DDLogDebug(@"release========>>%@",NSStringFromClass([self class]));
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"发布通知";
+    [self setupUI];
+    [self setupLayout];
+    [self addNotification];
+}
+#pragma mark - setupUI
+- (void)setupUI {
+    self.tableView = [[YXNoFloatingHeaderFooterTableView alloc] init];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.titleCell = [[NoticeSaveTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NoticeSaveTitleCell"];
+    self.contentCell = [[NoticeSaveContentCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:@"NoticeSaveContentCell"];
+    self.imageCell = [[NoticeSaveImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NoticeSaveImageCell"];
+    WEAK_SELF
+    [[self.imageCell.chooseButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        STRONG_SELF
+        [self showAlertView];
+    }];
+    [[self.imageCell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+         STRONG_SELF
+        self.imageCell.isContainImage = NO;
+        self.imageCell.photoImageView.image = nil;
+    }];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] init];
+    [[tapGestureRecognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
+        STRONG_SELF
+        [self.titleCell.textField resignFirstResponder];
+        [self.contentCell.textView resignFirstResponder];
+    }];
+    [self.imageCell.contentView addGestureRecognizer:tapGestureRecognizer];
+    [self.tableView registerClass:[FSDefaultHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"FSDefaultHeaderFooterView"];
+    [self.view addSubview:self.tableView];
+    self.imagePickerController = [[YXImagePickerController alloc] init];
+    [self setupNavRightView];
+    [self nyx_setupLeftWithImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 30, 30)] action:^{
+        STRONG_SELF
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }];
+}
+- (void)setupLayout {
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
+- (void)showAlertView {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    WEAK_SELF
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        STRONG_SELF
+    }];
+    [alertVC addAction:cancleAction];
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        STRONG_SELF
+        [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypeCamera
+         rootViewController:self completion:^(UIImage *selectedImage) {
+            STRONG_SELF
+            [self presentNextPublishViewController:selectedImage];
+        }];
+    }];
+    [alertVC addAction:cameraAction];
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        STRONG_SELF
+        [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary rootViewController:self completion:^(UIImage *selectedImage) {
+            STRONG_SELF
+            [self presentNextPublishViewController:selectedImage];
+        }];
+    }];
+    [alertVC addAction:photoAction];
+    
+    UIViewController *visibleVC = [self nyx_visibleViewController];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        alertVC.popoverPresentationController.sourceView = visibleVC.view;
+        alertVC.popoverPresentationController.sourceRect = CGRectMake(200,100,200,200);
+    }
+    
+    [visibleVC presentViewController:alertVC animated:YES completion:nil];
+}
+- (void)presentNextPublishViewController:(UIImage *)image {
+    self.imageCell.photoImageView.image = image;
+    self.imageCell.isContainImage = YES;
+}
+- (void)setupNavRightView {
+    self.navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.navRightBtn.frame = CGRectMake(0, 0, 50, 30);
+    self.navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [self.navRightBtn setTitle:@"提交" forState:UIControlStateNormal];
+    self.navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, -10);
+    [self.navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+    [self.navRightBtn setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
+    self.navRightBtn.enabled = NO;
+    WEAK_SELF
+    [[self.navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        STRONG_SELF
+        [self requestForUploadImage];
+    }];
+    [self nyx_setupRightWithCustomView:self.navRightBtn];
+}
+- (void)addNotification {
+    @weakify(self);
+    RACSignal *titleSignal =
+    [self.titleCell.textField.rac_textSignal
+     map:^id(NSString *text) {
+         @strongify(self);
+         return @([self isTitleLength:text]);
+     }];
+    RACSignal *contentSignal =
+    [self.contentCell.textView.rac_textSignal
+     map:^id(NSString *text) {
+         @strongify(self);
+         return @([self isContentLength:text]);
+     }];
+    
+    RACSignal *activeSignal =
+//    [RACSignal combineLatest:@[titleSignal,contentSignal,RACObserve(self.imageCell, isContainImage)]
+//                      reduce:^id(NSNumber *titleValid, NSNumber *contentValid, NSNumber *image) {
+//                          return @([titleValid boolValue] && [contentValid boolValue] && [image boolValue]);
+//                      }];
+    [RACSignal combineLatest:@[titleSignal,contentSignal]
+                      reduce:^id(NSNumber *titleValid, NSNumber *contentValid) {
+                          return @([titleValid boolValue] && [contentValid boolValue]);
+                      }];
+    [activeSignal subscribeNext:^(NSNumber *signupActive) {
+        STRONG_SELF
+         self.navRightBtn.enabled = [signupActive boolValue];
+    }];
+}
+
+- (BOOL)isTitleLength:(NSString *)contentString {
+    return (contentString.length > 0 && contentString.length <= 20) ? YES : NO;
+}
+- (BOOL)isContentLength:(NSString *)contentString {
+    return  (contentString.length > 0 && contentString.length <= 200) ? YES : NO;
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark - UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return self.titleCell;
+    }else if (indexPath.row == 1) {
+        return self.contentCell;
+    }else {
+        return self.imageCell;
+    }
+}
+#pragma mark - UITableViewDataScore
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    FSDefaultHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"FSDefaultHeaderFooterView"];
+    return headerView;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 5.0f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.000001f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 60.0f;
+    }else if (indexPath.row == 1) {
+        return 220.0f;
+    }else {
+        return SCREEN_WIDTH;
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+#pragma mark - request
+- (void)requestForUploadImage {
+    if (self.titleCell.textField.text.length > 20) {
+        [self.view nyx_showToast:@"通知标题最多20字"];
+        return;
+    }
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
+    NSString *fileName = [NSString stringWithFormat:@"%@%d.jpg",[UserManager sharedInstance].userModel.userID, (int)interval];
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [QADataManager uploadFile:self.imageCell.photoImageView.image fileName:fileName completeBlock:^(QAFileUploadSecondStepRequestItem *item, NSError *error) {
+        STRONG_SELF
+        if (item.result.resid == nil){
+            [self.view nyx_stopLoading];
+            [self.view nyx_showToast:@"发布失败请重试"];
+        }else {
+            [self requestForNoticeSave:item.result];
+        }
+    }];
+}
+- (void)requestForNoticeSave:(QAFileUploadSecondStepRequestItem_result *)result{
+    //@白东方 priviewUrl=`http://upload.ugc.yanxiu.com/img/${markfile.md5}.${markfile.ext}?from=${config.from}&resId=${markfile.resId}`;
+
+    [self.saveRequest stopRequest];
+    self.saveRequest = [[NoticeSaveRequest alloc] init];
+    self.saveRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    self.saveRequest.title = self.titleCell.textField.text;
+    self.saveRequest.content = self.contentCell.textView.text;
+    self.saveRequest.url = [NSString stringWithFormat:@"http://upload.ugc.yanxiu.com/img/%@.jpg?from=%@&resId=%@",result.md5,result.from,result.resid];
+    self.saveRequest.url = @"http://upload.ugc.yanxiu.com/img/22b6e1dbef664ba519262d2a214b42b3.jpg?from=101&rid=31841639";
+    WEAK_SELF
+    [self.saveRequest startRequestWithRetClass:[NoticeSaveRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        NoticeSaveRequestItem *item = retItem;
+        if (item.data == nil) {
+            [self.view nyx_stopLoading];
+            [self.view nyx_showToast:@"发布失败请重试"];
+        }else {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间
+                [self.view nyx_stopLoading];
+                BLOCK_EXEC(self.noticeSaveBlock,item.data);
+                [self dismissViewControllerAnimated:YES completion:^{
+                }];
+            });
+        }
+    }];
+}
+
+@end

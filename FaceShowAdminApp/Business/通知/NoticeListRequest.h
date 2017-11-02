@@ -35,11 +35,8 @@
 
 @interface NoticeListRequestItem_Data_NoticeInfos : JSONModel
 @property (nonatomic, strong) NSArray<NoticeListRequestItem_Data_NoticeInfos_Elements,Optional> *elements;
-@property (nonatomic, strong) NSString<Optional> *pageSize;
-@property (nonatomic, strong) NSString<Optional> *pageNum;
-@property (nonatomic, strong) NSString<Optional> *offset;
-@property (nonatomic, strong) NSString<Optional> *totalElements;
-@property (nonatomic, strong) NSString<Optional> *lastPageNumber;
+@property (nonatomic, strong) NSString<Optional> *callbackParam;
+@property (nonatomic, strong) NSString<Optional> *callbackValue;
 @end
 
 @interface NoticeListRequestItem_Data : JSONModel

@@ -11,5 +11,6 @@
 @interface YXImagePickerController : NSObject
 
 - (void)pickImageWithSourceType:(UIImagePickerControllerSourceType)sourceType
+             rootViewController:(UIViewController *)viewController
                      completion:(void(^)(UIImage *selectedImage))completion;
 @end

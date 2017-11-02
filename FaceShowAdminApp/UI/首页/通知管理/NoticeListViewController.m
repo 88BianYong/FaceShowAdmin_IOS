@@ -11,12 +11,15 @@
 #import "NoticeListCell.h"
 #import "FSDefaultHeaderFooterView.h"
 #import "NoticeDetailViewController.h"
+#import "NoticeSaveViewController.h"
 @interface NoticeListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, copy) NSString *studentNum;
 @end
 
 @implementation NoticeListViewController
-
+- (void)dealloc {
+    DDLogDebug(@"release========>>%@",NSStringFromClass([self class]));
+}
 - (void)viewDidLoad {
     NoticeListFetcher *fetcher = [[NoticeListFetcher alloc] init];
     fetcher.pagesize = 20;
@@ -64,7 +67,18 @@
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
-        
+        NoticeSaveViewController *VC = [[NoticeSaveViewController alloc] init];
+        FSNavigationController *nav = [[FSNavigationController alloc] initWithRootViewController:VC];
+        VC.noticeSaveBlock = ^(NoticeListRequestItem_Data_NoticeInfos_Elements *element) {
+            STRONG_SELF
+            [self.dataArray insertObject:element atIndex:0];
+            self.emptyView.hidden = YES;
+            self.errorView.hidden = YES;
+            [self.tableView reloadData];
+        };
+        [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
+            
+        }];
     }];
     [self nyx_setupRightWithCustomView:navRightBtn];
 }
@@ -96,6 +110,13 @@
     NoticeDetailViewController *VC = [[NoticeDetailViewController alloc] init];
     VC.element = self.dataArray[indexPath.row];
     VC.studentNum = self.studentNum;
+    WEAK_SELF
+    VC.noticeDetailDeleteBlock = ^{
+        STRONG_SELF
+        [self.dataArray removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
+        self.emptyView.hidden = self.dataArray.count != 0 ? YES : NO;
+    };
     [self.navigationController pushViewController:VC animated:YES];
 }
 

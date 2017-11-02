@@ -9,5 +9,6 @@
 #import "YXGetRequest.h"
 
 @interface NoticeDeleteRequest : YXGetRequest
-
+@property (nonatomic, strong) NSString<Optional> *noticeId;
+@property (nonatomic, strong) NSString<Optional> *clazsId;
 @end

@@ -9,5 +9,10 @@
 #import "NoticeDeleteRequest.h"
 
 @implementation NoticeDeleteRequest
-
+- (instancetype)init {
+    if (self = [super init]) {
+        self.method = @"notice.delete";
+    }
+    return self;
+}
 @end

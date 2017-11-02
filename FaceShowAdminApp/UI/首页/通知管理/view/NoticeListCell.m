@@ -76,7 +76,7 @@
     }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).offset(-15.0f);
+        make.left.equalTo(self.contentView.mas_left).offset(15.0f);
         make.right.equalTo(self.contentView.mas_right);
         make.top.equalTo(self.contentView.mas_top);
         make.height.mas_equalTo(1.0f);
@@ -90,7 +90,7 @@
     cStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     self.contentLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:element.content?:@"" attributes:@{NSParagraphStyleAttributeName:cStyle}];
     
-    NSString *readString = [NSString stringWithFormat:@"已阅读: %@/%@",element.noticeReadUserNum,number];
+    NSString *readString = [NSString stringWithFormat:@"已阅读: %@/%@",element.noticeReadUserNum?:@"0",number];
     
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:readString];
     [attString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f],

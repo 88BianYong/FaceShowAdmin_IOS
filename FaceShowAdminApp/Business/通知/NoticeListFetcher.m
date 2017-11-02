@@ -34,8 +34,7 @@
             BLOCK_EXEC(aCompleteBlock,0,nil,nil);
         }
         if (item.data.noticeInfos.elements.count > 0) {
-            NoticeListRequestItem_Data_NoticeInfos_Elements *element = [item.data.noticeInfos.elements lastObject];
-            self.lastID = element.elementId.integerValue;
+            self.lastID = [item.data.noticeInfos.callbackValue integerValue];
         }
     }];
 }

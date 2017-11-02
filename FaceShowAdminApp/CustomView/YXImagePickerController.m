@@ -26,11 +26,15 @@
 }
 
 - (void)pickImageWithSourceType:(UIImagePickerControllerSourceType)sourceType
+             rootViewController:(UIViewController *)viewController
                      completion:(void (^)(UIImage *))completion
+
 {
     
     self.isPublish = NO;
-    UIViewController *viewController = ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
+    if (viewController == nil) {
+        viewController = ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
+    }
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
         ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
         if (author == kCLAuthorizationStatusRestricted || author ==kCLAuthorizationStatusDenied){
@@ -80,7 +84,7 @@
     if (self.isPublish) {
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
-
+    
     [self completionImagePick:picker image:image];
 }
 

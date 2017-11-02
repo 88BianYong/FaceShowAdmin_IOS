@@ -112,6 +112,12 @@
 		7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC98B1FA850E6001D8C84 /* SignInSwitchView.m */; };
 		7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */; };
 		7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */; };
+		7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */; };
+		7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9BC1FA9A102001D8C84 /* SignInDetailHeaderView.m */; };
+		7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */; };
+		7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */; };
+		7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */; };
+		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
 		921860631FA978A90018D982 /* NoticeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860621FA978A90018D982 /* NoticeListCell.m */; };
 		921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860651FA97FEC0018D982 /* FSDefaultHeaderFooterView.m */; };
 		921860691FA99C3C0018D982 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860681FA99C3C0018D982 /* NoticeDetailViewController.m */; };
@@ -120,12 +126,10 @@
 		921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860721FA9B0400018D982 /* NoticeDeleteRequest.m */; };
 		921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860751FA9B0550018D982 /* NoticeUpDateRequest.m */; };
 		921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860781FA9B0680018D982 /* NoticeSaveRequest.m */; };
-		7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */; };
-		7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9BC1FA9A102001D8C84 /* SignInDetailHeaderView.m */; };
-		7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */; };
-		7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */; };
-		7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */; };
-		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
+		9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218607B1FA9B9930018D982 /* NoticeSaveViewController.m */; };
+		9218607F1FA9BBC00018D982 /* NoticeSaveTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218607E1FA9BBC00018D982 /* NoticeSaveTitleCell.m */; };
+		921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860811FA9BBDB0018D982 /* NoticeSaveContentCell.m */; };
+		921860851FA9BC1D0018D982 /* NoticeSaveImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860841FA9BC1D0018D982 /* NoticeSaveImageCell.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -140,6 +144,12 @@
 		9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234279E1FA81CB6003BCEFD /* DetailContainerView.m */; };
 		923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A41FA823AE003BCEFD /* MainProjectDetailView.m */; };
 		923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A71FA823C7003BCEFD /* MainClassDetailView.m */; };
+		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
+		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
+		92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */; };
+		92CAA63C1FAACD3100DB5873 /* FDActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA63B1FAACD3100DB5873 /* FDActionSheetView.m */; };
+		92CAA63F1FAACDDA00DB5873 /* FDActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA63E1FAACDDA00DB5873 /* FDActionSheetCell.m */; };
+		92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6411FAACDF400DB5873 /* FDActionSheetFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -346,6 +356,18 @@
 		7CEFC9B31FA9672A001D8C84 /* SignInDateTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDateTimeSettingView.m; sourceTree = "<group>"; };
 		7CEFC9B51FA9734E001D8C84 /* CreateSignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateSignInRequest.h; sourceTree = "<group>"; };
 		7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateSignInRequest.m; sourceTree = "<group>"; };
+		7CEFC9B81FA99F08001D8C84 /* SignInDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDetailViewController.h; sourceTree = "<group>"; };
+		7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDetailViewController.m; sourceTree = "<group>"; };
+		7CEFC9BB1FA9A102001D8C84 /* SignInDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDetailHeaderView.h; sourceTree = "<group>"; };
+		7CEFC9BC1FA9A102001D8C84 /* SignInDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDetailHeaderView.m; sourceTree = "<group>"; };
+		7CEFC9BE1FA9ADB5001D8C84 /* SignInTabContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInTabContainerView.h; sourceTree = "<group>"; };
+		7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInTabContainerView.m; sourceTree = "<group>"; };
+		7CEFC9C11FA9B293001D8C84 /* SignedMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignedMemberListViewController.h; sourceTree = "<group>"; };
+		7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignedMemberListViewController.m; sourceTree = "<group>"; };
+		7CEFC9C41FA9B2B5001D8C84 /* UnsignedMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsignedMemberListViewController.h; sourceTree = "<group>"; };
+		7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnsignedMemberListViewController.m; sourceTree = "<group>"; };
+		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
+		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
 		921860611FA978A90018D982 /* NoticeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListCell.h; sourceTree = "<group>"; };
 		921860621FA978A90018D982 /* NoticeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListCell.m; sourceTree = "<group>"; };
 		921860641FA97FEC0018D982 /* FSDefaultHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDefaultHeaderFooterView.h; sourceTree = "<group>"; };
@@ -362,18 +384,14 @@
 		921860751FA9B0550018D982 /* NoticeUpDateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeUpDateRequest.m; sourceTree = "<group>"; };
 		921860771FA9B0680018D982 /* NoticeSaveRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveRequest.h; sourceTree = "<group>"; };
 		921860781FA9B0680018D982 /* NoticeSaveRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveRequest.m; sourceTree = "<group>"; };
-		7CEFC9B81FA99F08001D8C84 /* SignInDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDetailViewController.h; sourceTree = "<group>"; };
-		7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDetailViewController.m; sourceTree = "<group>"; };
-		7CEFC9BB1FA9A102001D8C84 /* SignInDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInDetailHeaderView.h; sourceTree = "<group>"; };
-		7CEFC9BC1FA9A102001D8C84 /* SignInDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInDetailHeaderView.m; sourceTree = "<group>"; };
-		7CEFC9BE1FA9ADB5001D8C84 /* SignInTabContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInTabContainerView.h; sourceTree = "<group>"; };
-		7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInTabContainerView.m; sourceTree = "<group>"; };
-		7CEFC9C11FA9B293001D8C84 /* SignedMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignedMemberListViewController.h; sourceTree = "<group>"; };
-		7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignedMemberListViewController.m; sourceTree = "<group>"; };
-		7CEFC9C41FA9B2B5001D8C84 /* UnsignedMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsignedMemberListViewController.h; sourceTree = "<group>"; };
-		7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnsignedMemberListViewController.m; sourceTree = "<group>"; };
-		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
-		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
+		9218607A1FA9B9930018D982 /* NoticeSaveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveViewController.h; sourceTree = "<group>"; };
+		9218607B1FA9B9930018D982 /* NoticeSaveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveViewController.m; sourceTree = "<group>"; };
+		9218607D1FA9BBC00018D982 /* NoticeSaveTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveTitleCell.h; sourceTree = "<group>"; };
+		9218607E1FA9BBC00018D982 /* NoticeSaveTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveTitleCell.m; sourceTree = "<group>"; };
+		921860801FA9BBDB0018D982 /* NoticeSaveContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveContentCell.h; sourceTree = "<group>"; };
+		921860811FA9BBDB0018D982 /* NoticeSaveContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveContentCell.m; sourceTree = "<group>"; };
+		921860831FA9BC1D0018D982 /* NoticeSaveImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveImageCell.h; sourceTree = "<group>"; };
+		921860841FA9BC1D0018D982 /* NoticeSaveImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveImageCell.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -400,6 +418,18 @@
 		923427A41FA823AE003BCEFD /* MainProjectDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainProjectDetailView.m; sourceTree = "<group>"; };
 		923427A61FA823C7003BCEFD /* MainClassDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainClassDetailView.h; sourceTree = "<group>"; };
 		923427A71FA823C7003BCEFD /* MainClassDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainClassDetailView.m; sourceTree = "<group>"; };
+		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
+		92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadFirstStepRequest.m; sourceTree = "<group>"; };
+		92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadSecondStepRequest.h; sourceTree = "<group>"; };
+		92CAA6311FAAB69300DB5873 /* QADataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QADataManager.m; sourceTree = "<group>"; };
+		92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadSecondStepRequest.m; sourceTree = "<group>"; };
+		92CAA6331FAAB69400DB5873 /* QAFileUploadFirstStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadFirstStepRequest.h; sourceTree = "<group>"; };
+		92CAA63A1FAACD3100DB5873 /* FDActionSheetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDActionSheetView.h; sourceTree = "<group>"; };
+		92CAA63B1FAACD3100DB5873 /* FDActionSheetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDActionSheetView.m; sourceTree = "<group>"; };
+		92CAA63D1FAACDDA00DB5873 /* FDActionSheetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDActionSheetCell.h; sourceTree = "<group>"; };
+		92CAA63E1FAACDDA00DB5873 /* FDActionSheetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDActionSheetCell.m; sourceTree = "<group>"; };
+		92CAA6401FAACDF400DB5873 /* FDActionSheetFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDActionSheetFooterView.h; sourceTree = "<group>"; };
+		92CAA6411FAACDF400DB5873 /* FDActionSheetFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDActionSheetFooterView.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -478,6 +508,12 @@
 			children = (
 				7CEFC8331FA06543001D8C84 /* AlertView.h */,
 				7CEFC8341FA06543001D8C84 /* AlertView.m */,
+				92CAA63A1FAACD3100DB5873 /* FDActionSheetView.h */,
+				92CAA63B1FAACD3100DB5873 /* FDActionSheetView.m */,
+				92CAA63D1FAACDDA00DB5873 /* FDActionSheetCell.h */,
+				92CAA63E1FAACDDA00DB5873 /* FDActionSheetCell.m */,
+				92CAA6401FAACDF400DB5873 /* FDActionSheetFooterView.h */,
+				92CAA6411FAACDF400DB5873 /* FDActionSheetFooterView.m */,
 			);
 			path = AlertFramework;
 			sourceTree = "<group>";
@@ -932,6 +968,8 @@
 				921860581FA965E00018D982 /* NoticeListViewController.m */,
 				921860671FA99C3C0018D982 /* NoticeDetailViewController.h */,
 				921860681FA99C3C0018D982 /* NoticeDetailViewController.m */,
+				9218607A1FA9B9930018D982 /* NoticeSaveViewController.h */,
+				9218607B1FA9B9930018D982 /* NoticeSaveViewController.m */,
 			);
 			path = "通知管理";
 			sourceTree = "<group>";
@@ -943,6 +981,12 @@
 				921860651FA97FEC0018D982 /* FSDefaultHeaderFooterView.m */,
 				921860611FA978A90018D982 /* NoticeListCell.h */,
 				921860621FA978A90018D982 /* NoticeListCell.m */,
+				9218607D1FA9BBC00018D982 /* NoticeSaveTitleCell.h */,
+				9218607E1FA9BBC00018D982 /* NoticeSaveTitleCell.m */,
+				921860801FA9BBDB0018D982 /* NoticeSaveContentCell.h */,
+				921860811FA9BBDB0018D982 /* NoticeSaveContentCell.m */,
+				921860831FA9BC1D0018D982 /* NoticeSaveImageCell.h */,
+				921860841FA9BC1D0018D982 /* NoticeSaveImageCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -950,6 +994,12 @@
 		9218606A1FA9AFE90018D982 /* 通知 */ = {
 			isa = PBXGroup;
 			children = (
+				92CAA62E1FAAB69300DB5873 /* QADataManager.h */,
+				92CAA6311FAAB69300DB5873 /* QADataManager.m */,
+				92CAA6331FAAB69400DB5873 /* QAFileUploadFirstStepRequest.h */,
+				92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */,
+				92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */,
+				92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */,
 				9218606E1FA9B0160018D982 /* NoticeListFetcher.h */,
 				9218606B1FA9B0150018D982 /* NoticeListFetcher.m */,
 				9218606C1FA9B0150018D982 /* NoticeListRequest.h */,
@@ -1144,6 +1194,7 @@
 				7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */,
 				7CEFC9781FA81106001D8C84 /* SignInListRequest.m in Sources */,
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
+				92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */,
 				921860701FA9B0160018D982 /* NoticeListRequest.m in Sources */,
@@ -1151,6 +1202,7 @@
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
+				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
@@ -1166,10 +1218,12 @@
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
 				7CEFC8E61FA06791001D8C84 /* LoginRequest.m in Sources */,
 				921860691FA99C3C0018D982 /* NoticeDetailViewController.m in Sources */,
+				9218607F1FA9BBC00018D982 /* NoticeSaveTitleCell.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
 				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
+				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
 				921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
@@ -1180,8 +1234,10 @@
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
+				92CAA63C1FAACD3100DB5873 /* FDActionSheetView.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
+				92CAA63F1FAACDDA00DB5873 /* FDActionSheetCell.m in Sources */,
 				7CEFC8861FA065D6001D8C84 /* YXPostRequest.m in Sources */,
 				7CEFC8991FA06614001D8C84 /* CollectionViewEqualSpaceFlowLayout.m in Sources */,
 				7CEFC8FA1FA068D3001D8C84 /* BaseViewController.m in Sources */,
@@ -1224,10 +1280,12 @@
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
+				921860851FA9BC1D0018D982 /* NoticeSaveImageCell.m in Sources */,
 				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
 				923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */,
+				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
 				7CEFC8C01FA06627001D8C84 /* CloneCategory.m in Sources */,
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
@@ -1242,9 +1300,11 @@
 				7CEFC9331FA0808A001D8C84 /* CourseViewController.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
+				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
+				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
 				7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */,
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
@@ -1254,7 +1314,6 @@
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
-				9234278F1FA722E4003BCEFD /* GetCurrentClazsRequest.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,

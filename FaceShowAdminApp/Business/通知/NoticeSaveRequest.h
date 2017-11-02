@@ -7,7 +7,15 @@
 //
 
 #import "YXGetRequest.h"
+#import "NoticeListRequest.h"
+@interface NoticeSaveRequestItem : HttpBaseRequestItem
+@property (nonatomic, strong) NoticeListRequestItem_Data_NoticeInfos_Elements *data;
+
+@end
 
 @interface NoticeSaveRequest : YXGetRequest
-
+@property (nonatomic, strong) NSString<Optional> *clazsId;
+@property (nonatomic, strong) NSString<Optional> *title;
+@property (nonatomic, strong) NSString<Optional> *content;
+@property (nonatomic, strong) NSString<Optional> *url;
 @end

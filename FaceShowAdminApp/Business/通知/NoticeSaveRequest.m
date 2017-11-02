@@ -7,7 +7,14 @@
 //
 
 #import "NoticeSaveRequest.h"
+@implementation NoticeSaveRequestItem
 
+@end
 @implementation NoticeSaveRequest
-
+- (instancetype)init {
+    if (self = [super init]) {
+        self.method = @"notice.save";
+    }
+    return self;
+}
 @end
