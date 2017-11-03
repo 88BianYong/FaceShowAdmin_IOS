@@ -51,7 +51,7 @@
 - (void)setupUI {
     self.titleView = [[SAMTextView alloc]init];
     self.titleView.backgroundColor = [UIColor whiteColor];
-    self.titleView.font = [UIFont systemFontOfSize:16];
+    self.titleView.font = [UIFont boldSystemFontOfSize:16];
     self.titleView.textColor = [UIColor colorWithHexString:@"333333"];
     NSString *placeholderStr = @"签到标题（最多20字）";
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:placeholderStr];
@@ -60,7 +60,7 @@
     self.titleView.attributedPlaceholder = attrStr;
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineHeightMultiple = 1.2;
-    NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:16]};
+    NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont boldSystemFontOfSize:16]};
     self.titleView.typingAttributes = dic;
     self.titleView.textContainerInset = UIEdgeInsetsMake(20, 15, 20, 15);
     self.titleView.delegate = self;
@@ -165,14 +165,14 @@
     }];
     self.promptView = [[SAMTextView alloc]init];
     self.promptView.backgroundColor = [UIColor whiteColor];
-    self.promptView.font = [UIFont systemFontOfSize:14];
+    self.promptView.font = [UIFont boldSystemFontOfSize:14];
     self.promptView.textColor = [UIColor colorWithHexString:@"333333"];
     placeholderStr = @"签到成功提示语（最多20字）";
     attrStr = [[NSMutableAttributedString alloc]initWithString:placeholderStr];
     [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"cccccc"] range:NSMakeRange(0, placeholderStr.length)];
     [attrStr addAttribute:NSFontAttributeName value:self.promptView.font range:NSMakeRange(0, placeholderStr.length)];
     self.promptView.attributedPlaceholder = attrStr;
-    dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:14]};
+    dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont boldSystemFontOfSize:14]};
     self.promptView.typingAttributes = dic;
     self.promptView.textContainerInset = UIEdgeInsetsMake(20, 15, 20, 15);
     self.promptView.delegate = self;
@@ -220,6 +220,7 @@
     }];
     self.alertView = [[AlertView alloc]init];
     self.alertView.contentView = settingView;
+    self.alertView.hideWhenMaskClicked = YES;
     [self.alertView showWithLayout:^(AlertView *view) {
         view.contentView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 250);
         [UIView animateWithDuration:0.3 animations:^{
