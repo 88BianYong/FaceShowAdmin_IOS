@@ -36,9 +36,15 @@
     paragraphStyle.lineHeightMultiple = 1.2f;
     paragraphStyle.alignment = NSTextAlignmentCenter;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:_itemData.clazsInfo.clazsName?:@""];
-    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _itemData.projectInfo.projectName.length)];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _itemData.clazsInfo.clazsName.length)];
     self.titleLabel.attributedText = attributedString;
-    self.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",_itemData.clazsInfo.startTime,_itemData.clazsInfo.endTime];
+    NSArray *startArr = [_itemData.projectInfo.startTime componentsSeparatedByString:@" "];
+    NSString *startDate = startArr.firstObject;
+    startDate = [startDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    NSArray *endArr = [_itemData.projectInfo.endTime componentsSeparatedByString:@" "];
+    NSString *endDate = endArr.firstObject;
+    endDate = [endDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",startDate,endDate];
     
     NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:_itemData.clazsInfo.desc?:@""];
     [att addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _itemData.clazsInfo.desc.length)];

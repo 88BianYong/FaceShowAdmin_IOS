@@ -109,9 +109,17 @@
 - (void)setItem:(ClazsGetClazsRequestItem_Data_TodayCourses *)item {
     _item = item;
     self.titleLabel.text = item.courseName;
-    NSString *startTime = [item.startTime omitSecondOfFullDateString];
-    NSString *endTime = [item.endTime omitSecondOfFullDateString];
-    self.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",startTime,endTime];
+    NSArray *startArr = [item.startTime componentsSeparatedByString:@" "];
+    NSString *startDate = startArr.firstObject;
+    startDate = [startDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    NSString *startTime = startArr.lastObject;
+    startTime = [startTime substringToIndex:5];
+    NSArray *endArr = [item.endTime componentsSeparatedByString:@" "];
+    NSString *endDate = endArr.firstObject;
+    endDate = [endDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    NSString *endTime = endArr.lastObject;
+    endTime = [endTime substringToIndex:5];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@",startDate,startTime,endTime];    
     self.teacherLabel.text = isEmpty([self lecturesName]) ? @"暂无" : [self lecturesName];
     self.placeLabel.text = isEmpty(item.site) ? @"待定" : item.site;
 }

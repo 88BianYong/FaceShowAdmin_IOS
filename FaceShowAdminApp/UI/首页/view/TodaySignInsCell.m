@@ -82,12 +82,22 @@
 - (void)setTodySignIns:(ClazsGetClazsRequestItem_Data_TodaySignIns *)todySignIns {
     _todySignIns = todySignIns;
     self.titleLabel.text = _todySignIns.title;
-    self.timeLabel.text = [NSString stringWithFormat:@"%@ - %@",self.todySignIns.startTime, self.todySignIns.endTime];
+    NSArray *startArr = [_todySignIns.startTime componentsSeparatedByString:@" "];
+    NSString *startDate = startArr.firstObject;
+    startDate = [startDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    NSString *startTime = startArr.lastObject;
+    startTime = [startTime substringToIndex:5];
+    NSArray *endArr = [_todySignIns.endTime componentsSeparatedByString:@" "];
+    NSString *endDate = endArr.firstObject;
+    endDate = [endDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    NSString *endTime = endArr.lastObject;
+    endTime = [endTime substringToIndex:5];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@",startDate,startTime,endTime];
     NSString *signInsString = [NSString stringWithFormat:@"已签到: %@/%@",_todySignIns.signInUserNum,_todySignIns.totalUserNum];
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:signInsString];
     [attrStr addAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont systemFontOfSize:12.0f]} range:NSMakeRange(0, 4)];
     self.signInsLabel.attributedText = attrStr;
-    self.signInsRateLabel.text = [NSString stringWithFormat:@"签到率%0.1f",_todySignIns.signInUserNum.floatValue/_todySignIns.totalUserNum.floatValue];
+    self.signInsRateLabel.text = [NSString stringWithFormat:@"签到率%0.0f%%",_todySignIns.signInUserNum.floatValue/_todySignIns.totalUserNum.floatValue * 100];
 }
 - (void)awakeFromNib {
     [super awakeFromNib];

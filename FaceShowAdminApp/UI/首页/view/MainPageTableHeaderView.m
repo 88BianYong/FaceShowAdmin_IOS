@@ -94,12 +94,12 @@
     }];
 
     [self.courseView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.containerView.mas_centerX).multipliedBy(1.0f/2.0f);
+        make.centerX.equalTo(self.containerView.mas_centerX).multipliedBy(1.0f/2.0f).offset(-9.0f);
         make.centerY.equalTo(self.containerView.mas_centerY);
     }];
     
     [self.taskView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.containerView.mas_centerX).multipliedBy(3.0f/2.0f);
+        make.centerX.equalTo(self.containerView.mas_centerX).multipliedBy(3.0f/2.0f).offset(-9.0f);
         make.centerY.equalTo(self.containerView.mas_centerY);
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
