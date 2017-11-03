@@ -138,8 +138,8 @@
     [navRightBtn setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-正常态"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-点击态"] forState:UIControlStateHighlighted];
-    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 24);
-    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -38);
+    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 14);
+    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -28);
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
