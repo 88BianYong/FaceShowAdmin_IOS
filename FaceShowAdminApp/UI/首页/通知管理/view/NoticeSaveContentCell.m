@@ -26,7 +26,7 @@
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).offset(15.0f);
             make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
-            make.top.equalTo(self.contentView.mas_top).offset(15.0f);
+            make.top.equalTo(self.contentView.mas_top).offset(8.5f);
             make.bottom.equalTo(self.contentView.mas_bottom).offset(-30.0f);
         }];
         UILabel *totaLabel = [[UILabel alloc] init];

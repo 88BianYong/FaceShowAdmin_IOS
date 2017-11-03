@@ -14,6 +14,8 @@
 #import "YXNoFloatingHeaderFooterTableView.h"
 #import "YXImagePickerController.h"
 #import "QADataManager.h"
+#import "FDActionSheetView.h"
+#import "AlertView.h"
 
 @interface NoticeSaveViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
@@ -23,7 +25,7 @@
 @property (nonatomic, strong) UIButton *navRightBtn;
 @property (nonatomic, strong) YXImagePickerController *imagePickerController;
 @property (nonatomic, strong) NoticeSaveRequest *saveRequest;
-
+@property (nonatomic, strong) AlertView *alertView;
 @end
 
 @implementation NoticeSaveViewController
@@ -51,6 +53,8 @@
     WEAK_SELF
     [[self.imageCell.chooseButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
+        [self.titleCell.textField resignFirstResponder];
+        [self.contentCell.textView resignFirstResponder];
         [self showAlertView];
     }];
     [[self.imageCell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -72,7 +76,6 @@
     [self nyx_setupLeftWithImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 30, 30)] action:^{
         STRONG_SELF
         [self dismissViewControllerAnimated:YES completion:^{
-            
         }];
     }];
 }
@@ -82,38 +85,109 @@
     }];
 }
 - (void)showAlertView {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    actionSheetView.titleArray = @[@{@"title":@"拍照"},
+                                   @{@"title":@"相册"}];
+    self.alertView = [[AlertView alloc]init];
+    self.alertView.backgroundColor = [UIColor clearColor];
+    self.alertView.hideWhenMaskClicked = YES;
+    self.alertView.contentView = actionSheetView;
     WEAK_SELF
-    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [self.alertView setHideBlock:^(AlertView *view) {
         STRONG_SELF
-    }];
-    [alertVC addAction:cancleAction];
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        STRONG_SELF
-        [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypeCamera
-         rootViewController:self completion:^(UIImage *selectedImage) {
-            STRONG_SELF
-            [self presentNextPublishViewController:selectedImage];
+        [UIView animateWithDuration:0.3 animations:^{
+            [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(view.mas_left);
+                make.right.equalTo(view.mas_right);
+                make.top.equalTo(view.mas_bottom);
+                make.height.mas_offset(155.0f);
+            }];
+            [view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
         }];
     }];
-    [alertVC addAction:cameraAction];
-    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.alertView showWithLayout:^(AlertView *view) {
         STRONG_SELF
-        [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary rootViewController:self completion:^(UIImage *selectedImage) {
-            STRONG_SELF
-            [self presentNextPublishViewController:selectedImage];
+        [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(view.mas_left);
+            make.right.equalTo(view.mas_right);
+            make.top.equalTo(view.mas_bottom);
+            make.height.mas_offset(155.0f );
         }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.3 animations:^{
+                [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_left);
+                    make.right.equalTo(view.mas_right);
+                    make.bottom.equalTo(view.mas_bottom);
+                    make.height.mas_offset(155.0f);
+                }];
+                [view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+        });
     }];
-    [alertVC addAction:photoAction];
-    
-    UIViewController *visibleVC = [self nyx_visibleViewController];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        alertVC.popoverPresentationController.sourceView = visibleVC.view;
-        alertVC.popoverPresentationController.sourceRect = CGRectMake(200,100,200,200);
-    }
-    
-    [visibleVC presentViewController:alertVC animated:YES completion:nil];
+    actionSheetView.actionSheetBlock = ^(NSInteger integer) {
+        STRONG_SELF
+        if (integer == 1) {
+            [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypeCamera
+                                             rootViewController:self completion:^(UIImage *selectedImage) {
+                                                 STRONG_SELF
+                                                 [self presentNextPublishViewController:selectedImage];
+                                             }];
+            
+        }else if (integer == 2) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary rootViewController:self completion:^(UIImage *selectedImage) {
+                    STRONG_SELF
+                    [self presentNextPublishViewController:selectedImage];
+                }];
+            });
+            
+        }
+        [self.alertView hide];
+    };
 }
+//- (void)showAlertView {
+//    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    WEAK_SELF
+//    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        STRONG_SELF
+//    }];
+//    [alertVC addAction:cancleAction];
+//    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        STRONG_SELF
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypeCamera
+//                                             rootViewController:self completion:^(UIImage *selectedImage) {
+//                                                 STRONG_SELF
+//                                                 [self presentNextPublishViewController:selectedImage];
+//                                             }];
+//        });
+//    }];
+//    [alertVC addAction:cameraAction];
+//    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        STRONG_SELF
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary rootViewController:self completion:^(UIImage *selectedImage) {
+//                STRONG_SELF
+//                [self presentNextPublishViewController:selectedImage];
+//            }];
+//        });
+//
+//    }];
+//    [alertVC addAction:photoAction];
+//    
+//    UIViewController *visibleVC = [self nyx_visibleViewController];
+//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//        alertVC.popoverPresentationController.sourceView = visibleVC.view;
+//        alertVC.popoverPresentationController.sourceRect = CGRectMake(200,100,200,200);
+//    }
+//    
+//    [visibleVC presentViewController:alertVC animated:YES completion:nil];
+//}
 - (void)presentNextPublishViewController:(UIImage *)image {
     self.imageCell.photoImageView.image = image;
     self.imageCell.isContainImage = YES;

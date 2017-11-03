@@ -122,7 +122,7 @@
                 self.imageView.backgroundColor = [UIColor clearColor];
             }
         }];
-        self.contentHeight += 21.0f + SCREEN_WIDTH - 25.0f - 25.0f - 5.0f;
+        self.contentHeight += 21.0f + SCREEN_WIDTH - 25.0f - 25.0f + 55.0f;
         self.imageView.hidden = NO;
     }
 
