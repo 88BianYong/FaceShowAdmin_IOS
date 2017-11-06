@@ -99,7 +99,6 @@
 		7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC92A1FA07F8A001D8C84 /* LoginViewController.m */; };
 		7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC92E1FA08067001D8C84 /* MainPageViewController.m */; };
 		7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9361FA0816D001D8C84 /* TaskViewController.m */; };
-		7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC93A1FA0819B001D8C84 /* ClassMomentViewController.m */; };
 		7CEFC93D1FA0866C001D8C84 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC93C1FA0866C001D8C84 /* Empty.xib */; };
 		7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9521FA6D330001D8C84 /* PasswordInputView.m */; };
 		7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9541FA6D330001D8C84 /* VerifyCodeInputView.m */; };
@@ -160,6 +159,30 @@
 		92CAA63C1FAACD3100DB5873 /* FDActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA63B1FAACD3100DB5873 /* FDActionSheetView.m */; };
 		92CAA63F1FAACDDA00DB5873 /* FDActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA63E1FAACDDA00DB5873 /* FDActionSheetCell.m */; };
 		92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6411FAACDF400DB5873 /* FDActionSheetFooterView.m */; };
+		92CAA6701FAFFE8A00DB5873 /* ClassMomentCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6621FAFFE8100DB5873 /* ClassMomentCommentRequest.m */; };
+		92CAA6711FAFFE8E00DB5873 /* ClassMomentClickLikeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA66E1FAFFE8600DB5873 /* ClassMomentClickLikeRequest.m */; };
+		92CAA6721FAFFE9100DB5873 /* classMomentClickLike_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 92CAA6661FAFFE8200DB5873 /* classMomentClickLike_mock.json */; };
+		92CAA6731FAFFE9A00DB5873 /* classMomentComment_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 92CAA6641FAFFE8200DB5873 /* classMomentComment_mock.json */; };
+		92CAA6741FAFFE9F00DB5873 /* classMomentList_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 92CAA6651FAFFE8200DB5873 /* classMomentList_mock.json */; };
+		92CAA6751FAFFEA100DB5873 /* ClassMomentListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA66D1FAFFE8500DB5873 /* ClassMomentListFetcher.m */; };
+		92CAA6761FAFFEA400DB5873 /* ClassMomentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA66F1FAFFE8600DB5873 /* ClassMomentListRequest.m */; };
+		92CAA6771FAFFEA700DB5873 /* ClassMomentPublishRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA66A1FAFFE8400DB5873 /* ClassMomentPublishRequest.m */; };
+		92CAA6781FAFFEA900DB5873 /* classMomentPublish_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 92CAA66B1FAFFE8500DB5873 /* classMomentPublish_mock.json */; };
+		92CAA6791FAFFEBD00DB5873 /* CircleSpreadTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6591FAFFE3700DB5873 /* CircleSpreadTransition.m */; };
+		92CAA67A1FAFFEBD00DB5873 /* PhotosScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA65C1FAFFE3700DB5873 /* PhotosScrollView.m */; };
+		92CAA67B1FAFFEBD00DB5873 /* PreviewPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA65D1FAFFE3800DB5873 /* PreviewPhotosView.m */; };
+		92CAA67C1FAFFEBD00DB5873 /* ShowPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA65A1FAFFE3700DB5873 /* ShowPhotosViewController.m */; };
+		92CAA67D1FAFFEBD00DB5873 /* UITableView+TemplateLayoutHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA65F1FAFFE3800DB5873 /* UITableView+TemplateLayoutHeaderView.m */; };
+		92CAA67E1FAFFEBD00DB5873 /* ClassMomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA64F1FAFFE1500DB5873 /* ClassMomentCell.m */; };
+		92CAA67F1FAFFEBD00DB5873 /* ClassMomentFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA64E1FAFFE1500DB5873 /* ClassMomentFloatingView.m */; };
+		92CAA6801FAFFEBD00DB5873 /* ClassMomentFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6531FAFFE1600DB5873 /* ClassMomentFooterView.m */; };
+		92CAA6811FAFFEBD00DB5873 /* ClassMomentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6521FAFFE1600DB5873 /* ClassMomentHeaderView.m */; };
+		92CAA6821FAFFEBD00DB5873 /* ClassMomentLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA64B1FAFFE1400DB5873 /* ClassMomentLikeView.m */; };
+		92CAA6831FAFFEBD00DB5873 /* ClassMomentTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA64D1FAFFE1500DB5873 /* ClassMomentTableHeaderView.m */; };
+		92CAA6841FAFFEBD00DB5873 /* ClassMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6481FAFFDD600DB5873 /* ClassMomentViewController.m */; };
+		92CAA6851FAFFEBD00DB5873 /* PublishMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6471FAFFDD600DB5873 /* PublishMomentViewController.m */; };
+		92CAA6881FAFFF0B00DB5873 /* CommentInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6871FAFFF0B00DB5873 /* CommentInputView.m */; };
+		92CAA68B1FB0173A00DB5873 /* ClassMomentDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA68A1FB0173A00DB5873 /* ClassMomentDeleteRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -342,8 +365,6 @@
 		7CEFC92E1FA08067001D8C84 /* MainPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageViewController.m; sourceTree = "<group>"; };
 		7CEFC9351FA0816D001D8C84 /* TaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		7CEFC9361FA0816D001D8C84 /* TaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
-		7CEFC9391FA0819B001D8C84 /* ClassMomentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentViewController.h; sourceTree = "<group>"; };
-		7CEFC93A1FA0819B001D8C84 /* ClassMomentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentViewController.m; sourceTree = "<group>"; };
 		7CEFC93C1FA0866C001D8C84 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		7CEFC9511FA6D330001D8C84 /* LoginActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginActionView.h; sourceTree = "<group>"; };
 		7CEFC9521FA6D330001D8C84 /* PasswordInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordInputView.m; sourceTree = "<group>"; };
@@ -460,6 +481,50 @@
 		92CAA63E1FAACDDA00DB5873 /* FDActionSheetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDActionSheetCell.m; sourceTree = "<group>"; };
 		92CAA6401FAACDF400DB5873 /* FDActionSheetFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDActionSheetFooterView.h; sourceTree = "<group>"; };
 		92CAA6411FAACDF400DB5873 /* FDActionSheetFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDActionSheetFooterView.m; sourceTree = "<group>"; };
+		92CAA6451FAFFDD500DB5873 /* PublishMomentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishMomentViewController.h; sourceTree = "<group>"; };
+		92CAA6461FAFFDD500DB5873 /* ClassMomentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentViewController.h; sourceTree = "<group>"; };
+		92CAA6471FAFFDD600DB5873 /* PublishMomentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishMomentViewController.m; sourceTree = "<group>"; };
+		92CAA6481FAFFDD600DB5873 /* ClassMomentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentViewController.m; sourceTree = "<group>"; };
+		92CAA64A1FAFFE1400DB5873 /* ClassMomentHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentHeaderView.h; sourceTree = "<group>"; };
+		92CAA64B1FAFFE1400DB5873 /* ClassMomentLikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentLikeView.m; sourceTree = "<group>"; };
+		92CAA64C1FAFFE1400DB5873 /* ClassMomentTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentTableHeaderView.h; sourceTree = "<group>"; };
+		92CAA64D1FAFFE1500DB5873 /* ClassMomentTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentTableHeaderView.m; sourceTree = "<group>"; };
+		92CAA64E1FAFFE1500DB5873 /* ClassMomentFloatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentFloatingView.m; sourceTree = "<group>"; };
+		92CAA64F1FAFFE1500DB5873 /* ClassMomentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentCell.m; sourceTree = "<group>"; };
+		92CAA6501FAFFE1600DB5873 /* ClassMomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentCell.h; sourceTree = "<group>"; };
+		92CAA6511FAFFE1600DB5873 /* ClassMomentFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentFooterView.h; sourceTree = "<group>"; };
+		92CAA6521FAFFE1600DB5873 /* ClassMomentHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentHeaderView.m; sourceTree = "<group>"; };
+		92CAA6531FAFFE1600DB5873 /* ClassMomentFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentFooterView.m; sourceTree = "<group>"; };
+		92CAA6541FAFFE1600DB5873 /* ClassMomentFloatingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentFloatingView.h; sourceTree = "<group>"; };
+		92CAA6551FAFFE1600DB5873 /* ClassMomentLikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentLikeView.h; sourceTree = "<group>"; };
+		92CAA6571FAFFE3700DB5873 /* UITableView+TemplateLayoutHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+TemplateLayoutHeaderView.h"; sourceTree = "<group>"; };
+		92CAA6581FAFFE3700DB5873 /* CircleSpreadTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleSpreadTransition.h; sourceTree = "<group>"; };
+		92CAA6591FAFFE3700DB5873 /* CircleSpreadTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleSpreadTransition.m; sourceTree = "<group>"; };
+		92CAA65A1FAFFE3700DB5873 /* ShowPhotosViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowPhotosViewController.m; sourceTree = "<group>"; };
+		92CAA65B1FAFFE3700DB5873 /* ShowPhotosViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowPhotosViewController.h; sourceTree = "<group>"; };
+		92CAA65C1FAFFE3700DB5873 /* PhotosScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosScrollView.m; sourceTree = "<group>"; };
+		92CAA65D1FAFFE3800DB5873 /* PreviewPhotosView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreviewPhotosView.m; sourceTree = "<group>"; };
+		92CAA65E1FAFFE3800DB5873 /* PhotosScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosScrollView.h; sourceTree = "<group>"; };
+		92CAA65F1FAFFE3800DB5873 /* UITableView+TemplateLayoutHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TemplateLayoutHeaderView.m"; sourceTree = "<group>"; };
+		92CAA6601FAFFE3800DB5873 /* PreviewPhotosView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreviewPhotosView.h; sourceTree = "<group>"; };
+		92CAA6621FAFFE8100DB5873 /* ClassMomentCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentCommentRequest.m; sourceTree = "<group>"; };
+		92CAA6631FAFFE8100DB5873 /* ClassMomentListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentListRequest.h; sourceTree = "<group>"; };
+		92CAA6641FAFFE8200DB5873 /* classMomentComment_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = classMomentComment_mock.json; sourceTree = "<group>"; };
+		92CAA6651FAFFE8200DB5873 /* classMomentList_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = classMomentList_mock.json; sourceTree = "<group>"; };
+		92CAA6661FAFFE8200DB5873 /* classMomentClickLike_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = classMomentClickLike_mock.json; sourceTree = "<group>"; };
+		92CAA6671FAFFE8200DB5873 /* ClassMomentCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentCommentRequest.h; sourceTree = "<group>"; };
+		92CAA6681FAFFE8300DB5873 /* ClassMomentClickLikeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentClickLikeRequest.h; sourceTree = "<group>"; };
+		92CAA6691FAFFE8400DB5873 /* ClassMomentPublishRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentPublishRequest.h; sourceTree = "<group>"; };
+		92CAA66A1FAFFE8400DB5873 /* ClassMomentPublishRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentPublishRequest.m; sourceTree = "<group>"; };
+		92CAA66B1FAFFE8500DB5873 /* classMomentPublish_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = classMomentPublish_mock.json; sourceTree = "<group>"; };
+		92CAA66C1FAFFE8500DB5873 /* ClassMomentListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentListFetcher.h; sourceTree = "<group>"; };
+		92CAA66D1FAFFE8500DB5873 /* ClassMomentListFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentListFetcher.m; sourceTree = "<group>"; };
+		92CAA66E1FAFFE8600DB5873 /* ClassMomentClickLikeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentClickLikeRequest.m; sourceTree = "<group>"; };
+		92CAA66F1FAFFE8600DB5873 /* ClassMomentListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentListRequest.m; sourceTree = "<group>"; };
+		92CAA6861FAFFF0A00DB5873 /* CommentInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentInputView.h; sourceTree = "<group>"; };
+		92CAA6871FAFFF0B00DB5873 /* CommentInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentInputView.m; sourceTree = "<group>"; };
+		92CAA6891FB0173A00DB5873 /* ClassMomentDeleteRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentDeleteRequest.h; sourceTree = "<group>"; };
+		92CAA68A1FB0173A00DB5873 /* ClassMomentDeleteRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentDeleteRequest.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -725,6 +790,7 @@
 			isa = PBXGroup;
 			children = (
 				7C672B021FB00218004D93DF /* 课程 */,
+				92CAA6611FAFFE6600DB5873 /* 班级圈 */,
 				9218606A1FA9AFE90018D982 /* 通知 */,
 				7CEFC9751FA810BD001D8C84 /* 签到记录 */,
 				923427421FA6C3EB003BCEFD /* 首页 */,
@@ -913,8 +979,11 @@
 		7CEFC9381FA08178001D8C84 /* 班级圈 */ = {
 			isa = PBXGroup;
 			children = (
-				7CEFC9391FA0819B001D8C84 /* ClassMomentViewController.h */,
-				7CEFC93A1FA0819B001D8C84 /* ClassMomentViewController.m */,
+				92CAA6491FAFFDD900DB5873 /* view */,
+				92CAA6461FAFFDD500DB5873 /* ClassMomentViewController.h */,
+				92CAA6481FAFFDD600DB5873 /* ClassMomentViewController.m */,
+				92CAA6451FAFFDD500DB5873 /* PublishMomentViewController.h */,
+				92CAA6471FAFFDD600DB5873 /* PublishMomentViewController.m */,
 			);
 			path = "班级圈";
 			sourceTree = "<group>";
@@ -1117,6 +1186,68 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		92CAA6491FAFFDD900DB5873 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				92CAA6561FAFFE1900DB5873 /* 看图片 */,
+				92CAA6501FAFFE1600DB5873 /* ClassMomentCell.h */,
+				92CAA64F1FAFFE1500DB5873 /* ClassMomentCell.m */,
+				92CAA6541FAFFE1600DB5873 /* ClassMomentFloatingView.h */,
+				92CAA64E1FAFFE1500DB5873 /* ClassMomentFloatingView.m */,
+				92CAA6511FAFFE1600DB5873 /* ClassMomentFooterView.h */,
+				92CAA6531FAFFE1600DB5873 /* ClassMomentFooterView.m */,
+				92CAA64A1FAFFE1400DB5873 /* ClassMomentHeaderView.h */,
+				92CAA6521FAFFE1600DB5873 /* ClassMomentHeaderView.m */,
+				92CAA6551FAFFE1600DB5873 /* ClassMomentLikeView.h */,
+				92CAA64B1FAFFE1400DB5873 /* ClassMomentLikeView.m */,
+				92CAA64C1FAFFE1400DB5873 /* ClassMomentTableHeaderView.h */,
+				92CAA64D1FAFFE1500DB5873 /* ClassMomentTableHeaderView.m */,
+				92CAA6861FAFFF0A00DB5873 /* CommentInputView.h */,
+				92CAA6871FAFFF0B00DB5873 /* CommentInputView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		92CAA6561FAFFE1900DB5873 /* 看图片 */ = {
+			isa = PBXGroup;
+			children = (
+				92CAA6581FAFFE3700DB5873 /* CircleSpreadTransition.h */,
+				92CAA6591FAFFE3700DB5873 /* CircleSpreadTransition.m */,
+				92CAA65E1FAFFE3800DB5873 /* PhotosScrollView.h */,
+				92CAA65C1FAFFE3700DB5873 /* PhotosScrollView.m */,
+				92CAA6601FAFFE3800DB5873 /* PreviewPhotosView.h */,
+				92CAA65D1FAFFE3800DB5873 /* PreviewPhotosView.m */,
+				92CAA65B1FAFFE3700DB5873 /* ShowPhotosViewController.h */,
+				92CAA65A1FAFFE3700DB5873 /* ShowPhotosViewController.m */,
+				92CAA6571FAFFE3700DB5873 /* UITableView+TemplateLayoutHeaderView.h */,
+				92CAA65F1FAFFE3800DB5873 /* UITableView+TemplateLayoutHeaderView.m */,
+			);
+			path = "看图片";
+			sourceTree = "<group>";
+		};
+		92CAA6611FAFFE6600DB5873 /* 班级圈 */ = {
+			isa = PBXGroup;
+			children = (
+				92CAA6661FAFFE8200DB5873 /* classMomentClickLike_mock.json */,
+				92CAA6681FAFFE8300DB5873 /* ClassMomentClickLikeRequest.h */,
+				92CAA66E1FAFFE8600DB5873 /* ClassMomentClickLikeRequest.m */,
+				92CAA6641FAFFE8200DB5873 /* classMomentComment_mock.json */,
+				92CAA6671FAFFE8200DB5873 /* ClassMomentCommentRequest.h */,
+				92CAA6621FAFFE8100DB5873 /* ClassMomentCommentRequest.m */,
+				92CAA6651FAFFE8200DB5873 /* classMomentList_mock.json */,
+				92CAA66C1FAFFE8500DB5873 /* ClassMomentListFetcher.h */,
+				92CAA66D1FAFFE8500DB5873 /* ClassMomentListFetcher.m */,
+				92CAA6631FAFFE8100DB5873 /* ClassMomentListRequest.h */,
+				92CAA66F1FAFFE8600DB5873 /* ClassMomentListRequest.m */,
+				92CAA66B1FAFFE8500DB5873 /* classMomentPublish_mock.json */,
+				92CAA6691FAFFE8400DB5873 /* ClassMomentPublishRequest.h */,
+				92CAA66A1FAFFE8400DB5873 /* ClassMomentPublishRequest.m */,
+				92CAA6891FB0173A00DB5873 /* ClassMomentDeleteRequest.h */,
+				92CAA68A1FB0173A00DB5873 /* ClassMomentDeleteRequest.m */,
+			);
+			path = "班级圈";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1178,13 +1309,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CAA6721FAFFE9100DB5873 /* classMomentClickLike_mock.json in Resources */,
 				923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */,
+				92CAA6731FAFFE9A00DB5873 /* classMomentComment_mock.json in Resources */,
+				92CAA6741FAFFE9F00DB5873 /* classMomentList_mock.json in Resources */,
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
 				7CEFC82B1FA063A7001D8C84 /* env_config.json in Resources */,
 				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,
 				7CEFC8461FA06577001D8C84 /* MockConfig.plist in Resources */,
 				7CEFC9021FA06A5C001D8C84 /* Default-568h@2x.png in Resources */,
 				7CEFC93D1FA0866C001D8C84 /* Empty.xib in Resources */,
+				92CAA6781FAFFEA900DB5873 /* classMomentPublish_mock.json in Resources */,
 				7CEFC8471FA06577001D8C84 /* neterror_mock.json in Resources */,
 				7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */,
 				7CEFC8451FA06577001D8C84 /* errorcode_mock.json in Resources */,
@@ -1261,6 +1396,7 @@
 				7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */,
 				7CEFC9781FA81106001D8C84 /* SignInListRequest.m in Sources */,
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
+				92CAA67A1FAFFEBD00DB5873 /* PhotosScrollView.m in Sources */,
 				92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */,
@@ -1269,16 +1405,21 @@
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
+				92CAA6761FAFFEA400DB5873 /* ClassMomentListRequest.m in Sources */,
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
+				92CAA67D1FAFFEBD00DB5873 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
+				92CAA6851FAFFEBD00DB5873 /* PublishMomentViewController.m in Sources */,
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
+				92CAA6791FAFFEBD00DB5873 /* CircleSpreadTransition.m in Sources */,
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
+				92CAA67F1FAFFEBD00DB5873 /* ClassMomentFloatingView.m in Sources */,
 				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
@@ -1303,6 +1444,7 @@
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				92CAA63C1FAACD3100DB5873 /* FDActionSheetView.m in Sources */,
+				92CAA6881FAFFF0B00DB5873 /* CommentInputView.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
@@ -1316,6 +1458,9 @@
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
 				7C672AFE1FAAEE6D004D93DF /* SignInDetailRequest.m in Sources */,
+				92CAA67E1FAFFEBD00DB5873 /* ClassMomentCell.m in Sources */,
+				92CAA6751FAFFEA100DB5873 /* ClassMomentListFetcher.m in Sources */,
+				92CAA6701FAFFE8A00DB5873 /* ClassMomentCommentRequest.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
@@ -1332,9 +1477,11 @@
 				7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */,
 				7C672AFB1FAAD356004D93DF /* ReplenishSignInRequest.m in Sources */,
 				7CEFC8481FA06577001D8C84 /* YXMockManager.m in Sources */,
+				92CAA6831FAFFEBD00DB5873 /* ClassMomentTableHeaderView.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
+				92CAA6801FAFFEBD00DB5873 /* ClassMomentFooterView.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
 				7CEFC85D1FA06593001D8C84 /* MJRefreshConst.m in Sources */,
@@ -1352,12 +1499,16 @@
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */,
+				92CAA67C1FAFFEBD00DB5873 /* ShowPhotosViewController.m in Sources */,
+				92CAA67B1FAFFEBD00DB5873 /* PreviewPhotosView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
 				921860851FA9BC1D0018D982 /* NoticeSaveImageCell.m in Sources */,
 				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
+				92CAA6841FAFFEBD00DB5873 /* ClassMomentViewController.m in Sources */,
 				923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
+				92CAA6821FAFFEBD00DB5873 /* ClassMomentLikeView.m in Sources */,
 				7C672B011FAAF387004D93DF /* QRCodeSignInViewController.m in Sources */,
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,
 				7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */,
@@ -1368,15 +1519,18 @@
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
 				7CEFC85C1FA06593001D8C84 /* MJRefreshBaseView.m in Sources */,
 				7CEFC8FB1FA068D3001D8C84 /* FSTabBarController.m in Sources */,
+				92CAA6711FAFFE8E00DB5873 /* ClassMomentClickLikeRequest.m in Sources */,
 				7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
+				92CAA6811FAFFEBD00DB5873 /* ClassMomentHeaderView.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
 				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,
+				92CAA68B1FB0173A00DB5873 /* ClassMomentDeleteRequest.m in Sources */,
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
@@ -1392,6 +1546,7 @@
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
+				92CAA6771FAFFEA700DB5873 /* ClassMomentPublishRequest.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
