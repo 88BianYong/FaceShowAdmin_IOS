@@ -10,7 +10,7 @@
 #import "YXTestViewController.h"
 #import "LoginViewController.h"
 #import "ClassMomentViewController.h"
-#import "CourseViewController.h"
+#import "CourseListViewController.h"
 #import "TaskViewController.h"
 #import "MainPageViewController.h"
 #import "MineViewController.h"
@@ -65,7 +65,7 @@
     [self configTabbarItem:mainVC.tabBarItem image:@"首页icon" selectedImage:@"首页icon选择"];
     FSNavigationController *mainNavi = [[FSNavigationController alloc] initWithRootViewController:mainVC];
     
-    UIViewController *courseVC = [[CourseViewController alloc]init];
+    UIViewController *courseVC = [[CourseListViewController alloc]initWithClazsId:[UserManager sharedInstance].userModel.currentClass.clazsId];
     courseVC.title = @"课程";
     [self configTabbarItem:courseVC.tabBarItem image:@"通知icon" selectedImage:@"通知icon选择"];
     FSNavigationController *courseNavi = [[FSNavigationController alloc] initWithRootViewController:courseVC];
