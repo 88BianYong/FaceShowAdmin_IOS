@@ -86,7 +86,7 @@
     YXDrawerViewController *drawerVC = [[YXDrawerViewController alloc]init];
     drawerVC.paneViewController = tabBarController;
     drawerVC.drawerViewController = mineVC;
-    drawerVC.drawerWidth = 300*kPhoneWidthRatio;
+    drawerVC.drawerWidth = 305*kPhoneWidthRatio;
     return drawerVC;
 }
 

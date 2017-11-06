@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E64934C2AC2C290F4690087 /* libPods-FaceShowAdminApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */; };
+		43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43651B961FB0075000B7EB65 /* ClassListCell.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -188,6 +189,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43651B951FB0075000B7EB65 /* ClassListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassListCell.h; sourceTree = "<group>"; };
+		43651B961FB0075000B7EB65 /* ClassListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassListCell.m; sourceTree = "<group>"; };
 		4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FaceShowAdminApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
@@ -1033,6 +1036,8 @@
 				7CEFC9671FA6DA55001D8C84 /* PasswordResetView.m */,
 				7CEFC96C1FA6DF77001D8C84 /* PasswordSubmitView.h */,
 				7CEFC96D1FA6DF77001D8C84 /* PasswordSubmitView.m */,
+				43651B951FB0075000B7EB65 /* ClassListCell.h */,
+				43651B961FB0075000B7EB65 /* ClassListCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1508,6 +1513,7 @@
 				92CAA6831FAFFEBD00DB5873 /* ClassMomentTableHeaderView.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
+				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				92CAA6801FAFFEBD00DB5873 /* ClassMomentFooterView.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
