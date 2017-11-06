@@ -41,10 +41,10 @@
     }];
     UIButton *refreshButton = [[UIButton alloc]init];
     [refreshButton setTitle:@"立即刷新" forState:UIControlStateNormal];
-    [refreshButton setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
+    [refreshButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     refreshButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     refreshButton.clipsToBounds = YES;
-    refreshButton.layer.borderColor = [UIColor colorWithHexString:@"1da1f2"].CGColor;
+    refreshButton.layer.borderColor = [UIColor colorWithHexString:@"0068bd"].CGColor;
     refreshButton.layer.borderWidth = 2;
     refreshButton.layer.cornerRadius = 7;
     [refreshButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];

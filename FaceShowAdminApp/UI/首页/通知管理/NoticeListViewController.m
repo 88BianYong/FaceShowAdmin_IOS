@@ -61,7 +61,7 @@
 //    navRightBtn.backgroundColor = [UIColor redColor];
     navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [navRightBtn setTitle:@"发布" forState:UIControlStateNormal];
-    [navRightBtn setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
+    [navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-正常态"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-点击态"] forState:UIControlStateHighlighted];
     navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 4);

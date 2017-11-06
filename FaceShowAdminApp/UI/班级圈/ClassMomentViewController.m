@@ -146,8 +146,10 @@
 
 }
 - (void)hiddenInputTextView {
-    ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[self.commtentInteger];
-    moment.draftModel = self.inputView.textView.text;
+    if (self.dataArray.count > self.commtentInteger) {
+        ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[self.commtentInteger];
+        moment.draftModel = self.inputView.textView.text;
+    }
     self.inputView.textString = nil;
     [self.inputView.textView resignFirstResponder];
     if (self.floatingView.superview != nil) {
@@ -406,14 +408,14 @@
         [moment.likes enumerateObjectsUsingBlock:^(ClassMomentListRequestItem_Data_Moment_Like *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [mutableArrray addObject:obj.publisher.realName?:@""];
         }];
-        height = height + 5.0f + 7.0f + [self sizeForLikes:[mutableArrray componentsJoinedByString:@","]] + 10.0f + 20.0f;
+        height = height + 5.0f + 7.0f + [self sizeForLikes:[mutableArrray componentsJoinedByString:@","]] + 10.0f + 20.0f - 5.0f;
         
     }else if (moment.likes.count != 0) {
         NSMutableArray *mutableArrray = [[NSMutableArray alloc] init];
         [moment.likes enumerateObjectsUsingBlock:^(ClassMomentListRequestItem_Data_Moment_Like *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [mutableArrray addObject:obj.publisher.realName?:@""];
         }];
-        height = height + 7.0f + 7.0f + 10.0f + [self sizeForLikes:[mutableArrray componentsJoinedByString:@","]] + 10.0f;
+        height = height + 7.0f + 7.0f + 10.0f + [self sizeForLikes:[mutableArrray componentsJoinedByString:@","]] + 10.0f -5.0f;
     }else {
         NSMutableArray *mutableArrray = [[NSMutableArray alloc] init];
         [moment.likes enumerateObjectsUsingBlock:^(ClassMomentListRequestItem_Data_Moment_Like *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -491,7 +493,9 @@
             }else {
                 [moment.likes addObject:item.data];
             }
+            [self.tableView beginUpdates];
             [self.tableView reloadData];
+            [self.tableView endUpdates];
         }else {
             [self.view nyx_showToast:item.message];
         }

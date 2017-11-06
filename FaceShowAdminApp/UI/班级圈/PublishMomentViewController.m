@@ -95,7 +95,7 @@
         rightButton.enabled = NO;
     }
     rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
-    [rightButton setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
+    [rightButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [rightButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
     rightButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
     [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
