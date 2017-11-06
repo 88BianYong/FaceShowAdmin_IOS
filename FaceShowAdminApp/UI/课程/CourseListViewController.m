@@ -53,8 +53,8 @@
 - (void)requestCoursesInfo {
     [self.request stopRequest];
     self.request = [[GetCourseListRequest alloc]init];
-//    self.request.clazsId = self.clazsId;
-    self.request.clazsId = @"9";
+    self.request.clazsId = self.clazsId;
+//    self.request.clazsId = @"9";
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.request startRequestWithRetClass:[GetCourseListRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
