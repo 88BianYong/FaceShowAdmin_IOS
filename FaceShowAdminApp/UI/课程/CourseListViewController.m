@@ -13,6 +13,7 @@
 #import "ErrorView.h"
 //#import "CourseDetailViewController.h"
 #import "GetCourseListRequest.h"
+#import "MJRefresh.h"
 
 @interface CourseListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -21,9 +22,14 @@
 @property (nonatomic, strong) NSString *clazsId;
 @property (nonatomic, strong) GetCourseListRequest *request;
 @property (nonatomic, strong) GetCourseListRequestItem *requestItem;
+@property (nonatomic, strong) MJRefreshHeaderView *header;
 @end
 
 @implementation CourseListViewController
+
+- (void)dealloc {
+    [self.header free];
+}
 
 - (instancetype)initWithClazsId:(NSString *)clazsId {
     if (self = [super init]) {
@@ -47,12 +53,13 @@
 - (void)requestCoursesInfo {
     [self.request stopRequest];
     self.request = [[GetCourseListRequest alloc]init];
-    self.request.clazsId = self.clazsId;
-//    self.request.clazsId = @"9";
+//    self.request.clazsId = self.clazsId;
+    self.request.clazsId = @"9";
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.request startRequestWithRetClass:[GetCourseListRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
+        [self.header endRefreshing];
         [self.view nyx_stopLoading];
         self.errorView.hidden = YES;
         self.emptyView.hidden = YES;
@@ -104,6 +111,13 @@
         make.edges.mas_equalTo(0);
     }];
     self.errorView.hidden = YES;
+    
+    self.header = [MJRefreshHeaderView header];
+    self.header.scrollView = self.tableView;
+    self.header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        STRONG_SELF
+        [self requestCoursesInfo];
+    };
 }
 
 #pragma mark - RefreshDelegate

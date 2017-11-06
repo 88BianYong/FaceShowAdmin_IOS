@@ -70,7 +70,7 @@
     [self configTabbarItem:courseVC.tabBarItem image:@"通知icon" selectedImage:@"通知icon选择"];
     FSNavigationController *courseNavi = [[FSNavigationController alloc] initWithRootViewController:courseVC];
     
-    UIViewController *taskVC = [[MineViewController alloc]init];
+    UIViewController *taskVC = [[TaskViewController alloc]init];
     taskVC.title = @"任务";
     [self configTabbarItem:taskVC.tabBarItem image:@"我的icon" selectedImage:@"我的icon选择"];
     FSNavigationController *taskNavi = [[FSNavigationController alloc] initWithRootViewController:taskVC];
