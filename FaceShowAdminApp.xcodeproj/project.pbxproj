@@ -142,6 +142,11 @@
 		9218607F1FA9BBC00018D982 /* NoticeSaveTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218607E1FA9BBC00018D982 /* NoticeSaveTitleCell.m */; };
 		921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860811FA9BBDB0018D982 /* NoticeSaveContentCell.m */; };
 		921860851FA9BC1D0018D982 /* NoticeSaveImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860841FA9BC1D0018D982 /* NoticeSaveImageCell.m */; };
+		921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2D71FB1461000CF39DE /* ResourceManagerViewController.m */; };
+		921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2DA1FB1463A00CF39DE /* ResourceManagerRequest.m */; };
+		921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2DD1FB1465900CF39DE /* ResourceManagerFetcher.m */; };
+		921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E01FB1467600CF39DE /* ResourceDetailViewController.m */; };
+		921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E31FB146B000CF39DE /* ResourceUploadViewController.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -452,6 +457,16 @@
 		921860811FA9BBDB0018D982 /* NoticeSaveContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveContentCell.m; sourceTree = "<group>"; };
 		921860831FA9BC1D0018D982 /* NoticeSaveImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSaveImageCell.h; sourceTree = "<group>"; };
 		921860841FA9BC1D0018D982 /* NoticeSaveImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSaveImageCell.m; sourceTree = "<group>"; };
+		921DE2D61FB1461000CF39DE /* ResourceManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceManagerViewController.h; sourceTree = "<group>"; };
+		921DE2D71FB1461000CF39DE /* ResourceManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceManagerViewController.m; sourceTree = "<group>"; };
+		921DE2D91FB1463A00CF39DE /* ResourceManagerRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceManagerRequest.h; sourceTree = "<group>"; };
+		921DE2DA1FB1463A00CF39DE /* ResourceManagerRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceManagerRequest.m; sourceTree = "<group>"; };
+		921DE2DC1FB1465900CF39DE /* ResourceManagerFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceManagerFetcher.h; sourceTree = "<group>"; };
+		921DE2DD1FB1465900CF39DE /* ResourceManagerFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceManagerFetcher.m; sourceTree = "<group>"; };
+		921DE2DF1FB1467600CF39DE /* ResourceDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceDetailViewController.h; sourceTree = "<group>"; };
+		921DE2E01FB1467600CF39DE /* ResourceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailViewController.m; sourceTree = "<group>"; };
+		921DE2E21FB146B000CF39DE /* ResourceUploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUploadViewController.h; sourceTree = "<group>"; };
+		921DE2E31FB146B000CF39DE /* ResourceUploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceUploadViewController.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -816,6 +831,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				921DE2D41FB1459100CF39DE /* 资源 */,
 				7C672B171FB03806004D93DF /* 任务 */,
 				7C672B021FB00218004D93DF /* 课程 */,
 				92CAA6611FAFFE6600DB5873 /* 班级圈 */,
@@ -975,6 +991,7 @@
 		7CEFC92C1FA0804C001D8C84 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				921DE2D51FB145A200CF39DE /* 资源 */,
 				921860561FA9658E0018D982 /* 通知管理 */,
 				9234274F1FA6C8AC003BCEFD /* view */,
 				7CEFC92D1FA08067001D8C84 /* MainPageViewController.h */,
@@ -1178,6 +1195,38 @@
 				921860781FA9B0680018D982 /* NoticeSaveRequest.m */,
 			);
 			path = "通知";
+			sourceTree = "<group>";
+		};
+		921DE2D41FB1459100CF39DE /* 资源 */ = {
+			isa = PBXGroup;
+			children = (
+				921DE2D91FB1463A00CF39DE /* ResourceManagerRequest.h */,
+				921DE2DA1FB1463A00CF39DE /* ResourceManagerRequest.m */,
+				921DE2DC1FB1465900CF39DE /* ResourceManagerFetcher.h */,
+				921DE2DD1FB1465900CF39DE /* ResourceManagerFetcher.m */,
+			);
+			path = "资源";
+			sourceTree = "<group>";
+		};
+		921DE2D51FB145A200CF39DE /* 资源 */ = {
+			isa = PBXGroup;
+			children = (
+				921DE2E51FB146F300CF39DE /* view */,
+				921DE2D61FB1461000CF39DE /* ResourceManagerViewController.h */,
+				921DE2D71FB1461000CF39DE /* ResourceManagerViewController.m */,
+				921DE2DF1FB1467600CF39DE /* ResourceDetailViewController.h */,
+				921DE2E01FB1467600CF39DE /* ResourceDetailViewController.m */,
+				921DE2E21FB146B000CF39DE /* ResourceUploadViewController.h */,
+				921DE2E31FB146B000CF39DE /* ResourceUploadViewController.m */,
+			);
+			path = "资源";
+			sourceTree = "<group>";
+		};
+		921DE2E51FB146F300CF39DE /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		923427421FA6C3EB003BCEFD /* 首页 */ = {
@@ -1436,6 +1485,7 @@
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
+				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				92CAA6761FAFFEA400DB5873 /* ClassMomentListRequest.m in Sources */,
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
 				92CAA67D1FAFFEBD00DB5873 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
@@ -1474,6 +1524,7 @@
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
+				921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				92CAA63C1FAACD3100DB5873 /* FDActionSheetView.m in Sources */,
 				92CAA6881FAFFF0B00DB5873 /* CommentInputView.m in Sources */,
@@ -1545,7 +1596,6 @@
 				92CAA6821FAFFEBD00DB5873 /* ClassMomentLikeView.m in Sources */,
 				7C672B011FAAF387004D93DF /* QRCodeSignInViewController.m in Sources */,
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,
-				7CEFC93B1FA0819B001D8C84 /* ClassMomentViewController.m in Sources */,
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
 				7CEFC8C01FA06627001D8C84 /* CloneCategory.m in Sources */,
@@ -1558,6 +1608,7 @@
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
+				921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */,
 				92CAA6811FAFFEBD00DB5873 /* ClassMomentHeaderView.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
@@ -1577,10 +1628,12 @@
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
+				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				92CAA6771FAFFEA700DB5873 /* ClassMomentPublishRequest.m in Sources */,
+				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
