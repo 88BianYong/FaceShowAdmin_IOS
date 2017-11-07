@@ -19,7 +19,6 @@
         self.textField = [[UITextField alloc] init];
         self.textField.textColor = [UIColor colorWithHexString:@"333333"];
         self.textField.placeholder = @"请输入通知标题 (最多20字)";
-        self.textField.font = [UIFont systemFontOfSize:14.0f];
         self.textField.font = [UIFont boldSystemFontOfSize:16.0f];
         [self.textField setValue:[UIColor colorWithHexString:@"cccccc"] forKeyPath:@"_placeholderLabel.textColor"];
         [self.contentView addSubview:self.textField];

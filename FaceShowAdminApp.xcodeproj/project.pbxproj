@@ -183,6 +183,7 @@
 		921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E31FB146B000CF39DE /* ResourceUploadViewController.m */; };
 		921DE2E81FB14EE000CF39DE /* ResourceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E71FB14EE000CF39DE /* ResourceListCell.m */; };
 		921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2EC1FB158D600CF39DE /* GetResourceDetailRequest.m */; };
+		921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2F01FB15EF000CF39DE /* ResourceUploadRequest.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -197,6 +198,7 @@
 		9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234279E1FA81CB6003BCEFD /* DetailContainerView.m */; };
 		923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A41FA823AE003BCEFD /* MainProjectDetailView.m */; };
 		923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A71FA823C7003BCEFD /* MainClassDetailView.m */; };
+		9235F97B1FB3DF1C003A9027 /* ResourceCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F97A1FB3DF1C003A9027 /* ResourceCreateRequest.m */; };
 		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
 		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
 		92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */; };
@@ -575,6 +577,8 @@
 		921DE2E71FB14EE000CF39DE /* ResourceListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceListCell.m; sourceTree = "<group>"; };
 		921DE2EC1FB158D600CF39DE /* GetResourceDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetResourceDetailRequest.m; sourceTree = "<group>"; };
 		921DE2ED1FB158D600CF39DE /* GetResourceDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetResourceDetailRequest.h; sourceTree = "<group>"; };
+		921DE2EF1FB15EF000CF39DE /* ResourceUploadRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUploadRequest.h; sourceTree = "<group>"; };
+		921DE2F01FB15EF000CF39DE /* ResourceUploadRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceUploadRequest.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -601,6 +605,8 @@
 		923427A41FA823AE003BCEFD /* MainProjectDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainProjectDetailView.m; sourceTree = "<group>"; };
 		923427A61FA823C7003BCEFD /* MainClassDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainClassDetailView.h; sourceTree = "<group>"; };
 		923427A71FA823C7003BCEFD /* MainClassDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainClassDetailView.m; sourceTree = "<group>"; };
+		9235F9791FB3DF1C003A9027 /* ResourceCreateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceCreateRequest.h; sourceTree = "<group>"; };
+		9235F97A1FB3DF1C003A9027 /* ResourceCreateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceCreateRequest.m; sourceTree = "<group>"; };
 		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
 		92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadFirstStepRequest.m; sourceTree = "<group>"; };
 		92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadSecondStepRequest.h; sourceTree = "<group>"; };
@@ -1414,6 +1420,10 @@
 				921DE2DD1FB1465900CF39DE /* ResourceManagerFetcher.m */,
 				921DE2ED1FB158D600CF39DE /* GetResourceDetailRequest.h */,
 				921DE2EC1FB158D600CF39DE /* GetResourceDetailRequest.m */,
+				921DE2EF1FB15EF000CF39DE /* ResourceUploadRequest.h */,
+				921DE2F01FB15EF000CF39DE /* ResourceUploadRequest.m */,
+				9235F9791FB3DF1C003A9027 /* ResourceCreateRequest.h */,
+				9235F97A1FB3DF1C003A9027 /* ResourceCreateRequest.m */,
 			);
 			path = "资源";
 			sourceTree = "<group>";
@@ -1708,6 +1718,7 @@
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
 				92CAA6851FAFFEBD00DB5873 /* PublishMomentViewController.m in Sources */,
+				9235F97B1FB3DF1C003A9027 /* ResourceCreateRequest.m in Sources */,
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
 				92CAA6791FAFFEBD00DB5873 /* CircleSpreadTransition.m in Sources */,
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
@@ -1883,6 +1894,7 @@
 				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
+				921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
 				436A6B231FB303AB008E461B /* UserSignInListViewController.m in Sources */,
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
