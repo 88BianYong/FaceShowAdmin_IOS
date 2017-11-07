@@ -7,7 +7,7 @@
 //
 
 #import "PagedListFetcherBase.h"
-
+#import "ResourceManagerRequest.h"
 @interface ResourceManagerFetcher : PagedListFetcherBase
-
+@property (nonatomic, copy) NSString<Optional> *clazsId;
 @end

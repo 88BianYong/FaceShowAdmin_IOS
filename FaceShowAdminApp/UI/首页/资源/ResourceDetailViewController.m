@@ -7,31 +7,39 @@
 //
 
 #import "ResourceDetailViewController.h"
-
-@interface ResourceDetailViewController ()
-
+@interface ResourceDetailViewController ()<UIWebViewDelegate>
 @end
-
 @implementation ResourceDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.title = self.name;
+    [self setupUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupUI {
+    UIWebView *webview = [[UIWebView alloc]init];
+    webview.scalesPageToFit = YES;
+    webview.delegate = self;
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.urlString]];
+    [webview loadRequest:request];
+    [self.view addSubview:webview];
+    [webview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [self.view nyx_startLoading];
 }
-*/
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.view nyx_stopLoading];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self.view nyx_stopLoading];
+    [self.view nyx_showToast:@"资源加载失败"];
+}
 
 @end

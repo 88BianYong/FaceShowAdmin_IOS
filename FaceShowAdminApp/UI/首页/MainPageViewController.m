@@ -23,7 +23,7 @@
 #import "MainPageDetailViewController.h"
 #import "NoticeListViewController.h"
 #import "ContactsViewController.h"
-
+#import "ResourceManagerViewController.h"
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -89,6 +89,9 @@
         } else if (type == MainPagePushType_Contacts) {
             ContactsViewController *vc = [[ContactsViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
+        }else if (type == MainPagePushType_Resources) {
+            ResourceManagerViewController *VC = [[ResourceManagerViewController alloc] init];
+            [self.navigationController pushViewController:VC animated:YES];
         }
     }];
     self.scrollView.hidden = YES;

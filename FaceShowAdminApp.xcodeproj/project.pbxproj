@@ -181,6 +181,8 @@
 		921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2DD1FB1465900CF39DE /* ResourceManagerFetcher.m */; };
 		921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E01FB1467600CF39DE /* ResourceDetailViewController.m */; };
 		921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E31FB146B000CF39DE /* ResourceUploadViewController.m */; };
+		921DE2E81FB14EE000CF39DE /* ResourceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E71FB14EE000CF39DE /* ResourceListCell.m */; };
+		921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2EC1FB158D600CF39DE /* GetResourceDetailRequest.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -569,6 +571,10 @@
 		921DE2E01FB1467600CF39DE /* ResourceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailViewController.m; sourceTree = "<group>"; };
 		921DE2E21FB146B000CF39DE /* ResourceUploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUploadViewController.h; sourceTree = "<group>"; };
 		921DE2E31FB146B000CF39DE /* ResourceUploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceUploadViewController.m; sourceTree = "<group>"; };
+		921DE2E61FB14EE000CF39DE /* ResourceListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceListCell.h; sourceTree = "<group>"; };
+		921DE2E71FB14EE000CF39DE /* ResourceListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceListCell.m; sourceTree = "<group>"; };
+		921DE2EC1FB158D600CF39DE /* GetResourceDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetResourceDetailRequest.m; sourceTree = "<group>"; };
+		921DE2ED1FB158D600CF39DE /* GetResourceDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetResourceDetailRequest.h; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -1406,6 +1412,8 @@
 				921DE2DA1FB1463A00CF39DE /* ResourceManagerRequest.m */,
 				921DE2DC1FB1465900CF39DE /* ResourceManagerFetcher.h */,
 				921DE2DD1FB1465900CF39DE /* ResourceManagerFetcher.m */,
+				921DE2ED1FB158D600CF39DE /* GetResourceDetailRequest.h */,
+				921DE2EC1FB158D600CF39DE /* GetResourceDetailRequest.m */,
 			);
 			path = "资源";
 			sourceTree = "<group>";
@@ -1427,6 +1435,8 @@
 		921DE2E51FB146F300CF39DE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				921DE2E61FB14EE000CF39DE /* ResourceListCell.h */,
+				921DE2E71FB14EE000CF39DE /* ResourceListCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1715,12 +1725,14 @@
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
+				921DE2E81FB14EE000CF39DE /* ResourceListCell.m in Sources */,
 				7C672B121FB01081004D93DF /* CourseListItemCell.m in Sources */,
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
 				7CEFC8E61FA06791001D8C84 /* LoginRequest.m in Sources */,
 				921860691FA99C3C0018D982 /* NoticeDetailViewController.m in Sources */,
 				9218607F1FA9BBC00018D982 /* NoticeSaveTitleCell.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
+				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
 				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
 				7C672B4D1FB2A54B004D93DF /* CourseDetailViewController.m in Sources */,

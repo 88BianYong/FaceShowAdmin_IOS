@@ -6,8 +6,8 @@
 //  Copyright © 2017年 niuzhaowang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "PagedListViewControllerBase.h"
 
-@interface ResourceManagerViewController : BaseViewController
+@interface ResourceManagerViewController : PagedListViewControllerBase
 
 @end

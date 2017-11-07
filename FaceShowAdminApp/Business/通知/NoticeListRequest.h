@@ -40,12 +40,12 @@
 @end
 
 @interface NoticeListRequestItem_Data : JSONModel
-@property (nonatomic, strong) NoticeListRequestItem_Data_NoticeInfos *noticeInfos;
-@property (nonatomic, strong) NSString *studentNum;
+@property (nonatomic, strong) NoticeListRequestItem_Data_NoticeInfos<Optional> *noticeInfos;
+@property (nonatomic, strong) NSString<Optional> *studentNum;
 @end
 
 @interface NoticeListRequestItem : HttpBaseRequestItem
-@property (nonatomic, strong) NoticeListRequestItem_Data *data;
+@property (nonatomic, strong) NoticeListRequestItem_Data<Optional> *data;
 @end
 
 @interface NoticeListRequest : YXGetRequest
