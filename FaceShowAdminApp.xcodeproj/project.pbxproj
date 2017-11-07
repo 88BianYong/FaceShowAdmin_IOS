@@ -22,6 +22,14 @@
 		7C672B121FB01081004D93DF /* CourseListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B111FB01081004D93DF /* CourseListItemCell.m */; };
 		7C672B151FB0339D004D93DF /* TaskListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B141FB0339D004D93DF /* TaskListCell.m */; };
 		7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B191FB03815004D93DF /* GetTaskRequest.m */; };
+		7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B1D1FB1536E004D93DF /* OptionItemResultView.m */; };
+		7C672B201FB1536E004D93DF /* ChooseQuestionResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B1E1FB1536E004D93DF /* ChooseQuestionResultCell.m */; };
+		7C672B231FB1538C004D93DF /* FillQuestionResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B211FB1538C004D93DF /* FillQuestionResultCell.m */; };
+		7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B241FB15430004D93DF /* GetQuestionnaireRequest.m */; };
+		7C672B2D1FB15431004D93DF /* GetVoteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B281FB15431004D93DF /* GetVoteRequest.m */; };
+		7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B2A1FB15431004D93DF /* QuestionRequestItem.m */; };
+		7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B2F1FB156F7004D93DF /* QuestionnaireViewController.m */; };
+		7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B331FB15BF6004D93DF /* QuestionnaireHeaderView.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
@@ -223,6 +231,22 @@
 		7C672B141FB0339D004D93DF /* TaskListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskListCell.m; sourceTree = "<group>"; };
 		7C672B181FB03815004D93DF /* GetTaskRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTaskRequest.h; sourceTree = "<group>"; };
 		7C672B191FB03815004D93DF /* GetTaskRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTaskRequest.m; sourceTree = "<group>"; };
+		7C672B1B1FB1536E004D93DF /* OptionItemResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionItemResultView.h; sourceTree = "<group>"; };
+		7C672B1C1FB1536E004D93DF /* ChooseQuestionResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseQuestionResultCell.h; sourceTree = "<group>"; };
+		7C672B1D1FB1536E004D93DF /* OptionItemResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionItemResultView.m; sourceTree = "<group>"; };
+		7C672B1E1FB1536E004D93DF /* ChooseQuestionResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseQuestionResultCell.m; sourceTree = "<group>"; };
+		7C672B211FB1538C004D93DF /* FillQuestionResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillQuestionResultCell.m; sourceTree = "<group>"; };
+		7C672B221FB1538C004D93DF /* FillQuestionResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillQuestionResultCell.h; sourceTree = "<group>"; };
+		7C672B241FB15430004D93DF /* GetQuestionnaireRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetQuestionnaireRequest.m; sourceTree = "<group>"; };
+		7C672B251FB15430004D93DF /* GetQuestionnaireRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetQuestionnaireRequest.h; sourceTree = "<group>"; };
+		7C672B271FB15431004D93DF /* QuestionRequestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionRequestItem.h; sourceTree = "<group>"; };
+		7C672B281FB15431004D93DF /* GetVoteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetVoteRequest.m; sourceTree = "<group>"; };
+		7C672B291FB15431004D93DF /* GetVoteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVoteRequest.h; sourceTree = "<group>"; };
+		7C672B2A1FB15431004D93DF /* QuestionRequestItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionRequestItem.m; sourceTree = "<group>"; };
+		7C672B2F1FB156F7004D93DF /* QuestionnaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionnaireViewController.m; sourceTree = "<group>"; };
+		7C672B301FB156F7004D93DF /* QuestionnaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionnaireViewController.h; sourceTree = "<group>"; };
+		7C672B321FB15BF6004D93DF /* QuestionnaireHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionnaireHeaderView.h; sourceTree = "<group>"; };
+		7C672B331FB15BF6004D93DF /* QuestionnaireHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionnaireHeaderView.m; sourceTree = "<group>"; };
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -596,6 +620,14 @@
 			children = (
 				7C672B131FB0339D004D93DF /* TaskListCell.h */,
 				7C672B141FB0339D004D93DF /* TaskListCell.m */,
+				7C672B1B1FB1536E004D93DF /* OptionItemResultView.h */,
+				7C672B1D1FB1536E004D93DF /* OptionItemResultView.m */,
+				7C672B1C1FB1536E004D93DF /* ChooseQuestionResultCell.h */,
+				7C672B1E1FB1536E004D93DF /* ChooseQuestionResultCell.m */,
+				7C672B221FB1538C004D93DF /* FillQuestionResultCell.h */,
+				7C672B211FB1538C004D93DF /* FillQuestionResultCell.m */,
+				7C672B321FB15BF6004D93DF /* QuestionnaireHeaderView.h */,
+				7C672B331FB15BF6004D93DF /* QuestionnaireHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -605,6 +637,12 @@
 			children = (
 				7C672B181FB03815004D93DF /* GetTaskRequest.h */,
 				7C672B191FB03815004D93DF /* GetTaskRequest.m */,
+				7C672B251FB15430004D93DF /* GetQuestionnaireRequest.h */,
+				7C672B241FB15430004D93DF /* GetQuestionnaireRequest.m */,
+				7C672B291FB15431004D93DF /* GetVoteRequest.h */,
+				7C672B281FB15431004D93DF /* GetVoteRequest.m */,
+				7C672B271FB15431004D93DF /* QuestionRequestItem.h */,
+				7C672B2A1FB15431004D93DF /* QuestionRequestItem.m */,
 			);
 			path = "任务";
 			sourceTree = "<group>";
@@ -1018,6 +1056,8 @@
 				7C672B161FB033AB004D93DF /* View */,
 				7CEFC9351FA0816D001D8C84 /* TaskViewController.h */,
 				7CEFC9361FA0816D001D8C84 /* TaskViewController.m */,
+				7C672B301FB156F7004D93DF /* QuestionnaireViewController.h */,
+				7C672B2F1FB156F7004D93DF /* QuestionnaireViewController.m */,
 			);
 			path = "任务";
 			sourceTree = "<group>";
@@ -1486,6 +1526,7 @@
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
+				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
 				92CAA6761FAFFEA400DB5873 /* ClassMomentListRequest.m in Sources */,
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
 				92CAA67D1FAFFEBD00DB5873 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
@@ -1523,6 +1564,7 @@
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
+				7C672B231FB1538C004D93DF /* FillQuestionResultCell.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
@@ -1565,9 +1607,11 @@
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
+				7C672B201FB1536E004D93DF /* ChooseQuestionResultCell.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				92CAA6801FAFFEBD00DB5873 /* ClassMomentFooterView.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
+				7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */,
 				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
 				7CEFC85D1FA06593001D8C84 /* MJRefreshConst.m in Sources */,
 				7CEFC8EF1FA067B2001D8C84 /* UserModel.m in Sources */,
@@ -1580,6 +1624,7 @@
 				921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */,
 				7CEFC89C1FA06614001D8C84 /* YXImagePickerController.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
+				7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */,
 				921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
@@ -1599,6 +1644,7 @@
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
 				7CEFC8C01FA06627001D8C84 /* CloneCategory.m in Sources */,
+				7C672B2D1FB15431004D93DF /* GetVoteRequest.m in Sources */,
 				7C672AF81FAACC9F004D93DF /* SignInDelayView.m in Sources */,
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
 				7CEFC85C1FA06593001D8C84 /* MJRefreshBaseView.m in Sources */,
@@ -1619,6 +1665,7 @@
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
+				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
 				7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */,
@@ -1627,6 +1674,7 @@
 				7CEFC97C1FA813E3001D8C84 /* SignInListViewController.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
+				7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,

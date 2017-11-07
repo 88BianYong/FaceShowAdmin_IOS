@@ -13,8 +13,7 @@
 #import "GetTaskRequest.h"
 #import "FSDataMappingTable.h"
 #import "MJRefresh.h"
-//#import "QuestionnaireResultViewController.h"
-//#import "QuestionnaireViewController.h"
+#import "QuestionnaireViewController.h"
 //#import "GetSigninRequest.h"
 //#import "SignInDetailViewController.h"
 
@@ -152,35 +151,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    GetTaskRequestItem_Task *task = self.dataArray[indexPath.row];
-//    InteractType type = [FSDataMappingTable InteractTypeWithKey:task.interactType];
-//    if (type == InteractType_Vote) {
-//        if (task.stepFinished.boolValue) {
-//            QuestionnaireResultViewController *vc = [[QuestionnaireResultViewController alloc]initWithStepId:task.stepId];
-//            vc.name = task.interactName;
-//            [self.navigationController pushViewController:vc animated:YES];
-//        } else {
-//            QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];
-//            vc.name = task.interactName;
-//            WEAK_SELF
-//            [vc setCompleteBlock:^{
-//                STRONG_SELF
-//                task.stepFinished = @"1";
-//                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//            }];
-//            [self.navigationController pushViewController:vc animated:YES];
-//        }
-//    }else if (type == InteractType_Questionare) {
-//        QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];
-//        vc.name = task.interactName;
-//        WEAK_SELF
-//        [vc setCompleteBlock:^{
-//            STRONG_SELF
-//            task.stepFinished = @"1";
-//            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//        }];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }else if (type == InteractType_SignIn) {
+    GetTaskRequestItem_Task *task = self.dataArray[indexPath.row];
+    InteractType type = [FSDataMappingTable InteractTypeWithKey:task.interactType];
+    if (type == InteractType_Vote || type == InteractType_Questionare) {
+        QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (type == InteractType_SignIn) {
 //        [self.getSigninRequest stopRequest];
 //        self.getSigninRequest = [[GetSigninRequest alloc]init];
 //        self.getSigninRequest.stepId = task.stepId;
@@ -199,7 +175,7 @@
 //            signInDetailVC.currentIndexPath = indexPath;
 //            [self.navigationController pushViewController:signInDetailVC animated:YES];
 //        }];
-//    }
+    }
 }
 
 @end
