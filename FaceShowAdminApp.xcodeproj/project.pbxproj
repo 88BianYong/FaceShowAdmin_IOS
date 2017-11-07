@@ -30,6 +30,12 @@
 		7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B2A1FB15431004D93DF /* QuestionRequestItem.m */; };
 		7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B2F1FB156F7004D93DF /* QuestionnaireViewController.m */; };
 		7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B331FB15BF6004D93DF /* QuestionnaireHeaderView.m */; };
+		7C672B381FB1A362004D93DF /* ClassUserQuestionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B371FB1A362004D93DF /* ClassUserQuestionRequest.m */; };
+		7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B3A1FB1A567004D93DF /* ClassUserQuestionFetcher.m */; };
+		7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B3D1FB1A784004D93DF /* QuestionUserCell.m */; };
+		7C672B411FB1A8EF004D93DF /* QuestionTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B401FB1A8EF004D93DF /* QuestionTabContainerView.m */; };
+		7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B431FB1AA4A004D93DF /* QuestionUserListViewController.m */; };
+		7C672B471FB1AC17004D93DF /* QuestionUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B461FB1AC17004D93DF /* QuestionUserDetailViewController.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
@@ -247,6 +253,18 @@
 		7C672B301FB156F7004D93DF /* QuestionnaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionnaireViewController.h; sourceTree = "<group>"; };
 		7C672B321FB15BF6004D93DF /* QuestionnaireHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionnaireHeaderView.h; sourceTree = "<group>"; };
 		7C672B331FB15BF6004D93DF /* QuestionnaireHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionnaireHeaderView.m; sourceTree = "<group>"; };
+		7C672B361FB1A362004D93DF /* ClassUserQuestionRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassUserQuestionRequest.h; sourceTree = "<group>"; };
+		7C672B371FB1A362004D93DF /* ClassUserQuestionRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassUserQuestionRequest.m; sourceTree = "<group>"; };
+		7C672B391FB1A567004D93DF /* ClassUserQuestionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassUserQuestionFetcher.h; sourceTree = "<group>"; };
+		7C672B3A1FB1A567004D93DF /* ClassUserQuestionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassUserQuestionFetcher.m; sourceTree = "<group>"; };
+		7C672B3C1FB1A784004D93DF /* QuestionUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionUserCell.h; sourceTree = "<group>"; };
+		7C672B3D1FB1A784004D93DF /* QuestionUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionUserCell.m; sourceTree = "<group>"; };
+		7C672B3F1FB1A8EF004D93DF /* QuestionTabContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionTabContainerView.h; sourceTree = "<group>"; };
+		7C672B401FB1A8EF004D93DF /* QuestionTabContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionTabContainerView.m; sourceTree = "<group>"; };
+		7C672B421FB1AA4A004D93DF /* QuestionUserListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionUserListViewController.h; sourceTree = "<group>"; };
+		7C672B431FB1AA4A004D93DF /* QuestionUserListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionUserListViewController.m; sourceTree = "<group>"; };
+		7C672B451FB1AC17004D93DF /* QuestionUserDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionUserDetailViewController.h; sourceTree = "<group>"; };
+		7C672B461FB1AC17004D93DF /* QuestionUserDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionUserDetailViewController.m; sourceTree = "<group>"; };
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -618,16 +636,9 @@
 		7C672B161FB033AB004D93DF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7C672B351FB1A2D6004D93DF /* 投票问卷 */,
 				7C672B131FB0339D004D93DF /* TaskListCell.h */,
 				7C672B141FB0339D004D93DF /* TaskListCell.m */,
-				7C672B1B1FB1536E004D93DF /* OptionItemResultView.h */,
-				7C672B1D1FB1536E004D93DF /* OptionItemResultView.m */,
-				7C672B1C1FB1536E004D93DF /* ChooseQuestionResultCell.h */,
-				7C672B1E1FB1536E004D93DF /* ChooseQuestionResultCell.m */,
-				7C672B221FB1538C004D93DF /* FillQuestionResultCell.h */,
-				7C672B211FB1538C004D93DF /* FillQuestionResultCell.m */,
-				7C672B321FB15BF6004D93DF /* QuestionnaireHeaderView.h */,
-				7C672B331FB15BF6004D93DF /* QuestionnaireHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -643,8 +654,31 @@
 				7C672B281FB15431004D93DF /* GetVoteRequest.m */,
 				7C672B271FB15431004D93DF /* QuestionRequestItem.h */,
 				7C672B2A1FB15431004D93DF /* QuestionRequestItem.m */,
+				7C672B361FB1A362004D93DF /* ClassUserQuestionRequest.h */,
+				7C672B371FB1A362004D93DF /* ClassUserQuestionRequest.m */,
+				7C672B391FB1A567004D93DF /* ClassUserQuestionFetcher.h */,
+				7C672B3A1FB1A567004D93DF /* ClassUserQuestionFetcher.m */,
 			);
 			path = "任务";
+			sourceTree = "<group>";
+		};
+		7C672B351FB1A2D6004D93DF /* 投票问卷 */ = {
+			isa = PBXGroup;
+			children = (
+				7C672B1B1FB1536E004D93DF /* OptionItemResultView.h */,
+				7C672B1D1FB1536E004D93DF /* OptionItemResultView.m */,
+				7C672B1C1FB1536E004D93DF /* ChooseQuestionResultCell.h */,
+				7C672B1E1FB1536E004D93DF /* ChooseQuestionResultCell.m */,
+				7C672B221FB1538C004D93DF /* FillQuestionResultCell.h */,
+				7C672B211FB1538C004D93DF /* FillQuestionResultCell.m */,
+				7C672B321FB15BF6004D93DF /* QuestionnaireHeaderView.h */,
+				7C672B331FB15BF6004D93DF /* QuestionnaireHeaderView.m */,
+				7C672B3C1FB1A784004D93DF /* QuestionUserCell.h */,
+				7C672B3D1FB1A784004D93DF /* QuestionUserCell.m */,
+				7C672B3F1FB1A8EF004D93DF /* QuestionTabContainerView.h */,
+				7C672B401FB1A8EF004D93DF /* QuestionTabContainerView.m */,
+			);
+			name = "投票问卷";
 			sourceTree = "<group>";
 		};
 		7CEFC8051FA05FBB001D8C84 = {
@@ -1058,6 +1092,10 @@
 				7CEFC9361FA0816D001D8C84 /* TaskViewController.m */,
 				7C672B301FB156F7004D93DF /* QuestionnaireViewController.h */,
 				7C672B2F1FB156F7004D93DF /* QuestionnaireViewController.m */,
+				7C672B421FB1AA4A004D93DF /* QuestionUserListViewController.h */,
+				7C672B431FB1AA4A004D93DF /* QuestionUserListViewController.m */,
+				7C672B451FB1AC17004D93DF /* QuestionUserDetailViewController.h */,
+				7C672B461FB1AC17004D93DF /* QuestionUserDetailViewController.m */,
 			);
 			path = "任务";
 			sourceTree = "<group>";
@@ -1539,6 +1577,7 @@
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
+				7C672B381FB1A362004D93DF /* ClassUserQuestionRequest.m in Sources */,
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				92CAA67F1FAFFEBD00DB5873 /* ClassMomentFloatingView.m in Sources */,
@@ -1553,6 +1592,7 @@
 				9218607F1FA9BBC00018D982 /* NoticeSaveTitleCell.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
+				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
 				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
@@ -1570,6 +1610,7 @@
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				92CAA63C1FAACD3100DB5873 /* FDActionSheetView.m in Sources */,
 				92CAA6881FAFFF0B00DB5873 /* CommentInputView.m in Sources */,
+				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
@@ -1588,8 +1629,10 @@
 				92CAA6701FAFFE8A00DB5873 /* ClassMomentCommentRequest.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
+				7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
 				7C672B081FB00267004D93DF /* CourseListViewController.m in Sources */,
+				7C672B411FB1A8EF004D93DF /* QuestionTabContainerView.m in Sources */,
 				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
 				7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */,
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
@@ -1658,6 +1701,7 @@
 				92CAA6811FAFFEBD00DB5873 /* ClassMomentHeaderView.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
+				7C672B471FB1AC17004D93DF /* QuestionUserDetailViewController.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
 				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,

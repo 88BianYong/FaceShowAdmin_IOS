@@ -15,6 +15,7 @@
 #import "ErrorView.h"
 #import "QuestionnaireHeaderView.h"
 #import "MJRefresh.h"
+#import "QuestionUserDetailViewController.h"
 
 @interface QuestionnaireViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -104,6 +105,13 @@
 
 - (void)setupUI {
     self.headerView = [[QuestionnaireHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 165)];
+    WEAK_SELF
+    [self.headerView setDetailBlock:^{
+        STRONG_SELF
+        QuestionUserDetailViewController *vc = [[QuestionUserDetailViewController alloc]init];
+        vc.data = self.requestItem.data;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     self.tableView = [[UITableView alloc]init];
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.tableView.tableHeaderView = self.headerView;
@@ -120,7 +128,6 @@
     [self.tableView registerClass:[FillQuestionResultCell class] forCellReuseIdentifier:@"FillQuestionResultCell"];
     
     self.errorView = [[ErrorView alloc]init];
-    WEAK_SELF
     [self.errorView setRetryBlock:^{
         STRONG_SELF
         [self requestPaperInfo];
