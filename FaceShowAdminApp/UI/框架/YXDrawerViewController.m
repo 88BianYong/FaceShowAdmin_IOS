@@ -43,6 +43,9 @@ static const CGFloat kAnimationDuration = 0.3;
     pan.delegate = self;
     pan.maximumNumberOfTouches = 1;
     [self.gestureView addGestureRecognizer:pan];
+    
+    [self addChildViewController:self.paneViewController];
+    [self addChildViewController:self.drawerViewController];
 }
 
 - (void)showDrawer{
@@ -127,6 +130,10 @@ static const CGFloat kAnimationDuration = 0.3;
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return self.paneViewController.supportedInterfaceOrientations;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.paneViewController.preferredStatusBarStyle;
 }
 
 @end
