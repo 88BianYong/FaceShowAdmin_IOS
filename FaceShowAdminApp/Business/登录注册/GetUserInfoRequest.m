@@ -9,6 +9,9 @@
 #import "GetUserInfoRequest.h"
 
 @implementation GetUserInfoRequestItem_Data
+- (NSString *)sexString {
+    return self.sex.integerValue ? @"男" : @"女";
+}
 @end
 
 @implementation GetUserInfoRequestItem

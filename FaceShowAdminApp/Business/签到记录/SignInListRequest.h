@@ -27,6 +27,8 @@
 @property (nonatomic, strong) NSString<Optional> *signInUserNum;
 @property (nonatomic, strong) NSString<Optional> *opentStatusName;
 @property (nonatomic, strong) NSString<Optional> *percent;
+@property (nonatomic, strong) NSString<Optional> *stepFinished;
+@property (nonatomic, strong) NSString<Optional> *stepFinishedTime;
 @end
 
 @interface SignInListRequestItem_data: JSONModel
@@ -39,4 +41,5 @@
 
 @interface SignInListRequest : YXGetRequest
 @property (nonatomic, strong) NSString<Optional> *clazsId;
+@property (nonatomic, strong) NSString<Optional> *userId;
 @end

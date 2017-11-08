@@ -29,7 +29,7 @@
 
 #pragma mark - setupUI
 - (void)setupUI {
-    UIImageView *backImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor redColor]]];
+    UIImageView *backImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"头像背景"]];
     backImageView.clipsToBounds = YES;
     backImageView.contentMode = UIViewContentModeScaleAspectFill;
     backImageView.userInteractionEnabled = YES;
@@ -42,7 +42,7 @@
     self.avatarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.avatarBtn.clipsToBounds = YES;
     self.avatarBtn.layer.cornerRadius = 6;
-    [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageWithColor:[UIColor blueColor] rect:CGRectMake(0, 0, 55, 55)]];
+    [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 55, 55)]];
     [self.view addSubview:self.avatarBtn];
     [self.avatarBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(44);

@@ -48,14 +48,5 @@
          self.titleLabel.textColor = [UIColor colorWithHexString:@"3333333"];
     }
 }
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
-    [super setHighlighted:highlighted animated:animated];
-    if (highlighted) {
-        self.titleLabel.textColor = [UIColor whiteColor];
-    }
-    else{
-        self.titleLabel.textColor = [UIColor colorWithHexString:@"3333333"];
-    }
-}
 
 @end

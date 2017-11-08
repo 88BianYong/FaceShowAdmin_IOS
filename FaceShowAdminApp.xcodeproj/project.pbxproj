@@ -8,7 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0E64934C2AC2C290F4690087 /* libPods-FaceShowAdminApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */; };
+		4359B9631FB2A44B007D7F30 /* UserSignInPercentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359B9621FB2A44B007D7F30 /* UserSignInPercentRequest.m */; };
+		4359B9661FB2AA18007D7F30 /* ContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359B9651FB2AA18007D7F30 /* ContactsDetailViewController.m */; };
+		4359B9691FB2AA75007D7F30 /* DetailCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359B9681FB2AA75007D7F30 /* DetailCellView.m */; };
 		43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43651B961FB0075000B7EB65 /* ClassListCell.m */; };
+		436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 436A6B1F1FB2F7E0008E461B /* DetailWithAttachmentCellView.m */; };
+		436A6B231FB303AB008E461B /* UserSignInListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436A6B221FB303AB008E461B /* UserSignInListViewController.m */; };
+		436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 436A6B281FB306D2008E461B /* UserSignInRecordListFetcher.m */; };
+		436A6B2C1FB30865008E461B /* UserSignInListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436A6B2B1FB30865008E461B /* UserSignInListCell.m */; };
+		436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB21D1FB1494100A31585 /* ContactsViewController.m */; };
+		436CB2211FB15B9100A31585 /* ContactsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2201FB15B9100A31585 /* ContactsListCell.m */; };
+		436CB2251FB15C9B00A31585 /* ClazsMemberListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2241FB15C9B00A31585 /* ClazsMemberListRequest.m */; };
+		436CB2281FB15D6000A31585 /* ClazsMemberListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2271FB15D6000A31585 /* ClazsMemberListFetcher.m */; };
+		436CB22B1FB19C6A00A31585 /* AddMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB22A1FB19C6A00A31585 /* AddMemberViewController.m */; };
+		436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB22D1FB1A2BE00A31585 /* CreateMemberRequest.m */; };
+		436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2301FB1AA2C00A31585 /* AddMemberTextField.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -214,8 +228,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4359B9611FB2A44B007D7F30 /* UserSignInPercentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInPercentRequest.h; sourceTree = "<group>"; };
+		4359B9621FB2A44B007D7F30 /* UserSignInPercentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInPercentRequest.m; sourceTree = "<group>"; };
+		4359B9641FB2AA18007D7F30 /* ContactsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsDetailViewController.h; sourceTree = "<group>"; };
+		4359B9651FB2AA18007D7F30 /* ContactsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsDetailViewController.m; sourceTree = "<group>"; };
+		4359B9671FB2AA75007D7F30 /* DetailCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailCellView.h; sourceTree = "<group>"; };
+		4359B9681FB2AA75007D7F30 /* DetailCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailCellView.m; sourceTree = "<group>"; };
 		43651B951FB0075000B7EB65 /* ClassListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassListCell.h; sourceTree = "<group>"; };
 		43651B961FB0075000B7EB65 /* ClassListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassListCell.m; sourceTree = "<group>"; };
+		436A6B1E1FB2F7E0008E461B /* DetailWithAttachmentCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailWithAttachmentCellView.h; sourceTree = "<group>"; };
+		436A6B1F1FB2F7E0008E461B /* DetailWithAttachmentCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailWithAttachmentCellView.m; sourceTree = "<group>"; };
+		436A6B211FB303AB008E461B /* UserSignInListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListViewController.h; sourceTree = "<group>"; };
+		436A6B221FB303AB008E461B /* UserSignInListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListViewController.m; sourceTree = "<group>"; };
+		436A6B271FB306D2008E461B /* UserSignInRecordListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInRecordListFetcher.h; sourceTree = "<group>"; };
+		436A6B281FB306D2008E461B /* UserSignInRecordListFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInRecordListFetcher.m; sourceTree = "<group>"; };
+		436A6B2A1FB30865008E461B /* UserSignInListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListCell.h; sourceTree = "<group>"; };
+		436A6B2B1FB30865008E461B /* UserSignInListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListCell.m; sourceTree = "<group>"; };
+		436CB21C1FB1494100A31585 /* ContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		436CB21D1FB1494100A31585 /* ContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		436CB21F1FB15B9100A31585 /* ContactsListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsListCell.h; sourceTree = "<group>"; };
+		436CB2201FB15B9100A31585 /* ContactsListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsListCell.m; sourceTree = "<group>"; };
+		436CB2231FB15C9B00A31585 /* ClazsMemberListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClazsMemberListRequest.h; sourceTree = "<group>"; };
+		436CB2241FB15C9B00A31585 /* ClazsMemberListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClazsMemberListRequest.m; sourceTree = "<group>"; };
+		436CB2261FB15D6000A31585 /* ClazsMemberListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClazsMemberListFetcher.h; sourceTree = "<group>"; };
+		436CB2271FB15D6000A31585 /* ClazsMemberListFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClazsMemberListFetcher.m; sourceTree = "<group>"; };
+		436CB2291FB19C6A00A31585 /* AddMemberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMemberViewController.h; sourceTree = "<group>"; };
+		436CB22A1FB19C6A00A31585 /* AddMemberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMemberViewController.m; sourceTree = "<group>"; };
+		436CB22C1FB1A2BE00A31585 /* CreateMemberRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateMemberRequest.h; sourceTree = "<group>"; };
+		436CB22D1FB1A2BE00A31585 /* CreateMemberRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMemberRequest.m; sourceTree = "<group>"; };
+		436CB22F1FB1AA2C00A31585 /* AddMemberTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMemberTextField.h; sourceTree = "<group>"; };
+		436CB2301FB1AA2C00A31585 /* AddMemberTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMemberTextField.m; sourceTree = "<group>"; };
 		4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FaceShowAdminApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
@@ -625,6 +667,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		436CB2221FB15BAE00A31585 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				436CB2231FB15C9B00A31585 /* ClazsMemberListRequest.h */,
+				436CB2241FB15C9B00A31585 /* ClazsMemberListRequest.m */,
+				436CB2261FB15D6000A31585 /* ClazsMemberListFetcher.h */,
+				436CB2271FB15D6000A31585 /* ClazsMemberListFetcher.m */,
+				436CB22C1FB1A2BE00A31585 /* CreateMemberRequest.h */,
+				436CB22D1FB1A2BE00A31585 /* CreateMemberRequest.m */,
+				4359B9611FB2A44B007D7F30 /* UserSignInPercentRequest.h */,
+				4359B9621FB2A44B007D7F30 /* UserSignInPercentRequest.m */,
+				436A6B271FB306D2008E461B /* UserSignInRecordListFetcher.h */,
+				436A6B281FB306D2008E461B /* UserSignInRecordListFetcher.m */,
+			);
+			path = "通讯录";
+			sourceTree = "<group>";
+		};
+		43FDDF4E1FB0716C001D2127 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				43FDDF501FB071A0001D2127 /* View */,
+				436CB21C1FB1494100A31585 /* ContactsViewController.h */,
+				436CB21D1FB1494100A31585 /* ContactsViewController.m */,
+				436CB2291FB19C6A00A31585 /* AddMemberViewController.h */,
+				436CB22A1FB19C6A00A31585 /* AddMemberViewController.m */,
+				4359B9641FB2AA18007D7F30 /* ContactsDetailViewController.h */,
+				4359B9651FB2AA18007D7F30 /* ContactsDetailViewController.m */,
+				436A6B211FB303AB008E461B /* UserSignInListViewController.h */,
+				436A6B221FB303AB008E461B /* UserSignInListViewController.m */,
+			);
+			path = "通讯录";
+			sourceTree = "<group>";
+		};
+		43FDDF501FB071A0001D2127 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				436CB21F1FB15B9100A31585 /* ContactsListCell.h */,
+				436CB2201FB15B9100A31585 /* ContactsListCell.m */,
+				436CB22F1FB1AA2C00A31585 /* AddMemberTextField.h */,
+				436CB2301FB1AA2C00A31585 /* AddMemberTextField.m */,
+				4359B9671FB2AA75007D7F30 /* DetailCellView.h */,
+				4359B9681FB2AA75007D7F30 /* DetailCellView.m */,
+				436A6B1E1FB2F7E0008E461B /* DetailWithAttachmentCellView.h */,
+				436A6B1F1FB2F7E0008E461B /* DetailWithAttachmentCellView.m */,
+				436A6B2A1FB30865008E461B /* UserSignInListCell.h */,
+				436A6B2B1FB30865008E461B /* UserSignInListCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		5C6A70A77D1937EEFC4DF06A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -933,6 +1025,7 @@
 				92CAA6611FAFFE6600DB5873 /* 班级圈 */,
 				9218606A1FA9AFE90018D982 /* 通知 */,
 				7CEFC9751FA810BD001D8C84 /* 签到记录 */,
+				436CB2221FB15BAE00A31585 /* 通讯录 */,
 				923427421FA6C3EB003BCEFD /* 首页 */,
 				7CEFC8FF1FA0693E001D8C84 /* 我的 */,
 				7CEFC8FE1FA06924001D8C84 /* 登录注册 */,
@@ -1088,6 +1181,7 @@
 			isa = PBXGroup;
 			children = (
 				921DE2D51FB145A200CF39DE /* 资源 */,
+				43FDDF4E1FB0716C001D2127 /* 通讯录 */,
 				921860561FA9658E0018D982 /* 通知管理 */,
 				9234274F1FA6C8AC003BCEFD /* view */,
 				7CEFC92D1FA08067001D8C84 /* MainPageViewController.h */,
@@ -1588,10 +1682,13 @@
 				92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */,
+				436CB2211FB15B9100A31585 /* ContactsListCell.m in Sources */,
 				921860701FA9B0160018D982 /* NoticeListRequest.m in Sources */,
+				4359B9631FB2A44B007D7F30 /* UserSignInPercentRequest.m in Sources */,
 				7CEFC86B1FA065B3001D8C84 /* ConfigManager.m in Sources */,
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
+				436CB2251FB15C9B00A31585 /* ClazsMemberListRequest.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
@@ -1604,6 +1701,7 @@
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
 				92CAA6791FAFFEBD00DB5873 /* CircleSpreadTransition.m in Sources */,
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
+				4359B9691FB2AA75007D7F30 /* DetailCellView.m in Sources */,
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
@@ -1631,7 +1729,9 @@
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
 				921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */,
+				436CB22B1FB19C6A00A31585 /* AddMemberViewController.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
+				436A6B2C1FB30865008E461B /* UserSignInListCell.m in Sources */,
 				7CEFC89B1FA06614001D8C84 /* YXGradientView.m in Sources */,
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
@@ -1646,6 +1746,7 @@
 				92CAA6881FAFFF0B00DB5873 /* CommentInputView.m in Sources */,
 				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
+				436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
 				7CEFC88B1FA065EC001D8C84 /* GCDTimer.m in Sources */,
 				92CAA63F1FAACDDA00DB5873 /* FDActionSheetCell.m in Sources */,
@@ -1655,6 +1756,7 @@
 				7CEFC9861FA82C40001D8C84 /* CreateSignInViewController.m in Sources */,
 				7CEFC85E1FA06593001D8C84 /* MJRefreshFooterView.m in Sources */,
 				7CEFC95F1FA6D331001D8C84 /* AccountInputView.m in Sources */,
+				4359B9661FB2AA18007D7F30 /* ContactsDetailViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
 				7C672AFE1FAAEE6D004D93DF /* SignInDetailRequest.m in Sources */,
@@ -1725,15 +1827,18 @@
 				7C672AF81FAACC9F004D93DF /* SignInDelayView.m in Sources */,
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
 				7CEFC85C1FA06593001D8C84 /* MJRefreshBaseView.m in Sources */,
+				436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */,
 				7CEFC8FB1FA068D3001D8C84 /* FSTabBarController.m in Sources */,
 				92CAA6711FAFFE8E00DB5873 /* ClassMomentClickLikeRequest.m in Sources */,
 				7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */,
 				7C672B501FB2D747004D93DF /* CourseDetailTabContainerView.m in Sources */,
+				436CB2281FB15D6000A31585 /* ClazsMemberListFetcher.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
 				921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */,
 				92CAA6811FAFFEBD00DB5873 /* ClassMomentHeaderView.m in Sources */,
+				436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
 				7C672B471FB1AC17004D93DF /* QuestionUserDetailViewController.m in Sources */,
@@ -1743,8 +1848,10 @@
 				92CAA68B1FB0173A00DB5873 /* ClassMomentDeleteRequest.m in Sources */,
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
+				436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
 				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
+				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
 				7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */,
@@ -1765,6 +1872,7 @@
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
+				436A6B231FB303AB008E461B /* UserSignInListViewController.m in Sources */,
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
 				7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */,
 			);

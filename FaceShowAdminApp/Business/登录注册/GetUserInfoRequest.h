@@ -24,6 +24,7 @@
 @property (nonatomic, copy) NSString<Optional> *subjectName;
 @property (nonatomic, copy) NSString<Optional> *sexName;
 
+- (NSString *)sexString;
 @end
 
 @interface GetUserInfoRequestItem : HttpBaseRequestItem
@@ -31,4 +32,5 @@
 @end
 
 @interface GetUserInfoRequest : YXGetRequest
+@property (nonatomic, strong) NSString<Optional> *userId;
 @end

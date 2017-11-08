@@ -21,7 +21,6 @@
     [super viewDidLoad];
     [self setupNav];
     [self setupUI];
-    [self setupObserver];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +38,7 @@
     [self.navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.navRightBtn setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
     [self.navRightBtn addTarget:self action:@selector(navRightBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.navRightBtn.enabled = !isEmpty(self.selectedClass);
     [self nyx_setupRightWithCustomView:self.navRightBtn];
 }
 
@@ -63,15 +63,6 @@
     [self.tableview registerClass:[ClassListCell class] forCellReuseIdentifier:@"ClassListCell"];
 }
 
-#pragma mark - setupObserver
-- (void)setupObserver {
-    WEAK_SELF
-    [RACObserve(self, selectedClass) subscribeNext:^(ClassListRequestItem_clazsInfos *x) {
-        STRONG_SELF
-        self.navRightBtn.enabled = !isEmpty(x);
-    }];
-}
-
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [UserManager sharedInstance].userModel.clazsInfos.count;
@@ -90,6 +81,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedClass = [UserManager sharedInstance].userModel.clazsInfos[indexPath.row];
+    self.navRightBtn.enabled = !isEmpty(self.selectedClass);
 }
 
 @end
