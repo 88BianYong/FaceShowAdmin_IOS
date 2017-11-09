@@ -24,11 +24,14 @@
 #import "NoticeListViewController.h"
 #import "ContactsViewController.h"
 #import "ResourceManagerViewController.h"
+#import "ScheduleDetailViewController.h"
+#import "ScheduleDetailRequest.h"
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
 @property (nonatomic, strong) ClazsGetClazsRequest *clazsRequest;
 @property (nonatomic, strong) ClazsGetClazsRequestItem_Data *itemData;
+@property (nonatomic, strong) ScheduleDetailRequest *detailRequest;
 
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 
@@ -92,6 +95,8 @@
         }else if (type == MainPagePushType_Resources) {
             ResourceManagerViewController *VC = [[ResourceManagerViewController alloc] init];
             [self.navigationController pushViewController:VC animated:YES];
+        }else if (type == MainPagePushType_Schedule) {
+            [self requestForScheduleDetail];
         }
     }];
     self.scrollView.hidden = YES;
@@ -241,6 +246,27 @@
 //    GetCourseListRequestItem_coursesList *course = courses.coursesList[indexPath.row];
 //    courseDetailVC.courseId = course.courseId;
 //    [self.navigationController pushViewController:courseDetailVC animated:YES];
+}
+- (void)requestForScheduleDetail {
+    self.detailRequest = [[ScheduleDetailRequest alloc] init];
+    self.detailRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.detailRequest startRequestWithRetClass:[ScheduleDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view nyx_showToast:error.localizedDescription];
+        }else {
+            ScheduleDetailRequestItem *item = retItem;
+            ScheduleDetailViewController *VC = [[ScheduleDetailViewController alloc] init];
+            if (item.data.schedules.elements.count > 0) {
+                VC.element = item.data.schedules.elements[0];
+            }
+            [self.navigationController pushViewController:VC animated:item.data.schedules.elements.count > 0];
+        }
+    }];
+    
 }
 
 @end

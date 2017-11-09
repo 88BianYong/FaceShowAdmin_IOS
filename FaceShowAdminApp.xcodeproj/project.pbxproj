@@ -209,6 +209,10 @@
 		923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A41FA823AE003BCEFD /* MainProjectDetailView.m */; };
 		923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923427A71FA823C7003BCEFD /* MainClassDetailView.m */; };
 		9235F97B1FB3DF1C003A9027 /* ResourceCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F97A1FB3DF1C003A9027 /* ResourceCreateRequest.m */; };
+		9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F97E1FB3ED83003A9027 /* ScheduleDetailRequest.m */; };
+		9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9851FB3EDED003A9027 /* ScheduleDetailViewController.m */; };
+		9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9881FB3EE0F003A9027 /* ScheduleCreateViewController.m */; };
+		9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */; };
 		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
 		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
 		92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */; };
@@ -239,6 +243,10 @@
 		92CAA6851FAFFEBD00DB5873 /* PublishMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6471FAFFDD600DB5873 /* PublishMomentViewController.m */; };
 		92CAA6881FAFFF0B00DB5873 /* CommentInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6871FAFFF0B00DB5873 /* CommentInputView.m */; };
 		92CAA68B1FB0173A00DB5873 /* ClassMomentDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA68A1FB0173A00DB5873 /* ClassMomentDeleteRequest.m */; };
+		92E8869F1FB3F91D0006A08E /* ScheduleCreateImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8869E1FB3F91D0006A08E /* ScheduleCreateImageCell.m */; };
+		92E886A21FB3FCCF0006A08E /* ScheduleUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A11FB3FCCF0006A08E /* ScheduleUpdateRequest.m */; };
+		92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A41FB3FCF10006A08E /* ScheduleCreateRequest.m */; };
+		92E886A81FB3FD000006A08E /* ScheduleDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A71FB3FD000006A08E /* ScheduleDeleteRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -637,6 +645,15 @@
 		923427A71FA823C7003BCEFD /* MainClassDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainClassDetailView.m; sourceTree = "<group>"; };
 		9235F9791FB3DF1C003A9027 /* ResourceCreateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceCreateRequest.h; sourceTree = "<group>"; };
 		9235F97A1FB3DF1C003A9027 /* ResourceCreateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceCreateRequest.m; sourceTree = "<group>"; };
+		9235F97D1FB3ED83003A9027 /* ScheduleDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailRequest.h; sourceTree = "<group>"; };
+		9235F97E1FB3ED83003A9027 /* ScheduleDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailRequest.m; sourceTree = "<group>"; };
+		9235F9841FB3EDED003A9027 /* ScheduleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailViewController.h; sourceTree = "<group>"; };
+		9235F9851FB3EDED003A9027 /* ScheduleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailViewController.m; sourceTree = "<group>"; };
+		9235F9871FB3EE0F003A9027 /* ScheduleCreateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateViewController.h; sourceTree = "<group>"; };
+		9235F9881FB3EE0F003A9027 /* ScheduleCreateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleCreateViewController.m; sourceTree = "<group>"; };
+		9235F98B1FB3F7AE003A9027 /* ScheduleCreateTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateTitleCell.h; sourceTree = "<group>"; };
+		9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleCreateTitleCell.m; sourceTree = "<group>"; };
+		9235F98E1FB3F7CA003A9027 /* ScheduleCreateImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateImageCell.h; sourceTree = "<group>"; };
 		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
 		92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadFirstStepRequest.m; sourceTree = "<group>"; };
 		92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadSecondStepRequest.h; sourceTree = "<group>"; };
@@ -693,6 +710,13 @@
 		92CAA6871FAFFF0B00DB5873 /* CommentInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentInputView.m; sourceTree = "<group>"; };
 		92CAA6891FB0173A00DB5873 /* ClassMomentDeleteRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassMomentDeleteRequest.h; sourceTree = "<group>"; };
 		92CAA68A1FB0173A00DB5873 /* ClassMomentDeleteRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassMomentDeleteRequest.m; sourceTree = "<group>"; };
+		92E8869E1FB3F91D0006A08E /* ScheduleCreateImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleCreateImageCell.m; sourceTree = "<group>"; };
+		92E886A01FB3FCCF0006A08E /* ScheduleUpdateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleUpdateRequest.h; sourceTree = "<group>"; };
+		92E886A11FB3FCCF0006A08E /* ScheduleUpdateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleUpdateRequest.m; sourceTree = "<group>"; };
+		92E886A31FB3FCF10006A08E /* ScheduleCreateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateRequest.h; sourceTree = "<group>"; };
+		92E886A41FB3FCF10006A08E /* ScheduleCreateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleCreateRequest.m; sourceTree = "<group>"; };
+		92E886A61FB3FD000006A08E /* ScheduleDeleteRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDeleteRequest.h; sourceTree = "<group>"; };
+		92E886A71FB3FD000006A08E /* ScheduleDeleteRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDeleteRequest.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1071,6 +1095,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				9235F97C1FB3EC68003A9027 /* 日程 */,
 				921DE2D41FB1459100CF39DE /* 资源 */,
 				7C672B171FB03806004D93DF /* 任务 */,
 				7C672B021FB00218004D93DF /* 课程 */,
@@ -1232,6 +1257,7 @@
 		7CEFC92C1FA0804C001D8C84 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				9235F9801FB3ED8C003A9027 /* 日程 */,
 				921DE2D51FB145A200CF39DE /* 资源 */,
 				43FDDF4E1FB0716C001D2127 /* 通讯录 */,
 				921860561FA9658E0018D982 /* 通知管理 */,
@@ -1538,6 +1564,44 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		9235F97C1FB3EC68003A9027 /* 日程 */ = {
+			isa = PBXGroup;
+			children = (
+				9235F97D1FB3ED83003A9027 /* ScheduleDetailRequest.h */,
+				9235F97E1FB3ED83003A9027 /* ScheduleDetailRequest.m */,
+				92E886A31FB3FCF10006A08E /* ScheduleCreateRequest.h */,
+				92E886A41FB3FCF10006A08E /* ScheduleCreateRequest.m */,
+				92E886A01FB3FCCF0006A08E /* ScheduleUpdateRequest.h */,
+				92E886A11FB3FCCF0006A08E /* ScheduleUpdateRequest.m */,
+				92E886A61FB3FD000006A08E /* ScheduleDeleteRequest.h */,
+				92E886A71FB3FD000006A08E /* ScheduleDeleteRequest.m */,
+			);
+			path = "日程";
+			sourceTree = "<group>";
+		};
+		9235F9801FB3ED8C003A9027 /* 日程 */ = {
+			isa = PBXGroup;
+			children = (
+				9235F98A1FB3F787003A9027 /* view */,
+				9235F9841FB3EDED003A9027 /* ScheduleDetailViewController.h */,
+				9235F9851FB3EDED003A9027 /* ScheduleDetailViewController.m */,
+				9235F9871FB3EE0F003A9027 /* ScheduleCreateViewController.h */,
+				9235F9881FB3EE0F003A9027 /* ScheduleCreateViewController.m */,
+			);
+			path = "日程";
+			sourceTree = "<group>";
+		};
+		9235F98A1FB3F787003A9027 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9235F98B1FB3F7AE003A9027 /* ScheduleCreateTitleCell.h */,
+				9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */,
+				9235F98E1FB3F7CA003A9027 /* ScheduleCreateImageCell.h */,
+				92E8869E1FB3F91D0006A08E /* ScheduleCreateImageCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		92CAA6491FAFFDD900DB5873 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1759,6 +1823,8 @@
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				436CB2251FB15C9B00A31585 /* ClazsMemberListRequest.m in Sources */,
+				92E886A21FB3FCCF0006A08E /* ScheduleUpdateRequest.m in Sources */,
+				92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
@@ -1843,6 +1909,7 @@
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
+				9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */,
 				7C672B081FB00267004D93DF /* CourseListViewController.m in Sources */,
 				7C672B681FB3FC4B004D93DF /* ResourceDisplayViewController.m in Sources */,
 				7C672B411FB1A8EF004D93DF /* QuestionTabContainerView.m in Sources */,
@@ -1874,6 +1941,7 @@
 				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
 				7CEFC85D1FA06593001D8C84 /* MJRefreshConst.m in Sources */,
 				7CEFC8EF1FA067B2001D8C84 /* UserModel.m in Sources */,
+				92E886A81FB3FD000006A08E /* ScheduleDeleteRequest.m in Sources */,
 				7CEFC8CA1FA06627001D8C84 /* UIImage+YXImage.m in Sources */,
 				7CEFC85F1FA06593001D8C84 /* MJRefreshHeaderView.m in Sources */,
 				7CEFC8851FA065D6001D8C84 /* YXGetRequest.m in Sources */,
@@ -1888,6 +1956,7 @@
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */,
+				9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */,
 				92CAA67C1FAFFEBD00DB5873 /* ShowPhotosViewController.m in Sources */,
 				92CAA67B1FAFFEBD00DB5873 /* PreviewPhotosView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
@@ -1902,12 +1971,14 @@
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
+				9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */,
 				7CEFC8C01FA06627001D8C84 /* CloneCategory.m in Sources */,
 				7C672B2D1FB15431004D93DF /* GetVoteRequest.m in Sources */,
 				7C672AF81FAACC9F004D93DF /* SignInDelayView.m in Sources */,
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
 				7CEFC85C1FA06593001D8C84 /* MJRefreshBaseView.m in Sources */,
 				436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */,
+				92E8869F1FB3F91D0006A08E /* ScheduleCreateImageCell.m in Sources */,
 				7CEFC8FB1FA068D3001D8C84 /* FSTabBarController.m in Sources */,
 				92CAA6711FAFFE8E00DB5873 /* ClassMomentClickLikeRequest.m in Sources */,
 				7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */,
@@ -1935,6 +2006,7 @@
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
+				9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */,
 				7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */,
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
 				7CEFC8C81FA06627001D8C84 /* UIImage+Color.m in Sources */,
