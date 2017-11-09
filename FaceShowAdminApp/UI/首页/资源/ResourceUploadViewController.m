@@ -172,7 +172,7 @@
 }
 #pragma mark - request
 - (void)requestForResourceCreate {
-    if ([self.textView.text hasPrefix:@"http://"] || [self.textView.text hasPrefix:@"https://"] || [self.textView.text hasPrefix:@"www."]) {
+    if ([self.textView.text hasPrefix:@"http://"] || [self.textView.text hasPrefix:@"https://"]) {
         self.createRequest = [[ResourceCreateRequest alloc] init];
         self.createRequest.filename = @"外部链接类型";
         NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
