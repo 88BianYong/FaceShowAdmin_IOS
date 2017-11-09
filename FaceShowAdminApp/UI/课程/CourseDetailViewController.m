@@ -12,6 +12,7 @@
 #import "CourseDetailTabContainerView.h"
 #import "CourseTaskViewController.h"
 #import "CourseResourceViewController.h"
+#import "CourseInfoViewController.h"
 
 @interface CourseDetailViewController ()
 @property (nonatomic, strong) UIImageView *headerImageView;
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UILabel *placeLabel;
 @property (nonatomic, strong) ErrorView *errorView;
 @property (nonatomic, strong) GetCourseRequest *request;
+@property (nonatomic, strong) GetCourseRequestItem *requestItem;
 @property (nonatomic, strong) NSMutableArray<UIViewController *> *tabControllers;
 @property (nonatomic, strong) UIView *tabContentView;
 @end
@@ -194,6 +196,7 @@
     self.tabControllers = [NSMutableArray array];
     CourseTaskViewController *taskVC = [[CourseTaskViewController alloc]init];
     CourseResourceViewController *resourceVC = [[CourseResourceViewController alloc]init];
+    resourceVC.courseId = self.courseId;
     [self.tabControllers addObject:taskVC];
     [self.tabControllers addObject:resourceVC];
     for (UIViewController *vc in self.tabControllers) {
@@ -220,7 +223,9 @@
 }
 
 - (void)courseInfoAction {
-    
+    CourseInfoViewController *vc = [[CourseInfoViewController alloc]init];
+    vc.item = self.requestItem;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)switchToVCWithIndex:(NSInteger)index {
@@ -253,6 +258,7 @@
 }
 
 - (void)refreshUIWithItem:(GetCourseRequestItem *)item {
+    self.requestItem = item;
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineHeightMultiple = 1.2;
     NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle};
@@ -283,7 +289,7 @@
     self.teacherLabel.text = lectureName;
     self.placeLabel.text = isEmpty(item.data.course.site) ? @"待定" : item.data.course.site;
     
-    CourseTaskViewController *vc = self.tabControllers.firstObject;
+    CourseTaskViewController *vc = (CourseTaskViewController *)self.tabControllers.firstObject;
     vc.interactSteps = item.data.interactSteps;
 }
 

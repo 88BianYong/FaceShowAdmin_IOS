@@ -9,5 +9,5 @@
 #import "PagedListViewControllerBase.h"
 
 @interface CourseResourceViewController : PagedListViewControllerBase
-
+@property (nonatomic, strong) NSString *courseId;
 @end

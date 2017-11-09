@@ -56,6 +56,16 @@
 		7C672B531FB2DF93004D93DF /* CourseTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B521FB2DF93004D93DF /* CourseTaskViewController.m */; };
 		7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B551FB2E077004D93DF /* CourseResourceViewController.m */; };
 		7C672B591FB2E0E4004D93DF /* CourseTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B581FB2E0E4004D93DF /* CourseTaskCell.m */; };
+		7C672B5C1FB313DD004D93DF /* CourseResourceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B5B1FB313DD004D93DF /* CourseResourceRequest.m */; };
+		7C672B5F1FB3EC6D004D93DF /* CourseResourceFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B5E1FB3EC6D004D93DF /* CourseResourceFetcher.m */; };
+		7C672B621FB3F54E004D93DF /* CourseResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B611FB3F54E004D93DF /* CourseResourceCell.m */; };
+		7C672B651FB3F66C004D93DF /* ResourceTypeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B641FB3F66C004D93DF /* ResourceTypeMapping.m */; };
+		7C672B681FB3FC4B004D93DF /* ResourceDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B671FB3FC4B004D93DF /* ResourceDisplayViewController.m */; };
+		7C672B6B1FB3FF04004D93DF /* CourseInfoTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B6A1FB3FF04004D93DF /* CourseInfoTabContainerView.m */; };
+		7C672B6E1FB3FFB0004D93DF /* CourseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B6D1FB3FFB0004D93DF /* CourseInfoViewController.m */; };
+		7C672B711FB400C8004D93DF /* CourseLecturerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B701FB400C8004D93DF /* CourseLecturerViewController.m */; };
+		7C672B741FB40100004D93DF /* CourseBriefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B731FB40100004D93DF /* CourseBriefViewController.m */; };
+		7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B761FB402BC004D93DF /* CourseLectureCell.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
@@ -329,6 +339,26 @@
 		7C672B551FB2E077004D93DF /* CourseResourceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseResourceViewController.m; sourceTree = "<group>"; };
 		7C672B571FB2E0E4004D93DF /* CourseTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseTaskCell.h; sourceTree = "<group>"; };
 		7C672B581FB2E0E4004D93DF /* CourseTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseTaskCell.m; sourceTree = "<group>"; };
+		7C672B5A1FB313DD004D93DF /* CourseResourceRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseResourceRequest.h; sourceTree = "<group>"; };
+		7C672B5B1FB313DD004D93DF /* CourseResourceRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseResourceRequest.m; sourceTree = "<group>"; };
+		7C672B5D1FB3EC6D004D93DF /* CourseResourceFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseResourceFetcher.h; sourceTree = "<group>"; };
+		7C672B5E1FB3EC6D004D93DF /* CourseResourceFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseResourceFetcher.m; sourceTree = "<group>"; };
+		7C672B601FB3F54E004D93DF /* CourseResourceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseResourceCell.h; sourceTree = "<group>"; };
+		7C672B611FB3F54E004D93DF /* CourseResourceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseResourceCell.m; sourceTree = "<group>"; };
+		7C672B631FB3F66C004D93DF /* ResourceTypeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceTypeMapping.h; sourceTree = "<group>"; };
+		7C672B641FB3F66C004D93DF /* ResourceTypeMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceTypeMapping.m; sourceTree = "<group>"; };
+		7C672B661FB3FC4B004D93DF /* ResourceDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDisplayViewController.h; sourceTree = "<group>"; };
+		7C672B671FB3FC4B004D93DF /* ResourceDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceDisplayViewController.m; sourceTree = "<group>"; };
+		7C672B691FB3FF04004D93DF /* CourseInfoTabContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseInfoTabContainerView.h; sourceTree = "<group>"; };
+		7C672B6A1FB3FF04004D93DF /* CourseInfoTabContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseInfoTabContainerView.m; sourceTree = "<group>"; };
+		7C672B6C1FB3FFB0004D93DF /* CourseInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseInfoViewController.h; sourceTree = "<group>"; };
+		7C672B6D1FB3FFB0004D93DF /* CourseInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseInfoViewController.m; sourceTree = "<group>"; };
+		7C672B6F1FB400C8004D93DF /* CourseLecturerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseLecturerViewController.h; sourceTree = "<group>"; };
+		7C672B701FB400C8004D93DF /* CourseLecturerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseLecturerViewController.m; sourceTree = "<group>"; };
+		7C672B721FB40100004D93DF /* CourseBriefViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseBriefViewController.h; sourceTree = "<group>"; };
+		7C672B731FB40100004D93DF /* CourseBriefViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseBriefViewController.m; sourceTree = "<group>"; };
+		7C672B751FB402BC004D93DF /* CourseLectureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseLectureCell.h; sourceTree = "<group>"; };
+		7C672B761FB402BC004D93DF /* CourseLectureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseLectureCell.m; sourceTree = "<group>"; };
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -744,6 +774,10 @@
 				7C672B031FB00230004D93DF /* GetCourseListRequest.m */,
 				7C672B481FB2A353004D93DF /* GetCourseRequest.h */,
 				7C672B491FB2A353004D93DF /* GetCourseRequest.m */,
+				7C672B5A1FB313DD004D93DF /* CourseResourceRequest.h */,
+				7C672B5B1FB313DD004D93DF /* CourseResourceRequest.m */,
+				7C672B5D1FB3EC6D004D93DF /* CourseResourceFetcher.h */,
+				7C672B5E1FB3EC6D004D93DF /* CourseResourceFetcher.m */,
 			);
 			path = "课程";
 			sourceTree = "<group>";
@@ -757,6 +791,12 @@
 				7C672B4F1FB2D747004D93DF /* CourseDetailTabContainerView.m */,
 				7C672B571FB2E0E4004D93DF /* CourseTaskCell.h */,
 				7C672B581FB2E0E4004D93DF /* CourseTaskCell.m */,
+				7C672B601FB3F54E004D93DF /* CourseResourceCell.h */,
+				7C672B611FB3F54E004D93DF /* CourseResourceCell.m */,
+				7C672B691FB3FF04004D93DF /* CourseInfoTabContainerView.h */,
+				7C672B6A1FB3FF04004D93DF /* CourseInfoTabContainerView.m */,
+				7C672B751FB402BC004D93DF /* CourseLectureCell.h */,
+				7C672B761FB402BC004D93DF /* CourseLectureCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1216,6 +1256,16 @@
 				7C672B521FB2DF93004D93DF /* CourseTaskViewController.m */,
 				7C672B541FB2E077004D93DF /* CourseResourceViewController.h */,
 				7C672B551FB2E077004D93DF /* CourseResourceViewController.m */,
+				7C672B661FB3FC4B004D93DF /* ResourceDisplayViewController.h */,
+				7C672B671FB3FC4B004D93DF /* ResourceDisplayViewController.m */,
+				7C672B6C1FB3FFB0004D93DF /* CourseInfoViewController.h */,
+				7C672B6D1FB3FFB0004D93DF /* CourseInfoViewController.m */,
+				7C672B6F1FB400C8004D93DF /* CourseLecturerViewController.h */,
+				7C672B701FB400C8004D93DF /* CourseLecturerViewController.m */,
+				7C672B721FB40100004D93DF /* CourseBriefViewController.h */,
+				7C672B731FB40100004D93DF /* CourseBriefViewController.m */,
+				7C672B631FB3F66C004D93DF /* ResourceTypeMapping.h */,
+				7C672B641FB3F66C004D93DF /* ResourceTypeMapping.m */,
 			);
 			path = "课程";
 			sourceTree = "<group>";
@@ -1727,6 +1777,7 @@
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
 				7C672B381FB1A362004D93DF /* ClassUserQuestionRequest.m in Sources */,
+				7C672B621FB3F54E004D93DF /* CourseResourceCell.m in Sources */,
 				7C672B591FB2E0E4004D93DF /* CourseTaskCell.m in Sources */,
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
@@ -1751,6 +1802,7 @@
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
+				7C672B6E1FB3FFB0004D93DF /* CourseInfoViewController.m in Sources */,
 				921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */,
 				436CB22B1FB19C6A00A31585 /* AddMemberViewController.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
@@ -1776,6 +1828,7 @@
 				7CEFC8861FA065D6001D8C84 /* YXPostRequest.m in Sources */,
 				7CEFC8991FA06614001D8C84 /* CollectionViewEqualSpaceFlowLayout.m in Sources */,
 				7CEFC8FA1FA068D3001D8C84 /* BaseViewController.m in Sources */,
+				7C672B711FB400C8004D93DF /* CourseLecturerViewController.m in Sources */,
 				7CEFC9861FA82C40001D8C84 /* CreateSignInViewController.m in Sources */,
 				7CEFC85E1FA06593001D8C84 /* MJRefreshFooterView.m in Sources */,
 				7CEFC95F1FA6D331001D8C84 /* AccountInputView.m in Sources */,
@@ -1791,6 +1844,7 @@
 				7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
 				7C672B081FB00267004D93DF /* CourseListViewController.m in Sources */,
+				7C672B681FB3FC4B004D93DF /* ResourceDisplayViewController.m in Sources */,
 				7C672B411FB1A8EF004D93DF /* QuestionTabContainerView.m in Sources */,
 				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
 				7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */,
@@ -1798,6 +1852,7 @@
 				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				7C672B151FB0339D004D93DF /* TaskListCell.m in Sources */,
+				7C672B5F1FB3EC6D004D93DF /* CourseResourceFetcher.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
 				7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
@@ -1806,11 +1861,13 @@
 				7C672AFB1FAAD356004D93DF /* ReplenishSignInRequest.m in Sources */,
 				7CEFC8481FA06577001D8C84 /* YXMockManager.m in Sources */,
 				92CAA6831FAFFEBD00DB5873 /* ClassMomentTableHeaderView.m in Sources */,
+				7C672B6B1FB3FF04004D93DF /* CourseInfoTabContainerView.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
 				7C672B201FB1536E004D93DF /* ChooseQuestionResultCell.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
+				7C672B651FB3F66C004D93DF /* ResourceTypeMapping.m in Sources */,
 				92CAA6801FAFFEBD00DB5873 /* ClassMomentFooterView.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */,
@@ -1873,6 +1930,7 @@
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
+				7C672B5C1FB313DD004D93DF /* CourseResourceRequest.m in Sources */,
 				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
@@ -1884,11 +1942,13 @@
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
 				7C672B531FB2DF93004D93DF /* CourseTaskViewController.m in Sources */,
+				7C672B741FB40100004D93DF /* CourseBriefViewController.m in Sources */,
 				7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
+				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				92CAA6771FAFFEA700DB5873 /* ClassMomentPublishRequest.m in Sources */,
 				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,
