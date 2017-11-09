@@ -8,9 +8,11 @@
 
 #import "MineViewController.h"
 #import "ClassSelectionViewController.h"
+#import "MyInfoViewController.h"
 
 @interface MineViewController ()
 @property (nonatomic, strong) UIButton *avatarBtn;
+@property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *classDescLabel;
 @property (nonatomic, strong) UILabel *classNameLabel;
 @end
@@ -20,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self setupObserver];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,13 +53,13 @@
         make.size.mas_equalTo(CGSizeMake(55, 55));
     }];
     
-    UILabel *nameLabel = [[UILabel alloc] init];
-    nameLabel.font = [UIFont boldSystemFontOfSize:18];
-    nameLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
-    nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.text = [UserManager sharedInstance].userModel.realName;
-    [self.view addSubview:nameLabel];
-    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.nameLabel = [[UILabel alloc] init];
+    self.nameLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.nameLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
+    self.nameLabel.textAlignment = NSTextAlignmentCenter;
+    self.nameLabel.text = [UserManager sharedInstance].userModel.realName;
+    [self.view addSubview:self.nameLabel];
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
         make.top.mas_equalTo(self.avatarBtn.mas_bottom).offset(10.75f);
@@ -71,7 +74,7 @@
     [self.classDescLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
-        make.top.mas_equalTo(nameLabel.mas_bottom).offset(19.25f);
+        make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(19.25f);
     }];
     
     self.classNameLabel = [[UILabel alloc] init];
@@ -150,6 +153,16 @@
     return btn;
 }
 
+#pragma mark - setupObserver
+- (void)setupObserver {
+    WEAK_SELF
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateUserInfoSucceedNotification" object:nil] subscribeNext:^(id x) {
+        STRONG_SELF
+        [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 55, 55)]];
+        self.nameLabel.text = [UserManager sharedInstance].userModel.realName;
+    }];
+}
+
 #pragma mark - actions
 - (void)changeClassBtnAction {
     ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
@@ -163,8 +176,9 @@
 - (void)optionBtnAction:(UIButton *)sender {
     if ([sender.titleLabel.text isEqualToString:@"班级首页"]) {
         [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
-    } else {
-        
+    } else if ([sender.titleLabel.text isEqualToString:@"我的资料"]) {
+        MyInfoViewController *vc = [[MyInfoViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

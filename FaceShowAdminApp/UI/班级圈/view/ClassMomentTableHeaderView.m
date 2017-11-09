@@ -21,7 +21,7 @@
         [self setupUI];
         [self setupLayout];
         WEAK_SELF
-        [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kYXUploadUserPicSuccessNotification" object:nil] subscribeNext:^(id x) {
+        [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateUserInfoSucceedNotification" object:nil] subscribeNext:^(id x) {
             STRONG_SELF
             [self reload];
         }];

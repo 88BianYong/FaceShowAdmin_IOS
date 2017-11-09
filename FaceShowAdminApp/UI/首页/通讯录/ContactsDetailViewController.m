@@ -114,13 +114,13 @@
         make.height.mas_equalTo(1);
     }];
     
-    NSArray *titles = @[@"联系电话", @"性别", @"学科", @"学段", @"学校"];
+    NSArray *titles = @[@"联系电话", @"性别", @"学段", @"学科", @"学校"];
     NSArray *contents = @[
                           self.data.mobilePhone,
                           [self.data sexString],
-                          isEmpty(self.data.stageName) ? @"" : self.data.stageName,
-                          isEmpty(self.data.subjectName) ? @"" : self.data.subjectName,
-                          isEmpty(self.data.school) ? @"" : self.data.school
+                          isEmpty(self.data.stageName) ? @"暂无" : self.data.stageName,
+                          isEmpty(self.data.subjectName) ? @"暂无" : self.data.subjectName,
+                          isEmpty(self.data.school) ? @"暂无" : self.data.school
                           ];
     self.lastBottom = headWhiteView.mas_bottom;
     for (int i = 0; i < titles.count; i++) {

@@ -23,6 +23,12 @@
 		436CB22B1FB19C6A00A31585 /* AddMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB22A1FB19C6A00A31585 /* AddMemberViewController.m */; };
 		436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB22D1FB1A2BE00A31585 /* CreateMemberRequest.m */; };
 		436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2301FB1AA2C00A31585 /* AddMemberTextField.m */; };
+		436E6DF51FB3F146009950EA /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6DF41FB3F146009950EA /* MyInfoViewController.m */; };
+		436E6DFA1FB3F395009950EA /* UploadHeadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6DF61FB3F394009950EA /* UploadHeadImgRequest.m */; };
+		436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6DFC1FB3F609009950EA /* UserInfoHeaderCell.m */; };
+		436E6E031FB3F642009950EA /* UserInfoDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6E011FB3F642009950EA /* UserInfoDefaultCell.m */; };
+		436E6E091FB3F9C4009950EA /* UpdateUserInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6E071FB3F9C4009950EA /* UpdateUserInfoRequest.m */; };
+		436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6E0B1FB40348009950EA /* UpdateTextInfoViewController.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -280,6 +286,18 @@
 		436CB22D1FB1A2BE00A31585 /* CreateMemberRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMemberRequest.m; sourceTree = "<group>"; };
 		436CB22F1FB1AA2C00A31585 /* AddMemberTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMemberTextField.h; sourceTree = "<group>"; };
 		436CB2301FB1AA2C00A31585 /* AddMemberTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMemberTextField.m; sourceTree = "<group>"; };
+		436E6DF31FB3F146009950EA /* MyInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
+		436E6DF41FB3F146009950EA /* MyInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
+		436E6DF61FB3F394009950EA /* UploadHeadImgRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadHeadImgRequest.m; sourceTree = "<group>"; };
+		436E6DF81FB3F395009950EA /* UploadHeadImgRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadHeadImgRequest.h; sourceTree = "<group>"; };
+		436E6DFC1FB3F609009950EA /* UserInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoHeaderCell.m; sourceTree = "<group>"; };
+		436E6DFD1FB3F609009950EA /* UserInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoHeaderCell.h; sourceTree = "<group>"; };
+		436E6E011FB3F642009950EA /* UserInfoDefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoDefaultCell.m; sourceTree = "<group>"; };
+		436E6E021FB3F642009950EA /* UserInfoDefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoDefaultCell.h; sourceTree = "<group>"; };
+		436E6E071FB3F9C4009950EA /* UpdateUserInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUserInfoRequest.m; sourceTree = "<group>"; };
+		436E6E081FB3F9C4009950EA /* UpdateUserInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateUserInfoRequest.h; sourceTree = "<group>"; };
+		436E6E0A1FB40348009950EA /* UpdateTextInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateTextInfoViewController.h; sourceTree = "<group>"; };
+		436E6E0B1FB40348009950EA /* UpdateTextInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateTextInfoViewController.m; sourceTree = "<group>"; };
 		4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FaceShowAdminApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
@@ -750,6 +768,17 @@
 			path = "通讯录";
 			sourceTree = "<group>";
 		};
+		436E6E001FB3F61C009950EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				436E6DFD1FB3F609009950EA /* UserInfoHeaderCell.h */,
+				436E6DFC1FB3F609009950EA /* UserInfoHeaderCell.m */,
+				436E6E021FB3F642009950EA /* UserInfoDefaultCell.h */,
+				436E6E011FB3F642009950EA /* UserInfoDefaultCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		43FDDF4E1FB0716C001D2127 /* 通讯录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,6 +1190,10 @@
 		7CEFC8FF1FA0693E001D8C84 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				436E6E081FB3F9C4009950EA /* UpdateUserInfoRequest.h */,
+				436E6E071FB3F9C4009950EA /* UpdateUserInfoRequest.m */,
+				436E6DF81FB3F395009950EA /* UploadHeadImgRequest.h */,
+				436E6DF61FB3F394009950EA /* UploadHeadImgRequest.m */,
 				7CEFC8ED1FA067B2001D8C84 /* UserManager.h */,
 				7CEFC8EB1FA067B2001D8C84 /* UserManager.m */,
 				7CEFC8EA1FA067B2001D8C84 /* UserModel.h */,
@@ -1234,8 +1267,13 @@
 		7CEFC9241FA07F20001D8C84 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				436E6E001FB3F61C009950EA /* View */,
 				7CEFC9251FA07F40001D8C84 /* MineViewController.h */,
 				7CEFC9261FA07F40001D8C84 /* MineViewController.m */,
+				436E6DF31FB3F146009950EA /* MyInfoViewController.h */,
+				436E6DF41FB3F146009950EA /* MyInfoViewController.m */,
+				436E6E0A1FB40348009950EA /* UpdateTextInfoViewController.h */,
+				436E6E0B1FB40348009950EA /* UpdateTextInfoViewController.m */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -1836,6 +1874,7 @@
 				92CAA6851FAFFEBD00DB5873 /* PublishMomentViewController.m in Sources */,
 				9235F97B1FB3DF1C003A9027 /* ResourceCreateRequest.m in Sources */,
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
+				436E6E091FB3F9C4009950EA /* UpdateUserInfoRequest.m in Sources */,
 				92CAA6791FAFFEBD00DB5873 /* CircleSpreadTransition.m in Sources */,
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
 				4359B9691FB2AA75007D7F30 /* DetailCellView.m in Sources */,
@@ -1949,6 +1988,7 @@
 				7C672AF51FAAC1D1004D93DF /* UserSignedCell.m in Sources */,
 				7CEFC89D1FA06614001D8C84 /* YXNoFloatingHeaderFooterTableView.m in Sources */,
 				921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */,
+				436E6DFA1FB3F395009950EA /* UploadHeadImgRequest.m in Sources */,
 				7CEFC89C1FA06614001D8C84 /* YXImagePickerController.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
 				7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */,
@@ -1980,6 +2020,7 @@
 				436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */,
 				92E8869F1FB3F91D0006A08E /* ScheduleCreateImageCell.m in Sources */,
 				7CEFC8FB1FA068D3001D8C84 /* FSTabBarController.m in Sources */,
+				436E6E031FB3F642009950EA /* UserInfoDefaultCell.m in Sources */,
 				92CAA6711FAFFE8E00DB5873 /* ClassMomentClickLikeRequest.m in Sources */,
 				7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */,
 				7C672B501FB2D747004D93DF /* CourseDetailTabContainerView.m in Sources */,
@@ -2004,6 +2045,7 @@
 				7C672B5C1FB313DD004D93DF /* CourseResourceRequest.m in Sources */,
 				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
+				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
 				9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */,
@@ -2018,6 +2060,7 @@
 				7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
+				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
@@ -2025,6 +2068,7 @@
 				92CAA6771FAFFEA700DB5873 /* ClassMomentPublishRequest.m in Sources */,
 				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
+				436E6DF51FB3F146009950EA /* MyInfoViewController.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
