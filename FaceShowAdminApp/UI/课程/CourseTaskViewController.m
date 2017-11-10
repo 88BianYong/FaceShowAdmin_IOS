@@ -10,6 +10,7 @@
 #import "CourseTaskCell.h"
 #import "FSDataMappingTable.h"
 #import "QuestionnaireViewController.h"
+#import "CourseCommentViewController.h"
 
 @interface CourseTaskViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -76,7 +77,8 @@
         QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (type == InteractType_Comment) {
-        
+        CourseCommentViewController *vc = [[CourseCommentViewController alloc]initWithStepId:task.stepId];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

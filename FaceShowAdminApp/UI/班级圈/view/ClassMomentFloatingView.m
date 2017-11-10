@@ -146,6 +146,26 @@
             make.center.equalTo(self);
             make.size.mas_offset(CGSizeMake(1.0f, 25.0f));
         }];
+    }else if (floatingStyle == (ClassMomentFloatingStyle_Like | ClassMomentFloatingStyle_Delete)) {
+        [self addSubview:self.likeButton];
+        [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.mas_left);
+            make.height.equalTo(self.mas_height);
+            make.top.equalTo(self.mas_top);
+            make.width.mas_offset(80.0f);
+        }];
+        [self addSubview:self.deleteButton];
+        [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(self.mas_height);
+            make.top.equalTo(self.mas_top);
+            make.right.equalTo(self.mas_right);
+            make.width.mas_offset(80.0f);
+        }];
+        [self addSubview:self.oneLineView];
+        [self.oneLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self);
+            make.size.mas_offset(CGSizeMake(1.0f, 25.0f));
+        }];
     }else {
         [self addSubview:self.likeButton];
         [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -200,6 +220,10 @@
         self.oneLineView.hidden = NO;
         self.twoLineView.hidden = YES;
     }else if (style == (ClassMomentFloatingStyle_Comment | ClassMomentFloatingStyle_Delete)) {
+        widthFloat = 160.0f;
+        self.oneLineView.hidden = NO;
+        self.twoLineView.hidden = YES;
+    }else if (style == (ClassMomentFloatingStyle_Like | ClassMomentFloatingStyle_Delete)) {
         widthFloat = 160.0f;
         self.oneLineView.hidden = NO;
         self.twoLineView.hidden = YES;

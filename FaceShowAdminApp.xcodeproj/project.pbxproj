@@ -72,6 +72,15 @@
 		7C672B711FB400C8004D93DF /* CourseLecturerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B701FB400C8004D93DF /* CourseLecturerViewController.m */; };
 		7C672B741FB40100004D93DF /* CourseBriefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B731FB40100004D93DF /* CourseBriefViewController.m */; };
 		7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B761FB402BC004D93DF /* CourseLectureCell.m */; };
+		7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B791FB53915004D93DF /* CourseCommentTitleView.m */; };
+		7C672B801FB53916004D93DF /* CourseCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B7A1FB53915004D93DF /* CourseCommentCell.m */; };
+		7C672B811FB53916004D93DF /* CourseCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B7C1FB53915004D93DF /* CourseCommentHeaderView.m */; };
+		7C672B841FB53929004D93DF /* CourseCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B831FB53929004D93DF /* CourseCommentViewController.m */; };
+		7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B851FB53966004D93DF /* GetCourseCommentRequest.m */; };
+		7C672B8E1FB53967004D93DF /* LikeCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B871FB53966004D93DF /* LikeCommentRequest.m */; };
+		7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B881FB53966004D93DF /* GetCourseCommentTitleRequest.m */; };
+		7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B8B1FB53966004D93DF /* CourseCommentDataFetcher.m */; };
+		7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B921FB55307004D93DF /* DeleteCommentRequest.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
@@ -385,6 +394,24 @@
 		7C672B731FB40100004D93DF /* CourseBriefViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseBriefViewController.m; sourceTree = "<group>"; };
 		7C672B751FB402BC004D93DF /* CourseLectureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseLectureCell.h; sourceTree = "<group>"; };
 		7C672B761FB402BC004D93DF /* CourseLectureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseLectureCell.m; sourceTree = "<group>"; };
+		7C672B791FB53915004D93DF /* CourseCommentTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentTitleView.m; sourceTree = "<group>"; };
+		7C672B7A1FB53915004D93DF /* CourseCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentCell.m; sourceTree = "<group>"; };
+		7C672B7B1FB53915004D93DF /* CourseCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentCell.h; sourceTree = "<group>"; };
+		7C672B7C1FB53915004D93DF /* CourseCommentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentHeaderView.m; sourceTree = "<group>"; };
+		7C672B7D1FB53915004D93DF /* CourseCommentTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentTitleView.h; sourceTree = "<group>"; };
+		7C672B7E1FB53915004D93DF /* CourseCommentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentHeaderView.h; sourceTree = "<group>"; };
+		7C672B821FB53928004D93DF /* CourseCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentViewController.h; sourceTree = "<group>"; };
+		7C672B831FB53929004D93DF /* CourseCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentViewController.m; sourceTree = "<group>"; };
+		7C672B851FB53966004D93DF /* GetCourseCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseCommentRequest.m; sourceTree = "<group>"; };
+		7C672B861FB53966004D93DF /* GetCourseCommentTitleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseCommentTitleRequest.h; sourceTree = "<group>"; };
+		7C672B871FB53966004D93DF /* LikeCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeCommentRequest.m; sourceTree = "<group>"; };
+		7C672B881FB53966004D93DF /* GetCourseCommentTitleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCourseCommentTitleRequest.m; sourceTree = "<group>"; };
+		7C672B891FB53966004D93DF /* LikeCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeCommentRequest.h; sourceTree = "<group>"; };
+		7C672B8A1FB53966004D93DF /* CourseCommentDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentDataFetcher.h; sourceTree = "<group>"; };
+		7C672B8B1FB53966004D93DF /* CourseCommentDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentDataFetcher.m; sourceTree = "<group>"; };
+		7C672B8C1FB53967004D93DF /* GetCourseCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseCommentRequest.h; sourceTree = "<group>"; };
+		7C672B911FB55307004D93DF /* DeleteCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteCommentRequest.h; sourceTree = "<group>"; };
+		7C672B921FB55307004D93DF /* DeleteCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCommentRequest.m; sourceTree = "<group>"; };
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -831,6 +858,16 @@
 				7C672B5B1FB313DD004D93DF /* CourseResourceRequest.m */,
 				7C672B5D1FB3EC6D004D93DF /* CourseResourceFetcher.h */,
 				7C672B5E1FB3EC6D004D93DF /* CourseResourceFetcher.m */,
+				7C672B8A1FB53966004D93DF /* CourseCommentDataFetcher.h */,
+				7C672B8B1FB53966004D93DF /* CourseCommentDataFetcher.m */,
+				7C672B8C1FB53967004D93DF /* GetCourseCommentRequest.h */,
+				7C672B851FB53966004D93DF /* GetCourseCommentRequest.m */,
+				7C672B861FB53966004D93DF /* GetCourseCommentTitleRequest.h */,
+				7C672B881FB53966004D93DF /* GetCourseCommentTitleRequest.m */,
+				7C672B891FB53966004D93DF /* LikeCommentRequest.h */,
+				7C672B871FB53966004D93DF /* LikeCommentRequest.m */,
+				7C672B911FB55307004D93DF /* DeleteCommentRequest.h */,
+				7C672B921FB55307004D93DF /* DeleteCommentRequest.m */,
 			);
 			path = "课程";
 			sourceTree = "<group>";
@@ -838,6 +875,7 @@
 		7C672B0F1FB0027A004D93DF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7C672B781FB538FE004D93DF /* 讨论 */,
 				7C672B101FB01081004D93DF /* CourseListItemCell.h */,
 				7C672B111FB01081004D93DF /* CourseListItemCell.m */,
 				7C672B4E1FB2D747004D93DF /* CourseDetailTabContainerView.h */,
@@ -900,6 +938,19 @@
 				7C672B401FB1A8EF004D93DF /* QuestionTabContainerView.m */,
 			);
 			name = "投票问卷";
+			sourceTree = "<group>";
+		};
+		7C672B781FB538FE004D93DF /* 讨论 */ = {
+			isa = PBXGroup;
+			children = (
+				7C672B7B1FB53915004D93DF /* CourseCommentCell.h */,
+				7C672B7A1FB53915004D93DF /* CourseCommentCell.m */,
+				7C672B7E1FB53915004D93DF /* CourseCommentHeaderView.h */,
+				7C672B7C1FB53915004D93DF /* CourseCommentHeaderView.m */,
+				7C672B7D1FB53915004D93DF /* CourseCommentTitleView.h */,
+				7C672B791FB53915004D93DF /* CourseCommentTitleView.m */,
+			);
+			name = "讨论";
 			sourceTree = "<group>";
 		};
 		7CEFC8051FA05FBB001D8C84 = {
@@ -1328,6 +1379,8 @@
 				7C672B701FB400C8004D93DF /* CourseLecturerViewController.m */,
 				7C672B721FB40100004D93DF /* CourseBriefViewController.h */,
 				7C672B731FB40100004D93DF /* CourseBriefViewController.m */,
+				7C672B821FB53928004D93DF /* CourseCommentViewController.h */,
+				7C672B831FB53929004D93DF /* CourseCommentViewController.m */,
 				7C672B631FB3F66C004D93DF /* ResourceTypeMapping.h */,
 				7C672B641FB3F66C004D93DF /* ResourceTypeMapping.m */,
 			);
@@ -1865,6 +1918,7 @@
 				92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
+				7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
 				92CAA6761FAFFEA400DB5873 /* ClassMomentListRequest.m in Sources */,
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
@@ -1901,6 +1955,7 @@
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
+				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
 				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
 				7C672B4D1FB2A54B004D93DF /* CourseDetailViewController.m in Sources */,
 				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
@@ -1914,6 +1969,7 @@
 				436A6B2C1FB30865008E461B /* UserSignInListCell.m in Sources */,
 				7CEFC89B1FA06614001D8C84 /* YXGradientView.m in Sources */,
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
+				7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
@@ -1940,6 +1996,7 @@
 				4359B9661FB2AA18007D7F30 /* ContactsDetailViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
+				7C672B811FB53916004D93DF /* CourseCommentHeaderView.m in Sources */,
 				7C672AFE1FAAEE6D004D93DF /* SignInDetailRequest.m in Sources */,
 				92CAA67E1FAFFEBD00DB5873 /* ClassMomentCell.m in Sources */,
 				92CAA6751FAFFEA100DB5873 /* ClassMomentListFetcher.m in Sources */,
@@ -1974,6 +2031,7 @@
 				7C672B201FB1536E004D93DF /* ChooseQuestionResultCell.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				7C672B651FB3F66C004D93DF /* ResourceTypeMapping.m in Sources */,
+				7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */,
 				92CAA6801FAFFEBD00DB5873 /* ClassMomentFooterView.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */,
@@ -1985,6 +2043,7 @@
 				7CEFC85F1FA06593001D8C84 /* MJRefreshHeaderView.m in Sources */,
 				7CEFC8851FA065D6001D8C84 /* YXGetRequest.m in Sources */,
 				7CEFC8811FA065D6001D8C84 /* HttpBaseRequest.m in Sources */,
+				7C672B8E1FB53967004D93DF /* LikeCommentRequest.m in Sources */,
 				7C672AF51FAAC1D1004D93DF /* UserSignedCell.m in Sources */,
 				7CEFC89D1FA06614001D8C84 /* YXNoFloatingHeaderFooterTableView.m in Sources */,
 				921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */,
@@ -2039,6 +2098,7 @@
 				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,
 				92CAA68B1FB0173A00DB5873 /* ClassMomentDeleteRequest.m in Sources */,
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
+				7C672B841FB53929004D93DF /* CourseCommentViewController.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
@@ -2055,6 +2115,7 @@
 				7CEFC97C1FA813E3001D8C84 /* SignInListViewController.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
+				7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */,
 				7C672B531FB2DF93004D93DF /* CourseTaskViewController.m in Sources */,
 				7C672B741FB40100004D93DF /* CourseBriefViewController.m in Sources */,
 				7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */,
@@ -2069,6 +2130,7 @@
 				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				436E6DF51FB3F146009950EA /* MyInfoViewController.m in Sources */,
+				7C672B801FB53916004D93DF /* CourseCommentCell.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
