@@ -29,6 +29,10 @@
 		436E6E031FB3F642009950EA /* UserInfoDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6E011FB3F642009950EA /* UserInfoDefaultCell.m */; };
 		436E6E091FB3F9C4009950EA /* UpdateUserInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6E071FB3F9C4009950EA /* UpdateUserInfoRequest.m */; };
 		436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E6E0B1FB40348009950EA /* UpdateTextInfoViewController.m */; };
+		43729E161FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E151FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m */; };
+		43729E191FB6CAD20043C988 /* SubjectivityAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E181FB6CAD20043C988 /* SubjectivityAnswerViewController.m */; };
+		43729E1C1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E1B1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m */; };
+		43729E1F1FB6DFB80043C988 /* SubjectivityAnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -307,6 +311,14 @@
 		436E6E081FB3F9C4009950EA /* UpdateUserInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateUserInfoRequest.h; sourceTree = "<group>"; };
 		436E6E0A1FB40348009950EA /* UpdateTextInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateTextInfoViewController.h; sourceTree = "<group>"; };
 		436E6E0B1FB40348009950EA /* UpdateTextInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateTextInfoViewController.m; sourceTree = "<group>"; };
+		43729E141FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetSubjectivityAnswerReuqest.h; sourceTree = "<group>"; };
+		43729E151FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetSubjectivityAnswerReuqest.m; sourceTree = "<group>"; };
+		43729E171FB6CAD20043C988 /* SubjectivityAnswerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectivityAnswerViewController.h; sourceTree = "<group>"; };
+		43729E181FB6CAD20043C988 /* SubjectivityAnswerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectivityAnswerViewController.m; sourceTree = "<group>"; };
+		43729E1A1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetSubjectivityAnswerListFetcher.h; sourceTree = "<group>"; };
+		43729E1B1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetSubjectivityAnswerListFetcher.m; sourceTree = "<group>"; };
+		43729E1D1FB6DFB80043C988 /* SubjectivityAnswerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectivityAnswerCell.h; sourceTree = "<group>"; };
+		43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectivityAnswerCell.m; sourceTree = "<group>"; };
 		4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FaceShowAdminApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
@@ -868,6 +880,10 @@
 				7C672B871FB53966004D93DF /* LikeCommentRequest.m */,
 				7C672B911FB55307004D93DF /* DeleteCommentRequest.h */,
 				7C672B921FB55307004D93DF /* DeleteCommentRequest.m */,
+				43729E141FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.h */,
+				43729E151FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m */,
+				43729E1A1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.h */,
+				43729E1B1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m */,
 			);
 			path = "课程";
 			sourceTree = "<group>";
@@ -936,6 +952,8 @@
 				7C672B3D1FB1A784004D93DF /* QuestionUserCell.m */,
 				7C672B3F1FB1A8EF004D93DF /* QuestionTabContainerView.h */,
 				7C672B401FB1A8EF004D93DF /* QuestionTabContainerView.m */,
+				43729E1D1FB6DFB80043C988 /* SubjectivityAnswerCell.h */,
+				43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */,
 			);
 			name = "投票问卷";
 			sourceTree = "<group>";
@@ -1399,6 +1417,8 @@
 				7C672B431FB1AA4A004D93DF /* QuestionUserListViewController.m */,
 				7C672B451FB1AC17004D93DF /* QuestionUserDetailViewController.h */,
 				7C672B461FB1AC17004D93DF /* QuestionUserDetailViewController.m */,
+				43729E171FB6CAD20043C988 /* SubjectivityAnswerViewController.h */,
+				43729E181FB6CAD20043C988 /* SubjectivityAnswerViewController.m */,
 			);
 			path = "任务";
 			sourceTree = "<group>";
@@ -1921,6 +1941,7 @@
 				7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
 				92CAA6761FAFFEA400DB5873 /* ClassMomentListRequest.m in Sources */,
+				43729E1F1FB6DFB80043C988 /* SubjectivityAnswerCell.m in Sources */,
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
 				92CAA67D1FAFFEBD00DB5873 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
@@ -2017,6 +2038,7 @@
 				7C672B151FB0339D004D93DF /* TaskListCell.m in Sources */,
 				7C672B5F1FB3EC6D004D93DF /* CourseResourceFetcher.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
+				43729E161FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m in Sources */,
 				7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
 				921860591FA965E00018D982 /* NoticeListViewController.m in Sources */,
@@ -2063,8 +2085,10 @@
 				921860851FA9BC1D0018D982 /* NoticeSaveImageCell.m in Sources */,
 				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
 				92CAA6841FAFFEBD00DB5873 /* ClassMomentViewController.m in Sources */,
+				43729E191FB6CAD20043C988 /* SubjectivityAnswerViewController.m in Sources */,
 				923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
+				43729E1C1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m in Sources */,
 				92CAA6821FAFFEBD00DB5873 /* ClassMomentLikeView.m in Sources */,
 				7C672B011FAAF387004D93DF /* QRCodeSignInViewController.m in Sources */,
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,

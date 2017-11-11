@@ -1,24 +1,21 @@
 //
-//  CourseCommentCell.m
-//  FaceShowApp
+//  SubjectivityAnswerCell.m
+//  FaceShowAdminApp
 //
-//  Created by niuzhaowang on 2017/9/15.
+//  Created by LiuWenXing on 2017/11/11.
 //  Copyright © 2017年 niuzhaowang. All rights reserved.
 //
 
-#import "CourseCommentCell.h"
+#import "SubjectivityAnswerCell.h"
 
-@interface CourseCommentCell()
+@interface SubjectivityAnswerCell ()
 @property (nonatomic, strong) UIView *bottomLine;
-@property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
-@property (nonatomic, strong) UIButton *menuButton;
-@property (nonatomic, strong) UILabel *favorLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 @end
 
-@implementation CourseCommentCell
+@implementation SubjectivityAnswerCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -39,23 +36,13 @@
         make.bottom.right.mas_equalTo(0);
         make.height.mas_equalTo(1);
     }];
-    self.headImageView = [[UIImageView alloc]init];
-    self.headImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.headImageView.layer.cornerRadius = 5;
-    self.headImageView.clipsToBounds = YES;
-    [self.contentView addSubview:self.headImageView];
-    [self.headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.top.mas_equalTo(15);
-        make.size.mas_equalTo(CGSizeMake(40, 40));
-    }];
     self.nameLabel = [[UILabel alloc]init];
     self.nameLabel.font = [UIFont boldSystemFontOfSize:14];
     self.nameLabel.textColor = [UIColor colorWithHexString:@"333333"];
     [self.contentView addSubview:self.nameLabel];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.headImageView.mas_right).mas_offset(10);
-        make.top.mas_equalTo(self.headImageView.mas_top).mas_offset(5);
+        make.left.mas_equalTo(15);
+        make.top.mas_equalTo(20);
     }];
     self.commentLabel = [[UILabel alloc]init];
     self.commentLabel.font = [UIFont systemFontOfSize:14];
@@ -76,29 +63,6 @@
         make.top.mas_equalTo(self.commentLabel.mas_bottom).mas_offset(20);
         make.bottom.mas_equalTo(-30);
     }];
-    
-    self.menuButton = [[UIButton alloc]init];
-    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮张常态"] forState:UIControlStateNormal];
-    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮-点击态"] forState:UIControlStateHighlighted];
-    [self.menuButton addTarget:self action:@selector(menuAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:self.menuButton];
-    [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-15);
-        make.centerY.mas_equalTo(self.timeLabel.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
-    }];
-    self.favorLabel = [[UILabel alloc]init];
-    self.favorLabel.font = [UIFont systemFontOfSize:13];
-    self.favorLabel.textColor = [UIColor colorWithHexString:@"333333"];
-    [self.contentView addSubview:self.favorLabel];
-    [self.favorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(self.menuButton.mas_left).mas_offset(-3);
-        make.centerY.mas_equalTo(self.menuButton.mas_centerY);
-    }];
-}
-
-- (void)menuAction:(UIButton *)sender {
-    BLOCK_EXEC(self.menuBlock,sender);
 }
 
 - (void)setBottomLineHidden:(BOOL)bottomLineHidden {
@@ -106,18 +70,17 @@
     self.bottomLine.hidden = bottomLineHidden;
 }
 
-- (void)setItem:(GetCourseCommentRequestItem_element *)item {
+- (void)setItem:(GetsubjectivityAnswer_Element *)item {
     _item = item;
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:item.avatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
     self.nameLabel.text = item.userName;
-    NSString *comment = item.content;
+    NSString *comment = item.answer;
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineHeightMultiple = 1.2;
     NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle};
     NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:comment attributes:dic];
     self.commentLabel.attributedText = attributeStr;
-    self.favorLabel.text = [NSString stringWithFormat:@"%@个赞",item.likeNum];
-    self.timeLabel.text = [self dateStringFromOriString:item.createTime];
+#warning 主观题回复缺少发布时间
+    self.timeLabel.text = [self dateStringFromOriString:nil];
 }
 
 - (NSString *)dateStringFromOriString:(NSString *)oriStr {
@@ -140,6 +103,5 @@
         return [NSString stringWithFormat:@"%@小时前",@(hour)];
     }
 }
-
 
 @end

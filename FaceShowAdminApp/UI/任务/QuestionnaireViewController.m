@@ -16,6 +16,7 @@
 #import "QuestionnaireHeaderView.h"
 #import "MJRefresh.h"
 #import "QuestionUserDetailViewController.h"
+#import "SubjectivityAnswerViewController.h"
 
 @interface QuestionnaireViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -169,6 +170,9 @@
         WEAK_SELF
         [cell setShowReplyBlock:^{
             STRONG_SELF
+            SubjectivityAnswerViewController *vc = [[SubjectivityAnswerViewController alloc] init];
+            vc.question = question;
+            [self.navigationController pushViewController:vc animated:YES];
         }];
         return cell;
     }

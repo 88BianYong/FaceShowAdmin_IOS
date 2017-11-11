@@ -11,9 +11,12 @@
 #import "FSDataMappingTable.h"
 #import "QuestionnaireViewController.h"
 #import "CourseCommentViewController.h"
+#import "SignInDetailRequest.h"
+#import "SignInDetailViewController.h"
 
 @interface CourseTaskViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) SignInDetailRequest *request;
 @end
 
 @implementation CourseTaskViewController
@@ -79,6 +82,25 @@
     }else if (type == InteractType_Comment) {
         CourseCommentViewController *vc = [[CourseCommentViewController alloc]initWithStepId:task.stepId];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if (type == InteractType_SignIn) {
+        [self.request stopRequest];
+        self.request = [[SignInDetailRequest alloc]init];
+        self.request.stepId = task.stepId;
+        WEAK_SELF
+        [self.view nyx_startLoading];
+        [self.request startRequestWithRetClass:[SignInDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+            STRONG_SELF
+            [self.view nyx_stopLoading];
+            if (error) {
+                [self.view nyx_showToast:error.localizedDescription];
+                return;
+            }
+            SignInDetailRequestItem *item = retItem;
+            SignInDetailViewController *signInDetailVC = [[SignInDetailViewController alloc] init];
+            item.data.signIn.stepId = task.stepId;
+            signInDetailVC.data = item.data.signIn;
+            [self.navigationController pushViewController:signInDetailVC animated:YES];
+        }];
     }
 }
 

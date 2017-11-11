@@ -62,7 +62,7 @@
     self.dataFetcher = fetcher;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"回复";
+    self.navigationItem.title = @"课程讨论";
     [self.emptyView removeFromSuperview];
     [self setupUI];
 }

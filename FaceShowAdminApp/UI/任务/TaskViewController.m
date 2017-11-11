@@ -14,8 +14,8 @@
 #import "FSDataMappingTable.h"
 #import "MJRefresh.h"
 #import "QuestionnaireViewController.h"
-//#import "GetSigninRequest.h"
-//#import "SignInDetailViewController.h"
+#import "SignInDetailRequest.h"
+#import "SignInDetailViewController.h"
 
 @interface TaskViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -24,8 +24,8 @@
 @property (nonatomic, strong) GetTaskRequest *request;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) MJRefreshHeaderView *header;
-//@property (nonatomic, strong) GetSigninRequest *getSigninRequest;
-//@property (nonatomic, strong) GetSignInRecordListRequestItem_SignIn *signIn;
+@property (nonatomic, strong) SignInDetailRequest *getSigninRequest;
+@property (nonatomic, strong) SignInListRequestItem_signIns *signIn;
 @end
 
 @implementation TaskViewController
@@ -157,24 +157,24 @@
         QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (type == InteractType_SignIn) {
-//        [self.getSigninRequest stopRequest];
-//        self.getSigninRequest = [[GetSigninRequest alloc]init];
-//        self.getSigninRequest.stepId = task.stepId;
-//        WEAK_SELF
-//        [self.view nyx_startLoading];
-//        [self.getSigninRequest startRequestWithRetClass:[GetSigninRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
-//            STRONG_SELF
-//            [self.view nyx_stopLoading];
-//            if (error) {
-//                [self.view nyx_showToast:error.localizedDescription];
-//                return;
-//            }
-//            GetSigninRequestItem *item = retItem;
-//            SignInDetailViewController *signInDetailVC = [[SignInDetailViewController alloc] init];
-//            signInDetailVC.signIn = item.data.signIn;
-//            signInDetailVC.currentIndexPath = indexPath;
-//            [self.navigationController pushViewController:signInDetailVC animated:YES];
-//        }];
+        [self.getSigninRequest stopRequest];
+        self.getSigninRequest = [[SignInDetailRequest alloc]init];
+        self.getSigninRequest.stepId = task.stepId;
+        WEAK_SELF
+        [self.view nyx_startLoading];
+        [self.getSigninRequest startRequestWithRetClass:[SignInDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+            STRONG_SELF
+            [self.view nyx_stopLoading];
+            if (error) {
+                [self.view nyx_showToast:error.localizedDescription];
+                return;
+            }
+            SignInDetailRequestItem *item = retItem;
+            SignInDetailViewController *signInDetailVC = [[SignInDetailViewController alloc] init];
+            item.data.signIn.stepId = task.stepId;
+            signInDetailVC.data = item.data.signIn;
+            [self.navigationController pushViewController:signInDetailVC animated:YES];
+        }];
     }
 }
 
