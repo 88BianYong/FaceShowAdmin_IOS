@@ -70,7 +70,7 @@
     self.bottomLine.hidden = bottomLineHidden;
 }
 
-- (void)setItem:(GetsubjectivityAnswer_Element *)item {
+- (void)setItem:(GetSubjectivityAnswer_Element *)item {
     _item = item;
     self.nameLabel.text = item.userName;
     NSString *comment = item.answer;
@@ -79,8 +79,7 @@
     NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle};
     NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:comment attributes:dic];
     self.commentLabel.attributedText = attributeStr;
-#warning 主观题回复缺少发布时间
-    self.timeLabel.text = [self dateStringFromOriString:nil];
+    self.timeLabel.text = [self dateStringFromOriString:item.createTime];
 }
 
 - (NSString *)dateStringFromOriString:(NSString *)oriStr {

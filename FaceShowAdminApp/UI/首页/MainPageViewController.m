@@ -46,10 +46,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     WEAK_SELF
-    [self nyx_setupLeftWithTitle:@"抽屉" action:^{
+    [self nyx_setupLeftWithImageName:@"抽屉列表按钮正常态" highlightImageName:@"抽屉列表按钮点击态" action:^{
         STRONG_SELF
         [YXDrawerController showDrawer];
     }];
+    self.navigationItem.title = @"研修宝";
     [self setupUI];
     [self setupLayout];
     [self requestMainPageClassInfo];

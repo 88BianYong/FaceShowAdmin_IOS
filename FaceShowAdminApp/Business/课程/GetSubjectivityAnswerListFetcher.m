@@ -25,6 +25,7 @@
             return;
         }
         GetSubjectivityAnswerItem *item = (GetSubjectivityAnswerItem *)retItem;
+        BLOCK_EXEC(self.finishBlock, item);
         BLOCK_EXEC(aCompleteBlock,999999,item.data,nil);
     }];
 }

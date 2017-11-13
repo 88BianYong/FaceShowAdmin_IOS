@@ -13,7 +13,7 @@
 #import "GetSubjectivityAnswerListFetcher.h"
 
 @interface SubjectivityAnswerViewController ()
-@property (nonatomic, strong) NSString *currentTime;
+@property (nonatomic, strong) GetSubjectivityAnswerItem *item;
 @end
 
 @implementation SubjectivityAnswerViewController
@@ -23,6 +23,11 @@
     self.bNeedFooter = NO;
     GetSubjectivityAnswerListFetcher *fetcher = [[GetSubjectivityAnswerListFetcher alloc]init];
     fetcher.questionId = self.question.questionId;
+    WEAK_SELF
+    [fetcher setFinishBlock:^(GetSubjectivityAnswerItem *item){
+        STRONG_SELF
+        self.item = item;
+    }];
     self.dataFetcher = fetcher;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -55,7 +60,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SubjectivityAnswerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectivityAnswerCell"];
     cell.bottomLineHidden = indexPath.row==self.dataArray.count-1;
-//    cell.currentTime = self.commentRequestItem.currentTime;
+    cell.currentTime = self.item.currentTime;
     cell.item = self.dataArray[indexPath.row];
     return cell;
 }

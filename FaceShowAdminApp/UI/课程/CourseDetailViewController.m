@@ -36,8 +36,8 @@
     [self setupUI];
     [self setupCourseData];
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"返回页面按钮正常态-"] forState:UIControlStateNormal];
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"返回页面按钮点击态"] forState:UIControlStateHighlighted];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"返回页面按钮白正常态"] forState:UIControlStateNormal];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"返回页面按钮白点击态"] forState:UIControlStateHighlighted];
     [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -45,7 +45,6 @@
         make.centerY.mas_equalTo(self.view.mas_top).offset(42);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
-    backBtn.backgroundColor = [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning {

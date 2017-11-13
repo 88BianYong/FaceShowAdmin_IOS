@@ -109,7 +109,7 @@
         make.size.mas_equalTo(CGSizeMake(80, 26));
     }];
     
-    UIButton *classHomeBtn = [self optionBtnWithTitle:@"班级首页" image:nil];
+    UIButton *classHomeBtn = [self optionBtnWithTitle:@"班级首页" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
     [self.view addSubview:classHomeBtn];
     [classHomeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(backImageView.mas_bottom).offset(44);
@@ -117,7 +117,7 @@
         make.size.mas_equalTo(CGSizeMake(100, 25));
     }];
     
-    UIButton *mineInfoBtn = [self optionBtnWithTitle:@"我的资料" image:nil];
+    UIButton *mineInfoBtn = [self optionBtnWithTitle:@"我的资料" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
     [self.view addSubview:mineInfoBtn];
     [mineInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(classHomeBtn.mas_bottom).offset(40);
@@ -140,13 +140,14 @@
     }];
 }
 
-- (UIButton *)optionBtnWithTitle:(NSString *)title image:(NSString *)image {
+- (UIButton *)optionBtnWithTitle:(NSString *)title normalImage:(NSString *)normalImage highlightedImage:(NSString *)highlightedImage {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.titleLabel.font = [UIFont systemFontOfSize:16];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateHighlighted];
-    [btn setImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 25, 25)] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:normalImage] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:highlightedImage] forState:UIControlStateHighlighted];
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, -5);
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 5);
     [btn addTarget:self action:@selector(optionBtnAction:) forControlEvents:UIControlEventTouchUpInside];

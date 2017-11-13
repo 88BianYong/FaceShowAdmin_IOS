@@ -40,12 +40,18 @@
         make.width.mas_equalTo(60);
     }];
     
-    UIImageView *attachmentImage = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 30, 30)]];
+    UIImageView *attachmentImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"进入页面按钮正常态"]];
     [self addSubview:attachmentImage];
     [attachmentImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-5);
         make.centerY.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
+    
+    WEAK_SELF
+    [RACObserve(backBtn, highlighted) subscribeNext:^(id x) {
+        STRONG_SELF
+        attachmentImage.image = [UIImage imageNamed:[x boolValue] ? @"进入页面按钮点击态" : @"进入页面按钮正常态"];
     }];
     
     self.bottomLineView = [[UIView alloc] init];

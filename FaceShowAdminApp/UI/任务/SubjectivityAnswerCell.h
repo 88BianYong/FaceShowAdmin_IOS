@@ -10,7 +10,7 @@
 #import "GetSubjectivityAnswerReuqest.h"
 
 @interface SubjectivityAnswerCell : UITableViewCell
-@property (nonatomic, strong) GetsubjectivityAnswer_Element *item;
+@property (nonatomic, strong) GetSubjectivityAnswer_Element *item;
 @property (nonatomic, strong) NSString *currentTime;
 @property (nonatomic, assign) BOOL bottomLineHidden;
 @end

@@ -8,19 +8,21 @@
 
 #import "YXGetRequest.h"
 
-@protocol GetsubjectivityAnswer_Element <NSObject>
+@protocol GetSubjectivityAnswer_Element <NSObject>
 @end
-@interface GetsubjectivityAnswer_Element : JSONModel
+@interface GetSubjectivityAnswer_Element : JSONModel
 @property (nonatomic, strong) NSString<Optional> *elementId;
 @property (nonatomic, strong) NSString<Optional> *userId;
 @property (nonatomic, strong) NSString<Optional> *answer;
 @property (nonatomic, strong) NSString<Optional> *questionId;
 @property (nonatomic, strong) NSString<Optional> *userName;
 @property (nonatomic, strong) NSString<Optional> *avatar;
+@property (nonatomic, strong) NSString<Optional> *createTime;
 @end
 
 @interface GetSubjectivityAnswerItem : HttpBaseRequestItem
-@property (nonatomic, strong) NSArray<GetsubjectivityAnswer_Element, Optional> *data;
+@property (nonatomic, strong) NSArray<GetSubjectivityAnswer_Element, Optional> *data;
+@property (nonatomic, strong) NSString<Optional> *currentTime;
 @end
 
 @interface GetSubjectivityAnswerReuqest : YXGetRequest

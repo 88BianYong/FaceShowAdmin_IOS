@@ -129,8 +129,8 @@
     navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [navRightBtn setTitle:@"添加" forState:UIControlStateNormal];
     [navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-正常态"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-点击态"] forState:UIControlStateHighlighted];
+    [navRightBtn setImage:[UIImage imageNamed:@"添加按钮正常态"] forState:UIControlStateNormal];
+    [navRightBtn setImage:[UIImage imageNamed:@"添加按钮点击态"] forState:UIControlStateHighlighted];
     navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 4);
     navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -58);
     WEAK_SELF

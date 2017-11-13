@@ -8,7 +8,7 @@
 
 #import "GetSubjectivityAnswerReuqest.h"
 
-@implementation GetsubjectivityAnswer_Element
+@implementation GetSubjectivityAnswer_Element
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"elementId"}];
 }

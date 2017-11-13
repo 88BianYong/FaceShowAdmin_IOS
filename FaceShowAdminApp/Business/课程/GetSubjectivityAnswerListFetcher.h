@@ -11,4 +11,5 @@
 
 @interface GetSubjectivityAnswerListFetcher : PagedListFetcherBase
 @property (nonatomic, strong) NSString *questionId;
+@property (nonatomic, strong) void(^finishBlock)(GetSubjectivityAnswerItem *item);
 @end
