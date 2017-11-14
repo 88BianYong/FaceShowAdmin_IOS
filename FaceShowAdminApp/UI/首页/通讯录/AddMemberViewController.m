@@ -12,6 +12,7 @@
 #import "AlertView.h"
 #import "CreateMemberRequest.h"
 #import "DetailWithAttachmentCellView.h"
+#import "LoginUtils.h"
 
 @interface AddMemberViewController ()
 @property (nonatomic, strong) UIButton *saveButton;
@@ -74,6 +75,7 @@
     
     self.numberTF = [[AddMemberTextField alloc] init];
     self.numberTF.placeholder = @"联系电话";
+    self.numberTF.keyboardType = UIKeyboardTypeNumberPad;
     [self.contentView addSubview:self.numberTF];
     [self.numberTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
@@ -168,10 +170,14 @@
 }
 
 - (void)saveAction {
+    if (![LoginUtils isPhoneNumberValid:self.numberTF.text]) {
+        [self.view nyx_showToast:@"请输入正确的手机号码"];
+        return;
+    }
     [self.request stopRequest];
     self.request = [[CreateMemberRequest alloc] init];
     self.request.realName = [self.nameTF.text yx_stringByTrimmingCharacters];
-    self.request.mobilePhone = [self.numberTF.text yx_stringByTrimmingCharacters];
+    self.request.mobilePhone = self.numberTF.text;
     if (!isEmpty(self.sexCell.title)) {
         self.request.sex = [self.sexCell.title isEqualToString:@"男"] ? @"1" : @"0";
     }
