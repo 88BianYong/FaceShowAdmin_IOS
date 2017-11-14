@@ -70,7 +70,7 @@
             return;
         }
         GetTaskRequestItem *item = (GetTaskRequestItem *)retItem;
-        if (isEmpty(item.data)) {
+        if (isEmpty(item.data.tasks)) {
             self.emptyView.hidden = NO;
             return;
         }
