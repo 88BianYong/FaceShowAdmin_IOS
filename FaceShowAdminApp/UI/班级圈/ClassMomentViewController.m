@@ -22,6 +22,7 @@
 #import "AlertView.h"
 #import "FDActionSheetView.h"
 #import "ClassMomentDeleteRequest.h"
+#import "YXDrawerController.h"
 
 @interface ClassMomentViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) ClassMomentTableHeaderView *headerView;
@@ -102,6 +103,11 @@
         [self hiddenInputTextView];
     }];
     [self.tableView addGestureRecognizer:tapGestureRecognizer];
+    
+    [self nyx_setupLeftWithImageName:@"抽屉列表按钮正常态" highlightImageName:@"抽屉列表按钮点击态" action:^{
+        STRONG_SELF
+        [YXDrawerController showDrawer];
+    }];
     
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);

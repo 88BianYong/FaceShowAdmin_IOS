@@ -68,8 +68,8 @@
     
     
     self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.deleteButton setImage:[UIImage imageNamed:@"删除按钮正常态"] forState:UIControlStateNormal];
-    [self.deleteButton setImage:[UIImage imageNamed:@"删除按钮点击态"] forState:UIControlStateHighlighted];
+    [self.deleteButton setImage:[UIImage imageNamed:@"班级圈删除按钮正常态"] forState:UIControlStateNormal];
+    [self.deleteButton setImage:[UIImage imageNamed:@"班级圈删除按钮点击态"] forState:UIControlStateHighlighted];
     [self.deleteButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateNormal];
     [self.deleteButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"1a90d9"]] forState:UIControlStateHighlighted];
     self.deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, -2.5f, 0.0f, 2.5f);

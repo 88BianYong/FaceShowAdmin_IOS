@@ -14,6 +14,7 @@
 #import "CourseDetailViewController.h"
 #import "GetCourseListRequest.h"
 #import "MJRefresh.h"
+#import "YXDrawerController.h"
 
 @interface CourseListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -40,7 +41,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    WEAK_SELF
+    [self nyx_setupLeftWithImageName:@"抽屉列表按钮正常态" highlightImageName:@"抽屉列表按钮点击态" action:^{
+        STRONG_SELF
+        [YXDrawerController showDrawer];
+    }];
     [self setupUI];
     [self requestCoursesInfo];
 }
