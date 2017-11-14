@@ -39,7 +39,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.headImageView = [[UIImageView alloc]init];
-    self.headImageView.backgroundColor = [UIColor redColor];
+    self.headImageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
     self.headImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.headImageView.layer.cornerRadius = 5;
     self.headImageView.clipsToBounds = YES;
@@ -86,7 +86,7 @@
 - (void)setData:(GetCourseRequestItem_LecturerInfo *)data {
     _data = data;
     self.nameLabel.text = data.lecturerName;
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:data.lecturerAvatar]];
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:data.lecturerAvatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineHeightMultiple = 1.2;

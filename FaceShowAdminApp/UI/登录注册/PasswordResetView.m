@@ -28,8 +28,8 @@
     self.backgroundColor = [UIColor whiteColor];
     self.showHideButton = [[UIButton alloc]init];
     [self.showHideButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
-    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏数字密码icon正常态"] forState:UIControlStateNormal];
-    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏数字密码icon点击态"] forState:UIControlStateHighlighted];
+    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码2正常态"] forState:UIControlStateNormal];
+    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码2点击态"] forState:UIControlStateHighlighted];
     [self.showHideButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.showHideButton];
     [self.showHideButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,8 +48,6 @@
         make.right.mas_equalTo(self.showHideButton.mas_left).mas_offset(-5);
         make.top.bottom.mas_equalTo(0);
     }];
-    
-    self.showHideButton.backgroundColor = [UIColor redColor];
 }
 
 - (void)setupObserver {
@@ -63,11 +61,11 @@
 - (void)btnAction {
     self.inputView.textField.secureTextEntry = !self.inputView.textField.secureTextEntry;
     if (self.inputView.textField.secureTextEntry) {
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏数字密码icon正常态"] forState:UIControlStateNormal];
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏数字密码icon点击态"] forState:UIControlStateHighlighted];
+        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码2正常态"] forState:UIControlStateNormal];
+        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码2点击态"] forState:UIControlStateHighlighted];
     }else {
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"数字密码icon显示正常态"] forState:UIControlStateNormal];
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"数字密码icon显示点击态"] forState:UIControlStateHighlighted];
+        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"显示密码2正常态"] forState:UIControlStateNormal];
+        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"显示密码2点击态"] forState:UIControlStateHighlighted];
     }
 }
 

@@ -53,7 +53,7 @@
         make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(5);
     }];
     UIButton *qrButton = [[UIButton alloc]init];
-    qrButton.backgroundColor = [UIColor redColor];
+    [qrButton setImage:[UIImage imageNamed:@"二维码多边形"] forState:UIControlStateNormal];
     [qrButton addTarget:self action:@selector(qrBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:qrButton];
     [qrButton mas_makeConstraints:^(MASConstraintMaker *make) {

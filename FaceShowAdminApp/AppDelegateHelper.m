@@ -62,22 +62,22 @@
     FSTabBarController *tabBarController = [[FSTabBarController alloc] init];
     UIViewController *mainVC = [[MainPageViewController alloc]init];
     mainVC.title = @"首页";
-    [self configTabbarItem:mainVC.tabBarItem image:@"首页icon" selectedImage:@"首页icon选择"];
+    [self configTabbarItem:mainVC.tabBarItem image:@"首页icon正常态" selectedImage:@"首页icon点击态"];
     FSNavigationController *mainNavi = [[FSNavigationController alloc] initWithRootViewController:mainVC];
     
     UIViewController *courseVC = [[CourseListViewController alloc]initWithClazsId:[UserManager sharedInstance].userModel.currentClass.clazsId];
     courseVC.title = @"课程";
-    [self configTabbarItem:courseVC.tabBarItem image:@"通知icon" selectedImage:@"通知icon选择"];
+    [self configTabbarItem:courseVC.tabBarItem image:@"课程icon正常态" selectedImage:@"课程icon点击态"];
     FSNavigationController *courseNavi = [[FSNavigationController alloc] initWithRootViewController:courseVC];
     
     UIViewController *taskVC = [[TaskViewController alloc]init];
     taskVC.title = @"任务";
-    [self configTabbarItem:taskVC.tabBarItem image:@"我的icon" selectedImage:@"我的icon选择"];
+    [self configTabbarItem:taskVC.tabBarItem image:@"任务icon正常态" selectedImage:@"任务icon点击态"];
     FSNavigationController *taskNavi = [[FSNavigationController alloc] initWithRootViewController:taskVC];
     
     UIViewController *classVC = [[ClassMomentViewController alloc]init];
     classVC.title = @"班级圈";
-    [self configTabbarItem:classVC.tabBarItem image:@"朋友圈icon" selectedImage:@"朋友圈icon选择"];
+    [self configTabbarItem:classVC.tabBarItem image:@"班级圈icon正常态" selectedImage:@"班级圈icon点击态"];
     FSNavigationController *classNavi = [[FSNavigationController alloc] initWithRootViewController:classVC];
     
     tabBarController.viewControllers = @[mainNavi, courseNavi, taskNavi, classNavi];

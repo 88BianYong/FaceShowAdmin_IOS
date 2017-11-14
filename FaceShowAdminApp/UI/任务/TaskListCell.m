@@ -91,13 +91,12 @@
     if (type == InteractType_Vote) {
         self.typeImageView.image = [UIImage imageNamed:@"投票icon"];
     } else if (type == InteractType_Questionare) {
-        self.typeImageView.image = [UIImage imageNamed:@"问卷"];
+        self.typeImageView.image = [UIImage imageNamed:@"问卷icon"];
     } else if (type == InteractType_Comment) {
         self.typeImageView.image = [UIImage imageNamed:@"评论icon"];
     } else if (type == InteractType_SignIn) {
         self.typeImageView.image = [UIImage imageNamed:@"签到icon"];
     }
-    self.typeImageView.backgroundColor = [UIColor redColor];
 }
 
 @end

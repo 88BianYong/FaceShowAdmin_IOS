@@ -16,7 +16,6 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.imageView = [[UIImageView alloc] init];
-        self.imageView.backgroundColor = [UIColor redColor];
         [self addSubview:self.imageView];
         [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.mas_left);
@@ -72,13 +71,15 @@
     self.containerView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.containerView];
     self.courseView = [[MainPageNmuberView alloc] init];
+    self.courseView.imageView.image = [UIImage imageNamed:@"课程数量标签"];
     self.courseView.nameLabel.text = @"课程数量";
-    self.courseView.numberLabel.text = @"8";
+    self.courseView.numberLabel.text = self.clazsStatistic.courseNum;
     [self.containerView addSubview:self.courseView];
     
     self.taskView = [[MainPageNmuberView alloc] init];
+    self.taskView.imageView.image = [UIImage imageNamed:@"任务数量标签"];
     self.taskView.nameLabel.text = @"任务数量";
-    self.taskView.numberLabel.text = @"15";
+    self.taskView.numberLabel.text = self.clazsStatistic.taskNum;
     [self.containerView addSubview:self.taskView];
     
     self.lineView = [[UIView alloc] init];

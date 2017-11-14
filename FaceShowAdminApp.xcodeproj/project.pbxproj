@@ -33,6 +33,7 @@
 		43729E191FB6CAD20043C988 /* SubjectivityAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E181FB6CAD20043C988 /* SubjectivityAnswerViewController.m */; };
 		43729E1C1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E1B1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m */; };
 		43729E1F1FB6DFB80043C988 /* SubjectivityAnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */; };
+		43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E241FB986BE0043C988 /* SubjectivityAnswerTitleView.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -319,6 +320,8 @@
 		43729E1B1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetSubjectivityAnswerListFetcher.m; sourceTree = "<group>"; };
 		43729E1D1FB6DFB80043C988 /* SubjectivityAnswerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectivityAnswerCell.h; sourceTree = "<group>"; };
 		43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectivityAnswerCell.m; sourceTree = "<group>"; };
+		43729E231FB986BE0043C988 /* SubjectivityAnswerTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectivityAnswerTitleView.h; sourceTree = "<group>"; };
+		43729E241FB986BE0043C988 /* SubjectivityAnswerTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectivityAnswerTitleView.m; sourceTree = "<group>"; };
 		4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FaceShowAdminApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
@@ -954,6 +957,8 @@
 				7C672B401FB1A8EF004D93DF /* QuestionTabContainerView.m */,
 				43729E1D1FB6DFB80043C988 /* SubjectivityAnswerCell.h */,
 				43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */,
+				43729E231FB986BE0043C988 /* SubjectivityAnswerTitleView.h */,
+				43729E241FB986BE0043C988 /* SubjectivityAnswerTitleView.m */,
 			);
 			name = "投票问卷";
 			sourceTree = "<group>";
@@ -2111,6 +2116,7 @@
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
+				43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */,
 				921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */,
 				92CAA6811FAFFEBD00DB5873 /* ClassMomentHeaderView.m in Sources */,
 				436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */,

@@ -32,7 +32,7 @@
 - (void)setupUI {
     self.likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.likeButton setImage:[UIImage imageNamed:@"赞icon正常态"] forState:UIControlStateNormal];
-    [self.likeButton setImage:[UIImage imageNamed:@"赞icon-点击态"] forState:UIControlStateHighlighted];
+    [self.likeButton setImage:[UIImage imageNamed:@"赞icon点击态"] forState:UIControlStateHighlighted];
     [self.likeButton setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateNormal];
     [self.likeButton setTitle:@"赞" forState:UIControlStateNormal];
     self.likeButton.imageEdgeInsets = UIEdgeInsetsMake(0, -2.5f, 0.0f, 2.5f);
@@ -68,8 +68,8 @@
     
     
     self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.deleteButton setImage:[UIImage imageNamed:@"评论icon正常态"] forState:UIControlStateNormal];
-    [self.deleteButton setImage:[UIImage imageNamed:@"评论icon点击态"] forState:UIControlStateHighlighted];
+    [self.deleteButton setImage:[UIImage imageNamed:@"删除按钮正常态"] forState:UIControlStateNormal];
+    [self.deleteButton setImage:[UIImage imageNamed:@"删除按钮点击态"] forState:UIControlStateHighlighted];
     [self.deleteButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateNormal];
     [self.deleteButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"1a90d9"]] forState:UIControlStateHighlighted];
     self.deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, -2.5f, 0.0f, 2.5f);

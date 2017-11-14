@@ -8,7 +8,7 @@
 
 #import "SubjectivityAnswerViewController.h"
 #import "SubjectivityAnswerCell.h"
-#import "CourseCommentTitleView.h"
+#import "SubjectivityAnswerTitleView.h"
 #import "CourseCommentHeaderView.h"
 #import "GetSubjectivityAnswerListFetcher.h"
 
@@ -47,8 +47,8 @@
     self.tableView.estimatedRowHeight = 100;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     NSString *title = self.question.title;
-    CGFloat height = [CourseCommentTitleView heightForTitle:title];
-    CourseCommentTitleView *headerView = [[CourseCommentTitleView alloc]initWithFrame:CGRectMake(0, 0, 100, height)];
+    CGFloat height = [SubjectivityAnswerTitleView heightForTitle:title];
+    SubjectivityAnswerTitleView *headerView = [[SubjectivityAnswerTitleView alloc]initWithFrame:CGRectMake(0, 0, 100, height)];
     headerView.title = title;
     self.tableView.tableHeaderView = headerView;
     [self.tableView registerClass:[SubjectivityAnswerCell class] forCellReuseIdentifier:@"SubjectivityAnswerCell"];

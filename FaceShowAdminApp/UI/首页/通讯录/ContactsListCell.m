@@ -40,6 +40,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.avatarImageView = [[UIImageView alloc] init];
+    self.avatarImageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
     self.avatarImageView.clipsToBounds = YES;
     self.avatarImageView.layer.cornerRadius = 5;
     self.avatarImageView.userInteractionEnabled = YES;
@@ -83,7 +84,7 @@
 
 - (void)setData:(GetUserInfoRequestItem_Data *)data {
     _data = data;
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 40, 40)]];
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
     self.nameLabel.text = data.realName;
     self.numberLabel.text = data.mobilePhone;
 }

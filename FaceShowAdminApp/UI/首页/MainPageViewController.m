@@ -65,6 +65,7 @@
     self.topView.projectInfo = _itemData.projectInfo;
     self.topView.clazsInfo = _itemData.clazsInfo;
     self.topView.clazsStatistic = _itemData.clazsStatisticView;
+    self.headerView.clazsStatistic = _itemData.clazsStatisticView;
     self.scrollView.hidden = NO;
     self.tableView.hidden = NO;
     [self.tableView reloadData];
@@ -171,8 +172,8 @@
             self.emptyView.hidden = NO;
             return;
         }
-//        [UserManager sharedInstance].userModel.projectClassInfo = item;
-//        [[UserManager sharedInstance] saveData];
+        [UserManager sharedInstance].userModel.currentProject = item.data.projectInfo;
+        [[UserManager sharedInstance] saveData];
         self.itemData = item.data;
     }];
 }

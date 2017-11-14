@@ -86,7 +86,8 @@
     UIImageView *avatarImageView = [[UIImageView alloc] init];
     avatarImageView.clipsToBounds = YES;
     avatarImageView.layer.cornerRadius = 6;
-    [avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.data.avatar] placeholderImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 55, 55)]];
+    avatarImageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
+    [avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.data.avatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
     [headWhiteView addSubview:avatarImageView];
     [avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);

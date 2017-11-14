@@ -131,8 +131,9 @@
     [navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"添加按钮正常态"] forState:UIControlStateNormal];
     [navRightBtn setImage:[UIImage imageNamed:@"添加按钮点击态"] forState:UIControlStateHighlighted];
-    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 4);
-    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -58);
+    [navRightBtn.titleLabel sizeToFit];
+    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -30-5, 0, 30+5);
+    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, navRightBtn.titleLabel.width+5, 0, -navRightBtn.titleLabel.width-5);
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF

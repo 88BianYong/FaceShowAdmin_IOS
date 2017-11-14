@@ -7,7 +7,8 @@
 //
 
 #import "ResourceListCell.h"
-#import "FSDataMappingTable.h"
+#import "ResourceTypeMapping.h"
+
 @interface ResourceListCell ()
 @property (nonatomic, strong) UIImageView *typeImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -67,16 +68,6 @@
     [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:range];
     self.descLabel.attributedText = attr;
     
-    InteractType type = [FSDataMappingTable InteractTypeWithKey:_element.type];
-    if (type == InteractType_Vote) {
-        self.typeImageView.image = [UIImage imageNamed:@"投票icon"];
-    } else if (type == InteractType_Questionare) {
-        self.typeImageView.image = [UIImage imageNamed:@"问卷"];
-    } else if (type == InteractType_Comment) {
-        self.typeImageView.image = [UIImage imageNamed:@"评论icon"];
-    } else if (type == InteractType_SignIn) {
-        self.typeImageView.image = [UIImage imageNamed:@"签到icon"];
-    }
-    self.typeImageView.backgroundColor = [UIColor redColor];
+    self.typeImageView.image = [UIImage imageNamed:[ResourceTypeMapping resourceTypeWithString:element.suffix]];
 }
 @end

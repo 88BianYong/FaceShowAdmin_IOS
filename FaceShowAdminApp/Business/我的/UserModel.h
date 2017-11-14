@@ -9,6 +9,7 @@
 #import <JSONModel/JSONModel.h>
 #import "GetUserInfoRequest.h"
 #import "ClassListRequest.h"
+#import "ClazsGetClazsRequest.h"
 
 extern NSString * const kClassDidSelectNotification;
 @interface UserModel : JSONModel
@@ -33,6 +34,7 @@ extern NSString * const kClassDidSelectNotification;
 
 @property (nonatomic, strong) NSArray<Optional,ClassListRequestItem_clazsInfos> *clazsInfos;
 @property (nonatomic, strong) ClassListRequestItem_clazsInfos<Optional> *currentClass;
+@property (nonatomic, strong) ClazsGetClazsRequestItem_Data_ProjectInfo<Optional> *currentProject;
 //
 + (UserModel *)modelFromUserInfo:(GetUserInfoRequestItem_Data *)userInfo;
 - (void)updateFromUserInfo:(GetUserInfoRequestItem_Data *)userInfo;

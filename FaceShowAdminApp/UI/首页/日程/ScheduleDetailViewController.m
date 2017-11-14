@@ -15,10 +15,10 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIView *topView;
+@property (nonatomic, strong) UIImageView *headerBackImage;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) AlertView *alertView;
-@property (nonatomic, strong) UIView *lineView;
 
 @property (nonatomic, strong) ScheduleDeleteRequest *deleteRequest;
 
@@ -90,9 +90,8 @@
     self.topView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.containerView addSubview:self.topView];
     
-    self.lineView = [[UIView alloc] init];
-    self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    [self.containerView addSubview:self.lineView];
+    self.headerBackImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"日常管理背景图"]];
+    [self.containerView addSubview:self.headerBackImage];
     
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
@@ -119,25 +118,12 @@
             self.imageView.backgroundColor = [UIColor clearColor];
         }
     }];
-    [self setupNavRightView];
-}
-
-- (void)setupNavRightView {
-    UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    navRightBtn.frame = CGRectMake(0, 0, 65, 30);
-    navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-正常态"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-点击态"] forState:UIControlStateHighlighted];
-    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 14);
-    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -28);
-    WEAK_SELF
-    [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    [self nyx_setupRightWithImageName:@"更多操作按钮正常态" highlightImageName:@"更多操作按钮点击态" action:^{
         STRONG_SELF
         [self showAlertView];
     }];
-    [self nyx_setupRightWithCustomView:navRightBtn];
 }
+
 - (void)showAlertView {
     FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     actionSheetView.titleArray = @[@{@"title":@"修改"},
@@ -260,17 +246,17 @@
         make.top.equalTo(self.topView.mas_bottom).offset(20.0f);
     }];
     
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.containerView.mas_left).offset(15.0f);
-        make.right.equalTo(self.containerView.mas_right).offset(-15.0f);
-        make.height.mas_offset(1.0f);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(21.0f);
+    [self.headerBackImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.containerView.mas_left);
+        make.right.equalTo(self.containerView.mas_right);
+        make.top.equalTo(self.topView.mas_bottom);
+        make.height.mas_equalTo(100);
     }];
     
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.containerView.mas_left).offset(15.0f);
         make.right.equalTo(self.containerView.mas_right).offset(-15.0f);
-        make.top.equalTo(self.lineView.mas_bottom).offset(21.0f);
+        make.top.equalTo(self.headerBackImage.mas_bottom);
         make.width.equalTo(self.imageView.mas_height);
     }];
 }

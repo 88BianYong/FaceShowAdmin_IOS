@@ -38,16 +38,25 @@
         make.top.mas_equalTo(topView.mas_bottom);
         make.left.right.bottom.mas_equalTo(0);
     }];
+    UIImageView *imageView = [[UIImageView alloc]init];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.image = [UIImage imageNamed:@"课程讨论的问题图标"];
+    [bgView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(5);
+        make.centerY.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+    }];
     self.titleLabel = [[UILabel alloc]init];
     self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     self.titleLabel.numberOfLines = 0;
     [bgView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(30);
-        make.bottom.mas_equalTo(-30);
+        make.top.mas_equalTo(43);
+        make.bottom.mas_equalTo(-43);
         make.right.mas_equalTo(-15);
-        make.left.mas_equalTo(15);
+        make.left.mas_equalTo(imageView.mas_right).mas_offset(7);
     }];
 }
 
@@ -69,8 +78,8 @@
     NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle};
     NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:title attributes:dic];
     label.attributedText = attributeStr;
-    CGSize size = [label sizeThatFits:CGSizeMake(SCREEN_WIDTH-15-15, CGFLOAT_MAX)];
-    return size.height+30+30+5;
+    CGSize size = [label sizeThatFits:CGSizeMake(SCREEN_WIDTH-5-50-7-15, CGFLOAT_MAX)];
+    return size.height+43+43+5;
 }
 
 @end

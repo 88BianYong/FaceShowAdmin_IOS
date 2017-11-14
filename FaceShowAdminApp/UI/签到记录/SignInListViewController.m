@@ -47,7 +47,8 @@
     [b setTitle:@"新建" forState:UIControlStateNormal];
     [b setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     b.titleLabel.font = [UIFont systemFontOfSize:15];
-    [b setImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 30, 30)] forState:UIControlStateNormal];
+    [b setImage:[UIImage imageNamed:@"添加按钮正常态"] forState:UIControlStateNormal];
+    [b setImage:[UIImage imageNamed:@"添加按钮点击态"] forState:UIControlStateHighlighted];
     [b.titleLabel sizeToFit];
     b.titleEdgeInsets = UIEdgeInsetsMake(0, -30-5, 0, 30+5);
     b.imageEdgeInsets = UIEdgeInsetsMake(0, b.titleLabel.width+5, 0, -b.titleLabel.width-5);

@@ -13,7 +13,7 @@
 @interface MineViewController ()
 @property (nonatomic, strong) UIButton *avatarBtn;
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *classDescLabel;
+@property (nonatomic, strong) UILabel *projectLabel;
 @property (nonatomic, strong) UILabel *classNameLabel;
 @end
 
@@ -28,6 +28,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (isEmpty(self.projectLabel.text)) {
+        self.projectLabel.text = [UserManager sharedInstance].userModel.currentProject.projectName;
+    }
 }
 
 #pragma mark - setupUI
@@ -45,7 +52,8 @@
     self.avatarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.avatarBtn.clipsToBounds = YES;
     self.avatarBtn.layer.cornerRadius = 6;
-    [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 55, 55)]];
+    self.avatarBtn.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
+    [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
     [self.view addSubview:self.avatarBtn];
     [self.avatarBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(44);
@@ -65,13 +73,12 @@
         make.top.mas_equalTo(self.avatarBtn.mas_bottom).offset(10.75f);
     }];
     
-    self.classDescLabel = [[UILabel alloc] init];
-    self.classDescLabel.font = [UIFont systemFontOfSize:13];
-    self.classDescLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
-    self.classDescLabel.textAlignment = NSTextAlignmentCenter;
-    self.classDescLabel.text = [UserManager sharedInstance].userModel.currentClass.desc;
-    [self.view addSubview:self.classDescLabel];
-    [self.classDescLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.projectLabel = [[UILabel alloc] init];
+    self.projectLabel.font = [UIFont systemFontOfSize:13];
+    self.projectLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
+    self.projectLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.projectLabel];
+    [self.projectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
         make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(19.25f);
@@ -86,7 +93,7 @@
     [self.classNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
-        make.top.mas_equalTo(self.classDescLabel.mas_bottom).offset(3);
+        make.top.mas_equalTo(self.projectLabel.mas_bottom).offset(3);
     }];
     
     UIButton *changeClassBtn = [UIButton buttonWithType:UIButtonTypeCustom];

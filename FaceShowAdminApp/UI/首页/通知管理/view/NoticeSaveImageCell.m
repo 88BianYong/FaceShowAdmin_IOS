@@ -29,7 +29,8 @@
 #pragma mark - setupUI
 - (void)setupUI {
     self.chooseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.chooseButton.backgroundColor = [UIColor redColor];
+    [self.chooseButton setImage:[UIImage imageNamed:@"添加图片按钮框正常态"] forState:UIControlStateNormal];
+    [self.chooseButton setImage:[UIImage imageNamed:@"添加图片按钮框点击态"] forState:UIControlStateHighlighted];
     [self.contentView addSubview:self.chooseButton];
     
     self.photoImageView = [[UIImageView alloc] init];
@@ -37,7 +38,8 @@
     
     
     self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.deleteButton.backgroundColor = [UIColor redColor];
+    [self.deleteButton setImage:[UIImage imageNamed:@"小图片删除按钮正常态"] forState:UIControlStateNormal];
+    [self.deleteButton setImage:[UIImage imageNamed:@"小图片删除按钮点击态"] forState:UIControlStateHighlighted];
     [self.contentView addSubview:self.deleteButton];
 }
 - (void)setupLayout {

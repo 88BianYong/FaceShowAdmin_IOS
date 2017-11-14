@@ -34,8 +34,7 @@
         make.left.mas_equalTo(15);
         make.centerY.mas_equalTo(0);
     }];
-    UIImageView *enterImageView = [[UIImageView alloc]init];
-    enterImageView.backgroundColor = [UIColor redColor];
+    UIImageView *enterImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"进入页面按钮正常态"] highlightedImage:[UIImage imageNamed:@"进入页面按钮点击态"]];
     [self addSubview:enterImageView];
     [enterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-5);
@@ -56,6 +55,11 @@
     [self addSubview:b];
     [b mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
+    }];
+    WEAK_SELF
+    [RACObserve(b, highlighted) subscribeNext:^(id x) {
+        STRONG_SELF
+        enterImageView.highlighted = [x boolValue];
     }];
 }
 

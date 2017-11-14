@@ -73,7 +73,7 @@
     [self.view addSubview:self.tableView];
     self.imagePickerController = [[YXImagePickerController alloc] init];
     [self setupNavRightView];
-    [self nyx_setupLeftWithImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 30, 30)] action:^{
+    [self nyx_setupLeftWithImageName:@"返回页面按钮正常态" highlightImageName:@"返回页面按钮点击态" action:^{
         STRONG_SELF
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -301,12 +301,12 @@
     }
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
     NSString *fileName = [NSString stringWithFormat:@"%@%d.jpg",[UserManager sharedInstance].userModel.userID, (int)interval];
-    [self.view nyx_startLoading];
+    [self.view.window nyx_startLoading];
     WEAK_SELF
     [QADataManager uploadFile:self.imageCell.photoImageView.image fileName:fileName completeBlock:^(QAFileUploadSecondStepRequestItem *item, NSError *error) {
         STRONG_SELF
+        [self.view.window nyx_stopLoading];
         if (item.result.resid == nil){
-            [self.view nyx_stopLoading];
             [self.view nyx_showToast:@"发布失败请重试"];
         }else {
             [self requestForNoticeSave:item.result];
@@ -315,7 +315,6 @@
 }
 - (void)requestForNoticeSave:(QAFileUploadSecondStepRequestItem_result *)result{
     //@白东方 priviewUrl=`http://upload.ugc.yanxiu.com/img/${markfile.md5}.${markfile.ext}?from=${config.from}&resId=${markfile.resId}`;
-
     [self.saveRequest stopRequest];
     self.saveRequest = [[NoticeSaveRequest alloc] init];
     self.saveRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
@@ -324,12 +323,13 @@
     if (result != nil) {
         self.saveRequest.url = [NSString stringWithFormat:@"http://upload.ugc.yanxiu.com/img/%@.jpg?from=%@&resId=%@",result.md5,result.from,result.resid];
     }
+    [self.view.window nyx_startLoading];
     WEAK_SELF
     [self.saveRequest startRequestWithRetClass:[NoticeSaveRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
+        [self.view.window nyx_stopLoading];
         NoticeSaveRequestItem *item = retItem;
         if (item.data == nil) {
-            [self.view nyx_stopLoading];
             [self.view nyx_showToast:@"发布失败请重试"];
         }else {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间

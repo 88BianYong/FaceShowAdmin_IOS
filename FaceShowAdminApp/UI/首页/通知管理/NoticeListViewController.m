@@ -58,14 +58,14 @@
 - (void)setupNavRightView {
     UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     navRightBtn.frame = CGRectMake(0, 0, 65, 30);
-//    navRightBtn.backgroundColor = [UIColor redColor];
     navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [navRightBtn setTitle:@"发布" forState:UIControlStateNormal];
     [navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-正常态"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"扫一扫icon-点击态"] forState:UIControlStateHighlighted];
-    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -24, 0, 4);
-    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 38, 0, -58);
+    [navRightBtn setImage:[UIImage imageNamed:@"发布通知icon正常态"] forState:UIControlStateNormal];
+    [navRightBtn setImage:[UIImage imageNamed:@"发布通知icon点击态"] forState:UIControlStateHighlighted];
+    [navRightBtn.titleLabel sizeToFit];
+    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -30-5, 0, 30+5);
+    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, navRightBtn.titleLabel.width+5, 0, -navRightBtn.titleLabel.width-5);
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF

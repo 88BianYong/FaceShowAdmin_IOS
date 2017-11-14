@@ -178,8 +178,8 @@
     [self.contentView addSubview:self.timeLabel];
     
     self.commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮-点击态"] forState:UIControlStateNormal];
-    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮张常态"] forState:UIControlStateNormal];
+    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮正常态"] forState:UIControlStateNormal];
+    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮点击态"] forState:UIControlStateHighlighted];
     [self.contentView addSubview:self.commentButton];
     WEAK_SELF
     [[self.commentButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

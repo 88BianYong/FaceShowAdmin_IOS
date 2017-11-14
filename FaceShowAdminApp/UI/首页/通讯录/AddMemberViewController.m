@@ -62,6 +62,7 @@
     WEAK_SELF
     self.sexCell.clickBlock = ^{
         STRONG_SELF
+        [self.view endEditing:YES];
         [self showAlertView];
     };
     [self.contentView addSubview:self.sexCell];

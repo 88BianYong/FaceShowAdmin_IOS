@@ -40,7 +40,7 @@
         make.width.mas_equalTo(60);
     }];
     
-    UIImageView *attachmentImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"进入页面按钮正常态"]];
+    UIImageView *attachmentImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"进入页面按钮正常态"] highlightedImage:[UIImage imageNamed:@"进入页面按钮点击态"]];
     [self addSubview:attachmentImage];
     [attachmentImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-5);
@@ -51,7 +51,7 @@
     WEAK_SELF
     [RACObserve(backBtn, highlighted) subscribeNext:^(id x) {
         STRONG_SELF
-        attachmentImage.image = [UIImage imageNamed:[x boolValue] ? @"进入页面按钮点击态" : @"进入页面按钮正常态"];
+        attachmentImage.highlighted = [x boolValue];
     }];
     
     self.bottomLineView = [[UIView alloc] init];

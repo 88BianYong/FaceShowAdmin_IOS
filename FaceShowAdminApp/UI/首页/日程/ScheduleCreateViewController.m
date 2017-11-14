@@ -73,7 +73,7 @@
     [self.view addSubview:self.tableView];
     self.imagePickerController = [[YXImagePickerController alloc] init];
     [self setupNavRightView];
-    [self nyx_setupLeftWithImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 30, 30)] action:^{
+    [self nyx_setupLeftWithImageName:@"返回页面按钮正常态" highlightImageName:@"返回页面按钮点击态" action:^{
         STRONG_SELF
         [self dismissViewControllerAnimated:YES completion:^{
         }];

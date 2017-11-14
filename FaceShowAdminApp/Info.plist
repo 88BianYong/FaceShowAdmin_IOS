@@ -36,8 +36,6 @@
 		<string>Metro Playtype.otf</string>
 		<string>METRO-LIGHT PLAYTYPE.otf</string>
 	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>Empty</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

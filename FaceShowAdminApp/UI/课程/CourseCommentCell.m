@@ -78,8 +78,8 @@
     }];
     
     self.menuButton = [[UIButton alloc]init];
-    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮张常态"] forState:UIControlStateNormal];
-    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮-点击态"] forState:UIControlStateHighlighted];
+    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮正常态"] forState:UIControlStateNormal];
+    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮点击态"] forState:UIControlStateHighlighted];
     [self.menuButton addTarget:self action:@selector(menuAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.menuButton];
     [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
