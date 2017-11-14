@@ -83,7 +83,7 @@
     [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:range];
     self.descLabel.attributedText = attr;
     
-    self.typeImageView.image = [UIImage imageNamed:[ResourceTypeMapping resourceTypeWithString:data.suffix]];
+    self.typeImageView.image = [UIImage imageNamed:data.type.integerValue ? @"html" : [ResourceTypeMapping resourceTypeWithString:data.suffix]];
 }
 
 @end
