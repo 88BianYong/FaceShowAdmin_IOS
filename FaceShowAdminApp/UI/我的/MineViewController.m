@@ -174,6 +174,7 @@
 #pragma mark - actions
 - (void)changeClassBtnAction {
     ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
+    selectionVC.shouldRefresh = YES;
     [self.navigationController pushViewController:selectionVC animated:YES];
 }
 

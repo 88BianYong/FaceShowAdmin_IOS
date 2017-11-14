@@ -26,6 +26,9 @@
 #import "ResourceManagerViewController.h"
 #import "ScheduleDetailViewController.h"
 #import "ScheduleDetailRequest.h"
+#import "MJRefresh.h"
+#import "SignInDetailViewController.h"
+#import "CourseDetailViewController.h"
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -38,10 +41,13 @@
 @property (nonatomic, strong) MainPageTopView *topView;
 @property (nonatomic, strong) MainPageScrollView *scrollView;
 @property (nonatomic, strong) MainPageTableHeaderView *headerView;
+@property (nonatomic, strong) MJRefreshHeaderView *header;
 @end
 
 @implementation MainPageViewController
-
+- (void)dealloc {
+    [self.header free];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -126,6 +132,13 @@
         [self requestMainPageClassInfo];
     }];
     [self.view addSubview:self.errorView];
+    
+    self.header = [MJRefreshHeaderView header];
+    self.header.scrollView = self.tableView;
+    self.header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        STRONG_SELF
+        [self requestMainPageClassInfo];
+    };
 }
 - (void)setupLayout {
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -160,6 +173,7 @@
     WEAK_SELF
     [self.clazsRequest startRequestWithRetClass:[ClazsGetClazsRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
+        [self.header endRefreshing];
         [self.view nyx_stopLoading];
         self.errorView.hidden = YES;
         self.emptyView.hidden = YES;
@@ -243,11 +257,16 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    CourseDetailViewController *courseDetailVC = [[CourseDetailViewController alloc] init];
-//    GetCourseListRequestItem_courses *courses = self.listRequestItem.data.courses[indexPath.section];
-//    GetCourseListRequestItem_coursesList *course = courses.coursesList[indexPath.row];
-//    courseDetailVC.courseId = course.courseId;
-//    [self.navigationController pushViewController:courseDetailVC animated:YES];
+    if (indexPath.section == 0) {
+        SignInDetailViewController *vc = [[SignInDetailViewController alloc]init];
+        vc.data = self.itemData.todaySignIns[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.section == 1) {
+        CourseDetailViewController *courseDetailVC = [[CourseDetailViewController alloc] init];
+        ClazsGetClazsRequestItem_Data_TodayCourses *course = self.itemData.todayCourses[indexPath.row];
+        courseDetailVC.courseId = course.courseId;
+        [self.navigationController pushViewController:courseDetailVC animated:YES];
+    }
 }
 - (void)requestForScheduleDetail {
     self.detailRequest = [[ScheduleDetailRequest alloc] init];

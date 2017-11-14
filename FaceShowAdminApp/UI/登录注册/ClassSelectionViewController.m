@@ -8,11 +8,13 @@
 
 #import "ClassSelectionViewController.h"
 #import "ClassListCell.h"
+#import "ClassListRequest.h"
 
 @interface ClassSelectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *navRightBtn;
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) ClassListRequestItem_clazsInfos *selectedClass;
+@property (nonatomic, strong) ClassListRequest *getClassRequest;
 @end
 
 @implementation ClassSelectionViewController
@@ -21,6 +23,9 @@
     [super viewDidLoad];
     [self setupNav];
     [self setupUI];
+    if (self.shouldRefresh) {
+        [self requestClasses];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +66,26 @@
         make.edges.mas_equalTo(0);
     }];
     [self.tableview registerClass:[ClassListCell class] forCellReuseIdentifier:@"ClassListCell"];
+}
+
+#pragma mark - Request
+- (void)requestClasses {
+    [self.getClassRequest stopRequest];
+    self.getClassRequest = [[ClassListRequest alloc]init];
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.getClassRequest startRequestWithRetClass:[ClassListRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view nyx_showToast:error.localizedDescription];
+            return;
+        }
+        ClassListRequestItem *item = (ClassListRequestItem *)retItem;
+        [UserManager sharedInstance].userModel.clazsInfos = item.data.clazsInfos;
+        [[UserManager sharedInstance]saveData];
+        [self.tableview reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate

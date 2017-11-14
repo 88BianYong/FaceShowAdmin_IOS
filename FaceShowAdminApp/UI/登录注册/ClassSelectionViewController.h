@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ClassSelectionViewController : BaseViewController
-
+@property (nonatomic, assign) BOOL shouldRefresh;
 @end

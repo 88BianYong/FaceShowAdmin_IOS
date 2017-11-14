@@ -34,6 +34,7 @@
     self.bIsGroupedTableViewStyle = YES;
     [super viewDidLoad];
     self.navigationItem.title = @"通知管理";
+    self.emptyView.title = @"尚未发布通知";
     [self setupUI];
 }
 
