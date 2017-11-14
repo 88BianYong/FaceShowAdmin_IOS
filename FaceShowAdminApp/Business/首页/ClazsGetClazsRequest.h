@@ -34,6 +34,7 @@
 @property (nonatomic, strong) NSString<Optional> *startTime;
 @property (nonatomic, strong) NSString<Optional> *endTime;
 @property (nonatomic, strong) NSString<Optional> *antiCheat;
+@property (nonatomic, strong) NSString<Optional> *qrcodeRefreshRate;
 @property (nonatomic, strong) NSString<Optional> *successPrompt;
 @property (nonatomic, strong) NSString<Optional> *openStatus;
 @property (nonatomic, strong) NSString<Optional> *bizId;
