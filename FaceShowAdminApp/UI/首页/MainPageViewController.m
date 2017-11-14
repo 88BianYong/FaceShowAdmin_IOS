@@ -188,6 +188,7 @@
         }
         [UserManager sharedInstance].userModel.currentProject = item.data.projectInfo;
         [[UserManager sharedInstance] saveData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateProjectInfoNotification" object:nil];
         self.itemData = item.data;
     }];
 }

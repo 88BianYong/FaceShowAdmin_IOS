@@ -30,13 +30,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (isEmpty(self.projectLabel.text)) {
-        self.projectLabel.text = [UserManager sharedInstance].userModel.currentProject.projectName;
-    }
-}
-
 #pragma mark - setupUI
 - (void)setupUI {
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"头像背景"]];
@@ -168,6 +161,10 @@
         STRONG_SELF
         [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageWithColor:[UIColor redColor] rect:CGRectMake(0, 0, 55, 55)]];
         self.nameLabel.text = [UserManager sharedInstance].userModel.realName;
+    }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateProjectInfoNotification" object:nil] subscribeNext:^(id x) {
+        STRONG_SELF
+        self.projectLabel.text = [UserManager sharedInstance].userModel.currentProject.projectName;
     }];
 }
 
