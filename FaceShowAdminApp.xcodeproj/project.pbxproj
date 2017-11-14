@@ -35,6 +35,9 @@
 		43729E1F1FB6DFB80043C988 /* SubjectivityAnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */; };
 		43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E241FB986BE0043C988 /* SubjectivityAnswerTitleView.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
+		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
+		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
+		7C2558301FBAD2AE00C9BE38 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -326,6 +329,9 @@
 		4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FaceShowAdminApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
+		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -789,6 +795,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2558301FBAD2AE00C9BE38 /* AdSupport.framework in Frameworks */,
+				7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */,
+				7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */,
 				7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */,
 				0E64934C2AC2C290F4690087 /* libPods-FaceShowAdminApp.a in Frameworks */,
 			);
@@ -861,6 +870,9 @@
 		5C6A70A77D1937EEFC4DF06A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */,
+				7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */,
+				7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */,
 				4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */,
 			);
 			name = Frameworks;

@@ -29,7 +29,7 @@ typedef enum {
  *	@method	sessionStarted:withChannelId:
  *  初始化统计实例，请在application:didFinishLaunchingWithOptions:方法里调用
  *	@param 	appKey 	应用的唯一标识，统计后台注册得到
-    @param 	channelId(可选) 	渠道名，如“app store”
+ *  @param 	channelId (可选) 	渠道名，如“app store”
  */
 + (void)sessionStarted:(NSString *)appKey withChannelId:(NSString *)channelId;
 
