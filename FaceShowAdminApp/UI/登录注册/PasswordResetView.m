@@ -8,7 +8,7 @@
 
 #import "PasswordResetView.h"
 
-@interface PasswordResetView()
+@interface PasswordResetView()<UITextFieldDelegate>
 @property (nonatomic, strong) UIButton *showHideButton;
 @end
 
@@ -38,8 +38,10 @@
         make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     self.inputView = [[LoginInputView alloc]init];
-    self.inputView.textField.keyboardType = UIKeyboardTypeAlphabet;
+    self.inputView.textField.delegate = self;
+    self.inputView.textField.keyboardType = UIKeyboardTypeASCIICapable;
     self.inputView.textField.secureTextEntry = YES;
+    self.inputView.textField.clearsOnBeginEditing = NO;
     self.inputView.textField.textColor = [UIColor colorWithHexString:@"333333"];
     self.inputView.textField.font = [UIFont fontWithName:YXFontMetro_Regular size:19];
     self.inputView.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:@"输入6-20位新密码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
@@ -72,6 +74,30 @@
 
 - (NSString *)text {
     return [self.inputView.textField.text yx_stringByTrimmingCharacters];
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    //Setting the new text.
+    NSString *updatedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    textField.text = updatedString;
+    
+    //Setting the cursor at the right place
+    NSRange selectedRange = NSMakeRange(range.location + string.length, 0);
+    UITextPosition* from = [textField positionFromPosition:textField.beginningOfDocument offset:selectedRange.location];
+    UITextPosition* to = [textField positionFromPosition:from offset:selectedRange.length];
+    textField.selectedTextRange = [textField textRangeFromPosition:from toPosition:to];
+    
+    //Sending an action
+    [textField sendActionsForControlEvents:UIControlEventEditingChanged];
+    
+    return NO;
 }
 
 @end
