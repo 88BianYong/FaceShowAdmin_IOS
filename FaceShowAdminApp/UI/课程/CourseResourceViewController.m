@@ -10,9 +10,10 @@
 #import "CourseResourceFetcher.h"
 #import "CourseResourceCell.h"
 #import "ResourceDisplayViewController.h"
+#import "GetResourceDetailRequest.h"
 
 @interface CourseResourceViewController ()
-
+@property (nonatomic, strong) GetResourceDetailRequest *request;
 @end
 
 @implementation CourseResourceViewController
@@ -55,11 +56,34 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ResourceDisplayViewController *vc = [[ResourceDisplayViewController alloc]init];
     CourseResourceRequestItem_elements *data = self.dataArray[indexPath.row];
-    vc.urlString = data.url;
-    vc.name = data.resName;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self requestResourceDetailWithResId:data.resId];
+}
+
+- (void)requestResourceDetailWithResId:(NSString *)resId {
+    [self.request stopRequest];
+    self.request = [[GetResourceDetailRequest alloc]init];
+    self.request.resId = resId;
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.request startRequestWithRetClass:[GetResourceDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view nyx_showToast:error.localizedDescription];
+            return;
+        }
+        GetResourceDetailRequestItem *item = (GetResourceDetailRequestItem *)retItem;
+        ResourceDisplayViewController *vc = [[ResourceDisplayViewController alloc]init];
+        if (item.data.type.integerValue > 0) {
+            vc.urlString = item.data.url;
+            vc.name = item.data.resName;
+        }else {
+            vc.urlString = item.data.ai.resName;
+            vc.name = item.data.ai.previewUrl;
+        }
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
 @end
