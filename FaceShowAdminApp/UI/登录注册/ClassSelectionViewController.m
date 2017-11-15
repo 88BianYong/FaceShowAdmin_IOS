@@ -9,8 +9,10 @@
 #import "ClassSelectionViewController.h"
 #import "ClassListCell.h"
 #import "ClassListRequest.h"
+#import "EmptyView.h"
 
 @interface ClassSelectionViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) UIButton *navRightBtn;
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) ClassListRequestItem_clazsInfos *selectedClass;
@@ -36,6 +38,14 @@
 #pragma mark - setupNav
 - (void)setupNav {
     self.title = @"选择班级";
+    WEAK_SELF
+    if (!self.shouldRefresh) {
+        [self nyx_setupLeftWithTitle:@"退出" action:^{
+            STRONG_SELF
+            [UserManager sharedInstance].loginStatus = NO;
+        }];
+    }
+    
     self.navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.navRightBtn.frame = CGRectMake(0, 0, 40, 30);
     self.navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -55,17 +65,26 @@
 
 #pragma mark - setupUI
 - (void)setupUI {
-    self.tableview = [[UITableView alloc]init];
-    self.tableview.dataSource = self;
-    self.tableview.delegate = self;
-    self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableview.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    self.tableview.allowsMultipleSelection = NO;
-    [self.view addSubview:self.tableview];
-    [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
-    [self.tableview registerClass:[ClassListCell class] forCellReuseIdentifier:@"ClassListCell"];
+    if (isEmpty([UserManager sharedInstance].userModel.clazsInfos)) {
+        self.emptyView = [[EmptyView alloc]init];
+        self.emptyView.title = @"暂未设置班级，请联系管理员";
+        [self.view addSubview:self.emptyView];
+        [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+    } else {
+        self.tableview = [[UITableView alloc]init];
+        self.tableview.dataSource = self;
+        self.tableview.delegate = self;
+        self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableview.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+        self.tableview.allowsMultipleSelection = NO;
+        [self.view addSubview:self.tableview];
+        [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+        [self.tableview registerClass:[ClassListCell class] forCellReuseIdentifier:@"ClassListCell"];
+    }
 }
 
 #pragma mark - Request
