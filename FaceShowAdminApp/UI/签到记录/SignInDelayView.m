@@ -34,7 +34,7 @@
         make.height.mas_equalTo(44);
     }];
     self.confirmButton = [[UIButton alloc]init];
-    [self.confirmButton setTitle:@"确定" forState:UIControlStateNormal];
+    [self.confirmButton setTitle:@"提交补签" forState:UIControlStateNormal];
     [self.confirmButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     self.confirmButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.confirmButton addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
@@ -42,7 +42,7 @@
     [self.confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-15);
         make.top.bottom.mas_equalTo(0);
-        make.width.mas_equalTo(40);
+        make.width.mas_equalTo(80);
     }];
     self.nameLabel = [[UILabel alloc]init];
     self.nameLabel.font = [UIFont systemFontOfSize:14];
