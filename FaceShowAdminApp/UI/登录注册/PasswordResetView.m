@@ -38,6 +38,7 @@
         make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     self.inputView = [[LoginInputView alloc]init];
+    self.inputView.textField.keyboardType = UIKeyboardTypeAlphabet;
     self.inputView.textField.secureTextEntry = YES;
     self.inputView.textField.textColor = [UIColor colorWithHexString:@"333333"];
     self.inputView.textField.font = [UIFont fontWithName:YXFontMetro_Regular size:19];

@@ -41,6 +41,7 @@
     }];
     self.inputView = [[LoginInputView alloc]init];
     self.inputView.textField.secureTextEntry = YES;
+    self.inputView.textField.keyboardType = UIKeyboardTypeAlphabet;
     self.inputView.placeHolder = @"请输入密码";
     [self addSubview:self.inputView];
     [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {

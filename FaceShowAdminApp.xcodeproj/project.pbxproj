@@ -39,6 +39,7 @@
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
 		7C2558301FBAD2AE00C9BE38 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */; };
 		7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */; };
+		7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -335,6 +336,8 @@
 		7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7C2558311FBBD97800C9BE38 /* PageNameMappingTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageNameMappingTable.h; sourceTree = "<group>"; };
 		7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageNameMappingTable.m; sourceTree = "<group>"; };
+		7C2558341FBBEBC200C9BE38 /* SaveUserCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveUserCommentRequest.h; sourceTree = "<group>"; };
+		7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveUserCommentRequest.m; sourceTree = "<group>"; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -915,6 +918,8 @@
 				43729E151FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m */,
 				43729E1A1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.h */,
 				43729E1B1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m */,
+				7C2558341FBBEBC200C9BE38 /* SaveUserCommentRequest.h */,
+				7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */,
 			);
 			path = "课程";
 			sourceTree = "<group>";
@@ -2064,6 +2069,7 @@
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
 				9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */,
 				7C672B081FB00267004D93DF /* CourseListViewController.m in Sources */,
+				7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */,
 				7C672B681FB3FC4B004D93DF /* ResourceDisplayViewController.m in Sources */,
 				7C672B411FB1A8EF004D93DF /* QuestionTabContainerView.m in Sources */,
 				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
