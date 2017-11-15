@@ -70,6 +70,7 @@
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
+        [TalkingData trackEvent:@"发布通知"];
         NoticeSaveViewController *VC = [[NoticeSaveViewController alloc] init];
         FSNavigationController *nav = [[FSNavigationController alloc] initWithRootViewController:VC];
         VC.noticeSaveBlock = ^(NoticeListRequestItem_Data_NoticeInfos_Elements *element) {

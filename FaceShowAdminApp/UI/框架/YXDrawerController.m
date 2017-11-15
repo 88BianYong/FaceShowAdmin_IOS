@@ -13,6 +13,7 @@
 + (void)showDrawer{
     YXDrawerViewController *drawerVC = [self drawer];
     [drawerVC showDrawer];
+    [TalkingData trackEvent:@"打开左侧抽屉"];
 }
 
 + (void)hideDrawer{

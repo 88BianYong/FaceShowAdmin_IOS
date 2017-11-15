@@ -105,6 +105,7 @@
 }
 
 - (void)deleteCommentWithIndex:(NSInteger)index {
+    [TalkingData trackEvent:@"删除讨论"];
     GetCourseCommentRequestItem_element *element = self.dataArray[index];
     [self.deleteRequest stopRequest];
     self.deleteRequest = [[DeleteCommentRequest alloc]init];

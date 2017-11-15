@@ -85,6 +85,7 @@
         MainPageDetailViewController *VC = [[MainPageDetailViewController alloc] init];
         VC.itemData = self.itemData;
         [self.navigationController pushViewController:VC animated:YES];
+        [TalkingData trackEvent:@"查看班级详情"];
     };
     self.topView.hidden = YES;
     [self.view addSubview:self.topView];
@@ -92,18 +93,23 @@
     [self.scrollView setActionBlock:^(MainPagePushType type) {
         STRONG_SELF
         if (type == MainPagePushType_Check) {
+            [TalkingData trackEvent:@"进入签到记录"];
             SignInListViewController *vc = [[SignInListViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }else if(type == MainPagePushType_Notice){
+            [TalkingData trackEvent:@"进入通知管理"];
             NoticeListViewController *VC = [[NoticeListViewController alloc] init];
             [self.navigationController pushViewController:VC animated:YES];
         } else if (type == MainPagePushType_Contacts) {
+            [TalkingData trackEvent:@"进入通讯录"];
             ContactsViewController *vc = [[ContactsViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else if (type == MainPagePushType_Resources) {
+            [TalkingData trackEvent:@"进入资源管理"];
             ResourceManagerViewController *VC = [[ResourceManagerViewController alloc] init];
             [self.navigationController pushViewController:VC animated:YES];
         }else if (type == MainPagePushType_Schedule) {
+            [TalkingData trackEvent:@"进入日程管理"];
             [self requestForScheduleDetail];
         }
     }];

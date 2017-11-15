@@ -130,6 +130,7 @@
 }
 
 - (void)goForgetPassword {
+    [TalkingData trackEvent:@"忘记密码"];
     ForgotPasswordViewController *vc = [[ForgotPasswordViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }

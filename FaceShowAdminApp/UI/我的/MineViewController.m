@@ -170,17 +170,20 @@
 
 #pragma mark - actions
 - (void)changeClassBtnAction {
+    [TalkingData trackEvent:@"点击切换班级"];
     ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
     selectionVC.shouldRefresh = YES;
     [self.navigationController pushViewController:selectionVC animated:YES];
 }
 
 - (void)logoutBtnAction {
+    [TalkingData trackEvent:@"退出登录"];
     [UserManager sharedInstance].loginStatus = NO;
 }
 
 - (void)optionBtnAction:(UIButton *)sender {
     if ([sender.titleLabel.text isEqualToString:@"班级首页"]) {
+        [TalkingData trackEvent:@"点击班级首页"];
         [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
     } else if ([sender.titleLabel.text isEqualToString:@"我的资料"]) {
         MyInfoViewController *vc = [[MyInfoViewController alloc] init];

@@ -137,6 +137,7 @@
     WEAK_SELF
     [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
+        [TalkingData trackEvent:@"添加学员"];
         AddMemberViewController *vc = [[AddMemberViewController alloc] init];
         vc.saveSucceedBlock = ^{
             [self firstPageFetch];

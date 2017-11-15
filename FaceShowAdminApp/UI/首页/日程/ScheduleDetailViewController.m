@@ -174,6 +174,7 @@
         if (integer == 1) {
             [self createScheduleViewController];
         }else if (integer == 2) {
+            [TalkingData trackEvent:@"删除日程"];
             [self requestForDeleteSchedule];
         }
         [self.alertView hide];

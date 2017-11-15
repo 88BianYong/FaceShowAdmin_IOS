@@ -109,6 +109,7 @@
     WEAK_SELF
     [self.headerView setDetailBlock:^{
         STRONG_SELF
+        [TalkingData trackEvent:self.interactType == InteractType_Vote ? @"查看投票人数详情" : @"查看问卷人数详情"];
         QuestionUserDetailViewController *vc = [[QuestionUserDetailViewController alloc]init];
         vc.data = self.requestItem.data;
         [self.navigationController pushViewController:vc animated:YES];

@@ -160,6 +160,7 @@
     WEAK_SELF
     recordCell.clickBlock = ^{
         STRONG_SELF
+        [TalkingData trackEvent:@"查看学员签到记录"];
         UserSignInListViewController *vc = [[UserSignInListViewController alloc] init];
         vc.userId = self.userId;
         vc.userName = self.data.realName;

@@ -56,6 +56,7 @@
         [self.titleCell.textField resignFirstResponder];
         [self.contentCell.textView resignFirstResponder];
         [self showAlertView];
+        [TalkingData trackEvent:@"通知中添加照片"];
     }];
     [[self.imageCell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
          STRONG_SELF

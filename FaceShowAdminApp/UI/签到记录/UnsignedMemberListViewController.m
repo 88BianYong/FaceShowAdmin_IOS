@@ -66,6 +66,7 @@ NSString * const kReplenishSignInDidSuccessNotification = @"kReplenishSignInDidS
     WEAK_SELF
     [settingView setConfirmBlock:^(NSString *result){
         STRONG_SELF
+        [TalkingData trackEvent:@"签到详情补签"];
         [self replenishSignInWithElement:element time:result];
         [self.alertView hide];
     }];

@@ -52,6 +52,7 @@
     WEAK_SELF
     cell.signInBtnBlock = ^{
         STRONG_SELF
+        [TalkingData trackEvent:@"个人签到记录补签"];
         [self showAlertWithStepId:data.stepId];
     };
     return cell;

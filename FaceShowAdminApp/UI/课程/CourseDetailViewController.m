@@ -222,6 +222,7 @@
 }
 
 - (void)courseInfoAction {
+    [TalkingData trackEvent:@"查看课程简介"];
     CourseInfoViewController *vc = [[CourseInfoViewController alloc]init];
     vc.item = self.requestItem;
     [self.navigationController pushViewController:vc animated:YES];

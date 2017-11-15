@@ -172,6 +172,7 @@
 }
 #pragma mark - request
 - (void)requestForResourceCreate {
+    [TalkingData trackEvent:@"提交资源"];
     if ([self.textView.text hasPrefix:@"http://"] || [self.textView.text hasPrefix:@"https://"]) {
         self.createRequest = [[ResourceCreateRequest alloc] init];
         self.createRequest.filename = @"外部链接类型";

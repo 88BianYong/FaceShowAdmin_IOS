@@ -59,6 +59,7 @@
 }
 
 - (void)createSignIn {
+    [TalkingData trackEvent:@"发布签到"];
     CreateSignInViewController *vc = [[CreateSignInViewController alloc]init];
     WEAK_SELF
     [vc setComleteBlock:^{

@@ -66,6 +66,7 @@
     WEAK_SELF
     [headerView setQrBlock:^{
         STRONG_SELF
+        [TalkingData trackEvent:@"查看签到二维码"];
         QRCodeSignInViewController *vc = [[QRCodeSignInViewController alloc]init];
         vc.data = self.data;
         [self.navigationController pushViewController:vc animated:YES];

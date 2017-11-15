@@ -116,12 +116,14 @@
 
     [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
+        [TalkingData trackEvent:@"发布班级圈"];
         [self showAlertView];
     }];
     UILongPressGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
     gestureRecognizer.minimumPressDuration = 1.0f;
     [[gestureRecognizer rac_gestureSignal] subscribeNext:^(UILongPressGestureRecognizer *x) {
         if (x.state == UIGestureRecognizerStateBegan) {
+            [TalkingData trackEvent:@"发布班级圈"];
             [self presentNextPublishViewController:nil];
         }
     }];
@@ -453,6 +455,7 @@
 
 #pragma mark - request
 - (void)requestForDelete:(NSInteger)section {
+    [TalkingData trackEvent:@"删除班级圈"];
     ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[section];
     ClassMomentDeleteRequest *request = [[ClassMomentDeleteRequest alloc] init];
     request.momentId = moment.momentID;

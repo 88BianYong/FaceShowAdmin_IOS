@@ -184,6 +184,7 @@
     actionSheetView.actionSheetBlock = ^(NSInteger integer) {
         STRONG_SELF
         if (integer == 1) {
+            [TalkingData trackEvent:@"删除通知"];
             [self requestForDeleteNotice];
         }
         [self.alertView hide];
