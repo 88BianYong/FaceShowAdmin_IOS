@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "YXDrawerController.h"
+#import "PageNameMappingTable.h"
 
 @interface BaseViewController ()
 
@@ -38,11 +39,21 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
+    NSString *vcName = NSStringFromClass([self class]);
+    NSString *pageName = [PageNameMappingTable pageNameForViewControllerName:vcName];
+    if (pageName) {
+        [TalkingData trackPageEnd:pageName];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    NSString *vcName = NSStringFromClass([self class]);
+    NSString *pageName = [PageNameMappingTable pageNameForViewControllerName:vcName];
+    if (pageName) {
+        [TalkingData trackPageBegin:pageName];
+    }
 }
 
 #pragma mark -

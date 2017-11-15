@@ -37,6 +37,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    InteractType type = [FSDataMappingTable InteractTypeWithKey:self.data.interactType];
+    if (type == InteractType_Vote) {
+        [TalkingData trackPageBegin:@"投票任务完成详情"];
+    }else {
+        [TalkingData trackPageBegin:@"问卷任务完成详情"];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    InteractType type = [FSDataMappingTable InteractTypeWithKey:self.data.interactType];
+    if (type == InteractType_Vote) {
+        [TalkingData trackPageEnd:@"投票任务完成详情"];
+    }else {
+        [TalkingData trackPageEnd:@"问卷任务完成详情"];
+    }
+}
+
 - (void)setupUI {
     QuestionTabContainerView *tabContainerView = [[QuestionTabContainerView alloc]init];
     tabContainerView.tabNameArray = @[@"已提交",@"未提交"];

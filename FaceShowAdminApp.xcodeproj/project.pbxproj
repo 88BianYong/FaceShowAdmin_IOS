@@ -38,6 +38,7 @@
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
 		7C2558301FBAD2AE00C9BE38 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */; };
+		7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -332,6 +333,8 @@
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7C2558311FBBD97800C9BE38 /* PageNameMappingTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageNameMappingTable.h; sourceTree = "<group>"; };
+		7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageNameMappingTable.m; sourceTree = "<group>"; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -1237,6 +1240,8 @@
 				7CEFC8FE1FA06924001D8C84 /* 登录注册 */,
 				7CEFC8D21FA066B8001D8C84 /* FSDataMappingTable.h */,
 				7CEFC8D11FA066B8001D8C84 /* FSDataMappingTable.m */,
+				7C2558311FBBD97800C9BE38 /* PageNameMappingTable.h */,
+				7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -2149,6 +2154,7 @@
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
 				7C672B471FB1AC17004D93DF /* QuestionUserDetailViewController.m in Sources */,
+				7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
 				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,

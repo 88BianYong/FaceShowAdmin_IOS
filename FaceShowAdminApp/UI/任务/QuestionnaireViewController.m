@@ -60,6 +60,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.interactType == InteractType_Vote) {
+        [TalkingData trackPageBegin:@"投票详情"];
+    }else {
+        [TalkingData trackPageBegin:@"问卷详情"];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (self.interactType == InteractType_Vote) {
+        [TalkingData trackPageEnd:@"投票详情"];
+    }else {
+        [TalkingData trackPageEnd:@"问卷详情"];
+    }
+}
+
 - (void)requestPaperInfo {
     if (self.interactType == InteractType_Vote) {
         [self.voteRequest stopRequest];
