@@ -231,10 +231,10 @@
 
 - (void)submit {
     if (self.validView.isOn) {
-        [TalkingData trackEvent:@"限制为在签到日期有效：点击提交时记录"];
+        [TalkingData trackEvent:@"限制为在签到日期有效"];
     }
     if (self.dynamicView.isOn) {
-        [TalkingData trackEvent:@"使用动态二维码：点击提交时记录"];
+        [TalkingData trackEvent:@"使用动态二维码"];
     }
     [self.createSignInRequest stopRequest];
     self.createSignInRequest = [[CreateSignInRequest alloc]init];
