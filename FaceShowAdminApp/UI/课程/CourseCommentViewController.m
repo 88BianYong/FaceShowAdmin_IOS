@@ -97,6 +97,8 @@
         make.left.bottom.right.mas_equalTo(0);
         make.height.mas_equalTo(44);
     }];
+    
+    self.floatingView = [[ClassMomentFloatingView alloc]init];
 }
 
 - (void)setupObservers {
