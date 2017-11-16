@@ -81,7 +81,7 @@
     _data = data;
     self.titleLabel.text = data.interactName;
     NSString *count = [NSString stringWithFormat:@"%@/%@",data.finishedStudentNum,data.totalStudentNum];
-    NSString *complete = [NSString stringWithFormat:@"已查看人数：%@",count];
+    NSString *complete = [NSString stringWithFormat:@"已完成人数：%@",count];
     NSRange range = [complete rangeOfString:count];
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:complete];
     [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:range];
