@@ -73,12 +73,11 @@
         [TalkingData trackEvent:@"发布通知"];
         NoticeSaveViewController *VC = [[NoticeSaveViewController alloc] init];
         FSNavigationController *nav = [[FSNavigationController alloc] initWithRootViewController:VC];
-        VC.noticeSaveBlock = ^(NoticeListRequestItem_Data_NoticeInfos_Elements *element) {
+        VC.noticeSaveBlock = ^() {
             STRONG_SELF
-            [self.dataArray insertObject:element atIndex:0];
             self.emptyView.hidden = YES;
             self.errorView.hidden = YES;
-            [self.tableView reloadData];
+            [self firstPageFetch];
         };
         [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
         }];

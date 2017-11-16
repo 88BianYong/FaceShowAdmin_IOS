@@ -84,7 +84,7 @@
 }
 - (void)reloadCell:(NoticeListRequestItem_Data_NoticeInfos_Elements *)element withStudentNum:(NSString *)number {
     self.titleLabel.text = element.title;
-    self.timeLabel.text = element.createTime;
+    self.timeLabel.text = [element.createTime omitSecondOfFullDateString];
     NSMutableParagraphStyle *cStyle = [[NSMutableParagraphStyle alloc] init];
     cStyle.lineHeightMultiple = 1.2f;
     cStyle.lineBreakMode = NSLineBreakByTruncatingTail;

@@ -335,7 +335,7 @@
         }else {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间
                 [self.view nyx_stopLoading];
-                BLOCK_EXEC(self.noticeSaveBlock,item.data);
+                BLOCK_EXEC(self.noticeSaveBlock);
                 [self dismissViewControllerAnimated:YES completion:^{
                 }];
             });

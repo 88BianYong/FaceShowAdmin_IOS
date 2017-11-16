@@ -10,5 +10,5 @@
 #import "NoticeSaveRequest.h"
 
 @interface NoticeSaveViewController : BaseViewController
-@property (nonatomic, copy) void(^noticeSaveBlock)(NoticeListRequestItem_Data_NoticeInfos_Elements *element);
+@property (nonatomic, copy) void(^noticeSaveBlock)(void);
 @end

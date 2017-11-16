@@ -79,7 +79,7 @@
     self.timeLabel.textColor = [UIColor colorWithHexString:@"999999"];
     self.timeLabel.font = [UIFont systemFontOfSize:13.0f];
     self.timeLabel.textAlignment = NSTextAlignmentCenter;
-    self.timeLabel.text = self.element.createTime;
+    self.timeLabel.text = [self.element.createTime omitSecondOfFullDateString];
     [self.containerView addSubview:self.timeLabel];
     self.contentHeight += 15.0f + 13.0f;
     
