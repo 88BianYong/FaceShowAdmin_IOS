@@ -68,13 +68,12 @@
         [TalkingData trackEvent:@"发布资源"];
         ResourceUploadViewController *VC = [[ResourceUploadViewController alloc] init];
         FSNavigationController *nav = [[FSNavigationController alloc] initWithRootViewController:VC];
-//        VC.noticeSaveBlock = ^(NoticeListRequestItem_Data_NoticeInfos_Elements *element) {
-//            STRONG_SELF
-//            [self.dataArray insertObject:element atIndex:0];
-//            self.emptyView.hidden = YES;
-//            self.errorView.hidden = YES;
-//            [self.tableView reloadData];
-//        };
+        VC.uploadSucceedBlock = ^() {
+            STRONG_SELF
+            self.emptyView.hidden = YES;
+            self.errorView.hidden = YES;
+            [self firstPageFetch];
+        };
         [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
         }];
     }];

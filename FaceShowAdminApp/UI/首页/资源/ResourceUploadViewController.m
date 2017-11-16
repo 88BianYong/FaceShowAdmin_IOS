@@ -183,13 +183,13 @@
         self.createRequest.reserve  = [NSString stringWithFormat:@"{\"typeId\":1000,\"title\":\"%@\",\"username\":\"%@\",\"externalUrl\":\"%@\",\"uid\":\"%@\",\"shareType\":0,\"from\":6,\"source\":\"ios\",\"description\":\"\"}",self.createRequest.filename,[UserManager sharedInstance].userModel.passport?:@"",self.textView.text,
                                        [UserManager sharedInstance].userModel.userID
                                        ];
-        [self.view nyx_startLoading];
+        [self.view.window nyx_startLoading];
         WEAK_SELF
         [self.createRequest startRequestWithRetClass:[ResourceCreateRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
             STRONG_SELF
             if (error) {
                 [self.view nyx_showToast:error.localizedDescription];
-                [self.view nyx_stopLoading];
+                [self.view.window nyx_stopLoading];
             }else {
                 ResourceCreateRequestItem *item = retItem;
                 if (item.resid.length > 0) {
@@ -218,10 +218,11 @@
     WEAK_SELF
     [self.uploadRequest startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
-        [self.view nyx_stopLoading];
+        [self.view.window nyx_stopLoading];
         if (error) {
             [self.view nyx_showToast:error.localizedDescription];
         }else {
+            BLOCK_EXEC(self.uploadSucceedBlock);
             [self dismissViewControllerAnimated:YES completion:^{
             }];
         }

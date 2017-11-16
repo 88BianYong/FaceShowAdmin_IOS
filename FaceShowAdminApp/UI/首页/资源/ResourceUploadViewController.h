@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ResourceUploadViewController : BaseViewController
-
+@property (nonatomic, copy) void(^uploadSucceedBlock)(void);
 @end
