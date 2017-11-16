@@ -276,7 +276,7 @@
     endDate = [endDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
     NSString *endTime = endArr.lastObject;
     endTime = [endTime substringToIndex:5];
-    self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@",startDate,startTime,endTime];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@ %@",startDate,startTime,endDate,endTime];
     
     NSString *lectureName = @"暂无";
     NSMutableArray *lecArray = [NSMutableArray array];

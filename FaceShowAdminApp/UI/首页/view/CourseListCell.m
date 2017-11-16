@@ -119,7 +119,7 @@
     endDate = [endDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
     NSString *endTime = endArr.lastObject;
     endTime = [endTime substringToIndex:5];
-    self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@",startDate,startTime,endTime];    
+    self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@ %@",startDate,startTime,endDate,endTime];    
     self.teacherLabel.text = isEmpty([self lecturesName]) ? @"暂无" : [self lecturesName];
     self.placeLabel.text = isEmpty(item.site) ? @"待定" : item.site;
 }
