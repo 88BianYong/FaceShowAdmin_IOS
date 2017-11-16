@@ -79,8 +79,8 @@
             vc.urlString = item.data.url;
             vc.name = item.data.resName;
         }else {
-            vc.urlString = item.data.ai.resName;
-            vc.name = item.data.ai.previewUrl;
+            vc.urlString = item.data.ai.previewUrl;
+            vc.name = item.data.ai.resName;
         }
         [self.navigationController pushViewController:vc animated:YES];
     }];
