@@ -49,4 +49,12 @@
     self.bottomLineView.hidden = !needBottomLine;
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([[[textField textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textField textInputMode] primaryLanguage] || [string includeEmoji]) {
+        return NO;
+    }
+    return YES;
+}
+
 @end

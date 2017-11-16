@@ -8,6 +8,9 @@
 
 #import "NoticeSaveContentCell.h"
 
+@interface NoticeSaveContentCell ()<UITextViewDelegate>
+@end
+
 @implementation NoticeSaveContentCell
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -16,12 +19,13 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textView = [[SAMTextView alloc] init];
-        self.textView.placeholder = @"请输入通知内容";
+        self.textView.placeholder = @"请输入通知内容（暂不支持表情）";
         self.textView.font = [UIFont systemFontOfSize:14.0f];
         NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
         paraStyle.lineHeightMultiple = 1.2;
         NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"333333"]};
         self.textView.typingAttributes = dic;
+        self.textView.delegate = self;
         [self.contentView addSubview:self.textView];
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).offset(15.0f);
@@ -82,6 +86,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textView textInputMode] primaryLanguage] || [text includeEmoji]) {
+        return NO;
+    }
+    return YES;
 }
 
 @end

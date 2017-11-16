@@ -53,6 +53,8 @@
 
 - (BOOL)includeChinese;
 
+- (BOOL)includeEmoji;
+
 @end
 
 @interface NSString (YXTextFormatConvert)

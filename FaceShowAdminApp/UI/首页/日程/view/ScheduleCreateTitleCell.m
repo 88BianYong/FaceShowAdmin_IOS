@@ -8,6 +8,9 @@
 
 #import "ScheduleCreateTitleCell.h"
 
+@interface ScheduleCreateTitleCell ()<UITextFieldDelegate>
+@end
+
 @implementation ScheduleCreateTitleCell
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -17,8 +20,9 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textField = [[UITextField alloc] init];
         self.textField.textColor = [UIColor colorWithHexString:@"333333"];
-        self.textField.placeholder = @"请输入通知标题 (最多20字)";
+        self.textField.placeholder = @"请输入日程标题 (最多20字)";
         self.textField.font = [UIFont boldSystemFontOfSize:16.0f];
+        self.textField.delegate = self;
         [self.textField setValue:[UIColor colorWithHexString:@"cccccc"] forKeyPath:@"_placeholderLabel.textColor"];
         [self.contentView addSubview:self.textField];
         [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,4 +47,13 @@
     }
     return self;
 }
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([[[textField textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textField textInputMode] primaryLanguage] || [string includeEmoji]) {
+        return NO;
+    }
+    return YES;
+}
+
 @end

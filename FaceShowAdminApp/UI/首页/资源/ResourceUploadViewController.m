@@ -10,7 +10,7 @@
 #import <SAMTextView.h>
 #import "ResourceUploadRequest.h"
 #import "ResourceCreateRequest.h"
-@interface ResourceUploadViewController ()
+@interface ResourceUploadViewController ()<UITextFieldDelegate, UITextViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UITextField *textField;
@@ -58,6 +58,7 @@
     self.textField.textColor = [UIColor colorWithHexString:@"333333"];
     self.textField.font = [UIFont boldSystemFontOfSize:16.0f];
     self.textField.placeholder = @"请输入资源名称 (最多20字)";
+    self.textField.delegate = self;
    [self.textField setValue:[UIFont boldSystemFontOfSize:16.0f] forKeyPath:@"_placeholderLabel.font"];
     
     [self.containerView addSubview:self.textField];
@@ -73,6 +74,7 @@
     paraStyle.lineHeightMultiple = 1.2;
     NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont boldSystemFontOfSize:16.0f],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"333333"]};
     self.textView.typingAttributes = dic;
+    self.textView.delegate = self;
     [self.containerView addSubview:self.textView];
     WEAK_SELF
     [self nyx_setupLeftWithImageName:@"返回页面按钮正常态" highlightImageName:@"返回页面按钮点击态" action:^{
@@ -225,4 +227,21 @@
         }
     }];
 }
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([[[textField textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textField textInputMode] primaryLanguage] || [string includeEmoji]) {
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark - UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textView textInputMode] primaryLanguage] || [text includeEmoji]) {
+        return NO;
+    }
+    return YES;
+}
+
 @end
