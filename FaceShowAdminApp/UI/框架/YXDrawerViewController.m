@@ -62,6 +62,7 @@ static const CGFloat kAnimationDuration = 0.3;
                      completion:^(BOOL finished) {
                          self.isAnimating = NO;
                      }];
+    [TalkingData trackPageBegin:@"左侧抽屉"];
     
 }
 
@@ -77,6 +78,7 @@ static const CGFloat kAnimationDuration = 0.3;
                          [self.gestureView removeFromSuperview];
                          self.isAnimating = NO;
                      }];
+    [TalkingData trackPageEnd:@"左侧抽屉"];
 }
 
 - (CGFloat)drawerDurationForShow:(BOOL)isShow{

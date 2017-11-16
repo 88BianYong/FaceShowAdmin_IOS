@@ -16,7 +16,6 @@ static NSDictionary *mappingDict = nil;
     dispatch_once(&once, ^{
         mappingDict = @{@"LoginViewController":@"登录",
                         @"ClassSelectionViewController":@"切换班级",
-                        @"MineViewController":@"左侧抽屉",
                         @"MainPageViewController":@"首页",
                         @"MainPageDetailViewController":@"班级详情",
                         @"NoticeListViewController":@"通知管理",
