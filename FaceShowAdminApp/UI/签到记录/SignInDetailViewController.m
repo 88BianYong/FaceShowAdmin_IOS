@@ -95,6 +95,11 @@
         [TalkingData trackEvent:@"查看签到二维码"];
         QRCodeSignInViewController *vc = [[QRCodeSignInViewController alloc]init];
         vc.data = self.data;
+        WEAK_SELF
+        [vc setBackBlock:^{
+            STRONG_SELF
+            [self refreshDetail];
+        }];
         [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.view addSubview:headerView];

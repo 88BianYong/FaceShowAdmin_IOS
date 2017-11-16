@@ -29,6 +29,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)backAction {
+    BLOCK_EXEC(self.backBlock);
+    [super backAction];
+}
+
 - (void)setupUI {
     self.imageView = [[UIImageView alloc]init];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;

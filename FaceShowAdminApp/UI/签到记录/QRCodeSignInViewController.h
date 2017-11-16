@@ -11,4 +11,5 @@
 
 @interface QRCodeSignInViewController : BaseViewController
 @property (nonatomic, strong) SignInListRequestItem_signIns *data;
+@property (nonatomic, strong) void(^backBlock)(void);
 @end
