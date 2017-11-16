@@ -11,4 +11,5 @@
 
 @interface SignInDetailViewController : BaseViewController
 @property (nonatomic, strong) SignInListRequestItem_signIns *data;
+@property (nonatomic, strong) void(^deleteBlock)(void);
 @end

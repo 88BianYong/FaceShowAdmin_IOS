@@ -87,6 +87,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SignInDetailViewController *vc = [[SignInDetailViewController alloc]init];
     vc.data = self.dataArray[indexPath.row];
+    WEAK_SELF
+    [vc setDeleteBlock:^{
+        STRONG_SELF
+        [self.dataArray removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
+    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

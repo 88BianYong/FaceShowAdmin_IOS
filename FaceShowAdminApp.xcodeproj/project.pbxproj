@@ -40,6 +40,7 @@
 		7C2558301FBAD2AE00C9BE38 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582F1FBAD2A600C9BE38 /* AdSupport.framework */; };
 		7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */; };
 		7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */; };
+		7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -338,6 +339,8 @@
 		7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageNameMappingTable.m; sourceTree = "<group>"; };
 		7C2558341FBBEBC200C9BE38 /* SaveUserCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveUserCommentRequest.h; sourceTree = "<group>"; };
 		7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveUserCommentRequest.m; sourceTree = "<group>"; };
+		7C2558371FBD47BF00C9BE38 /* DeleteStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteStepRequest.h; sourceTree = "<group>"; };
+		7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteStepRequest.m; sourceTree = "<group>"; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -969,6 +972,8 @@
 				7C672B371FB1A362004D93DF /* ClassUserQuestionRequest.m */,
 				7C672B391FB1A567004D93DF /* ClassUserQuestionFetcher.h */,
 				7C672B3A1FB1A567004D93DF /* ClassUserQuestionFetcher.m */,
+				7C2558371FBD47BF00C9BE38 /* DeleteStepRequest.h */,
+				7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */,
 			);
 			path = "任务";
 			sourceTree = "<group>";
@@ -2062,6 +2067,7 @@
 				7C672AFE1FAAEE6D004D93DF /* SignInDetailRequest.m in Sources */,
 				92CAA67E1FAFFEBD00DB5873 /* ClassMomentCell.m in Sources */,
 				92CAA6751FAFFEA100DB5873 /* ClassMomentListFetcher.m in Sources */,
+				7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */,
 				92CAA6701FAFFE8A00DB5873 /* ClassMomentCommentRequest.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,

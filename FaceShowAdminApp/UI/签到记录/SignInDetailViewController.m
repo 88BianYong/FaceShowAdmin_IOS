@@ -13,12 +13,14 @@
 #import "UnsignedMemberListViewController.h"
 #import "SignInDetailRequest.h"
 #import "QRCodeSignInViewController.h"
+#import "DeleteStepRequest.h"
 
 @interface SignInDetailViewController ()
 @property (nonatomic, strong) NSMutableArray<UIViewController *> *tabControllers;
 @property (nonatomic, strong) UIView *tabContentView;
 @property (nonatomic, strong) SignInDetailRequest *detailRequest;
 @property (nonatomic, strong) SignInDetailHeaderView *headerView;
+@property (nonatomic, strong) DeleteStepRequest *deleteRequest;
 @end
 
 @implementation SignInDetailViewController
@@ -27,6 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"签到详情";
+    WEAK_SELF
+    [self nyx_setupRightWithTitle:@"删除" action:^{
+        STRONG_SELF
+        [self deleteSignIn];
+    }];
     [self setupUI];
     [self setupObserver];
 }
@@ -34,6 +41,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)deleteSignIn {
+    [self.deleteRequest stopRequest];
+    self.deleteRequest = [[DeleteStepRequest alloc]init];
+    self.deleteRequest.stepId = self.data.stepId;
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.deleteRequest startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view nyx_showToast:error.localizedDescription];
+            return;
+        }
+        [self.view.window nyx_showToast:@"删除成功"];
+        BLOCK_EXEC(self.deleteBlock);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)setupObserver {
