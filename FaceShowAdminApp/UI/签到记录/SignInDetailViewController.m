@@ -99,6 +99,10 @@
         [vc setBackBlock:^{
             STRONG_SELF
             [self refreshDetail];
+            UnsignedMemberListViewController *unsignedVC = (UnsignedMemberListViewController *)self.tabControllers.firstObject;
+            [unsignedVC firstPageFetch];
+            SignedMemberListViewController *signedVC = (SignedMemberListViewController *)self.tabControllers.lastObject;
+            [signedVC firstPageFetch];
         }];
         [self.navigationController pushViewController:vc animated:YES];
     }];
