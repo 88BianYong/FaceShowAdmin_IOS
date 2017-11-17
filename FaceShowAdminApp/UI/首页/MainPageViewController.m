@@ -267,6 +267,14 @@
     if (indexPath.section == 0) {
         SignInDetailViewController *vc = [[SignInDetailViewController alloc]init];
         vc.data = self.itemData.todaySignIns[indexPath.row];
+        WEAK_SELF
+        [vc setDeleteBlock:^{
+            STRONG_SELF
+            NSMutableArray *array = [NSMutableArray arrayWithArray:self.itemData.todaySignIns];
+            [array removeObjectAtIndex:indexPath.row];
+            self.itemData.todaySignIns = (NSArray<ClazsGetClazsRequestItem_Data_TodaySignIns,Optional> *)array;
+            [self.tableView reloadData];
+        }];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 1) {
         CourseDetailViewController *courseDetailVC = [[CourseDetailViewController alloc] init];

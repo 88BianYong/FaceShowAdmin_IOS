@@ -45,6 +45,7 @@
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
         make.top.mas_equalTo(18);
+        make.right.mas_equalTo(-100);
     }];
     self.timeLabel = [[UILabel alloc]init];
     self.timeLabel.font = [UIFont systemFontOfSize:11];
