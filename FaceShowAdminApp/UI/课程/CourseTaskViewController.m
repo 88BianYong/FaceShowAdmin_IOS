@@ -13,10 +13,12 @@
 #import "CourseCommentViewController.h"
 #import "SignInDetailRequest.h"
 #import "SignInDetailViewController.h"
+#import "EmptyView.h"
 
 @interface CourseTaskViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SignInDetailRequest *request;
+@property (nonatomic, strong) EmptyView *emptyView;
 @end
 
 @implementation CourseTaskViewController
@@ -42,6 +44,9 @@
 - (void)setInteractSteps:(NSArray<GetCourseRequestItem_InteractStep,Optional> *)interactSteps {
     _interactSteps = interactSteps;
     [self.tableView reloadData];
+    if (interactSteps.count == 0) {
+        self.emptyView.hidden = NO;
+    }
 }
 
 - (void)setupUI {
@@ -55,6 +60,13 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+    
+    self.emptyView = [[EmptyView alloc]init];
+    [self.view addSubview:self.emptyView];
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    self.emptyView.hidden = YES;
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate

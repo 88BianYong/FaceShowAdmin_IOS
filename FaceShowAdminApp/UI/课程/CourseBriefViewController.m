@@ -7,9 +7,10 @@
 //
 
 #import "CourseBriefViewController.h"
+#import "EmptyView.h"
 
 @interface CourseBriefViewController ()
-
+@property (nonatomic, strong) EmptyView *emptyView;
 @end
 
 @implementation CourseBriefViewController
@@ -41,6 +42,13 @@
     [tv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+    
+    self.emptyView = [[EmptyView alloc]init];
+    [self.view addSubview:self.emptyView];
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    self.emptyView.hidden = isEmpty(self.brief);
 }
 
 @end
