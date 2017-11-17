@@ -16,6 +16,63 @@
 
 @implementation BaseViewController
 
+- (void)adjustNaviLeftItem {
+    NSArray *array=self.navigationItem.leftBarButtonItems;
+    if (isEmpty(array)) {
+        return;
+    }
+    UIBarButtonItem *flexItem = array.firstObject;
+    CGFloat x = flexItem.width + 16;
+    UIBarButtonItem * buttonItem=array.lastObject;
+    CGPoint p = [buttonItem.customView convertPoint:CGPointZero toView:self.view.window];
+    UIView *bottomView = buttonItem.customView.superview.superview;
+    CGRect rect = bottomView.frame;
+    rect.origin.x -= p.x-x;
+    for (NSLayoutConstraint *constraint in bottomView.superview.constraints) {
+        if (constraint.firstItem == bottomView) {
+            [bottomView.superview removeConstraint:constraint];
+        }
+    }
+    [bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(rect.origin.x);
+        make.top.mas_equalTo(rect.origin.y);
+        make.size.mas_equalTo(rect.size);
+    }];
+}
+
+- (void)adjustNaviRightItem {
+    NSArray *array=self.navigationItem.rightBarButtonItems;
+    if (isEmpty(array)) {
+        return;
+    }
+    UIBarButtonItem *flexItem = array.firstObject;
+    CGFloat x = flexItem.width + 16;
+    UIBarButtonItem * buttonItem=array.lastObject;
+    CGPoint p = [buttonItem.customView convertPoint:CGPointZero toView:self.view.window];
+    UIView *bottomView = buttonItem.customView.superview.superview;
+    CGRect rect = bottomView.frame;
+    rect.origin.x += SCREEN_WIDTH-p.x-buttonItem.customView.width-x;
+    for (NSLayoutConstraint *constraint in bottomView.superview.constraints) {
+        if (constraint.firstItem == bottomView) {
+            [bottomView.superview removeConstraint:constraint];
+        }
+    }
+    [bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(rect.origin.x);
+        make.top.mas_equalTo(rect.origin.y);
+        make.size.mas_equalTo(rect.size);
+    }];
+}
+
+#warning 先注释掉，强行改变系统行为有约束冲突，暂时没找到解决方案
+//- (void)viewWillLayoutSubviews {
+//    [super viewWillLayoutSubviews];
+//    if ([UIDevice currentDevice].systemVersion >= 11) {
+//        [self adjustNaviLeftItem];
+//        [self adjustNaviRightItem];
+//    }
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
@@ -54,6 +111,7 @@
     if (pageName) {
         [TalkingData trackPageBegin:pageName];
     }
+    
 }
 
 #pragma mark -
