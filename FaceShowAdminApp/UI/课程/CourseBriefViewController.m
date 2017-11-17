@@ -34,7 +34,7 @@
     tv.font = [UIFont systemFontOfSize:14];
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineHeightMultiple = 1.2;
-    NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle};
+    NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:14]};
     NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:self.brief attributes:dic];
     tv.attributedText = attributeStr;
     tv.editable = NO;
