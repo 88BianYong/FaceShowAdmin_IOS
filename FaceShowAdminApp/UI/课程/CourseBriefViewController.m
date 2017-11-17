@@ -48,7 +48,7 @@
     [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
-    self.emptyView.hidden = isEmpty(self.brief);
+    self.emptyView.hidden = !isEmpty(self.brief);
 }
 
 @end
