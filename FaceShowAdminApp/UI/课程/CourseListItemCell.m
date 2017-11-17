@@ -186,6 +186,7 @@
 
 - (UILabel *)labelWithData:(GetCourseListRequestItem_step *)data {
     UILabel *label = [[UILabel alloc]init];
+    label.lineBreakMode = NSLineBreakByTruncatingMiddle;
     label.font = [UIFont systemFontOfSize:13];
     label.textColor = [UIColor colorWithHexString:@"999999"];
     NSString *count = [NSString stringWithFormat:@"%@/%@",data.finishedStudentNum,data.totalStudentNum];
