@@ -8,9 +8,11 @@
 
 #import "CourseLecturerViewController.h"
 #import "CourseLectureCell.h"
+#import "EmptyView.h"
 
 @interface CourseLecturerViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) EmptyView *emptyView;
 @end
 
 @implementation CourseLecturerViewController
@@ -44,6 +46,13 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+    self.emptyView = [[EmptyView alloc]init];
+    [self.view addSubview:self.emptyView];
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+
+    self.emptyView.hidden = !isEmpty(self.lecturerInfos);
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
