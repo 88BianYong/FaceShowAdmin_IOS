@@ -70,7 +70,7 @@
         [self.contentView addSubview:lineView];
         [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).offset(15.0f);
-            make.right.equalTo(self.contentView.mas_right);
+            make.right.equalTo(self.contentView.mas_right).offset(-15);
             make.bottom.equalTo(self.contentView.mas_bottom);
             make.height.mas_equalTo(1.0f);
         }];
@@ -91,6 +91,10 @@
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textView textInputMode] primaryLanguage] || [text includeEmoji]) {
+        return NO;
+    }
+    NSString *string = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    if (string.length > 200) {
         return NO;
     }
     return YES;

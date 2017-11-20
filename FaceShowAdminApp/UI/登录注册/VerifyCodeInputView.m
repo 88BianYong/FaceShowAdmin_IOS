@@ -38,7 +38,7 @@ static const NSInteger kTimerDuration = 60;
     [self.codeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
     [self.codeButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.codeButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
-    self.codeButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    self.codeButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.codeButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.codeButton];
     [self.codeButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,7 +58,7 @@ static const NSInteger kTimerDuration = 60;
     self.inputView.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.inputView.textField.delegate = self;
     self.inputView.textField.font = [UIFont fontWithName:YXFontMetro_Regular size:19];
-    self.inputView.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:@"输入短信验证码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
+    self.inputView.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:@"输入短信验证码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
     [self addSubview:self.inputView];
     [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.mas_equalTo(0);
@@ -135,7 +135,7 @@ static const NSInteger kTimerDuration = 60;
     [self setIsActive:self.secondsRemained <= 0];
     [self.codeButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.codeButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
-    self.codeButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    self.codeButton.titleLabel.font = [UIFont systemFontOfSize:14];
 }
 
 #pragma mark - UITextFieldDelegate

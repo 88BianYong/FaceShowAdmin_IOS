@@ -24,7 +24,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"签到记录";
-    [self nyx_setupRightWithCustomView:[self signInCreateButton]];
+    WEAK_SELF
+    [self nyx_setupRightWithTitle:@"新建" action:^{
+        STRONG_SELF
+        [self createSignIn];
+    }];
+//    [self nyx_setupRightWithCustomView:[self signInCreateButton]];
     self.emptyView.title = @"尚未设置签到";
     [self setupUI];
     [self setupObserver];

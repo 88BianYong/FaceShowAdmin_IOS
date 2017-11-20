@@ -44,7 +44,7 @@
     self.inputView.textField.clearsOnBeginEditing = NO;
     self.inputView.textField.textColor = [UIColor colorWithHexString:@"333333"];
     self.inputView.textField.font = [UIFont fontWithName:YXFontMetro_Regular size:19];
-    self.inputView.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:@"输入6-20位新密码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
+    self.inputView.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:@"输入6-20位新密码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
     [self addSubview:self.inputView];
     [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);

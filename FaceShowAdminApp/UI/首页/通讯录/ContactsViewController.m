@@ -124,18 +124,8 @@
 }
 
 - (void)setupNavRightView {
-    UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    navRightBtn.frame = CGRectMake(0, 0, 65, 30);
-    navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [navRightBtn setTitle:@"添加" forState:UIControlStateNormal];
-    [navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"添加按钮正常态"] forState:UIControlStateNormal];
-    [navRightBtn setImage:[UIImage imageNamed:@"添加按钮点击态"] forState:UIControlStateHighlighted];
-    [navRightBtn.titleLabel sizeToFit];
-    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -30-5, 0, 30+5);
-    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, navRightBtn.titleLabel.width+5, 0, -navRightBtn.titleLabel.width-5);
     WEAK_SELF
-    [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    [self nyx_setupRightWithTitle:@"添加" action:^{
         STRONG_SELF
         [TalkingData trackEvent:@"添加学员"];
         AddMemberViewController *vc = [[AddMemberViewController alloc] init];
@@ -144,7 +134,27 @@
         };
         [self.navigationController pushViewController:vc animated:YES];
     }];
-    [self nyx_setupRightWithCustomView:navRightBtn];
+//    UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    navRightBtn.frame = CGRectMake(0, 0, 65, 30);
+//    navRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+//    [navRightBtn setTitle:@"添加" forState:UIControlStateNormal];
+//    [navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+//    [navRightBtn setImage:[UIImage imageNamed:@"添加按钮正常态"] forState:UIControlStateNormal];
+//    [navRightBtn setImage:[UIImage imageNamed:@"添加按钮点击态"] forState:UIControlStateHighlighted];
+//    [navRightBtn.titleLabel sizeToFit];
+//    navRightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -30-5, 0, 30+5);
+//    navRightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, navRightBtn.titleLabel.width+5, 0, -navRightBtn.titleLabel.width-5);
+//    WEAK_SELF
+//    [[navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        STRONG_SELF
+//        [TalkingData trackEvent:@"添加学员"];
+//        AddMemberViewController *vc = [[AddMemberViewController alloc] init];
+//        vc.saveSucceedBlock = ^{
+//            [self firstPageFetch];
+//        };
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
+//    [self nyx_setupRightWithCustomView:navRightBtn];
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate

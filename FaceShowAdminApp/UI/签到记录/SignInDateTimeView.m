@@ -27,7 +27,7 @@
 - (void)setupUI {
     self.backgroundColor = [UIColor whiteColor];
     self.titleLabel = [[UILabel alloc]init];
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

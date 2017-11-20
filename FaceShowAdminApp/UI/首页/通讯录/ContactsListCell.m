@@ -40,6 +40,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.avatarImageView = [[UIImageView alloc] init];
+    self.avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.avatarImageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
     self.avatarImageView.clipsToBounds = YES;
     self.avatarImageView.layer.cornerRadius = 5;

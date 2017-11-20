@@ -13,7 +13,7 @@
     UIButton *b = [[UIButton alloc]init];
     [b setTitle:title forState:UIControlStateNormal];
     [b setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
-    b.titleLabel.font = [UIFont systemFontOfSize:14];
+    b.titleLabel.font = [UIFont systemFontOfSize:15];
     CGSize size = [title sizeWithAttributes:@{NSFontAttributeName:b.titleLabel.font}];
     b.frame = CGRectMake(0, 0, ceilf(size.width), ceilf(size.height));
     [self nyx_adjustFrameForView:b];
