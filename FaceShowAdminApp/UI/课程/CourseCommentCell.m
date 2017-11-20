@@ -108,7 +108,11 @@
 
 - (void)setItem:(GetCourseCommentRequestItem_element *)item {
     _item = item;
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:item.avatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
+    WEAK_SELF
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:item.avatar] placeholderImage:[UIImage imageNamed:@"班级圈小默认头像"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        STRONG_SELF
+        self.headImageView.contentMode = isEmpty(image) ? UIViewContentModeCenter : UIViewContentModeScaleToFill;
+    }];
     self.nameLabel.text = item.userName;
     NSString *comment = item.content;
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];

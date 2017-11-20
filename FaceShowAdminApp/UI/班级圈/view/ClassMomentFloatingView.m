@@ -38,7 +38,7 @@
     self.likeButton.imageEdgeInsets = UIEdgeInsetsMake(0, -2.5f, 0.0f, 2.5f);
     self.likeButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [self.likeButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateNormal];
-    [self.likeButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"1a90d9"]] forState:UIControlStateHighlighted];
+    [self.likeButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0059b3"]] forState:UIControlStateHighlighted];
 
     WEAK_SELF
     [[self.likeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -52,7 +52,7 @@
     [self.commentButton setImage:[UIImage imageNamed:@"评论icon正常态"] forState:UIControlStateNormal];
     [self.commentButton setImage:[UIImage imageNamed:@"评论icon点击态"] forState:UIControlStateHighlighted];
         [self.commentButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateNormal];
-    [self.commentButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"1a90d9"]] forState:UIControlStateHighlighted];
+    [self.commentButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0059b3"]] forState:UIControlStateHighlighted];
     self.commentButton.imageEdgeInsets = UIEdgeInsetsMake(0, -2.5f, 0.0f, 2.5f);
     [self.commentButton setTitle:@"评论" forState:UIControlStateNormal];
     self.commentButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
@@ -71,7 +71,7 @@
     [self.deleteButton setImage:[UIImage imageNamed:@"班级圈删除按钮正常态"] forState:UIControlStateNormal];
     [self.deleteButton setImage:[UIImage imageNamed:@"班级圈删除按钮点击态"] forState:UIControlStateHighlighted];
     [self.deleteButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateNormal];
-    [self.deleteButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"1a90d9"]] forState:UIControlStateHighlighted];
+    [self.deleteButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0059b3"]] forState:UIControlStateHighlighted];
     self.deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, -2.5f, 0.0f, 2.5f);
     [self.deleteButton setTitle:@"删除" forState:UIControlStateNormal];
     self.deleteButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
@@ -85,11 +85,11 @@
     [self addSubview:self.deleteButton];
     
     self.oneLineView = [[UIView alloc] init];
-    self.oneLineView.backgroundColor = [UIColor colorWithHexString:@"1a90d9"];
+    self.oneLineView.backgroundColor = [UIColor colorWithHexString:@"0059b3"];
     [self addSubview:self.oneLineView];
 
     self.twoLineView = [[UIView alloc] init];
-    self.twoLineView.backgroundColor = [UIColor colorWithHexString:@"1a90d9"];
+    self.twoLineView.backgroundColor = [UIColor colorWithHexString:@"0059b3"];
     [self addSubview:self.twoLineView];
 }
 - (void)setupLayoutFloatingStyle:(ClassMomentFloatingStyle)floatingStyle {

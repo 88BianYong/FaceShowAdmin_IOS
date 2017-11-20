@@ -11,7 +11,7 @@
 #import "MyInfoViewController.h"
 
 @interface MineViewController ()
-@property (nonatomic, strong) UIButton *avatarBtn;
+@property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *projectLabel;
 @property (nonatomic, strong) UILabel *classNameLabel;
@@ -42,13 +42,15 @@
         make.height.mas_equalTo(239);
     }];
     
-    self.avatarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.avatarBtn.clipsToBounds = YES;
-    self.avatarBtn.layer.cornerRadius = 6;
-    self.avatarBtn.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
-    [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
-    [self.view addSubview:self.avatarBtn];
-    [self.avatarBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.avatarImageView = [[UIImageView alloc] init];
+    self.avatarImageView.clipsToBounds = YES;
+    self.avatarImageView.layer.cornerRadius = 6;
+    self.avatarImageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        self.avatarImageView.contentMode = isEmpty(image) ? UIViewContentModeCenter : UIViewContentModeScaleToFill;
+    }];
+    [self.view addSubview:self.avatarImageView];
+    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(44);
         make.centerX.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(55, 55));
@@ -63,7 +65,7 @@
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
-        make.top.mas_equalTo(self.avatarBtn.mas_bottom).offset(10.75f);
+        make.top.mas_equalTo(self.avatarImageView.mas_bottom).offset(10.75f);
     }];
     
     self.projectLabel = [[UILabel alloc] init];
@@ -159,7 +161,9 @@
     WEAK_SELF
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateUserInfoSucceedNotification" object:nil] subscribeNext:^(id x) {
         STRONG_SELF
-        [self.avatarBtn sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
+        [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[UserManager sharedInstance].userModel.avatarUrl] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            self.avatarImageView.contentMode = isEmpty(image) ? UIViewContentModeCenter : UIViewContentModeScaleToFill;
+        }];
         self.nameLabel.text = [UserManager sharedInstance].userModel.realName;
     }];
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateProjectInfoNotification" object:nil] subscribeNext:^(id x) {

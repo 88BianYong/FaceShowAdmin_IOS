@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString<Optional> *endTime;
 @property (nonatomic, strong) NSString<Optional> *desc;
 @property (nonatomic, strong) NSString<Optional> *clazsStatusName;
+@property (nonatomic, strong) NSString<Optional> *projectName;
 @end
 
 @interface ClassListRequestItem_data: JSONModel

@@ -85,7 +85,13 @@
 
 - (void)setData:(GetUserInfoRequestItem_Data *)data {
     _data = data;
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
+    self.avatarImageView.contentMode = UIViewContentModeCenter;
+
+    WEAK_SELF
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"班级圈小默认头像"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        STRONG_SELF
+        self.avatarImageView.contentMode = isEmpty(image) ? UIViewContentModeCenter : UIViewContentModeScaleToFill;
+    }];
     self.nameLabel.text = data.realName;
     self.numberLabel.text = data.mobilePhone;
 }

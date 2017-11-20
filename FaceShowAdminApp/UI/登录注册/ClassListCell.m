@@ -38,7 +38,7 @@
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.alignment = NSTextAlignmentCenter;
     style.minimumLineHeight = 21;
-    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:isEmpty(self.classInfo.desc) ? @"暂无" : self.classInfo.desc
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:isEmpty(self.classInfo.projectName) ? @"暂无" : self.classInfo.projectName
                                                                                       attributes:@{
                                                                                                                                                                NSParagraphStyleAttributeName : style,
                                                                                                                                                                NSFontAttributeName : [UIFont systemFontOfSize:14],
@@ -108,7 +108,7 @@
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.alignment = NSTextAlignmentCenter;
     style.minimumLineHeight = 21;
-    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:isEmpty(classInfo.desc) ? @"暂无" : classInfo.desc attributes:@{
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:isEmpty(classInfo.projectName) ? @"暂无" : classInfo.projectName attributes:@{
                                                                                                                                                                NSParagraphStyleAttributeName : style,
                                                                                                                                                                NSFontAttributeName : [UIFont systemFontOfSize:14],
                                                                                                                                                                NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"]

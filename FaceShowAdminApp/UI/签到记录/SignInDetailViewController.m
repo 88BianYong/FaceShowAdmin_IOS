@@ -14,10 +14,13 @@
 #import "SignInDetailRequest.h"
 #import "QRCodeSignInViewController.h"
 #import "DeleteStepRequest.h"
+#import "AlertView.h"
+#import "FDActionSheetView.h"
 
 @interface SignInDetailViewController ()
 @property (nonatomic, strong) NSMutableArray<UIViewController *> *tabControllers;
 @property (nonatomic, strong) UIView *tabContentView;
+@property (nonatomic, strong) AlertView *alertView;
 @property (nonatomic, strong) SignInDetailRequest *detailRequest;
 @property (nonatomic, strong) SignInDetailHeaderView *headerView;
 @property (nonatomic, strong) DeleteStepRequest *deleteRequest;
@@ -30,9 +33,9 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"签到详情";
     WEAK_SELF
-    [self nyx_setupRightWithTitle:@"删除" action:^{
+    [self nyx_setupRightWithImageName:@"更多操作按钮正常态" highlightImageName:@"更多操作按钮点击态" action:^{
         STRONG_SELF
-        [self deleteSignIn];
+        [self showAlertView];
     }];
     [self setupUI];
     [self setupObserver];
@@ -41,6 +44,60 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showAlertView {
+    FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    actionSheetView.titleArray = @[@{@"title":@"删除"}];
+    self.alertView = [[AlertView alloc]init];
+    self.alertView.backgroundColor = [UIColor clearColor];
+    self.alertView.hideWhenMaskClicked = YES;
+    self.alertView.contentView = actionSheetView;
+    WEAK_SELF
+    [self.alertView setHideBlock:^(AlertView *view) {
+        STRONG_SELF
+        [UIView animateWithDuration:0.3 animations:^{
+            [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(view.mas_left);
+                make.right.equalTo(view.mas_right);
+                make.top.equalTo(view.mas_bottom);
+                make.height.mas_offset(105.0f);
+            }];
+            [view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
+        }];
+    }];
+    [self.alertView showWithLayout:^(AlertView *view) {
+        STRONG_SELF
+        [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(view.mas_left);
+            make.right.equalTo(view.mas_right);
+            make.top.equalTo(view.mas_bottom);
+            make.height.mas_offset(105.0f );
+        }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.3 animations:^{
+                [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_left);
+                    make.right.equalTo(view.mas_right);
+                    make.bottom.equalTo(view.mas_bottom);
+                    make.height.mas_offset(105.0f);
+                }];
+                [view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+        });
+    }];
+    actionSheetView.actionSheetBlock = ^(NSInteger integer) {
+        STRONG_SELF
+        if (integer == 1) {
+            [TalkingData trackEvent:@"删除签到"];
+            [self deleteSignIn];
+        }
+        [self.alertView hide];
+    };
 }
 
 - (void)deleteSignIn {

@@ -86,7 +86,11 @@
 - (void)setData:(GetCourseRequestItem_LecturerInfo *)data {
     _data = data;
     self.nameLabel.text = data.lecturerName;
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:data.lecturerAvatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"]];
+    WEAK_SELF
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:data.lecturerAvatar] placeholderImage:[UIImage imageNamed:@"班级圈大默认头像"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        STRONG_SELF
+        self.headImageView.contentMode = isEmpty(image) ? UIViewContentModeCenter : UIViewContentModeScaleToFill;
+    }];
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineHeightMultiple = 1.2;

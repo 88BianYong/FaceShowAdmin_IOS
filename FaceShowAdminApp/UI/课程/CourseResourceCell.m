@@ -81,6 +81,7 @@
     NSRange range = [complete rangeOfString:count];
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:complete];
     [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:range];
+    [attr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:12] range:range];
     self.descLabel.attributedText = attr;
     
     self.typeImageView.image = [UIImage imageNamed:data.type.integerValue == 1 ? @"html" : [ResourceTypeMapping resourceTypeWithString:data.suffix]];
