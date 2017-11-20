@@ -95,7 +95,7 @@
     changeClassBtn.layer.borderColor = [UIColor colorWithHexString:@"ffffff"].CGColor;
     changeClassBtn.layer.borderWidth = 1;
     changeClassBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [changeClassBtn setTitle:@"更换班级" forState:UIControlStateNormal];
+    [changeClassBtn setTitle:@"切换班级" forState:UIControlStateNormal];
     [changeClassBtn setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateNormal];
     [changeClassBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateHighlighted];
     [changeClassBtn setBackgroundImage:[UIImage yx_createImageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
