@@ -41,23 +41,16 @@
             [viewController.view nyx_showToast:@"相册权限受限\n请在设置-隐私-相册中开启"];
             return;
         }
+        
+        self.imagePickerController = [[UIImagePickerController alloc] init];
+        self.imagePickerController.delegate = self;
+        self.imagePickerController.allowsEditing = YES;
         self.imagePickerController.sourceType = sourceType;
         self.completion = completion;
         [viewController presentViewController:self.imagePickerController animated:YES completion:nil];
     } else {
         [viewController.view nyx_showToast:@"设备不支持拍照功能!"];
     }
-}
-
-
-- (UIImagePickerController *)imagePickerController
-{
-    if (!_imagePickerController) {
-        _imagePickerController = [[UIImagePickerController alloc] init];
-        _imagePickerController.delegate = self;
-        _imagePickerController.allowsEditing = YES;
-    }
-    return _imagePickerController;
 }
 
 #pragma mark -

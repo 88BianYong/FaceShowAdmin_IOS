@@ -81,7 +81,7 @@
 }
 - (void)showAlertViewWithIndex:(NSIndexPath *)index isImagePicker:(BOOL)isImagePicker {
     FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    actionSheetView.titleArray = isImagePicker ? @[@{@"title":@"拍照"}, @{@"title":@"从相册选择"}] : @[@{@"title":@"男"}, @{@"title":@"女"}];
+    actionSheetView.titleArray = isImagePicker ? @[@{@"title":@"拍照"}, @{@"title":@"相册"}] : @[@{@"title":@"男"}, @{@"title":@"女"}];
     self.alertView = [[AlertView alloc] init];
     self.alertView.backgroundColor = [UIColor clearColor];
     self.alertView.hideWhenMaskClicked = YES;
