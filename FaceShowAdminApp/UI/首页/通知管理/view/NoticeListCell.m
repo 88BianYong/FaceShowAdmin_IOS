@@ -55,12 +55,13 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(15.0f);
         make.top.equalTo(self.contentView.mas_top).offset(17.0f);
+        make.right.mas_equalTo(-100);
     }];
     
     [self.readLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
         make.centerY.equalTo(self.titleLabel.mas_centerY);
-        make.left.greaterThanOrEqualTo(self.titleLabel.mas_right).offset(10.0f);
+//        make.left.greaterThanOrEqualTo(self.titleLabel.mas_right).offset(10.0f);
     }];
     
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
