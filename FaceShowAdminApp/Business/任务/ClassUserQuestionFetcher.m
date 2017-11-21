@@ -35,7 +35,7 @@
         if (self.request.callbackId && item.data.elements.count==0) {
             BLOCK_EXEC(self.noMoreBlock);
         }
-        BLOCK_EXEC(aCompleteBlock,99999,item.data.elements,nil);
+        BLOCK_EXEC(aCompleteBlock,isEmpty(item.data.callbacks)? 0:99999,item.data.elements,nil);
     }];
 }
 
