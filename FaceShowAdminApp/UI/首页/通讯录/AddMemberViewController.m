@@ -181,7 +181,7 @@
     if (!isEmpty(self.sexCell.title)) {
         self.request.sex = [self.sexCell.title isEqualToString:@"男"] ? @"1" : @"0";
     }
-    self.request.schoolName = self.schoolTF.text;
+    self.request.school = self.schoolTF.text;
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

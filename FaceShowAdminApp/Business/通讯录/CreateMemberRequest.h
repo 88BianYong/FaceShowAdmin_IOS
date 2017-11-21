@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSString<Optional> *sex;
 @property (nonatomic, strong) NSString<Optional> *subject;
 @property (nonatomic, strong) NSString<Optional> *stage;
-@property (nonatomic, strong) NSString<Optional> *schoolName;
+@property (nonatomic, strong) NSString<Optional> *school;
 @property (nonatomic, strong) NSString<Optional> *avatar;
 @end
