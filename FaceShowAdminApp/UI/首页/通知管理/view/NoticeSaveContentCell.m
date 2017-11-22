@@ -19,8 +19,8 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textView = [[SAMTextView alloc] init];
-        self.textView.placeholder = @"请输入通知内容（暂不支持表情）";
         self.textView.font = [UIFont systemFontOfSize:14.0f];
+        self.textView.placeholder = @"请输入通知内容（暂不支持表情）";
         NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
         paraStyle.lineHeightMultiple = 1.2;
         NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"333333"]};
