@@ -76,7 +76,7 @@
     [self.projectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
-        make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(19.25f);
+        make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(15);
     }];
     
     self.classNameLabel = [[UILabel alloc] init];
