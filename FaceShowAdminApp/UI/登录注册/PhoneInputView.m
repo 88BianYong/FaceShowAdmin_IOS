@@ -39,7 +39,7 @@
     }];
     self.inputView = [[LoginInputView alloc]init];
     self.inputView.textField.font = [UIFont fontWithName:YXFontMetro_Regular size:19];
-    self.inputView.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:@"输入手机号" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
+    self.inputView.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:@"输入手机号" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"999999"],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
     self.inputView.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.inputView.textField.textColor = [UIColor colorWithHexString:@"333333"];
     self.inputView.textField.delegate = self;
