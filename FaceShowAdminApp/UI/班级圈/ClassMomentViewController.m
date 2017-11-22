@@ -110,7 +110,7 @@
     }];
     
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
+    rightButton.frame = CGRectMake(0, 0, 30.0f, 30.0f);
     [rightButton setImage:[UIImage imageNamed:@"上传内容图标正常态"] forState:UIControlStateNormal];
     [rightButton setImage:[UIImage imageNamed:@"上传内容图标点击态"] forState:UIControlStateHighlighted];
 

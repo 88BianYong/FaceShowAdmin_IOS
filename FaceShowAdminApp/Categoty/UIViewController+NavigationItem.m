@@ -131,14 +131,14 @@
 - (UIBarButtonItem *)nyx_leftNegativeBarButtonItem{
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 //    negativeSpacer.width = -11;
-    negativeSpacer.width = -5;
+    negativeSpacer.width = 0;
     return negativeSpacer;
 }
 
 - (UIBarButtonItem *)nyx_rightNegativeBarButtonItem{
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 //    negativeSpacer.width = -11;
-    negativeSpacer.width = -5;
+    negativeSpacer.width = 0;
     return negativeSpacer;
 }
 
