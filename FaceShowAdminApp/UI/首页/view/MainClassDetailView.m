@@ -38,10 +38,10 @@
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:_itemData.clazsInfo.clazsName?:@""];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _itemData.clazsInfo.clazsName.length)];
     self.titleLabel.attributedText = attributedString;
-    NSArray *startArr = [_itemData.projectInfo.startTime componentsSeparatedByString:@" "];
+    NSArray *startArr = [_itemData.clazsInfo.startTime componentsSeparatedByString:@" "];
     NSString *startDate = startArr.firstObject;
     startDate = [startDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
-    NSArray *endArr = [_itemData.projectInfo.endTime componentsSeparatedByString:@" "];
+    NSArray *endArr = [_itemData.clazsInfo.endTime componentsSeparatedByString:@" "];
     NSString *endDate = endArr.firstObject;
     endDate = [endDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
     self.timeLabel.text = [NSString stringWithFormat:@"%@ 至 %@",startDate,endDate];
