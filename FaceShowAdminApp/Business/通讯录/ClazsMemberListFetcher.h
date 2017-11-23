@@ -9,5 +9,7 @@
 #import "PagedListFetcherBase.h"
 #import "ClazsMemberListRequest.h"
 
+extern NSString * const kClassMemberDidChangeNotification;
+
 @interface ClazsMemberListFetcher : PagedListFetcherBase
 @end

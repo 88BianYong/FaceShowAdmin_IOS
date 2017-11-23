@@ -29,6 +29,7 @@
 #import "MJRefresh.h"
 #import "SignInDetailViewController.h"
 #import "CourseDetailViewController.h"
+#import "ClazsMemberListFetcher.h"
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -60,11 +61,24 @@
     [self setupUI];
     [self setupLayout];
     [self requestMainPageClassInfo];
+    [self setupObserver];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)setupObserver {
+    WEAK_SELF
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kClassMemberDidChangeNotification object:nil]subscribeNext:^(NSNotification *x) {
+        STRONG_SELF
+        ClazsMemberListRequestItem *item = x.object;
+        self.itemData.clazsStatisticView.masterNum = [NSString stringWithFormat:@"%@",@(item.data.masters.count)];
+        self.itemData.clazsStatisticView.studensNum = item.data.students.totalElements;
+        self.topView.clazsStatistic = self.itemData.clazsStatisticView;
+    }];
+}
+
 - (void)setItemData:(ClazsGetClazsRequestItem_Data *)itemData {
     _itemData = itemData;
     self.topView.hidden = NO;

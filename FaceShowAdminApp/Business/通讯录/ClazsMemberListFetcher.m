@@ -8,6 +8,8 @@
 
 #import "ClazsMemberListFetcher.h"
 
+NSString * const kClassMemberDidChangeNotification = @"kClassMemberDidChangeNotification";
+
 @interface ClazsMemberListFetcher ()
 @property (nonatomic, strong) ClazsMemberListRequest *request;
 @end
@@ -33,6 +35,7 @@
         [dataArray addObject:item.data.students.elements.count > 0 ? item.data.students.elements : @[]];
         self.lastID += item.data.students.elements.count;
         BLOCK_EXEC(aCompleteBlock, item.data.students.totalElements.intValue, dataArray, nil);
+        [[NSNotificationCenter defaultCenter]postNotificationName:kClassMemberDidChangeNotification object:retItem];
     }];
 }
 @end
