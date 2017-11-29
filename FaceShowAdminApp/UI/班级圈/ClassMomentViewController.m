@@ -23,6 +23,7 @@
 #import "FDActionSheetView.h"
 #import "ClassMomentDeleteRequest.h"
 #import "YXDrawerController.h"
+#import "ReportViewController.h"
 
 @interface ClassMomentViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) ClassMomentTableHeaderView *headerView;
@@ -299,6 +300,13 @@
     ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[section];
     headerView.moment = moment;
     WEAK_SELF
+    headerView.classMomentReportBlock = ^{
+        STRONG_SELF
+        ReportViewController *vc = [[ReportViewController alloc] init];
+        vc.userId = moment.publisher.userID;
+        vc.objectId = moment.momentID;
+        [self.navigationController pushViewController:vc animated:YES];
+    };
     headerView.classMomentLikeCommentBlock = ^(UIButton *sender) {
         STRONG_SELF
         CGRect rect = [sender convertRect:sender.bounds toView:self.view];

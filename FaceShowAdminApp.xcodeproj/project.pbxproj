@@ -12,6 +12,9 @@
 		4359B9661FB2AA18007D7F30 /* ContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359B9651FB2AA18007D7F30 /* ContactsDetailViewController.m */; };
 		4359B9691FB2AA75007D7F30 /* DetailCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359B9681FB2AA75007D7F30 /* DetailCellView.m */; };
 		43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43651B961FB0075000B7EB65 /* ClassListCell.m */; };
+		436687F41FCE5A2D00E68FB2 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436687F31FCE5A2D00E68FB2 /* ReportViewController.m */; };
+		436687F71FCE62A300E68FB2 /* ReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436687F61FCE62A300E68FB2 /* ReportTableViewCell.m */; };
+		436687FA1FCE67B900E68FB2 /* ReportRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 436687F91FCE67B900E68FB2 /* ReportRequest.m */; };
 		436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 436A6B1F1FB2F7E0008E461B /* DetailWithAttachmentCellView.m */; };
 		436A6B231FB303AB008E461B /* UserSignInListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436A6B221FB303AB008E461B /* UserSignInListViewController.m */; };
 		436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 436A6B281FB306D2008E461B /* UserSignInRecordListFetcher.m */; };
@@ -285,6 +288,12 @@
 		4359B9681FB2AA75007D7F30 /* DetailCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailCellView.m; sourceTree = "<group>"; };
 		43651B951FB0075000B7EB65 /* ClassListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassListCell.h; sourceTree = "<group>"; };
 		43651B961FB0075000B7EB65 /* ClassListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassListCell.m; sourceTree = "<group>"; };
+		436687F21FCE5A2D00E68FB2 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		436687F31FCE5A2D00E68FB2 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		436687F51FCE62A300E68FB2 /* ReportTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportTableViewCell.h; sourceTree = "<group>"; };
+		436687F61FCE62A300E68FB2 /* ReportTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportTableViewCell.m; sourceTree = "<group>"; };
+		436687F81FCE67B900E68FB2 /* ReportRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportRequest.h; sourceTree = "<group>"; };
+		436687F91FCE67B900E68FB2 /* ReportRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportRequest.m; sourceTree = "<group>"; };
 		436A6B1E1FB2F7E0008E461B /* DetailWithAttachmentCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailWithAttachmentCellView.h; sourceTree = "<group>"; };
 		436A6B1F1FB2F7E0008E461B /* DetailWithAttachmentCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailWithAttachmentCellView.m; sourceTree = "<group>"; };
 		436A6B211FB303AB008E461B /* UserSignInListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListViewController.h; sourceTree = "<group>"; };
@@ -1477,6 +1486,8 @@
 				92CAA6481FAFFDD600DB5873 /* ClassMomentViewController.m */,
 				92CAA6451FAFFDD500DB5873 /* PublishMomentViewController.h */,
 				92CAA6471FAFFDD600DB5873 /* PublishMomentViewController.m */,
+				436687F21FCE5A2D00E68FB2 /* ReportViewController.h */,
+				436687F31FCE5A2D00E68FB2 /* ReportViewController.m */,
 			);
 			path = "班级圈";
 			sourceTree = "<group>";
@@ -1777,6 +1788,8 @@
 				92CAA64D1FAFFE1500DB5873 /* ClassMomentTableHeaderView.m */,
 				92CAA6861FAFFF0A00DB5873 /* CommentInputView.h */,
 				92CAA6871FAFFF0B00DB5873 /* CommentInputView.m */,
+				436687F51FCE62A300E68FB2 /* ReportTableViewCell.h */,
+				436687F61FCE62A300E68FB2 /* ReportTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1817,6 +1830,8 @@
 				92CAA66A1FAFFE8400DB5873 /* ClassMomentPublishRequest.m */,
 				92CAA6891FB0173A00DB5873 /* ClassMomentDeleteRequest.h */,
 				92CAA68A1FB0173A00DB5873 /* ClassMomentDeleteRequest.m */,
+				436687F81FCE67B900E68FB2 /* ReportRequest.h */,
+				436687F91FCE67B900E68FB2 /* ReportRequest.m */,
 			);
 			path = "班级圈";
 			sourceTree = "<group>";
@@ -2025,6 +2040,7 @@
 				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
 				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
 				7C672B4D1FB2A54B004D93DF /* CourseDetailViewController.m in Sources */,
+				436687F41FCE5A2D00E68FB2 /* ReportViewController.m in Sources */,
 				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
@@ -2123,6 +2139,7 @@
 				7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */,
 				921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
+				436687F71FCE62A300E68FB2 /* ReportTableViewCell.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */,
 				9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */,
@@ -2193,6 +2210,7 @@
 				7C672B531FB2DF93004D93DF /* CourseTaskViewController.m in Sources */,
 				7C672B741FB40100004D93DF /* CourseBriefViewController.m in Sources */,
 				7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */,
+				436687FA1FCE67B900E68FB2 /* ReportRequest.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
