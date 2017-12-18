@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.bottomHeightWhenKeyboardShows = 20;
     [self setupUI];
 }
 
