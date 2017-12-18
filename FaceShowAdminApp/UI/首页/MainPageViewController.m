@@ -43,6 +43,8 @@
 @property (nonatomic, strong) MainPageScrollView *scrollView;
 @property (nonatomic, strong) MainPageTableHeaderView *headerView;
 @property (nonatomic, strong) MJRefreshHeaderView *header;
+
+@property (nonatomic, strong) ClazsGetClazsRequest *clazsRefreshRequest;
 @end
 
 @implementation MainPageViewController
@@ -66,6 +68,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updateClazsInfo];
 }
 
 - (void)setupObserver {
@@ -210,6 +217,25 @@
         [[UserManager sharedInstance] saveData];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateProjectInfoNotification" object:nil];
         self.itemData = item.data;
+    }];
+}
+
+- (void)updateClazsInfo {
+    [self.clazsRefreshRequest stopRequest];
+    self.clazsRefreshRequest = [[ClazsGetClazsRequest alloc] init];
+    self.clazsRefreshRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    WEAK_SELF
+    [self.clazsRefreshRequest startRequestWithRetClass:[ClazsGetClazsRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        if (error) {
+            return;
+        }
+        ClazsGetClazsRequestItem *item = retItem;
+        if (!self.topView.hidden) {
+            self.topView.projectInfo = item.data.projectInfo;
+            self.topView.clazsInfo = item.data.clazsInfo;
+            self.topView.clazsStatistic = item.data.clazsStatisticView;
+        }
     }];
 }
 
