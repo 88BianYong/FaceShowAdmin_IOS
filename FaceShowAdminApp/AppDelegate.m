@@ -24,6 +24,7 @@
     [TalkingData sessionStarted:[ConfigManager sharedInstance].TalkingDataAppID withChannelId:[ConfigManager sharedInstance].channel];
     [self registerNotifications];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
