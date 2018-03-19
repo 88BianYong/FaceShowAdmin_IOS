@@ -55,6 +55,27 @@
     return mString;
 }
 
+- (int)isAscendingCompareDate:(NSString *)date{
+    int ci;
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd HH-mm"];
+    NSDate *dt1 = [[NSDate alloc] init];
+    NSDate *dt2 = [[NSDate alloc] init];
+    dt1 = [df dateFromString:self];
+    dt2 = [df dateFromString:date];
+    NSComparisonResult result = [dt1 compare:dt2];
+    switch (result)
+    {
+            //date02比date01大
+        case NSOrderedAscending: ci=1; break;
+            //date02比date01小
+        case NSOrderedDescending: ci=-1; break;
+            //date02=date01
+        case NSOrderedSame: ci=0;break;
+    }
+    return ci;
+}
+
 - (NSString *)yx_encodeString
 {
     CFStringRef stringFef = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,

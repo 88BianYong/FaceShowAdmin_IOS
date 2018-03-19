@@ -37,10 +37,6 @@
     backImageView.contentMode = UIViewContentModeScaleAspectFill;
     backImageView.userInteractionEnabled = YES;
     [self.view addSubview:backImageView];
-    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.mas_equalTo(0);
-        make.height.mas_equalTo(239);
-    }];
     
     self.avatarImageView = [[UIImageView alloc] init];
     self.avatarImageView.clipsToBounds = YES;
@@ -51,7 +47,11 @@
     }];
     [self.view addSubview:self.avatarImageView];
     [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(44);
+        if (@available(iOS 11.0, *)) {
+            make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop).mas_offset(24);
+        } else {
+            make.top.mas_equalTo(44);
+        }
         make.centerX.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(55, 55));
     }];
@@ -110,6 +110,11 @@
         make.centerX.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(80, 26));
     }];
+    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(changeClassBtn.mas_bottom).mas_offset(20);
+    }];
+    
     
     UIButton *classHomeBtn = [self optionBtnWithTitle:@"班级首页" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
     [self.view addSubview:classHomeBtn];
@@ -136,9 +141,17 @@
     [logoutBtn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateHighlighted];
     [logoutBtn addTarget:self action:@selector(logoutBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:logoutBtn];
+    
+    
     [logoutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(49);
+        
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.mas_equalTo(0);
+        }
     }];
 }
 

@@ -51,6 +51,9 @@ NSString * const kUserDidLogoutNotification = @"kUserDidLogoutNotification";
     NSString *json = [self.userModel toJSONString];
     [[NSUserDefaults standardUserDefaults]setValue:json forKey:@"user_model_key"];
     [[NSUserDefaults standardUserDefaults]synchronize];
+    if (!isEmpty(self.userModel)) {
+        [[NSUserDefaults standardUserDefaults]setValue:self.userModel.mobilePhone forKey:@"last_login_user_mobile"];
+    }
 }
 
 - (void)loadData {

@@ -85,6 +85,14 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
     [self.tableView registerClass:[CourseCommentCell class] forCellReuseIdentifier:@"CourseCommentCell"];
     [self.tableView registerClass:[CourseCommentHeaderView class] forHeaderFooterViewReuseIdentifier:@"CourseCommentHeaderView"];
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.mas_equalTo(0);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.mas_equalTo(0);
+        }
+    }];
     
     self.inputView = [[CommentInputView alloc]init];
     WEAK_SELF
@@ -94,7 +102,12 @@
     }];
     [self.view addSubview:self.inputView];
     [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.mas_equalTo(0);
+        }
         make.height.mas_equalTo(44);
     }];
     
@@ -185,6 +198,8 @@
         }
         [self.view nyx_showToast:@"删除成功"];
         [self.dataArray removeObjectAtIndex:index];
+        NSInteger count = self.commentRequestItem.data.totalElements.integerValue - 1;
+        self.commentRequestItem.data.totalElements = [NSString stringWithFormat:@"%ld",count];
         [self.tableView reloadData];
     }];
 }

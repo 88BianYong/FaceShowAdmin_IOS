@@ -11,6 +11,7 @@
 #import "AlertView.h"
 #import "ScheduleCreateViewController.h"
 #import "ScheduleDeleteRequest.h"
+#import "ShowPhotosViewController.h"
 @interface ScheduleDetailViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
@@ -118,6 +119,9 @@
             self.imageView.backgroundColor = [UIColor clearColor];
         }
     }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:tap];
     [self nyx_setupRightWithImageName:@"更多操作按钮正常态" highlightImageName:@"更多操作按钮点击态" action:^{
         STRONG_SELF
         [self showAlertView];
@@ -160,7 +164,11 @@
                 [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.equalTo(view.mas_left);
                     make.right.equalTo(view.mas_right);
-                    make.bottom.equalTo(view.mas_bottom);
+                    if (@available(iOS 11.0, *)) {
+                        make.bottom.mas_equalTo(view.mas_safeAreaLayoutGuideBottom);
+                    } else {
+                        make.bottom.mas_equalTo(0);
+                    }
                     make.height.mas_offset(155.0f);
                 }];
                 [view layoutIfNeeded];
@@ -260,6 +268,16 @@
         make.top.equalTo(self.headerBackImage.mas_bottom);
         make.width.equalTo(self.imageView.mas_height);
     }];
+}
+- (void)tapAction:(UITapGestureRecognizer *)sender {
+    ShowPhotosViewController *showPhotosVC = [[ShowPhotosViewController alloc] init];
+    PreviewPhotosModel *model = [[PreviewPhotosModel alloc] init];
+    model.original = self.element.imageUrl;
+    NSMutableArray *photoArr = [NSMutableArray arrayWithObject:model];
+    showPhotosVC.animateRect = [self.view convertRect:self.imageView.frame toView:self.view.window.rootViewController.view];
+    showPhotosVC.imageModelMutableArray = photoArr;
+    showPhotosVC.startInteger = 0;
+    [self.view.window.rootViewController presentViewController:showPhotosVC animated:YES completion:nil];
 }
 
 @end

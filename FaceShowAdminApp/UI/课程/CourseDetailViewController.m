@@ -42,7 +42,11 @@
     [self.view addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(11);
-        make.centerY.mas_equalTo(self.view.mas_top).offset(42);
+        if (@available(iOS 11.0, *)) {
+            make.centerY.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop).mas_offset(22);
+        } else {
+            make.centerY.mas_equalTo(self.view.mas_top).mas_offset(42);
+        }
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
 }

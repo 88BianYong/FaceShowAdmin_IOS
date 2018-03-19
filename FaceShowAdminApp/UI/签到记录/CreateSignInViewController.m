@@ -230,6 +230,14 @@
 }
 
 - (void)submit {
+    NSString *date = [self.dateView.content stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+    NSString *start = [NSString stringWithFormat:@"%@ %@",date,self.begintimeView.content];
+    NSString *end = [NSString stringWithFormat:@"%@ %@",date,self.endtimeView.content];
+    int i = [start isAscendingCompareDate:end];
+    if (i < 1) {
+        [self.view nyx_showToast:@"结束时间必须大于开始时间"];
+        return;
+    }
     if (self.validView.isOn) {
         [TalkingData trackEvent:@"限制为在签到日期有效"];
     }
@@ -243,9 +251,6 @@
     self.createSignInRequest.successPrompt = self.promptView.text;
     self.createSignInRequest.antiCheat = [NSString stringWithFormat:@"%@",@(self.validView.isOn)];
     self.createSignInRequest.qrcodeRefreshRate = [NSString stringWithFormat:@"%@",@(self.dynamicView.isOn)];
-    NSString *date = [self.dateView.content stringByReplacingOccurrencesOfString:@"." withString:@"-"];
-    NSString *start = [NSString stringWithFormat:@"%@ %@",date,self.begintimeView.content];
-    NSString *end = [NSString stringWithFormat:@"%@ %@",date,self.endtimeView.content];
     self.createSignInRequest.startTime = start;
     self.createSignInRequest.endTime = end;
     [self.view nyx_startLoading];

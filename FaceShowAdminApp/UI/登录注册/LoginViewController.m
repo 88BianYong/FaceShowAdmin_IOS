@@ -103,7 +103,8 @@
         make.centerX.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(250*kPhoneWidthRatio, 40));
     }];
-    
+    NSString *lastAccount = (NSString *)[[NSUserDefaults standardUserDefaults]valueForKey:@"last_login_user_mobile"];
+    self.accountView.inputView.textField.text = lastAccount;
     [self refreshLoginButton];
 }
 
