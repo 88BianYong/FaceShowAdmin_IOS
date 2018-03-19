@@ -29,6 +29,13 @@
 #define YXFontMetro_Regular     @"Metro"
 #define YXFontMetro_Light        @"Metro-Light"
 
+#define SafeAreaBottomHeight(view) \
+({CGFloat t=0;if(@available(iOS 11.0, *)){t=view.safeAreaInsets.bottom;}else{t=0;}t;})
+#define SafeAreaTopHeight(view) \
+({CGFloat t=0;if(@available(iOS 11.0, *)){t=view.safeAreaInsets.top;}else{t=0;}t;})
+
+#define AdjustsScrollViewInsetNever(controller,view) if(@available(iOS 11.0, *)) {view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;} else if([controller isKindOfClass:[UIViewController class]]) {controller.automaticallyAdjustsScrollViewInsets = false;}
+
 extern int ddLogLevel;
 
 #pragma mark - Pod lib
