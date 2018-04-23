@@ -10,47 +10,42 @@
 #import <FCUUID.h>
 #import <UIDevice+HardwareName.h>
 
+BOOL mockFrameworkOn = NO;
+BOOL testFrameworkOn = NO;
+
+#ifdef DEBUG
+NSString * const kServer = @"http://orz.yanxiu.com/pxt/platform/data.api";
+NSString * const kLoginServer = @"http://orz.yanxiu.com/uc/appLogin";
+NSString * const kEasygoServer = @"http://orz.yanxiu.com/easygo/multiUpload";
+#else
+NSString * const kServer = @"http://yxb.yanxiu.com/pxt/platform/data.api";
+NSString * const kLoginServer = @"http://pp.yanxiu.com/uc/appLogin";
+NSString * const kEasygoServer = @"http://b.yanxiu.com/easygo/multiUpload";
+#endif
+
 @implementation ConfigManager
 + (ConfigManager *)sharedInstance {
     static dispatch_once_t once;
     static ConfigManager *sharedInstance;
     dispatch_once(&once, ^{
-        sharedInstance = [[ConfigManager alloc]initWithConfigFile:@"Config"];
-        [sharedInstance setupServerEnv];
+       sharedInstance = [[ConfigManager alloc]init];
     });
     
     return sharedInstance;
 }
 
-- (id)initWithConfigFile:(NSString *)filename {
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filepath];
-    NSError *error = nil;
-    self = [super initWithDictionary:dict error:&error];
-    if (error) {
-        // make sure works even without a config plist
-        self = [super init];
-    }
-    return self;
-}
-
-- (void)setupServerEnv {
-    NSString *envPath = [[NSBundle mainBundle]pathForResource:@"env_config" ofType:@"json"];
-    NSData *envData = [NSData dataWithContentsOfFile:envPath];
-    NSDictionary *envDic = [NSJSONSerialization JSONObjectWithData:envData options:kNilOptions error:nil];
-    self.server = [envDic valueForKey:@"server"];
-    self.loginServer = [envDic valueForKey:@"loginServer"];
-    self.easygo = [envDic valueForKey:@"easygo"];
-}
-
 #pragma mark - properties
-//- (NSString *)server {
-//    if ([_server hasSuffix:@"/"]) {
-//        return _server;
-//    } else {
-//        return [_server stringByAppendingString:@"/"];
-//    }
-//}
+- (NSString *)server {
+    return kServer;
+}
+
+- (NSString *)loginServer {
+    return kLoginServer;
+}
+
+- (NSString *)easygo {
+    return kEasygoServer;
+}
 
 - (NSString *)appName {
     if (!_appName) {

@@ -99,8 +99,6 @@
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
-		7CEFC82B1FA063A7001D8C84 /* env_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC8281FA063A7001D8C84 /* env_config.json */; };
-		7CEFC82C1FA063A7001D8C84 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC8291FA063A7001D8C84 /* Config.plist */; };
 		7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8341FA06543001D8C84 /* AlertView.m */; };
 		7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8381FA06562001D8C84 /* TestsRootViewController.m */; };
 		7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC83A1FA06562001D8C84 /* YXTestViewController.m */; };
@@ -277,6 +275,10 @@
 		92E886A21FB3FCCF0006A08E /* ScheduleUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A11FB3FCCF0006A08E /* ScheduleUpdateRequest.m */; };
 		92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A41FB3FCF10006A08E /* ScheduleCreateRequest.m */; };
 		92E886A81FB3FD000006A08E /* ScheduleDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A71FB3FD000006A08E /* ScheduleDeleteRequest.m */; };
+		E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */; };
+		E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF3208D916F00138D44 /* YXInitRequest.m */; };
+		E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF4208D916F00138D44 /* UpgradeConfig.m */; };
+		E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF7208D916F00138D44 /* UpgradePromptHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -460,8 +462,6 @@
 		7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CEFC81F1FA05FBB001D8C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CEFC8201FA05FBB001D8C84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7CEFC8281FA063A7001D8C84 /* env_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = env_config.json; sourceTree = "<group>"; };
-		7CEFC8291FA063A7001D8C84 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		7CEFC82D1FA063BC001D8C84 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7CEFC8331FA06543001D8C84 /* AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
 		7CEFC8341FA06543001D8C84 /* AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
@@ -805,6 +805,14 @@
 		92E886A61FB3FD000006A08E /* ScheduleDeleteRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDeleteRequest.h; sourceTree = "<group>"; };
 		92E886A71FB3FD000006A08E /* ScheduleDeleteRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDeleteRequest.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
+		E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkingDataConfig.h; sourceTree = "<group>"; };
+		E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkingDataConfig.m; sourceTree = "<group>"; };
+		E9822FF2208D916F00138D44 /* YXInitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXInitRequest.h; sourceTree = "<group>"; };
+		E9822FF3208D916F00138D44 /* YXInitRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXInitRequest.m; sourceTree = "<group>"; };
+		E9822FF4208D916F00138D44 /* UpgradeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeConfig.m; sourceTree = "<group>"; };
+		E9822FF5208D916F00138D44 /* UpgradeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeConfig.h; sourceTree = "<group>"; };
+		E9822FF6208D916F00138D44 /* UpgradePromptHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradePromptHandler.h; sourceTree = "<group>"; };
+		E9822FF7208D916F00138D44 /* UpgradePromptHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradePromptHandler.m; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -901,6 +909,8 @@
 			children = (
 				7C2558281FBAD0A100C9BE38 /* libTalkingData.a */,
 				7C2558291FBAD0A100C9BE38 /* TalkingData.h */,
+				E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */,
+				E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */,
 			);
 			path = TalkingData;
 			sourceTree = "<group>";
@@ -1063,8 +1073,6 @@
 				7CEFC9041FA06CB1001D8C84 /* AppDelegateHelper.m */,
 				7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */,
 				7CEFC81F1FA05FBB001D8C84 /* Info.plist */,
-				7CEFC8291FA063A7001D8C84 /* Config.plist */,
-				7CEFC8281FA063A7001D8C84 /* env_config.json */,
 				7CEFC82D1FA063BC001D8C84 /* PrefixHeader.pch */,
 				7CEFC93C1FA0866C001D8C84 /* Empty.xib */,
 				7CEFC8201FA05FBB001D8C84 /* main.m */,
@@ -1246,6 +1254,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				E9822FF1208D910E00138D44 /* 升级 */,
 				9235F97C1FB3EC68003A9027 /* 日程 */,
 				921DE2D41FB1459100CF39DE /* 资源 */,
 				7C672B171FB03806004D93DF /* 任务 */,
@@ -1836,6 +1845,19 @@
 			path = "班级圈";
 			sourceTree = "<group>";
 		};
+		E9822FF1208D910E00138D44 /* 升级 */ = {
+			isa = PBXGroup;
+			children = (
+				E9822FF5208D916F00138D44 /* UpgradeConfig.h */,
+				E9822FF4208D916F00138D44 /* UpgradeConfig.m */,
+				E9822FF6208D916F00138D44 /* UpgradePromptHandler.h */,
+				E9822FF7208D916F00138D44 /* UpgradePromptHandler.m */,
+				E9822FF2208D916F00138D44 /* YXInitRequest.h */,
+				E9822FF3208D916F00138D44 /* YXInitRequest.m */,
+			);
+			path = "升级";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1902,7 +1924,6 @@
 				92CAA6731FAFFE9A00DB5873 /* classMomentComment_mock.json in Resources */,
 				92CAA6741FAFFE9F00DB5873 /* classMomentList_mock.json in Resources */,
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
-				7CEFC82B1FA063A7001D8C84 /* env_config.json in Resources */,
 				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,
 				7CEFC8461FA06577001D8C84 /* MockConfig.plist in Resources */,
 				7CEFC9021FA06A5C001D8C84 /* Default-568h@2x.png in Resources */,
@@ -1911,7 +1932,6 @@
 				7CEFC8471FA06577001D8C84 /* neterror_mock.json in Resources */,
 				7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */,
 				7CEFC8451FA06577001D8C84 /* errorcode_mock.json in Resources */,
-				7CEFC82C1FA063A7001D8C84 /* Config.plist in Resources */,
 				7CEFC85B1FA06593001D8C84 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2022,6 +2042,7 @@
 				7C672B591FB2E0E4004D93DF /* CourseTaskCell.m in Sources */,
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
+				E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */,
 				92CAA67F1FAFFEBD00DB5873 /* ClassMomentFloatingView.m in Sources */,
 				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
@@ -2143,8 +2164,10 @@
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */,
 				9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */,
+				E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */,
 				92CAA67C1FAFFEBD00DB5873 /* ShowPhotosViewController.m in Sources */,
 				92CAA67B1FAFFEBD00DB5873 /* PreviewPhotosView.m in Sources */,
+				E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
 				921860851FA9BC1D0018D982 /* NoticeSaveImageCell.m in Sources */,
@@ -2215,6 +2238,7 @@
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
+				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,

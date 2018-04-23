@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegateHelper.h"
+#import "TalkingDataConfig.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AppDelegateHelper *appDelegateHelper;
@@ -21,7 +22,7 @@
     // Talking Data统计
     [TalkingData setExceptionReportEnabled:YES];
     [TalkingData setSignalReportEnabled:YES];
-    [TalkingData sessionStarted:[ConfigManager sharedInstance].TalkingDataAppID withChannelId:[ConfigManager sharedInstance].channel];
+    [TalkingData sessionStarted:kTalkingDataAppKey withChannelId:kTalkingDataChannel];
     [self registerNotifications];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];

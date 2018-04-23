@@ -18,6 +18,8 @@
 #import "YXDrawerViewController.h"
 #import "ClassSelectionViewController.h"
 
+UIKIT_EXTERN BOOL testFrameworkOn;
+
 @interface AppDelegateHelper ()
 @property (nonatomic, strong) UIWindow *window;
 @end
@@ -32,7 +34,7 @@
 }
 
 - (UIViewController *)rootViewController{
-    if ([ConfigManager sharedInstance].testFrameworkOn.boolValue) {
+    if (testFrameworkOn) {
         return [self testViewController];
     }else if (![UserManager sharedInstance].loginStatus) {
         return [self loginViewController];
