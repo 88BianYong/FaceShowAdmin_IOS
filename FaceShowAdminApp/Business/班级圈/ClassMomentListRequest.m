@@ -14,7 +14,9 @@
     return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"commentID",
                                                        @"clazsId":@"clazsID",
                                                        @"momentId":@"momentID",
-                                                       @"parentId":@"parentID"}];
+                                                       @"parentId":@"parentID",
+                                                       @"userId":@"userID"
+                                                       }];
 }
 
 @end
@@ -49,6 +51,16 @@
         return @"0";
     }
     return _isOpen;
+}
+- (void)setLikes:(NSMutableArray<ClassMomentListRequestItem_Data_Moment_Like,Optional> *)likes {
+    _likes = likes;
+    self.myLike = @"-1";
+    [_likes enumerateObjectsUsingBlock:^(ClassMomentListRequestItem_Data_Moment_Like *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.publisher.userID.integerValue == [UserManager sharedInstance].userModel.userID.integerValue) {
+            self.myLike = [NSString stringWithFormat:@"%lu",(unsigned long)idx];
+            *stop = YES;
+        }
+    }];
 }
 @end
 @implementation ClassMomentListRequestItem_Data

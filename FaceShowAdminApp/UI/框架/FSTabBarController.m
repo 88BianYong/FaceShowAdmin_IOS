@@ -8,7 +8,9 @@
 
 #import "FSTabBarController.h"
 
-@interface FSTabBarController ()
+NSString * const kTabBarDidSelectNotification = @"kTabBarDidSelectNotification";
+
+@interface FSTabBarController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -16,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -40,5 +43,17 @@
     UINavigationController *navi = self.selectedViewController;
     return navi;
 }
+
+
+#pragma mark - UITabBarControllerDelegate
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    //    if (self.selectedIndex == 2) {
+    //        if (![UserPromptsManager sharedInstance].momentNewView.hidden) {
+    //            [[NSNotificationCenter defaultCenter]postNotificationName:kHasNewMomentNotification object:nil];
+    //        }
+    //    }
+    [[NSNotificationCenter defaultCenter]postNotificationName:kTabBarDidSelectNotification object:viewController];
+}
+
 
 @end

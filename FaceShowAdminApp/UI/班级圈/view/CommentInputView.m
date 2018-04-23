@@ -51,11 +51,7 @@
     self.textView.font = [UIFont systemFontOfSize:14];
     self.textView.textColor = [UIColor colorWithHexString:@"333333"];
     self.textView.returnKeyType = UIReturnKeySend;
-    NSString *placeholderStr = @"评论(暂不支持表情)";
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:placeholderStr];
-    [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"666666"] range:NSMakeRange(0, placeholderStr.length)];
-    [attrStr addAttribute:NSFontAttributeName value:self.textView.font range:NSMakeRange(0, placeholderStr.length)];
-    self.textView.attributedPlaceholder = attrStr;
+    self.placeHolder = @"评论";
     self.textView.textContainerInset = UIEdgeInsetsMake(8, 8, 8, 8);
     self.textView.layer.cornerRadius = 6;
     self.textView.layer.borderColor = [UIColor colorWithHexString:@"dddddd"].CGColor;
@@ -71,6 +67,14 @@
     }];
 }
 
+- (void)setPlaceHolder:(NSString *)placeHolder {
+    _placeHolder = placeHolder;
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:placeHolder];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"666666"] range:NSMakeRange(0, placeHolder.length)];
+    [attrStr addAttribute:NSFontAttributeName value:self.textView.font range:NSMakeRange(0, placeHolder.length)];
+    self.textView.attributedPlaceholder = attrStr;
+}
+
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if ([text isEqualToString:@"\n"]) {
@@ -80,12 +84,35 @@
         }
         return NO;
     }
-    if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textView textInputMode] primaryLanguage] || [text includeEmoji]) {
-        return NO;
-    }
+//    if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textView textInputMode] primaryLanguage] || [self stringContainsEmoji:text]) {
+//        return NO;
+//    }
     return YES;
 }
-
+- (BOOL)stringContainsEmoji:(NSString *)string {
+    __block BOOL returnValue = NO;
+    [string enumerateSubstringsInRange:NSMakeRange(0, [string length])
+                               options:NSStringEnumerationByComposedCharacterSequences
+                            usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                                const unichar high = [substring characterAtIndex: 0];
+                                // Surrogate pair (U+1D000-1F9FF)
+                                if (0xD800 <= high && high <= 0xDBFF) {
+                                    const unichar low = [substring characterAtIndex: 1];
+                                    const int codepoint = ((high - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
+                                    if (0x1D000 <= codepoint && codepoint <= 0x1F9FF){
+                                        returnValue = YES;
+                                    }
+                                    // Not surrogate pair (U+2100-27BF)
+                                } else {
+                                    
+                                    //                                    if (0x2100 <= high && high <= 0x27BF){
+                                    //                                        returnValue = YES;
+                                    //                                    }
+                                }
+                            }];
+    
+    return returnValue;
+}
 - (void)setTextString:(NSString *)textString {
     _textString = textString;
     self.textView.text = _textString;

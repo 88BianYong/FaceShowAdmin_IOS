@@ -28,7 +28,7 @@
 
 - (void)setupUI {
     self.bgImageView = [[UIImageView alloc]init];
-    self.bgImageView.image = [UIImage imageNamed:@"背景图片"];
+    self.bgImageView.image = [UIImage imageNamed:@"背景图片-首页"];
     self.bgImageView.userInteractionEnabled = YES;
     self.bgImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.bgImageView.clipsToBounds = YES;

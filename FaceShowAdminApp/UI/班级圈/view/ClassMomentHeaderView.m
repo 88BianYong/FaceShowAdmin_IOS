@@ -27,6 +27,8 @@
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         self.frame = [UIScreen mainScreen].bounds;
+        [self layoutIfNeeded];
+        self.contentView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
         [self setupUI];
         [self setupLayout];
     }
@@ -45,19 +47,21 @@
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     NSAttributedString *attributedString  = [[NSAttributedString alloc] initWithString:_moment.content?:@"\n" attributes:@{NSParagraphStyleAttributeName :paragraphStyle}];
     self.contentLabel.attributedText = attributedString;
-    if ([self sizeForTitle:_moment.content?:@""] >= 85.0f) {
+    CGFloat height = [self sizeForTitle:_moment.content?:@""];
+    if (height >= 85.0f) {
         if (!_moment.isOpen.boolValue) {
             [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.nameLabel.mas_left);
                 make.top.equalTo(self.nameLabel.mas_bottom).offset(3.0f);
                 make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
-                make.height.mas_offset(85.0f).priorityHigh();
+                make.height.mas_equalTo(85.0f);
             }];
         }else {
             [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.nameLabel.mas_left);
                 make.top.equalTo(self.nameLabel.mas_bottom).offset(3.0f);
                 make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
+                make.height.mas_equalTo(height);
             }];
         }
         self.openCloseButton.selected = _moment.isOpen.boolValue;
@@ -71,7 +75,7 @@
             make.left.equalTo(self.nameLabel.mas_left);
             make.top.equalTo(self.nameLabel.mas_bottom).offset(3.0f);
             make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
-            make.height.mas_greaterThanOrEqualTo(14.0f);
+            make.height.mas_equalTo(height);
         }];
         [self.openCloseButton mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_offset(0.00001f);
@@ -122,10 +126,7 @@
         model.thumbnail = obj.attachment.resThumb;
         model.original = obj.attachment.resThumb;
         [mutableArray addObject:model];
-#warning 暂时只显示一张图片
-        if (idx == 0) {
-            *stop = YES;
-        }
+
     }];
     self.photosView.imageModelMutableArray = mutableArray;
     [self.photosView reloadData];
@@ -166,8 +167,8 @@
     [self.contentView addSubview:self.contentLabel];
     
     self.photosView = [[PreviewPhotosView alloc] init];
-    self.photosView.widthFloat = SCREEN_WIDTH - 15.0f - 60.0f - 10.0f - 15.0f;
-    self.photosView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
+    self.photosView.widthFloat = SCREEN_WIDTH - 15.0f - 40.0f - 10.0f - 15.0f;
+//    self.photosView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
 
     [self.contentView addSubview:self.photosView];
     
@@ -176,11 +177,12 @@
     self.timeLabel.font = [UIFont systemFontOfSize:11.0f];
     self.timeLabel.textColor = [UIColor colorWithHexString:@"999999"];
     self.timeLabel.text = @"3分钟前";
-    [self.contentView addSubview:self.timeLabel];\
+    [self.contentView addSubview:self.timeLabel];
     
     self.reportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.reportButton setImage:[UIImage imageNamed:@"投诉举报icon正常态"] forState:UIControlStateNormal];
     [self.reportButton setImage:[UIImage imageNamed:@"投诉举报icon点击态"] forState:UIControlStateHighlighted];
+//    self.reportButton.backgroundColor = [UIColor redColor];
     self.reportButton.imageView.contentMode = UIViewContentModeCenter;
     [self.contentView addSubview:self.reportButton];
     WEAK_SELF
@@ -190,8 +192,8 @@
     }];
     
     self.commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮正常态"] forState:UIControlStateNormal];
-    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮点击态"] forState:UIControlStateHighlighted];
+    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮-点击态"] forState:UIControlStateNormal];
+    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"赞评论展开按钮张常态"] forState:UIControlStateNormal];
     [self.contentView addSubview:self.commentButton];
     [[self.commentButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
@@ -202,7 +204,7 @@
     self.openCloseButton.clipsToBounds = YES;
     [self.openCloseButton setTitle:@"全文" forState:UIControlStateNormal];
     [self.openCloseButton setTitle:@"收起" forState:UIControlStateSelected];
-    [self.openCloseButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+    [self.openCloseButton setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
     self.openCloseButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     self.openCloseButton.contentHorizontalAlignment =  UIControlContentHorizontalAlignmentLeft;
     [self.contentView addSubview:self.openCloseButton];
@@ -225,6 +227,7 @@
         make.left.equalTo(self.userButton.mas_right).offset(10.0f);
         make.top.equalTo(self.userButton.mas_top).offset(6.0f);
         make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
+        make.height.mas_offset(14.0f);
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -280,6 +283,6 @@
                                       options:NSStringDrawingUsesLineFragmentOrigin
                                    attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],
                                                 NSParagraphStyleAttributeName :paragraphStyle} context:NULL];
-    return rect.size.height;
+    return ceilf(rect.size.height);
 }
 @end

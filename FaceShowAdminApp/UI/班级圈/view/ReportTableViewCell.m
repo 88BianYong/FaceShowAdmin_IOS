@@ -25,12 +25,12 @@
 - (void)setupUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.selectedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"选择对号"]];
+    self.selectedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"选择按钮"]];
     [self.contentView addSubview:self.selectedImageView];
     [self.selectedImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-15);
         make.centerY.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.size.mas_equalTo(CGSizeMake(19, 15));
     }];
 }
 

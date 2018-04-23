@@ -153,15 +153,14 @@
     actionSheetView.actionSheetBlock = ^(NSInteger integer) {
         STRONG_SELF
         if (integer == 1) {
-            [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypeCamera
-                                             rootViewController:self completion:^(UIImage *selectedImage) {
+            [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypeCamera completion:^(UIImage *selectedImage) {
                                                  STRONG_SELF
                                                  [self presentNextPublishViewController:selectedImage];
                                              }];
             
         }else if (integer == 2) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary rootViewController:self completion:^(UIImage *selectedImage) {
+                [self.imagePickerController pickImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary completion:^(UIImage *selectedImage) {
                     STRONG_SELF
                     [self presentNextPublishViewController:selectedImage];
                 }];

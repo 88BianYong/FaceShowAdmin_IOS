@@ -149,7 +149,7 @@
 
 - (void)pickImageWithSourceType:(UIImagePickerControllerSourceType)sourceType{
     WEAK_SELF
-    [self.imagePickerController pickImageWithSourceType:sourceType rootViewController:nil completion:^(UIImage *selectedImage) {
+    [self.imagePickerController pickImageWithSourceType:sourceType completion:^(UIImage *selectedImage) {
         STRONG_SELF
         [self updateWithHeaderImage:selectedImage];
     }];

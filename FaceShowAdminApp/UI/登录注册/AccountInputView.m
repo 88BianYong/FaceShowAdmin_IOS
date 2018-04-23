@@ -30,8 +30,8 @@
 //    self.backgroundColor = [UIColor colorWithHexString:@"69ad0a"];
     self.clearButton = [[UIButton alloc]init];
     [self.clearButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
-    [self.clearButton setBackgroundImage:[UIImage imageNamed:@"删除按钮正常态"] forState:UIControlStateNormal];
-    [self.clearButton setBackgroundImage:[UIImage imageNamed:@"删除按钮点击态"] forState:UIControlStateHighlighted];
+    [self.clearButton setBackgroundImage:[UIImage imageNamed:@"删除按钮-正常态"] forState:UIControlStateNormal];
+    [self.clearButton setBackgroundImage:[UIImage imageNamed:@"删除按钮-点击态"] forState:UIControlStateHighlighted];
     [self.clearButton addTarget:self action:@selector(clearAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.clearButton];
     [self.clearButton mas_makeConstraints:^(MASConstraintMaker *make) {

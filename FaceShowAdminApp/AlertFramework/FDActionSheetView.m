@@ -8,19 +8,23 @@
 
 #import "FDActionSheetView.h"
 #import "FDActionSheetCell.h"
+#import "FDActionSheetHeaderView.h"
 #import "FDActionSheetFooterView.h"
-@interface FDActionSheetView ()<UITableViewDelegate, UITableViewDataSource>;
+@interface FDActionSheetView ()<UITableViewDelegate, UITableViewDataSource>
 @end
 @implementation FDActionSheetView
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     if (self = [super initWithFrame:frame style:style]) {
         [self setupUI];
-        
     }
     return self;
 }
 - (void)setTitleArray:(NSArray<__kindof NSDictionary *> *)titleArray {
     _titleArray = titleArray;
+    [self reloadData];
+}
+- (void)setTipsString:(NSString *)tipsString {
+    _tipsString = tipsString;
     [self reloadData];
 }
 #pragma mark - setupUI
@@ -34,6 +38,7 @@
     self.scrollEnabled = NO;
     self.sectionFooterHeight = 55.0f;
     [self registerClass:[FDActionSheetCell class] forCellReuseIdentifier:@"FDActionSheetCell"];
+    [self registerClass:[FDActionSheetHeaderView class] forHeaderFooterViewReuseIdentifier:@"FDActionSheetHeaderView"];
     [self registerClass:[FDActionSheetFooterView class] forHeaderFooterViewReuseIdentifier:@"FDActionSheetFooterView"];
 }
 #pragma mark - UITableViewDelegate
@@ -53,6 +58,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50.0f;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return isEmpty(self.tipsString) ? 0.0000001f : 50.0f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    FDActionSheetHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"FDActionSheetHeaderView"];
+    headerView.title = self.tipsString;
+    return headerView;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 55.0f;
 }
@@ -68,8 +81,5 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     BLOCK_EXEC(self.actionSheetBlock,indexPath.row + 1);
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.0000001f;
 }
 @end

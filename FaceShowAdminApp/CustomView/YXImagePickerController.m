@@ -26,31 +26,34 @@
 }
 
 - (void)pickImageWithSourceType:(UIImagePickerControllerSourceType)sourceType
-             rootViewController:(UIViewController *)viewController
                      completion:(void (^)(UIImage *))completion
-
 {
     
     self.isPublish = NO;
-    if (viewController == nil) {
-        viewController = ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
-    }
+    UIViewController *viewController = [((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController nyx_visibleViewController];
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
         ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
         if (author == kCLAuthorizationStatusRestricted || author ==kCLAuthorizationStatusDenied){
             [viewController.view nyx_showToast:@"相册权限受限\n请在设置-隐私-相册中开启"];
             return;
         }
-        
-        self.imagePickerController = [[UIImagePickerController alloc] init];
-        self.imagePickerController.delegate = self;
-        self.imagePickerController.allowsEditing = YES;
         self.imagePickerController.sourceType = sourceType;
         self.completion = completion;
         [viewController presentViewController:self.imagePickerController animated:YES completion:nil];
     } else {
         [viewController.view nyx_showToast:@"设备不支持拍照功能!"];
     }
+}
+
+
+- (UIImagePickerController *)imagePickerController
+{
+    if (!_imagePickerController) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
+        _imagePickerController.allowsEditing = self.canEdit;
+    }
+    return _imagePickerController;
 }
 
 #pragma mark -
@@ -73,11 +76,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    if (self.isPublish) {
-        image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (self.canEdit) {
+        image = [info objectForKey:UIImagePickerControllerEditedImage];
     }
-    
+
     [self completionImagePick:picker image:image];
 }
 
