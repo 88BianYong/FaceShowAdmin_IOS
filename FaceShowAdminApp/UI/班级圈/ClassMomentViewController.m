@@ -496,10 +496,10 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
         [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Comment | ClassMomentFloatingStyle_Like | ClassMomentFloatingStyle_Delete];
     }else if (moment.publisher.userID.integerValue != [UserManager sharedInstance].userModel.userID.integerValue &&
               moment.myLike.integerValue >= 0) {
-        [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Comment | ClassMomentFloatingStyle_Cancel];
+        [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Comment | ClassMomentFloatingStyle_Cancel | ClassMomentFloatingStyle_Delete];
     }else if (moment.publisher.userID.integerValue != [UserManager sharedInstance].userModel.userID.integerValue &&
              moment.myLike.integerValue < 0) {
-        [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Comment | ClassMomentFloatingStyle_Like];
+        [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Comment | ClassMomentFloatingStyle_Like | ClassMomentFloatingStyle_Delete];
     }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
