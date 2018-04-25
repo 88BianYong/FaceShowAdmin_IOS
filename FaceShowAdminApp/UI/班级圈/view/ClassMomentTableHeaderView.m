@@ -41,7 +41,7 @@
 #pragma mark - setupUI
 - (void)setupUI {
     self.backgroundImageView = [[UIImageView alloc] init];
-    self.backgroundImageView.image = [UIImage imageNamed:@"背景图片"];
+    self.backgroundImageView.image = [UIImage imageNamed:@"banner"];
     [self addSubview:self.backgroundImageView];
     UIView *view = [[UIView alloc] init];
     view.layer.cornerRadius = 5.0f;

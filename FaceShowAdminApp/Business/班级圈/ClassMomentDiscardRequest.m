@@ -13,7 +13,7 @@
 @implementation ClassMomentDiscardRequest
 - (instancetype)init {
     if (self = [super init]) {
-        self.method = @"moment.discardMoment";
+        self.method = @"moment.deleteMoment";
     }
     return self;
 }
