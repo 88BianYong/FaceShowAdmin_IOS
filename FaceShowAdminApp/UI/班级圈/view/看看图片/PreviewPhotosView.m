@@ -8,6 +8,7 @@
 
 #import "PreviewPhotosView.h"
 #import "ShowPhotosViewController.h"
+#import "QiniuDataManager.h"
 @implementation PreviewPhotosModel
 - (instancetype)init
 {
@@ -26,7 +27,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.clipsToBounds = YES;
-        self.widthFloat = SCREEN_WIDTH;
+        self.widthFloat = SCREEN_WIDTH*[UIScreen mainScreen].scale;
         self.verticalMargin = 5.0f;
         self.horizontalMargin = 5.0f;
         self.doubleRow = YES;
@@ -52,14 +53,22 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         UIImageView *placeholderImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"朋友圈一张图加载失败图片"]];
         [imageView addSubview:placeholderImageView];
+        imageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
         [placeholderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(imageView);
         }];
         WEAK_SELF
-        [imageView sd_setImageWithURL:[NSURL URLWithString:obj.thumbnail] placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        NSString *urlString = nil;
+        if (self.imageModelMutableArray.count == 1) {
+            urlString = obj.thumbnail;
+        }else {
+            urlString = [QiniuDataManager resizedUrlStringWithOriString:obj.thumbnail maxLongEdge:200];
+        }
+        [imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if (image != nil && error == nil) {
                 [placeholderImageView removeFromSuperview];
                 obj.placeHolderImage = image;
+                imageView.backgroundColor = [UIColor clearColor];
             }
         }];
         imageView.tag = 10086 + idx;
@@ -114,9 +123,6 @@
                 make.centerY.equalTo(self.mas_top).offset((self.photoSize.height + self.verticalMargin) * (idx / 2) + self.photoSize.height/2.0f).priorityHigh();
                 make.left.equalTo(self.mas_left).offset((self.photoSize.width + self.horizontalMargin) * (idx % 2));
                 make.size.mas_offset(self.photoSize).priorityHigh();
-                if (idx == photos.count -1) {
-                    make.bottom.equalTo(self.mas_bottom);
-                }
             }];
         }];
     }else {
@@ -125,9 +131,6 @@
                 make.centerY.equalTo(self.mas_top).offset((self.photoSize.height + self.verticalMargin) * (idx / 3) + self.photoSize.height/2.0f).priorityHigh();
                 make.left.equalTo(self.mas_left).offset((self.photoSize.width + self.horizontalMargin) * (idx % 3));
                 make.size.mas_offset(self.photoSize).priorityHigh();
-                if (idx == photos.count -1 || idx == self.photosMaxCount - 1) {
-                    make.bottom.equalTo(self.mas_bottom);
-                }
             }];
             if (idx == photos.count -1 || idx == self.photosMaxCount - 1) {
                 *stop = YES;

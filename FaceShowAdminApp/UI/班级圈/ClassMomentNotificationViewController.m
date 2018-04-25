@@ -96,8 +96,8 @@
     [self.view nyx_startLoading];
     WEAK_SELF
     ClassMomentUserMomentMsgRequest *request = [[ClassMomentUserMomentMsgRequest alloc] init];
-//    request.clazsId = [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+//    [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     [request startRequestWithRetClass:[ClassMomentUserMomentMsgItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
         [self.view nyx_stopLoading];

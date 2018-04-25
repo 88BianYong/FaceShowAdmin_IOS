@@ -62,10 +62,7 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
 - (void)viewDidLoad {
     ClassMomentUserListFetcher *fetcher = [[ClassMomentUserListFetcher alloc] init];
     fetcher.pagesize = 20;
-//    fetcher.clazsId = [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     fetcher.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-
-    
     fetcher.userId = [UserManager sharedInstance].userModel.userID;
     self.dataFetcher = fetcher;
     self.bIsGroupedTableViewStyle = YES;
@@ -510,7 +507,6 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
     ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[section];
     ClassMomentClickLikeRequest *request = [[ClassMomentClickLikeRequest alloc] init];
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-//    [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     request.momentId = moment.momentID;
     [self.view nyx_startLoading];
     WEAK_SELF
@@ -572,7 +568,6 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
     ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[self.commtentInteger];
     ClassMomentCommentRequest *request = [[ClassMomentCommentRequest alloc] init];
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-//    [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     request.momentId = moment.momentID;
     request.content = content;
     //    [self.view nyx_startLoading];
@@ -637,7 +632,6 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
     ClassMomentListRequestItem_Data_Moment_Comment *comment = moment.comments[self.replyIndexPath.row];
     ClassMomentReplyRequest *request = [[ClassMomentReplyRequest alloc] init];
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-//    [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     request.momentId = moment.momentID;
     request.content = content;
     request.toUserId = comment.userID;

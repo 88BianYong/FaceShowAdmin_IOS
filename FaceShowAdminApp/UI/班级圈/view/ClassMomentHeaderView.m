@@ -204,7 +204,7 @@
     self.openCloseButton.clipsToBounds = YES;
     [self.openCloseButton setTitle:@"全文" forState:UIControlStateNormal];
     [self.openCloseButton setTitle:@"收起" forState:UIControlStateSelected];
-    [self.openCloseButton setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
+    [self.openCloseButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     self.openCloseButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     self.openCloseButton.contentHorizontalAlignment =  UIControlContentHorizontalAlignmentLeft;
     [self.contentView addSubview:self.openCloseButton];

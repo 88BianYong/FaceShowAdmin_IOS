@@ -12,6 +12,7 @@
 @interface ShowPhotosViewController ()<UIScrollViewDelegate,UIViewControllerTransitioningDelegate>
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, assign) BOOL appeared;
 @end
 
 @implementation ShowPhotosViewController
@@ -19,7 +20,9 @@
 - (void)dealloc {
     DDLogDebug(@"release=====>>%@",NSStringFromClass([self class]));
 }
-
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.transitioningDelegate = self;
@@ -39,9 +42,10 @@
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.imageModelMutableArray.count,SCREEN_HEIGHT);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.delegate = self;
-    self.scrollView.backgroundColor = [UIColor blackColor];
+    self.scrollView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.contentOffset = CGPointMake(self.startInteger*SCREEN_WIDTH, 0);
     [self.view addSubview:self.scrollView];
     
     self.pageControl = [[UIPageControl alloc]init];
@@ -66,12 +70,23 @@
         photoView.clipsToBounds = NO;
         photoView.tag = 10086 + idx;
         [self.scrollView addSubview:photoView];
-        [photoView displayImage:obj.placeHolderImage];// 先展示缩略图，不至于屏幕全黑
+        UIImageView *placeholderImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"朋友圈一张图加载失败图片"]];
+        [photoView addSubview:placeholderImageView];
+        [placeholderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(photoView);
+            make.size.mas_offset(CGSizeMake(170.0f, 50.f));
+        }];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        photoView.zoomView = imageView;
+        photoView.backgroundColor = [UIColor clearColor];
+        [photoView nyx_startLoading];
         WEAK_SELF
-        [imageView sd_setImageWithURL:[NSURL URLWithString:obj.original] placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:obj.original] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             STRONG_SELF
-            if (error == nil) {
+            [photoView nyx_stopLoading];
+            if (image != nil && error == nil) {
+                photoView.backgroundColor = [UIColor blackColor];
+                [placeholderImageView removeFromSuperview];
                 [photoView displayImage:image];
                 photoView.zoomScale = photoView.minimumZoomScale;
             }
@@ -87,7 +102,7 @@
         UILongPressGestureRecognizer *longGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
         [[longGestureRecognizer rac_gestureSignal] subscribeNext:^(UILongPressGestureRecognizer *x) {
             STRONG_SELF
-            if (x.state == UIGestureRecognizerStateEnded) {
+            if (x.state == UIGestureRecognizerStateEnded && photoView.zoomView.image != nil) {
                 [self saveImageToPhotos:photoView.zoomView.image];
             }
         }];
@@ -109,39 +124,56 @@
 
 - (void)setupLayout {
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        if (@available(iOS 11.0, *)) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.edges.equalTo(self.view);
+            // Fallback on earlier versions
+        }
+        
     }];
     [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-10.0f);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(-10.f);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-10.0f);
+            // Fallback on earlier versions
+        }
         make.size.mas_equalTo(CGSizeMake(20 * self.imageModelMutableArray.count, 10));
     }];
     
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.appeared = YES;
 }
 
 - (void)dismiss{
-    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
+//    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark -
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations NS_AVAILABLE_IOS(6_0) {
-    return UIInterfaceOrientationMaskAllButUpsideDown;
-}
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
-    self.scrollView.contentSize = CGSizeMake(size.width * self.imageModelMutableArray.count,size.height);
-    [self.imageModelMutableArray enumerateObjectsUsingBlock:^(PreviewPhotosModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        PhotosScrollView *photoView = [self.scrollView viewWithTag:10086 + idx];
-        if (photoView != nil) {
-            photoView.frame = CGRectMake(idx * size.width, 0, size.width, size.height);
-        }
-    }];
-}
+//- (BOOL)shouldAutorotate {
+//    if (!self.appeared) {
+//        return NO;
+//    }
+//    return YES;
+//}
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations NS_AVAILABLE_IOS(6_0) {
+//    return UIInterfaceOrientationMaskAllButUpsideDown;
+//}
+//- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+//    self.scrollView.contentSize = CGSizeMake(size.width * self.imageModelMutableArray.count,size.height);
+//    [self.imageModelMutableArray enumerateObjectsUsingBlock:^(PreviewPhotosModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        PhotosScrollView *photoView = [self.scrollView viewWithTag:10086 + idx];
+//        if (photoView != nil) {
+//            photoView.frame = CGRectMake(idx * size.width, 0, size.width, size.height);
+//        }
+//    }];
+//}
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.pageControl.currentPage = (NSInteger)(self.scrollView.contentOffset.x / SCREEN_WIDTH);

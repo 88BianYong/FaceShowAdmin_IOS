@@ -81,7 +81,7 @@
     [self addSubview:self.nameLabel];
     
     self.messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.messageButton.backgroundColor = [UIColor colorWithHexString:@"1da1f2"];
+    self.messageButton.backgroundColor = [UIColor colorWithHexString:@"0068bd"];
     [self.messageButton setTitle:@"1条新消息" forState:UIControlStateNormal];
     self.messageButton.layer.masksToBounds = YES;
     self.messageButton.layer.cornerRadius = 5.0f;

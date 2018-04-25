@@ -530,7 +530,6 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
 - (void)requestForClickLike:(NSInteger)section {
     ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[section];
     ClassMomentClickLikeRequest *request = [[ClassMomentClickLikeRequest alloc] init];
-//    request.clazsId = [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     request.momentId = moment.momentID;
     [self.view nyx_startLoading];
@@ -592,7 +591,6 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
 - (void)requstForPublishComment:(NSString *)content {
     ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[self.commtentInteger];
     ClassMomentCommentRequest *request = [[ClassMomentCommentRequest alloc] init];
-//    request.clazsId = [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     request.momentId = moment.momentID;
     request.content = content;
@@ -657,9 +655,7 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
     ClassMomentListRequestItem_Data_Moment *moment = self.dataArray[self.replyIndexPath.section];
     ClassMomentListRequestItem_Data_Moment_Comment *comment = moment.comments[self.replyIndexPath.row];
     ClassMomentReplyRequest *request = [[ClassMomentReplyRequest alloc] init];
-//    request.clazsId = [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-
     request.momentId = moment.momentID;
     request.content = content;
     request.toUserId = comment.userID;

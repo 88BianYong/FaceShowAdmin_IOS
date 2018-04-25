@@ -42,7 +42,6 @@
             STRONG_SELF
             BLOCK_EXEC(self.completeBlock,@[selectedImage]);
         }];
-        
     }];
     [alertVC addAction:cameraAction];
     UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
