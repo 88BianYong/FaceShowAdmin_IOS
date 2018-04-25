@@ -41,11 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WEAK_SELF
-    [self nyx_setupLeftWithImageName:@"抽屉列表按钮正常态" highlightImageName:@"抽屉列表按钮点击态" action:^{
-        STRONG_SELF
-        [YXDrawerController showDrawer];
-    }];
+    self.title = @"课程";
     [self setupUI];
     [self requestCoursesInfo];
 }

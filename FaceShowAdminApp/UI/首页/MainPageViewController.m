@@ -30,6 +30,8 @@
 #import "SignInDetailViewController.h"
 #import "CourseDetailViewController.h"
 #import "ClazsMemberListFetcher.h"
+#import "CourseListViewController.h"
+
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -132,6 +134,10 @@
         }else if (type == MainPagePushType_Schedule) {
             [TalkingData trackEvent:@"进入日程管理"];
             [self requestForScheduleDetail];
+        }else if (type == MainPagePushType_Course) {
+            [TalkingData trackEvent:@"进入课程"];
+            CourseListViewController *courseVC = [[CourseListViewController alloc]initWithClazsId:[UserManager sharedInstance].userModel.currentClass.clazsId];
+            [self.navigationController pushViewController:courseVC animated:YES];
         }
     }];
     self.scrollView.hidden = YES;
@@ -176,7 +182,7 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.top.equalTo(self.topView.mas_bottom);
-        make.height.mas_offset(100.0f);
+        make.height.mas_offset(195.f);
     }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);

@@ -10,7 +10,6 @@
 #import "YXTestViewController.h"
 #import "LoginViewController.h"
 #import "ClassMomentViewController.h"
-#import "CourseListViewController.h"
 #import "TaskViewController.h"
 #import "MainPageViewController.h"
 #import "MineViewController.h"
@@ -19,6 +18,7 @@
 #import "ClassSelectionViewController.h"
 #import "IMUserInterface.h"
 #import "IMTopic.h"
+#import "ChatListViewController.h"
 
 UIKIT_EXTERN BOOL testFrameworkOn;
 
@@ -69,11 +69,6 @@ UIKIT_EXTERN BOOL testFrameworkOn;
     [self configTabbarItem:mainVC.tabBarItem image:@"首页icon正常态" selectedImage:@"首页icon点击态"];
     FSNavigationController *mainNavi = [[FSNavigationController alloc] initWithRootViewController:mainVC];
     
-    UIViewController *courseVC = [[CourseListViewController alloc]initWithClazsId:[UserManager sharedInstance].userModel.currentClass.clazsId];
-    courseVC.title = @"课程";
-    [self configTabbarItem:courseVC.tabBarItem image:@"课程icon正常态" selectedImage:@"课程icon点击态"];
-    FSNavigationController *courseNavi = [[FSNavigationController alloc] initWithRootViewController:courseVC];
-    
     UIViewController *taskVC = [[TaskViewController alloc]init];
     taskVC.title = @"任务";
     [self configTabbarItem:taskVC.tabBarItem image:@"任务icon正常态" selectedImage:@"任务icon点击态"];
@@ -84,7 +79,12 @@ UIKIT_EXTERN BOOL testFrameworkOn;
     [self configTabbarItem:classVC.tabBarItem image:@"班级圈icon正常态" selectedImage:@"班级圈icon点击态"];
     FSNavigationController *classNavi = [[FSNavigationController alloc] initWithRootViewController:classVC];
     
-    tabBarController.viewControllers = @[mainNavi, courseNavi, taskNavi, classNavi];
+    ChatListViewController *chatVC = [[ChatListViewController alloc]init];
+    chatVC.title = @"聊聊";
+    [self configTabbarItem:chatVC.tabBarItem image:@"聊天icon正常态" selectedImage:@"聊天icon点击态"];
+    FSNavigationController *chatNavi = [[FSNavigationController alloc] initWithRootViewController:chatVC];
+    
+    tabBarController.viewControllers = @[mainNavi, taskNavi, classNavi, chatNavi];
     
     MineViewController *mineVC = [[MineViewController alloc]init];
     YXDrawerViewController *drawerVC = [[YXDrawerViewController alloc]init];

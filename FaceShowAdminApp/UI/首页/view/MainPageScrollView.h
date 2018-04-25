@@ -12,7 +12,8 @@ typedef NS_ENUM(NSInteger, MainPagePushType){
     MainPagePushType_Notice = 2,//通知管理
     MainPagePushType_Check = 3,//签到记录
     MainPagePushType_Schedule = 4,//日程管理
-    MainPagePushType_Resources = 5//资源管理
+    MainPagePushType_Resources = 5,//资源管理
+    MainPagePushType_Course = 6//课程
 };
 @interface MainPageScrollView : UIScrollView
 @property (nonatomic, strong) void (^actionBlock)(MainPagePushType type);

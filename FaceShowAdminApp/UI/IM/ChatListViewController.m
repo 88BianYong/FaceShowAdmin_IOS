@@ -53,12 +53,6 @@
         STRONG_SELF
         [YXDrawerController showDrawer];
     }];
-    [self nyx_setupRightWithTitle:@"通讯录" action:^{
-        STRONG_SELF
-        ContactsViewController *contactsVC = [[ContactsViewController alloc] init];
-        [self.navigationController pushViewController:contactsVC animated:YES];
-        [TalkingData trackEvent:@"通讯录"];
-    }];
 }
 
 #pragma mark - setupUI

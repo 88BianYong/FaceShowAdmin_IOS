@@ -7,13 +7,19 @@
 //
 
 #import "MainPageScrollView.h"
+
+static const CGFloat kItemWidth = 50.f;
+static const CGFloat kItemViewHeight = 93.f;
+static const CGFloat kLeftMargin = 25.f;
+static const CGFloat kTopMargin = 16.f;
+
 @interface MainPageScrollView ()
 @end
 @implementation MainPageScrollView
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
-        self.contentSize = CGSizeMake(SCREEN_WIDTH + 65.0f, 100.0f);
+        self.contentSize = CGSizeMake(SCREEN_WIDTH , kItemViewHeight * 2);
         self.showsHorizontalScrollIndicator = NO;
         [self setupUI];
     }
@@ -25,27 +31,22 @@
                        @{@"name":@"通知管理",@"image":@"通知管理",@"tag":@(MainPagePushType_Notice)},
                        @{@"name":@"签到记录",@"image":@"签到记录",@"tag":@(MainPagePushType_Check)},
                        @{@"name":@"日程管理",@"image":@"日程管理",@"tag":@(MainPagePushType_Schedule)},
-                       @{@"name":@"资源管理",@"image":@"资源管理",@"tag":@(MainPagePushType_Resources)}];
-    CGFloat spacingFloat = (SCREEN_WIDTH - 10.0f - 25.0f - (4 * 50.0f))/4.0f;
+                       @{@"name":@"资源管理",@"image":@"资源管理",@"tag":@(MainPagePushType_Resources)},
+                       @{@"name":@"课程",@"image":@"课程",@"tag":@(MainPagePushType_Course)}];
+    CGFloat spacingFloat = (SCREEN_WIDTH - kLeftMargin * 2 - (4 * kItemWidth))/3.0f;
+    __block NSUInteger number = 4;
     [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.tag = [obj[@"tag"] integerValue];
         [button setImage:[UIImage imageNamed:obj[@"image"]] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
-        if (idx == 0) {
-            [button mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.mas_left).offset(25.0f);
-                make.top.equalTo(self.mas_top).offset(15.0f);
-                make.size.mas_offset(CGSizeMake(50.0f, 50.0f));
-            }];
-        }else {
-            [button mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.mas_left).offset(25.0f + (50.0f + spacingFloat) * idx);
-                make.top.equalTo(self.mas_top).offset(15.0f);
-                make.size.mas_offset(CGSizeMake(50.0f, 50.0f));
-            }];
-        }
+        NSUInteger row = idx / number;//行号
+        NSUInteger loc = idx % number;//列号
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.mas_left).offset(25.f + (kItemWidth + spacingFloat) * loc);
+            make.top.equalTo(self.mas_top).offset(kTopMargin + row * (kItemViewHeight + 1));
+            make.size.mas_offset(CGSizeMake(kItemWidth, kItemWidth));
+        }];
         WEAK_SELF
         [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
             STRONG_SELF
@@ -61,10 +62,6 @@
             make.centerX.equalTo(button.mas_centerX);
         }];
     }];
-}
-
-- (void)btnAction:(UIButton *)sender {
-//    BLOCK_EXEC(self.actionBlock,sender.tag);
 }
 
 @end
