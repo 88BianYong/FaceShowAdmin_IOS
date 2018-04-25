@@ -76,6 +76,7 @@
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     self.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.numberOfLines = 0;
     [self.containerView addSubview:self.titleLabel];
     
     self.timeLabel = [[UILabel alloc] init];
@@ -94,6 +95,7 @@
     self.contentLabel = [[UILabel alloc] init];
     self.contentLabel.textColor = [UIColor colorWithHexString:@"333333"];
     self.contentLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.contentLabel.numberOfLines = 0;
     [self.containerView addSubview:self.contentLabel];
     
 }
