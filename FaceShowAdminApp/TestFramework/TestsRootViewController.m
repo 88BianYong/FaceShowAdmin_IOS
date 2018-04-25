@@ -44,7 +44,7 @@
     
     self.devlist = [[NSArray alloc] initWithArray:[self.devActionDictionary allKeys]];
 }
-
+/*
 - (void)viewDidUnload
 {
     self.devActionDictionary = nil;
@@ -52,6 +52,7 @@
     
     [super viewDidUnload];
 }
+ */
 
 #pragma mark - Table view data source
 

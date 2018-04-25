@@ -59,7 +59,7 @@ static const NSUInteger kTagBase = 3333;
         obj.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         [self.bottomScrollView addSubview:obj];
         UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
-        CGFloat btnWidth = self.topView.frame.size.width/_contentViews.count;
+        CGFloat btnWidth = self.topView.frame.size.width/self->_contentViews.count;
         b.frame = CGRectMake(btnWidth*idx, 0, btnWidth, self.topView.frame.size.height);
         [b setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         [b setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateSelected];
