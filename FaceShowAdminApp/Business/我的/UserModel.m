@@ -28,6 +28,9 @@ NSString * const kClassDidSelectNotification = @"kClassDidSelectNotification";
     model.stageName = userInfo.stageName;
     model.subjectName = userInfo.subjectName;
     model.sexName = userInfo.sexName;
+    if (userInfo.imTokenInfo) {
+        model.imInfo = userInfo.imTokenInfo;
+    }
     return model;
 }
 - (void)updateFromUserInfo:(GetUserInfoRequestItem_Data *)userInfo {
@@ -45,6 +48,9 @@ NSString * const kClassDidSelectNotification = @"kClassDidSelectNotification";
     self.stageName = userInfo.stageName;
     self.subjectName = userInfo.subjectName;
     self.sexName = userInfo.sexName;
+    if (userInfo.imTokenInfo) {
+        self.imInfo = userInfo.imTokenInfo;
+    }
 }
 
 @end

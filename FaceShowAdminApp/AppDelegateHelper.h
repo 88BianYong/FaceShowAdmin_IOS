@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class IMTopic;
 
 @interface AppDelegateHelper : NSObject
 
@@ -23,5 +24,5 @@
 // class selection
 - (void)handleClassChange;
 
-
+- (void)handleRemoveFromOneClass:(IMTopic *)topic;
 @end

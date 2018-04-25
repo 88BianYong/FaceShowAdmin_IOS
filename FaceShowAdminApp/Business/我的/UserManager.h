@@ -18,6 +18,7 @@ extern NSString * const kUserDidLogoutNotification;
 
 @property (nonatomic, strong) UserModel *userModel;
 @property (nonatomic, assign) BOOL loginStatus;
+@property (nonatomic, assign) BOOL hasUsedBefore;
 - (void)saveData ;
 
 @end

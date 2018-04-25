@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "AppDelegateHelper.h"
 #import "TalkingDataConfig.h"
+#import "IMManager.h"
+#import "IMUserInterface.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AppDelegateHelper *appDelegateHelper;
@@ -27,6 +29,12 @@
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
     
+    if ([UserManager sharedInstance].loginStatus) {
+        [[IMManager sharedInstance]setupWithCurrentMember:[[UserManager sharedInstance].userModel.imInfo.imMember toIMMember] token:[UserManager sharedInstance].userModel.imInfo.imToken];
+        [[IMManager sharedInstance]setupWithSceneID:[UserManager sharedInstance].userModel.currentClass.clazsId];
+        [[IMManager sharedInstance] startConnection];
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.appDelegateHelper = [[AppDelegateHelper alloc]initWithWindow:self.window];
@@ -39,21 +47,34 @@
     WEAK_SELF
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kUserDidLoginNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
+        [[IMManager sharedInstance]setupWithCurrentMember:[[UserManager sharedInstance].userModel.imInfo.imMember toIMMember] token:[UserManager sharedInstance].userModel.imInfo.imToken];
+        [[IMManager sharedInstance]setupWithSceneID:[UserManager sharedInstance].userModel.currentClass.clazsId];
+        [[IMManager sharedInstance] startConnection];
         [self.appDelegateHelper handleLoginSuccess];
     }];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kUserDidLogoutNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
         [self.appDelegateHelper handleLogoutSuccess];
+        [[IMManager sharedInstance] stopConnection];
     }];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kClassDidSelectNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
         [self.appDelegateHelper handleClassChange];
+    }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kIMTopicDidRemoveNotification object:nil] subscribeNext:^(id x) {
+        STRONG_SELF
+        NSNotification *noti = (NSNotification *)x;
+        IMTopic *topic = noti.object;
+        [self.appDelegateHelper handleRemoveFromOneClass:topic];
     }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    if ([UserManager sharedInstance].loginStatus) {
+        [[IMManager sharedInstance]stopConnection];
+    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -67,9 +88,13 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if ([UserManager sharedInstance].loginStatus) {
+        [[IMManager sharedInstance]startConnection];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    [[IMManager sharedInstance] stopConnection];
     [GlobalUtils clearCore];
 }
 

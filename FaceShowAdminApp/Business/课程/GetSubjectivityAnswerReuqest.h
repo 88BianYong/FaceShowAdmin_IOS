@@ -22,7 +22,6 @@
 
 @interface GetSubjectivityAnswerItem : HttpBaseRequestItem
 @property (nonatomic, strong) NSArray<GetSubjectivityAnswer_Element, Optional> *data;
-@property (nonatomic, strong) NSString<Optional> *currentTime;
 @end
 
 @interface GetSubjectivityAnswerReuqest : YXGetRequest

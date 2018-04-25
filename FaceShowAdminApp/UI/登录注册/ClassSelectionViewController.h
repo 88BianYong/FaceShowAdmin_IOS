@@ -10,4 +10,5 @@
 
 @interface ClassSelectionViewController : BaseViewController
 @property (nonatomic, assign) BOOL shouldRefresh;
+- (void)refreshClasses;
 @end

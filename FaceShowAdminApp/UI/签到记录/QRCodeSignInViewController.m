@@ -7,11 +7,11 @@
 //
 
 #import "QRCodeSignInViewController.h"
-#import "GCDTimer.h"
+#import "YXGCDTimer.h"
 
 @interface QRCodeSignInViewController ()
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) GCDTimer *timer;
+@property (nonatomic, strong) YXGCDTimer *timer;
 @end
 
 @implementation QRCodeSignInViewController
@@ -49,7 +49,7 @@
     BOOL repeat = self.data.qrcodeRefreshRate.integerValue>0;
     NSString *urlStr = [NSString stringWithFormat:@"%@?method=interact.signInQrcode&stepId=%@",[ConfigManager sharedInstance].server,self.data.stepId];
     WEAK_SELF
-    self.timer = [[GCDTimer alloc]initWithInterval:self.data.qrcodeRefreshRate.floatValue repeats:repeat triggerBlock:^{
+    self.timer = [[YXGCDTimer alloc]initWithInterval:self.data.qrcodeRefreshRate.floatValue repeats:repeat triggerBlock:^{
         STRONG_SELF
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
         NSString *key = [manager cacheKeyForURL:[NSURL URLWithString:urlStr]];

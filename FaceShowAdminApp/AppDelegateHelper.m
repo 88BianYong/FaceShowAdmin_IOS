@@ -17,6 +17,8 @@
 #import "FSTabBarController.h"
 #import "YXDrawerViewController.h"
 #import "ClassSelectionViewController.h"
+#import "IMUserInterface.h"
+#import "IMTopic.h"
 
 UIKIT_EXTERN BOOL testFrameworkOn;
 
@@ -116,4 +118,43 @@ UIKIT_EXTERN BOOL testFrameworkOn;
     self.window.rootViewController = [self rootViewController];
 }
 
+- (void)handleRemoveFromOneClass:(IMTopic *)topic {
+    NSArray *topicsArray = [IMUserInterface findAllTopics];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.window nyx_showToast:[NSString stringWithFormat:@"已被移出%@",topic.group]duration:2];
+    });
+    if (topicsArray.count == 0) {
+        [UserManager sharedInstance].loginStatus = NO;
+        return;
+    }
+    if ([[self.window.rootViewController nyx_visibleViewController] isKindOfClass:[ClassSelectionViewController class]]) {
+        ClassSelectionViewController *vc = (ClassSelectionViewController *)[self.window.rootViewController nyx_visibleViewController];
+        [vc refreshClasses];
+        return;
+    }
+    
+    BOOL hasGroup = NO;
+    for (IMTopic *topic in topicsArray) {
+        if (topic.type == TopicType_Group) {
+            hasGroup = YES;
+            break;
+        }
+    }
+    if (hasGroup) {
+        [UserManager sharedInstance].hasUsedBefore = NO;
+        ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
+        FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:selectionVC];
+        [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
+    }else {
+        [UserManager sharedInstance].loginStatus = NO;
+    }
+}
+
+- (UIViewController *)lastPresentedViewController {
+    UIViewController *vc = self.window.rootViewController;
+    while (vc.presentedViewController) {
+        vc = vc.presentedViewController;
+    }
+    return vc;
+}
 @end
