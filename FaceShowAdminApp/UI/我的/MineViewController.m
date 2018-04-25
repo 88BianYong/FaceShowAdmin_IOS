@@ -103,7 +103,6 @@
     [changeClassBtn setBackgroundImage:[UIImage yx_createImageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
     [changeClassBtn setBackgroundImage:[UIImage yx_createImageWithColor:[UIColor colorWithHexString:@"ffffff"]] forState:UIControlStateHighlighted];
     [changeClassBtn addTarget:self action:@selector(changeClassBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    changeClassBtn.hidden = [UserManager sharedInstance].userModel.clazsInfos.count < 2;
     [self.view addSubview:changeClassBtn];
     [changeClassBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.classNameLabel.mas_bottom).offset(10.5f);
@@ -189,7 +188,6 @@
 - (void)changeClassBtnAction {
     [TalkingData trackEvent:@"点击切换班级"];
     ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
-    selectionVC.shouldRefresh = YES;
     [self.navigationController pushViewController:selectionVC animated:YES];
 }
 

@@ -10,6 +10,7 @@
 #import "ClassListCell.h"
 #import "ClassListRequest.h"
 #import "EmptyView.h"
+#import "AppDelegateHelper.h"
 
 @interface ClassSelectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
@@ -25,9 +26,7 @@
     [super viewDidLoad];
     [self setupNav];
     [self setupUI];
-    if (self.shouldRefresh) {
-        [self requestClasses];
-    }
+    [self requestClasses];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +38,7 @@
 - (void)setupNav {
     self.title = @"选择班级";
     WEAK_SELF
-    if (!self.shouldRefresh) {
+    if (![UserManager sharedInstance].userModel.currentClass) {
         [self nyx_setupLeftWithTitle:@"退出" action:^{
             STRONG_SELF
             [UserManager sharedInstance].loginStatus = NO;
@@ -65,14 +64,9 @@
 
 #pragma mark - setupUI
 - (void)setupUI {
-    if (isEmpty([UserManager sharedInstance].userModel.clazsInfos)) {
         self.emptyView = [[EmptyView alloc]init];
         self.emptyView.title = @"暂未设置班级，请联系管理员";
-        [self.view addSubview:self.emptyView];
-        [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
-        }];
-    } else {
+
         self.tableview = [[UITableView alloc]init];
         self.tableview.dataSource = self;
         self.tableview.delegate = self;
@@ -84,7 +78,6 @@
             make.edges.mas_equalTo(0);
         }];
         [self.tableview registerClass:[ClassListCell class] forCellReuseIdentifier:@"ClassListCell"];
-    }
 }
 
 #pragma mark - Request
@@ -100,7 +93,16 @@
             [self.view nyx_showToast:error.localizedDescription];
             return;
         }
+        [self.emptyView removeFromSuperview];
+        
         ClassListRequestItem *item = (ClassListRequestItem *)retItem;
+        if (isEmpty(item.data.clazsInfos)) {
+            [self.view addSubview:self.emptyView];
+            [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
+            return;
+        }
         [UserManager sharedInstance].userModel.clazsInfos = item.data.clazsInfos;
         [[UserManager sharedInstance]saveData];
         [self.tableview reloadData];
