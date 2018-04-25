@@ -141,7 +141,7 @@ UIKIT_EXTERN BOOL testFrameworkOn;
         }
     }
     if (hasGroup) {
-        [UserManager sharedInstance].hasUsedBefore = NO;
+        [UserManager sharedInstance].userModel.currentClass = nil;
         ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
         FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:selectionVC];
         [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
