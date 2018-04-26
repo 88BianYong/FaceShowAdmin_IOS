@@ -95,32 +95,6 @@
         make.top.mas_equalTo(topView.mas_bottom);
         make.bottom.mas_equalTo(self.classLabel.mas_top);
     }];
-    
-    UIView *lineView = [[UIView alloc] init];
-    lineView.backgroundColor = [UIColor colorWithHexString:@"96bde4"];
-    [self addSubview:lineView];
-    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_offset(CGSizeMake(1.0f, 13.0f));
-        make.centerX.equalTo(self.mas_centerX);
-        make.top.equalTo(self.classLabel.mas_bottom).offset(18.0f);
-    }];
-    self.studentLabel = [[UILabel alloc] init];
-    self.studentLabel.textColor = [UIColor whiteColor];
-    self.studentLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    self.studentLabel.textAlignment = NSTextAlignmentRight;
-    [self addSubview:self.studentLabel];
-    [self.studentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(lineView.mas_left).offset(-15.0f);
-        make.centerY.equalTo(lineView.mas_centerY);
-    }];
-    self.teacherLabel = [[UILabel alloc] init];
-    self.teacherLabel.textColor = [UIColor whiteColor];
-    self.teacherLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    [self addSubview:self.teacherLabel];
-    [self.teacherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(lineView.mas_right).offset(15.0f);
-        make.centerY.equalTo(lineView.mas_centerY);
-    }];
 }
 #pragma mark - set
 - (void)setClazsInfo:(ClazsGetClazsRequestItem_Data_ClazsInfo *)clazsInfo {
@@ -145,11 +119,6 @@
     NSString *project = _projectInfo.projectName;
     NSAttributedString *projectAttributeStr = [[NSAttributedString alloc] initWithString:project attributes:dic];
     self.projectLabel.attributedText = projectAttributeStr;
-}
-- (void)setClazsStatistic:(ClazsGetClazsRequestItem_Data_ClazsStatisticView *)clazsStatistic {
-    _clazsStatistic = clazsStatistic;
-    self.studentLabel.text = [NSString stringWithFormat:@"班级学员: %@人",_clazsStatistic.studensNum?:@""];
-    self.teacherLabel.text = [NSString stringWithFormat:@"班主任: %@人",_clazsStatistic.masterNum?:@""];
 }
 
 @end

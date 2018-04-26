@@ -13,7 +13,6 @@
 #import "MainPageTopView.h"
 #import "MainPageScrollView.h"
 #import "YXNoFloatingHeaderFooterTableView.h"
-#import "MainPageTableHeaderView.h"
 #import "CourseListCell.h"
 #import "CourseListHeaderView.h"
 #import "ClazsGetClazsRequest.h"
@@ -43,7 +42,6 @@
 
 @property (nonatomic, strong) MainPageTopView *topView;
 @property (nonatomic, strong) MainPageScrollView *scrollView;
-@property (nonatomic, strong) MainPageTableHeaderView *headerView;
 @property (nonatomic, strong) MJRefreshHeaderView *header;
 
 @property (nonatomic, strong) ClazsGetClazsRequest *clazsRefreshRequest;
@@ -84,7 +82,6 @@
         ClazsMemberListRequestItem *item = x.object;
         self.itemData.clazsStatisticView.masterNum = [NSString stringWithFormat:@"%@",@(item.data.masters.count)];
         self.itemData.clazsStatisticView.studensNum = item.data.students.totalElements;
-        self.topView.clazsStatistic = self.itemData.clazsStatisticView;
     }];
 }
 
@@ -93,8 +90,6 @@
     self.topView.hidden = NO;
     self.topView.projectInfo = _itemData.projectInfo;
     self.topView.clazsInfo = _itemData.clazsInfo;
-    self.topView.clazsStatistic = _itemData.clazsStatisticView;
-    self.headerView.clazsStatistic = _itemData.clazsStatisticView;
     self.scrollView.hidden = NO;
     self.tableView.hidden = NO;
     [self.tableView reloadData];
@@ -153,8 +148,7 @@
     [self.tableView registerClass:[MainPageFooterView class] forHeaderFooterViewReuseIdentifier:@"MainPageFooterView"];
     [self.tableView registerClass:[CourseListHeaderView class] forHeaderFooterViewReuseIdentifier:@"CourseListHeaderView"];
     [self.view addSubview:self.tableView];
-    self.headerView = [[MainPageTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 85.0f)];
-    self.tableView.tableHeaderView = self.headerView;
+    self.tableView.tableHeaderView = [[UIView alloc]init];
     self.emptyView = [[EmptyView alloc] init];
     self.emptyView.hidden = YES;
     [self.view addSubview:self.emptyView];
@@ -176,7 +170,8 @@
 - (void)setupLayout {
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(0);
-        make.height.mas_equalTo(135.0f + 40.0f);
+//        make.height.mas_equalTo(135.0f + 40.0f);
+        make.height.mas_equalTo(135.0f);
     }];
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
@@ -240,7 +235,6 @@
         if (!self.topView.hidden) {
             self.topView.projectInfo = item.data.projectInfo;
             self.topView.clazsInfo = item.data.clazsInfo;
-            self.topView.clazsStatistic = item.data.clazsStatisticView;
         }
     }];
 }
