@@ -132,7 +132,6 @@
 
 - (void)refreshClasses {
     [self requestClasses];
-    
 }
 
 @end
