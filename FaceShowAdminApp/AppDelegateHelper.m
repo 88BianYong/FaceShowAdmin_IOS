@@ -91,6 +91,15 @@ UIKIT_EXTERN BOOL testFrameworkOn;
     drawerVC.paneViewController = tabBarController;
     drawerVC.drawerViewController = mineVC;
     drawerVC.drawerWidth = 305*kPhoneWidthRatio;
+    
+    UIView *unreadView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 7 / 8 + 2, 6, 9, 9)];
+    unreadView.layer.cornerRadius = 4.5f;
+    unreadView.backgroundColor = [UIColor colorWithHexString:@"ff0000"];
+    unreadView.hidden = YES;
+    [tabBarController.tabBar addSubview:unreadView];
+    [tabBarController.tabBar bringSubviewToFront:unreadView];
+    chatVC.unreadPromptView = unreadView;
+    
     return drawerVC;
 }
 
