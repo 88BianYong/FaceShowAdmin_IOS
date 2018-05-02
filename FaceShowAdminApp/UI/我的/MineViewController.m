@@ -152,6 +152,17 @@
             make.bottom.mas_equalTo(0);
         }
     }];
+    
+    UILabel *versionLabel = [[UILabel alloc]init];
+    versionLabel.textColor = [UIColor colorWithHexString:@"a4acb8"];
+    versionLabel.text = [NSString stringWithFormat:@"版本号：V%@",[ConfigManager sharedInstance].clientVersion];
+    versionLabel.font = [UIFont systemFontOfSize:14];
+    versionLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:versionLabel];
+    [versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(logoutBtn.mas_top).mas_offset(-20);
+        make.centerX.mas_equalTo(0);
+    }];
 }
 
 - (UIButton *)optionBtnWithTitle:(NSString *)title normalImage:(NSString *)normalImage highlightedImage:(NSString *)highlightedImage {
