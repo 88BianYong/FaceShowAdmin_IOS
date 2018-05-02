@@ -1080,6 +1080,7 @@
 		E91481C420906306001B7EB5 /* IMMessageMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMessageMenuView.h; sourceTree = "<group>"; };
 		E91DC4B2209065DE003D6F31 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
 		E91DC4B3209065DE003D6F31 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		E9384D5120995D5000632169 /* env.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = env.h; sourceTree = "<group>"; };
 		E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkingDataConfig.h; sourceTree = "<group>"; };
 		E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkingDataConfig.m; sourceTree = "<group>"; };
 		E9822FF2208D916F00138D44 /* YXInitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXInitRequest.h; sourceTree = "<group>"; };
@@ -1535,6 +1536,7 @@
 				7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */,
 				7CEFC81F1FA05FBB001D8C84 /* Info.plist */,
 				7CEFC82D1FA063BC001D8C84 /* PrefixHeader.pch */,
+				E9384D5120995D5000632169 /* env.h */,
 				7CEFC93C1FA0866C001D8C84 /* Empty.xib */,
 				7CEFC8201FA05FBB001D8C84 /* main.m */,
 			);
