@@ -20,7 +20,7 @@
 @end
 
 @implementation ImageSelectionHandler
-- (void)pickImageWithMaxCount:(NSInteger)maxCount completeBlock:(void(^)(NSArray *array))completeBlock{
+- (void) pickImageWithMaxCount:(NSInteger)maxCount completeBlock:(void(^)(NSArray *array))completeBlock{
     self.maxCount = maxCount;
     self.completeBlock = completeBlock;
     [self showAlertView];

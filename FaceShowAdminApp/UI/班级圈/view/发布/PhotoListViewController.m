@@ -91,10 +91,10 @@
 }
 
 - (void)enableDoneButton {
-    self.doneButton.layer.borderColor = [UIColor colorWithHexString:@"1da1f2"].CGColor;
-    [self.doneButton setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
+    self.doneButton.layer.borderColor = [UIColor colorWithHexString:@"0068bd"].CGColor;
+    [self.doneButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.doneButton setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateHighlighted];
-    [self.doneButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"1da1f2"]] forState:UIControlStateHighlighted];
+    [self.doneButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateHighlighted];
     self.doneButton.userInteractionEnabled = YES;
 }
 

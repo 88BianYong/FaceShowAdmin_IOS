@@ -84,7 +84,7 @@
     }
     if (photoItem.selected) {
         UILabel *lb = [[UILabel alloc]init];
-        lb.backgroundColor = [UIColor colorWithHexString:@"1da1f2"];
+        lb.backgroundColor = [UIColor colorWithHexString:@"0068bd"];
         lb.text = [NSString stringWithFormat:@"%@",@(photoItem.selectedIndex)];
         lb.textAlignment = NSTextAlignmentCenter;
         lb.font = [UIFont systemFontOfSize:14];
