@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) ClassListRequestItem_clazsInfos *selectedClass;
 @property (nonatomic, strong) ClassListRequest *getClassRequest;
+@property (nonatomic, strong) ClassListRequestItem *requestItem;
 @end
 
 @implementation ClassSelectionViewController
@@ -52,7 +53,7 @@
     [self.navRightBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.navRightBtn setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
     [self.navRightBtn addTarget:self action:@selector(navRightBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.navRightBtn.enabled = !isEmpty(self.selectedClass);
+    self.navRightBtn.enabled = NO;
     [self nyx_setupRightWithCustomView:self.navRightBtn];
 }
 
@@ -103,6 +104,14 @@
             }];
             return;
         }
+        for (ClassListRequestItem_clazsInfos *info in item.data.clazsInfos) {
+            if ([info.clazsId isEqualToString:[UserManager sharedInstance].userModel.currentClass.clazsId]) {
+                self.selectedClass = info;
+                self.navRightBtn.enabled = YES;
+                break;
+            }
+        }
+        self.requestItem = item;
         [UserManager sharedInstance].userModel.clazsInfos = item.data.clazsInfos;
         [[UserManager sharedInstance]saveData];
         [self.tableview reloadData];
@@ -111,7 +120,7 @@
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [UserManager sharedInstance].userModel.clazsInfos.count;
+    return self.requestItem.data.clazsInfos.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,14 +129,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ClassListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassListCell"];
-    ClassListRequestItem_clazsInfos *info = [UserManager sharedInstance].userModel.clazsInfos[indexPath.row];
+    ClassListRequestItem_clazsInfos *info = self.requestItem.data.clazsInfos[indexPath.row];
     cell.classInfo = info;
+    if ([info.clazsId isEqualToString:self.selectedClass.clazsId]) {
+        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }else {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedClass = [UserManager sharedInstance].userModel.clazsInfos[indexPath.row];
-    self.navRightBtn.enabled = !isEmpty(self.selectedClass);
+    self.selectedClass = self.requestItem.data.clazsInfos[indexPath.row];
+    self.navRightBtn.enabled = YES;
 }
 
 - (void)refreshClasses {
