@@ -71,10 +71,8 @@
                 if (userModel.clazsInfos.count == 1) {
                     userModel.currentClass = userModel.clazsInfos.firstObject;
                     [[UserManager sharedInstance] saveData];
-                    [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
-                }else{
-                    [UserManager sharedInstance].loginStatus = YES;
                 }
+                [UserManager sharedInstance].loginStatus = YES;
             }];
         }];
     }];
