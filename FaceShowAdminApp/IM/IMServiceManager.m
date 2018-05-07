@@ -20,7 +20,6 @@
 @interface IMServiceManager()
 @property (nonatomic, strong) Reachability *hostReachability;
 @property (nonatomic, assign) NetworkStatus networkStatus;
-@property (nonatomic, strong) IMTopicUpdateService *topicUpdateService;
 @property (nonatomic, strong) IMOfflineMsgUpdateServiceManager *offlineServiceManager;
 @property (nonatomic, assign) BOOL running;
 @property (nonatomic, strong) NSTimer *reconnectTimer;
@@ -33,7 +32,6 @@
     dispatch_once(&onceToken, ^{
         manager = [[IMServiceManager alloc] init];
         manager.networkStatus = NotReachable;
-        manager.topicUpdateService = [[IMTopicUpdateService alloc]init];
         manager.offlineServiceManager = [[IMOfflineMsgUpdateServiceManager alloc]init];
         manager.running = NO;
     });
@@ -142,7 +140,7 @@
         if (topic.topicChange != dbTopic.topicChange) {
             topic.topicChange = dbTopic.topicChange;
             [[IMDatabaseManager sharedInstance]saveTopic:topic];
-            [self.topicUpdateService addTopic:topic];
+            [[IMTopicUpdateService sharedInstance] addTopic:topic withCompleteBlock:nil];
         }
         // update offline msgs
         IMTopicMessage *lastMsg = [[IMDatabaseManager sharedInstance]findLastSuccessfulMessageInTopic:topic.topicID];

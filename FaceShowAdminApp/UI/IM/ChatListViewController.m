@@ -133,7 +133,7 @@
         STRONG_SELF
         NSNotification *noti = (NSNotification *)x;
         IMTopic *topic = noti.object;
-        if (topic.members.count == 0) {
+        if (topic.members.count == 0 || topic.type == 0) {
             return;
         }
         for (IMTopic *item in self.dataArray) {
