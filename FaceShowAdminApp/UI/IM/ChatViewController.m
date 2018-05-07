@@ -466,6 +466,18 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
     }
 
     if (self.topic && self.topic.type == TopicType_Group) {//有topic的情况下 且是群聊
+        BOOL isContainedMine = NO;
+        for (IMMember *member  in self.topic.members) {
+            if (member.memberID == [IMManager sharedInstance].currentMember.memberID) {
+                isContainedMine = YES;
+                break;
+            }
+        }
+        if (!isContainedMine) {
+            [self.view nyx_showToast:@"您已被移出该班级"];
+            return;
+        }
+        
         BOOL isContainedUser = NO;
         for (IMMember *member  in self.topic.members) {
             if (member.memberID == user.memberID) {

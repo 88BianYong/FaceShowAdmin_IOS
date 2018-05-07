@@ -138,9 +138,6 @@
         }
         for (IMTopic *item in self.dataArray) {
             if ([IMUserInterface isSameTopicWithOneTopic:item anotherTopic:topic]) {
-                NSUInteger index = [self.dataArray indexOfObject:item];
-                [self.dataArray replaceObjectAtIndex:index withObject:topic];
-                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
                 return;
             }
         }
