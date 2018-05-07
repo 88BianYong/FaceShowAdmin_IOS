@@ -61,12 +61,12 @@
         STRONG_SELF
         [self.appDelegateHelper handleClassChange];
     }];
-    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kIMTopicDidRemoveNotification object:nil] subscribeNext:^(id x) {
-        STRONG_SELF
-        NSNotification *noti = (NSNotification *)x;
-        IMTopic *topic = noti.object;
-        [self.appDelegateHelper handleRemoveFromOneClass:topic];
-    }];
+//    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kIMTopicDidRemoveNotification object:nil] subscribeNext:^(id x) {
+//        STRONG_SELF
+//        NSNotification *noti = (NSNotification *)x;
+//        IMTopic *topic = noti.object;
+//        [self.appDelegateHelper handleRemoveFromOneClass:topic];
+//    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
