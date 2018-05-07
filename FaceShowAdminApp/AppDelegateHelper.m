@@ -130,7 +130,7 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 - (void)handleRemoveFromOneClass:(IMTopic *)topic {
     NSArray *topicsArray = [IMUserInterface findAllTopics];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.window nyx_showToast:[NSString stringWithFormat:@"已被移出%@",topic.group]duration:2];
+        [self.window nyx_showToast:[NSString stringWithFormat:@"您管理的班级有调整"] duration:2];
     });
     if (topicsArray.count == 0) {
         [UserManager sharedInstance].loginStatus = NO;
