@@ -83,8 +83,8 @@
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:tempString];
         [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, tempString.length)];
         [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0f] range:NSMakeRange(0, nameString.length + replyString.length + 4)];
-//        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:NSMakeRange(0, nameString.length)];
-//        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:NSMakeRange(nameString.length + 4, replyString.length)];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:NSMakeRange(0, nameString.length)];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:NSMakeRange(nameString.length + 4, replyString.length)];
         self.contentLabel.attributedText = attributedString;
         
     }else {

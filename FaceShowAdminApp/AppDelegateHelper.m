@@ -19,6 +19,7 @@
 #import "IMUserInterface.h"
 #import "IMTopic.h"
 #import "ChatListViewController.h"
+#import "UserPromptsManager.h"
 
 UIKIT_EXTERN BOOL testFrameworkOn;
 
@@ -91,6 +92,14 @@ UIKIT_EXTERN BOOL testFrameworkOn;
     drawerVC.paneViewController = tabBarController;
     drawerVC.drawerViewController = mineVC;
     drawerVC.drawerWidth = 305*kPhoneWidthRatio;
+    
+    UIView *momentNewView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 5 / 8 + 2, 6, 9, 9)];
+    momentNewView.layer.cornerRadius = 4.5f;
+    momentNewView.backgroundColor = [UIColor colorWithHexString:@"ff0000"];
+    momentNewView.hidden = YES;
+    [tabBarController.tabBar addSubview:momentNewView];
+    [tabBarController.tabBar bringSubviewToFront:momentNewView];
+    [UserPromptsManager sharedInstance].momentNewView = momentNewView;
     
     UIView *unreadView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 7 / 8 + 2, 6, 9, 9)];
     unreadView.layer.cornerRadius = 4.5f;

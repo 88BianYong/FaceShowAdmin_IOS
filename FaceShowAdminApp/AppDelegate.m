@@ -11,6 +11,7 @@
 #import "TalkingDataConfig.h"
 #import "IMManager.h"
 #import "IMUserInterface.h"
+#import "UserPromptsManager.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AppDelegateHelper *appDelegateHelper;
@@ -30,6 +31,7 @@
     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
     
     if ([UserManager sharedInstance].loginStatus) {
+        [[UserPromptsManager sharedInstance] resumeHeartbeat];
         [[IMManager sharedInstance]setupWithCurrentMember:[[UserManager sharedInstance].userModel.imInfo.imMember toIMMember] token:[UserManager sharedInstance].userModel.imInfo.imToken];
         [[IMManager sharedInstance]setupWithSceneID:[UserManager sharedInstance].userModel.currentClass.clazsId];
         [[IMManager sharedInstance] startConnection];
@@ -47,6 +49,7 @@
     WEAK_SELF
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kUserDidLoginNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
+        [[UserPromptsManager sharedInstance] resumeHeartbeat];
         [[IMManager sharedInstance]setupWithCurrentMember:[[UserManager sharedInstance].userModel.imInfo.imMember toIMMember] token:[UserManager sharedInstance].userModel.imInfo.imToken];
         [[IMManager sharedInstance]setupWithSceneID:[UserManager sharedInstance].userModel.currentClass.clazsId];
         [[IMManager sharedInstance] startConnection];
@@ -56,6 +59,7 @@
         STRONG_SELF
         [self.appDelegateHelper handleLogoutSuccess];
         [[IMManager sharedInstance] stopConnection];
+        [[UserPromptsManager sharedInstance] suspendHeartbeat];
     }];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kClassDidSelectNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
