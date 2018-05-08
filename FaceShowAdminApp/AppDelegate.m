@@ -61,6 +61,7 @@
         STRONG_SELF
         [self.appDelegateHelper handleClassChange];
     }];
+#warning 因为后端删除班级逻辑问题,现在暂不处理删除班级,待后续重新考虑
 //    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kIMTopicDidRemoveNotification object:nil] subscribeNext:^(id x) {
 //        STRONG_SELF
 //        NSNotification *noti = (NSNotification *)x;
