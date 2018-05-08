@@ -27,19 +27,20 @@
     imtopic.topicID = msg.topicId;
     
     [[IMTopicUpdateService sharedInstance] addTopic:imtopic withCompleteBlock:^(NSArray<IMTopic *> *topics, NSError *error) {
-        for (IMTopic *topic in topics) {
-            BOOL isIn = NO;
-            for (IMMember *member in topic.members) {
-                if (member.memberID == [IMManager sharedInstance].currentMember.memberID) {
-                    isIn = YES;
-                    break;
-                }
-            }
-            if (!isIn) {
-                [[IMConnectionManager sharedInstance]unsubscribeTopic:[IMConfig topicForTopicID:topic.topicID]];
-                [[IMDatabaseManager sharedInstance]clearTopic:topic];
-            }
-        }
+#warning 因为后台删除班级逻辑问题,此处先不处理,待后端逻辑修复后重新恢复.
+//        for (IMTopic *topic in topics) {
+//            BOOL isIn = NO;
+//            for (IMMember *member in topic.members) {
+//                if (member.memberID == [IMManager sharedInstance].currentMember.memberID) {
+//                    isIn = YES;
+//                    break;
+//                }
+//            }
+//            if (!isIn) {
+//                [[IMConnectionManager sharedInstance]unsubscribeTopic:[IMConfig topicForTopicID:topic.topicID]];
+//                [[IMDatabaseManager sharedInstance]clearTopic:topic];
+//            }
+//        }
     }];
 }
 @end
