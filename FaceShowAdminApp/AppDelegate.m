@@ -12,9 +12,11 @@
 #import "IMManager.h"
 #import "IMUserInterface.h"
 #import "UserPromptsManager.h"
+#import <BaiduMapKit/BaiduMapAPI_Map/BMKMapComponent.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<BMKGeneralDelegate>
 @property (nonatomic, strong) AppDelegateHelper *appDelegateHelper;
+@property (nonatomic, strong) BMKMapManager *mapManager;
 @end
 
 @implementation AppDelegate
@@ -26,6 +28,9 @@
     [TalkingData setExceptionReportEnabled:YES];
     [TalkingData setSignalReportEnabled:YES];
     [TalkingData sessionStarted:kTalkingDataAppKey withChannelId:kTalkingDataChannel];
+    // 百度地图
+    [self setupBaiduMap];
+    
     [self registerNotifications];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
@@ -43,6 +48,19 @@
     self.window.rootViewController = [self.appDelegateHelper rootViewController];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)setupBaiduMap {
+    self.mapManager = [[BMKMapManager alloc]init];
+    if ([BMKMapManager setCoordinateTypeUsedInBaiduMapSDK:BMK_COORDTYPE_BD09LL]) {
+        NSLog(@"经纬度类型设置成功");
+    } else {
+        NSLog(@"经纬度类型设置失败");
+    }
+    BOOL ret = [_mapManager start:@"4Bf04BnzjHNH4xgQvONE8c3MNhGfwiBK" generalDelegate:self];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
 }
 
 - (void)registerNotifications {
@@ -103,5 +121,21 @@
     [GlobalUtils clearCore];
 }
 
+#pragma mark - BMKGeneralDelegate
+- (void)onGetNetworkState:(int)iError {
+    if (0 == iError) {
+        NSLog(@"联网成功");
+    } else{
+        NSLog(@"onGetNetworkState %d",iError);
+    }
+}
+
+- (void)onGetPermissionState:(int)iError {
+    if (0 == iError) {
+        NSLog(@"授权成功");
+    } else {
+        NSLog(@"onGetPermissionState %d",iError);
+    }
+}
 
 @end

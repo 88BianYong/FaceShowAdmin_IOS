@@ -62,7 +62,7 @@
             }else {
                inputLabel.textColor = [UIColor colorWithHexString:@"999999"];
             }
-            inputLabel.text = [NSString stringWithFormat:@"%ld",self.textView.text.length];
+            inputLabel.text = [NSString stringWithFormat:@"%@",@(self.textView.text.length)];
         }];
         
         UIView *lineView = [[UIView alloc] init];

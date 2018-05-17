@@ -38,5 +38,7 @@ pod 'Qiniu', '~> 7.0'
 pod 'SDWebImage'
 pod 'Protobuf'
 pod 'MQTTClient'
+pod 'BaiduMapKit'
+
 inhibit_all_warnings!
 end

@@ -199,7 +199,7 @@
         [self.view nyx_showToast:@"删除成功"];
         [self.dataArray removeObjectAtIndex:index];
         NSInteger count = self.commentRequestItem.data.totalElements.integerValue - 1;
-        self.commentRequestItem.data.totalElements = [NSString stringWithFormat:@"%ld",count];
+        self.commentRequestItem.data.totalElements = [NSString stringWithFormat:@"%@",@(count)];
         [self.tableView reloadData];
     }];
 }

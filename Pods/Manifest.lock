@@ -29,6 +29,7 @@ PODS:
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
   - Aspects (1.4.1)
+  - BaiduMapKit (3.4.0)
   - Base64 (1.1.2)
   - CocoaLumberjack (2.4.0):
     - CocoaLumberjack/Default (= 2.4.0)
@@ -63,21 +64,21 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (0.9)
   - MDRadialProgress (1.3.1)
-  - MQTTClient (0.10.1):
-    - MQTTClient/Core (= 0.10.1)
-  - MQTTClient/Core (0.10.1):
+  - MQTTClient (0.9.9):
+    - MQTTClient/Core (= 0.9.9)
+  - MQTTClient/Core (0.9.9):
     - MQTTClient/Manager
     - MQTTClient/Min
-  - MQTTClient/Manager (0.10.1):
+  - MQTTClient/Manager (0.9.9):
     - MQTTClient/Min
-  - MQTTClient/Min (0.10.1)
+  - MQTTClient/Min (0.9.9)
   - MSDynamicsDrawerViewController (1.5.1)
-  - NSData+MD5Digest (1.0.0)
+  - "NSData+MD5Digest (1.0.0)"
   - NSString-Hashes (1.2.1)
   - OpenUDID (1.0.0)
   - PhotoTweaks (1.0.3)
   - pop (1.0.10)
-  - Protobuf (3.5.0)
+  - Protobuf (3.4.0)
   - Qiniu (7.1.8):
     - AFNetworking (~> 3)
     - HappyDNS (~> 0.3)
@@ -100,14 +101,15 @@ PODS:
   - StyledPageControl (1.0)
   - UICKeyChainStore (2.1.1)
   - UIColor-Utilities (1.0.1)
-  - UIDevice+HardwareName (6.0.0)
-  - UITableView+FDTemplateLayoutCell (1.4)
+  - "UIDevice+HardwareName (6.0.0)"
+  - "UITableView+FDTemplateLayoutCell (1.4)"
   - uiview-frame-helpers (0.1.1)
 
 DEPENDENCIES:
   - AJNotificationView (= 0.7)
   - ASIHTTPRequest (= 1.8.2)
   - Aspects (~> 1.4)
+  - BaiduMapKit
   - Base64
   - CocoaLumberjack (~> 2.0)
   - CommonCrypto
@@ -123,7 +125,7 @@ DEPENDENCIES:
   - MDRadialProgress (= 1.3.1)
   - MQTTClient
   - MSDynamicsDrawerViewController (= 1.5.1)
-  - NSData+MD5Digest (= 1.0.0)
+  - "NSData+MD5Digest (= 1.0.0)"
   - NSString-Hashes (= 1.2.1)
   - OpenUDID (= 1.0.0)
   - PhotoTweaks (~> 1.0.3)
@@ -139,9 +141,54 @@ DEPENDENCIES:
   - SocketRocket
   - StyledPageControl (= 1.0)
   - UIColor-Utilities (= 1.0.1)
-  - UIDevice+HardwareName (= 6.0.0)
-  - UITableView+FDTemplateLayoutCell (= 1.4)
+  - "UIDevice+HardwareName (= 6.0.0)"
+  - "UITableView+FDTemplateLayoutCell (= 1.4)"
   - uiview-frame-helpers (~> 0.1.1)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - AJNotificationView
+    - ASIHTTPRequest
+    - Aspects
+    - BaiduMapKit
+    - Base64
+    - CocoaLumberjack
+    - CommonCrypto
+    - DTCoreText
+    - DTFoundation
+    - FCUUID
+    - FileMD5Hash
+    - FLAnimatedImage
+    - HappyDNS
+    - IBActionSheet
+    - JSONModel
+    - MagicalRecord
+    - Masonry
+    - MBProgressHUD
+    - MDRadialProgress
+    - MQTTClient
+    - MSDynamicsDrawerViewController
+    - "NSData+MD5Digest"
+    - NSString-Hashes
+    - OpenUDID
+    - PhotoTweaks
+    - pop
+    - Protobuf
+    - Qiniu
+    - RATreeView
+    - Reachability
+    - RMDateSelectionViewController
+    - SAMTextView
+    - SCRecorder
+    - SDWebImage
+    - SocketRocket
+    - StyledPageControl
+    - UICKeyChainStore
+    - UIColor-Utilities
+    - "UIDevice+HardwareName"
+    - "UITableView+FDTemplateLayoutCell"
+    - uiview-frame-helpers
 
 EXTERNAL SOURCES:
   ReactiveCocoa:
@@ -158,6 +205,7 @@ SPEC CHECKSUMS:
   AJNotificationView: fe9f2e3b806ab71e3705047ed243a283b7155731
   ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  BaiduMapKit: 0a5e5e0b1e3fd8dc5aceb40ab9b89e52e1d13df9
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   CommonCrypto: e18c8416332cca5efe80c197f2a522d471c42626
@@ -173,14 +221,14 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
   MDRadialProgress: 6af31db0315f1b687df825a73481a2a443182402
-  MQTTClient: a0f16ceec50bf80f606c37966c0b7fa8d9c9e739
+  MQTTClient: 5a59e0ebcad95f86ad8fc04dd4b819a944e58e0c
   MSDynamicsDrawerViewController: 2874df90f5e9453dc7d4e32f8038b50615d4baa7
-  NSData+MD5Digest: 0743d53874455e2bdf49f70e7f815b0b963a355f
+  "NSData+MD5Digest": 0743d53874455e2bdf49f70e7f815b0b963a355f
   NSString-Hashes: d72496f282a27fad01381363b2761ced259064af
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   PhotoTweaks: 17a448f451872fd9c3cc65ec5ca125ccd1b48d11
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
-  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   Qiniu: 2f1b9d13904b6a7608a66a2d02c5b7b24575622a
   RATreeView: 453b8203163c415f4c43da1e20addcf1b2379e06
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -193,10 +241,10 @@ SPEC CHECKSUMS:
   StyledPageControl: b49f33cb65b99370a78a490fac127b1ca6472fd0
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
   UIColor-Utilities: 6746a54dcdb3bc012dd7aeaeea5588ae2100beb2
-  UIDevice+HardwareName: 6b98c1855f304ec8fc7a1ad72fddaed8523b75ad
-  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
+  "UIDevice+HardwareName": 6b98c1855f304ec8fc7a1ad72fddaed8523b75ad
+  "UITableView+FDTemplateLayoutCell": 234e1582bcc4e18461af91155123bb96538ed030
   uiview-frame-helpers: c3feade603cca5c805dd857e64692c7e7e01d5ec
 
-PODFILE CHECKSUM: 780868d539c7248da54e5c35714727c3246a36dd
+PODFILE CHECKSUM: 293be49d2fbbd3e64541692de5d62b6464a43032
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.0
