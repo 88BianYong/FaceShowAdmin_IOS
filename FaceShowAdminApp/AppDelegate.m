@@ -57,7 +57,7 @@
     } else {
         NSLog(@"经纬度类型设置失败");
     }
-    BOOL ret = [_mapManager start:@"4Bf04BnzjHNH4xgQvONE8c3MNhGfwiBK" generalDelegate:self];
+    BOOL ret = [_mapManager start:@"CXHRPRKoQ6Pwj0nCXet7MEhGV63KF7MY" generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
     }
