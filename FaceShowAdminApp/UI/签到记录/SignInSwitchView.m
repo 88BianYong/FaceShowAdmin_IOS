@@ -26,14 +26,24 @@
 
 - (void)setupUI {
     self.backgroundColor = [UIColor whiteColor];
+    
+    UIImageView *iconView = [[UIImageView alloc]init];
+    iconView.image = [UIImage imageNamed:@"二维码"];
+    [self addSubview:iconView];
+    [iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15);
+        make.centerY.mas_equalTo(0);
+    }];
+    
     self.titleLabel = [[UILabel alloc]init];
     self.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
+        make.left.mas_equalTo(iconView.mas_right).offset(4);
         make.centerY.mas_equalTo(0);
     }];
+    
     self.switchView = [[UISwitch alloc]init];
     self.switchView.tintColor = [UIColor colorWithHexString:@"ebeff2"];
     self.switchView.onTintColor = [UIColor colorWithHexString:@"2379d2"];

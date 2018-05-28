@@ -367,6 +367,8 @@
 		E91481CD20906307001B7EB5 /* IMSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91481BF20906306001B7EB5 /* IMSlideView.m */; };
 		E91481CE20906307001B7EB5 /* IMImageSendingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91481C220906306001B7EB5 /* IMImageSendingProgressView.m */; };
 		E91DC4B4209065DE003D6F31 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E91DC4B2209065DE003D6F31 /* UIImage+GIF.m */; };
+		E932CD7D20BBD67E009F5BC6 /* SignInTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932CD7C20BBD67E009F5BC6 /* SignInTypeView.m */; };
+		E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */; };
 		E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */; };
 		E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF3208D916F00138D44 /* YXInitRequest.m */; };
 		E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF4208D916F00138D44 /* UpgradeConfig.m */; };
@@ -1080,6 +1082,10 @@
 		E91481C420906306001B7EB5 /* IMMessageMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMessageMenuView.h; sourceTree = "<group>"; };
 		E91DC4B2209065DE003D6F31 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
 		E91DC4B3209065DE003D6F31 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		E932CD7B20BBD67E009F5BC6 /* SignInTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInTypeView.h; sourceTree = "<group>"; };
+		E932CD7C20BBD67E009F5BC6 /* SignInTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInTypeView.m; sourceTree = "<group>"; };
+		E932CD7E20BBEE39009F5BC6 /* SignInLocationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInLocationView.h; sourceTree = "<group>"; };
+		E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInLocationView.m; sourceTree = "<group>"; };
 		E9384D5120995D5000632169 /* env.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = env.h; sourceTree = "<group>"; };
 		E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkingDataConfig.h; sourceTree = "<group>"; };
 		E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkingDataConfig.m; sourceTree = "<group>"; };
@@ -2040,6 +2046,10 @@
 				7C672AF41FAAC1D1004D93DF /* UserSignedCell.m */,
 				7C672AF61FAACC9F004D93DF /* SignInDelayView.h */,
 				7C672AF71FAACC9F004D93DF /* SignInDelayView.m */,
+				E932CD7B20BBD67E009F5BC6 /* SignInTypeView.h */,
+				E932CD7C20BBD67E009F5BC6 /* SignInTypeView.m */,
+				E932CD7E20BBEE39009F5BC6 /* SignInLocationView.h */,
+				E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2618,6 +2628,7 @@
 				E9148126209058DE001B7EB5 /* IMConnectionManager.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */,
+				E932CD7D20BBD67E009F5BC6 /* SignInTypeView.m in Sources */,
 				436CB2211FB15B9100A31585 /* ContactsListCell.m in Sources */,
 				921860701FA9B0160018D982 /* NoticeListRequest.m in Sources */,
 				4359B9631FB2A44B007D7F30 /* UserSignInPercentRequest.m in Sources */,
@@ -2720,6 +2731,7 @@
 				921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */,
 				7C672B4A1FB2A353004D93DF /* GetCourseRequest.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
+				E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */,
 				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
 				436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */,
