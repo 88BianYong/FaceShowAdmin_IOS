@@ -153,19 +153,23 @@
     WEAK_SELF
     [headerView setQrBlock:^{
         STRONG_SELF
-        [TalkingData trackEvent:@"查看签到二维码"];
-        QRCodeSignInViewController *vc = [[QRCodeSignInViewController alloc]init];
-        vc.data = self.data;
-        WEAK_SELF
-        [vc setBackBlock:^{
-            STRONG_SELF
-            [self refreshDetail];
-            UnsignedMemberListViewController *unsignedVC = (UnsignedMemberListViewController *)self.tabControllers.firstObject;
-            [unsignedVC firstPageFetch];
-            SignedMemberListViewController *signedVC = (SignedMemberListViewController *)self.tabControllers.lastObject;
-            [signedVC firstPageFetch];
-        }];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([self.data.signInType isEqualToString:@"扫码签到"]) {
+            [TalkingData trackEvent:@"查看签到二维码"];
+            QRCodeSignInViewController *vc = [[QRCodeSignInViewController alloc]init];
+            vc.data = self.data;
+            WEAK_SELF
+            [vc setBackBlock:^{
+                STRONG_SELF
+                [self refreshDetail];
+                UnsignedMemberListViewController *unsignedVC = (UnsignedMemberListViewController *)self.tabControllers.firstObject;
+                [unsignedVC firstPageFetch];
+                SignedMemberListViewController *signedVC = (SignedMemberListViewController *)self.tabControllers.lastObject;
+                [signedVC firstPageFetch];
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else {
+            DDLogDebug(@"Jump To Map");
+        }
     }];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {

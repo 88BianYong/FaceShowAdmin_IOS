@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *countLabel;
 @property (nonatomic, strong) UILabel *rateLabel;
+@property (nonatomic, strong) UIButton *signInfoButton;
 @end
 
 @implementation SignInDetailHeaderView
@@ -52,11 +53,16 @@
         make.right.mas_equalTo(self.titleLabel.mas_right);
         make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(5);
     }];
-    UIButton *qrButton = [[UIButton alloc]init];
-    [qrButton setImage:[UIImage imageNamed:@"二维码多边形"] forState:UIControlStateNormal];
-    [qrButton addTarget:self action:@selector(qrBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:qrButton];
-    [qrButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *signInfoButton = [[UIButton alloc]init];
+    signInfoButton.titleLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
+    signInfoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14.f];
+    signInfoButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    signInfoButton.titleLabel.numberOfLines = 1;
+    signInfoButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    [signInfoButton addTarget:self action:@selector(qrBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    self.signInfoButton = signInfoButton;
+    [self addSubview:signInfoButton];
+    [signInfoButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(-60);
         make.centerX.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(46, 46));
@@ -110,7 +116,21 @@
     NSString *endTime = endArr.lastObject;
     endTime = [endTime substringToIndex:5];
     self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@",startDate,startTime,endTime];
-    
+#warning 签到类型 自己先定义 等server确定后替换
+    if ([data.signInType isEqualToString:@"扫码签到"]) {
+        [self.signInfoButton setImage:[UIImage imageNamed:@"二维码多边形"] forState:UIControlStateNormal];
+        [self.signInfoButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(-60);
+            make.centerX.mas_equalTo(0);
+            make.size.mas_equalTo(CGSizeMake(46, 46));
+        }];
+    }else {
+        [self.signInfoButton setTitle:[NSString stringWithFormat:@"地点:%@",data.signInPlace] forState:UIControlStateNormal];
+        [self.signInfoButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(-72);
+            make.centerX.mas_equalTo(0);
+        }];
+    }
     NSString *count = [NSString stringWithFormat:@"%@/%@",data.signInUserNum,data.totalUserNum];
     NSString *complete = [NSString stringWithFormat:@"签到人数：%@",count];
     NSRange range = [complete rangeOfString:count];
