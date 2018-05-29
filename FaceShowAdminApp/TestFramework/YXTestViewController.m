@@ -7,16 +7,21 @@
 //
 
 #import "YXTestViewController.h"
+#import "SignInPlaceViewController.h"
 
 @interface YXTestViewController ()
 @end
 
 @implementation YXTestViewController
 - (void)viewDidLoad {
-    self.devTestActions = @[];
+    self.devTestActions = @[@"testSigninPlace"];
     [super viewDidLoad];
 }
 
+- (void)testSigninPlace {
+    SignInPlaceViewController *vc = [[SignInPlaceViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end
 

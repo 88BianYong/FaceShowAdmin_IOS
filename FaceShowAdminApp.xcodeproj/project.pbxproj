@@ -93,6 +93,11 @@
 		7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B881FB53966004D93DF /* GetCourseCommentTitleRequest.m */; };
 		7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B8B1FB53966004D93DF /* CourseCommentDataFetcher.m */; };
 		7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B921FB55307004D93DF /* DeleteCommentRequest.m */; };
+		7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */; };
+		7C84301820BBD3DF00A05C14 /* SignInPlaceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301720BBD3DF00A05C14 /* SignInPlaceHeaderView.m */; };
+		7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301E20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m */; };
+		7C84302220BCEA7400A05C14 /* PlaceSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84302120BCEA7400A05C14 /* PlaceSearchResultCell.m */; };
+		7C84302520BD083800A05C14 /* PlaceSearchEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84302420BD083800A05C14 /* PlaceSearchEmptyView.m */; };
 		7CDF1121208D76C00044DD95 /* UserPromptsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF111D208D76C00044DD95 /* UserPromptsManager.m */; };
 		7CDF1122208D76C00044DD95 /* GetUserPromptsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF1120208D76C00044DD95 /* GetUserPromptsRequest.m */; };
 		7CDF1135208D7AA40044DD95 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF1134208D7AA30044DD95 /* UserModel.m */; };
@@ -546,6 +551,17 @@
 		7C672B8C1FB53967004D93DF /* GetCourseCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseCommentRequest.h; sourceTree = "<group>"; };
 		7C672B911FB55307004D93DF /* DeleteCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteCommentRequest.h; sourceTree = "<group>"; };
 		7C672B921FB55307004D93DF /* DeleteCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCommentRequest.m; sourceTree = "<group>"; };
+		7C84301320BBD2E000A05C14 /* SignInPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceViewController.h; sourceTree = "<group>"; };
+		7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInPlaceViewController.m; sourceTree = "<group>"; };
+		7C84301620BBD3DF00A05C14 /* SignInPlaceHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceHeaderView.h; sourceTree = "<group>"; };
+		7C84301720BBD3DF00A05C14 /* SignInPlaceHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInPlaceHeaderView.m; sourceTree = "<group>"; };
+		7C84301C20BBFA6300A05C14 /* SignInPlaceHeaderViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceHeaderViewDelegate.h; sourceTree = "<group>"; };
+		7C84301D20BCE8BF00A05C14 /* SignInPlaceSearchResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceSearchResultView.h; sourceTree = "<group>"; };
+		7C84301E20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInPlaceSearchResultView.m; sourceTree = "<group>"; };
+		7C84302020BCEA7400A05C14 /* PlaceSearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceSearchResultCell.h; sourceTree = "<group>"; };
+		7C84302120BCEA7400A05C14 /* PlaceSearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceSearchResultCell.m; sourceTree = "<group>"; };
+		7C84302320BD083800A05C14 /* PlaceSearchEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceSearchEmptyView.h; sourceTree = "<group>"; };
+		7C84302420BD083800A05C14 /* PlaceSearchEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceSearchEmptyView.m; sourceTree = "<group>"; };
 		7CDF111D208D76C00044DD95 /* UserPromptsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPromptsManager.m; sourceTree = "<group>"; };
 		7CDF111E208D76C00044DD95 /* GetUserPromptsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserPromptsRequest.h; sourceTree = "<group>"; };
 		7CDF111F208D76C00044DD95 /* UserPromptsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPromptsManager.h; sourceTree = "<group>"; };
@@ -2021,6 +2037,8 @@
 				7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */,
 				7C672AFF1FAAF387004D93DF /* QRCodeSignInViewController.h */,
 				7C672B001FAAF387004D93DF /* QRCodeSignInViewController.m */,
+				7C84301320BBD2E000A05C14 /* SignInPlaceViewController.h */,
+				7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */,
 			);
 			path = "签到记录";
 			sourceTree = "<group>";
@@ -2050,6 +2068,15 @@
 				E932CD7C20BBD67E009F5BC6 /* SignInTypeView.m */,
 				E932CD7E20BBEE39009F5BC6 /* SignInLocationView.h */,
 				E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */,
+				7C84301620BBD3DF00A05C14 /* SignInPlaceHeaderView.h */,
+				7C84301720BBD3DF00A05C14 /* SignInPlaceHeaderView.m */,
+				7C84301C20BBFA6300A05C14 /* SignInPlaceHeaderViewDelegate.h */,
+				7C84301D20BCE8BF00A05C14 /* SignInPlaceSearchResultView.h */,
+				7C84301E20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m */,
+				7C84302020BCEA7400A05C14 /* PlaceSearchResultCell.h */,
+				7C84302120BCEA7400A05C14 /* PlaceSearchResultCell.m */,
+				7C84302320BD083800A05C14 /* PlaceSearchEmptyView.h */,
+				7C84302420BD083800A05C14 /* PlaceSearchEmptyView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2671,10 +2698,12 @@
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CDF129D20903B4E0044DD95 /* MJRefreshFooterView.m in Sources */,
 				7CDF123920902EE60044DD95 /* ClassMomentFloatingView.m in Sources */,
+				7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */,
 				E91481152090589E001B7EB5 /* IMManager.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */,
 				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
+				7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
 				E91481622090595A001B7EB5 /* GetTopicsRequest.m in Sources */,
 				7CDF128720902FBF0044DD95 /* ClassMomentUserMomentMsgRequest.m in Sources */,
@@ -2864,11 +2893,14 @@
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
 				E91481AC209062C4001B7EB5 /* IMMessageBaseCell.m in Sources */,
 				9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */,
+				7C84302220BCEA7400A05C14 /* PlaceSearchResultCell.m in Sources */,
 				E98CA170209063CF00BCE36D /* ChatListViewController.m in Sources */,
 				7CEFC8C01FA06627001D8C84 /* CloneCategory.m in Sources */,
+				7C84301820BBD3DF00A05C14 /* SignInPlaceHeaderView.m in Sources */,
 				7C672B2D1FB15431004D93DF /* GetVoteRequest.m in Sources */,
 				7C672AF81FAACC9F004D93DF /* SignInDelayView.m in Sources */,
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
+				7C84302520BD083800A05C14 /* PlaceSearchEmptyView.m in Sources */,
 				436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */,
 				7CDF124B20902F200044DD95 /* ClassMomentDetailViewController.m in Sources */,
 				E914814520905935001B7EB5 /* IMRequestManager.m in Sources */,

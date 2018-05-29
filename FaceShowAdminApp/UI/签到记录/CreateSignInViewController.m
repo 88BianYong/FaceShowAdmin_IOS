@@ -15,6 +15,7 @@
 #import "CreateSignInRequest.h"
 #import "SignInTypeView.h"
 #import "SignInLocationView.h"
+#import "SignInPlaceViewController.h"
 
 @interface CreateSignInViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) SAMTextView *titleView;
@@ -222,7 +223,7 @@
     [self.locatonView setSelectionBlock:^{
         STRONG_SELF
         DDLogDebug(@"Location selection");
-        self.locatonView.title = @"选择的地址";
+        [self showSignInPlaceSelectionVC];
         [self refreshSubmitButton];
     }];
     [signInContainerView addSubview:self.locatonView];
@@ -340,6 +341,16 @@
             view.contentView.frame = CGRectMake(0, SCREEN_HEIGHT-250, SCREEN_WIDTH, 250);
         }];
     }];
+}
+
+- (void)showSignInPlaceSelectionVC {
+    SignInPlaceViewController *vc = [[SignInPlaceViewController alloc]init];
+    WEAK_SELF
+    [vc setSelectBlock:^(BMKPoiInfo *info) {
+        STRONG_SELF
+        self.locatonView.title = info.name;
+    }];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)submit {
