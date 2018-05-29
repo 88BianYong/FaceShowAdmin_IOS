@@ -53,18 +53,18 @@
     cell.signInBtnBlock = ^{
         STRONG_SELF
         [TalkingData trackEvent:@"个人签到记录补签"];
-        [self showAlertWithStepId:data.stepId];
+        [self showAlertWithData:data];
     };
     return cell;
 }
 
-- (void)showAlertWithStepId:(NSString *)stepId {
+- (void)showAlertWithData:(SignInListRequestItem_signIns *)data {
     SignInDelayView *settingView = [[SignInDelayView alloc]init];
     settingView.name = self.userName;
     WEAK_SELF
     [settingView setConfirmBlock:^(NSString *result){
         STRONG_SELF
-        [self replenishSignInWithStepId:stepId time:result];
+        [self replenishSignInWithData:data time:result];
         [self.alertView hide];
     }];
     self.alertView = [[AlertView alloc]init];
@@ -78,12 +78,15 @@
     }];
 }
 
-- (void)replenishSignInWithStepId:(NSString *)stepId time:(NSString *)time {
+- (void)replenishSignInWithData:(SignInListRequestItem_signIns *)data time:(NSString *)time {
     [self.request stopRequest];
     self.request = [[ReplenishSignInRequest alloc]init];
-    self.request.stepId = stepId;
+    self.request.stepId = data.stepId;
     self.request.userId = self.userId;
     self.request.signInTime = time;
+    if ([data.signInType isEqualToString:@"位置签到"]) {
+        self.request.signInPlace = data.signInPlace;
+    }
     [self.parentViewController.view nyx_startLoading];
     WEAK_SELF
     [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

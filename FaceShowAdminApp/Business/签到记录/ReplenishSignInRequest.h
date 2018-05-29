@@ -12,4 +12,6 @@
 @property (nonatomic, strong) NSString<Optional> *stepId;
 @property (nonatomic, strong) NSString<Optional> *userId; 
 @property (nonatomic, strong) NSString<Optional> *signInTime;
+#warning 需要server给
+@property (nonatomic, strong) NSString<Optional> *signInPlace;
 @end

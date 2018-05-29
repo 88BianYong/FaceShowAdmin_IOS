@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSString<Optional> *elementId;
 @property (nonatomic, strong) NSString<Optional> *userName;
 @property (nonatomic, strong) NSString<Optional> *userId;
+#warning 签到类型 自己先定义 等server确定后替换
+@property (nonatomic, strong) NSString<Optional> *signInType;
+@property (nonatomic, strong) NSString<Optional> *signInPlace;
 @end
 
 @protocol UserSignInListRequestItem_callbacks<NSObject>
