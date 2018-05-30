@@ -112,6 +112,9 @@
 #pragma mark - SignInPlaceHeaderViewDelegate
 - (void)searchFieldDidBeginEditting {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    if (self.maskView.superview) {
+        return;
+    }
     self.maskView = [[UIView alloc]init];
     self.maskView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.5];
     [self.view addSubview:self.maskView];

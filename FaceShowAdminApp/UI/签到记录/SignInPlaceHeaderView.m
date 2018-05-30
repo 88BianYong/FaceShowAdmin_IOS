@@ -36,6 +36,7 @@ static CGFloat const placeHolderFont = 14.0;
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
+        [self setupObserver];
     }
     return self;
 }
@@ -69,6 +70,15 @@ static CGFloat const placeHolderFont = 14.0;
     self.locService = [[BMKLocationService alloc]init];
     self.cityPoiSearch = [[BMKPoiSearch alloc]init];
     self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
+}
+
+- (void)setupObserver {
+    WEAK_SELF
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:UIKeyboardDidChangeFrameNotification object:nil]subscribeNext:^(id x) {
+        STRONG_SELF
+        UIButton *cancelButton = [self.searchBar valueForKey:@"cancelButton"];
+        cancelButton.enabled = YES;
+    }];
 }
 
 - (CGFloat)placeholderWidth {
