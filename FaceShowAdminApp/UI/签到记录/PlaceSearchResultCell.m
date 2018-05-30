@@ -84,4 +84,15 @@
     self.selectImageView.hidden = !isCurrent;
 }
 
+- (void)setKeyword:(NSString *)keyword {
+    _keyword = keyword;
+    NSString *pattern = [NSString stringWithFormat:@"[%@]*",keyword];
+    NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    NSArray *array = [reg matchesInString:self.titleLabel.text options:NSMatchingReportCompletion range:NSMakeRange(0, self.titleLabel.text.length)];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:self.titleLabel.text];
+    for (NSTextCheckingResult *result in array) {
+        [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:result.range];
+    }
+    self.titleLabel.attributedText = attrStr;
+}
 @end

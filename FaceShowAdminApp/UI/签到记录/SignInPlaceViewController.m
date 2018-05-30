@@ -147,7 +147,7 @@
 }
 - (void)searchResultUpdated:(NSArray<BMKPoiInfo *> *)results withKey:(NSString *)key {
     if (results.count > 0) {
-        [self.resultView updateWithResults:results];
+        [self.resultView updateWithResults:results withKey:key];
         self.resultView.hidden = NO;
         self.emptyView.hidden = YES;
     }else if (key.length > 0){

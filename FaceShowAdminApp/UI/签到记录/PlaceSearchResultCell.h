@@ -12,5 +12,6 @@
 @interface PlaceSearchResultCell : UITableViewCell
 @property (nonatomic, strong) BMKPoiInfo *poiInfo;
 @property (nonatomic, assign) BOOL isCurrent;
+@property (nonatomic, strong) NSString *keyword;
 @end
 

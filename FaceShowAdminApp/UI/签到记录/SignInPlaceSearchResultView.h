@@ -11,6 +11,6 @@
 
 @interface SignInPlaceSearchResultView : UIView
 @property (nonatomic, strong) void(^selectBlock) (BMKPoiInfo *info);
-- (void)updateWithResults:(NSArray<BMKPoiInfo *> *)results;
+- (void)updateWithResults:(NSArray<BMKPoiInfo *> *)results withKey:(NSString *)key;
 - (void)updateWithBottomHeight:(CGFloat)height;
 @end

@@ -44,6 +44,8 @@
     [self.searchBar setImage:[UIImage imageNamed:@"搜索"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     [self.searchBar setImage:[UIImage imageNamed:@"删除按钮2正常态"] forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
     UITextField *field = [self.searchBar valueForKey:@"searchField"];
+    field.font = [UIFont systemFontOfSize:14];
+    field.textColor = [UIColor colorWithHexString:@"333333"];
     [field setValue:[UIColor colorWithHexString:@"cccccc"] forKeyPath:@"_placeholderLabel.textColor"];
     [field setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     [self addSubview:self.searchBar];

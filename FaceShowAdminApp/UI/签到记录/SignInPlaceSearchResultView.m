@@ -11,6 +11,7 @@
 @interface SignInPlaceSearchResultView()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray<BMKPoiInfo *> * results;
+@property (nonatomic, strong) NSString *key;
 @end
 
 @implementation SignInPlaceSearchResultView
@@ -37,8 +38,9 @@
     [self.tableView registerClass:[PlaceSearchResultCell class] forCellReuseIdentifier:@"PlaceSearchResultCell"];
 }
 
-- (void)updateWithResults:(NSArray<BMKPoiInfo *> *)results {
+- (void)updateWithResults:(NSArray<BMKPoiInfo *> *)results withKey:(NSString *)key{
     self.results = results;
+    self.key = key;
     [self.tableView reloadData];
 }
 
@@ -55,6 +57,7 @@
     PlaceSearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaceSearchResultCell"];
     cell.poiInfo = self.results[indexPath.row];
     cell.isCurrent = NO;
+    cell.keyword = self.key;
     return cell;
 }
 #pragma mark - UITableViewDelegate
