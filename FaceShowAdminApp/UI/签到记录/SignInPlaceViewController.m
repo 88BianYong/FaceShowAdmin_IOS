@@ -43,23 +43,29 @@
 }
 
 - (void)setupUI {
+    self.headerView = [[SignInPlaceHeaderView alloc]init];
+    self.headerView.delegate = self;
+    [self.view addSubview:self.headerView];
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        if (@available(iOS 11.0, *)) {
+            make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        } else {
+            make.top.mas_equalTo(0);
+        }
+        make.height.mas_equalTo(44+200*kPhoneWidthRatio);
+    }];
+    
     self.tableView = [[UITableView alloc]init];
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.tableView.rowHeight = 50;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.headerView = [[SignInPlaceHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44+200*kPhoneWidthRatio)];
-    self.headerView.delegate = self;
-    self.tableView.tableHeaderView = self.headerView;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
-        if (@available(iOS 11.0, *)) {
-            make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
-        } else {
-            make.top.mas_equalTo(0);
-        }
+        make.top.mas_equalTo(self.headerView.mas_bottom);
     }];
     [self.tableView registerClass:[PlaceSearchResultCell class] forCellReuseIdentifier:@"PlaceSearchResultCell"];
 }
@@ -110,7 +116,7 @@
     self.maskView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.5];
     [self.view addSubview:self.maskView];
     [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.tableView.mas_top).mas_offset(44);
+        make.top.mas_equalTo(self.headerView.mas_top).mas_offset(44);
         make.left.right.bottom.mas_equalTo(0);
     }];
     self.resultView = [[SignInPlaceSearchResultView alloc]init];
