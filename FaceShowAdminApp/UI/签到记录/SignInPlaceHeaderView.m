@@ -19,6 +19,7 @@ static CGFloat const placeHolderFont = 14.0;
 @property (nonatomic, strong) BMKLocationService *locService;
 @property (nonatomic, strong) BMKPoiSearch *cityPoiSearch;
 @property (nonatomic, strong) BMKGeoCodeSearch* geocodesearch;
+@property (nonatomic, strong) BMKPoiInfo *nearbyPoi;
 @property (nonatomic, assign) BOOL locComplete;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *city;
@@ -137,6 +138,7 @@ static CGFloat const placeHolderFont = 14.0;
 }
 
 - (void)updateWithPoiInfo:(BMKPoiInfo *)poi {
+    self.nearbyPoi = poi;
     [_mapView setCenterCoordinate:poi.pt animated:YES];
     [self nearbySearchWithLocation:poi.pt];
 }
@@ -243,7 +245,11 @@ static CGFloat const placeHolderFont = 14.0;
 -(void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
     if (error == BMK_OPEN_NO_ERROR) {
-        [self.delegate nearbySearchUpdated:result.poiList];
+        NSMutableArray *array = [NSMutableArray arrayWithArray:result.poiList];
+        if (self.nearbyPoi) {
+            [array insertObject:self.nearbyPoi atIndex:0];
+        }
+        [self.delegate nearbySearchUpdated:array];
     }
 }
 @end
