@@ -277,6 +277,25 @@
         [self refreshSubmitButton];
     }];
     
+    UIView *signPrmoptBgView = [[UIView alloc]init];
+    signPrmoptBgView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    [self.contentView addSubview:signPrmoptBgView];
+    [signPrmoptBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(signInContainerView.mas_bottom);
+        make.height.mas_equalTo(45.f);
+    }];
+    UILabel *signPromptLabel = [[UILabel alloc]init];
+    signPromptLabel.backgroundColor = [UIColor clearColor];
+    signPromptLabel.textColor = [UIColor colorWithHexString:@"999999"];
+    signPromptLabel.font = [UIFont boldSystemFontOfSize:14.f];
+    signPromptLabel.text = @"签到成功提示语";
+    [signPrmoptBgView addSubview:signPromptLabel];
+    [signPromptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15.f);
+        make.right.top.bottom.mas_equalTo(0);
+    }];
+    
     self.promptView = [[SAMTextView alloc]init];
     self.promptView.backgroundColor = [UIColor whiteColor];
     self.promptView.font = [UIFont systemFontOfSize:14];
@@ -289,7 +308,7 @@
     self.promptView.scrollEnabled = NO;
     [self.contentView addSubview:self.promptView];
     [self.promptView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(signInContainerView.mas_bottom).mas_offset(5);
+        make.top.mas_equalTo(signPrmoptBgView.mas_bottom);
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(100);
         make.bottom.mas_equalTo(-40);
