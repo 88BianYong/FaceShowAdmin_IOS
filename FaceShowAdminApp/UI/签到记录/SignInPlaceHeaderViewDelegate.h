@@ -14,4 +14,5 @@
 - (void)searchFieldDidEndEditting;
 - (void)nearbySearchUpdated:(NSArray<BMKPoiInfo *> *)results;
 - (void)searchResultUpdated:(NSArray<BMKPoiInfo *> *)results withKey:(NSString *)key;
+- (void)nextPageSearchResultUpdated:(NSArray<BMKPoiInfo *> *)results;
 @end

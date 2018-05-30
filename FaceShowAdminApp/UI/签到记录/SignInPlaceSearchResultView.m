@@ -7,14 +7,20 @@
 //
 
 #import "SignInPlaceSearchResultView.h"
+#import "MJRefresh.h"
 
 @interface SignInPlaceSearchResultView()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray<BMKPoiInfo *> * results;
+@property (nonatomic, strong) NSMutableArray<BMKPoiInfo *> * results;
 @property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) MJRefreshFooterView *footer;
 @end
 
 @implementation SignInPlaceSearchResultView
+
+- (void)dealloc {
+    [_footer free];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -36,16 +42,33 @@
         make.edges.mas_equalTo(0);
     }];
     [self.tableView registerClass:[PlaceSearchResultCell class] forCellReuseIdentifier:@"PlaceSearchResultCell"];
+    
+    WEAK_SELF
+    _footer = [MJRefreshFooterView footer];
+    _footer.scrollView = self.tableView;
+    _footer.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        STRONG_SELF
+        BLOCK_EXEC(self.searchMoreBlock);
+    };
+    _footer.alpha = 0;
 }
 
 - (void)updateWithResults:(NSArray<BMKPoiInfo *> *)results withKey:(NSString *)key{
-    self.results = results;
+    self.results = [NSMutableArray arrayWithArray:results];
     self.key = key;
     [self.tableView reloadData];
+    self.footer.alpha = results.count==20? 1:0;
 }
 
 - (void)updateWithBottomHeight:(CGFloat)height {
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, height, 0);
+}
+
+- (void)updateWithNextPageResults:(NSArray<BMKPoiInfo *> *)results {
+    [self.footer endRefreshing];
+    [self.results addObjectsFromArray:results];
+    [self.tableView reloadData];
+    self.footer.alpha = results.count==20? 1:0;
 }
 
 #pragma mark - UITableViewDataSource

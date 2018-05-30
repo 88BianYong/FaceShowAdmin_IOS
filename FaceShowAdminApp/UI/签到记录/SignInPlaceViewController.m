@@ -120,6 +120,10 @@
         [self.headerView updateWithPoiInfo:info];
         [self.headerView endSearching];
     }];
+    [self.resultView setSearchMoreBlock:^{
+        STRONG_SELF
+        [self.headerView searchNextPage];
+    }];
     [self.view addSubview:self.resultView];
     [self.resultView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.maskView.mas_top);
@@ -157,5 +161,8 @@
         self.resultView.hidden = YES;
         self.emptyView.hidden = YES;
     }
+}
+- (void)nextPageSearchResultUpdated:(NSArray<BMKPoiInfo *> *)results {
+    [self.resultView updateWithNextPageResults:results];
 }
 @end

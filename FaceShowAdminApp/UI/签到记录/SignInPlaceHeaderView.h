@@ -17,4 +17,6 @@
 - (void)updateWithPoiInfo:(BMKPoiInfo *)poi;
 - (void)endSearching;
 - (void)moveToPoi:(BMKPoiInfo *)poi;
+
+- (void)searchNextPage;
 @end

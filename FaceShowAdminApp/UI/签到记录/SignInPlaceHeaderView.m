@@ -19,6 +19,8 @@
 @property (nonatomic, strong) BMKGeoCodeSearch* geocodesearch;
 @property (nonatomic, assign) BOOL locComplete;
 @property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, assign) int pageIndex;
 @end
 
 @implementation SignInPlaceHeaderView
@@ -90,8 +92,9 @@
 
 - (void)searchWithKey:(NSString *)key inCity:(NSString *)city{
     self.key = key;
+    self.city = city;
     BMKCitySearchOption *citySearchOption = [[BMKCitySearchOption alloc]init];
-    citySearchOption.pageIndex = 0;
+    citySearchOption.pageIndex = self.pageIndex;
     citySearchOption.pageCapacity = 20;
     citySearchOption.city= city;
     citySearchOption.keyword = key;
@@ -119,6 +122,11 @@
 - (void)moveToPoi:(BMKPoiInfo *)poi {
     [_mapView setCenterCoordinate:poi.pt animated:YES];
 }
+
+- (void)searchNextPage {
+    self.pageIndex++;
+    [self searchWithKey:self.key inCity:self.city];
+}
 #pragma mark - UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.searchBar.showsCancelButton = YES;
@@ -137,6 +145,7 @@
     if (searchText.length == 0) {
         [self.delegate searchResultUpdated:nil withKey:nil];
     }else {
+        self.pageIndex = 0;
         [self searchWithKey:searchText inCity:nil];
     }
 }
@@ -145,6 +154,7 @@
     if (searchBar.text.length == 0) {
         [self.delegate searchResultUpdated:nil withKey:nil];
     }else {
+        self.pageIndex = 0;
         [self searchWithKey:searchBar.text inCity:nil];
     }
 }
@@ -186,9 +196,14 @@
 {
     if (error == BMK_SEARCH_NO_ERROR) {
         if (result.cityList.count == 0) {
-            [self.delegate searchResultUpdated:result.poiInfoList withKey:self.key];
+            if (self.pageIndex == 0) {
+                [self.delegate searchResultUpdated:result.poiInfoList withKey:self.key];
+            }else {
+                [self.delegate nextPageSearchResultUpdated:result.poiInfoList];
+            }
         }else {
             BMKCityListInfo *city = result.cityList.firstObject;
+            self.pageIndex = 0;
             [self searchWithKey:self.key inCity:city.city];
         }
     }
