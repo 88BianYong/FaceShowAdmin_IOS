@@ -10,7 +10,7 @@
 
 @interface SignInTypeView()
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UIButton *iconButton;
 @property (nonatomic, copy) ChooseSignTypeBlock block;
 @end
 
@@ -28,7 +28,7 @@
 - (void)setupUI {
     self.backgroundColor = [UIColor whiteColor];
     self.titleLabel = [[UILabel alloc]init];
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -36,32 +36,38 @@
         make.centerY.mas_equalTo(0);
     }];
     
-    self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.button setImage:[UIImage imageNamed:@"未点击"] forState:UIControlStateNormal];
-    [self.button setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateSelected];
-    [self addSubview:self.button];
-    WEAK_SELF
-    [[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        STRONG_SELF
-        if (self.button.isSelected) {
-            return;
-        }
-        self.button.selected = YES;
-        BLOCK_EXEC(self.block);
-    }];
-    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.iconButton setImage:[UIImage imageNamed:@"未点击"] forState:UIControlStateNormal];
+    [self.iconButton setImage:[UIImage imageNamed:@"点击"] forState:UIControlStateSelected];
+    [self addSubview:self.iconButton];
+    [self.iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-5);
         make.centerY.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
+    
+    UIButton *contentButton = [[UIButton alloc]init];
+     WEAK_SELF
+    [[contentButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        STRONG_SELF
+        if (self.iconButton.isSelected) {
+            return;
+        }
+        self.iconButton.selected = YES;
+        BLOCK_EXEC(self.block);
+    }];
+    [self addSubview:contentButton];
+    [contentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
 }
 
 - (BOOL)isSelected {
-    return self.button.isSelected;
+    return self.iconButton.isSelected;
 }
 
 - (void)setIsSelected:(BOOL)isSelected {
-    self.button.selected = isSelected;
+    self.iconButton.selected = isSelected;
 }
 
 - (void)setTitle:(NSString *)title {

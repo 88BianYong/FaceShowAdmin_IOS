@@ -11,6 +11,8 @@
 #import <BaiduMapKit/BaiduMapAPI_Location/BMKLocationComponent.h>
 #import <BaiduMapKit/BaiduMapAPI_Search/BMKSearchComponent.h>
 
+static CGFloat const placeHolderFont = 14.0;
+
 @interface SignInPlaceHeaderView ()<UISearchBarDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKPoiSearchDelegate,BMKGeoCodeSearchDelegate>
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) BMKMapView *mapView;
@@ -55,6 +57,8 @@
         make.left.top.right.mas_equalTo(0);
         make.height.mas_equalTo(44);
     }];
+    [self.searchBar setPositionAdjustment:UIOffsetMake(SCREEN_WIDTH/2 - [self placeholderWidth], 0) forSearchBarIcon:UISearchBarIconSearch];
+    
     self.mapView = [[BMKMapView alloc]init];
     [self addSubview:self.mapView];
     [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,6 +69,12 @@
     self.locService = [[BMKLocationService alloc]init];
     self.cityPoiSearch = [[BMKPoiSearch alloc]init];
     self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
+}
+
+- (CGFloat)placeholderWidth {
+    CGSize size = [self.searchBar.placeholder boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:placeHolderFont]} context:nil].size;
+    CGFloat placeholderWidth = size.width;
+    return placeholderWidth;
 }
 
 -(void)viewWillAppear {
@@ -116,6 +126,7 @@
     [self.searchBar resignFirstResponder];
     self.searchBar.text = nil;
     [self.searchBar setShowsCancelButton:NO animated:YES];
+    [self.searchBar setPositionAdjustment:UIOffsetMake(SCREEN_WIDTH/2 - [self placeholderWidth], 0) forSearchBarIcon:UISearchBarIconSearch];
     SAFE_CALL(self.delegate, searchFieldDidEndEditting);
 }
 
@@ -134,6 +145,7 @@
     [cancelButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     cancelButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [searchBar setPositionAdjustment:UIOffsetZero forSearchBarIcon:UISearchBarIconSearch];
     SAFE_CALL(self.delegate, searchFieldDidBeginEditting);
 }
 
