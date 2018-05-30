@@ -70,6 +70,15 @@ static CGFloat const placeHolderFont = 14.0;
     self.locService = [[BMKLocationService alloc]init];
     self.cityPoiSearch = [[BMKPoiSearch alloc]init];
     self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
+    
+    UIView *coverLine = [[UIView alloc]init];
+    coverLine.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    [self addSubview:coverLine];
+    [coverLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.searchBar.mas_bottom);
+        make.height.mas_equalTo(1);
+    }];
 }
 
 - (void)setupObserver {
