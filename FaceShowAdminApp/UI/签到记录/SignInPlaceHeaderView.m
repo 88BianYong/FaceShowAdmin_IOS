@@ -51,6 +51,7 @@ static CGFloat const placeHolderFont = 14.0;
     [self.searchBar setImage:[UIImage imageNamed:@"搜索"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     [self.searchBar setImage:[UIImage imageNamed:@"删除按钮2正常态"] forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
     UITextField *field = [self.searchBar valueForKey:@"searchField"];
+    field.tintColor = [UIColor clearColor];
     field.font = [UIFont systemFontOfSize:14];
     field.textColor = [UIColor colorWithHexString:@"333333"];
     [field setValue:[UIColor colorWithHexString:@"cccccc"] forKeyPath:@"_placeholderLabel.textColor"];
@@ -164,15 +165,23 @@ static CGFloat const placeHolderFont = 14.0;
 }
 #pragma mark - UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    SAFE_CALL(self.delegate, searchFieldDidBeginEditting);
     self.searchBar.showsCancelButton = YES;
     UIButton *cancelButton = [searchBar valueForKey:@"cancelButton"];
     [cancelButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     cancelButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [searchBar setPositionAdjustment:UIOffsetZero forSearchBarIcon:UISearchBarIconSearch];
-    SAFE_CALL(self.delegate, searchFieldDidBeginEditting);
+    [self performSelector:@selector(showCursor) withObject:nil afterDelay:.5];
 }
-
+- (void)showCursor {
+    UITextField *field = [self.searchBar valueForKey:@"searchField"];
+    field.tintColor = [UIColor colorWithRed:0 green:0.478431 blue:1 alpha:1];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    UITextField *field = [self.searchBar valueForKey:@"searchField"];
+    field.tintColor = [UIColor clearColor];
+}
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self endSearching];
 }
