@@ -64,8 +64,13 @@
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
         make.top.mas_equalTo(self.headerView.mas_bottom);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.mas_equalTo(0);
+        }
     }];
     [self.tableView registerClass:[PlaceSearchResultCell class] forCellReuseIdentifier:@"PlaceSearchResultCell"];
 }
