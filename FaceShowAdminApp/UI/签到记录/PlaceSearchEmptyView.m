@@ -20,6 +20,7 @@
 }
 
 - (void)setupUI {
+    self.backgroundColor = [UIColor whiteColor];
     UILabel *emptyLabel = [[UILabel alloc]init];
     emptyLabel.text = @"无结果";
     emptyLabel.font = [UIFont boldSystemFontOfSize:18];
