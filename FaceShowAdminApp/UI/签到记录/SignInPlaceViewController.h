@@ -10,5 +10,6 @@
 #import <BaiduMapKit/BaiduMapAPI_Search/BMKSearchComponent.h>
 
 @interface SignInPlaceViewController : BaseViewController
+@property (nonatomic, strong) BMKPoiInfo *nearbyPoi;
 @property (nonatomic, strong) void(^selectBlock)(BMKPoiInfo *info);
 @end

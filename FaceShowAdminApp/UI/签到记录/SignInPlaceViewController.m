@@ -44,6 +44,7 @@
 
 - (void)setupUI {
     self.headerView = [[SignInPlaceHeaderView alloc]init];
+    self.headerView.nearbyPoi = self.nearbyPoi;
     self.headerView.delegate = self;
     [self.view addSubview:self.headerView];
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {

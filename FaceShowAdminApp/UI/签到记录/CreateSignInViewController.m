@@ -30,6 +30,7 @@
 @property (nonatomic, strong) UIButton *submitButton;
 @property (nonatomic, strong) AlertView *alertView;
 @property (nonatomic, strong) CreateSignInRequest *createSignInRequest;
+@property (nonatomic, strong) BMKPoiInfo *selectedPoi;
 @end
 
 @implementation CreateSignInViewController
@@ -364,10 +365,12 @@
 
 - (void)showSignInPlaceSelectionVC {
     SignInPlaceViewController *vc = [[SignInPlaceViewController alloc]init];
+    vc.nearbyPoi = self.selectedPoi;
     WEAK_SELF
     [vc setSelectBlock:^(BMKPoiInfo *info) {
         STRONG_SELF
         self.locatonView.title = info.name;
+        self.selectedPoi = info;
     }];
     [self.navigationController pushViewController:vc animated:YES];
 }

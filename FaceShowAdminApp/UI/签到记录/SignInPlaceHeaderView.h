@@ -10,6 +10,7 @@
 #import "SignInPlaceHeaderViewDelegate.h"
 
 @interface SignInPlaceHeaderView : UIView
+@property (nonatomic, strong) BMKPoiInfo *nearbyPoi;
 @property (nonatomic, weak) id<SignInPlaceHeaderViewDelegate> delegate;
 -(void)viewWillAppear;
 -(void)viewWillDisappear;

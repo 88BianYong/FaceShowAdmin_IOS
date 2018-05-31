@@ -19,7 +19,6 @@ static CGFloat const placeHolderFont = 14.0;
 @property (nonatomic, strong) BMKLocationService *locService;
 @property (nonatomic, strong) BMKPoiSearch *cityPoiSearch;
 @property (nonatomic, strong) BMKGeoCodeSearch* geocodesearch;
-@property (nonatomic, strong) BMKPoiInfo *nearbyPoi;
 @property (nonatomic, assign) BOOL locComplete;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *city;
@@ -109,6 +108,16 @@ static CGFloat const placeHolderFont = 14.0;
         [_locService startUserLocationService];
         _mapView.showsUserLocation = NO;//先关闭显示的定位图层
         _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
+        if (self.nearbyPoi) {
+            BMKCoordinateRegion region ;//表示范围的结构体
+            region.center = self.nearbyPoi.pt;//中心点
+            region.span.latitudeDelta = 0.01;//经度范围（设置为0.1表示显示范围为0.2的纬度范围）
+            region.span.longitudeDelta = 0.01;//纬度范围
+            [_mapView setRegion:region animated:YES];
+            [_mapView setCenterCoordinate:region.center animated:YES];
+            _mapView.zoomLevel = 16;
+            [self nearbySearchWithLocation:self.nearbyPoi.pt];
+        }
         self.locComplete = YES;
     }
 }
@@ -206,6 +215,7 @@ static CGFloat const placeHolderFont = 14.0;
     lockedScreenAnnotation.screenPointToLock = CGPointMake(mapView.frame.size.width/2, mapView.frame.size.height/2);
     [_mapView addAnnotation:lockedScreenAnnotation];
 }
+
 #pragma mark - BMKLocationServiceDelegate
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
 {
@@ -214,18 +224,20 @@ static CGFloat const placeHolderFont = 14.0;
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
+    if (!self.nearbyPoi) {
+        BMKCoordinateRegion region ;//表示范围的结构体
+        region.center = userLocation.location.coordinate;//中心点
+        region.span.latitudeDelta = 0.01;//经度范围（设置为0.1表示显示范围为0.2的纬度范围）
+        region.span.longitudeDelta = 0.01;//纬度范围
+        [_mapView setRegion:region animated:YES];
+        [_mapView setCenterCoordinate:region.center animated:YES];
+        [self nearbySearchWithLocation:userLocation.location.coordinate];
+    }
     [_mapView updateLocationData:userLocation];
-    BMKCoordinateRegion region ;//表示范围的结构体
-    region.center = userLocation.location.coordinate;//中心点
-    region.span.latitudeDelta = 0.05;//经度范围（设置为0.1表示显示范围为0.2的纬度范围）
-    region.span.longitudeDelta = 0.05;//纬度范围
-    [_mapView setRegion:region animated:YES];
-    [_mapView setCenterCoordinate:region.center animated:YES];
     _mapView.showsUserLocation = YES;
     [_locService stopUserLocationService];
-    
-    [self nearbySearchWithLocation:userLocation.location.coordinate];
 }
+
 - (void)didFailToLocateUserWithError:(NSError *)error {
     [_locService stopUserLocationService];
 }
