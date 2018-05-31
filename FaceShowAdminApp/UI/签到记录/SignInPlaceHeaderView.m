@@ -24,6 +24,7 @@ static CGFloat const placeHolderFont = 14.0;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *city;
 @property (nonatomic, assign) int pageIndex;
+@property (nonatomic, strong) NSString *curCity;
 @end
 
 @implementation SignInPlaceHeaderView
@@ -107,7 +108,6 @@ static CGFloat const placeHolderFont = 14.0;
         [_locService startUserLocationService];
         _mapView.showsUserLocation = NO;//先关闭显示的定位图层
         _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
-        _mapView.showsUserLocation = YES;//显示定位图层
         self.locComplete = YES;
     }
 }
@@ -128,7 +128,10 @@ static CGFloat const placeHolderFont = 14.0;
     citySearchOption.pageCapacity = 20;
     citySearchOption.city= city;
     citySearchOption.keyword = key;
-    [_cityPoiSearch poiSearchInCity:citySearchOption];
+    BOOL success = [_cityPoiSearch poiSearchInCity:citySearchOption];
+    if (!success) {
+        [self.delegate searchResultUpdated:nil withKey:key];
+    }
 }
 
 - (void)nearbySearchWithLocation:(CLLocationCoordinate2D)location {
@@ -175,21 +178,13 @@ static CGFloat const placeHolderFont = 14.0;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if (searchText.length == 0) {
-        [self.delegate searchResultUpdated:nil withKey:nil];
-    }else {
-        self.pageIndex = 0;
-        [self searchWithKey:searchText inCity:nil];
-    }
+    self.pageIndex = 0;
+    [self searchWithKey:searchText inCity:nil];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    if (searchBar.text.length == 0) {
-        [self.delegate searchResultUpdated:nil withKey:nil];
-    }else {
-        self.pageIndex = 0;
-        [self searchWithKey:searchBar.text inCity:nil];
-    }
+    self.pageIndex = 0;
+    [self searchWithKey:searchBar.text inCity:nil];
 }
 
 #pragma mark - BMKMapViewDelegate
@@ -217,6 +212,7 @@ static CGFloat const placeHolderFont = 14.0;
     region.span.longitudeDelta = 0.05;//纬度范围
     [_mapView setRegion:region animated:YES];
     [_mapView setCenterCoordinate:region.center animated:YES];
+    _mapView.showsUserLocation = YES;
     [_locService stopUserLocationService];
     
     [self nearbySearchWithLocation:userLocation.location.coordinate];
@@ -234,18 +230,30 @@ static CGFloat const placeHolderFont = 14.0;
             }else {
                 [self.delegate nextPageSearchResultUpdated:result.poiInfoList];
             }
-        }else {
-            BMKCityListInfo *city = result.cityList.firstObject;
+        }else if (self.curCity && !self.city) {
             self.pageIndex = 0;
-            [self searchWithKey:self.key inCity:city.city];
+            [self searchWithKey:self.key inCity:self.curCity];
+        }else {
+            [self.delegate searchResultUpdated:nil withKey:self.key];
         }
+    }else {
+        [self.delegate searchResultUpdated:nil withKey:self.key];
     }
 }
 #pragma mark - BMKGeoCodeSearchDelegate
 -(void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
     if (error == BMK_OPEN_NO_ERROR) {
+        if (!self.nearbyPoi) {
+            self.curCity = result.addressDetail.city;
+        }
         NSMutableArray *array = [NSMutableArray arrayWithArray:result.poiList];
+        if (self.nearbyPoi) {
+            [array insertObject:self.nearbyPoi atIndex:0];
+        }
+        [self.delegate nearbySearchUpdated:array];
+    }else {
+        NSMutableArray *array = [NSMutableArray array];
         if (self.nearbyPoi) {
             [array insertObject:self.nearbyPoi atIndex:0];
         }
