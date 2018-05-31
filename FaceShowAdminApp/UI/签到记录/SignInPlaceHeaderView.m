@@ -19,6 +19,7 @@ static CGFloat const placeHolderFont = 14.0;
 @property (nonatomic, strong) BMKLocationService *locService;
 @property (nonatomic, strong) BMKPoiSearch *cityPoiSearch;
 @property (nonatomic, strong) BMKGeoCodeSearch* geocodesearch;
+@property (nonatomic, strong) BMKGeoCodeSearch* userLocationCodesearch;
 @property (nonatomic, assign) BOOL locComplete;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *city;
@@ -31,6 +32,7 @@ static CGFloat const placeHolderFont = 14.0;
     self.mapView = nil;
     self.cityPoiSearch = nil;
     self.geocodesearch = nil;
+    self.userLocationCodesearch = nil;
 }
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -72,6 +74,7 @@ static CGFloat const placeHolderFont = 14.0;
     self.locService = [[BMKLocationService alloc]init];
     self.cityPoiSearch = [[BMKPoiSearch alloc]init];
     self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
+    self.userLocationCodesearch = [[BMKGeoCodeSearch alloc]init];
     
     UIView *coverLine = [[UIView alloc]init];
     coverLine.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
@@ -104,6 +107,7 @@ static CGFloat const placeHolderFont = 14.0;
     _locService.delegate = self;
     _cityPoiSearch.delegate = self;
     _geocodesearch.delegate = self;
+    _userLocationCodesearch.delegate = self;
     if (!self.locComplete) {
         [_locService startUserLocationService];
         _mapView.showsUserLocation = NO;//先关闭显示的定位图层
@@ -128,6 +132,7 @@ static CGFloat const placeHolderFont = 14.0;
     _locService.delegate = nil;
     _cityPoiSearch.delegate = nil;
     _geocodesearch.delegate = nil;
+    _userLocationCodesearch.delegate = nil;
 }
 
 - (void)searchWithKey:(NSString *)key inCity:(NSString *)city{
@@ -148,6 +153,12 @@ static CGFloat const placeHolderFont = 14.0;
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
     reverseGeocodeSearchOption.reverseGeoPoint = location;
     [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+}
+
+- (void)userLocationSearchWithLocation:(CLLocationCoordinate2D)location {
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = location;
+    [_userLocationCodesearch reverseGeoCode:reverseGeocodeSearchOption];
 }
 
 - (void)updateWithPoiInfo:(BMKPoiInfo *)poi {
@@ -236,6 +247,8 @@ static CGFloat const placeHolderFont = 14.0;
     [_mapView updateLocationData:userLocation];
     _mapView.showsUserLocation = YES;
     [_locService stopUserLocationService];
+    
+    [self userLocationSearchWithLocation:userLocation.location.coordinate];
 }
 
 - (void)didFailToLocateUserWithError:(NSError *)error {
@@ -264,21 +277,24 @@ static CGFloat const placeHolderFont = 14.0;
 #pragma mark - BMKGeoCodeSearchDelegate
 -(void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
-    if (error == BMK_OPEN_NO_ERROR) {
-        if (!self.nearbyPoi) {
+    if (searcher == self.userLocationCodesearch) {
+        if (error == BMK_OPEN_NO_ERROR) {
             self.curCity = result.addressDetail.city;
         }
-        NSMutableArray *array = [NSMutableArray arrayWithArray:result.poiList];
-        if (self.nearbyPoi) {
-            [array insertObject:self.nearbyPoi atIndex:0];
+    }else if (searcher == self.geocodesearch) {
+        if (error == BMK_OPEN_NO_ERROR) {
+            NSMutableArray *array = [NSMutableArray arrayWithArray:result.poiList];
+            if (self.nearbyPoi) {
+                [array insertObject:self.nearbyPoi atIndex:0];
+            }
+            [self.delegate nearbySearchUpdated:array];
+        }else {
+            NSMutableArray *array = [NSMutableArray array];
+            if (self.nearbyPoi) {
+                [array insertObject:self.nearbyPoi atIndex:0];
+            }
+            [self.delegate nearbySearchUpdated:array];
         }
-        [self.delegate nearbySearchUpdated:array];
-    }else {
-        NSMutableArray *array = [NSMutableArray array];
-        if (self.nearbyPoi) {
-            [array insertObject:self.nearbyPoi atIndex:0];
-        }
-        [self.delegate nearbySearchUpdated:array];
     }
 }
 @end
