@@ -246,6 +246,9 @@ static CGFloat const placeHolderFont = 14.0;
     }
     [_mapView updateLocationData:userLocation];
     _mapView.showsUserLocation = YES;
+    BMKLocationViewDisplayParam *param = [[BMKLocationViewDisplayParam alloc]init];
+    param.isAccuracyCircleShow = NO;
+    [_mapView updateLocationViewWithParam:param];
     [_locService stopUserLocationService];
     
     [self userLocationSearchWithLocation:userLocation.location.coordinate];
