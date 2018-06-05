@@ -225,7 +225,6 @@
         STRONG_SELF
         DDLogDebug(@"Location selection");
         [self showSignInPlaceSelectionVC];
-        [self refreshSubmitButton];
     }];
     [signInContainerView addSubview:self.locatonView];
     [self.locatonView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -371,6 +370,7 @@
         STRONG_SELF
         self.locatonView.title = info.name;
         self.selectedPoi = info;
+        [self refreshSubmitButton];
     }];
     [self.navigationController pushViewController:vc animated:YES];
 }
