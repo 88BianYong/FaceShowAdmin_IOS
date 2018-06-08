@@ -79,6 +79,7 @@
         make.size.mas_equalTo(CGSizeMake(250*kPhoneWidthRatio, 40));
     }];
     self.passwordView = [[PasswordInputView alloc]init];
+    self.passwordView.inputView.textField.tintColor = [UIColor whiteColor];
     [self.passwordView setTextChangeBlock:^{
         STRONG_SELF
         [self refreshLoginButton];
@@ -90,6 +91,7 @@
         make.size.mas_equalTo(CGSizeMake(250*kPhoneWidthRatio, 40));
     }];
     self.accountView = [[AccountInputView alloc]init];
+    self.accountView.inputView.textField.tintColor = [UIColor whiteColor];
     [self.accountView setTextChangeBlock:^{
         STRONG_SELF
         //        if (self.accountView.text.length>16) {
