@@ -314,47 +314,8 @@
 		92E886A21FB3FCCF0006A08E /* ScheduleUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A11FB3FCCF0006A08E /* ScheduleUpdateRequest.m */; };
 		92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A41FB3FCF10006A08E /* ScheduleCreateRequest.m */; };
 		92E886A81FB3FD000006A08E /* ScheduleDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E886A71FB3FD000006A08E /* ScheduleDeleteRequest.m */; };
-		E91481142090589E001B7EB5 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E914810E2090589D001B7EB5 /* IMConfig.m */; };
-		E91481152090589E001B7EB5 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E914810F2090589D001B7EB5 /* IMManager.m */; };
 		E91481162090589E001B7EB5 /* 研修宝‘‘聊聊’’实现方案.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E91481102090589D001B7EB5 /* 研修宝‘‘聊聊’’实现方案.pdf */; };
 		E91481172090589E001B7EB5 /* 研修宝“聊聊”集成文档v1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E91481112090589D001B7EB5 /* 研修宝“聊聊”集成文档v1.0.pdf */; };
-		E9148120209058BD001B7EB5 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E914811A209058BD001B7EB5 /* IMTopic.m */; };
-		E9148121209058BD001B7EB5 /* IMUserInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = E914811B209058BD001B7EB5 /* IMUserInterface.m */; };
-		E9148122209058BD001B7EB5 /* IMMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E914811E209058BD001B7EB5 /* IMMember.m */; };
-		E9148123209058BD001B7EB5 /* IMTopicMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E914811F209058BD001B7EB5 /* IMTopicMessage.m */; };
-		E9148126209058DE001B7EB5 /* IMConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148124209058DE001B7EB5 /* IMConnectionManager.m */; };
-		E914812F209058FB001B7EB5 /* ImMqtt.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148127209058FA001B7EB5 /* ImMqtt.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E9148130209058FB001B7EB5 /* MqttMsg.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148129209058FA001B7EB5 /* MqttMsg.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E9148131209058FB001B7EB5 /* TopicMsg.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E914812A209058FB001B7EB5 /* TopicMsg.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E9148132209058FB001B7EB5 /* TopicGet.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E914812E209058FB001B7EB5 /* TopicGet.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E914814220905935001B7EB5 /* IMImageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E914813720905933001B7EB5 /* IMImageMessage.m */; };
-		E914814320905935001B7EB5 /* IMImageMessageSender.m in Sources */ = {isa = PBXBuildFile; fileRef = E914813920905934001B7EB5 /* IMImageMessageSender.m */; };
-		E914814420905935001B7EB5 /* IMHistoryFetchRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = E914813B20905934001B7EB5 /* IMHistoryFetchRecord.m */; };
-		E914814520905935001B7EB5 /* IMRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E914813C20905934001B7EB5 /* IMRequestManager.m */; };
-		E914814620905935001B7EB5 /* IMHistoryMessageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E914813D20905934001B7EB5 /* IMHistoryMessageFetcher.m */; };
-		E914814720905935001B7EB5 /* IMTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E914813E20905934001B7EB5 /* IMTextMessage.m */; };
-		E914814820905935001B7EB5 /* IMTextMessageSender.m in Sources */ = {isa = PBXBuildFile; fileRef = E914814020905935001B7EB5 /* IMTextMessageSender.m */; };
-		E914815B2090595A001B7EB5 /* GetTopicMsgsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E914814920905958001B7EB5 /* GetTopicMsgsRequest.m */; };
-		E914815C2090595A001B7EB5 /* GetMemberTopicsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E914814B20905958001B7EB5 /* GetMemberTopicsRequest.m */; };
-		E914815D2090595A001B7EB5 /* CreateTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E914814C20905958001B7EB5 /* CreateTopicRequest.m */; };
-		E914815E2090595A001B7EB5 /* TopicData.m in Sources */ = {isa = PBXBuildFile; fileRef = E914814E20905958001B7EB5 /* TopicData.m */; };
-		E914815F2090595A001B7EB5 /* SaveTextMsgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E914815120905959001B7EB5 /* SaveTextMsgRequest.m */; };
-		E91481602090595A001B7EB5 /* TopicMsgData.m in Sources */ = {isa = PBXBuildFile; fileRef = E914815220905959001B7EB5 /* TopicMsgData.m */; };
-		E91481612090595A001B7EB5 /* SaveImageMsgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E914815620905959001B7EB5 /* SaveImageMsgRequest.m */; };
-		E91481622090595A001B7EB5 /* GetTopicsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E91481592090595A001B7EB5 /* GetTopicsRequest.m */; };
-		E91481632090595A001B7EB5 /* MqttServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E914815A2090595A001B7EB5 /* MqttServerRequest.m */; };
-		E914816E20905978001B7EB5 /* IMNewMessageEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E914816420905976001B7EB5 /* IMNewMessageEventHandler.m */; };
-		E914816F20905978001B7EB5 /* IMEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E914816720905977001B7EB5 /* IMEventHandler.m */; };
-		E914817020905978001B7EB5 /* IMTopicChangeEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E914816A20905977001B7EB5 /* IMTopicChangeEventHandler.m */; };
-		E914817120905978001B7EB5 /* IMEventHandlerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E914816B20905977001B7EB5 /* IMEventHandlerFactory.m */; };
-		E914817220905978001B7EB5 /* IMNewTopicEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E914816C20905977001B7EB5 /* IMNewTopicEventHandler.m */; };
-		E914817B209059A0001B7EB5 /* IMOfflineMsgUpdateService.m in Sources */ = {isa = PBXBuildFile; fileRef = E91481752090599F001B7EB5 /* IMOfflineMsgUpdateService.m */; };
-		E914817C209059A0001B7EB5 /* IMOfflineMsgUpdateServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148177209059A0001B7EB5 /* IMOfflineMsgUpdateServiceManager.m */; };
-		E914817D209059A0001B7EB5 /* IMServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148178209059A0001B7EB5 /* IMServiceManager.m */; };
-		E914817E209059A0001B7EB5 /* IMTopicUpdateService.m in Sources */ = {isa = PBXBuildFile; fileRef = E914817A209059A0001B7EB5 /* IMTopicUpdateService.m */; };
-		E9148183209059D2001B7EB5 /* IMTopicOfflineMsgFetchRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148180209059D1001B7EB5 /* IMTopicOfflineMsgFetchRecord.m */; };
-		E9148184209059D2001B7EB5 /* IMDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148181209059D1001B7EB5 /* IMDatabaseManager.m */; };
-		E9148187209059F7001B7EB5 /* IM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9148185209059F7001B7EB5 /* IM.xcdatamodeld */; };
 		E914818A20905FC1001B7EB5 /* YXGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E914818920905FC1001B7EB5 /* YXGCDTimer.m */; };
 		E914818E20906203001B7EB5 /* IMTimeHandleManger.m in Sources */ = {isa = PBXBuildFile; fileRef = E914818D20906203001B7EB5 /* IMTimeHandleManger.m */; };
 		E9148198209062A8001B7EB5 /* IMChatViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9148197209062A8001B7EB5 /* IMChatViewModel.m */; };
@@ -379,6 +340,45 @@
 		E91DC4B4209065DE003D6F31 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E91DC4B2209065DE003D6F31 /* UIImage+GIF.m */; };
 		E932CD7D20BBD67E009F5BC6 /* SignInTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932CD7C20BBD67E009F5BC6 /* SignInTypeView.m */; };
 		E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */; };
+		E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD820CA1D3000D7DDA2 /* IMConfig.m */; };
+		E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD920CA1D3100D7DDA2 /* IMManager.m */; };
+		E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */; };
+		E9540BE720CA1D6F00D7DDA2 /* IMUserInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE120CA1D6E00D7DDA2 /* IMUserInterface.m */; };
+		E9540BE820CA1D6F00D7DDA2 /* IMMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE420CA1D6F00D7DDA2 /* IMMember.m */; };
+		E9540BE920CA1D6F00D7DDA2 /* IMTopicMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE520CA1D6F00D7DDA2 /* IMTopicMessage.m */; };
+		E9540BEC20CA1DEE00D7DDA2 /* IMConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BEA20CA1DEE00D7DDA2 /* IMConnectionManager.m */; };
+		E9540BF520CA1E2200D7DDA2 /* ImMqtt.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BED20CA1E2100D7DDA2 /* ImMqtt.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E9540BF620CA1E2200D7DDA2 /* MqttMsg.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BEF20CA1E2100D7DDA2 /* MqttMsg.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E9540BF720CA1E2200D7DDA2 /* TopicMsg.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BF020CA1E2100D7DDA2 /* TopicMsg.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E9540BF820CA1E2200D7DDA2 /* TopicGet.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BF420CA1E2200D7DDA2 /* TopicGet.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E9540C0720CA1E6800D7DDA2 /* IMImageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BFC20CA1E6600D7DDA2 /* IMImageMessage.m */; };
+		E9540C0820CA1E6800D7DDA2 /* IMImageMessageSender.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BFE20CA1E6600D7DDA2 /* IMImageMessageSender.m */; };
+		E9540C0920CA1E6800D7DDA2 /* IMHistoryFetchRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C0020CA1E6700D7DDA2 /* IMHistoryFetchRecord.m */; };
+		E9540C0A20CA1E6800D7DDA2 /* IMRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C0120CA1E6700D7DDA2 /* IMRequestManager.m */; };
+		E9540C0B20CA1E6800D7DDA2 /* IMHistoryMessageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C0220CA1E6700D7DDA2 /* IMHistoryMessageFetcher.m */; };
+		E9540C0C20CA1E6800D7DDA2 /* IMTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C0320CA1E6700D7DDA2 /* IMTextMessage.m */; };
+		E9540C0D20CA1E6800D7DDA2 /* IMTextMessageSender.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C0520CA1E6800D7DDA2 /* IMTextMessageSender.m */; };
+		E9540C2020CA1EB200D7DDA2 /* GetTopicMsgsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C0E20CA1EAF00D7DDA2 /* GetTopicMsgsRequest.m */; };
+		E9540C2120CA1EB200D7DDA2 /* GetMemberTopicsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1020CA1EAF00D7DDA2 /* GetMemberTopicsRequest.m */; };
+		E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1120CA1EAF00D7DDA2 /* CreateTopicRequest.m */; };
+		E9540C2320CA1EB200D7DDA2 /* TopicData.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1320CA1EB000D7DDA2 /* TopicData.m */; };
+		E9540C2420CA1EB200D7DDA2 /* SaveTextMsgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1620CA1EB000D7DDA2 /* SaveTextMsgRequest.m */; };
+		E9540C2520CA1EB200D7DDA2 /* TopicMsgData.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1720CA1EB000D7DDA2 /* TopicMsgData.m */; };
+		E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1B20CA1EB100D7DDA2 /* SaveImageMsgRequest.m */; };
+		E9540C2720CA1EB200D7DDA2 /* GetTopicsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1E20CA1EB200D7DDA2 /* GetTopicsRequest.m */; };
+		E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C1F20CA1EB200D7DDA2 /* MqttServerRequest.m */; };
+		E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C2920CA1F0B00D7DDA2 /* IMNewMessageEventHandler.m */; };
+		E9540C3420CA1F0D00D7DDA2 /* IMEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C2C20CA1F0C00D7DDA2 /* IMEventHandler.m */; };
+		E9540C3520CA1F0D00D7DDA2 /* IMTopicChangeEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C2F20CA1F0C00D7DDA2 /* IMTopicChangeEventHandler.m */; };
+		E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C3020CA1F0D00D7DDA2 /* IMEventHandlerFactory.m */; };
+		E9540C3720CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C3120CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m */; };
+		E9540C4020CA1F4B00D7DDA2 /* IMOfflineMsgUpdateService.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C3A20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateService.m */; };
+		E9540C4120CA1F4B00D7DDA2 /* IMOfflineMsgUpdateServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C3C20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateServiceManager.m */; };
+		E9540C4220CA1F4B00D7DDA2 /* IMServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C3D20CA1F4A00D7DDA2 /* IMServiceManager.m */; };
+		E9540C4320CA1F4B00D7DDA2 /* IMTopicUpdateService.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C3F20CA1F4B00D7DDA2 /* IMTopicUpdateService.m */; };
+		E9540C4A20CA1F6F00D7DDA2 /* IM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9540C4420CA1F6E00D7DDA2 /* IM.xcdatamodeld */; };
+		E9540C4B20CA1F6F00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C4720CA1F6E00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m */; };
+		E9540C4C20CA1F6F00D7DDA2 /* IMDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C4820CA1F6F00D7DDA2 /* IMDatabaseManager.m */; };
 		E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */; };
 		E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF3208D916F00138D44 /* YXInitRequest.m */; };
 		E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF4208D916F00138D44 /* UpgradeConfig.m */; };
@@ -990,85 +990,8 @@
 		92E886A61FB3FD000006A08E /* ScheduleDeleteRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDeleteRequest.h; sourceTree = "<group>"; };
 		92E886A71FB3FD000006A08E /* ScheduleDeleteRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDeleteRequest.m; sourceTree = "<group>"; };
 		CB61DAF9CDD2BC5843C2BB95 /* Pods-FaceShowAdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.release.xcconfig"; sourceTree = "<group>"; };
-		E914810E2090589D001B7EB5 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
-		E914810F2090589D001B7EB5 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		E91481102090589D001B7EB5 /* 研修宝‘‘聊聊’’实现方案.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "研修宝‘‘聊聊’’实现方案.pdf"; sourceTree = "<group>"; };
 		E91481112090589D001B7EB5 /* 研修宝“聊聊”集成文档v1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "研修宝“聊聊”集成文档v1.0.pdf"; sourceTree = "<group>"; };
-		E91481122090589D001B7EB5 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
-		E91481132090589E001B7EB5 /* IMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConfig.h; sourceTree = "<group>"; };
-		E9148118209058BC001B7EB5 /* IMUserInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUserInterface.h; sourceTree = "<group>"; };
-		E9148119209058BD001B7EB5 /* IMMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMember.h; sourceTree = "<group>"; };
-		E914811A209058BD001B7EB5 /* IMTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopic.m; sourceTree = "<group>"; };
-		E914811B209058BD001B7EB5 /* IMUserInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUserInterface.m; sourceTree = "<group>"; };
-		E914811C209058BD001B7EB5 /* IMTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopic.h; sourceTree = "<group>"; };
-		E914811D209058BD001B7EB5 /* IMTopicMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicMessage.h; sourceTree = "<group>"; };
-		E914811E209058BD001B7EB5 /* IMMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMember.m; sourceTree = "<group>"; };
-		E914811F209058BD001B7EB5 /* IMTopicMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicMessage.m; sourceTree = "<group>"; };
-		E9148124209058DE001B7EB5 /* IMConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConnectionManager.m; sourceTree = "<group>"; };
-		E9148125209058DE001B7EB5 /* IMConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConnectionManager.h; sourceTree = "<group>"; };
-		E9148127209058FA001B7EB5 /* ImMqtt.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImMqtt.pbobjc.m; sourceTree = "<group>"; };
-		E9148128209058FA001B7EB5 /* MqttMsg.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MqttMsg.pbobjc.h; sourceTree = "<group>"; };
-		E9148129209058FA001B7EB5 /* MqttMsg.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MqttMsg.pbobjc.m; sourceTree = "<group>"; };
-		E914812A209058FB001B7EB5 /* TopicMsg.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicMsg.pbobjc.m; sourceTree = "<group>"; };
-		E914812B209058FB001B7EB5 /* TopicMsg.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicMsg.pbobjc.h; sourceTree = "<group>"; };
-		E914812C209058FB001B7EB5 /* ImMqtt.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImMqtt.pbobjc.h; sourceTree = "<group>"; };
-		E914812D209058FB001B7EB5 /* TopicGet.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicGet.pbobjc.h; sourceTree = "<group>"; };
-		E914812E209058FB001B7EB5 /* TopicGet.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicGet.pbobjc.m; sourceTree = "<group>"; };
-		E914813420905933001B7EB5 /* IMHistoryMessageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHistoryMessageFetcher.h; sourceTree = "<group>"; };
-		E914813520905933001B7EB5 /* IMImageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMImageMessage.h; sourceTree = "<group>"; };
-		E914813620905933001B7EB5 /* IMTextMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTextMessage.h; sourceTree = "<group>"; };
-		E914813720905933001B7EB5 /* IMImageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMImageMessage.m; sourceTree = "<group>"; };
-		E914813820905933001B7EB5 /* IMImageMessageSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMImageMessageSender.h; sourceTree = "<group>"; };
-		E914813920905934001B7EB5 /* IMImageMessageSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMImageMessageSender.m; sourceTree = "<group>"; };
-		E914813A20905934001B7EB5 /* IMTextMessageSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTextMessageSender.h; sourceTree = "<group>"; };
-		E914813B20905934001B7EB5 /* IMHistoryFetchRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHistoryFetchRecord.m; sourceTree = "<group>"; };
-		E914813C20905934001B7EB5 /* IMRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRequestManager.m; sourceTree = "<group>"; };
-		E914813D20905934001B7EB5 /* IMHistoryMessageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHistoryMessageFetcher.m; sourceTree = "<group>"; };
-		E914813E20905934001B7EB5 /* IMTextMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTextMessage.m; sourceTree = "<group>"; };
-		E914813F20905935001B7EB5 /* IMHistoryFetchRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHistoryFetchRecord.h; sourceTree = "<group>"; };
-		E914814020905935001B7EB5 /* IMTextMessageSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTextMessageSender.m; sourceTree = "<group>"; };
-		E914814120905935001B7EB5 /* IMRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRequestManager.h; sourceTree = "<group>"; };
-		E914814920905958001B7EB5 /* GetTopicMsgsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTopicMsgsRequest.m; sourceTree = "<group>"; };
-		E914814A20905958001B7EB5 /* MqttServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MqttServerRequest.h; sourceTree = "<group>"; };
-		E914814B20905958001B7EB5 /* GetMemberTopicsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMemberTopicsRequest.m; sourceTree = "<group>"; };
-		E914814C20905958001B7EB5 /* CreateTopicRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTopicRequest.m; sourceTree = "<group>"; };
-		E914814D20905958001B7EB5 /* SaveTextMsgRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveTextMsgRequest.h; sourceTree = "<group>"; };
-		E914814E20905958001B7EB5 /* TopicData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicData.m; sourceTree = "<group>"; };
-		E914814F20905958001B7EB5 /* TopicMsgData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicMsgData.h; sourceTree = "<group>"; };
-		E914815020905958001B7EB5 /* SaveImageMsgRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImageMsgRequest.h; sourceTree = "<group>"; };
-		E914815120905959001B7EB5 /* SaveTextMsgRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveTextMsgRequest.m; sourceTree = "<group>"; };
-		E914815220905959001B7EB5 /* TopicMsgData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicMsgData.m; sourceTree = "<group>"; };
-		E914815320905959001B7EB5 /* TopicData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicData.h; sourceTree = "<group>"; };
-		E914815420905959001B7EB5 /* CreateTopicRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTopicRequest.h; sourceTree = "<group>"; };
-		E914815520905959001B7EB5 /* GetTopicsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTopicsRequest.h; sourceTree = "<group>"; };
-		E914815620905959001B7EB5 /* SaveImageMsgRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveImageMsgRequest.m; sourceTree = "<group>"; };
-		E91481572090595A001B7EB5 /* GetTopicMsgsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTopicMsgsRequest.h; sourceTree = "<group>"; };
-		E91481582090595A001B7EB5 /* GetMemberTopicsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMemberTopicsRequest.h; sourceTree = "<group>"; };
-		E91481592090595A001B7EB5 /* GetTopicsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTopicsRequest.m; sourceTree = "<group>"; };
-		E914815A2090595A001B7EB5 /* MqttServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MqttServerRequest.m; sourceTree = "<group>"; };
-		E914816420905976001B7EB5 /* IMNewMessageEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNewMessageEventHandler.m; sourceTree = "<group>"; };
-		E914816520905976001B7EB5 /* IMNewTopicEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNewTopicEventHandler.h; sourceTree = "<group>"; };
-		E914816620905977001B7EB5 /* IMTopicChangeEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicChangeEventHandler.h; sourceTree = "<group>"; };
-		E914816720905977001B7EB5 /* IMEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEventHandler.m; sourceTree = "<group>"; };
-		E914816820905977001B7EB5 /* IMNewMessageEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNewMessageEventHandler.h; sourceTree = "<group>"; };
-		E914816920905977001B7EB5 /* IMEventHandlerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEventHandlerFactory.h; sourceTree = "<group>"; };
-		E914816A20905977001B7EB5 /* IMTopicChangeEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicChangeEventHandler.m; sourceTree = "<group>"; };
-		E914816B20905977001B7EB5 /* IMEventHandlerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEventHandlerFactory.m; sourceTree = "<group>"; };
-		E914816C20905977001B7EB5 /* IMNewTopicEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNewTopicEventHandler.m; sourceTree = "<group>"; };
-		E914816D20905977001B7EB5 /* IMEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEventHandler.h; sourceTree = "<group>"; };
-		E91481732090599F001B7EB5 /* IMOfflineMsgUpdateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOfflineMsgUpdateService.h; sourceTree = "<group>"; };
-		E91481742090599F001B7EB5 /* IMTopicUpdateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicUpdateService.h; sourceTree = "<group>"; };
-		E91481752090599F001B7EB5 /* IMOfflineMsgUpdateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOfflineMsgUpdateService.m; sourceTree = "<group>"; };
-		E91481762090599F001B7EB5 /* IMServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMServiceManager.h; sourceTree = "<group>"; };
-		E9148177209059A0001B7EB5 /* IMOfflineMsgUpdateServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOfflineMsgUpdateServiceManager.m; sourceTree = "<group>"; };
-		E9148178209059A0001B7EB5 /* IMServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMServiceManager.m; sourceTree = "<group>"; };
-		E9148179209059A0001B7EB5 /* IMOfflineMsgUpdateServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOfflineMsgUpdateServiceManager.h; sourceTree = "<group>"; };
-		E914817A209059A0001B7EB5 /* IMTopicUpdateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicUpdateService.m; sourceTree = "<group>"; };
-		E914817F209059D1001B7EB5 /* IMDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDatabaseManager.h; sourceTree = "<group>"; };
-		E9148180209059D1001B7EB5 /* IMTopicOfflineMsgFetchRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicOfflineMsgFetchRecord.m; sourceTree = "<group>"; };
-		E9148181209059D1001B7EB5 /* IMDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDatabaseManager.m; sourceTree = "<group>"; };
-		E9148182209059D1001B7EB5 /* IMTopicOfflineMsgFetchRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicOfflineMsgFetchRecord.h; sourceTree = "<group>"; };
-		E9148186209059F7001B7EB5 /* IM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IM.xcdatamodel; sourceTree = "<group>"; };
 		E914818820905FC1001B7EB5 /* YXGCDTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXGCDTimer.h; sourceTree = "<group>"; };
 		E914818920905FC1001B7EB5 /* YXGCDTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXGCDTimer.m; sourceTree = "<group>"; };
 		E914818C20906203001B7EB5 /* IMTimeHandleManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTimeHandleManger.h; sourceTree = "<group>"; };
@@ -1118,6 +1041,83 @@
 		E932CD7E20BBEE39009F5BC6 /* SignInLocationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInLocationView.h; sourceTree = "<group>"; };
 		E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInLocationView.m; sourceTree = "<group>"; };
 		E9384D5120995D5000632169 /* env.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = env.h; sourceTree = "<group>"; };
+		E9540BD820CA1D3000D7DDA2 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
+		E9540BD920CA1D3100D7DDA2 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
+		E9540BDA20CA1D3100D7DDA2 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
+		E9540BDB20CA1D3100D7DDA2 /* IMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConfig.h; sourceTree = "<group>"; };
+		E9540BDE20CA1D6E00D7DDA2 /* IMUserInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUserInterface.h; sourceTree = "<group>"; };
+		E9540BDF20CA1D6E00D7DDA2 /* IMMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMember.h; sourceTree = "<group>"; };
+		E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopic.m; sourceTree = "<group>"; };
+		E9540BE120CA1D6E00D7DDA2 /* IMUserInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUserInterface.m; sourceTree = "<group>"; };
+		E9540BE220CA1D6F00D7DDA2 /* IMTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopic.h; sourceTree = "<group>"; };
+		E9540BE320CA1D6F00D7DDA2 /* IMTopicMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicMessage.h; sourceTree = "<group>"; };
+		E9540BE420CA1D6F00D7DDA2 /* IMMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMember.m; sourceTree = "<group>"; };
+		E9540BE520CA1D6F00D7DDA2 /* IMTopicMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicMessage.m; sourceTree = "<group>"; };
+		E9540BEA20CA1DEE00D7DDA2 /* IMConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConnectionManager.m; sourceTree = "<group>"; };
+		E9540BEB20CA1DEE00D7DDA2 /* IMConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConnectionManager.h; sourceTree = "<group>"; };
+		E9540BED20CA1E2100D7DDA2 /* ImMqtt.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImMqtt.pbobjc.m; sourceTree = "<group>"; };
+		E9540BEE20CA1E2100D7DDA2 /* MqttMsg.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MqttMsg.pbobjc.h; sourceTree = "<group>"; };
+		E9540BEF20CA1E2100D7DDA2 /* MqttMsg.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MqttMsg.pbobjc.m; sourceTree = "<group>"; };
+		E9540BF020CA1E2100D7DDA2 /* TopicMsg.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicMsg.pbobjc.m; sourceTree = "<group>"; };
+		E9540BF120CA1E2100D7DDA2 /* TopicMsg.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicMsg.pbobjc.h; sourceTree = "<group>"; };
+		E9540BF220CA1E2100D7DDA2 /* ImMqtt.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImMqtt.pbobjc.h; sourceTree = "<group>"; };
+		E9540BF320CA1E2200D7DDA2 /* TopicGet.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicGet.pbobjc.h; sourceTree = "<group>"; };
+		E9540BF420CA1E2200D7DDA2 /* TopicGet.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicGet.pbobjc.m; sourceTree = "<group>"; };
+		E9540BF920CA1E6500D7DDA2 /* IMHistoryMessageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHistoryMessageFetcher.h; sourceTree = "<group>"; };
+		E9540BFA20CA1E6600D7DDA2 /* IMImageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMImageMessage.h; sourceTree = "<group>"; };
+		E9540BFB20CA1E6600D7DDA2 /* IMTextMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTextMessage.h; sourceTree = "<group>"; };
+		E9540BFC20CA1E6600D7DDA2 /* IMImageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMImageMessage.m; sourceTree = "<group>"; };
+		E9540BFD20CA1E6600D7DDA2 /* IMImageMessageSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMImageMessageSender.h; sourceTree = "<group>"; };
+		E9540BFE20CA1E6600D7DDA2 /* IMImageMessageSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMImageMessageSender.m; sourceTree = "<group>"; };
+		E9540BFF20CA1E6700D7DDA2 /* IMTextMessageSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTextMessageSender.h; sourceTree = "<group>"; };
+		E9540C0020CA1E6700D7DDA2 /* IMHistoryFetchRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHistoryFetchRecord.m; sourceTree = "<group>"; };
+		E9540C0120CA1E6700D7DDA2 /* IMRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRequestManager.m; sourceTree = "<group>"; };
+		E9540C0220CA1E6700D7DDA2 /* IMHistoryMessageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHistoryMessageFetcher.m; sourceTree = "<group>"; };
+		E9540C0320CA1E6700D7DDA2 /* IMTextMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTextMessage.m; sourceTree = "<group>"; };
+		E9540C0420CA1E6800D7DDA2 /* IMHistoryFetchRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHistoryFetchRecord.h; sourceTree = "<group>"; };
+		E9540C0520CA1E6800D7DDA2 /* IMTextMessageSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTextMessageSender.m; sourceTree = "<group>"; };
+		E9540C0620CA1E6800D7DDA2 /* IMRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRequestManager.h; sourceTree = "<group>"; };
+		E9540C0E20CA1EAF00D7DDA2 /* GetTopicMsgsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTopicMsgsRequest.m; sourceTree = "<group>"; };
+		E9540C0F20CA1EAF00D7DDA2 /* MqttServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MqttServerRequest.h; sourceTree = "<group>"; };
+		E9540C1020CA1EAF00D7DDA2 /* GetMemberTopicsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMemberTopicsRequest.m; sourceTree = "<group>"; };
+		E9540C1120CA1EAF00D7DDA2 /* CreateTopicRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTopicRequest.m; sourceTree = "<group>"; };
+		E9540C1220CA1EAF00D7DDA2 /* SaveTextMsgRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveTextMsgRequest.h; sourceTree = "<group>"; };
+		E9540C1320CA1EB000D7DDA2 /* TopicData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicData.m; sourceTree = "<group>"; };
+		E9540C1420CA1EB000D7DDA2 /* TopicMsgData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicMsgData.h; sourceTree = "<group>"; };
+		E9540C1520CA1EB000D7DDA2 /* SaveImageMsgRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImageMsgRequest.h; sourceTree = "<group>"; };
+		E9540C1620CA1EB000D7DDA2 /* SaveTextMsgRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveTextMsgRequest.m; sourceTree = "<group>"; };
+		E9540C1720CA1EB000D7DDA2 /* TopicMsgData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicMsgData.m; sourceTree = "<group>"; };
+		E9540C1820CA1EB000D7DDA2 /* TopicData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicData.h; sourceTree = "<group>"; };
+		E9540C1920CA1EB100D7DDA2 /* CreateTopicRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTopicRequest.h; sourceTree = "<group>"; };
+		E9540C1A20CA1EB100D7DDA2 /* GetTopicsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTopicsRequest.h; sourceTree = "<group>"; };
+		E9540C1B20CA1EB100D7DDA2 /* SaveImageMsgRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveImageMsgRequest.m; sourceTree = "<group>"; };
+		E9540C1C20CA1EB100D7DDA2 /* GetTopicMsgsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTopicMsgsRequest.h; sourceTree = "<group>"; };
+		E9540C1D20CA1EB200D7DDA2 /* GetMemberTopicsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMemberTopicsRequest.h; sourceTree = "<group>"; };
+		E9540C1E20CA1EB200D7DDA2 /* GetTopicsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTopicsRequest.m; sourceTree = "<group>"; };
+		E9540C1F20CA1EB200D7DDA2 /* MqttServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MqttServerRequest.m; sourceTree = "<group>"; };
+		E9540C2920CA1F0B00D7DDA2 /* IMNewMessageEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNewMessageEventHandler.m; sourceTree = "<group>"; };
+		E9540C2A20CA1F0C00D7DDA2 /* IMNewTopicEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNewTopicEventHandler.h; sourceTree = "<group>"; };
+		E9540C2B20CA1F0C00D7DDA2 /* IMTopicChangeEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicChangeEventHandler.h; sourceTree = "<group>"; };
+		E9540C2C20CA1F0C00D7DDA2 /* IMEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEventHandler.m; sourceTree = "<group>"; };
+		E9540C2D20CA1F0C00D7DDA2 /* IMNewMessageEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNewMessageEventHandler.h; sourceTree = "<group>"; };
+		E9540C2E20CA1F0C00D7DDA2 /* IMEventHandlerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEventHandlerFactory.h; sourceTree = "<group>"; };
+		E9540C2F20CA1F0C00D7DDA2 /* IMTopicChangeEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicChangeEventHandler.m; sourceTree = "<group>"; };
+		E9540C3020CA1F0D00D7DDA2 /* IMEventHandlerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEventHandlerFactory.m; sourceTree = "<group>"; };
+		E9540C3120CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNewTopicEventHandler.m; sourceTree = "<group>"; };
+		E9540C3220CA1F0D00D7DDA2 /* IMEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEventHandler.h; sourceTree = "<group>"; };
+		E9540C3820CA1F4900D7DDA2 /* IMOfflineMsgUpdateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOfflineMsgUpdateService.h; sourceTree = "<group>"; };
+		E9540C3920CA1F4900D7DDA2 /* IMTopicUpdateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicUpdateService.h; sourceTree = "<group>"; };
+		E9540C3A20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOfflineMsgUpdateService.m; sourceTree = "<group>"; };
+		E9540C3B20CA1F4A00D7DDA2 /* IMServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMServiceManager.h; sourceTree = "<group>"; };
+		E9540C3C20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOfflineMsgUpdateServiceManager.m; sourceTree = "<group>"; };
+		E9540C3D20CA1F4A00D7DDA2 /* IMServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMServiceManager.m; sourceTree = "<group>"; };
+		E9540C3E20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOfflineMsgUpdateServiceManager.h; sourceTree = "<group>"; };
+		E9540C3F20CA1F4B00D7DDA2 /* IMTopicUpdateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicUpdateService.m; sourceTree = "<group>"; };
+		E9540C4520CA1F6E00D7DDA2 /* IM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IM.xcdatamodel; sourceTree = "<group>"; };
+		E9540C4620CA1F6E00D7DDA2 /* IMTopicOfflineMsgFetchRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTopicOfflineMsgFetchRecord.h; sourceTree = "<group>"; };
+		E9540C4720CA1F6E00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicOfflineMsgFetchRecord.m; sourceTree = "<group>"; };
+		E9540C4820CA1F6F00D7DDA2 /* IMDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDatabaseManager.m; sourceTree = "<group>"; };
+		E9540C4920CA1F6F00D7DDA2 /* IMDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDatabaseManager.h; sourceTree = "<group>"; };
 		E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkingDataConfig.h; sourceTree = "<group>"; };
 		E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkingDataConfig.m; sourceTree = "<group>"; };
 		E9822FF2208D916F00138D44 /* YXInitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXInitRequest.h; sourceTree = "<group>"; };
@@ -2307,10 +2307,10 @@
 			children = (
 				E91481102090589D001B7EB5 /* 研修宝‘‘聊聊’’实现方案.pdf */,
 				E91481112090589D001B7EB5 /* 研修宝“聊聊”集成文档v1.0.pdf */,
-				E91481132090589E001B7EB5 /* IMConfig.h */,
-				E914810E2090589D001B7EB5 /* IMConfig.m */,
-				E91481122090589D001B7EB5 /* IMManager.h */,
-				E914810F2090589D001B7EB5 /* IMManager.m */,
+				E9540BDB20CA1D3100D7DDA2 /* IMConfig.h */,
+				E9540BD820CA1D3000D7DDA2 /* IMConfig.m */,
+				E9540BDA20CA1D3100D7DDA2 /* IMManager.h */,
+				E9540BD920CA1D3100D7DDA2 /* IMManager.m */,
 				E9148107209057EF001B7EB5 /* UserInterface */,
 				E9148104209057A2001B7EB5 /* Core */,
 			);
@@ -2333,14 +2333,14 @@
 		E9148107209057EF001B7EB5 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
-				E9148119209058BD001B7EB5 /* IMMember.h */,
-				E914811E209058BD001B7EB5 /* IMMember.m */,
-				E914811C209058BD001B7EB5 /* IMTopic.h */,
-				E914811A209058BD001B7EB5 /* IMTopic.m */,
-				E914811D209058BD001B7EB5 /* IMTopicMessage.h */,
-				E914811F209058BD001B7EB5 /* IMTopicMessage.m */,
-				E9148118209058BC001B7EB5 /* IMUserInterface.h */,
-				E914811B209058BD001B7EB5 /* IMUserInterface.m */,
+				E9540BDF20CA1D6E00D7DDA2 /* IMMember.h */,
+				E9540BE420CA1D6F00D7DDA2 /* IMMember.m */,
+				E9540BE220CA1D6F00D7DDA2 /* IMTopic.h */,
+				E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */,
+				E9540BE320CA1D6F00D7DDA2 /* IMTopicMessage.h */,
+				E9540BE520CA1D6F00D7DDA2 /* IMTopicMessage.m */,
+				E9540BDE20CA1D6E00D7DDA2 /* IMUserInterface.h */,
+				E9540BE120CA1D6E00D7DDA2 /* IMUserInterface.m */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -2348,8 +2348,8 @@
 		E9148108209057FF001B7EB5 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
-				E9148125209058DE001B7EB5 /* IMConnectionManager.h */,
-				E9148124209058DE001B7EB5 /* IMConnectionManager.m */,
+				E9540BEB20CA1DEE00D7DDA2 /* IMConnectionManager.h */,
+				E9540BEA20CA1DEE00D7DDA2 /* IMConnectionManager.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -2357,14 +2357,14 @@
 		E91481092090580B001B7EB5 /* Protos */ = {
 			isa = PBXGroup;
 			children = (
-				E914812C209058FB001B7EB5 /* ImMqtt.pbobjc.h */,
-				E9148127209058FA001B7EB5 /* ImMqtt.pbobjc.m */,
-				E9148128209058FA001B7EB5 /* MqttMsg.pbobjc.h */,
-				E9148129209058FA001B7EB5 /* MqttMsg.pbobjc.m */,
-				E914812D209058FB001B7EB5 /* TopicGet.pbobjc.h */,
-				E914812E209058FB001B7EB5 /* TopicGet.pbobjc.m */,
-				E914812B209058FB001B7EB5 /* TopicMsg.pbobjc.h */,
-				E914812A209058FB001B7EB5 /* TopicMsg.pbobjc.m */,
+				E9540BF220CA1E2100D7DDA2 /* ImMqtt.pbobjc.h */,
+				E9540BED20CA1E2100D7DDA2 /* ImMqtt.pbobjc.m */,
+				E9540BEE20CA1E2100D7DDA2 /* MqttMsg.pbobjc.h */,
+				E9540BEF20CA1E2100D7DDA2 /* MqttMsg.pbobjc.m */,
+				E9540BF320CA1E2200D7DDA2 /* TopicGet.pbobjc.h */,
+				E9540BF420CA1E2200D7DDA2 /* TopicGet.pbobjc.m */,
+				E9540BF120CA1E2100D7DDA2 /* TopicMsg.pbobjc.h */,
+				E9540BF020CA1E2100D7DDA2 /* TopicMsg.pbobjc.m */,
 			);
 			name = Protos;
 			sourceTree = "<group>";
@@ -2373,20 +2373,20 @@
 			isa = PBXGroup;
 			children = (
 				E914813320905910001B7EB5 /* request */,
-				E914813F20905935001B7EB5 /* IMHistoryFetchRecord.h */,
-				E914813B20905934001B7EB5 /* IMHistoryFetchRecord.m */,
-				E914813420905933001B7EB5 /* IMHistoryMessageFetcher.h */,
-				E914813D20905934001B7EB5 /* IMHistoryMessageFetcher.m */,
-				E914813520905933001B7EB5 /* IMImageMessage.h */,
-				E914813720905933001B7EB5 /* IMImageMessage.m */,
-				E914813820905933001B7EB5 /* IMImageMessageSender.h */,
-				E914813920905934001B7EB5 /* IMImageMessageSender.m */,
-				E914814120905935001B7EB5 /* IMRequestManager.h */,
-				E914813C20905934001B7EB5 /* IMRequestManager.m */,
-				E914813620905933001B7EB5 /* IMTextMessage.h */,
-				E914813E20905934001B7EB5 /* IMTextMessage.m */,
-				E914813A20905934001B7EB5 /* IMTextMessageSender.h */,
-				E914814020905935001B7EB5 /* IMTextMessageSender.m */,
+				E9540C0420CA1E6800D7DDA2 /* IMHistoryFetchRecord.h */,
+				E9540C0020CA1E6700D7DDA2 /* IMHistoryFetchRecord.m */,
+				E9540BF920CA1E6500D7DDA2 /* IMHistoryMessageFetcher.h */,
+				E9540C0220CA1E6700D7DDA2 /* IMHistoryMessageFetcher.m */,
+				E9540BFA20CA1E6600D7DDA2 /* IMImageMessage.h */,
+				E9540BFC20CA1E6600D7DDA2 /* IMImageMessage.m */,
+				E9540BFD20CA1E6600D7DDA2 /* IMImageMessageSender.h */,
+				E9540BFE20CA1E6600D7DDA2 /* IMImageMessageSender.m */,
+				E9540C0620CA1E6800D7DDA2 /* IMRequestManager.h */,
+				E9540C0120CA1E6700D7DDA2 /* IMRequestManager.m */,
+				E9540BFB20CA1E6600D7DDA2 /* IMTextMessage.h */,
+				E9540C0320CA1E6700D7DDA2 /* IMTextMessage.m */,
+				E9540BFF20CA1E6700D7DDA2 /* IMTextMessageSender.h */,
+				E9540C0520CA1E6800D7DDA2 /* IMTextMessageSender.m */,
 			);
 			name = Http;
 			sourceTree = "<group>";
@@ -2394,16 +2394,16 @@
 		E914810B20905830001B7EB5 /* EventHandlers */ = {
 			isa = PBXGroup;
 			children = (
-				E914816D20905977001B7EB5 /* IMEventHandler.h */,
-				E914816720905977001B7EB5 /* IMEventHandler.m */,
-				E914816920905977001B7EB5 /* IMEventHandlerFactory.h */,
-				E914816B20905977001B7EB5 /* IMEventHandlerFactory.m */,
-				E914816820905977001B7EB5 /* IMNewMessageEventHandler.h */,
-				E914816420905976001B7EB5 /* IMNewMessageEventHandler.m */,
-				E914816520905976001B7EB5 /* IMNewTopicEventHandler.h */,
-				E914816C20905977001B7EB5 /* IMNewTopicEventHandler.m */,
-				E914816620905977001B7EB5 /* IMTopicChangeEventHandler.h */,
-				E914816A20905977001B7EB5 /* IMTopicChangeEventHandler.m */,
+				E9540C3220CA1F0D00D7DDA2 /* IMEventHandler.h */,
+				E9540C2C20CA1F0C00D7DDA2 /* IMEventHandler.m */,
+				E9540C2E20CA1F0C00D7DDA2 /* IMEventHandlerFactory.h */,
+				E9540C3020CA1F0D00D7DDA2 /* IMEventHandlerFactory.m */,
+				E9540C2D20CA1F0C00D7DDA2 /* IMNewMessageEventHandler.h */,
+				E9540C2920CA1F0B00D7DDA2 /* IMNewMessageEventHandler.m */,
+				E9540C2A20CA1F0C00D7DDA2 /* IMNewTopicEventHandler.h */,
+				E9540C3120CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m */,
+				E9540C2B20CA1F0C00D7DDA2 /* IMTopicChangeEventHandler.h */,
+				E9540C2F20CA1F0C00D7DDA2 /* IMTopicChangeEventHandler.m */,
 			);
 			name = EventHandlers;
 			sourceTree = "<group>";
@@ -2411,14 +2411,14 @@
 		E914810C20905834001B7EB5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E91481732090599F001B7EB5 /* IMOfflineMsgUpdateService.h */,
-				E91481752090599F001B7EB5 /* IMOfflineMsgUpdateService.m */,
-				E9148179209059A0001B7EB5 /* IMOfflineMsgUpdateServiceManager.h */,
-				E9148177209059A0001B7EB5 /* IMOfflineMsgUpdateServiceManager.m */,
-				E91481762090599F001B7EB5 /* IMServiceManager.h */,
-				E9148178209059A0001B7EB5 /* IMServiceManager.m */,
-				E91481742090599F001B7EB5 /* IMTopicUpdateService.h */,
-				E914817A209059A0001B7EB5 /* IMTopicUpdateService.m */,
+				E9540C3820CA1F4900D7DDA2 /* IMOfflineMsgUpdateService.h */,
+				E9540C3A20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateService.m */,
+				E9540C3E20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateServiceManager.h */,
+				E9540C3C20CA1F4A00D7DDA2 /* IMOfflineMsgUpdateServiceManager.m */,
+				E9540C3B20CA1F4A00D7DDA2 /* IMServiceManager.h */,
+				E9540C3D20CA1F4A00D7DDA2 /* IMServiceManager.m */,
+				E9540C3920CA1F4900D7DDA2 /* IMTopicUpdateService.h */,
+				E9540C3F20CA1F4B00D7DDA2 /* IMTopicUpdateService.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -2426,11 +2426,11 @@
 		E914810D20905844001B7EB5 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				E9148185209059F7001B7EB5 /* IM.xcdatamodeld */,
-				E914817F209059D1001B7EB5 /* IMDatabaseManager.h */,
-				E9148181209059D1001B7EB5 /* IMDatabaseManager.m */,
-				E9148182209059D1001B7EB5 /* IMTopicOfflineMsgFetchRecord.h */,
-				E9148180209059D1001B7EB5 /* IMTopicOfflineMsgFetchRecord.m */,
+				E9540C4420CA1F6E00D7DDA2 /* IM.xcdatamodeld */,
+				E9540C4920CA1F6F00D7DDA2 /* IMDatabaseManager.h */,
+				E9540C4820CA1F6F00D7DDA2 /* IMDatabaseManager.m */,
+				E9540C4620CA1F6E00D7DDA2 /* IMTopicOfflineMsgFetchRecord.h */,
+				E9540C4720CA1F6E00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -2438,24 +2438,24 @@
 		E914813320905910001B7EB5 /* request */ = {
 			isa = PBXGroup;
 			children = (
-				E914815420905959001B7EB5 /* CreateTopicRequest.h */,
-				E914814C20905958001B7EB5 /* CreateTopicRequest.m */,
-				E91481582090595A001B7EB5 /* GetMemberTopicsRequest.h */,
-				E914814B20905958001B7EB5 /* GetMemberTopicsRequest.m */,
-				E91481572090595A001B7EB5 /* GetTopicMsgsRequest.h */,
-				E914814920905958001B7EB5 /* GetTopicMsgsRequest.m */,
-				E914815520905959001B7EB5 /* GetTopicsRequest.h */,
-				E91481592090595A001B7EB5 /* GetTopicsRequest.m */,
-				E914814A20905958001B7EB5 /* MqttServerRequest.h */,
-				E914815A2090595A001B7EB5 /* MqttServerRequest.m */,
-				E914815020905958001B7EB5 /* SaveImageMsgRequest.h */,
-				E914815620905959001B7EB5 /* SaveImageMsgRequest.m */,
-				E914814D20905958001B7EB5 /* SaveTextMsgRequest.h */,
-				E914815120905959001B7EB5 /* SaveTextMsgRequest.m */,
-				E914815320905959001B7EB5 /* TopicData.h */,
-				E914814E20905958001B7EB5 /* TopicData.m */,
-				E914814F20905958001B7EB5 /* TopicMsgData.h */,
-				E914815220905959001B7EB5 /* TopicMsgData.m */,
+				E9540C1920CA1EB100D7DDA2 /* CreateTopicRequest.h */,
+				E9540C1120CA1EAF00D7DDA2 /* CreateTopicRequest.m */,
+				E9540C1D20CA1EB200D7DDA2 /* GetMemberTopicsRequest.h */,
+				E9540C1020CA1EAF00D7DDA2 /* GetMemberTopicsRequest.m */,
+				E9540C1C20CA1EB100D7DDA2 /* GetTopicMsgsRequest.h */,
+				E9540C0E20CA1EAF00D7DDA2 /* GetTopicMsgsRequest.m */,
+				E9540C1A20CA1EB100D7DDA2 /* GetTopicsRequest.h */,
+				E9540C1E20CA1EB200D7DDA2 /* GetTopicsRequest.m */,
+				E9540C0F20CA1EAF00D7DDA2 /* MqttServerRequest.h */,
+				E9540C1F20CA1EB200D7DDA2 /* MqttServerRequest.m */,
+				E9540C1520CA1EB000D7DDA2 /* SaveImageMsgRequest.h */,
+				E9540C1B20CA1EB100D7DDA2 /* SaveImageMsgRequest.m */,
+				E9540C1220CA1EAF00D7DDA2 /* SaveTextMsgRequest.h */,
+				E9540C1620CA1EB000D7DDA2 /* SaveTextMsgRequest.m */,
+				E9540C1820CA1EB000D7DDA2 /* TopicData.h */,
+				E9540C1320CA1EB000D7DDA2 /* TopicData.m */,
+				E9540C1420CA1EB000D7DDA2 /* TopicMsgData.h */,
+				E9540C1720CA1EB000D7DDA2 /* TopicMsgData.m */,
 			);
 			name = request;
 			sourceTree = "<group>";
@@ -2685,7 +2685,7 @@
 				7CEFC9781FA81106001D8C84 /* SignInListRequest.m in Sources */,
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
 				92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */,
-				E9148126209058DE001B7EB5 /* IMConnectionManager.m in Sources */,
+				E9540BEC20CA1DEE00D7DDA2 /* IMConnectionManager.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */,
 				E932CD7D20BBD67E009F5BC6 /* SignInTypeView.m in Sources */,
@@ -2697,18 +2697,22 @@
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				436CB2251FB15C9B00A31585 /* ClazsMemberListRequest.m in Sources */,
 				92E886A21FB3FCCF0006A08E /* ScheduleUpdateRequest.m in Sources */,
+				E9540BF820CA1E2200D7DDA2 /* TopicGet.pbobjc.m in Sources */,
 				7CDF121E20902EC10044DD95 /* CircleSpreadTransition.m in Sources */,
 				92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
+				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
 				7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */,
 				7CDF129A20903B4E0044DD95 /* MJRefreshHeaderView.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
+				E9540BE720CA1D6F00D7DDA2 /* IMUserInterface.m in Sources */,
 				43729E1F1FB6DFB80043C988 /* SubjectivityAnswerCell.m in Sources */,
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
 				7CDF129920903B4E0044DD95 /* MJRefreshConst.m in Sources */,
 				7CDF117C208DB1310044DD95 /* FDActionSheetView.m in Sources */,
+				E9540BE920CA1D6F00D7DDA2 /* IMTopicMessage.m in Sources */,
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
 				7CDF121A20902EC10044DD95 /* PreviewPhotosView.m in Sources */,
 				E9148198209062A8001B7EB5 /* IMChatViewModel.m in Sources */,
@@ -2726,44 +2730,49 @@
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
 				7C672B381FB1A362004D93DF /* ClassUserQuestionRequest.m in Sources */,
 				7C672B621FB3F54E004D93DF /* CourseResourceCell.m in Sources */,
+				E9540C4220CA1F4B00D7DDA2 /* IMServiceManager.m in Sources */,
 				7C672B591FB2E0E4004D93DF /* CourseTaskCell.m in Sources */,
 				7CDF127B20902FBF0044DD95 /* ClassMomentCommentRequest.m in Sources */,
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CDF129D20903B4E0044DD95 /* MJRefreshFooterView.m in Sources */,
 				7CDF123920902EE60044DD95 /* ClassMomentFloatingView.m in Sources */,
 				7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */,
-				E91481152090589E001B7EB5 /* IMManager.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */,
 				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
+				E9540C0920CA1E6800D7DDA2 /* IMHistoryFetchRecord.m in Sources */,
+				E9540C0A20CA1E6800D7DDA2 /* IMRequestManager.m in Sources */,
 				7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */,
 				7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
-				E91481622090595A001B7EB5 /* GetTopicsRequest.m in Sources */,
 				7CDF128720902FBF0044DD95 /* ClassMomentUserMomentMsgRequest.m in Sources */,
+				E9540C4120CA1F4B00D7DDA2 /* IMOfflineMsgUpdateServiceManager.m in Sources */,
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */,
 				E91481B1209062C4001B7EB5 /* IMTextMessageLeftCell.m in Sources */,
+				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
 				7CDF128D2090307F0044DD95 /* CommentInputView.m in Sources */,
 				7CDF120B20902E8A0044DD95 /* ImageAttachmentContainerView.m in Sources */,
+				E9540C4A20CA1F6F00D7DDA2 /* IM.xcdatamodeld in Sources */,
 				921DE2E81FB14EE000CF39DE /* ResourceListCell.m in Sources */,
-				E914815D2090595A001B7EB5 /* CreateTopicRequest.m in Sources */,
 				7C672B121FB01081004D93DF /* CourseListItemCell.m in Sources */,
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
+				E9540C3720CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m in Sources */,
 				7CEFC8E61FA06791001D8C84 /* LoginRequest.m in Sources */,
 				921860691FA99C3C0018D982 /* NoticeDetailViewController.m in Sources */,
 				9218607F1FA9BBC00018D982 /* NoticeSaveTitleCell.m in Sources */,
 				7CDF1199208DB3040044DD95 /* YXImagePickerController.m in Sources */,
 				E91481CC20906307001B7EB5 /* IMSlideImageView.m in Sources */,
+				E9540C4320CA1F4B00D7DDA2 /* IMTopicUpdateService.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
 				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
 				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
+				E9540C4C20CA1F6F00D7DDA2 /* IMDatabaseManager.m in Sources */,
 				7C672B4D1FB2A54B004D93DF /* CourseDetailViewController.m in Sources */,
 				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
-				E914815F2090595A001B7EB5 /* SaveTextMsgRequest.m in Sources */,
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
 				7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */,
@@ -2775,62 +2784,61 @@
 				921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */,
 				436CB22B1FB19C6A00A31585 /* AddMemberViewController.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
-				E9148123209058BD001B7EB5 /* IMTopicMessage.m in Sources */,
 				436A6B2C1FB30865008E461B /* UserSignInListCell.m in Sources */,
 				7CEFC89B1FA06614001D8C84 /* YXGradientView.m in Sources */,
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
 				7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */,
 				7CDF121D20902EC10044DD95 /* PhotosScrollView.m in Sources */,
 				7CDF121B20902EC10044DD95 /* ShowPhotosViewController.m in Sources */,
-				E914815E2090595A001B7EB5 /* TopicData.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
-				E9148130209058FB001B7EB5 /* MqttMsg.pbobjc.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CDF124A20902F200044DD95 /* ClassMomentNotificationViewController.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				7C672B231FB1538C004D93DF /* FillQuestionResultCell.m in Sources */,
 				7CDF123320902EE60044DD95 /* ClassMomentNotificationCell.m in Sources */,
-				E9148120209058BD001B7EB5 /* IMTopic.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */,
 				7C672B4A1FB2A353004D93DF /* GetCourseRequest.m in Sources */,
+				E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */,
 				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
 				436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
-				E91481142090589E001B7EB5 /* IMConfig.m in Sources */,
 				E91481AA209062C4001B7EB5 /* IMMessageCellFactory.m in Sources */,
+				E9540C2520CA1EB200D7DDA2 /* TopicMsgData.m in Sources */,
 				92CAA63F1FAACDDA00DB5873 /* FDActionSheetCell.m in Sources */,
 				7CDF11A2208DB4A50044DD95 /* QiniuConfig.m in Sources */,
 				7CEFC8861FA065D6001D8C84 /* YXPostRequest.m in Sources */,
+				E9540C0820CA1E6800D7DDA2 /* IMImageMessageSender.m in Sources */,
 				7CEFC8991FA06614001D8C84 /* CollectionViewEqualSpaceFlowLayout.m in Sources */,
-				E914814620905935001B7EB5 /* IMHistoryMessageFetcher.m in Sources */,
 				7CDF1122208D76C00044DD95 /* GetUserPromptsRequest.m in Sources */,
 				E91481C720906307001B7EB5 /* IMMessageMenuView.m in Sources */,
 				7CEFC8FA1FA068D3001D8C84 /* BaseViewController.m in Sources */,
-				E91481602090595A001B7EB5 /* TopicMsgData.m in Sources */,
-				E914817220905978001B7EB5 /* IMNewTopicEventHandler.m in Sources */,
 				E914818A20905FC1001B7EB5 /* YXGCDTimer.m in Sources */,
 				7CDF120920902E8A0044DD95 /* AlbumListCell.m in Sources */,
 				7C672B711FB400C8004D93DF /* CourseLecturerViewController.m in Sources */,
 				7CEFC9861FA82C40001D8C84 /* CreateSignInViewController.m in Sources */,
+				E9540C2720CA1EB200D7DDA2 /* GetTopicsRequest.m in Sources */,
 				7CEFC95F1FA6D331001D8C84 /* AccountInputView.m in Sources */,
 				E91481CD20906307001B7EB5 /* IMSlideView.m in Sources */,
 				4359B9661FB2AA18007D7F30 /* ContactsDetailViewController.m in Sources */,
 				7CDF120D20902E8A0044DD95 /* PhotoListViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
+				E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */,
 				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
 				7C672B811FB53916004D93DF /* CourseCommentHeaderView.m in Sources */,
 				7C672AFE1FAAEE6D004D93DF /* SignInDetailRequest.m in Sources */,
 				E91481C620906307001B7EB5 /* ChatListCell.m in Sources */,
 				7CDF11F920902E450044DD95 /* PhotoChooseViewController.m in Sources */,
 				7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */,
-				E914814220905935001B7EB5 /* IMImageMessage.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
+				E9540C2020CA1EB200D7DDA2 /* GetTopicMsgsRequest.m in Sources */,
+				E9540BE820CA1D6F00D7DDA2 /* IMMember.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */,
+				E9540BF620CA1E2200D7DDA2 /* MqttMsg.pbobjc.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
 				7CDF123820902EE60044DD95 /* ClassMomentHeaderView.m in Sources */,
 				9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */,
@@ -2845,27 +2853,23 @@
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
 				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
+				E9540BF720CA1E2200D7DDA2 /* TopicMsg.pbobjc.m in Sources */,
 				7C672B151FB0339D004D93DF /* TaskListCell.m in Sources */,
-				E91481632090595A001B7EB5 /* MqttServerRequest.m in Sources */,
 				7C672B5F1FB3EC6D004D93DF /* CourseResourceFetcher.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
 				E91481AD209062C4001B7EB5 /* IMImageMessageBaseCell.m in Sources */,
-				E914812F209058FB001B7EB5 /* ImMqtt.pbobjc.m in Sources */,
 				43729E161FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m in Sources */,
 				7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
 				E91481AE209062C4001B7EB5 /* IMImageMessageLeftCell.m in Sources */,
 				921860591FA965E00018D982 /* NoticeListViewController.m in Sources */,
 				7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */,
-				E914814320905935001B7EB5 /* IMImageMessageSender.m in Sources */,
-				E9148122209058BD001B7EB5 /* IMMember.m in Sources */,
 				7C672AFB1FAAD356004D93DF /* ReplenishSignInRequest.m in Sources */,
 				7CEFC8481FA06577001D8C84 /* YXMockManager.m in Sources */,
 				7C672B6B1FB3FF04004D93DF /* CourseInfoTabContainerView.m in Sources */,
 				7C2E6F9920CA21A10066DE7C /* IMMemberInfoView.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
 				7CDF123520902EE60044DD95 /* ClassMomentCell.m in Sources */,
-				E914817120905978001B7EB5 /* IMEventHandlerFactory.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				7CDF128620902FBF0044DD95 /* ReportRequest.m in Sources */,
 				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
@@ -2873,16 +2877,16 @@
 				7C672B201FB1536E004D93DF /* ChooseQuestionResultCell.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				7C672B651FB3F66C004D93DF /* ResourceTypeMapping.m in Sources */,
-				E914816E20905978001B7EB5 /* IMNewMessageEventHandler.m in Sources */,
 				7CDF120A20902E8A0044DD95 /* PhotoCell.m in Sources */,
 				7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */,
+				E9540C0C20CA1E6800D7DDA2 /* IMTextMessage.m in Sources */,
 				E91481C820906307001B7EB5 /* IMInputView.m in Sources */,
-				E914817C209059A0001B7EB5 /* IMOfflineMsgUpdateServiceManager.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */,
 				7CDF127620902FBF0044DD95 /* ClassMomentListFetcher.m in Sources */,
 				7CDF120C20902E8A0044DD95 /* ImageSelectionHandler.m in Sources */,
 				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
+				E9540C0B20CA1E6800D7DDA2 /* IMHistoryMessageFetcher.m in Sources */,
 				92E886A81FB3FD000006A08E /* ScheduleDeleteRequest.m in Sources */,
 				7CEFC8CA1FA06627001D8C84 /* UIImage+YXImage.m in Sources */,
 				7CDF127E20902FBF0044DD95 /* ClassMomentDiscardRequest.m in Sources */,
@@ -2897,16 +2901,14 @@
 				7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */,
 				921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
-				E914817E209059A0001B7EB5 /* IMTopicUpdateService.m in Sources */,
 				7CDF11A3208DB4A50044DD95 /* QiniuTokenRequest.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
-				E914817020905978001B7EB5 /* IMTopicChangeEventHandler.m in Sources */,
 				7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */,
-				E914815C2090595A001B7EB5 /* GetMemberTopicsRequest.m in Sources */,
 				7CDF124D20902F200044DD95 /* ClassMomentViewController.m in Sources */,
 				9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */,
 				E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */,
 				E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */,
+				E9540C3420CA1F0D00D7DDA2 /* IMEventHandler.m in Sources */,
 				7CDF123220902EE60044DD95 /* ClassMomentTableHeaderView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
@@ -2918,34 +2920,36 @@
 				43729E191FB6CAD20043C988 /* SubjectivityAnswerViewController.m in Sources */,
 				923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */,
 				7CDF1173208D99150044DD95 /* QASlideView.m in Sources */,
-				E914814820905935001B7EB5 /* IMTextMessageSender.m in Sources */,
 				7CDF1176208D99380044DD95 /* QASlideItemBaseView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
+				E9540C2120CA1EB200D7DDA2 /* GetMemberTopicsRequest.m in Sources */,
 				43729E1C1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m in Sources */,
 				7C672B011FAAF387004D93DF /* QRCodeSignInViewController.m in Sources */,
-				E914816F20905978001B7EB5 /* IMEventHandler.m in Sources */,
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,
 				7C2E6F8E20CA216E0066DE7C /* IMPrivateSettingViewController.m in Sources */,
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
+				E9540C0720CA1E6800D7DDA2 /* IMImageMessage.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
 				E91481AC209062C4001B7EB5 /* IMMessageBaseCell.m in Sources */,
 				9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */,
 				7C84302220BCEA7400A05C14 /* PlaceSearchResultCell.m in Sources */,
+				E9540C0D20CA1E6800D7DDA2 /* IMTextMessageSender.m in Sources */,
+				E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */,
 				E98CA170209063CF00BCE36D /* ChatListViewController.m in Sources */,
 				7CEFC8C01FA06627001D8C84 /* CloneCategory.m in Sources */,
+				E9540C4020CA1F4B00D7DDA2 /* IMOfflineMsgUpdateService.m in Sources */,
 				7C84301820BBD3DF00A05C14 /* SignInPlaceHeaderView.m in Sources */,
 				7C672B2D1FB15431004D93DF /* GetVoteRequest.m in Sources */,
 				7C672AF81FAACC9F004D93DF /* SignInDelayView.m in Sources */,
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
+				E9540C4B20CA1F6F00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m in Sources */,
 				7C84302520BD083800A05C14 /* PlaceSearchEmptyView.m in Sources */,
 				436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */,
 				7CDF124B20902F200044DD95 /* ClassMomentDetailViewController.m in Sources */,
-				E914814520905935001B7EB5 /* IMRequestManager.m in Sources */,
 				92E8869F1FB3F91D0006A08E /* ScheduleCreateImageCell.m in Sources */,
 				7CEFC8FB1FA068D3001D8C84 /* FSTabBarController.m in Sources */,
 				436E6E031FB3F642009950EA /* UserInfoDefaultCell.m in Sources */,
 				7CDF124820902F200044DD95 /* PublishMomentViewController.m in Sources */,
-				E914815B2090595A001B7EB5 /* GetTopicMsgsRequest.m in Sources */,
 				7CEFC9891FA84DCE001D8C84 /* SignInDateTimeView.m in Sources */,
 				7C672B501FB2D747004D93DF /* CourseDetailTabContainerView.m in Sources */,
 				7CDF11FA20902E450044DD95 /* PhotoChooseCell.m in Sources */,
@@ -2953,9 +2957,8 @@
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
-				E914817D209059A0001B7EB5 /* IMServiceManager.m in Sources */,
 				43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */,
-				E9148184209059D2001B7EB5 /* IMDatabaseManager.m in Sources */,
+				E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */,
 				921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */,
 				436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */,
 				7CDF123120902EE60044DD95 /* SlideImageView.m in Sources */,
@@ -2965,8 +2968,7 @@
 				7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
-				E9148183209059D2001B7EB5 /* IMTopicOfflineMsgFetchRecord.m in Sources */,
-				E9148187209059F7001B7EB5 /* IM.xcdatamodeld in Sources */,
+				E9540BF520CA1E2200D7DDA2 /* ImMqtt.pbobjc.m in Sources */,
 				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,
 				7CDF117F208DB16D0044DD95 /* FDActionSheetHeaderView.m in Sources */,
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
@@ -2978,7 +2980,6 @@
 				7CDF127F20902FBF0044DD95 /* ClassMomentListRequest.m in Sources */,
 				436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */,
 				E91481C520906307001B7EB5 /* IMMessageTableView.m in Sources */,
-				E9148132209058FB001B7EB5 /* TopicGet.pbobjc.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
 				E91481AF209062C4001B7EB5 /* IMImageMessageRightCell.m in Sources */,
 				7C2E6F9820CA21A10066DE7C /* IMTitleContentView.m in Sources */,
@@ -2988,9 +2989,12 @@
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
 				7CDF123620902EE60044DD95 /* ReportTableViewCell.m in Sources */,
 				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
+				E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */,
+				E9540C2420CA1EB200D7DDA2 /* SaveTextMsgRequest.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
 				9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */,
+				E9540C3520CA1F0D00D7DDA2 /* IMTopicChangeEventHandler.m in Sources */,
 				7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */,
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
 				7CEFC8C81FA06627001D8C84 /* UIImage+Color.m in Sources */,
@@ -3004,20 +3008,17 @@
 				7CDF124E20902F200044DD95 /* ClassMomentUserViewController.m in Sources */,
 				7C672B741FB40100004D93DF /* CourseBriefViewController.m in Sources */,
 				7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */,
-				E914814420905935001B7EB5 /* IMHistoryFetchRecord.m in Sources */,
 				E91481AB209062C4001B7EB5 /* IMTextMessageRightCell.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
-				E914814720905935001B7EB5 /* IMTextMessage.m in Sources */,
 				7CDF128020902FBF0044DD95 /* ClassMomentUserListFetcher.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
+				E9540C2320CA1EB200D7DDA2 /* TopicData.m in Sources */,
 				7CDF124920902F200044DD95 /* ReportViewController.m in Sources */,
-				E9148131209058FB001B7EB5 /* TopicMsg.pbobjc.m in Sources */,
-				E91481612090595A001B7EB5 /* SaveImageMsgRequest.m in Sources */,
 				7CDF120F20902E8A0044DD95 /* ImageAttachmentView.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
+				E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */,
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
-				E9148121209058BD001B7EB5 /* IMUserInterface.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
@@ -3033,7 +3034,6 @@
 				436A6B231FB303AB008E461B /* UserSignInListViewController.m in Sources */,
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
 				7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */,
-				E914817B209059A0001B7EB5 /* IMOfflineMsgUpdateService.m in Sources */,
 				E914818E20906203001B7EB5 /* IMTimeHandleManger.m in Sources */,
 				7CDF121C20902EC10044DD95 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
 			);
@@ -3227,12 +3227,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E9148185209059F7001B7EB5 /* IM.xcdatamodeld */ = {
+		E9540C4420CA1F6E00D7DDA2 /* IM.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E9148186209059F7001B7EB5 /* IM.xcdatamodel */,
+				E9540C4520CA1F6E00D7DDA2 /* IM.xcdatamodel */,
 			);
-			currentVersion = E9148186209059F7001B7EB5 /* IM.xcdatamodel */;
+			currentVersion = E9540C4520CA1F6E00D7DDA2 /* IM.xcdatamodel */;
 			path = IM.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

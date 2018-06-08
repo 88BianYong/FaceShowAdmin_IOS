@@ -17,6 +17,7 @@
 
 - (void)saveMember:(IMMember *)member;
 - (void)saveMessage:(IMTopicMessage *)message;
+- (void)saveMessages:(NSArray<IMTopicMessage *> *)messages;
 - (void)saveHistoryMessages:(NSArray<IMTopicMessage *> *)messages
               completeBlock:(void(^)(NSArray<IMTopicMessage *> *savedMsgs))completeBlock;
 - (void)saveTopic:(IMTopic *)topic;
@@ -26,6 +27,8 @@
 - (void)resetUnreadMessageCountWithTopicID:(int64_t)topicID;
 - (int64_t)generateTempTopicID;
 - (BOOL)isTempTopicID:(int64_t)topicID;
+
+- (void)markAllUncompleteMessagesFailed;
 
 - (NSArray<IMTopic *> *)findAllTopics;
 - (IMTopic *)findTopicWithID:(int64_t)topicID;
@@ -45,7 +48,7 @@
               completeBlock:(void(^)(NSArray<IMTopicMessage *> *array, BOOL hasMore))completeBlock;
 
 - (IMTopic *)findTopicWithMember:(IMMember *)member;
-- (NSArray<IMTopicMessage *> *)findAllUncompletedMessages;
+- (NSArray<IMTopicMessage *> *)findAllFailedMessages;
 
 #pragma mark - 离线消息抓取相关
 - (NSArray<IMTopicOfflineMsgFetchRecord *> *)findAllOfflineMsgFetchRecordsWithTopicID:(int64_t)topicID;
