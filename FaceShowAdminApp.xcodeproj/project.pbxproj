@@ -305,6 +305,7 @@
 		9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9851FB3EDED003A9027 /* ScheduleDetailViewController.m */; };
 		9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9881FB3EE0F003A9027 /* ScheduleCreateViewController.m */; };
 		9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */; };
+		928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F320CE4BB40052E486 /* PublishTaskView.m */; };
 		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
 		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
 		92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */; };
@@ -972,6 +973,8 @@
 		9235F98B1FB3F7AE003A9027 /* ScheduleCreateTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateTitleCell.h; sourceTree = "<group>"; };
 		9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleCreateTitleCell.m; sourceTree = "<group>"; };
 		9235F98E1FB3F7CA003A9027 /* ScheduleCreateImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateImageCell.h; sourceTree = "<group>"; };
+		928216F220CE4BB40052E486 /* PublishTaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskView.h; sourceTree = "<group>"; };
+		928216F320CE4BB40052E486 /* PublishTaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskView.m; sourceTree = "<group>"; };
 		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
 		92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadFirstStepRequest.m; sourceTree = "<group>"; };
 		92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadSecondStepRequest.h; sourceTree = "<group>"; };
@@ -1299,6 +1302,7 @@
 		7C672B161FB033AB004D93DF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				928216F120CE4B190052E486 /* 发布任务 */,
 				7C672B351FB1A2D6004D93DF /* 投票问卷 */,
 				7C672B131FB0339D004D93DF /* TaskListCell.h */,
 				7C672B141FB0339D004D93DF /* TaskListCell.m */,
@@ -2287,6 +2291,15 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		928216F120CE4B190052E486 /* 发布任务 */ = {
+			isa = PBXGroup;
+			children = (
+				928216F220CE4BB40052E486 /* PublishTaskView.h */,
+				928216F320CE4BB40052E486 /* PublishTaskView.m */,
+			);
+			name = "发布任务";
+			sourceTree = "<group>";
+		};
 		E9024A42209063940002444F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -2965,6 +2978,7 @@
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
 				7C672B471FB1AC17004D93DF /* QuestionUserDetailViewController.m in Sources */,
+				928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */,
 				7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
