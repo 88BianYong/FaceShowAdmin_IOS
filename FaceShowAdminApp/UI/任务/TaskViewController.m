@@ -17,7 +17,12 @@
 #import "SignInDetailRequest.h"
 #import "SignInDetailViewController.h"
 #import "YXDrawerController.h"
-
+#import "AlertView.h"
+#import "PublishTaskView.h"
+#import "CreateWorkViewController.h"
+#import "CreateVoteViewController.h"
+#import "CreateDiscussViewController.h"
+#import "CreateSignInViewController.h"
 @interface TaskViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) EmptyView *emptyView;
@@ -27,6 +32,7 @@
 @property (nonatomic, strong) MJRefreshHeaderView *header;
 @property (nonatomic, strong) SignInDetailRequest *getSigninRequest;
 @property (nonatomic, strong) SignInListRequestItem_signIns *signIn;
+@property (nonatomic, strong) AlertView *alertView;
 @end
 
 @implementation TaskViewController
@@ -119,8 +125,96 @@
         STRONG_SELF
         [self requestTaskInfo];
     };
+    [self nyx_setupRightWithTitle:@"发布任务" action:^{
+        STRONG_SELF
+        [self showAlertView];
+    }];
 }
-
+#pragma mark - alert
+- (void)showAlertView {
+    PublishTaskView *taskView = [[PublishTaskView alloc] init];
+    self.alertView = [[AlertView alloc]init];
+    self.alertView.backgroundColor = [UIColor clearColor];
+    self.alertView.hideWhenMaskClicked = YES;
+    self.alertView.contentView = taskView;
+    WEAK_SELF
+    [self.alertView setHideBlock:^(AlertView *view) {
+        STRONG_SELF
+        [UIView animateWithDuration:0.3 animations:^{
+            [taskView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(view.mas_left);
+                make.right.equalTo(view.mas_right);
+                make.top.equalTo(view.mas_bottom);
+                make.height.mas_offset(205.0f);
+            }];
+            [view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
+        }];
+    }];
+    [self.alertView showWithLayout:^(AlertView *view) {
+        STRONG_SELF
+        [taskView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(view.mas_left);
+            make.right.equalTo(view.mas_right);
+            make.top.equalTo(view.mas_bottom);
+            make.height.mas_offset(205.0f );
+        }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.3 animations:^{
+                [taskView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_left);
+                    make.right.equalTo(view.mas_right);
+                    if (@available(iOS 11.0, *)) {
+                        make.bottom.mas_equalTo(view.mas_safeAreaLayoutGuideBottom);
+                    } else {
+                        make.bottom.mas_equalTo(0);
+                    }
+                    make.height.mas_offset(205.0f);
+                }];
+                [view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+        });
+    }];
+    taskView.publishTaskBlock = ^(NSInteger type) {
+        STRONG_SELF
+        [self.alertView hide];
+        switch (type) {
+            case 0:
+            {
+                CreateSignInViewController *vc = [[CreateSignInViewController alloc]init];
+                WEAK_SELF
+                [vc setComleteBlock:^{
+                    STRONG_SELF
+                    //[self firstPageFetch];
+                }];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+            case 1:
+            {
+                CreateWorkViewController *VC = [[CreateWorkViewController alloc] init];
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+                break;
+            case 2:
+            {
+                CreateDiscussViewController *VC = [[CreateDiscussViewController alloc] init];
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+                break;
+                
+            default:
+            {
+                CreateVoteViewController *VC = [[CreateVoteViewController alloc] init];
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+                break;
+        }
+    };
+}
 #pragma mark - Observer
 - (void)setupObserver {
 //    WEAK_SELF

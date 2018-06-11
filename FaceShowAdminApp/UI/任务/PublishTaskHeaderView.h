@@ -1,5 +1,5 @@
 //
-//  PublishTaskView.h
+//  PublishTaskHeaderView.h
 //  FaceShowAdminApp
 //
 //  Created by 郑小龙 on 2018/6/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PublishTaskView : UIView
-@property (nonatomic, copy) void(^publishTaskBlock)(NSInteger type);
+@interface PublishTaskHeaderView : UICollectionReusableView
+
 @end

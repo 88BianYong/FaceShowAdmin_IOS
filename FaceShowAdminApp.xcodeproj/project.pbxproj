@@ -306,6 +306,11 @@
 		9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9881FB3EE0F003A9027 /* ScheduleCreateViewController.m */; };
 		9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */; };
 		928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F320CE4BB40052E486 /* PublishTaskView.m */; };
+		928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F620CE520B0052E486 /* PublishTaskHeaderView.m */; };
+		928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F920CE52330052E486 /* PublishTaskCell.m */; };
+		928216FE20CE70CD0052E486 /* CreateWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216FD20CE70CD0052E486 /* CreateWorkViewController.m */; };
+		9282170120CE738F0052E486 /* CreateDiscussViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170020CE738F0052E486 /* CreateDiscussViewController.m */; };
+		9282170420CE740F0052E486 /* CreateVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170320CE740F0052E486 /* CreateVoteViewController.m */; };
 		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
 		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
 		92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */; };
@@ -975,6 +980,16 @@
 		9235F98E1FB3F7CA003A9027 /* ScheduleCreateImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateImageCell.h; sourceTree = "<group>"; };
 		928216F220CE4BB40052E486 /* PublishTaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskView.h; sourceTree = "<group>"; };
 		928216F320CE4BB40052E486 /* PublishTaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskView.m; sourceTree = "<group>"; };
+		928216F520CE520B0052E486 /* PublishTaskHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskHeaderView.h; sourceTree = "<group>"; };
+		928216F620CE520B0052E486 /* PublishTaskHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskHeaderView.m; sourceTree = "<group>"; };
+		928216F820CE52330052E486 /* PublishTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskCell.h; sourceTree = "<group>"; };
+		928216F920CE52330052E486 /* PublishTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskCell.m; sourceTree = "<group>"; };
+		928216FC20CE70CD0052E486 /* CreateWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateWorkViewController.h; sourceTree = "<group>"; };
+		928216FD20CE70CD0052E486 /* CreateWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateWorkViewController.m; sourceTree = "<group>"; };
+		928216FF20CE738F0052E486 /* CreateDiscussViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateDiscussViewController.h; sourceTree = "<group>"; };
+		9282170020CE738F0052E486 /* CreateDiscussViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateDiscussViewController.m; sourceTree = "<group>"; };
+		9282170220CE740F0052E486 /* CreateVoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateVoteViewController.h; sourceTree = "<group>"; };
+		9282170320CE740F0052E486 /* CreateVoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateVoteViewController.m; sourceTree = "<group>"; };
 		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
 		92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadFirstStepRequest.m; sourceTree = "<group>"; };
 		92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadSecondStepRequest.h; sourceTree = "<group>"; };
@@ -1983,6 +1998,7 @@
 		7CEFC9341FA0815A001D8C84 /* 任务 */ = {
 			isa = PBXGroup;
 			children = (
+				928216FB20CE6FEA0052E486 /* 发布任务 */,
 				7C672B161FB033AB004D93DF /* View */,
 				7CEFC9351FA0816D001D8C84 /* TaskViewController.h */,
 				7CEFC9361FA0816D001D8C84 /* TaskViewController.m */,
@@ -2296,6 +2312,23 @@
 			children = (
 				928216F220CE4BB40052E486 /* PublishTaskView.h */,
 				928216F320CE4BB40052E486 /* PublishTaskView.m */,
+				928216F820CE52330052E486 /* PublishTaskCell.h */,
+				928216F920CE52330052E486 /* PublishTaskCell.m */,
+				928216F520CE520B0052E486 /* PublishTaskHeaderView.h */,
+				928216F620CE520B0052E486 /* PublishTaskHeaderView.m */,
+			);
+			name = "发布任务";
+			sourceTree = "<group>";
+		};
+		928216FB20CE6FEA0052E486 /* 发布任务 */ = {
+			isa = PBXGroup;
+			children = (
+				928216FC20CE70CD0052E486 /* CreateWorkViewController.h */,
+				928216FD20CE70CD0052E486 /* CreateWorkViewController.m */,
+				928216FF20CE738F0052E486 /* CreateDiscussViewController.h */,
+				9282170020CE738F0052E486 /* CreateDiscussViewController.m */,
+				9282170220CE740F0052E486 /* CreateVoteViewController.h */,
+				9282170320CE740F0052E486 /* CreateVoteViewController.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -2707,6 +2740,7 @@
 				4359B9631FB2A44B007D7F30 /* UserSignInPercentRequest.m in Sources */,
 				7CEFC86B1FA065B3001D8C84 /* ConfigManager.m in Sources */,
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
+				928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				436CB2251FB15C9B00A31585 /* ClazsMemberListRequest.m in Sources */,
 				92E886A21FB3FCCF0006A08E /* ScheduleUpdateRequest.m in Sources */,
@@ -2778,6 +2812,7 @@
 				7CDF1199208DB3040044DD95 /* YXImagePickerController.m in Sources */,
 				E91481CC20906307001B7EB5 /* IMSlideImageView.m in Sources */,
 				E9540C4320CA1F4B00D7DDA2 /* IMTopicUpdateService.m in Sources */,
+				9282170120CE738F0052E486 /* CreateDiscussViewController.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
@@ -2951,6 +2986,7 @@
 				E98CA170209063CF00BCE36D /* ChatListViewController.m in Sources */,
 				7CEFC8C01FA06627001D8C84 /* CloneCategory.m in Sources */,
 				E9540C4020CA1F4B00D7DDA2 /* IMOfflineMsgUpdateService.m in Sources */,
+				928216FE20CE70CD0052E486 /* CreateWorkViewController.m in Sources */,
 				7C84301820BBD3DF00A05C14 /* SignInPlaceHeaderView.m in Sources */,
 				7C672B2D1FB15431004D93DF /* GetVoteRequest.m in Sources */,
 				7C672AF81FAACC9F004D93DF /* SignInDelayView.m in Sources */,
@@ -3014,6 +3050,7 @@
 				7CEFC8C81FA06627001D8C84 /* UIImage+Color.m in Sources */,
 				7CEFC97C1FA813E3001D8C84 /* SignInListViewController.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
+				928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */,
 				7CDF128320902FBF0044DD95 /* ClassMomentReplyRequest.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
 				7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */,
@@ -3027,6 +3064,7 @@
 				7CDF128020902FBF0044DD95 /* ClassMomentUserListFetcher.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				E9540C2320CA1EB200D7DDA2 /* TopicData.m in Sources */,
+				9282170420CE740F0052E486 /* CreateVoteViewController.m in Sources */,
 				7CDF124920902F200044DD95 /* ReportViewController.m in Sources */,
 				7CDF120F20902E8A0044DD95 /* ImageAttachmentView.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
