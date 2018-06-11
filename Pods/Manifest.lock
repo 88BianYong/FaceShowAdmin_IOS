@@ -57,6 +57,7 @@ PODS:
   - FLAnimatedImage (1.0.12)
   - HappyDNS (0.3.12)
   - IBActionSheet (0.0.2)
+  - JHChart (1.2.2)
   - JSONModel (1.2.0)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
@@ -118,6 +119,7 @@ DEPENDENCIES:
   - FileMD5Hash (= 2.0.0)
   - FLAnimatedImage (~> 1.0)
   - IBActionSheet (= 0.0.2)
+  - JHChart (~> 1.2.2)
   - JSONModel (~> 1.2.0)
   - MagicalRecord (~> 2.0)
   - Masonry
@@ -162,6 +164,7 @@ SPEC REPOS:
     - FLAnimatedImage
     - HappyDNS
     - IBActionSheet
+    - JHChart
     - JSONModel
     - MagicalRecord
     - Masonry
@@ -216,6 +219,7 @@ SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   HappyDNS: 691a3041128055d09866f86e6e9ca90f24da1f18
   IBActionSheet: 4028206b0561772c3674a339fb4a7265d55a6f8b
+  JHChart: 6131ea4c8d86a55296238b703fa5fd9f33f66828
   JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -245,6 +249,6 @@ SPEC CHECKSUMS:
   "UITableView+FDTemplateLayoutCell": 234e1582bcc4e18461af91155123bb96538ed030
   uiview-frame-helpers: c3feade603cca5c805dd857e64692c7e7e01d5ec
 
-PODFILE CHECKSUM: 293be49d2fbbd3e64541692de5d62b6464a43032
+PODFILE CHECKSUM: 0b4b7ce61fb3b3ac8f86ed8ffaec2b5d1c9f7c94
 
 COCOAPODS: 1.5.0

@@ -39,6 +39,7 @@ pod 'SDWebImage'
 pod 'Protobuf'
 pod 'MQTTClient'
 pod 'BaiduMapKit'
+pod 'JHChart', '~> 1.2.2'
 
 inhibit_all_warnings!
 end
