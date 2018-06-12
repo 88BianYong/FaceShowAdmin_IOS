@@ -8,18 +8,29 @@
 
 #import "YXTestViewController.h"
 #import "SignInPlaceViewController.h"
+#import "TrainingProfileViewController.h"
+#import "MyTrainingProjectViewController.h"
 
 @interface YXTestViewController ()
 @end
 
 @implementation YXTestViewController
 - (void)viewDidLoad {
-    self.devTestActions = @[@"testSigninPlace"];
+    self.devTestActions = @[@"testSigninPlace",@"testTrainingProfile",@"testMyProject"];
     [super viewDidLoad];
 }
 
 - (void)testSigninPlace {
     SignInPlaceViewController *vc = [[SignInPlaceViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)testTrainingProfile {
+    TrainingProfileViewController *vc = [[TrainingProfileViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)testMyProject {
+    MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -34,6 +34,18 @@
 		43729E1C1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E1B1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m */; };
 		43729E1F1FB6DFB80043C988 /* SubjectivityAnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E1E1FB6DFB80043C988 /* SubjectivityAnswerCell.m */; };
 		43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43729E241FB986BE0043C988 /* SubjectivityAnswerTitleView.m */; };
+		7C06893D20CF69DA00C7CA14 /* TrainingProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06893C20CF69DA00C7CA14 /* TrainingProfileViewController.m */; };
+		7C06894120CF6A9C00C7CA14 /* NameNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06894020CF6A9C00C7CA14 /* NameNumberView.m */; };
+		7C06894420CF6D5200C7CA14 /* ProvinceStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06894320CF6D5200C7CA14 /* ProvinceStatisticView.m */; };
+		7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06894620CF72FF00C7CA14 /* PercentStatisticItemView.m */; };
+		7C06894A20CF731500C7CA14 /* PercentStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06894920CF731500C7CA14 /* PercentStatisticView.m */; };
+		7C06894D20CF79C700C7CA14 /* TrainingProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06894C20CF79C700C7CA14 /* TrainingProfileHeaderView.m */; };
+		7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06894F20CF80E400C7CA14 /* TitleHeaderView.m */; };
+		7C06895320CF83A700C7CA14 /* TrainingProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06895220CF83A700C7CA14 /* TrainingProjectCell.m */; };
+		7C06895620CF9E8100C7CA14 /* ProjectLevelDistributingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06895520CF9E8100C7CA14 /* ProjectLevelDistributingCell.m */; };
+		7C06895920CFA82700C7CA14 /* ProjectAreaDistributingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06895820CFA82700C7CA14 /* ProjectAreaDistributingCell.m */; };
+		7C06895D20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06895C20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m */; };
+		7C06896120CFBB4D00C7CA14 /* ProjectDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896020CFBB4D00C7CA14 /* ProjectDetailCell.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
@@ -453,6 +465,30 @@
 		43729E231FB986BE0043C988 /* SubjectivityAnswerTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectivityAnswerTitleView.h; sourceTree = "<group>"; };
 		43729E241FB986BE0043C988 /* SubjectivityAnswerTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectivityAnswerTitleView.m; sourceTree = "<group>"; };
 		4543C1DE0FBF5BC5629B4ECF /* libPods-FaceShowAdminApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FaceShowAdminApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C06893B20CF69DA00C7CA14 /* TrainingProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingProfileViewController.h; sourceTree = "<group>"; };
+		7C06893C20CF69DA00C7CA14 /* TrainingProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainingProfileViewController.m; sourceTree = "<group>"; };
+		7C06893F20CF6A9C00C7CA14 /* NameNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NameNumberView.h; sourceTree = "<group>"; };
+		7C06894020CF6A9C00C7CA14 /* NameNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NameNumberView.m; sourceTree = "<group>"; };
+		7C06894220CF6D5200C7CA14 /* ProvinceStatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProvinceStatisticView.h; sourceTree = "<group>"; };
+		7C06894320CF6D5200C7CA14 /* ProvinceStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProvinceStatisticView.m; sourceTree = "<group>"; };
+		7C06894520CF72FF00C7CA14 /* PercentStatisticItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PercentStatisticItemView.h; sourceTree = "<group>"; };
+		7C06894620CF72FF00C7CA14 /* PercentStatisticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PercentStatisticItemView.m; sourceTree = "<group>"; };
+		7C06894820CF731500C7CA14 /* PercentStatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PercentStatisticView.h; sourceTree = "<group>"; };
+		7C06894920CF731500C7CA14 /* PercentStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PercentStatisticView.m; sourceTree = "<group>"; };
+		7C06894B20CF79C700C7CA14 /* TrainingProfileHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingProfileHeaderView.h; sourceTree = "<group>"; };
+		7C06894C20CF79C700C7CA14 /* TrainingProfileHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainingProfileHeaderView.m; sourceTree = "<group>"; };
+		7C06894E20CF80E400C7CA14 /* TitleHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleHeaderView.h; sourceTree = "<group>"; };
+		7C06894F20CF80E400C7CA14 /* TitleHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleHeaderView.m; sourceTree = "<group>"; };
+		7C06895120CF83A700C7CA14 /* TrainingProjectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingProjectCell.h; sourceTree = "<group>"; };
+		7C06895220CF83A700C7CA14 /* TrainingProjectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainingProjectCell.m; sourceTree = "<group>"; };
+		7C06895420CF9E8100C7CA14 /* ProjectLevelDistributingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectLevelDistributingCell.h; sourceTree = "<group>"; };
+		7C06895520CF9E8100C7CA14 /* ProjectLevelDistributingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectLevelDistributingCell.m; sourceTree = "<group>"; };
+		7C06895720CFA82700C7CA14 /* ProjectAreaDistributingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectAreaDistributingCell.h; sourceTree = "<group>"; };
+		7C06895820CFA82700C7CA14 /* ProjectAreaDistributingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectAreaDistributingCell.m; sourceTree = "<group>"; };
+		7C06895B20CFBB0D00C7CA14 /* MyTrainingProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTrainingProjectViewController.h; sourceTree = "<group>"; };
+		7C06895C20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTrainingProjectViewController.m; sourceTree = "<group>"; };
+		7C06895F20CFBB4D00C7CA14 /* ProjectDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectDetailCell.h; sourceTree = "<group>"; };
+		7C06896020CFBB4D00C7CA14 /* ProjectDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailCell.m; sourceTree = "<group>"; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -1257,6 +1293,60 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7C06893A20CF696D00C7CA14 /* 培训概况 */ = {
+			isa = PBXGroup;
+			children = (
+				7C06893E20CF6A4400C7CA14 /* View */,
+				7C06893B20CF69DA00C7CA14 /* TrainingProfileViewController.h */,
+				7C06893C20CF69DA00C7CA14 /* TrainingProfileViewController.m */,
+			);
+			path = "培训概况";
+			sourceTree = "<group>";
+		};
+		7C06893E20CF6A4400C7CA14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C06893F20CF6A9C00C7CA14 /* NameNumberView.h */,
+				7C06894020CF6A9C00C7CA14 /* NameNumberView.m */,
+				7C06894220CF6D5200C7CA14 /* ProvinceStatisticView.h */,
+				7C06894320CF6D5200C7CA14 /* ProvinceStatisticView.m */,
+				7C06894520CF72FF00C7CA14 /* PercentStatisticItemView.h */,
+				7C06894620CF72FF00C7CA14 /* PercentStatisticItemView.m */,
+				7C06894820CF731500C7CA14 /* PercentStatisticView.h */,
+				7C06894920CF731500C7CA14 /* PercentStatisticView.m */,
+				7C06894B20CF79C700C7CA14 /* TrainingProfileHeaderView.h */,
+				7C06894C20CF79C700C7CA14 /* TrainingProfileHeaderView.m */,
+				7C06894E20CF80E400C7CA14 /* TitleHeaderView.h */,
+				7C06894F20CF80E400C7CA14 /* TitleHeaderView.m */,
+				7C06895120CF83A700C7CA14 /* TrainingProjectCell.h */,
+				7C06895220CF83A700C7CA14 /* TrainingProjectCell.m */,
+				7C06895420CF9E8100C7CA14 /* ProjectLevelDistributingCell.h */,
+				7C06895520CF9E8100C7CA14 /* ProjectLevelDistributingCell.m */,
+				7C06895720CFA82700C7CA14 /* ProjectAreaDistributingCell.h */,
+				7C06895820CFA82700C7CA14 /* ProjectAreaDistributingCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7C06895A20CFBAEC00C7CA14 /* 我的项目 */ = {
+			isa = PBXGroup;
+			children = (
+				7C06895E20CFBB1600C7CA14 /* View */,
+				7C06895B20CFBB0D00C7CA14 /* MyTrainingProjectViewController.h */,
+				7C06895C20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m */,
+			);
+			path = "我的项目";
+			sourceTree = "<group>";
+		};
+		7C06895E20CFBB1600C7CA14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C06895F20CFBB4D00C7CA14 /* ProjectDetailCell.h */,
+				7C06896020CFBB4D00C7CA14 /* ProjectDetailCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7C2558271FBAD0A100C9BE38 /* TalkingData */ = {
 			isa = PBXGroup;
 			children = (
@@ -1821,6 +1911,8 @@
 		7CEFC8F01FA0680E001D8C84 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7C06895A20CFBAEC00C7CA14 /* 我的项目 */,
+				7C06893A20CF696D00C7CA14 /* 培训概况 */,
 				E914818B209061E6001B7EB5 /* IM */,
 				7CDF11EF20902DE90044DD95 /* 班级圈 */,
 				7CEFC9791FA813A9001D8C84 /* 签到记录 */,
@@ -2832,10 +2924,13 @@
 				7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */,
 				7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
+				7C06894120CF6A9C00C7CA14 /* NameNumberView.m in Sources */,
 				7CDF128720902FBF0044DD95 /* ClassMomentUserMomentMsgRequest.m in Sources */,
+				7C06895920CFA82700C7CA14 /* ProjectAreaDistributingCell.m in Sources */,
 				E9540C4120CA1F4B00D7DDA2 /* IMOfflineMsgUpdateServiceManager.m in Sources */,
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */,
+				7C06895620CF9E8100C7CA14 /* ProjectLevelDistributingCell.m in Sources */,
 				E91481B1209062C4001B7EB5 /* IMTextMessageLeftCell.m in Sources */,
 				921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */,
 				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
@@ -2905,6 +3000,7 @@
 				7CDF1122208D76C00044DD95 /* GetUserPromptsRequest.m in Sources */,
 				E91481C720906307001B7EB5 /* IMMessageMenuView.m in Sources */,
 				7CEFC8FA1FA068D3001D8C84 /* BaseViewController.m in Sources */,
+				7C06893D20CF69DA00C7CA14 /* TrainingProfileViewController.m in Sources */,
 				E914818A20905FC1001B7EB5 /* YXGCDTimer.m in Sources */,
 				7CDF120920902E8A0044DD95 /* AlbumListCell.m in Sources */,
 				7C672B711FB400C8004D93DF /* CourseLecturerViewController.m in Sources */,
@@ -2922,6 +3018,7 @@
 				E91481C620906307001B7EB5 /* ChatListCell.m in Sources */,
 				7CDF11F920902E450044DD95 /* PhotoChooseViewController.m in Sources */,
 				7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */,
+				7C06894420CF6D5200C7CA14 /* ProvinceStatisticView.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				E9540C2020CA1EB200D7DDA2 /* GetTopicMsgsRequest.m in Sources */,
 				E9540BE820CA1D6F00D7DDA2 /* IMMember.m in Sources */,
@@ -2967,6 +3064,7 @@
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				7C672B651FB3F66C004D93DF /* ResourceTypeMapping.m in Sources */,
 				7CDF120A20902E8A0044DD95 /* PhotoCell.m in Sources */,
+				7C06896120CFBB4D00C7CA14 /* ProjectDetailCell.m in Sources */,
 				7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */,
 				E9540C0C20CA1E6800D7DDA2 /* IMTextMessage.m in Sources */,
 				E91481C820906307001B7EB5 /* IMInputView.m in Sources */,
@@ -3017,6 +3115,7 @@
 				7C672B011FAAF387004D93DF /* QRCodeSignInViewController.m in Sources */,
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,
 				7C2E6F8E20CA216E0066DE7C /* IMPrivateSettingViewController.m in Sources */,
+				7C06895D20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m in Sources */,
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
 				E9540C0720CA1E6800D7DDA2 /* IMImageMessage.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
@@ -3024,6 +3123,7 @@
 				E91481AC209062C4001B7EB5 /* IMMessageBaseCell.m in Sources */,
 				9282171A20CF75C80052E486 /* CreateComplexRequest.m in Sources */,
 				9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */,
+				7C06894A20CF731500C7CA14 /* PercentStatisticView.m in Sources */,
 				7C84302220BCEA7400A05C14 /* PlaceSearchResultCell.m in Sources */,
 				E9540C0D20CA1E6800D7DDA2 /* IMTextMessageSender.m in Sources */,
 				E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */,
@@ -3047,6 +3147,7 @@
 				7C672B501FB2D747004D93DF /* CourseDetailTabContainerView.m in Sources */,
 				7CDF11FA20902E450044DD95 /* PhotoChooseCell.m in Sources */,
 				436CB2281FB15D6000A31585 /* ClazsMemberListFetcher.m in Sources */,
+				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
@@ -3061,6 +3162,7 @@
 				928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */,
 				7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
+				7C06895320CF83A700C7CA14 /* TrainingProjectCell.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
 				E9540BF520CA1E2200D7DDA2 /* ImMqtt.pbobjc.m in Sources */,
 				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,
@@ -3131,7 +3233,9 @@
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
 				7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */,
 				E914818E20906203001B7EB5 /* IMTimeHandleManger.m in Sources */,
+				7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */,
 				7CDF121C20902EC10044DD95 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
+				7C06894D20CF79C700C7CA14 /* TrainingProfileHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

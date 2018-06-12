@@ -11,7 +11,7 @@
 #import <UIDevice+HardwareName.h>
 
 BOOL mockFrameworkOn = NO;
-BOOL testFrameworkOn = NO;
+BOOL testFrameworkOn = YES;
 
 #ifdef DEBUG
 NSString * const kServer = @"http://orz.yanxiu.com/pxt/platform/data.api";

@@ -1,0 +1,98 @@
+//
+//  ProvinceStatisticView.m
+//  FaceShowAdminApp
+//
+//  Created by niuzhaowang on 2018/6/12.
+//  Copyright © 2018年 niuzhaowang. All rights reserved.
+//
+
+#import "ProvinceStatisticView.h"
+#import "NameNumberView.h"
+
+@interface ProvinceStatisticView()
+@property (nonatomic, strong) UILabel *provinceLabel;
+@property (nonatomic, strong) NameNumberView *projectView;
+@property (nonatomic, strong) NameNumberView *classView;
+@property (nonatomic, strong) NameNumberView *studentView;
+@property (nonatomic, strong) NameNumberView *placeView;
+@property (nonatomic, strong) NameNumberView *areaView;
+@end
+
+@implementation ProvinceStatisticView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupUI];
+    }
+    return self;
+}
+
+- (void)setupUI {
+    UIImageView *bgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"蓝色背景"]];
+    [self addSubview:bgView];
+    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    UIView *topView = [[UIView alloc]init];
+    topView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.12];
+    [self addSubview:topView];
+    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
+    self.provinceLabel = [[UILabel alloc]init];
+    self.provinceLabel.font = [UIFont boldSystemFontOfSize:14];
+    self.provinceLabel.textColor = [UIColor whiteColor];
+    self.provinceLabel.textAlignment = NSTextAlignmentCenter;
+    [topView addSubview:self.provinceLabel];
+    [self.provinceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(0);
+    }];
+    self.projectView = [[NameNumberView alloc]init];
+    self.projectView.name = @"项目总数";
+    [self addSubview:self.projectView];
+    [self.projectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(topView.mas_bottom).mas_offset(24);
+        make.centerX.mas_equalTo(self.mas_centerX).multipliedBy(1.0/3.0);
+    }];
+    self.classView = [[NameNumberView alloc]init];
+    self.classView.name = @"班级总数";
+    [self addSubview:self.classView];
+    [self.classView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.projectView.mas_top);
+        make.centerX.mas_equalTo(self.mas_centerX);
+    }];
+    self.studentView = [[NameNumberView alloc]init];
+    self.studentView.name = @"学员数";
+    [self addSubview:self.studentView];
+    [self.studentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.projectView.mas_top);
+        make.centerX.mas_equalTo(self.mas_centerX).multipliedBy(5.0/3.0);
+    }];
+    self.placeView = [[NameNumberView alloc]init];
+    self.placeView.name = @"已使用地方";
+    [self addSubview:self.placeView];
+    [self.placeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.projectView.mas_bottom).mas_offset(28);
+        make.centerX.mas_equalTo(self.projectView.mas_centerX);
+    }];
+    self.areaView = [[NameNumberView alloc]init];
+    self.areaView.name = @"已使用区县";
+    [self addSubview:self.areaView];
+    [self.areaView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.placeView.mas_top);
+        make.centerX.mas_equalTo(self.classView.mas_centerX);
+    }];
+    
+    // mock mock
+    self.provinceLabel.text = @"湖北省";
+    self.projectView.number = @"24";
+    self.classView.number = @"37";
+    self.studentView.number = @"240";
+    self.placeView.number = @"198";
+    self.areaView.number = @"5";
+}
+
+@end
