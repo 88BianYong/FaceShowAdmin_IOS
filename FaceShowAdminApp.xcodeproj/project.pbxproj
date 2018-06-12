@@ -300,6 +300,8 @@
 		921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2F01FB15EF000CF39DE /* ResourceUploadRequest.m */; };
 		921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E200120CFAC7200A0604F /* SubordinateCourseViewController.m */; };
 		921E200620CFB16300A0604F /* SubordinateCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E200520CFB16300A0604F /* SubordinateCourseCell.m */; };
+		922942BF20D0BAE600CC21BD /* CreateQuestionGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 922942BE20D0BAE600CC21BD /* CreateQuestionGroupItem.m */; };
+		922942C220D0C81600CC21BD /* SAMTextView+Restriction.m in Sources */ = {isa = PBXBuildFile; fileRef = 922942C120D0C81600CC21BD /* SAMTextView+Restriction.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -987,6 +989,10 @@
 		921E200120CFAC7200A0604F /* SubordinateCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubordinateCourseViewController.m; sourceTree = "<group>"; };
 		921E200420CFB16300A0604F /* SubordinateCourseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubordinateCourseCell.h; sourceTree = "<group>"; };
 		921E200520CFB16300A0604F /* SubordinateCourseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubordinateCourseCell.m; sourceTree = "<group>"; };
+		922942BD20D0BAE600CC21BD /* CreateQuestionGroupItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateQuestionGroupItem.h; sourceTree = "<group>"; };
+		922942BE20D0BAE600CC21BD /* CreateQuestionGroupItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateQuestionGroupItem.m; sourceTree = "<group>"; };
+		922942C020D0C81600CC21BD /* SAMTextView+Restriction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SAMTextView+Restriction.h"; sourceTree = "<group>"; };
+		922942C120D0C81600CC21BD /* SAMTextView+Restriction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SAMTextView+Restriction.m"; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -2429,6 +2435,8 @@
 				928216F620CE520B0052E486 /* PublishTaskHeaderView.m */,
 				921E200420CFB16300A0604F /* SubordinateCourseCell.h */,
 				921E200520CFB16300A0604F /* SubordinateCourseCell.m */,
+				922942C020D0C81600CC21BD /* SAMTextView+Restriction.h */,
+				922942C120D0C81600CC21BD /* SAMTextView+Restriction.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -2459,6 +2467,8 @@
 				9282171920CF75C80052E486 /* CreateComplexRequest.m */,
 				9282171B20CF75E50052E486 /* UpdateComplexRequest.h */,
 				9282171C20CF75E50052E486 /* UpdateComplexRequest.m */,
+				922942BD20D0BAE600CC21BD /* CreateQuestionGroupItem.h */,
+				922942BE20D0BAE600CC21BD /* CreateQuestionGroupItem.m */,
 			);
 			path = "创建任务";
 			sourceTree = "<group>";
@@ -3012,6 +3022,7 @@
 				7CDF120D20902E8A0044DD95 /* PhotoListViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */,
+				922942BF20D0BAE600CC21BD /* CreateQuestionGroupItem.m in Sources */,
 				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
 				7C672B811FB53916004D93DF /* CourseCommentHeaderView.m in Sources */,
 				7C672AFE1FAAEE6D004D93DF /* SignInDetailRequest.m in Sources */,
@@ -3111,6 +3122,7 @@
 				7CDF1176208D99380044DD95 /* QASlideItemBaseView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				E9540C2120CA1EB200D7DDA2 /* GetMemberTopicsRequest.m in Sources */,
+				922942C220D0C81600CC21BD /* SAMTextView+Restriction.m in Sources */,
 				43729E1C1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m in Sources */,
 				7C672B011FAAF387004D93DF /* QRCodeSignInViewController.m in Sources */,
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,
