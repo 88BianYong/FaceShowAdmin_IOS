@@ -1,5 +1,5 @@
 //
-//  CreateVoteViewController.h
+//  CreateDiscussViewController.h
 //  FaceShowAdminApp
 //
 //  Created by 郑小龙 on 2018/6/11.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface CreateVoteViewController : BaseViewController
+@interface CreateCommentViewController : BaseViewController
 
 @end

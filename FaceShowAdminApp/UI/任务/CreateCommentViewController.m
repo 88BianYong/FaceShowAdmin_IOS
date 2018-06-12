@@ -6,17 +6,23 @@
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "CreateDiscussViewController.h"
-
-@interface CreateDiscussViewController ()
+#import "CreateCommentViewController.h"
+#import "SubordinateCourseViewController.h"
+@interface CreateCommentViewController ()
 
 @end
 
-@implementation CreateDiscussViewController
+@implementation CreateCommentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"新建讨论";
+    WEAK_SELF
+    [self nyx_setupRightWithTitle:@"所属课程" action:^{
+        STRONG_SELF
+        SubordinateCourseViewController *VC = [[SubordinateCourseViewController alloc] init];
+        [self.navigationController pushViewController:VC animated:YES];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

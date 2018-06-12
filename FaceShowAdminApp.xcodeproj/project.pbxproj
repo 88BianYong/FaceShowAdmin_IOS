@@ -286,6 +286,8 @@
 		921DE2E81FB14EE000CF39DE /* ResourceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2E71FB14EE000CF39DE /* ResourceListCell.m */; };
 		921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2EC1FB158D600CF39DE /* GetResourceDetailRequest.m */; };
 		921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921DE2F01FB15EF000CF39DE /* ResourceUploadRequest.m */; };
+		921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E200120CFAC7200A0604F /* SubordinateCourseViewController.m */; };
+		921E200620CFB16300A0604F /* SubordinateCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E200520CFB16300A0604F /* SubordinateCourseCell.m */; };
 		923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */; };
 		9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276E1FA722CE003BCEFD /* MainPageScrollView.m */; };
 		9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9234276F1FA722CF003BCEFD /* MainPageTopView.m */; };
@@ -309,8 +311,12 @@
 		928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F620CE520B0052E486 /* PublishTaskHeaderView.m */; };
 		928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F920CE52330052E486 /* PublishTaskCell.m */; };
 		928216FE20CE70CD0052E486 /* CreateWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216FD20CE70CD0052E486 /* CreateWorkViewController.m */; };
-		9282170120CE738F0052E486 /* CreateDiscussViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170020CE738F0052E486 /* CreateDiscussViewController.m */; };
-		9282170420CE740F0052E486 /* CreateVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170320CE740F0052E486 /* CreateVoteViewController.m */; };
+		9282170120CE738F0052E486 /* CreateCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170020CE738F0052E486 /* CreateCommentViewController.m */; };
+		9282170420CE740F0052E486 /* CreateComplexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170320CE740F0052E486 /* CreateComplexViewController.m */; };
+		9282170820CF70B90052E486 /* GetClassCourseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170720CF70B90052E486 /* GetClassCourseRequest.m */; };
+		9282170B20CF74A60052E486 /* CreateCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170A20CF74A60052E486 /* CreateCommentRequest.m */; };
+		9282171A20CF75C80052E486 /* CreateComplexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282171920CF75C80052E486 /* CreateComplexRequest.m */; };
+		9282171D20CF75E50052E486 /* UpdateComplexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282171C20CF75E50052E486 /* UpdateComplexRequest.m */; };
 		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
 		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
 		92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */; };
@@ -941,6 +947,10 @@
 		921DE2ED1FB158D600CF39DE /* GetResourceDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetResourceDetailRequest.h; sourceTree = "<group>"; };
 		921DE2EF1FB15EF000CF39DE /* ResourceUploadRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUploadRequest.h; sourceTree = "<group>"; };
 		921DE2F01FB15EF000CF39DE /* ResourceUploadRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceUploadRequest.m; sourceTree = "<group>"; };
+		921E200020CFAC7200A0604F /* SubordinateCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubordinateCourseViewController.h; sourceTree = "<group>"; };
+		921E200120CFAC7200A0604F /* SubordinateCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubordinateCourseViewController.m; sourceTree = "<group>"; };
+		921E200420CFB16300A0604F /* SubordinateCourseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubordinateCourseCell.h; sourceTree = "<group>"; };
+		921E200520CFB16300A0604F /* SubordinateCourseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubordinateCourseCell.m; sourceTree = "<group>"; };
 		9234276B1FA722CE003BCEFD /* MainPageTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTopView.h; sourceTree = "<group>"; };
 		9234276C1FA722CE003BCEFD /* TodaySignInsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySignInsCell.h; sourceTree = "<group>"; };
 		9234276D1FA722CE003BCEFD /* TodaySignInsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySignInsCell.m; sourceTree = "<group>"; };
@@ -986,10 +996,18 @@
 		928216F920CE52330052E486 /* PublishTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskCell.m; sourceTree = "<group>"; };
 		928216FC20CE70CD0052E486 /* CreateWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateWorkViewController.h; sourceTree = "<group>"; };
 		928216FD20CE70CD0052E486 /* CreateWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateWorkViewController.m; sourceTree = "<group>"; };
-		928216FF20CE738F0052E486 /* CreateDiscussViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateDiscussViewController.h; sourceTree = "<group>"; };
-		9282170020CE738F0052E486 /* CreateDiscussViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateDiscussViewController.m; sourceTree = "<group>"; };
-		9282170220CE740F0052E486 /* CreateVoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateVoteViewController.h; sourceTree = "<group>"; };
-		9282170320CE740F0052E486 /* CreateVoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateVoteViewController.m; sourceTree = "<group>"; };
+		928216FF20CE738F0052E486 /* CreateCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateCommentViewController.h; sourceTree = "<group>"; };
+		9282170020CE738F0052E486 /* CreateCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateCommentViewController.m; sourceTree = "<group>"; };
+		9282170220CE740F0052E486 /* CreateComplexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateComplexViewController.h; sourceTree = "<group>"; };
+		9282170320CE740F0052E486 /* CreateComplexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateComplexViewController.m; sourceTree = "<group>"; };
+		9282170620CF70B90052E486 /* GetClassCourseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetClassCourseRequest.h; sourceTree = "<group>"; };
+		9282170720CF70B90052E486 /* GetClassCourseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetClassCourseRequest.m; sourceTree = "<group>"; };
+		9282170920CF74A60052E486 /* CreateCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateCommentRequest.h; sourceTree = "<group>"; };
+		9282170A20CF74A60052E486 /* CreateCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateCommentRequest.m; sourceTree = "<group>"; };
+		9282171820CF75C80052E486 /* CreateComplexRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateComplexRequest.h; sourceTree = "<group>"; };
+		9282171920CF75C80052E486 /* CreateComplexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateComplexRequest.m; sourceTree = "<group>"; };
+		9282171B20CF75E50052E486 /* UpdateComplexRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateComplexRequest.h; sourceTree = "<group>"; };
+		9282171C20CF75E50052E486 /* UpdateComplexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateComplexRequest.m; sourceTree = "<group>"; };
 		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
 		92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadFirstStepRequest.m; sourceTree = "<group>"; };
 		92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadSecondStepRequest.h; sourceTree = "<group>"; };
@@ -1328,6 +1346,7 @@
 		7C672B171FB03806004D93DF /* 任务 */ = {
 			isa = PBXGroup;
 			children = (
+				9282170520CF708A0052E486 /* 创建任务 */,
 				7C672B181FB03815004D93DF /* GetTaskRequest.h */,
 				7C672B191FB03815004D93DF /* GetTaskRequest.m */,
 				7C672B251FB15430004D93DF /* GetQuestionnaireRequest.h */,
@@ -2316,6 +2335,8 @@
 				928216F920CE52330052E486 /* PublishTaskCell.m */,
 				928216F520CE520B0052E486 /* PublishTaskHeaderView.h */,
 				928216F620CE520B0052E486 /* PublishTaskHeaderView.m */,
+				921E200420CFB16300A0604F /* SubordinateCourseCell.h */,
+				921E200520CFB16300A0604F /* SubordinateCourseCell.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -2325,12 +2346,29 @@
 			children = (
 				928216FC20CE70CD0052E486 /* CreateWorkViewController.h */,
 				928216FD20CE70CD0052E486 /* CreateWorkViewController.m */,
-				928216FF20CE738F0052E486 /* CreateDiscussViewController.h */,
-				9282170020CE738F0052E486 /* CreateDiscussViewController.m */,
-				9282170220CE740F0052E486 /* CreateVoteViewController.h */,
-				9282170320CE740F0052E486 /* CreateVoteViewController.m */,
+				928216FF20CE738F0052E486 /* CreateCommentViewController.h */,
+				9282170020CE738F0052E486 /* CreateCommentViewController.m */,
+				9282170220CE740F0052E486 /* CreateComplexViewController.h */,
+				9282170320CE740F0052E486 /* CreateComplexViewController.m */,
+				921E200020CFAC7200A0604F /* SubordinateCourseViewController.h */,
+				921E200120CFAC7200A0604F /* SubordinateCourseViewController.m */,
 			);
 			name = "发布任务";
+			sourceTree = "<group>";
+		};
+		9282170520CF708A0052E486 /* 创建任务 */ = {
+			isa = PBXGroup;
+			children = (
+				9282170620CF70B90052E486 /* GetClassCourseRequest.h */,
+				9282170720CF70B90052E486 /* GetClassCourseRequest.m */,
+				9282170920CF74A60052E486 /* CreateCommentRequest.h */,
+				9282170A20CF74A60052E486 /* CreateCommentRequest.m */,
+				9282171820CF75C80052E486 /* CreateComplexRequest.h */,
+				9282171920CF75C80052E486 /* CreateComplexRequest.m */,
+				9282171B20CF75E50052E486 /* UpdateComplexRequest.h */,
+				9282171C20CF75E50052E486 /* UpdateComplexRequest.m */,
+			);
+			path = "创建任务";
 			sourceTree = "<group>";
 		};
 		E9024A42209063940002444F /* Controller */ = {
@@ -2729,6 +2767,7 @@
 				7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */,
 				7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */,
 				7CEFC9781FA81106001D8C84 /* SignInListRequest.m in Sources */,
+				921E200620CFB16300A0604F /* SubordinateCourseCell.m in Sources */,
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
 				92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */,
 				E9540BEC20CA1DEE00D7DDA2 /* IMConnectionManager.m in Sources */,
@@ -2783,6 +2822,7 @@
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CDF129D20903B4E0044DD95 /* MJRefreshFooterView.m in Sources */,
 				7CDF123920902EE60044DD95 /* ClassMomentFloatingView.m in Sources */,
+				9282170B20CF74A60052E486 /* CreateCommentRequest.m in Sources */,
 				7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */,
@@ -2797,6 +2837,7 @@
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */,
 				E91481B1209062C4001B7EB5 /* IMTextMessageLeftCell.m in Sources */,
+				921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */,
 				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
 				7CDF128D2090307F0044DD95 /* CommentInputView.m in Sources */,
@@ -2812,7 +2853,7 @@
 				7CDF1199208DB3040044DD95 /* YXImagePickerController.m in Sources */,
 				E91481CC20906307001B7EB5 /* IMSlideImageView.m in Sources */,
 				E9540C4320CA1F4B00D7DDA2 /* IMTopicUpdateService.m in Sources */,
-				9282170120CE738F0052E486 /* CreateDiscussViewController.m in Sources */,
+				9282170120CE738F0052E486 /* CreateCommentViewController.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
@@ -2943,6 +2984,7 @@
 				7C672B8E1FB53967004D93DF /* LikeCommentRequest.m in Sources */,
 				7C672AF51FAAC1D1004D93DF /* UserSignedCell.m in Sources */,
 				7CEFC89D1FA06614001D8C84 /* YXNoFloatingHeaderFooterTableView.m in Sources */,
+				9282170820CF70B90052E486 /* GetClassCourseRequest.m in Sources */,
 				921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */,
 				436E6DFA1FB3F395009950EA /* UploadHeadImgRequest.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
@@ -2978,7 +3020,9 @@
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
 				E9540C0720CA1E6800D7DDA2 /* IMImageMessage.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
+				9282171D20CF75E50052E486 /* UpdateComplexRequest.m in Sources */,
 				E91481AC209062C4001B7EB5 /* IMMessageBaseCell.m in Sources */,
+				9282171A20CF75C80052E486 /* CreateComplexRequest.m in Sources */,
 				9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */,
 				7C84302220BCEA7400A05C14 /* PlaceSearchResultCell.m in Sources */,
 				E9540C0D20CA1E6800D7DDA2 /* IMTextMessageSender.m in Sources */,
@@ -3064,7 +3108,7 @@
 				7CDF128020902FBF0044DD95 /* ClassMomentUserListFetcher.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				E9540C2320CA1EB200D7DDA2 /* TopicData.m in Sources */,
-				9282170420CE740F0052E486 /* CreateVoteViewController.m in Sources */,
+				9282170420CE740F0052E486 /* CreateComplexViewController.m in Sources */,
 				7CDF124920902F200044DD95 /* ReportViewController.m in Sources */,
 				7CDF120F20902E8A0044DD95 /* ImageAttachmentView.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,

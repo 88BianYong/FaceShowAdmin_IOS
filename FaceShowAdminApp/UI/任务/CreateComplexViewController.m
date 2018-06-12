@@ -6,13 +6,13 @@
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "CreateVoteViewController.h"
+#import "CreateComplexViewController.h"
 
-@interface CreateVoteViewController ()
+@interface CreateComplexViewController ()
 
 @end
 
-@implementation CreateVoteViewController
+@implementation CreateComplexViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

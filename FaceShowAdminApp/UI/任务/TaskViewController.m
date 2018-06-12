@@ -20,8 +20,8 @@
 #import "AlertView.h"
 #import "PublishTaskView.h"
 #import "CreateWorkViewController.h"
-#import "CreateVoteViewController.h"
-#import "CreateDiscussViewController.h"
+#import "CreateComplexViewController.h"
+#import "CreateCommentViewController.h"
 #import "CreateSignInViewController.h"
 @interface TaskViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -201,14 +201,14 @@
                 break;
             case 2:
             {
-                CreateDiscussViewController *VC = [[CreateDiscussViewController alloc] init];
+                CreateCommentViewController *VC = [[CreateCommentViewController alloc] init];
                 [self.navigationController pushViewController:VC animated:YES];
             }
                 break;
                 
             default:
             {
-                CreateVoteViewController *VC = [[CreateVoteViewController alloc] init];
+                CreateComplexViewController *VC = [[CreateComplexViewController alloc] init];
                 [self.navigationController pushViewController:VC animated:YES];
             }
                 break;
