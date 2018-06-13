@@ -17,6 +17,7 @@
 #import "AlertView.h"
 #import "ScheduleCreateRequest.h"
 #import "ScheduleUpdateRequest.h"
+#import "QiniuDataManager.h"
 @interface ScheduleCreateViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) ScheduleCreateTitleCell *titleCell;
@@ -260,29 +261,29 @@
         [self.view nyx_showToast:@"通知标题最多20字"];
         return;
     }
-    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
-    NSString *fileName = [NSString stringWithFormat:@"%@%d.jpg",[UserManager sharedInstance].userModel.userID, (int)interval];
     [self.view nyx_startLoading];
     WEAK_SELF
-    [QADataManager uploadFile:self.imageCell.photoImageView.image fileName:fileName completeBlock:^(QAFileUploadSecondStepRequestItem *item, NSError *error) {
+    NSData *data = [UIImage compressionImage:self.imageCell.photoImageView.image limitSize:0.1 * 1024 * 1024];
+    [[QiniuDataManager sharedInstance]uploadData:data withProgressBlock:nil completeBlock:^(NSString *key, NSError *error) {
         STRONG_SELF
-        if (item.result.resid == nil){
+        if (error) {
             [self.view nyx_stopLoading];
+            [self nyx_enableRightNavigationItem];
             [self.view nyx_showToast:@"发布失败请重试"];
+            return;
+        }
+        if (self.element == nil) {
+            [self requestForScheduleCreate:[NSString stringWithFormat:@"%@/%@",[ConfigManager sharedInstance].qiNiuUpLoad,key]];
         }else {
-            if (self.element == nil) {
-                [self requestForScheduleCreate:item.result];
-            }else {
-                [self requestForScheduleUpdate:item.result];
-            }
+            [self requestForScheduleUpdate:[NSString stringWithFormat:@"%@/%@",[ConfigManager sharedInstance].qiNiuUpLoad,key]];
         }
     }];
 }
-- (void)requestForScheduleCreate:(QAFileUploadSecondStepRequestItem_result *)result{
+- (void)requestForScheduleCreate:(NSString *)imageUrl{
     self.createRequest = [[ScheduleCreateRequest alloc] init];
     self.createRequest.subject = self.titleCell.textField.text;
     self.createRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-    self.createRequest.imageUrl = [NSString stringWithFormat:@"http://upload.ugc.yanxiu.com/img/%@.jpg?from=%@&resId=%@",result.md5,result.from,result.resid];
+    self.createRequest.imageUrl = imageUrl;
     WEAK_SELF
     [self.createRequest startRequestWithRetClass:[ScheduleCreateRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
@@ -300,11 +301,11 @@
         }
     }];
 }
-- (void)requestForScheduleUpdate:(QAFileUploadSecondStepRequestItem_result *)result {
+- (void)requestForScheduleUpdate:(NSString *)imageUrl{
     self.updateRequest = [[ScheduleUpdateRequest alloc] init];
     self.updateRequest.scheduleId = self.element.elementId;
     self.updateRequest.subject = self.titleCell.textField.text;
-    self.updateRequest.imageUrl = [NSString stringWithFormat:@"http://upload.ugc.yanxiu.com/img/%@.jpg?from=%@&resId=%@",result.md5,result.from,result.resid];
+    self.updateRequest.imageUrl = imageUrl;
     WEAK_SELF
     [self.updateRequest startRequestWithRetClass:[ScheduleUpdateRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF

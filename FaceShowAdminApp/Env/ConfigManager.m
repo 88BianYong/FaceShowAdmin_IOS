@@ -17,10 +17,12 @@ BOOL testFrameworkOn = NO;
 NSString * const kServer = @"http://orz.yanxiu.com/pxt/platform/data.api";
 NSString * const kLoginServer = @"http://orz.yanxiu.com/uc/appLogin";
 NSString * const kEasygoServer = @"http://orz.yanxiu.com/easygo/multiUpload";
+NSString * const kQiNiuUpload = @"http://p2xuvkfak.bkt.clouddn.com";
 #else
 NSString * const kServer = @"http://yxb.yanxiu.com/pxt/platform/data.api";
 NSString * const kLoginServer = @"http://pp.yanxiu.com/uc/appLogin";
 NSString * const kEasygoServer = @"http://b.yanxiu.com/easygo/multiUpload";
+NSString * const kQiNiuUpload = @"http://niuugcupload.yanxiu.com";
 #endif
 
 @implementation ConfigManager
@@ -46,6 +48,10 @@ NSString * const kEasygoServer = @"http://b.yanxiu.com/easygo/multiUpload";
 - (NSString *)easygo {
     return kEasygoServer;
 }
+- (NSString *)qiNiuUpLoad {
+    return kQiNiuUpload;
+}
+
 
 - (NSString *)appName {
     if (!_appName) {

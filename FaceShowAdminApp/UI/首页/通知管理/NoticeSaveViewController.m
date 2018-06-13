@@ -16,6 +16,8 @@
 #import "QADataManager.h"
 #import "FDActionSheetView.h"
 #import "AlertView.h"
+#import "QiniuDataManager.h"
+
 
 @interface NoticeSaveViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
@@ -302,29 +304,29 @@
         [self.view nyx_showToast:@"通知标题最多20字"];
         return;
     }
-    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
-    NSString *fileName = [NSString stringWithFormat:@"%@%d.jpg",[UserManager sharedInstance].userModel.userID, (int)interval];
     [self.view.window nyx_startLoading];
     WEAK_SELF
-    [QADataManager uploadFile:self.imageCell.photoImageView.image fileName:fileName completeBlock:^(QAFileUploadSecondStepRequestItem *item, NSError *error) {
+    NSData *data = [UIImage compressionImage:self.imageCell.photoImageView.image limitSize:0.1 * 1024 * 1024];
+    [[QiniuDataManager sharedInstance]uploadData:data withProgressBlock:nil completeBlock:^(NSString *key, NSError *error) {
         STRONG_SELF
-        [self.view.window nyx_stopLoading];
-        if (item.result.resid == nil){
+        if (error) {
+            [self.view nyx_stopLoading];
+            [self nyx_enableRightNavigationItem];
             [self.view nyx_showToast:@"发布失败请重试"];
-        }else {
-            [self requestForNoticeSave:item.result];
+            return;
         }
+        [self requestForNoticeSave:[NSString stringWithFormat:@"%@/%@",[ConfigManager sharedInstance].qiNiuUpLoad,key]];
     }];
 }
-- (void)requestForNoticeSave:(QAFileUploadSecondStepRequestItem_result *)result{
+- (void)requestForNoticeSave:(NSString *)imageUrl{
     //@白东方 priviewUrl=`http://upload.ugc.yanxiu.com/img/${markfile.md5}.${markfile.ext}?from=${config.from}&resId=${markfile.resId}`;
     [self.saveRequest stopRequest];
     self.saveRequest = [[NoticeSaveRequest alloc] init];
     self.saveRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     self.saveRequest.title = self.titleCell.textField.text;
     self.saveRequest.content = self.contentCell.textView.text;
-    if (result != nil) {
-        self.saveRequest.url = [NSString stringWithFormat:@"http://upload.ugc.yanxiu.com/img/%@.jpg?from=%@&resId=%@",result.md5,result.from,result.resid];
+    if (imageUrl != nil) {
+        self.saveRequest.url = imageUrl;
     }
     [self.view.window nyx_startLoading];
     WEAK_SELF
