@@ -46,6 +46,13 @@
 		7C06895920CFA82700C7CA14 /* ProjectAreaDistributingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06895820CFA82700C7CA14 /* ProjectAreaDistributingCell.m */; };
 		7C06895D20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06895C20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m */; };
 		7C06896120CFBB4D00C7CA14 /* ProjectDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896020CFBB4D00C7CA14 /* ProjectDetailCell.m */; };
+		7C06896420D0B26D00C7CA14 /* TrainingProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896320D0B26D00C7CA14 /* TrainingProjectDetailViewController.m */; };
+		7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896620D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m */; };
+		7C06896A20D0BEC900C7CA14 /* ClassSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896920D0BEC900C7CA14 /* ClassSwitchView.m */; };
+		7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896C20D0D1C400C7CA14 /* ClassStatisticView.m */; };
+		7C06897020D0D32200C7CA14 /* ClassDetailStatisticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896F20D0D32200C7CA14 /* ClassDetailStatisticItemView.m */; };
+		7C06897320D0D42700C7CA14 /* ClassDetailStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897220D0D42700C7CA14 /* ClassDetailStatisticView.m */; };
+		7C06897620D0EDFB00C7CA14 /* ClassInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897520D0EDFB00C7CA14 /* ClassInfoView.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
@@ -491,6 +498,20 @@
 		7C06895C20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTrainingProjectViewController.m; sourceTree = "<group>"; };
 		7C06895F20CFBB4D00C7CA14 /* ProjectDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectDetailCell.h; sourceTree = "<group>"; };
 		7C06896020CFBB4D00C7CA14 /* ProjectDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailCell.m; sourceTree = "<group>"; };
+		7C06896220D0B26D00C7CA14 /* TrainingProjectDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingProjectDetailViewController.h; sourceTree = "<group>"; };
+		7C06896320D0B26D00C7CA14 /* TrainingProjectDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainingProjectDetailViewController.m; sourceTree = "<group>"; };
+		7C06896520D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectDetailStatisticItemView.h; sourceTree = "<group>"; };
+		7C06896620D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailStatisticItemView.m; sourceTree = "<group>"; };
+		7C06896820D0BEC900C7CA14 /* ClassSwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassSwitchView.h; sourceTree = "<group>"; };
+		7C06896920D0BEC900C7CA14 /* ClassSwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassSwitchView.m; sourceTree = "<group>"; };
+		7C06896B20D0D1C400C7CA14 /* ClassStatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassStatisticView.h; sourceTree = "<group>"; };
+		7C06896C20D0D1C400C7CA14 /* ClassStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassStatisticView.m; sourceTree = "<group>"; };
+		7C06896E20D0D32200C7CA14 /* ClassDetailStatisticItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailStatisticItemView.h; sourceTree = "<group>"; };
+		7C06896F20D0D32200C7CA14 /* ClassDetailStatisticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailStatisticItemView.m; sourceTree = "<group>"; };
+		7C06897120D0D42700C7CA14 /* ClassDetailStatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailStatisticView.h; sourceTree = "<group>"; };
+		7C06897220D0D42700C7CA14 /* ClassDetailStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailStatisticView.m; sourceTree = "<group>"; };
+		7C06897420D0EDFB00C7CA14 /* ClassInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassInfoView.h; sourceTree = "<group>"; };
+		7C06897520D0EDFB00C7CA14 /* ClassInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassInfoView.m; sourceTree = "<group>"; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -1340,6 +1361,8 @@
 				7C06895E20CFBB1600C7CA14 /* View */,
 				7C06895B20CFBB0D00C7CA14 /* MyTrainingProjectViewController.h */,
 				7C06895C20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m */,
+				7C06896220D0B26D00C7CA14 /* TrainingProjectDetailViewController.h */,
+				7C06896320D0B26D00C7CA14 /* TrainingProjectDetailViewController.m */,
 			);
 			path = "我的项目";
 			sourceTree = "<group>";
@@ -1349,6 +1372,18 @@
 			children = (
 				7C06895F20CFBB4D00C7CA14 /* ProjectDetailCell.h */,
 				7C06896020CFBB4D00C7CA14 /* ProjectDetailCell.m */,
+				7C06896520D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.h */,
+				7C06896620D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m */,
+				7C06896820D0BEC900C7CA14 /* ClassSwitchView.h */,
+				7C06896920D0BEC900C7CA14 /* ClassSwitchView.m */,
+				7C06896B20D0D1C400C7CA14 /* ClassStatisticView.h */,
+				7C06896C20D0D1C400C7CA14 /* ClassStatisticView.m */,
+				7C06896E20D0D32200C7CA14 /* ClassDetailStatisticItemView.h */,
+				7C06896F20D0D32200C7CA14 /* ClassDetailStatisticItemView.m */,
+				7C06897120D0D42700C7CA14 /* ClassDetailStatisticView.h */,
+				7C06897220D0D42700C7CA14 /* ClassDetailStatisticView.m */,
+				7C06897420D0EDFB00C7CA14 /* ClassInfoView.h */,
+				7C06897520D0EDFB00C7CA14 /* ClassInfoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2927,6 +2962,7 @@
 				9282170B20CF74A60052E486 /* CreateCommentRequest.m in Sources */,
 				7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
+				7C06896420D0B26D00C7CA14 /* TrainingProjectDetailViewController.m in Sources */,
 				E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */,
 				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
 				E9540C0920CA1E6800D7DDA2 /* IMHistoryFetchRecord.m in Sources */,
@@ -2985,6 +3021,7 @@
 				7CDF121D20902EC10044DD95 /* PhotosScrollView.m in Sources */,
 				7CDF121B20902EC10044DD95 /* ShowPhotosViewController.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
+				7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CDF124A20902F200044DD95 /* ClassMomentNotificationViewController.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
@@ -3066,6 +3103,7 @@
 				7C672B6B1FB3FF04004D93DF /* CourseInfoTabContainerView.m in Sources */,
 				7C2E6F9920CA21A10066DE7C /* IMMemberInfoView.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
+				7C06896A20D0BEC900C7CA14 /* ClassSwitchView.m in Sources */,
 				7CDF123520902EE60044DD95 /* ClassMomentCell.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				7CDF128620902FBF0044DD95 /* ReportRequest.m in Sources */,
@@ -3102,6 +3140,7 @@
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
 				7CDF11A3208DB4A50044DD95 /* QiniuTokenRequest.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
+				7C06897020D0D32200C7CA14 /* ClassDetailStatisticItemView.m in Sources */,
 				7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */,
 				7CDF124D20902F200044DD95 /* ClassMomentViewController.m in Sources */,
 				9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */,
@@ -3159,6 +3198,7 @@
 				7C672B501FB2D747004D93DF /* CourseDetailTabContainerView.m in Sources */,
 				7CDF11FA20902E450044DD95 /* PhotoChooseCell.m in Sources */,
 				436CB2281FB15D6000A31585 /* ClazsMemberListFetcher.m in Sources */,
+				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
 				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
@@ -3166,7 +3206,9 @@
 				43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */,
 				E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */,
 				921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */,
+				7C06897320D0D42700C7CA14 /* ClassDetailStatisticView.m in Sources */,
 				436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */,
+				7C06897620D0EDFB00C7CA14 /* ClassInfoView.m in Sources */,
 				7CDF123120902EE60044DD95 /* SlideImageView.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
