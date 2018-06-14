@@ -140,7 +140,7 @@
 }
 
 - (void)enterClass {
-    
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark - QASlideViewDataSource

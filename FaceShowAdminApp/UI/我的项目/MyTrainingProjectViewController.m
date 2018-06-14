@@ -9,6 +9,7 @@
 #import "MyTrainingProjectViewController.h"
 #import "ProjectDetailCell.h"
 #import "TitleHeaderView.h"
+#import "TrainingProjectDetailViewController.h"
 
 @interface ProjectGroup :NSObject
 @property (nonatomic, assign) ProjectGroupType type;
@@ -111,4 +112,8 @@
     return 111;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

@@ -53,11 +53,11 @@
     self.pie.valueArr = @[@18,@14,@25,@40,@18];
     /* The description of each sector must be filled, and the number must be the same as the pie chart. */
     self.pie.descArr = @[@"第一个元素",@"第二个元素",@"第三个元素",@"第四个元素",@"5"];
-    self.pie.colorArr = @[[UIColor colorWithHexString:@"70a7eb"],
-                          [UIColor colorWithHexString:@"4993c1"],
-                          [UIColor colorWithHexString:@"2567aa"],
-                          [UIColor colorWithHexString:@"4c76f5"],
-                          [UIColor colorWithHexString:@"5f96dd"]];
+    self.pie.colorArr = @[[UIColor colorWithHexString:@"21c7dc"],
+                          [UIColor colorWithHexString:@"59afe7"],
+                          [UIColor colorWithHexString:@"ccf1fc"],
+                          [UIColor colorWithHexString:@"83d6f1"],
+                          [UIColor colorWithHexString:@"25b7fc"]];
     [self.pie showAnimation];
 }
 

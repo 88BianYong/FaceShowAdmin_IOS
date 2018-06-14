@@ -11,13 +11,14 @@
 #import "TrainingProfileViewController.h"
 #import "MyTrainingProjectViewController.h"
 #import "TrainingProjectDetailViewController.h"
+#import "ProjectFilterViewController.h"
 
 @interface YXTestViewController ()
 @end
 
 @implementation YXTestViewController
 - (void)viewDidLoad {
-    self.devTestActions = @[@"testSigninPlace",@"testTrainingProfile",@"testMyProject",@"testProjectDetail"];
+    self.devTestActions = @[@"testSigninPlace",@"testTrainingProfile",@"testMyProject",@"testProjectDetail",@"testFilter"];
     [super viewDidLoad];
 }
 
@@ -36,6 +37,10 @@
 }
 - (void)testProjectDetail {
     TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)testFilter {
+    ProjectFilterViewController *vc = [[ProjectFilterViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

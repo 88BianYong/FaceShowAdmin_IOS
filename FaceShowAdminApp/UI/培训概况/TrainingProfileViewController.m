@@ -12,6 +12,8 @@
 #import "TrainingProjectCell.h"
 #import "ProjectLevelDistributingCell.h"
 #import "ProjectAreaDistributingCell.h"
+#import "TrainingProjectDetailViewController.h"
+#import "ProjectFilterViewController.h"
 
 @interface TrainingProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -27,6 +29,8 @@
     WEAK_SELF
     [self nyx_setupRightWithTitle:@"筛选" action:^{
         STRONG_SELF
+        ProjectFilterViewController *vc = [[ProjectFilterViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     [self setupUI];    
 }
@@ -104,5 +108,10 @@
     }else {
         return 50;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

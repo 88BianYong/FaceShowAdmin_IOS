@@ -9,6 +9,8 @@
 #import "MineViewController.h"
 #import "ClassSelectionViewController.h"
 #import "MyInfoViewController.h"
+#import "TrainingProfileViewController.h"
+#import "MyTrainingProjectViewController.h"
 
 @interface MineViewController ()
 @property (nonatomic, strong) UIImageView *avatarImageView;
@@ -114,21 +116,36 @@
         make.bottom.mas_equalTo(changeClassBtn.mas_bottom).mas_offset(20);
     }];
     
+    UIButton *trainingProfileBtn = [self optionBtnWithTitle:@"培训概况" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
+    [self.view addSubview:trainingProfileBtn];
+    [trainingProfileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(backImageView.mas_bottom).offset(30);
+        make.centerX.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+    }];
+    
+    UIButton *myProjectBtn = [self optionBtnWithTitle:@"我的项目" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
+    [self.view addSubview:myProjectBtn];
+    [myProjectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(trainingProfileBtn.mas_bottom).offset(30);
+        make.centerX.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+    }];
     
     UIButton *classHomeBtn = [self optionBtnWithTitle:@"班级首页" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
     [self.view addSubview:classHomeBtn];
     [classHomeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(backImageView.mas_bottom).offset(44);
+        make.top.mas_equalTo(myProjectBtn.mas_bottom).offset(30);
         make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(100, 25));
+        make.left.right.mas_equalTo(0);
     }];
     
     UIButton *mineInfoBtn = [self optionBtnWithTitle:@"我的资料" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
     [self.view addSubview:mineInfoBtn];
     [mineInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(classHomeBtn.mas_bottom).offset(40);
+        make.top.mas_equalTo(classHomeBtn.mas_bottom).offset(30);
         make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(100, 25));
+        make.left.right.mas_equalTo(0);
     }];
     
     UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -208,11 +225,17 @@
 }
 
 - (void)optionBtnAction:(UIButton *)sender {
+    [TalkingData trackEvent:[NSString stringWithFormat:@"点击%@",sender.titleLabel.text]];
     if ([sender.titleLabel.text isEqualToString:@"班级首页"]) {
-        [TalkingData trackEvent:@"点击班级首页"];
         [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
     } else if ([sender.titleLabel.text isEqualToString:@"我的资料"]) {
         MyInfoViewController *vc = [[MyInfoViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([sender.titleLabel.text isEqualToString:@"培训概况"]) {
+        TrainingProfileViewController *vc = [[TrainingProfileViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([sender.titleLabel.text isEqualToString:@"我的项目"]) {
+        MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

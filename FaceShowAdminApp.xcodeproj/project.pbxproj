@@ -53,6 +53,10 @@
 		7C06897020D0D32200C7CA14 /* ClassDetailStatisticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06896F20D0D32200C7CA14 /* ClassDetailStatisticItemView.m */; };
 		7C06897320D0D42700C7CA14 /* ClassDetailStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897220D0D42700C7CA14 /* ClassDetailStatisticView.m */; };
 		7C06897620D0EDFB00C7CA14 /* ClassInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897520D0EDFB00C7CA14 /* ClassInfoView.m */; };
+		7C06897920D1190A00C7CA14 /* ProjectFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897820D1190900C7CA14 /* ProjectFilterViewController.m */; };
+		7C06897C20D11A4D00C7CA14 /* FilterItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897B20D11A4D00C7CA14 /* FilterItemCell.m */; };
+		7C06897F20D11E1100C7CA14 /* FilterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897E20D11E1100C7CA14 /* FilterHeaderView.m */; };
+		7C06898220D2039900C7CA14 /* CustomTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
@@ -512,6 +516,14 @@
 		7C06897220D0D42700C7CA14 /* ClassDetailStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailStatisticView.m; sourceTree = "<group>"; };
 		7C06897420D0EDFB00C7CA14 /* ClassInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassInfoView.h; sourceTree = "<group>"; };
 		7C06897520D0EDFB00C7CA14 /* ClassInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassInfoView.m; sourceTree = "<group>"; };
+		7C06897720D1190900C7CA14 /* ProjectFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectFilterViewController.h; sourceTree = "<group>"; };
+		7C06897820D1190900C7CA14 /* ProjectFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectFilterViewController.m; sourceTree = "<group>"; };
+		7C06897A20D11A4D00C7CA14 /* FilterItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterItemCell.h; sourceTree = "<group>"; };
+		7C06897B20D11A4D00C7CA14 /* FilterItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterItemCell.m; sourceTree = "<group>"; };
+		7C06897D20D11E1100C7CA14 /* FilterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterHeaderView.h; sourceTree = "<group>"; };
+		7C06897E20D11E1100C7CA14 /* FilterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterHeaderView.m; sourceTree = "<group>"; };
+		7C06898020D2039900C7CA14 /* CustomTimeSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTimeSettingView.h; sourceTree = "<group>"; };
+		7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTimeSettingView.m; sourceTree = "<group>"; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -1326,6 +1338,8 @@
 				7C06893E20CF6A4400C7CA14 /* View */,
 				7C06893B20CF69DA00C7CA14 /* TrainingProfileViewController.h */,
 				7C06893C20CF69DA00C7CA14 /* TrainingProfileViewController.m */,
+				7C06897720D1190900C7CA14 /* ProjectFilterViewController.h */,
+				7C06897820D1190900C7CA14 /* ProjectFilterViewController.m */,
 			);
 			path = "培训概况";
 			sourceTree = "<group>";
@@ -1351,6 +1365,12 @@
 				7C06895520CF9E8100C7CA14 /* ProjectLevelDistributingCell.m */,
 				7C06895720CFA82700C7CA14 /* ProjectAreaDistributingCell.h */,
 				7C06895820CFA82700C7CA14 /* ProjectAreaDistributingCell.m */,
+				7C06897A20D11A4D00C7CA14 /* FilterItemCell.h */,
+				7C06897B20D11A4D00C7CA14 /* FilterItemCell.m */,
+				7C06897D20D11E1100C7CA14 /* FilterHeaderView.h */,
+				7C06897E20D11E1100C7CA14 /* FilterHeaderView.m */,
+				7C06898020D2039900C7CA14 /* CustomTimeSettingView.h */,
+				7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2960,6 +2980,7 @@
 				7CDF129D20903B4E0044DD95 /* MJRefreshFooterView.m in Sources */,
 				7CDF123920902EE60044DD95 /* ClassMomentFloatingView.m in Sources */,
 				9282170B20CF74A60052E486 /* CreateCommentRequest.m in Sources */,
+				7C06898220D2039900C7CA14 /* CustomTimeSettingView.m in Sources */,
 				7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				7C06896420D0B26D00C7CA14 /* TrainingProjectDetailViewController.m in Sources */,
@@ -2985,6 +3006,7 @@
 				7CDF120B20902E8A0044DD95 /* ImageAttachmentContainerView.m in Sources */,
 				E9540C4A20CA1F6F00D7DDA2 /* IM.xcdatamodeld in Sources */,
 				921DE2E81FB14EE000CF39DE /* ResourceListCell.m in Sources */,
+				7C06897920D1190A00C7CA14 /* ProjectFilterViewController.m in Sources */,
 				7C672B121FB01081004D93DF /* CourseListItemCell.m in Sources */,
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
 				E9540C3720CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m in Sources */,
@@ -2994,6 +3016,7 @@
 				7CDF1199208DB3040044DD95 /* YXImagePickerController.m in Sources */,
 				E91481CC20906307001B7EB5 /* IMSlideImageView.m in Sources */,
 				E9540C4320CA1F4B00D7DDA2 /* IMTopicUpdateService.m in Sources */,
+				7C06897C20D11A4D00C7CA14 /* FilterItemCell.m in Sources */,
 				9282170120CE738F0052E486 /* CreateCommentViewController.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
@@ -3066,6 +3089,7 @@
 				E91481C620906307001B7EB5 /* ChatListCell.m in Sources */,
 				7CDF11F920902E450044DD95 /* PhotoChooseViewController.m in Sources */,
 				7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */,
+				7C06897F20D11E1100C7CA14 /* FilterHeaderView.m in Sources */,
 				7C06894420CF6D5200C7CA14 /* ProvinceStatisticView.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				E9540C2020CA1EB200D7DDA2 /* GetTopicMsgsRequest.m in Sources */,
