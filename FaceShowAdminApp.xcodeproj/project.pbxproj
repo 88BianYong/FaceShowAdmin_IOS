@@ -2794,6 +2794,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CEFC8241FA05FBB001D8C84 /* Build configuration list for PBXNativeTarget "FaceShowAdminApp" */;
 			buildPhases = (
+				7C06898420D398B200C7CA14 /* ShellScript */,
 				99D07E595412ECBB681CE235 /* [CP] Check Pods Manifest.lock */,
 				7CEFC80A1FA05FBB001D8C84 /* Sources */,
 				7CEFC80B1FA05FBB001D8C84 /* Frameworks */,
@@ -2870,6 +2871,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7C06898420D398B200C7CA14 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\ndefaultBundleName=\"研修宝(管理端)\"\ndefauleBundleIdentifier=\"com.yanxiu.faceshowadmin\"\n\nhubeiBundleName=\"湖北宝(管理端)\"\nhubeiBundleIdentifier=\"com.yanxiu.faceshowadmin.hubei\"\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleDisplayName $defaultBundleName\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleIdentifier $defauleBundleIdentifier\" \"$INFOPLIST_FILE\"\n\nrm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/AppIcon.appiconset\nrm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/LaunchImage.launchimage\ncp -a ${SRCROOT}/AppIcon\\&LaunchImage/Default/ ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/\n\ncat ${SRCROOT}/FaceShowAdminApp/env.h | while read line\ndo\n    if [ \"$line\" == \"#define HuBeiApp\" ];then\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleDisplayName $hubeiBundleName\" \"$INFOPLIST_FILE\"\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleIdentifier $hubeiBundleIdentifier\" \"$INFOPLIST_FILE\"\n\n        rm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/AppIcon.appiconset\n        rm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/LaunchImage.launchimage\n        cp -a ${SRCROOT}/AppIcon\\&LaunchImage/Hubei/ ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/\n    elif [[ \"$line\" =~ \"Version\" ]];then\n        arr=($line)\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${arr[2]}\" \"$INFOPLIST_FILE\"\n    elif [[ \"$line\" =~ \"Build\" ]];then\n        arr=($line)\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${arr[2]}\" \"$INFOPLIST_FILE\"\n    fi\ndone\n\n";
+		};
 		962D160D83B23DB8DC940199 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3435,6 +3449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P8ZS8UUN27;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FaceShowAdminApp/PrefixHeader.pch";
@@ -3448,8 +3463,8 @@
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3c2cd62c-cca3-4458-bd5b-2ecf6257b71a";
-				PROVISIONING_PROFILE_SPECIFIER = DevAll;
+				PROVISIONING_PROFILE = "60900a55-84d1-4092-8b17-3242a540cb1c";
+				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
