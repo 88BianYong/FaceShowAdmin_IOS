@@ -32,7 +32,8 @@ static const CGFloat kTopMargin = 16.f;
                        @{@"name":@"签到记录",@"image":@"签到记录",@"tag":@(MainPagePushType_Check)},
                        @{@"name":@"日程管理",@"image":@"日程管理",@"tag":@(MainPagePushType_Schedule)},
                        @{@"name":@"资源管理",@"image":@"资源管理",@"tag":@(MainPagePushType_Resources)},
-                       @{@"name":@"课程",@"image":@"课程",@"tag":@(MainPagePushType_Course)}];
+                       @{@"name":@"课程",@"image":@"课程",@"tag":@(MainPagePushType_Course)},
+                       @{@"name":@"班级学情",@"image":@"班级学情",@"tag":@(MainPagePushType_LearningSituation)}];
     CGFloat spacingFloat = (SCREEN_WIDTH - kLeftMargin * 2 - (4 * kItemWidth))/3.0f;
     __block NSUInteger number = 4;
     [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
