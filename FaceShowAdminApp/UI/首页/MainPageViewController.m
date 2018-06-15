@@ -30,6 +30,7 @@
 #import "CourseDetailViewController.h"
 #import "ClazsMemberListFetcher.h"
 #import "CourseListViewController.h"
+#import "LearningSituationViewController.h"
 
 @interface MainPageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
@@ -132,6 +133,10 @@
         }else if (type == MainPagePushType_Course) {
             [TalkingData trackEvent:@"进入课程"];
             CourseListViewController *courseVC = [[CourseListViewController alloc]initWithClazsId:[UserManager sharedInstance].userModel.currentClass.clazsId];
+            [self.navigationController pushViewController:courseVC animated:YES];
+        }else if (type == MainPagePushType_LearningSituation) {
+            [TalkingData trackEvent:@"进入班级学情"];
+            LearningSituationViewController *courseVC = [[LearningSituationViewController alloc]initWithClazsId:[UserManager sharedInstance].userModel.currentClass.clazsId];
             [self.navigationController pushViewController:courseVC animated:YES];
         }
     }];

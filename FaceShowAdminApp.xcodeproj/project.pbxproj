@@ -377,6 +377,20 @@
 		E91DC4B4209065DE003D6F31 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E91DC4B2209065DE003D6F31 /* UIImage+GIF.m */; };
 		E932CD7D20BBD67E009F5BC6 /* SignInTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932CD7C20BBD67E009F5BC6 /* SignInTypeView.m */; };
 		E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */; };
+		E94DDDFB20D3696300729A67 /* LearningSituationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDDFA20D3696300729A67 /* LearningSituationViewController.m */; };
+		E94DDDFE20D36A5F00729A67 /* ScoreDefineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDDFD20D36A5F00729A67 /* ScoreDefineViewController.m */; };
+		E94DDE0220D36D1B00729A67 /* GetClazsScoreConfigRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0120D36D1B00729A67 /* GetClazsScoreConfigRequest.m */; };
+		E94DDE0520D36EEF00729A67 /* SetClazsScoreConfigRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0420D36EEF00729A67 /* SetClazsScoreConfigRequest.m */; };
+		E94DDE0C20D3734200729A67 /* GetUserClazsScoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0620D3734000729A67 /* GetUserClazsScoreRequest.m */; };
+		E94DDE0D20D3734200729A67 /* GetClazsSocresRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0820D3734100729A67 /* GetClazsSocresRequest.m */; };
+		E94DDE0E20D3734200729A67 /* ScoreRankingFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0920D3734100729A67 /* ScoreRankingFetcher.m */; };
+		E94DDE1E20D3761000729A67 /* ScroeDetailTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1320D3760F00729A67 /* ScroeDetailTabContainerView.m */; };
+		E94DDE1F20D3761000729A67 /* TaskRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1520D3760F00729A67 /* TaskRankingCell.m */; };
+		E94DDE2020D3761000729A67 /* TaskNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1620D3760F00729A67 /* TaskNameCell.m */; };
+		E94DDE2120D3761000729A67 /* ScoreNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1820D3761000729A67 /* ScoreNameCell.m */; };
+		E94DDE2220D3761000729A67 /* ScoreTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1920D3761000729A67 /* ScoreTopView.m */; };
+		E94DDE2320D3761000729A67 /* ScoreRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */; };
+		E94DDE2420D3761000729A67 /* TaskTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1D20D3761000729A67 /* TaskTopView.m */; };
 		E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD820CA1D3000D7DDA2 /* IMConfig.m */; };
 		E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD920CA1D3100D7DDA2 /* IMManager.m */; };
 		E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */; };
@@ -1152,6 +1166,34 @@
 		E932CD7E20BBEE39009F5BC6 /* SignInLocationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInLocationView.h; sourceTree = "<group>"; };
 		E932CD7F20BBEE39009F5BC6 /* SignInLocationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInLocationView.m; sourceTree = "<group>"; };
 		E9384D5120995D5000632169 /* env.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = env.h; sourceTree = "<group>"; };
+		E94DDDF920D3696300729A67 /* LearningSituationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LearningSituationViewController.h; sourceTree = "<group>"; };
+		E94DDDFA20D3696300729A67 /* LearningSituationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LearningSituationViewController.m; sourceTree = "<group>"; };
+		E94DDDFC20D36A5F00729A67 /* ScoreDefineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreDefineViewController.h; sourceTree = "<group>"; };
+		E94DDDFD20D36A5F00729A67 /* ScoreDefineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreDefineViewController.m; sourceTree = "<group>"; };
+		E94DDE0020D36D1B00729A67 /* GetClazsScoreConfigRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetClazsScoreConfigRequest.h; sourceTree = "<group>"; };
+		E94DDE0120D36D1B00729A67 /* GetClazsScoreConfigRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetClazsScoreConfigRequest.m; sourceTree = "<group>"; };
+		E94DDE0320D36EEF00729A67 /* SetClazsScoreConfigRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetClazsScoreConfigRequest.h; sourceTree = "<group>"; };
+		E94DDE0420D36EEF00729A67 /* SetClazsScoreConfigRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetClazsScoreConfigRequest.m; sourceTree = "<group>"; };
+		E94DDE0620D3734000729A67 /* GetUserClazsScoreRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserClazsScoreRequest.m; sourceTree = "<group>"; };
+		E94DDE0720D3734000729A67 /* GetClazsSocresRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetClazsSocresRequest.h; sourceTree = "<group>"; };
+		E94DDE0820D3734100729A67 /* GetClazsSocresRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetClazsSocresRequest.m; sourceTree = "<group>"; };
+		E94DDE0920D3734100729A67 /* ScoreRankingFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreRankingFetcher.m; sourceTree = "<group>"; };
+		E94DDE0A20D3734100729A67 /* GetUserClazsScoreRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserClazsScoreRequest.h; sourceTree = "<group>"; };
+		E94DDE0B20D3734200729A67 /* ScoreRankingFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreRankingFetcher.h; sourceTree = "<group>"; };
+		E94DDE1020D3760F00729A67 /* ScoreRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreRankingCell.h; sourceTree = "<group>"; };
+		E94DDE1120D3760F00729A67 /* ScroeDetailTabContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScroeDetailTabContainerView.h; sourceTree = "<group>"; };
+		E94DDE1220D3760F00729A67 /* ScoreTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreTopView.h; sourceTree = "<group>"; };
+		E94DDE1320D3760F00729A67 /* ScroeDetailTabContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScroeDetailTabContainerView.m; sourceTree = "<group>"; };
+		E94DDE1420D3760F00729A67 /* TaskRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRankingCell.h; sourceTree = "<group>"; };
+		E94DDE1520D3760F00729A67 /* TaskRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRankingCell.m; sourceTree = "<group>"; };
+		E94DDE1620D3760F00729A67 /* TaskNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskNameCell.m; sourceTree = "<group>"; };
+		E94DDE1720D3760F00729A67 /* TaskTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTopView.h; sourceTree = "<group>"; };
+		E94DDE1820D3761000729A67 /* ScoreNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreNameCell.m; sourceTree = "<group>"; };
+		E94DDE1920D3761000729A67 /* ScoreTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTopView.m; sourceTree = "<group>"; };
+		E94DDE1A20D3761000729A67 /* ScoreNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreNameCell.h; sourceTree = "<group>"; };
+		E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreRankingCell.m; sourceTree = "<group>"; };
+		E94DDE1C20D3761000729A67 /* TaskNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskNameCell.h; sourceTree = "<group>"; };
+		E94DDE1D20D3761000729A67 /* TaskTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTopView.m; sourceTree = "<group>"; };
 		E9540BD820CA1D3000D7DDA2 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
 		E9540BD920CA1D3100D7DDA2 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		E9540BDA20CA1D3100D7DDA2 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
@@ -1947,6 +1989,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				E94DDDFF20D36CD000729A67 /* 班级学情 */,
 				7CDF124F20902F8A0044DD95 /* 班级圈 */,
 				E9822FF1208D910E00138D44 /* 升级 */,
 				7CDF119A208DB4A40044DD95 /* 七牛 */,
@@ -1972,6 +2015,7 @@
 		7CEFC8F01FA0680E001D8C84 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E94DDDF820D3690500729A67 /* 班级学情 */,
 				7C06895A20CFBAEC00C7CA14 /* 我的项目 */,
 				7C06893A20CF696D00C7CA14 /* 培训概况 */,
 				E914818B209061E6001B7EB5 /* IM */,
@@ -2774,6 +2818,56 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		E94DDDF820D3690500729A67 /* 班级学情 */ = {
+			isa = PBXGroup;
+			children = (
+				E94DDE0F20D375FE00729A67 /* View */,
+				E94DDDF920D3696300729A67 /* LearningSituationViewController.h */,
+				E94DDDFA20D3696300729A67 /* LearningSituationViewController.m */,
+				E94DDDFC20D36A5F00729A67 /* ScoreDefineViewController.h */,
+				E94DDDFD20D36A5F00729A67 /* ScoreDefineViewController.m */,
+			);
+			path = "班级学情";
+			sourceTree = "<group>";
+		};
+		E94DDDFF20D36CD000729A67 /* 班级学情 */ = {
+			isa = PBXGroup;
+			children = (
+				E94DDE0020D36D1B00729A67 /* GetClazsScoreConfigRequest.h */,
+				E94DDE0120D36D1B00729A67 /* GetClazsScoreConfigRequest.m */,
+				E94DDE0320D36EEF00729A67 /* SetClazsScoreConfigRequest.h */,
+				E94DDE0420D36EEF00729A67 /* SetClazsScoreConfigRequest.m */,
+				E94DDE0720D3734000729A67 /* GetClazsSocresRequest.h */,
+				E94DDE0820D3734100729A67 /* GetClazsSocresRequest.m */,
+				E94DDE0A20D3734100729A67 /* GetUserClazsScoreRequest.h */,
+				E94DDE0620D3734000729A67 /* GetUserClazsScoreRequest.m */,
+				E94DDE0B20D3734200729A67 /* ScoreRankingFetcher.h */,
+				E94DDE0920D3734100729A67 /* ScoreRankingFetcher.m */,
+			);
+			path = "班级学情";
+			sourceTree = "<group>";
+		};
+		E94DDE0F20D375FE00729A67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E94DDE1120D3760F00729A67 /* ScroeDetailTabContainerView.h */,
+				E94DDE1320D3760F00729A67 /* ScroeDetailTabContainerView.m */,
+				E94DDE1220D3760F00729A67 /* ScoreTopView.h */,
+				E94DDE1920D3761000729A67 /* ScoreTopView.m */,
+				E94DDE1A20D3761000729A67 /* ScoreNameCell.h */,
+				E94DDE1820D3761000729A67 /* ScoreNameCell.m */,
+				E94DDE1020D3760F00729A67 /* ScoreRankingCell.h */,
+				E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */,
+				E94DDE1720D3760F00729A67 /* TaskTopView.h */,
+				E94DDE1D20D3761000729A67 /* TaskTopView.m */,
+				E94DDE1C20D3761000729A67 /* TaskNameCell.h */,
+				E94DDE1620D3760F00729A67 /* TaskNameCell.m */,
+				E94DDE1420D3760F00729A67 /* TaskRankingCell.h */,
+				E94DDE1520D3760F00729A67 /* TaskRankingCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E9822FF1208D910E00138D44 /* 升级 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3005,6 +3099,7 @@
 				7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */,
 				7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
+				E94DDE0C20D3734200729A67 /* GetUserClazsScoreRequest.m in Sources */,
 				7C06894120CF6A9C00C7CA14 /* NameNumberView.m in Sources */,
 				7CDF128720902FBF0044DD95 /* ClassMomentUserMomentMsgRequest.m in Sources */,
 				7C06895920CFA82700C7CA14 /* ProjectAreaDistributingCell.m in Sources */,
@@ -3061,6 +3156,7 @@
 				7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CDF124A20902F200044DD95 /* ClassMomentNotificationViewController.m in Sources */,
+				E94DDE2320D3761000729A67 /* ScoreRankingCell.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				7C672B231FB1538C004D93DF /* FillQuestionResultCell.m in Sources */,
 				7CDF123320902EE60044DD95 /* ClassMomentNotificationCell.m in Sources */,
@@ -3070,6 +3166,7 @@
 				E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */,
+				E94DDE0520D36EEF00729A67 /* SetClazsScoreConfigRequest.m in Sources */,
 				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
 				436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */,
@@ -3096,6 +3193,7 @@
 				7CDF120D20902E8A0044DD95 /* PhotoListViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */,
+				E94DDDFB20D3696300729A67 /* LearningSituationViewController.m in Sources */,
 				922942BF20D0BAE600CC21BD /* CreateQuestionGroupItem.m in Sources */,
 				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
 				7C672B811FB53916004D93DF /* CourseCommentHeaderView.m in Sources */,
@@ -3103,6 +3201,7 @@
 				E91481C620906307001B7EB5 /* ChatListCell.m in Sources */,
 				7CDF11F920902E450044DD95 /* PhotoChooseViewController.m in Sources */,
 				7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */,
+				E94DDE2420D3761000729A67 /* TaskTopView.m in Sources */,
 				7C06897F20D11E1100C7CA14 /* FilterHeaderView.m in Sources */,
 				7C06894420CF6D5200C7CA14 /* ProvinceStatisticView.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
@@ -3130,6 +3229,8 @@
 				7C672B5F1FB3EC6D004D93DF /* CourseResourceFetcher.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
 				E91481AD209062C4001B7EB5 /* IMImageMessageBaseCell.m in Sources */,
+				E94DDE2020D3761000729A67 /* TaskNameCell.m in Sources */,
+				E94DDE2120D3761000729A67 /* ScoreNameCell.m in Sources */,
 				43729E161FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m in Sources */,
 				7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
@@ -3137,10 +3238,12 @@
 				921860591FA965E00018D982 /* NoticeListViewController.m in Sources */,
 				7CEFC95E1FA6D331001D8C84 /* LoginInputView.m in Sources */,
 				7C672AFB1FAAD356004D93DF /* ReplenishSignInRequest.m in Sources */,
+				E94DDE0D20D3734200729A67 /* GetClazsSocresRequest.m in Sources */,
 				7CEFC8481FA06577001D8C84 /* YXMockManager.m in Sources */,
 				7C672B6B1FB3FF04004D93DF /* CourseInfoTabContainerView.m in Sources */,
 				7C2E6F9920CA21A10066DE7C /* IMMemberInfoView.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
+				E94DDE0220D36D1B00729A67 /* GetClazsScoreConfigRequest.m in Sources */,
 				7C06896A20D0BEC900C7CA14 /* ClassSwitchView.m in Sources */,
 				7CDF123520902EE60044DD95 /* ClassMomentCell.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
@@ -3225,6 +3328,7 @@
 				7C672AF81FAACC9F004D93DF /* SignInDelayView.m in Sources */,
 				7CEFC8C71FA06627001D8C84 /* UIButton+HighlightColor.m in Sources */,
 				E9540C4B20CA1F6F00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m in Sources */,
+				E94DDE0E20D3734200729A67 /* ScoreRankingFetcher.m in Sources */,
 				7C84302520BD083800A05C14 /* PlaceSearchEmptyView.m in Sources */,
 				436CB2311FB1AA2C00A31585 /* AddMemberTextField.m in Sources */,
 				7CDF124B20902F200044DD95 /* ClassMomentDetailViewController.m in Sources */,
@@ -3262,11 +3366,13 @@
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
 				7CDF124C20902F200044DD95 /* PhotoBrowserController.m in Sources */,
 				7CDF128120902FBF0044DD95 /* ClassMomentCancelLikeRequest.m in Sources */,
+				E94DDE1E20D3761000729A67 /* ScroeDetailTabContainerView.m in Sources */,
 				7C672B841FB53929004D93DF /* CourseCommentViewController.m in Sources */,
 				E91481CE20906307001B7EB5 /* IMImageSendingProgressView.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				7CDF127F20902FBF0044DD95 /* ClassMomentListRequest.m in Sources */,
 				436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */,
+				E94DDE2220D3761000729A67 /* ScoreTopView.m in Sources */,
 				E91481C520906307001B7EB5 /* IMMessageTableView.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
 				E91481AF209062C4001B7EB5 /* IMImageMessageRightCell.m in Sources */,
@@ -3275,6 +3381,7 @@
 				E91481B0209062C4001B7EB5 /* IMTextMessageBaseCell.m in Sources */,
 				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
+				E94DDE1F20D3761000729A67 /* TaskRankingCell.m in Sources */,
 				7CDF123620902EE60044DD95 /* ReportTableViewCell.m in Sources */,
 				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
 				E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */,
@@ -3290,6 +3397,7 @@
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */,
 				7CDF128320902FBF0044DD95 /* ClassMomentReplyRequest.m in Sources */,
+				E94DDDFE20D36A5F00729A67 /* ScoreDefineViewController.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
 				7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */,
 				7C672B531FB2DF93004D93DF /* CourseTaskViewController.m in Sources */,
