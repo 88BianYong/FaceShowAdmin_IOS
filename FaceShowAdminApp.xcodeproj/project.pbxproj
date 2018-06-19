@@ -191,6 +191,13 @@
 		7CDF129B20903B4E0044DD95 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7CDF129320903B4E0044DD95 /* MJRefresh.bundle */; };
 		7CDF129C20903B4E0044DD95 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF129420903B4E0044DD95 /* MJRefreshBaseView.m */; };
 		7CDF129D20903B4E0044DD95 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF129620903B4E0044DD95 /* MJRefreshFooterView.m */; };
+		7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29AF20D8B3BC000CE9EC /* HomeworkDetailViewController.m */; };
+		7CEA29B520D8B451000CE9EC /* HomeworkDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29B420D8B451000CE9EC /* HomeworkDetailHeaderView.m */; };
+		7CEA29BE20D8BDE7000CE9EC /* MemberHomeworkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29BD20D8BDE7000CE9EC /* MemberHomeworkListViewController.m */; };
+		7CEA29C120D8D4A5000CE9EC /* MemberHomeworkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C020D8D4A5000CE9EC /* MemberHomeworkCell.m */; };
+		7CEA29C420D8DAA7000CE9EC /* HomeworkRequirementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C320D8DAA6000CE9EC /* HomeworkRequirementViewController.m */; };
+		7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C620D8E02F000CE9EC /* MemberHomeworkDetailViewController.m */; };
+		7CEA29CA20D8E192000CE9EC /* HomeworkMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
@@ -800,6 +807,20 @@
 		7CDF129620903B4E0044DD95 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
 		7CDF129720903B4E0044DD95 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
 		7CDF129820903B4E0044DD95 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		7CEA29AE20D8B3BC000CE9EC /* HomeworkDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeworkDetailViewController.h; sourceTree = "<group>"; };
+		7CEA29AF20D8B3BC000CE9EC /* HomeworkDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkDetailViewController.m; sourceTree = "<group>"; };
+		7CEA29B320D8B451000CE9EC /* HomeworkDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeworkDetailHeaderView.h; sourceTree = "<group>"; };
+		7CEA29B420D8B451000CE9EC /* HomeworkDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkDetailHeaderView.m; sourceTree = "<group>"; };
+		7CEA29BC20D8BDE7000CE9EC /* MemberHomeworkListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberHomeworkListViewController.h; sourceTree = "<group>"; };
+		7CEA29BD20D8BDE7000CE9EC /* MemberHomeworkListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberHomeworkListViewController.m; sourceTree = "<group>"; };
+		7CEA29BF20D8D4A5000CE9EC /* MemberHomeworkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberHomeworkCell.h; sourceTree = "<group>"; };
+		7CEA29C020D8D4A5000CE9EC /* MemberHomeworkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberHomeworkCell.m; sourceTree = "<group>"; };
+		7CEA29C220D8DAA6000CE9EC /* HomeworkRequirementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkRequirementViewController.h; sourceTree = "<group>"; };
+		7CEA29C320D8DAA6000CE9EC /* HomeworkRequirementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeworkRequirementViewController.m; sourceTree = "<group>"; };
+		7CEA29C520D8E02F000CE9EC /* MemberHomeworkDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberHomeworkDetailViewController.h; sourceTree = "<group>"; };
+		7CEA29C620D8E02F000CE9EC /* MemberHomeworkDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberHomeworkDetailViewController.m; sourceTree = "<group>"; };
+		7CEA29C820D8E192000CE9EC /* HomeworkMemberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeworkMemberView.h; sourceTree = "<group>"; };
+		7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkMemberView.m; sourceTree = "<group>"; };
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1775,6 +1796,35 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		7CEA29AD20D8B354000CE9EC /* 作业详情 */ = {
+			isa = PBXGroup;
+			children = (
+				7CEA29B220D8B438000CE9EC /* View */,
+				7CEA29AE20D8B3BC000CE9EC /* HomeworkDetailViewController.h */,
+				7CEA29AF20D8B3BC000CE9EC /* HomeworkDetailViewController.m */,
+				7CEA29BC20D8BDE7000CE9EC /* MemberHomeworkListViewController.h */,
+				7CEA29BD20D8BDE7000CE9EC /* MemberHomeworkListViewController.m */,
+				7CEA29C220D8DAA6000CE9EC /* HomeworkRequirementViewController.h */,
+				7CEA29C320D8DAA6000CE9EC /* HomeworkRequirementViewController.m */,
+				7CEA29C520D8E02F000CE9EC /* MemberHomeworkDetailViewController.h */,
+				7CEA29C620D8E02F000CE9EC /* MemberHomeworkDetailViewController.m */,
+			);
+			path = "作业详情";
+			sourceTree = "<group>";
+		};
+		7CEA29B220D8B438000CE9EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CEA29B320D8B451000CE9EC /* HomeworkDetailHeaderView.h */,
+				7CEA29B420D8B451000CE9EC /* HomeworkDetailHeaderView.m */,
+				7CEA29BF20D8D4A5000CE9EC /* MemberHomeworkCell.h */,
+				7CEA29C020D8D4A5000CE9EC /* MemberHomeworkCell.m */,
+				7CEA29C820D8E192000CE9EC /* HomeworkMemberView.h */,
+				7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		7CEFC8051FA05FBB001D8C84 = {
 			isa = PBXGroup;
 			children = (
@@ -2015,6 +2065,7 @@
 		7CEFC8F01FA0680E001D8C84 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7CEA29AD20D8B354000CE9EC /* 作业详情 */,
 				E94DDDF820D3690500729A67 /* 班级学情 */,
 				7C06895A20CFBAEC00C7CA14 /* 我的项目 */,
 				7C06893A20CF696D00C7CA14 /* 培训概况 */,
@@ -3036,6 +3087,7 @@
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
 				92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */,
 				E9540BEC20CA1DEE00D7DDA2 /* IMConnectionManager.m in Sources */,
+				7CEA29C120D8D4A5000CE9EC /* MemberHomeworkCell.m in Sources */,
 				7CEFC8C41FA06627001D8C84 /* NSObject+YXNetworkMethod.m in Sources */,
 				7CEFC98C1FA850E6001D8C84 /* SignInSwitchView.m in Sources */,
 				E932CD7D20BBD67E009F5BC6 /* SignInTypeView.m in Sources */,
@@ -3052,6 +3104,7 @@
 				7CDF121E20902EC10044DD95 /* CircleSpreadTransition.m in Sources */,
 				92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
+				7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
 				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
@@ -3099,6 +3152,7 @@
 				7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */,
 				7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
+				7CEA29BE20D8BDE7000CE9EC /* MemberHomeworkListViewController.m in Sources */,
 				E94DDE0C20D3734200729A67 /* GetUserClazsScoreRequest.m in Sources */,
 				7C06894120CF6A9C00C7CA14 /* NameNumberView.m in Sources */,
 				7CDF128720902FBF0044DD95 /* ClassMomentUserMomentMsgRequest.m in Sources */,
@@ -3131,6 +3185,7 @@
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
 				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
+				7CEA29B520D8B451000CE9EC /* HomeworkDetailHeaderView.m in Sources */,
 				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
 				E9540C4C20CA1F6F00D7DDA2 /* IMDatabaseManager.m in Sources */,
 				7C672B4D1FB2A54B004D93DF /* CourseDetailViewController.m in Sources */,
@@ -3139,6 +3194,7 @@
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
 				7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
+				7CEA29CA20D8E192000CE9EC /* HomeworkMemberView.m in Sources */,
 				7CDF128A20902FBF0044DD95 /* ClassMomentDiscardCommentRequest.m in Sources */,
 				7C672B6E1FB3FFB0004D93DF /* CourseInfoViewController.m in Sources */,
 				7CDF128220902FBF0044DD95 /* ClassMomentUserListRequest.m in Sources */,
@@ -3151,6 +3207,7 @@
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
 				7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */,
 				7CDF121D20902EC10044DD95 /* PhotosScrollView.m in Sources */,
+				7CEA29C420D8DAA7000CE9EC /* HomeworkRequirementViewController.m in Sources */,
 				7CDF121B20902EC10044DD95 /* ShowPhotosViewController.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
 				7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */,
@@ -3191,6 +3248,7 @@
 				E91481CD20906307001B7EB5 /* IMSlideView.m in Sources */,
 				4359B9661FB2AA18007D7F30 /* ContactsDetailViewController.m in Sources */,
 				7CDF120D20902E8A0044DD95 /* PhotoListViewController.m in Sources */,
+				7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */,
 				E94DDDFB20D3696300729A67 /* LearningSituationViewController.m in Sources */,
