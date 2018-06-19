@@ -15,20 +15,29 @@
 #import "FDActionSheetView.h"
 #import "ImageAttachmentContainerView.h"
 #import "QiniuDataManager.h"
+#import "SAMTextView+Restriction.h"
+#import "TaskChooseContentView.h"
+#import "SubordinateCourseViewController.h"
+#import "CreateHomeworkRequest.h"
 @interface CreateWorkViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIView *publicationMomentView;
-@property (nonatomic, strong) SAMTextView *publicationMomentTextView;
-@property (nonatomic, strong) UIButton *addImageBtn;
-@property (nonatomic, strong) UIButton *deleteBtn;
-@property (nonatomic, strong) YXImagePickerController *imagePickerController;
+@property (nonatomic, strong) UIView *createWorkView;
 
-//@property (nonatomic, strong) ClassMomentPublishRequest *publishRequest;
+@property (nonatomic, strong) SAMTextView *titleTextView;
+@property (nonatomic, strong) UIView *lineView;
+
+@property (nonatomic, strong) SAMTextView *createWorkTextView;
+@property (nonatomic, strong) YXImagePickerController *imagePickerController;
+@property (nonatomic, strong) TaskChooseContentView *contentView;
+
+@property (nonatomic, strong) CreateHomeworkRequest *createRequest;
 @property (nonatomic, strong) UIButton *publishButton;
 @property (nonatomic, strong) ImageAttachmentContainerView *imageContainerView;
 @property (nonatomic, assign) NSInteger imageIndex;
 @property (nonatomic, strong) NSMutableArray *resIdArray;
 @property (nonatomic, strong) NSMutableArray *imageArray;
+@property (nonatomic, strong) NSString *courseId;
+
 
 @end
 
@@ -39,6 +48,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.navigationItem.title = @"新建作业";
     [self setupUI];
     [self setupLayout];
@@ -73,32 +83,133 @@
     self.scrollView.backgroundColor = [UIColor colorWithHexString:@"dfe2e6"];
     [self.view addSubview:self.scrollView];
     
-    self.publicationMomentView = [[UIView alloc] init];
-    self.publicationMomentView.backgroundColor = [UIColor whiteColor];
-    [self.scrollView addSubview:self.publicationMomentView];
-    
+    self.createWorkView = [[UIView alloc] init];
+    self.createWorkView.backgroundColor = [UIColor whiteColor];
+    [self.scrollView addSubview:self.createWorkView];
     UIView *topView = [[UIView alloc] init];
     topView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.scrollView addSubview:topView];
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.publicationMomentView.mas_left);
-        make.right.equalTo(self.publicationMomentView.mas_right);
-        make.top.equalTo(self.publicationMomentView.mas_top);
+        make.left.equalTo(self.createWorkView.mas_left);
+        make.right.equalTo(self.createWorkView.mas_right);
+        make.top.equalTo(self.createWorkView.mas_top);
         make.height.mas_offset(5.0f);
     }];
-    self.publicationMomentTextView = [[SAMTextView alloc] init];
-    self.publicationMomentTextView.delegate = self;
-    self.publicationMomentTextView.font = [UIFont systemFontOfSize:14.0f];
-    self.publicationMomentTextView.textColor = [UIColor colorWithHexString:@"333333"];
-    self.publicationMomentTextView.placeholder = @"这一刻的想法......(最多200字)";
+    
+    self.titleTextView = [[SAMTextView alloc] init];
+    self.titleTextView.characterInteger = 20;
+    self.titleTextView.delegate = self;
+    self.titleTextView.backgroundColor = [UIColor whiteColor];
+    self.titleTextView.bounces = NO;
+    self.titleTextView.textColor = [UIColor colorWithHexString:@"333333"];
+    self.titleTextView.font = [UIFont boldSystemFontOfSize:16.0f];
+    self.titleTextView.placeholder = @"作业标题(最多20字)";
+    self.titleTextView.textContainerInset = UIEdgeInsetsMake(20.0f, 15.0f, 18.0, 15.0f);
+    [self.createWorkView addSubview:self.titleTextView];
+    
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    [self.createWorkView addSubview:self.lineView];
+    
+    self.createWorkTextView = [[SAMTextView alloc] init];
+    self.createWorkTextView.characterInteger = 200;
+    self.createWorkTextView.font = [UIFont systemFontOfSize:15.0f];
+    self.createWorkTextView.textColor = [UIColor colorWithHexString:@"333333"];
+    self.createWorkTextView.placeholder = @"作业详细内容(选填)";
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineHeightMultiple = 1.2;
     NSDictionary *dic = @{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:14]};
-    self.publicationMomentTextView.typingAttributes = dic;
-    [self.publicationMomentView addSubview:self.publicationMomentTextView];
-   
+    self.createWorkTextView.typingAttributes = dic;
+    [self.createWorkView addSubview:self.createWorkTextView];
+        
+    UIView *containerView = [[UIView alloc] init];
+    [self.createWorkView addSubview:containerView];
+    [containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.createWorkView.mas_left).offset(0.0f);
+        make.bottom.equalTo(self.createWorkView.mas_bottom).offset(-15.0f);
+        make.size.mas_offset(CGSizeMake(SCREEN_WIDTH, [ImageAttachmentContainerView heightForCount:0]));
+    }];
+    self.imageContainerView = [[ImageAttachmentContainerView alloc]init];
+    WEAK_SELF
+    [self.imageContainerView setImagesChangeBlock:^(NSArray *images) {
+        STRONG_SELF
+        self.imageArray = [NSMutableArray arrayWithArray:images];
+        [self reloadPublishButtonStatus];
+        [self.createWorkView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_left);
+            make.right.equalTo(self.view.mas_right);
+            make.top.equalTo(self.scrollView.mas_top);
+            make.height.mas_offset(180.0f+[ImageAttachmentContainerView heightForCount:images.count]);
+        }];
+        [containerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.createWorkView.mas_left).offset(0.0f);
+            make.bottom.equalTo(self.createWorkView.mas_bottom).offset(0.0f);
+            make.size.mas_offset(CGSizeMake(SCREEN_WIDTH, [ImageAttachmentContainerView heightForCount:images.count]));
+        }];
+    }];
+    [containerView addSubview:self.imageContainerView];
+    [self.imageContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    
+    self.contentView = [[TaskChooseContentView alloc] init];
+    self.contentView.chooseContentString = [UserManager sharedInstance].userModel.currentClass.clazsName;
+    [self.scrollView addSubview:self.contentView];
+    self.contentView.pushSubordinateCourseBlock = ^{
+        STRONG_SELF
+        SubordinateCourseViewController *VC = [[SubordinateCourseViewController alloc] init];
+        VC.courseId = self.courseId;
+        VC.chooseSubordinateCoursBlock = ^(NSString *courseId,NSString *courseName) {
+            if (courseId == nil) {
+                self.contentView.chooseType = SubordinateCourse_Class;
+                self.contentView.chooseContentString = [UserManager sharedInstance].userModel.currentClass.clazsName;
+                self.courseId = nil;
+            }else {
+                self.contentView.chooseType = SubordinateCourse_Course;
+                self.courseId = courseId;
+                self.contentView.chooseContentString = courseName;
+            }
+        };
+        [self.navigationController pushViewController:VC animated:YES];
+    };
+    
+    UILabel *totaLabel = [[UILabel alloc] init];
+    totaLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
+    totaLabel.font = [UIFont systemFontOfSize:15.0f];
+    totaLabel.text = @"/200";
+    totaLabel.textAlignment = NSTextAlignmentRight;
+    [self.createWorkView addSubview:totaLabel];
+    [totaLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f);
+        make.bottom.equalTo(self.createWorkView.mas_bottom).offset(-20.0f);
+    }];
+    
+    UILabel *inputLabel = [[UILabel alloc] init];
+    inputLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
+    inputLabel.font = [UIFont systemFontOfSize:15.0f];
+    inputLabel.text = @"0";
+    inputLabel.textAlignment = NSTextAlignmentRight;
+    [self.createWorkView addSubview:inputLabel];
+    [inputLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(totaLabel.mas_left);
+        make.bottom.equalTo(self.createWorkView.mas_bottom).offset(-20.0f);
+    }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextViewTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *notification) {
+        STRONG_SELF
+        if (notification.object == self.createWorkTextView) {
+            if (self.createWorkTextView.text.length > 0) {
+                inputLabel.textColor = [UIColor colorWithHexString:@"0068bd"];
+            }else {
+                inputLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
+            }
+            inputLabel.text = [NSString stringWithFormat:@"%@",@(self.createWorkTextView.text.length)];
+        }
+    }];
+    [self setupNavigationRightView];
+}
+- (void)setupNavigationRightView{
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setTitle:@"发表" forState:UIControlStateNormal];
+    [rightButton setTitle:@"提交" forState:UIControlStateNormal];
     rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
     [rightButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [rightButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
@@ -113,94 +224,39 @@
             [self requestForUploadImage];
         }
     }];
+    rightButton.enabled = NO;
     self.publishButton = rightButton;
     [self nyx_setupRightWithCustomView:rightButton];
-    
-    
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextViewTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *x) {
         STRONG_SELF
-        if (self.imageArray.count != 0) {
-            rightButton.enabled = YES;
-            return;
-        }
-        UITextView *tempTextView = (UITextView *)x.object;
-        rightButton.enabled = [tempTextView.text yx_stringByTrimmingCharacters].length != 0;
-    }];
-    
-    UIView *containerView = [[UIView alloc] init];
-    [self.publicationMomentView addSubview:containerView];
-    [containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.publicationMomentView.mas_left).offset(0.0f);
-        make.bottom.equalTo(self.publicationMomentView.mas_bottom).offset(0.0f);
-        make.size.mas_offset(CGSizeMake(SCREEN_WIDTH, [ImageAttachmentContainerView heightForCount:0]));
-    }];
-    self.imageContainerView = [[ImageAttachmentContainerView alloc]init];
-    [self.imageContainerView setImagesChangeBlock:^(NSArray *images) {
-        STRONG_SELF
-        self.imageArray = [NSMutableArray arrayWithArray:images];
-        [self refreshImages];
-        [self.publicationMomentView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view.mas_left);
-            make.right.equalTo(self.view.mas_right);
-            make.top.equalTo(self.scrollView.mas_top);
-            make.height.mas_offset(180.0f+[ImageAttachmentContainerView heightForCount:images.count]);
-        }];
-        [containerView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.publicationMomentView.mas_left).offset(0.0f);
-            make.bottom.equalTo(self.publicationMomentView.mas_bottom).offset(0.0f);
-            make.size.mas_offset(CGSizeMake(SCREEN_WIDTH, [ImageAttachmentContainerView heightForCount:images.count]));
-        }];
-    }];
-    [containerView addSubview:self.imageContainerView];
-    [self.imageContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
+        [self reloadPublishButtonStatus];
     }];
 }
-
-- (void)deleteBtnAction {
-    [self.publicationMomentTextView resignFirstResponder];
-    [self.imageArray removeObjectAtIndex:0];
-    [self refreshImages];
-}
-
-- (void)imageBtnAction:(UIButton *)sender {
-    [self.publicationMomentTextView resignFirstResponder];
-    if (isEmpty(self.imageArray)) {
-        [self showImagePicker];
-    } else {
-        PhotoBrowserController *vc = [[PhotoBrowserController alloc] init];
-        vc.images = self.imageArray;
-        vc.currentIndex = 0;
-        WEAK_SELF
-        vc.didDeleteImage = ^{
-            STRONG_SELF
-            [self refreshImages];
-        };
-        [self.navigationController pushViewController:vc animated:YES];
+- (void)reloadPublishButtonStatus {
+    if ([self.titleTextView.text yx_stringByTrimmingCharacters].length != 0 && (self.imageArray.count != 0 || [self.createWorkTextView.text yx_stringByTrimmingCharacters].length != 0)) {
+        self.publishButton.enabled = YES;
+    }else {
+        self.publishButton.enabled = NO;
     }
 }
-
-- (void)refreshImages {
-    BOOL publishEnabled = [self.publicationMomentTextView.text yx_stringByTrimmingCharacters].length != 0;
-    if (!isEmpty(self.imageArray)) {
-        publishEnabled = publishEnabled || YES;
-    } else {
-        publishEnabled = publishEnabled || NO;
+- (void)backAction {
+    if (self.titleTextView.text.length > 0 || self.createWorkTextView.text.length > 0 || self.imageArray.count > 0) {
+        [self showAlertView];
+    }else {
+        [super backAction];
     }
-    self.publishButton.enabled = publishEnabled;
 }
 
 - (void)showAlertView {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"退出此次编辑" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"退出此次创建" message:nil preferredStyle:UIAlertControllerStyleAlert];
     WEAK_SELF
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         STRONG_SELF
-        
     }];
     [alertVC addAction:cancleAction];
     UIAlertAction *backAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         STRONG_SELF
-        [self dismiss];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     [alertVC addAction:backAction];
     [[self nyx_visibleViewController] presentViewController:alertVC animated:YES completion:nil];
@@ -210,26 +266,41 @@
         make.edges.equalTo(self.view);
     }];
     
-    [self.publicationMomentView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.createWorkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.top.equalTo(self.scrollView.mas_top);
-        make.height.mas_offset(180.0f+[ImageAttachmentContainerView heightForCount:0]);
+        make.height.mas_offset(56.0f + 213.0f);
     }];
     
-    [self.publicationMomentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.publicationMomentView.mas_left).offset(15.0f);
-        make.right.equalTo(self.publicationMomentView.mas_right).offset(-15.0f);
-        make.top.equalTo(self.publicationMomentView.mas_top).offset(20.0f);
-        make.height.mas_offset(self.imageArray.count > 0 ? 90.0f : 140.0f);
+    [self.titleTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.createWorkView.mas_left);
+        make.right.equalTo(self.createWorkView.mas_right);
+        make.top.equalTo(self.createWorkView.mas_top).offset(5.0f);
+        make.height.mas_offset(56.0f);
     }];
-}
-- (void)dismiss {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
+    
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.createWorkView.mas_left).offset(15.0f);
+        make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f);
+        make.top.equalTo(self.titleTextView.mas_bottom);
+        make.height.mas_offset(1.0f);
     }];
-}
 
+    [self.createWorkTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.createWorkView.mas_left).offset(15.0f);
+        make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f);
+        make.top.equalTo(self.lineView.mas_top).offset(10.0f);
+        make.height.mas_offset(90.0f);
+    }];
+    
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.top.equalTo(self.createWorkView.mas_bottom).offset(5.0f);
+        make.height.mas_offset(45.0f);
+    }];
+}
 #pragma mark - imagePicker
 - (YXImagePickerController *)imagePickerController
 {
@@ -288,61 +359,17 @@
         [self.imagePickerController pickImageWithSourceType:integer == 1 ? UIImagePickerControllerSourceTypeCamera :  UIImagePickerControllerSourceTypePhotoLibrary completion:^(UIImage *selectedImage) {
             STRONG_SELF
             [self.imageArray addObject:selectedImage];
-            [self refreshImages];
+            [self reloadPublishButtonStatus];
         }];
         [alertView hide];
     };
 }
-
-#pragma mark - UITextViewDelegate
--(void)textViewDidChange:(UITextView *)textView {
-    //    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    //    paragraphStyle.lineHeightMultiple = 1.2f;
-    //    textView.attributedText = [[NSAttributedString alloc] initWithString:textView.attributedText.string attributes:@{                                                                                                    NSFontAttributeName:[UIFont systemFontOfSize:15],NSParagraphStyleAttributeName:paragraphStyle}];
-}
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    //    if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textView textInputMode] primaryLanguage] || [self stringContainsEmoji:text]) {
-    //        return NO;
-    //    }
-    NSString *str = [textView.text stringByReplacingCharactersInRange:range withString:text];
-    if (str.length > 200) {
-        str = [str substringToIndex:200];
-        textView.text = str;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            UITextPosition* beginning = textView.beginningOfDocument;
-            UITextPosition* startPosition = [textView positionFromPosition:beginning offset:200];
-            UITextPosition* endPosition = [textView positionFromPosition:beginning offset:200];
-            UITextRange* selectionRange = [textView textRangeFromPosition:startPosition toPosition:endPosition];
-            [textView setSelectedTextRange:selectionRange];
-        });
+    if ([text isEqualToString:@"\n"]) {
         return NO;
     }
     return YES;
-}
-- (BOOL)stringContainsEmoji:(NSString *)string {
-    __block BOOL returnValue = NO;
-    [string enumerateSubstringsInRange:NSMakeRange(0, [string length])
-                               options:NSStringEnumerationByComposedCharacterSequences
-                            usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-                                const unichar high = [substring characterAtIndex: 0];
-                                // Surrogate pair (U+1D000-1F9FF)
-                                if (0xD800 <= high && high <= 0xDBFF) {
-                                    const unichar low = [substring characterAtIndex: 1];
-                                    const int codepoint = ((high - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
-                                    if (0x1D000 <= codepoint && codepoint <= 0x1F9FF){
-                                        returnValue = YES;
-                                    }
-                                    // Not surrogate pair (U+2100-27BF)
-                                } else {
-                                    
-                                    //                                    if (0x2100 <= high && high <= 0x27BF){
-                                    //                                        returnValue = YES;
-                                    //                                    }
-                                }
-                            }];
-    
-    return returnValue;
 }
 #pragma mark - request
 - (void)requestForUploadImage{
@@ -375,30 +402,34 @@
     }];
 }
 - (void)requestForPublishMoment:(NSString *)resourceIds{
-//    ClassMomentPublishRequest *request = [[ClassMomentPublishRequest alloc] init];
-//    request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-//    //    [UserManager sharedInstance].userModel.projectClassInfo.data.clazsInfo.clazsId;
-//    request.content = self.publicationMomentTextView.text;
-//    request.resourceIds = resourceIds;
-//    [self nyx_disableRightNavigationItem];
-//    WEAK_SELF
-//    [request startRequestWithRetClass:[ClassMomentPublishRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
-//        STRONG_SELF
-//        ClassMomentPublishRequestItem *item = retItem;
-//        if (item.data == nil) {
-//            [self nyx_enableRightNavigationItem];
-//            [self.view nyx_stopLoading];
-//            [self.view nyx_showToast:@"发布失败请重试"];
-//        }else {
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间
-//                [self nyx_enableRightNavigationItem];
-//                [self.view nyx_stopLoading];
+    CreateHomeworkRequest *request = [[CreateHomeworkRequest alloc] init];
+    if (self.contentView.chooseType == SubordinateCourse_Course) {
+        request.courseId = self.courseId;
+    }else {
+        request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    }
+    request.desc = self.createWorkTextView.text;
+    request.title = self.titleTextView.text;
+    request.resourceKey = resourceIds;
+    [self nyx_disableRightNavigationItem];
+    WEAK_SELF
+    [request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        if (error) {
+            [self nyx_enableRightNavigationItem];
+            [self.view nyx_stopLoading];
+            [self.view nyx_showToast:@"发布失败请重试"];
+        }else {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间
+                [self nyx_enableRightNavigationItem];
+                [self.view nyx_stopLoading];
+                [self.navigationController popViewControllerAnimated:YES];
 //                BLOCK_EXEC(self.publishMomentDataBlock,item.data);
 //                [self dismiss];
-//            });
-//
-//        }
-//    }];
-//    self.publishRequest = request;
+            });
+
+        }
+    }];
+    self.createRequest = request;
 }
 @end

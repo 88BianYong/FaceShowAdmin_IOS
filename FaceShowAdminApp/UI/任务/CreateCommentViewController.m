@@ -43,7 +43,7 @@
     self.textView.backgroundColor = [UIColor whiteColor];
     self.textView.bounces = NO; 
     self.textView.textColor = [UIColor colorWithHexString:@"333333"];
-    self.textView.font = [UIFont systemFontOfSize:16.0f];
+    self.textView.font = [UIFont boldSystemFontOfSize:16.0f];
     self.textView.placeholder = @"讨论标题(最多20字)";
     self.textView.textContainerInset = UIEdgeInsetsMake(20.0f, 15.0f, 18.0, 15.0f);
     [self.view addSubview:self.textView];

@@ -296,6 +296,7 @@
 		7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9BF1FA9ADB5001D8C84 /* SignInTabContainerView.m */; };
 		7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */; };
 		7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */; };
+		921016D120D8DF75007FEBB7 /* CreateHomeworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016D020D8DF75007FEBB7 /* CreateHomeworkRequest.m */; };
 		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
 		921860631FA978A90018D982 /* NoticeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860621FA978A90018D982 /* NoticeListCell.m */; };
 		921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860651FA97FEC0018D982 /* FSDefaultHeaderFooterView.m */; };
@@ -1018,6 +1019,8 @@
 		7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignedMemberListViewController.m; sourceTree = "<group>"; };
 		7CEFC9C41FA9B2B5001D8C84 /* UnsignedMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsignedMemberListViewController.h; sourceTree = "<group>"; };
 		7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnsignedMemberListViewController.m; sourceTree = "<group>"; };
+		921016CF20D8DF75007FEBB7 /* CreateHomeworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateHomeworkRequest.h; sourceTree = "<group>"; };
+		921016D020D8DF75007FEBB7 /* CreateHomeworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateHomeworkRequest.m; sourceTree = "<group>"; };
 		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
 		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
 		921860611FA978A90018D982 /* NoticeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListCell.h; sourceTree = "<group>"; };
@@ -2644,6 +2647,8 @@
 				9282171C20CF75E50052E486 /* UpdateComplexRequest.m */,
 				922942BD20D0BAE600CC21BD /* CreateQuestionGroupItem.h */,
 				922942BE20D0BAE600CC21BD /* CreateQuestionGroupItem.m */,
+				921016CF20D8DF75007FEBB7 /* CreateHomeworkRequest.h */,
+				921016D020D8DF75007FEBB7 /* CreateHomeworkRequest.m */,
 			);
 			path = "创建任务";
 			sourceTree = "<group>";
@@ -3416,6 +3421,7 @@
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,
+				921016D120D8DF75007FEBB7 /* CreateHomeworkRequest.m in Sources */,
 				43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */,
 				E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */,
 				921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */,

@@ -10,11 +10,14 @@
 #import "GetClassCourseRequest.h"
 #import "YXNoFloatingHeaderFooterTableView.h"
 #import "SubordinateCourseCell.h"
+#import "ErrorView.h"
 @interface SubordinateCourseViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GetClassCourseRequest *courseRequest;
 @property (nonatomic, strong) GetClassCourseRequestItem *itemData;
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, assign) NSInteger chooseInteger;
+@property (nonatomic, strong) ErrorView *errorView;
+
 @end
 
 @implementation SubordinateCourseViewController
@@ -43,6 +46,7 @@
 #pragma mark - set
 - (void)setItemData:(GetClassCourseRequestItem *)itemData {
     _itemData = itemData;
+    self.tableView.hidden = NO;
     [self.tableView reloadData];
     if (self.courseId == nil) {
         self.chooseInteger = -1;
@@ -64,11 +68,20 @@
     self.tableView = [[YXNoFloatingHeaderFooterTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.hidden = YES;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 45.0f;
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[SubordinateCourseCell class] forCellReuseIdentifier:@"SubordinateCourseCell"];
+    self.errorView = [[ErrorView alloc]init];
+    self.errorView.hidden = YES;
+    WEAK_SELF
+    [self.errorView setRetryBlock:^{
+        STRONG_SELF
+        [self requestForGetClassCourse];
+    }];
+    [self.view addSubview:self.errorView];
     
 }
 - (void)setupLayout {
@@ -106,6 +119,11 @@
     [request startRequestWithRetClass:[GetClassCourseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
         [self.view nyx_stopLoading];
+        self.errorView.hidden = YES;
+        if (error) {
+            self.errorView.hidden = NO;
+            return;
+        }
         self.itemData = retItem;
     }];
     self.courseRequest = request;

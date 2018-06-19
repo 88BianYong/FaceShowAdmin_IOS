@@ -18,7 +18,9 @@ static const char characterIntegerKey = '\0';
     WEAK_SELF
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextViewTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *x) {
         STRONG_SELF
-        [self textViewChanged:x.object];
+        if (x.object == self) {
+            [self textViewChanged:x.object];
+        }
     }];
 }
 - (NSInteger)characterInteger {
