@@ -208,13 +208,7 @@
     [self.alertView setHideBlock:^(AlertView *view) {
         STRONG_SELF
         [UIView animateWithDuration:0.3 animations:^{
-            [taskView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(view.mas_left);
-                make.right.equalTo(view.mas_right);
-                make.top.equalTo(view.mas_bottom);
-                make.height.mas_offset(205.0f);
-            }];
-            [view layoutIfNeeded];
+            taskView.alpha = 0.0f;
         } completion:^(BOOL finished) {
             [view removeFromSuperview];
         }];
@@ -222,24 +216,15 @@
     [self.alertView showWithLayout:^(AlertView *view) {
         STRONG_SELF
         [taskView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(view.mas_left);
-            make.right.equalTo(view.mas_right);
-            make.top.equalTo(view.mas_bottom);
-            make.height.mas_offset(205.0f );
+            make.left.equalTo(view.mas_left).offset(25.0f);
+            make.right.equalTo(view.mas_right).offset(-25.0f);
+            make.centerY.equalTo(view.mas_centerY);
+            make.height.mas_offset(220.0f);
         }];
+        taskView.alpha = 0.0f;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.3 animations:^{
-                [taskView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    make.left.equalTo(view.mas_left);
-                    make.right.equalTo(view.mas_right);
-                    if (@available(iOS 11.0, *)) {
-                        make.bottom.mas_equalTo(view.mas_safeAreaLayoutGuideBottom);
-                    } else {
-                        make.bottom.mas_equalTo(0);
-                    }
-                    make.height.mas_offset(205.0f);
-                }];
-                [view layoutIfNeeded];
+                taskView.alpha = 1.0f;
             } completion:^(BOOL finished) {
                 
             }];

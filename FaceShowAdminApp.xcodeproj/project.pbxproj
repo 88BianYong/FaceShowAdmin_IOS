@@ -350,6 +350,7 @@
 		9282170B20CF74A60052E486 /* CreateCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170A20CF74A60052E486 /* CreateCommentRequest.m */; };
 		9282171A20CF75C80052E486 /* CreateComplexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282171920CF75C80052E486 /* CreateComplexRequest.m */; };
 		9282171D20CF75E50052E486 /* UpdateComplexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282171C20CF75E50052E486 /* UpdateComplexRequest.m */; };
+		92B74EFE20D8A5A50021C683 /* TaskChooseContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B74EFD20D8A5A50021C683 /* TaskChooseContentView.m */; };
 		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
 		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
 		92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6321FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m */; };
@@ -1124,6 +1125,8 @@
 		9282171920CF75C80052E486 /* CreateComplexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateComplexRequest.m; sourceTree = "<group>"; };
 		9282171B20CF75E50052E486 /* UpdateComplexRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateComplexRequest.h; sourceTree = "<group>"; };
 		9282171C20CF75E50052E486 /* UpdateComplexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateComplexRequest.m; sourceTree = "<group>"; };
+		92B74EFC20D8A5A50021C683 /* TaskChooseContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskChooseContentView.h; sourceTree = "<group>"; };
+		92B74EFD20D8A5A50021C683 /* TaskChooseContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskChooseContentView.m; sourceTree = "<group>"; };
 		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
 		92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAFileUploadFirstStepRequest.m; sourceTree = "<group>"; };
 		92CAA6301FAAB69300DB5873 /* QAFileUploadSecondStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAFileUploadSecondStepRequest.h; sourceTree = "<group>"; };
@@ -2607,6 +2610,8 @@
 				921E200520CFB16300A0604F /* SubordinateCourseCell.m */,
 				922942C020D0C81600CC21BD /* SAMTextView+Restriction.h */,
 				922942C120D0C81600CC21BD /* SAMTextView+Restriction.m */,
+				92B74EFC20D8A5A50021C683 /* TaskChooseContentView.h */,
+				92B74EFD20D8A5A50021C683 /* TaskChooseContentView.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -3452,6 +3457,7 @@
 				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
 				E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */,
 				E94DDE6120D9F02400729A67 /* TaskFilterView.m in Sources */,
+				92B74EFE20D8A5A50021C683 /* TaskChooseContentView.m in Sources */,
 				E9540C2420CA1EB200D7DDA2 /* SaveTextMsgRequest.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,

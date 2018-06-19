@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface SubordinateCourseViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *courseId;
+@property (nonatomic, copy) void(^chooseSubordinateCoursBlock)(NSString *courseId, NSString *courseName);
 @end

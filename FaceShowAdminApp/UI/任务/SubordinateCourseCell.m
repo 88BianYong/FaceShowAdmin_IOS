@@ -25,25 +25,35 @@
     _titleString = titleString;
     self.nameLabel.text = _titleString;
 }
+-(void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+}
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+}
 #pragma mark - setupUI
 - (void)setupUI{
     UIView *selectedBgView = [[UIView alloc]init];
-    selectedBgView.backgroundColor = [UIColor colorWithHexString:@"f2f6fa"];
+    selectedBgView.backgroundColor = [UIColor colorWithHexString:@"ffffff"];
     self.selectedBackgroundView = selectedBgView;
-    self.lineView = [[UIView alloc] init];
-    [self.contentView addSubview:self.lineView];
     self.nameLabel = [[UILabel alloc] init];
-    self.nameLabel.font = [UIFont systemFontOfSize:12.0f];
-    self.nameLabel.textColor = [UIColor colorWithHexString:@""];
+    self.nameLabel.font = [UIFont systemFontOfSize:14.0f];
+    self.nameLabel.textColor = [UIColor colorWithHexString:@"333333"];
+    self.nameLabel.highlightedTextColor = [UIColor colorWithHexString:@"0068bd"];
     [self.contentView addSubview:self.nameLabel];
     
     self.selectedImageView = [[UIImageView alloc] init];
-    self.selectedImageView.highlightedImage = [UIImage imageNamed:@"选择图标"];
+    self.selectedImageView.highlightedImage = [UIImage imageNamed:@"选择按钮"];
     [self.contentView addSubview:self.selectedImageView];
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    [self.contentView addSubview:self.lineView];
  }
 - (void)setupLayout {
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left);
+        make.left.equalTo(self.contentView.mas_left).offset(15.0f);
         make.bottom.equalTo(self.contentView.mas_bottom);
         make.right.equalTo(self.contentView.mas_right);
         make.height.mas_offset(1.0f);
@@ -57,20 +67,13 @@
     
     [self.selectedImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView.mas_centerY);
-        make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
-        make.size.mas_offset(CGSizeMake(25.0f, 25.0f));
+        make.right.equalTo(self.contentView.mas_right).offset(-9.0f);
+        make.size.mas_offset(CGSizeMake(30.0f, 30.0f));
     }];
-    
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

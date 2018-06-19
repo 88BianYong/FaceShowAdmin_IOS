@@ -14,6 +14,7 @@
 @property (nonatomic, strong) GetClassCourseRequest *courseRequest;
 @property (nonatomic, strong) GetClassCourseRequestItem *itemData;
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
+@property (nonatomic, assign) NSInteger chooseInteger;
 @end
 
 @implementation SubordinateCourseViewController
@@ -24,6 +25,17 @@
     [self setupUI];
     [self setupLayout];
     [self requestForGetClassCourse];
+    WEAK_SELF
+    [self nyx_setupRightWithTitle:@"确定" action:^{
+        STRONG_SELF
+        if (self.chooseInteger == -1) {
+            BLOCK_EXEC(self.chooseSubordinateCoursBlock,nil,nil);
+        }else {
+            GetClassCourseRequestItem_Data *data = self.itemData.data[self.chooseInteger - 1];
+            BLOCK_EXEC(self.chooseSubordinateCoursBlock,data.courseId,data.courseName);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -32,6 +44,20 @@
 - (void)setItemData:(GetClassCourseRequestItem *)itemData {
     _itemData = itemData;
     [self.tableView reloadData];
+    if (self.courseId == nil) {
+        self.chooseInteger = -1;
+    }else {
+        [self.itemData.data enumerateObjectsUsingBlock:^(GetClassCourseRequestItem_Data *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.courseId isEqualToString:self.courseId]) {
+                self.chooseInteger = idx + 1;
+                *stop = YES;
+            }
+        }];
+    }
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.chooseInteger inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:YES animated:YES];
 }
 #pragma mark - setupUI
 - (void)setupUI {
@@ -39,7 +65,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.rowHeight = 44.0f;
+    self.tableView.rowHeight = 45.0f;
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[SubordinateCourseCell class] forCellReuseIdentifier:@"SubordinateCourseCell"];
@@ -69,7 +95,7 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    self.chooseInteger = indexPath.row;
 }
 #pragma mark - request
 - (void)requestForGetClassCourse {
