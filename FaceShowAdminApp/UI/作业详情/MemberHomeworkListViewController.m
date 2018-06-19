@@ -8,6 +8,7 @@
 
 #import "MemberHomeworkListViewController.h"
 #import "MemberHomeworkCell.h"
+#import "MemberHomeworkDetailViewController.h"
 
 @interface MemberHomeworkListViewController ()
 
@@ -19,13 +20,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
+    [self.view nyx_stopLoading];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)firstPageFetch {
+    
+}
 - (void)setupUI {
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.rowHeight = 71;
@@ -43,4 +47,8 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MemberHomeworkDetailViewController *vc = [[MemberHomeworkDetailViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

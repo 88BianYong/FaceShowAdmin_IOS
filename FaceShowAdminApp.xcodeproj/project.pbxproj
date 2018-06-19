@@ -198,6 +198,7 @@
 		7CEA29C420D8DAA7000CE9EC /* HomeworkRequirementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C320D8DAA6000CE9EC /* HomeworkRequirementViewController.m */; };
 		7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C620D8E02F000CE9EC /* MemberHomeworkDetailViewController.m */; };
 		7CEA29CA20D8E192000CE9EC /* HomeworkMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */; };
+		7CEA29CD20D8F31B000CE9EC /* HomeworkCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29CC20D8F31B000CE9EC /* HomeworkCommentView.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
@@ -821,6 +822,8 @@
 		7CEA29C620D8E02F000CE9EC /* MemberHomeworkDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberHomeworkDetailViewController.m; sourceTree = "<group>"; };
 		7CEA29C820D8E192000CE9EC /* HomeworkMemberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeworkMemberView.h; sourceTree = "<group>"; };
 		7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkMemberView.m; sourceTree = "<group>"; };
+		7CEA29CB20D8F31B000CE9EC /* HomeworkCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeworkCommentView.h; sourceTree = "<group>"; };
+		7CEA29CC20D8F31B000CE9EC /* HomeworkCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkCommentView.m; sourceTree = "<group>"; };
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1821,6 +1824,8 @@
 				7CEA29C020D8D4A5000CE9EC /* MemberHomeworkCell.m */,
 				7CEA29C820D8E192000CE9EC /* HomeworkMemberView.h */,
 				7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */,
+				7CEA29CB20D8F31B000CE9EC /* HomeworkCommentView.h */,
+				7CEA29CC20D8F31B000CE9EC /* HomeworkCommentView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3483,6 +3488,7 @@
 				436E6DF51FB3F146009950EA /* MyInfoViewController.m in Sources */,
 				7C672B801FB53916004D93DF /* CourseCommentCell.m in Sources */,
 				7CDF11A1208DB4A50044DD95 /* QiniuDataManager.m in Sources */,
+				7CEA29CD20D8F31B000CE9EC /* HomeworkCommentView.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
@@ -3618,6 +3624,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P8ZS8UUN27;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FaceShowAdminApp/PrefixHeader.pch";
 				INFOPLIST_FILE = FaceShowAdminApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3645,6 +3652,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P8ZS8UUN27;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FaceShowAdminApp/PrefixHeader.pch";
 				INFOPLIST_FILE = FaceShowAdminApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
