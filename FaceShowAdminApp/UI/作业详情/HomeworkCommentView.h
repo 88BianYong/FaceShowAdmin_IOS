@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeworkCommentView : UIView
-
+@property (nonatomic, strong) void(^confirmBlock)(NSString *comment);
 @end

@@ -72,6 +72,8 @@ static const NSInteger kBtnTagBase = 100;
         make.right.bottom.mas_equalTo(-15);
         make.height.mas_equalTo(39);
     }];
+    
+    [self btnAction:self.btnArray.firstObject];
 }
 
 - (UIButton *)btnWithTitle:(NSString *)title {
@@ -82,6 +84,7 @@ static const NSInteger kBtnTagBase = 100;
     btn.titleLabel.font = [UIFont systemFontOfSize:13];
     btn.layer.cornerRadius = 13;
     btn.layer.borderColor = [UIColor colorWithHexString:@"cccccc"].CGColor;
+    btn.layer.borderWidth = 1;
     btn.clipsToBounds = YES;
     [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [btn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"fd763b"]] forState:UIControlStateSelected];
@@ -102,7 +105,11 @@ static const NSInteger kBtnTagBase = 100;
 }
 
 - (void)confirmAction {
-    
+    for (UIButton *btn in self.btnArray) {
+        if (btn.selected) {
+            BLOCK_EXEC(self.confirmBlock,[btn titleForState:UIControlStateNormal]);
+        }
+    }
 }
 
 @end

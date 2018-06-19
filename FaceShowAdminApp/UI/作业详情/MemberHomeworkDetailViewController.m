@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) PreviewPhotosView *photosView;
 @property (nonatomic, strong) HomeworkCommentView *commentView;
+@property (nonatomic, strong) UILabel *commentLabel;
 @end
 
 @implementation MemberHomeworkDetailViewController
@@ -36,6 +37,8 @@
 }
 
 - (void)setupUI {
+    self.scrollView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    self.contentView.backgroundColor = [UIColor whiteColor];
     UIView *top = [[UIView alloc]init];
     top.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.contentView addSubview:top];
@@ -57,6 +60,19 @@
     [self.memberView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(15);
         make.centerX.mas_equalTo(0);
+    }];
+    self.commentLabel = [[UILabel alloc]init];
+    self.commentLabel.backgroundColor = [UIColor colorWithHexString:@"fd763b"];
+    self.commentLabel.textColor = [UIColor whiteColor];
+    self.commentLabel.font = [UIFont systemFontOfSize:13];
+    self.commentLabel.textAlignment = NSTextAlignmentCenter;
+    self.commentLabel.layer.cornerRadius = 13;
+    self.commentLabel.clipsToBounds = YES;
+    [self.contentView addSubview:self.commentLabel];
+    [self.commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.memberView.mas_top).mas_equalTo(8);
+        make.right.mas_equalTo(-15);
+        make.size.mas_equalTo(CGSizeMake(60, 26));
     }];
     self.dateLabel = [[UILabel alloc]init];
     self.dateLabel.font = [UIFont systemFontOfSize:13];
@@ -87,6 +103,13 @@
         make.height.mas_equalTo(0.1);
     }];
     self.commentView = [[HomeworkCommentView alloc]init];
+    WEAK_SELF
+    [self.commentView setConfirmBlock:^(NSString *comment) {
+        STRONG_SELF
+        self.commentView.hidden = YES;
+        self.commentLabel.text = comment;
+        self.commentLabel.hidden = NO;
+    }];
     [self.view addSubview:self.commentView];
     [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
@@ -97,6 +120,8 @@
         }
         make.height.mas_equalTo(140);
     }];
+    self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 140, 0);
+    self.commentLabel.hidden = YES;
 }
 
 - (void)setupMockData {
