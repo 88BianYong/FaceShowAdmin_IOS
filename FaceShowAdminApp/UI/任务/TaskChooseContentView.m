@@ -77,7 +77,7 @@
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.nextImageView.mas_left).offset(-5.0f);
-        make.left.equalTo(self.nameLabel.mas_right).offset(10.0f);
+        make.left.equalTo(self.nameLabel.mas_right).offset(10.0f).priorityLow();
         make.centerY.equalTo(self.mas_centerY);
     }];
     

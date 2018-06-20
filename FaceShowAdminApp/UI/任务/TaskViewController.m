@@ -24,7 +24,7 @@
 #import "CreateCommentViewController.h"
 #import "CreateSignInViewController.h"
 #import "TaskFilterView.h"
-
+#import "CreateEvaluateViewController.h"
 @interface TaskViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -254,6 +254,12 @@
             case 2:
             {
                 CreateCommentViewController *VC = [[CreateCommentViewController alloc] init];
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+                break;
+            case 5:
+            {
+                CreateEvaluateViewController *VC = [[CreateEvaluateViewController alloc] init];
                 [self.navigationController pushViewController:VC animated:YES];
             }
                 break;

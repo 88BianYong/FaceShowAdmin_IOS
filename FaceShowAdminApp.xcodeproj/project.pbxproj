@@ -297,6 +297,15 @@
 		7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C21FA9B293001D8C84 /* SignedMemberListViewController.m */; };
 		7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */; };
 		921016D120D8DF75007FEBB7 /* CreateHomeworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016D020D8DF75007FEBB7 /* CreateHomeworkRequest.m */; };
+		921016D420D8E995007FEBB7 /* CreateEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016D320D8E995007FEBB7 /* CreateEvaluateViewController.m */; };
+		921016D720D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016D620D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.m */; };
+		921016DA20D8F073007FEBB7 /* GetQuestionTemplatesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016D920D8F073007FEBB7 /* GetQuestionTemplatesRequest.m */; };
+		921016DD20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016DC20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m */; };
+		921016E020D8F262007FEBB7 /* CreateEvaluateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016DF20D8F262007FEBB7 /* CreateEvaluateCell.m */; };
+		921016E320D8FBEA007FEBB7 /* QuestionTemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016E220D8FBEA007FEBB7 /* QuestionTemplatesViewController.m */; };
+		921016E620D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016E520D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.m */; };
+		921016E920D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016E820D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.m */; };
+		921016EC20D8FD40007FEBB7 /* QuestionTemplatesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921016EB20D8FD40007FEBB7 /* QuestionTemplatesCell.m */; };
 		921860591FA965E00018D982 /* NoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860581FA965E00018D982 /* NoticeListViewController.m */; };
 		921860631FA978A90018D982 /* NoticeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860621FA978A90018D982 /* NoticeListCell.m */; };
 		921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 921860651FA97FEC0018D982 /* FSDefaultHeaderFooterView.m */; };
@@ -341,6 +350,7 @@
 		9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9851FB3EDED003A9027 /* ScheduleDetailViewController.m */; };
 		9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9881FB3EE0F003A9027 /* ScheduleCreateViewController.m */; };
 		9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */; };
+		924297C020D9E0D30039038E /* UITextField+Restriction.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297BF20D9E0D30039038E /* UITextField+Restriction.m */; };
 		928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F320CE4BB40052E486 /* PublishTaskView.m */; };
 		928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F620CE520B0052E486 /* PublishTaskHeaderView.m */; };
 		928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F920CE52330052E486 /* PublishTaskCell.m */; };
@@ -1021,6 +1031,24 @@
 		7CEFC9C51FA9B2B5001D8C84 /* UnsignedMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnsignedMemberListViewController.m; sourceTree = "<group>"; };
 		921016CF20D8DF75007FEBB7 /* CreateHomeworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateHomeworkRequest.h; sourceTree = "<group>"; };
 		921016D020D8DF75007FEBB7 /* CreateHomeworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateHomeworkRequest.m; sourceTree = "<group>"; };
+		921016D220D8E995007FEBB7 /* CreateEvaluateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateEvaluateViewController.h; sourceTree = "<group>"; };
+		921016D320D8E995007FEBB7 /* CreateEvaluateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateEvaluateViewController.m; sourceTree = "<group>"; };
+		921016D520D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetQuestionGroupTemplatesRequest.h; sourceTree = "<group>"; };
+		921016D620D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetQuestionGroupTemplatesRequest.m; sourceTree = "<group>"; };
+		921016D820D8F073007FEBB7 /* GetQuestionTemplatesRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetQuestionTemplatesRequest.h; sourceTree = "<group>"; };
+		921016D920D8F073007FEBB7 /* GetQuestionTemplatesRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetQuestionTemplatesRequest.m; sourceTree = "<group>"; };
+		921016DB20D8F24B007FEBB7 /* CreateEvaluateHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateEvaluateHeaderView.h; sourceTree = "<group>"; };
+		921016DC20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateEvaluateHeaderView.m; sourceTree = "<group>"; };
+		921016DE20D8F261007FEBB7 /* CreateEvaluateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateEvaluateCell.h; sourceTree = "<group>"; };
+		921016DF20D8F262007FEBB7 /* CreateEvaluateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateEvaluateCell.m; sourceTree = "<group>"; };
+		921016E120D8FBEA007FEBB7 /* QuestionTemplatesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionTemplatesViewController.h; sourceTree = "<group>"; };
+		921016E220D8FBEA007FEBB7 /* QuestionTemplatesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionTemplatesViewController.m; sourceTree = "<group>"; };
+		921016E420D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionTemplatesTableHeaderView.h; sourceTree = "<group>"; };
+		921016E520D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionTemplatesTableHeaderView.m; sourceTree = "<group>"; };
+		921016E720D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionTemplatesHeaderView.h; sourceTree = "<group>"; };
+		921016E820D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionTemplatesHeaderView.m; sourceTree = "<group>"; };
+		921016EA20D8FD40007FEBB7 /* QuestionTemplatesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionTemplatesCell.h; sourceTree = "<group>"; };
+		921016EB20D8FD40007FEBB7 /* QuestionTemplatesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionTemplatesCell.m; sourceTree = "<group>"; };
 		921860571FA965E00018D982 /* NoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListViewController.h; sourceTree = "<group>"; };
 		921860581FA965E00018D982 /* NoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeListViewController.m; sourceTree = "<group>"; };
 		921860611FA978A90018D982 /* NoticeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeListCell.h; sourceTree = "<group>"; };
@@ -1108,6 +1136,8 @@
 		9235F98B1FB3F7AE003A9027 /* ScheduleCreateTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateTitleCell.h; sourceTree = "<group>"; };
 		9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleCreateTitleCell.m; sourceTree = "<group>"; };
 		9235F98E1FB3F7CA003A9027 /* ScheduleCreateImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateImageCell.h; sourceTree = "<group>"; };
+		924297BE20D9E0D30039038E /* UITextField+Restriction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Restriction.h"; sourceTree = "<group>"; };
+		924297BF20D9E0D30039038E /* UITextField+Restriction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Restriction.m"; sourceTree = "<group>"; };
 		928216F220CE4BB40052E486 /* PublishTaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskView.h; sourceTree = "<group>"; };
 		928216F320CE4BB40052E486 /* PublishTaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskView.m; sourceTree = "<group>"; };
 		928216F520CE520B0052E486 /* PublishTaskHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskHeaderView.h; sourceTree = "<group>"; };
@@ -2613,8 +2643,20 @@
 				921E200520CFB16300A0604F /* SubordinateCourseCell.m */,
 				922942C020D0C81600CC21BD /* SAMTextView+Restriction.h */,
 				922942C120D0C81600CC21BD /* SAMTextView+Restriction.m */,
+				924297BE20D9E0D30039038E /* UITextField+Restriction.h */,
+				924297BF20D9E0D30039038E /* UITextField+Restriction.m */,
 				92B74EFC20D8A5A50021C683 /* TaskChooseContentView.h */,
 				92B74EFD20D8A5A50021C683 /* TaskChooseContentView.m */,
+				921016DB20D8F24B007FEBB7 /* CreateEvaluateHeaderView.h */,
+				921016DC20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m */,
+				921016DE20D8F261007FEBB7 /* CreateEvaluateCell.h */,
+				921016DF20D8F262007FEBB7 /* CreateEvaluateCell.m */,
+				921016E420D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.h */,
+				921016E520D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.m */,
+				921016E720D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.h */,
+				921016E820D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.m */,
+				921016EA20D8FD40007FEBB7 /* QuestionTemplatesCell.h */,
+				921016EB20D8FD40007FEBB7 /* QuestionTemplatesCell.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -2630,6 +2672,10 @@
 				9282170320CE740F0052E486 /* CreateComplexViewController.m */,
 				921E200020CFAC7200A0604F /* SubordinateCourseViewController.h */,
 				921E200120CFAC7200A0604F /* SubordinateCourseViewController.m */,
+				921016D220D8E995007FEBB7 /* CreateEvaluateViewController.h */,
+				921016D320D8E995007FEBB7 /* CreateEvaluateViewController.m */,
+				921016E120D8FBEA007FEBB7 /* QuestionTemplatesViewController.h */,
+				921016E220D8FBEA007FEBB7 /* QuestionTemplatesViewController.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -2649,6 +2695,10 @@
 				922942BE20D0BAE600CC21BD /* CreateQuestionGroupItem.m */,
 				921016CF20D8DF75007FEBB7 /* CreateHomeworkRequest.h */,
 				921016D020D8DF75007FEBB7 /* CreateHomeworkRequest.m */,
+				921016D520D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.h */,
+				921016D620D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.m */,
+				921016D820D8F073007FEBB7 /* GetQuestionTemplatesRequest.h */,
+				921016D920D8F073007FEBB7 /* GetQuestionTemplatesRequest.m */,
 			);
 			path = "创建任务";
 			sourceTree = "<group>";
@@ -3147,6 +3197,7 @@
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
 				E98CA171209063CF00BCE36D /* ChatViewController.m in Sources */,
 				7CDF123420902EE60044DD95 /* ClassMomentFooterView.m in Sources */,
+				921016EC20D8FD40007FEBB7 /* QuestionTemplatesCell.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
 				7C672B381FB1A362004D93DF /* ClassUserQuestionRequest.m in Sources */,
 				7C672B621FB3F54E004D93DF /* CourseResourceCell.m in Sources */,
@@ -3171,6 +3222,7 @@
 				7CEA29BE20D8BDE7000CE9EC /* MemberHomeworkListViewController.m in Sources */,
 				E94DDE0C20D3734200729A67 /* GetUserClazsScoreRequest.m in Sources */,
 				7C06894120CF6A9C00C7CA14 /* NameNumberView.m in Sources */,
+				921016E920D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.m in Sources */,
 				7CDF128720902FBF0044DD95 /* ClassMomentUserMomentMsgRequest.m in Sources */,
 				7C06895920CFA82700C7CA14 /* ProjectAreaDistributingCell.m in Sources */,
 				E9540C4120CA1F4B00D7DDA2 /* IMOfflineMsgUpdateServiceManager.m in Sources */,
@@ -3200,6 +3252,7 @@
 				9282170120CE738F0052E486 /* CreateCommentViewController.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
+				921016E020D8F262007FEBB7 /* CreateEvaluateCell.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
 				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
 				7CEA29B520D8B451000CE9EC /* HomeworkDetailHeaderView.m in Sources */,
@@ -3209,6 +3262,7 @@
 				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
+				921016DA20D8F073007FEBB7 /* GetQuestionTemplatesRequest.m in Sources */,
 				7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
 				E94DDE6020D9F02400729A67 /* TaskFilterItemView.m in Sources */,
@@ -3341,6 +3395,7 @@
 				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
 				E9540C0B20CA1E6800D7DDA2 /* IMHistoryMessageFetcher.m in Sources */,
 				92E886A81FB3FD000006A08E /* ScheduleDeleteRequest.m in Sources */,
+				924297C020D9E0D30039038E /* UITextField+Restriction.m in Sources */,
 				7CEFC8CA1FA06627001D8C84 /* UIImage+YXImage.m in Sources */,
 				7CDF127E20902FBF0044DD95 /* ClassMomentDiscardRequest.m in Sources */,
 				7CEFC8851FA065D6001D8C84 /* YXGetRequest.m in Sources */,
@@ -3376,6 +3431,7 @@
 				923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */,
 				7CDF1173208D99150044DD95 /* QASlideView.m in Sources */,
 				7CDF1176208D99380044DD95 /* QASlideItemBaseView.m in Sources */,
+				921016DD20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				E9540C2120CA1EB200D7DDA2 /* GetMemberTopicsRequest.m in Sources */,
 				922942C220D0C81600CC21BD /* SAMTextView+Restriction.m in Sources */,
@@ -3386,6 +3442,7 @@
 				7C06895D20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m in Sources */,
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
 				E9540C0720CA1E6800D7DDA2 /* IMImageMessage.m in Sources */,
+				921016D420D8E995007FEBB7 /* CreateEvaluateViewController.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
 				9282171D20CF75E50052E486 /* UpdateComplexRequest.m in Sources */,
 				E91481AC209062C4001B7EB5 /* IMMessageBaseCell.m in Sources */,
@@ -3428,6 +3485,7 @@
 				7C06897320D0D42700C7CA14 /* ClassDetailStatisticView.m in Sources */,
 				436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */,
 				7C06897620D0EDFB00C7CA14 /* ClassInfoView.m in Sources */,
+				921016D720D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.m in Sources */,
 				7CDF123120902EE60044DD95 /* SlideImageView.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
@@ -3443,6 +3501,7 @@
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
 				7CDF124C20902F200044DD95 /* PhotoBrowserController.m in Sources */,
 				7CDF128120902FBF0044DD95 /* ClassMomentCancelLikeRequest.m in Sources */,
+				921016E320D8FBEA007FEBB7 /* QuestionTemplatesViewController.m in Sources */,
 				E94DDE1E20D3761000729A67 /* ScroeDetailTabContainerView.m in Sources */,
 				7C672B841FB53929004D93DF /* CourseCommentViewController.m in Sources */,
 				E91481CE20906307001B7EB5 /* IMImageSendingProgressView.m in Sources */,
@@ -3500,6 +3559,7 @@
 				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,
+				921016E620D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.m in Sources */,
 				7CEFC8FD1FA068D3001D8C84 /* FSNavigationController.m in Sources */,
 				436E6DF51FB3F146009950EA /* MyInfoViewController.m in Sources */,
 				7C672B801FB53916004D93DF /* CourseCommentCell.m in Sources */,

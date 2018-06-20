@@ -8,6 +8,11 @@
 
 #import "YXGetRequest.h"
 #import "GetTaskRequest.h"
+typedef NS_ENUM(NSInteger,CreateComplexType) {
+    CreateComplex_Vote,//投票
+    CreateComplex_Questionnaire,//问卷
+    CreateComplex_Evaluate//评价
+};
 @interface CreateComplexRequestItem : HttpBaseRequestItem
 @property (nonatomic, strong) GetTaskRequestItem_Task<Optional> *data;
 @end
@@ -16,4 +21,6 @@
 @property (nonatomic, copy) NSString<Optional> *courseId;
 @property (nonatomic, copy) NSString<Optional> *clazsId;
 @property (nonatomic, copy) NSString<Optional> *questionGroup;
+@property (nonatomic, copy) NSString<Optional> *templateId;
+@property (nonatomic, assign) CreateComplexType createType;
 @end

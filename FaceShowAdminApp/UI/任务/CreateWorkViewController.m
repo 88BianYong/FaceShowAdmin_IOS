@@ -19,11 +19,12 @@
 #import "TaskChooseContentView.h"
 #import "SubordinateCourseViewController.h"
 #import "CreateHomeworkRequest.h"
+#import "UITextField+Restriction.h"
 @interface CreateWorkViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *createWorkView;
 
-@property (nonatomic, strong) SAMTextView *titleTextView;
+@property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIView *lineView;
 
 @property (nonatomic, strong) SAMTextView *createWorkTextView;
@@ -80,7 +81,7 @@
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - 64.0f);
-    self.scrollView.backgroundColor = [UIColor colorWithHexString:@"dfe2e6"];
+    self.scrollView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.view addSubview:self.scrollView];
     
     self.createWorkView = [[UIView alloc] init];
@@ -96,16 +97,14 @@
         make.height.mas_offset(5.0f);
     }];
     
-    self.titleTextView = [[SAMTextView alloc] init];
-    self.titleTextView.characterInteger = 20;
-    self.titleTextView.delegate = self;
-    self.titleTextView.backgroundColor = [UIColor whiteColor];
-    self.titleTextView.bounces = NO;
-    self.titleTextView.textColor = [UIColor colorWithHexString:@"333333"];
-    self.titleTextView.font = [UIFont boldSystemFontOfSize:16.0f];
-    self.titleTextView.placeholder = @"作业标题(最多20字)";
-    self.titleTextView.textContainerInset = UIEdgeInsetsMake(20.0f, 15.0f, 18.0, 15.0f);
-    [self.createWorkView addSubview:self.titleTextView];
+    
+    self.textField = [[UITextField alloc] init];
+    self.textField.characterInteger = 20;
+    self.textField.backgroundColor = [UIColor whiteColor];
+    self.textField.textColor = [UIColor colorWithHexString:@"333333"];
+    self.textField.font = [UIFont boldSystemFontOfSize:16.0f];
+    self.textField.placeholder = @"作业标题(最多20字)";
+    [self.createWorkView addSubview:self.textField];
     
     self.lineView = [[UIView alloc] init];
     self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
@@ -231,16 +230,20 @@
         STRONG_SELF
         [self reloadPublishButtonStatus];
     }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *x) {
+        STRONG_SELF
+        [self reloadPublishButtonStatus];
+    }];
 }
 - (void)reloadPublishButtonStatus {
-    if ([self.titleTextView.text yx_stringByTrimmingCharacters].length != 0 && (self.imageArray.count != 0 || [self.createWorkTextView.text yx_stringByTrimmingCharacters].length != 0)) {
+    if ([self.textField.text yx_stringByTrimmingCharacters].length != 0 && (self.imageArray.count != 0 || [self.createWorkTextView.text yx_stringByTrimmingCharacters].length != 0)) {
         self.publishButton.enabled = YES;
     }else {
         self.publishButton.enabled = NO;
     }
 }
 - (void)backAction {
-    if (self.titleTextView.text.length > 0 || self.createWorkTextView.text.length > 0 || self.imageArray.count > 0) {
+    if (self.textField.text.length > 0 || self.createWorkTextView.text.length > 0 || self.imageArray.count > 0) {
         [self showAlertView];
     }else {
         [super backAction];
@@ -273,17 +276,16 @@
         make.height.mas_offset(56.0f + 213.0f);
     }];
     
-    [self.titleTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.createWorkView.mas_left);
-        make.right.equalTo(self.createWorkView.mas_right);
-        make.top.equalTo(self.createWorkView.mas_top).offset(5.0f);
-        make.height.mas_offset(56.0f);
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.createWorkView.mas_left).offset(15.0f);
+        make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f);
+        make.top.equalTo(self.createWorkView.mas_top).offset(25.0f);
     }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.createWorkView.mas_left).offset(15.0f);
         make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f);
-        make.top.equalTo(self.titleTextView.mas_bottom);
+        make.top.equalTo(self.createWorkView.mas_top).offset(56.0f + 5.0f + 5.0f);
         make.height.mas_offset(1.0f);
     }];
 
@@ -409,7 +411,7 @@
         request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     }
     request.desc = self.createWorkTextView.text;
-    request.title = self.titleTextView.text;
+    request.title = self.textField.text;
     request.resourceKey = resourceIds;
     [self nyx_disableRightNavigationItem];
     WEAK_SELF

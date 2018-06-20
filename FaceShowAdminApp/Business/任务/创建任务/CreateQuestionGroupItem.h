@@ -24,7 +24,7 @@
 @property (nonatomic, copy) NSString<Optional> *title;
 @property (nonatomic, copy) NSString<Optional> *desc;
 @property (nonatomic, copy) NSString<Optional> *questionType;
-@property (nonatomic, strong) NSArray<CreateQuestionGroupItem_Question_VoteInfo, Optional> *voteInfo;
+@property (nonatomic, strong) CreateQuestionGroupItem_Question_VoteInfo<Optional> *voteInfo;
 @end
 @interface CreateQuestionGroupItem : JSONModel
 @property (nonatomic, copy) NSString<Optional> *title;

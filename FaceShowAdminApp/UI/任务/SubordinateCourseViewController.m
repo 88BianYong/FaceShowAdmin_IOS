@@ -31,7 +31,7 @@
     WEAK_SELF
     [self nyx_setupRightWithTitle:@"确定" action:^{
         STRONG_SELF
-        if (self.chooseInteger == -1) {
+        if (self.chooseInteger == 0) {
             BLOCK_EXEC(self.chooseSubordinateCoursBlock,nil,nil);
         }else {
             GetClassCourseRequestItem_Data *data = self.itemData.data[self.chooseInteger - 1];
@@ -49,7 +49,7 @@
     self.tableView.hidden = NO;
     [self.tableView reloadData];
     if (self.courseId == nil) {
-        self.chooseInteger = -1;
+        self.chooseInteger = 0;
     }else {
         [self.itemData.data enumerateObjectsUsingBlock:^(GetClassCourseRequestItem_Data *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj.courseId isEqualToString:self.courseId]) {
@@ -86,6 +86,9 @@
 }
 - (void)setupLayout {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
 }
