@@ -15,11 +15,13 @@ BOOL testFrameworkOn = YES;
 
 #ifdef DEBUG
 NSString * const kServer = @"http://orz.yanxiu.com/pxt/platform/data.api";
+NSString * const kServer1_1 = @"http://orz.yanxiu.com/pxt/v1.1/platform/data.api";
 NSString * const kLoginServer = @"http://orz.yanxiu.com/uc/appLogin";
 NSString * const kEasygoServer = @"http://orz.yanxiu.com/easygo/multiUpload";
 NSString * const kQiNiuUpload = @"http://p2xuvkfak.bkt.clouddn.com";
 #else
 NSString * const kServer = @"http://yxb.yanxiu.com/pxt/platform/data.api";
+NSString * const kServer1_1 = @"http://yxb.yanxiu.com/pxt/v1.1/platform/data.api";
 NSString * const kLoginServer = @"http://pp.yanxiu.com/uc/appLogin";
 NSString * const kEasygoServer = @"http://b.yanxiu.com/easygo/multiUpload";
 NSString * const kQiNiuUpload = @"http://niuugcupload.yanxiu.com";
@@ -39,6 +41,10 @@ NSString * const kQiNiuUpload = @"http://niuugcupload.yanxiu.com";
 #pragma mark - properties
 - (NSString *)server {
     return kServer;
+}
+
+- (NSString *)server1_1 {
+    return kServer1_1;
 }
 
 - (NSString *)loginServer {

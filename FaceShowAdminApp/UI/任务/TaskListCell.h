@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GetTaskRequest.h"
+#import "GetAllTasksRequest.h"
 
 @interface TaskListCell : UITableViewCell
-@property (nonatomic, strong) GetTaskRequestItem_Task *data;
+@property (nonatomic, strong) GetAllTasksRequestItem_task *data;
 @property (nonatomic, assign) BOOL lineHidden;
 @end

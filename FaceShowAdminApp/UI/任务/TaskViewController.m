@@ -10,7 +10,7 @@
 #import "TaskListCell.h"
 #import "EmptyView.h"
 #import "ErrorView.h"
-#import "GetTaskRequest.h"
+#import "GetAllTasksRequest.h"
 #import "FSDataMappingTable.h"
 #import "MJRefresh.h"
 #import "QuestionnaireViewController.h"
@@ -23,16 +23,24 @@
 #import "CreateComplexViewController.h"
 #import "CreateCommentViewController.h"
 #import "CreateSignInViewController.h"
+#import "TaskFilterView.h"
+
 @interface TaskViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
-@property (nonatomic, strong) GetTaskRequest *request;
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) TaskFilterView *filterView;
 @property (nonatomic, strong) MJRefreshHeaderView *header;
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) GetAllTasksRequest *request;
+@property (nonatomic, strong) NSArray <GetAllTasksRequestItem_interactType *> *filterArray;
+@property (nonatomic, strong) NSArray <GetAllTasksRequestItem_task *> *tasksArray;//任务列表所有数据
+@property (nonatomic, strong) NSArray <GetAllTasksRequestItem_task *> *dataArray;//当前选中类型的任务数据
 @property (nonatomic, strong) SignInDetailRequest *getSigninRequest;
 @property (nonatomic, strong) SignInListRequestItem_signIns *signIn;
 @property (nonatomic, strong) AlertView *alertView;
+@property (nonatomic, assign) InteractType currentType;
+@property (nonatomic, assign) BOOL isLayoutComplete;
 @end
 
 @implementation TaskViewController
@@ -48,7 +56,7 @@
         STRONG_SELF
         [YXDrawerController showDrawer];
     }];
-    [self setupUI];
+    [self setupErrorView];
     [self setupObserver];
     [self requestTaskInfo];
 }
@@ -58,50 +66,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)requestTaskInfo {
-    [self.view nyx_startLoading];
-    WEAK_SELF
-    [self.request stopRequest];
-    self.request = [[GetTaskRequest alloc] init];
-    self.request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-//    self.request.clazsId = @"9";
-    [self.request startRequestWithRetClass:[GetTaskRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
-        STRONG_SELF
-        [self.header endRefreshing];
-        [self.view nyx_stopLoading];
-        self.errorView.hidden = YES;
-        self.emptyView.hidden = YES;
-        if (error) {
-            self.errorView.hidden = NO;
-            return;
-        }
-        GetTaskRequestItem *item = (GetTaskRequestItem *)retItem;
-        if (isEmpty(item.data.tasks)) {
-            self.emptyView.hidden = NO;
-            return;
-        }
-        self.dataArray = [NSArray arrayWithArray:item.data.tasks];
-        [self.tableView reloadData];
-    }];
-}
-
-#pragma mark - setupUI
-- (void)setupUI {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 5)];
-    self.tableView.tableHeaderView = headerView;
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[TaskListCell class] forCellReuseIdentifier:@"TaskListCell"];
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
-    
+- (void)setupErrorView {
     self.emptyView = [[EmptyView alloc]init];
-    self.emptyView.title = @"尚未发布任务";
+    self.emptyView.title = @"暂无任务";
     [self.view addSubview:self.emptyView];
     [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
@@ -118,6 +85,36 @@
         make.edges.mas_equalTo(0);
     }];
     self.errorView.hidden = YES;
+}
+
+#pragma mark - setupUI
+- (void)setupUI {
+    self.filterView = [[TaskFilterView alloc]initWithDataArray:self.filterArray];
+    WEAK_SELF
+    [self.filterView setTaskFilterItemChooseBlock:^(GetAllTasksRequestItem_interactType *item) {
+        STRONG_SELF
+        self.currentType = [FSDataMappingTable InteractTypeWithKey:item.interactType];
+        [self resetFilter];
+    }];
+    [self.view addSubview:self.filterView];
+    NSInteger rowcount = ceilf(self.filterArray.count / 3.0);
+    [self.filterView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(5);
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(95 * rowcount);
+    }];
+    
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerClass:[TaskListCell class] forCellReuseIdentifier:@"TaskListCell"];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.filterView.mas_bottom).offset(5);
+        make.left.right.bottom.mas_equalTo(0);
+    }];
     
     self.header = [MJRefreshHeaderView header];
     self.header.scrollView = self.tableView;
@@ -130,6 +127,76 @@
         [self showAlertView];
     }];
 }
+
+- (void)requestTaskInfo {
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.request stopRequest];
+    self.request = [[GetAllTasksRequest alloc] init];
+    self.request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+//    self.request.clazsId = @"9";
+    [self.request startRequestWithRetClass:[GetAllTasksRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.header endRefreshing];
+        [self.view nyx_stopLoading];
+        self.errorView.hidden = YES;
+        self.emptyView.hidden = YES;
+        if (error) {
+            self.errorView.hidden = NO;
+            return;
+        }
+        GetAllTasksRequestItem *item = (GetAllTasksRequestItem *)retItem;
+        if (isEmpty(item.data.tasks)) {
+            self.emptyView.hidden = NO;
+            return;
+        }
+        self.tasksArray = [NSArray arrayWithArray:item.data.tasks];
+        self.filterArray = [NSArray arrayWithArray:item.data.interactTypes];
+        self.dataArray = [self filterWithType:self.currentType];
+        if (!self.isLayoutComplete) {
+            [self setupUI];
+            self.currentType = InteractType_SignIn;
+            [self resetFilter];
+            self.isLayoutComplete = YES;
+        }else {
+            self.filterView.dataArray = self.filterArray;
+        }
+        self.filterView.selectedIndex = [self indexForInteractType:self.currentType];
+        [self.tableView reloadData];
+    }];
+}
+
+#pragma mark - filter
+- (void)resetFilter {
+    self.dataArray = [self filterWithType:self.currentType];
+    [self.tableView reloadData];
+}
+
+- (NSArray *)filterWithType:(InteractType)type {
+    NSMutableArray *resultArray = [NSMutableArray array];
+    for (int i = 0; i < self.tasksArray.count; i++) {
+        GetAllTasksRequestItem_task *task = self.tasksArray[i];
+        InteractType taskType = [FSDataMappingTable InteractTypeWithKey:task.interactType];
+        if (taskType == type) {
+            [resultArray addObject:task];
+        }
+    }
+    return resultArray;
+}
+
+- (NSInteger)indexForInteractType:(InteractType)type {
+    __block NSInteger index = 0;
+    WEAK_SELF
+    [self.filterArray enumerateObjectsUsingBlock:^(GetAllTasksRequestItem_interactType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        STRONG_SELF
+        if ([FSDataMappingTable InteractTypeWithKey:obj.interactType] == type) {
+            index = idx;
+            *stop = YES;
+        }
+    }];
+    return index;
+}
+
 #pragma mark - alert
 - (void)showAlertView {
     PublishTaskView *taskView = [[PublishTaskView alloc] init];
@@ -251,7 +318,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    GetTaskRequestItem_Task *task = self.dataArray[indexPath.row];
+    GetAllTasksRequestItem_task *task = self.dataArray[indexPath.row];
     InteractType type = [FSDataMappingTable InteractTypeWithKey:task.interactType];
     if (type == InteractType_Vote || type == InteractType_Questionare) {
         QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];

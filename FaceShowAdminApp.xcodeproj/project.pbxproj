@@ -399,6 +399,9 @@
 		E94DDE2220D3761000729A67 /* ScoreTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1920D3761000729A67 /* ScoreTopView.m */; };
 		E94DDE2320D3761000729A67 /* ScoreRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */; };
 		E94DDE2420D3761000729A67 /* TaskTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1D20D3761000729A67 /* TaskTopView.m */; };
+		E94DDE6020D9F02400729A67 /* TaskFilterItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE5D20D9F02300729A67 /* TaskFilterItemView.m */; };
+		E94DDE6120D9F02400729A67 /* TaskFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE5F20D9F02300729A67 /* TaskFilterView.m */; };
+		E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6220D9F13300729A67 /* GetAllTasksRequest.m */; };
 		E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD820CA1D3000D7DDA2 /* IMConfig.m */; };
 		E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD920CA1D3100D7DDA2 /* IMManager.m */; };
 		E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */; };
@@ -1218,6 +1221,12 @@
 		E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreRankingCell.m; sourceTree = "<group>"; };
 		E94DDE1C20D3761000729A67 /* TaskNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskNameCell.h; sourceTree = "<group>"; };
 		E94DDE1D20D3761000729A67 /* TaskTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTopView.m; sourceTree = "<group>"; };
+		E94DDE5C20D9F02200729A67 /* TaskFilterItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskFilterItemView.h; sourceTree = "<group>"; };
+		E94DDE5D20D9F02300729A67 /* TaskFilterItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskFilterItemView.m; sourceTree = "<group>"; };
+		E94DDE5E20D9F02300729A67 /* TaskFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskFilterView.h; sourceTree = "<group>"; };
+		E94DDE5F20D9F02300729A67 /* TaskFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskFilterView.m; sourceTree = "<group>"; };
+		E94DDE6220D9F13300729A67 /* GetAllTasksRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAllTasksRequest.m; sourceTree = "<group>"; };
+		E94DDE6320D9F13300729A67 /* GetAllTasksRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAllTasksRequest.h; sourceTree = "<group>"; };
 		E9540BD820CA1D3000D7DDA2 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
 		E9540BD920CA1D3100D7DDA2 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		E9540BDA20CA1D3100D7DDA2 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
@@ -1556,6 +1565,10 @@
 				7C672B351FB1A2D6004D93DF /* 投票问卷 */,
 				7C672B131FB0339D004D93DF /* TaskListCell.h */,
 				7C672B141FB0339D004D93DF /* TaskListCell.m */,
+				E94DDE5C20D9F02200729A67 /* TaskFilterItemView.h */,
+				E94DDE5D20D9F02300729A67 /* TaskFilterItemView.m */,
+				E94DDE5E20D9F02300729A67 /* TaskFilterView.h */,
+				E94DDE5F20D9F02300729A67 /* TaskFilterView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1563,6 +1576,8 @@
 		7C672B171FB03806004D93DF /* 任务 */ = {
 			isa = PBXGroup;
 			children = (
+				E94DDE6320D9F13300729A67 /* GetAllTasksRequest.h */,
+				E94DDE6220D9F13300729A67 /* GetAllTasksRequest.m */,
 				9282170520CF708A0052E486 /* 创建任务 */,
 				7C672B181FB03815004D93DF /* GetTaskRequest.h */,
 				7C672B191FB03815004D93DF /* GetTaskRequest.m */,
@@ -3170,6 +3185,7 @@
 				921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */,
 				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
+				E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */,
 				7CDF128D2090307F0044DD95 /* CommentInputView.m in Sources */,
 				7CDF120B20902E8A0044DD95 /* ImageAttachmentContainerView.m in Sources */,
 				E9540C4A20CA1F6F00D7DDA2 /* IM.xcdatamodeld in Sources */,
@@ -3199,6 +3215,7 @@
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
 				7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
+				E94DDE6020D9F02400729A67 /* TaskFilterItemView.m in Sources */,
 				7CEA29CA20D8E192000CE9EC /* HomeworkMemberView.m in Sources */,
 				7CDF128A20902FBF0044DD95 /* ClassMomentDiscardCommentRequest.m in Sources */,
 				7C672B6E1FB3FFB0004D93DF /* CourseInfoViewController.m in Sources */,
@@ -3448,6 +3465,7 @@
 				7CDF123620902EE60044DD95 /* ReportTableViewCell.m in Sources */,
 				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
 				E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */,
+				E94DDE6120D9F02400729A67 /* TaskFilterView.m in Sources */,
 				E9540C2420CA1EB200D7DDA2 /* SaveTextMsgRequest.m in Sources */,
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
@@ -3636,8 +3654,8 @@
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "60900a55-84d1-4092-8b17-3242a540cb1c";
-				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Dev;
+				PROVISIONING_PROFILE = "3c2cd62c-cca3-4458-bd5b-2ecf6257b71a";
+				PROVISIONING_PROFILE_SPECIFIER = DevAll;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
