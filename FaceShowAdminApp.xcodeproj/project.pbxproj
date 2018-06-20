@@ -353,6 +353,13 @@
 		924297C020D9E0D30039038E /* UITextField+Restriction.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297BF20D9E0D30039038E /* UITextField+Restriction.m */; };
 		924297C720DA33060039038E /* CreateComplexTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297C520DA33050039038E /* CreateComplexTableHeaderView.m */; };
 		924297CA20DA39FE0039038E /* ChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297C920DA39FE0039038E /* ChooseTemplateViewController.m */; };
+		924297CD20DA546F0039038E /* EditQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297CC20DA546F0039038E /* EditQuestionViewController.m */; };
+		924297D020DA54C40039038E /* EditQuestionTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297CF20DA54C40039038E /* EditQuestionTableHeaderView.m */; };
+		924297D320DA54E30039038E /* EditQuestionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297D220DA54E30039038E /* EditQuestionHeaderView.m */; };
+		924297D620DA54FF0039038E /* EditQuestionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297D520DA54FF0039038E /* EditQuestionFooterView.m */; };
+		924297D920DA55450039038E /* EditQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297D820DA55450039038E /* EditQuestionCell.m */; };
+		924297DF20DA6AF90039038E /* EditQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297DE20DA6AF90039038E /* EditQuestionTypeView.m */; };
+		9248566C20DB7F5B00FDAA59 /* AddQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248566B20DB7F5B00FDAA59 /* AddQuestionViewController.m */; };
 		928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F320CE4BB40052E486 /* PublishTaskView.m */; };
 		928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F620CE520B0052E486 /* PublishTaskHeaderView.m */; };
 		928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F920CE52330052E486 /* PublishTaskCell.m */; };
@@ -1166,6 +1173,20 @@
 		924297C620DA33050039038E /* CreateComplexTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateComplexTableHeaderView.h; sourceTree = "<group>"; };
 		924297C820DA39FE0039038E /* ChooseTemplateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseTemplateViewController.h; sourceTree = "<group>"; };
 		924297C920DA39FE0039038E /* ChooseTemplateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseTemplateViewController.m; sourceTree = "<group>"; };
+		924297CB20DA546F0039038E /* EditQuestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditQuestionViewController.h; sourceTree = "<group>"; };
+		924297CC20DA546F0039038E /* EditQuestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditQuestionViewController.m; sourceTree = "<group>"; };
+		924297CE20DA54C40039038E /* EditQuestionTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditQuestionTableHeaderView.h; sourceTree = "<group>"; };
+		924297CF20DA54C40039038E /* EditQuestionTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditQuestionTableHeaderView.m; sourceTree = "<group>"; };
+		924297D120DA54E30039038E /* EditQuestionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditQuestionHeaderView.h; sourceTree = "<group>"; };
+		924297D220DA54E30039038E /* EditQuestionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditQuestionHeaderView.m; sourceTree = "<group>"; };
+		924297D420DA54FF0039038E /* EditQuestionFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditQuestionFooterView.h; sourceTree = "<group>"; };
+		924297D520DA54FF0039038E /* EditQuestionFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditQuestionFooterView.m; sourceTree = "<group>"; };
+		924297D720DA55450039038E /* EditQuestionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditQuestionCell.h; sourceTree = "<group>"; };
+		924297D820DA55450039038E /* EditQuestionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditQuestionCell.m; sourceTree = "<group>"; };
+		924297DD20DA6AF90039038E /* EditQuestionTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditQuestionTypeView.h; sourceTree = "<group>"; };
+		924297DE20DA6AF90039038E /* EditQuestionTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditQuestionTypeView.m; sourceTree = "<group>"; };
+		9248566A20DB7F5B00FDAA59 /* AddQuestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddQuestionViewController.h; sourceTree = "<group>"; };
+		9248566B20DB7F5B00FDAA59 /* AddQuestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddQuestionViewController.m; sourceTree = "<group>"; };
 		928216F220CE4BB40052E486 /* PublishTaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskView.h; sourceTree = "<group>"; };
 		928216F320CE4BB40052E486 /* PublishTaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskView.m; sourceTree = "<group>"; };
 		928216F520CE520B0052E486 /* PublishTaskHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskHeaderView.h; sourceTree = "<group>"; };
@@ -2752,6 +2773,16 @@
 				921016E820D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.m */,
 				921016EA20D8FD40007FEBB7 /* QuestionTemplatesCell.h */,
 				921016EB20D8FD40007FEBB7 /* QuestionTemplatesCell.m */,
+				924297CE20DA54C40039038E /* EditQuestionTableHeaderView.h */,
+				924297CF20DA54C40039038E /* EditQuestionTableHeaderView.m */,
+				924297DD20DA6AF90039038E /* EditQuestionTypeView.h */,
+				924297DE20DA6AF90039038E /* EditQuestionTypeView.m */,
+				924297D120DA54E30039038E /* EditQuestionHeaderView.h */,
+				924297D220DA54E30039038E /* EditQuestionHeaderView.m */,
+				924297D420DA54FF0039038E /* EditQuestionFooterView.h */,
+				924297D520DA54FF0039038E /* EditQuestionFooterView.m */,
+				924297D720DA55450039038E /* EditQuestionCell.h */,
+				924297D820DA55450039038E /* EditQuestionCell.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -2773,6 +2804,10 @@
 				921016E220D8FBEA007FEBB7 /* QuestionTemplatesViewController.m */,
 				924297C820DA39FE0039038E /* ChooseTemplateViewController.h */,
 				924297C920DA39FE0039038E /* ChooseTemplateViewController.m */,
+				924297CB20DA546F0039038E /* EditQuestionViewController.h */,
+				924297CC20DA546F0039038E /* EditQuestionViewController.m */,
+				9248566A20DB7F5B00FDAA59 /* AddQuestionViewController.h */,
+				9248566B20DB7F5B00FDAA59 /* AddQuestionViewController.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -3291,6 +3326,7 @@
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				436CB2251FB15C9B00A31585 /* ClazsMemberListRequest.m in Sources */,
 				92E886A21FB3FCCF0006A08E /* ScheduleUpdateRequest.m in Sources */,
+				924297D320DA54E30039038E /* EditQuestionHeaderView.m in Sources */,
 				E9540BF820CA1E2200D7DDA2 /* TopicGet.pbobjc.m in Sources */,
 				7CDF121E20902EC10044DD95 /* CircleSpreadTransition.m in Sources */,
 				92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */,
@@ -3311,6 +3347,7 @@
 				E94DDECF20DB551D00729A67 /* ScoreTopView.m in Sources */,
 				E9540BE920CA1D6F00D7DDA2 /* IMTopicMessage.m in Sources */,
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
+				9248566C20DB7F5B00FDAA59 /* AddQuestionViewController.m in Sources */,
 				7CDF121A20902EC10044DD95 /* PreviewPhotosView.m in Sources */,
 				E9148198209062A8001B7EB5 /* IMChatViewModel.m in Sources */,
 				7CEFC92B1FA07F8A001D8C84 /* LoginViewController.m in Sources */,
@@ -3329,6 +3366,7 @@
 				7CDF123420902EE60044DD95 /* ClassMomentFooterView.m in Sources */,
 				921016EC20D8FD40007FEBB7 /* QuestionTemplatesCell.m in Sources */,
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
+				924297D620DA54FF0039038E /* EditQuestionFooterView.m in Sources */,
 				7C672B381FB1A362004D93DF /* ClassUserQuestionRequest.m in Sources */,
 				7C672B621FB3F54E004D93DF /* CourseResourceCell.m in Sources */,
 				E9540C4220CA1F4B00D7DDA2 /* IMServiceManager.m in Sources */,
@@ -3471,6 +3509,7 @@
 				7C06894420CF6D5200C7CA14 /* ProvinceStatisticView.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				E9540C2020CA1EB200D7DDA2 /* GetTopicMsgsRequest.m in Sources */,
+				924297D920DA55450039038E /* EditQuestionCell.m in Sources */,
 				E9540BE820CA1D6F00D7DDA2 /* IMMember.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */,
@@ -3522,6 +3561,7 @@
 				7C06896120CFBB4D00C7CA14 /* ProjectDetailCell.m in Sources */,
 				7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */,
 				E9540C0C20CA1E6800D7DDA2 /* IMTextMessage.m in Sources */,
+				924297CD20DA546F0039038E /* EditQuestionViewController.m in Sources */,
 				E91481C820906307001B7EB5 /* IMInputView.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */,
@@ -3572,6 +3612,7 @@
 				7CDF1173208D99150044DD95 /* QASlideView.m in Sources */,
 				7CDF1176208D99380044DD95 /* QASlideItemBaseView.m in Sources */,
 				921016DD20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m in Sources */,
+				924297D020DA54C40039038E /* EditQuestionTableHeaderView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				E9540C2120CA1EB200D7DDA2 /* GetMemberTopicsRequest.m in Sources */,
 				922942C220D0C81600CC21BD /* SAMTextView+Restriction.m in Sources */,
@@ -3617,6 +3658,7 @@
 				E94DDE7920DA456700729A67 /* GetEvaluateRequest.m in Sources */,
 				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
 				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
+				924297DF20DA6AF90039038E /* EditQuestionTypeView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,

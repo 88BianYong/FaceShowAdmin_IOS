@@ -18,6 +18,8 @@
 #import "QuestionTemplatesHeaderView.h"
 #import "UITableView+TemplateLayoutHeaderView.h"
 #import "FSDefaultHeaderFooterView.h"
+#import "EditQuestionViewController.h"
+#import "AddQuestionViewController.h"
 @interface CreateComplexViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) CreateComplexTableHeaderView *tableHeaderView;
@@ -83,6 +85,9 @@
         VC.loadTemplateBlock = ^(CreateQuestionGroupItem *itemData) {
             STRONG_SELF
             self.itemData = itemData;
+            self.tableHeaderView.textField.text = self.itemData.title;
+            self.tableHeaderView.textView.text = self.itemData.desc;
+            [self.tableHeaderView reloadInputNumber];
             [self reloadPublishButtonStatus];
             self.tableHeaderView.templateView.chooseContentString = self.itemData.title;
             [self.tableView reloadData];
@@ -109,6 +114,21 @@
     [bottomView addSubview:self.addButton];
     [[self.addButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
+        AddQuestionViewController *VC = [[AddQuestionViewController alloc] init];
+        VC.createType = self.createType;
+        WEAK_SELF
+        VC.addQuestionBlock = ^(CreateQuestionGroupItem_Question *item) {
+            STRONG_SELF
+            if (self.itemData == nil) {
+                self.itemData = [[CreateQuestionGroupItem alloc] init];
+                NSMutableArray<CreateQuestionGroupItem_Question> *mutableArray = [[NSMutableArray<CreateQuestionGroupItem_Question> alloc] init];
+                self.itemData.questions = mutableArray;
+            }
+            [self.itemData.questions addObject:item];
+            [self.tableView reloadData];
+            [self reloadPublishButtonStatus];
+        };
+        [self.navigationController pushViewController:VC animated:YES];
     }];
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(bottomView.mas_centerY);
@@ -184,6 +204,21 @@
     WEAK_SELF
     headerView.clickQuestionTemplateBlock = ^{
         STRONG_SELF
+        CreateQuestionGroupItem_Question *question = self.itemData.questions[section];
+        EditQuestionViewController *VC = [[EditQuestionViewController alloc] init];
+        VC.question = question;
+        VC.createType = self.createType;
+        WEAK_SELF
+        VC.editQuestionBlock = ^(CreateQuestionGroupItem_Question *item) {
+            STRONG_SELF
+            if (item == nil) {
+                [self.itemData.questions removeObjectAtIndex:section];
+            }else {
+                [self.itemData.questions replaceObjectAtIndex:section withObject:item];
+            }
+            [self.tableView reloadData];
+        };
+        [self.navigationController pushViewController:VC animated:YES];
     };
     return headerView;
 }
@@ -208,7 +243,21 @@
     }];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    CreateQuestionGroupItem_Question *question = self.itemData.questions[indexPath.section];
+    EditQuestionViewController *VC = [[EditQuestionViewController alloc] init];
+    VC.question = question;
+    VC.createType = self.createType;
+    WEAK_SELF
+    VC.editQuestionBlock = ^(CreateQuestionGroupItem_Question *item) {
+        STRONG_SELF
+        if (item == nil) {
+            [self.itemData.questions removeObjectAtIndex:indexPath.section];
+        }else {
+            [self.itemData.questions replaceObjectAtIndex:indexPath.section withObject:item];
+        }
+        [self.tableView reloadData];
+    };
+    [self.navigationController pushViewController:VC animated:YES];
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

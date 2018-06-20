@@ -21,7 +21,10 @@
 @end
 
 @implementation SubordinateCourseViewController
-
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    DDLogDebug(@"release========>>%@",[self class]);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"所属课程";

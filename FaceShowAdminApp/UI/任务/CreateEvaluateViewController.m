@@ -33,7 +33,10 @@
 @end
 
 @implementation CreateEvaluateViewController
-
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    DDLogDebug(@"release========>>%@",[self class]);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

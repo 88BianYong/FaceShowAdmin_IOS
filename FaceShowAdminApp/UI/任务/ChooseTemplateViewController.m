@@ -81,6 +81,9 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 #pragma mark - UITableViewDataScore
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

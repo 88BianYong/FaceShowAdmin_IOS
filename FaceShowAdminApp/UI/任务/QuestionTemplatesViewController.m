@@ -26,7 +26,6 @@
 @end
 
 @implementation QuestionTemplatesViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];

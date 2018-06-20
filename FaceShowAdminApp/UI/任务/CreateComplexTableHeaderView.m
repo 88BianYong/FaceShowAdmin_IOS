@@ -13,10 +13,15 @@
 
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UILabel *inputLabel;
 
 
 @end
 @implementation CreateComplexTableHeaderView
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    DDLogDebug(@"release========>>%@",[self class]);
+}
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
@@ -68,13 +73,13 @@
         make.bottom.equalTo(self.containerView.mas_bottom).offset(-20.0f);
     }];
     
-    UILabel *inputLabel = [[UILabel alloc] init];
-    inputLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
-    inputLabel.font = [UIFont systemFontOfSize:15.0f];
-    inputLabel.text = @"0";
-    inputLabel.textAlignment = NSTextAlignmentRight;
-    [self.containerView addSubview:inputLabel];
-    [inputLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.inputLabel = [[UILabel alloc] init];
+    self.inputLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
+    self.inputLabel.font = [UIFont systemFontOfSize:15.0f];
+    self.inputLabel.text = @"0";
+    self.inputLabel.textAlignment = NSTextAlignmentRight;
+    [self.containerView addSubview:self.inputLabel];
+    [self.inputLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(totaLabel.mas_left);
         make.bottom.equalTo(self.containerView.mas_bottom).offset(-20.0f);
     }];
@@ -83,18 +88,17 @@
         STRONG_SELF
         if (notification.object == self.textView) {
             if (self.textView.text.length > 0) {
-                inputLabel.textColor = [UIColor colorWithHexString:@"0068bd"];
+                self.inputLabel.textColor = [UIColor colorWithHexString:@"0068bd"];
             }else {
-                inputLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
+                self.inputLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
             }
-            inputLabel.text = [NSString stringWithFormat:@"%@",@(self.textView.text.length)];
+            self.inputLabel.text = [NSString stringWithFormat:@"%@",@(self.textView.text.length)];
         }
     }];
     self.templateView = [[TaskChooseContentView alloc] init];
     self.templateView.nameString = @"选择模板";
     self.templateView.chooseContentString = @"不使用模板";
     [self addSubview:self.templateView];
-    
 }
 - (void)setupLayout {
     [self.courseView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -136,6 +140,14 @@
         make.top.equalTo(self.lineView.mas_top).offset(10.0f);
         make.height.mas_offset(90.0f);
     }];
+}
+- (void)reloadInputNumber {
+    if (self.textView.text.length > 0) {
+        self.inputLabel.textColor = [UIColor colorWithHexString:@"0068bd"];
+    }else {
+        self.inputLabel.textColor = [UIColor colorWithHexString:@"cccccc"];
+    }
+    self.inputLabel.text = [NSString stringWithFormat:@"%@",@(self.textView.text.length)];
 }
 - (void)keyBoardHide {
     [self.textField resignFirstResponder];

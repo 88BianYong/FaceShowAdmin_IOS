@@ -16,6 +16,7 @@
 @property (nonatomic, strong) TaskChooseContentView *contentView;
 @property (nonatomic, strong) NSString *courseId;
 @property (nonatomic, strong) CreateCommentRequest *commentRequest;
+@property (nonatomic, strong) UIButton *publishButton;
 @end
 
 @implementation CreateCommentViewController
@@ -27,14 +28,30 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.navigationItem.title = @"新建讨论";
+    [self setupUI];
+    [self setupLayout];
+    [self setupNavigationRightView];
+}
+- (void)setupNavigationRightView{
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setTitle:@"提交" forState:UIControlStateNormal];
+    rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
+    [rightButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+    [rightButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
     WEAK_SELF
-    [self nyx_setupRightWithTitle:@"提交" action:^{
+    [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
         [self.view nyx_startLoading];
         [self requestForCreateComment];
     }];
-    [self setupUI];
-    [self setupLayout];
+    rightButton.enabled = NO;
+    self.publishButton = rightButton;
+    [self nyx_setupRightWithCustomView:rightButton];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *x) {
+        STRONG_SELF
+        self.publishButton.enabled = [self.textField.text yx_stringByTrimmingCharacters].length != 0;
+    }];
 }
 #pragma mark - setupUI
 - (void)setupUI {

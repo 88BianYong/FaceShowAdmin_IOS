@@ -13,5 +13,6 @@
 @property (nonatomic, strong) TaskChooseContentView *courseView;
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) SAMTextView *textView;
+- (void)reloadInputNumber;
 - (void)keyBoardHide;
 @end
