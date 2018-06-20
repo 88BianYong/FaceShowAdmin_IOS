@@ -7,6 +7,7 @@
 //
 
 #import "MemberHomeworkCell.h"
+#import "GetUserHomeworksRequest.h"
 
 @interface MemberHomeworkCell()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -82,4 +83,16 @@
     
 }
 
+- (void)setElement:(GetUserHomeworksRequestItem_element *)element {
+    _element = element;
+    self.titleLabel.text = element.userName;
+    self.subtitleLabel.text = element.title;
+    NSString *asses = element.assess;
+    self.scoreLabel.text = asses;
+    if ([asses isEqualToString:@"不合格"]) {
+        self.scoreLabel.textColor = [UIColor colorWithHexString:@"666666"];
+    }else {
+        self.scoreLabel.textColor = [UIColor colorWithHexString:@"f56f5d"];
+    }
+}
 @end

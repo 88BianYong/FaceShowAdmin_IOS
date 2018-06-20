@@ -9,8 +9,10 @@
 #import "HomeworkDetailViewController.h"
 #import "HomeworkDetailHeaderView.h"
 #import "SignInTabContainerView.h"
-#import "MemberHomeworkListViewController.h"
 #import "HomeworkRequirementViewController.h"
+#import "SubmittedHomeworkMemberListViewController.h"
+#import "UnsubmittedHomeworkMemberListViewController.h"
+#import "GetHomeworkRequest.h"
 
 @interface HomeworkDetailViewController ()
 @property (nonatomic, strong) NSMutableArray<UIViewController *> *tabControllers;
@@ -35,10 +37,13 @@
 - (void)setupUI {
     HomeworkDetailHeaderView *headerView = [[HomeworkDetailHeaderView alloc]init];
     self.headerView = headerView;
+    self.item.data.stepId = @"5698";
+    self.headerView.data = self.item.data;
     WEAK_SELF
     [headerView setClickBlock:^{
         STRONG_SELF
         HomeworkRequirementViewController *vc = [[HomeworkRequirementViewController alloc]init];
+        vc.data = self.item.data;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.view addSubview:headerView];
@@ -58,9 +63,13 @@
         make.top.mas_equalTo(headerView.mas_bottom).mas_offset(5);
         make.height.mas_equalTo(40);
     }];
+    
+    NSString *stepId = self.item.data.stepId;
     self.tabControllers = [NSMutableArray array];
-    MemberHomeworkListViewController *submittedVC = [[MemberHomeworkListViewController alloc]init];
-    MemberHomeworkListViewController *unsubmittedVC = [[MemberHomeworkListViewController alloc]init];
+    SubmittedHomeworkMemberListViewController *submittedVC = [[SubmittedHomeworkMemberListViewController alloc]init];
+    submittedVC.stepId = stepId;
+    UnsubmittedHomeworkMemberListViewController *unsubmittedVC = [[UnsubmittedHomeworkMemberListViewController alloc]init];
+    unsubmittedVC.stepId = stepId;
     [self.tabControllers addObject:submittedVC];
     [self.tabControllers addObject:unsubmittedVC];
     for (UIViewController *vc in self.tabControllers) {

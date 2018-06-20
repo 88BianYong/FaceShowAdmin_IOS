@@ -7,6 +7,7 @@
 //
 
 #import "HomeworkDetailHeaderView.h"
+#import "GetHomeworkRequest.h"
 
 @interface HomeworkDetailHeaderView()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -114,4 +115,29 @@
     BLOCK_EXEC(self.clickBlock);
 }
 
+-(void)setData:(GetHomeworkRequestItem_data *)data {
+    _data = data;
+    self.titleLabel.text = data.title;
+    NSString *desc = data.desc;
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineHeightMultiple = 1.4f;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:desc];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, desc.length)];
+    self.descLabel.attributedText = attributedString;
+    NSString *count = [NSString stringWithFormat:@"%@/%@",data.finishUserNum,data.totalUserNum];
+    NSString *complete = [NSString stringWithFormat:@"提交人数：%@",count];
+    NSRange range = [complete rangeOfString:count];
+    NSDictionary *dic = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:complete];
+    [attrStr addAttributes:dic range:range];
+    self.countLabel.attributedText = attrStr;
+    
+    NSString *percent = [NSString stringWithFormat:@"%.0f%@",[data.finishPercent floatValue]*100,@"%"];
+    NSString *rate = [NSString stringWithFormat:@"提交率：%@",percent];
+    range = [rate rangeOfString:percent];
+    attrStr = [[NSMutableAttributedString alloc]initWithString:rate];
+    [attrStr addAttributes:dic range:range];
+    self.rateLabel.attributedText = attrStr;
+}
 @end

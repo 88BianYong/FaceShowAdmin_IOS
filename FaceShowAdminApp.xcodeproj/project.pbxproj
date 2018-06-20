@@ -193,7 +193,6 @@
 		7CDF129D20903B4E0044DD95 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF129620903B4E0044DD95 /* MJRefreshFooterView.m */; };
 		7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29AF20D8B3BC000CE9EC /* HomeworkDetailViewController.m */; };
 		7CEA29B520D8B451000CE9EC /* HomeworkDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29B420D8B451000CE9EC /* HomeworkDetailHeaderView.m */; };
-		7CEA29BE20D8BDE7000CE9EC /* MemberHomeworkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29BD20D8BDE7000CE9EC /* MemberHomeworkListViewController.m */; };
 		7CEA29C120D8D4A5000CE9EC /* MemberHomeworkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C020D8D4A5000CE9EC /* MemberHomeworkCell.m */; };
 		7CEA29C420D8DAA7000CE9EC /* HomeworkRequirementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C320D8DAA6000CE9EC /* HomeworkRequirementViewController.m */; };
 		7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C620D8E02F000CE9EC /* MemberHomeworkDetailViewController.m */; };
@@ -414,6 +413,12 @@
 		E94DDE6020D9F02400729A67 /* TaskFilterItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE5D20D9F02300729A67 /* TaskFilterItemView.m */; };
 		E94DDE6120D9F02400729A67 /* TaskFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE5F20D9F02300729A67 /* TaskFilterView.m */; };
 		E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6220D9F13300729A67 /* GetAllTasksRequest.m */; };
+		E94DDE6720DA096B00729A67 /* GetHomeworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6520DA096A00729A67 /* GetHomeworkRequest.m */; };
+		E94DDE6A20DA0F9200729A67 /* GetUserHomeworksRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6920DA0F9200729A67 /* GetUserHomeworksRequest.m */; };
+		E94DDE6D20DA1FDF00729A67 /* UserHomeworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6C20DA1FDF00729A67 /* UserHomeworkFetcher.m */; };
+		E94DDE7020DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6F20DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m */; };
+		E94DDE7320DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE7220DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m */; };
+		E94DDE7620DA392100729A67 /* ReviewUserHomeworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE7520DA392100729A67 /* ReviewUserHomeworkRequest.m */; };
 		E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD820CA1D3000D7DDA2 /* IMConfig.m */; };
 		E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD920CA1D3100D7DDA2 /* IMManager.m */; };
 		E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */; };
@@ -827,8 +832,6 @@
 		7CEA29AF20D8B3BC000CE9EC /* HomeworkDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkDetailViewController.m; sourceTree = "<group>"; };
 		7CEA29B320D8B451000CE9EC /* HomeworkDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeworkDetailHeaderView.h; sourceTree = "<group>"; };
 		7CEA29B420D8B451000CE9EC /* HomeworkDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkDetailHeaderView.m; sourceTree = "<group>"; };
-		7CEA29BC20D8BDE7000CE9EC /* MemberHomeworkListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberHomeworkListViewController.h; sourceTree = "<group>"; };
-		7CEA29BD20D8BDE7000CE9EC /* MemberHomeworkListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberHomeworkListViewController.m; sourceTree = "<group>"; };
 		7CEA29BF20D8D4A5000CE9EC /* MemberHomeworkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberHomeworkCell.h; sourceTree = "<group>"; };
 		7CEA29C020D8D4A5000CE9EC /* MemberHomeworkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberHomeworkCell.m; sourceTree = "<group>"; };
 		7CEA29C220D8DAA6000CE9EC /* HomeworkRequirementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkRequirementViewController.h; sourceTree = "<group>"; };
@@ -1263,6 +1266,18 @@
 		E94DDE5F20D9F02300729A67 /* TaskFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskFilterView.m; sourceTree = "<group>"; };
 		E94DDE6220D9F13300729A67 /* GetAllTasksRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAllTasksRequest.m; sourceTree = "<group>"; };
 		E94DDE6320D9F13300729A67 /* GetAllTasksRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAllTasksRequest.h; sourceTree = "<group>"; };
+		E94DDE6520DA096A00729A67 /* GetHomeworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetHomeworkRequest.m; sourceTree = "<group>"; };
+		E94DDE6620DA096B00729A67 /* GetHomeworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetHomeworkRequest.h; sourceTree = "<group>"; };
+		E94DDE6820DA0F9200729A67 /* GetUserHomeworksRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetUserHomeworksRequest.h; sourceTree = "<group>"; };
+		E94DDE6920DA0F9200729A67 /* GetUserHomeworksRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetUserHomeworksRequest.m; sourceTree = "<group>"; };
+		E94DDE6B20DA1FDF00729A67 /* UserHomeworkFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserHomeworkFetcher.h; sourceTree = "<group>"; };
+		E94DDE6C20DA1FDF00729A67 /* UserHomeworkFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserHomeworkFetcher.m; sourceTree = "<group>"; };
+		E94DDE6E20DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubmittedHomeworkMemberListViewController.h; sourceTree = "<group>"; };
+		E94DDE6F20DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubmittedHomeworkMemberListViewController.m; sourceTree = "<group>"; };
+		E94DDE7120DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnsubmittedHomeworkMemberListViewController.h; sourceTree = "<group>"; };
+		E94DDE7220DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnsubmittedHomeworkMemberListViewController.m; sourceTree = "<group>"; };
+		E94DDE7420DA392100729A67 /* ReviewUserHomeworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewUserHomeworkRequest.h; sourceTree = "<group>"; };
+		E94DDE7520DA392100729A67 /* ReviewUserHomeworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewUserHomeworkRequest.m; sourceTree = "<group>"; };
 		E9540BD820CA1D3000D7DDA2 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
 		E9540BD920CA1D3100D7DDA2 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		E9540BDA20CA1D3100D7DDA2 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
@@ -1614,6 +1629,14 @@
 			children = (
 				E94DDE6320D9F13300729A67 /* GetAllTasksRequest.h */,
 				E94DDE6220D9F13300729A67 /* GetAllTasksRequest.m */,
+				E94DDE6620DA096B00729A67 /* GetHomeworkRequest.h */,
+				E94DDE6520DA096A00729A67 /* GetHomeworkRequest.m */,
+				E94DDE6820DA0F9200729A67 /* GetUserHomeworksRequest.h */,
+				E94DDE6920DA0F9200729A67 /* GetUserHomeworksRequest.m */,
+				E94DDE6B20DA1FDF00729A67 /* UserHomeworkFetcher.h */,
+				E94DDE6C20DA1FDF00729A67 /* UserHomeworkFetcher.m */,
+				E94DDE7420DA392100729A67 /* ReviewUserHomeworkRequest.h */,
+				E94DDE7520DA392100729A67 /* ReviewUserHomeworkRequest.m */,
 				9282170520CF708A0052E486 /* 创建任务 */,
 				7C672B181FB03815004D93DF /* GetTaskRequest.h */,
 				7C672B191FB03815004D93DF /* GetTaskRequest.m */,
@@ -1856,8 +1879,10 @@
 				7CEA29B220D8B438000CE9EC /* View */,
 				7CEA29AE20D8B3BC000CE9EC /* HomeworkDetailViewController.h */,
 				7CEA29AF20D8B3BC000CE9EC /* HomeworkDetailViewController.m */,
-				7CEA29BC20D8BDE7000CE9EC /* MemberHomeworkListViewController.h */,
-				7CEA29BD20D8BDE7000CE9EC /* MemberHomeworkListViewController.m */,
+				E94DDE6E20DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.h */,
+				E94DDE6F20DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m */,
+				E94DDE7120DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.h */,
+				E94DDE7220DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m */,
 				7CEA29C220D8DAA6000CE9EC /* HomeworkRequirementViewController.h */,
 				7CEA29C320D8DAA6000CE9EC /* HomeworkRequirementViewController.m */,
 				7CEA29C520D8E02F000CE9EC /* MemberHomeworkDetailViewController.h */,
@@ -3191,10 +3216,12 @@
 				7CEFC97F1FA8145F001D8C84 /* SignInListFetcher.m in Sources */,
 				436E6E091FB3F9C4009950EA /* UpdateUserInfoRequest.m in Sources */,
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
+				E94DDE6D20DA1FDF00729A67 /* UserHomeworkFetcher.m in Sources */,
 				4359B9691FB2AA75007D7F30 /* DetailCellView.m in Sources */,
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
 				E91481CB20906307001B7EB5 /* IMPhotoBrowserView.m in Sources */,
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
+				E94DDE7620DA392100729A67 /* ReviewUserHomeworkRequest.m in Sources */,
 				E98CA171209063CF00BCE36D /* ChatViewController.m in Sources */,
 				7CDF123420902EE60044DD95 /* ClassMomentFooterView.m in Sources */,
 				921016EC20D8FD40007FEBB7 /* QuestionTemplatesCell.m in Sources */,
@@ -3212,6 +3239,7 @@
 				7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				7C06896420D0B26D00C7CA14 /* TrainingProjectDetailViewController.m in Sources */,
+				E94DDE7020DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m in Sources */,
 				E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */,
 				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
 				E9540C0920CA1E6800D7DDA2 /* IMHistoryFetchRecord.m in Sources */,
@@ -3219,7 +3247,6 @@
 				7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */,
 				7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */,
 				7CEFC8D31FA066B9001D8C84 /* FSDataMappingTable.m in Sources */,
-				7CEA29BE20D8BDE7000CE9EC /* MemberHomeworkListViewController.m in Sources */,
 				E94DDE0C20D3734200729A67 /* GetUserClazsScoreRequest.m in Sources */,
 				7C06894120CF6A9C00C7CA14 /* NameNumberView.m in Sources */,
 				921016E920D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.m in Sources */,
@@ -3248,6 +3275,7 @@
 				7CDF1199208DB3040044DD95 /* YXImagePickerController.m in Sources */,
 				E91481CC20906307001B7EB5 /* IMSlideImageView.m in Sources */,
 				E9540C4320CA1F4B00D7DDA2 /* IMTopicUpdateService.m in Sources */,
+				E94DDE6720DA096B00729A67 /* GetHomeworkRequest.m in Sources */,
 				7C06897C20D11A4D00C7CA14 /* FilterItemCell.m in Sources */,
 				9282170120CE738F0052E486 /* CreateCommentViewController.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
@@ -3293,6 +3321,7 @@
 				921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */,
 				7C672B4A1FB2A353004D93DF /* GetCourseRequest.m in Sources */,
 				E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */,
+				E94DDE7320DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */,
 				E94DDE0520D36EEF00729A67 /* SetClazsScoreConfigRequest.m in Sources */,
@@ -3518,6 +3547,7 @@
 				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
 				E94DDE1F20D3761000729A67 /* TaskRankingCell.m in Sources */,
+				E94DDE6A20DA0F9200729A67 /* GetUserHomeworksRequest.m in Sources */,
 				7CDF123620902EE60044DD95 /* ReportTableViewCell.m in Sources */,
 				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
 				E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */,

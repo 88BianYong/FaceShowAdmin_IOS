@@ -8,6 +8,7 @@
 
 #import "HomeworkRequirementViewController.h"
 #import "PreviewPhotosView.h"
+#import "GetHomeworkRequest.h"
 
 static const CGFloat kHomeworkButtonHeight = 45.f;
 
@@ -22,7 +23,8 @@ static const CGFloat kHomeworkButtonHeight = 45.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self setupMockData];
+//    [self setupMockData];
+    [self setupData];
     // Do any additional setup after loading the view.
 }
 
@@ -75,6 +77,24 @@ static const CGFloat kHomeworkButtonHeight = 45.f;
         PreviewPhotosModel *model  = [[PreviewPhotosModel alloc] init];
         model.thumbnail = @"http://i0.sinaimg.cn/edu/2014/0607/U6360P352DT20140607090037.jpg";
         model.original = @"http://i0.sinaimg.cn/edu/2014/0607/U6360P352DT20140607090024.jpg";
+        [mutableArray addObject:model];
+    }
+    self.photosView.imageModelMutableArray = mutableArray;
+    [self.photosView reloadData];
+    [self.photosView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(self.photosView.heightFloat);
+    }];
+}
+
+- (void)setupData {
+    self.title = self.data.title;
+    self.contentLabel.text = self.data.desc;
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    for (int i = 0; i < self.data.attachmentInfos.count; i++) {
+        PreviewPhotosModel *model  = [[PreviewPhotosModel alloc] init];
+        GetHomeworkRequestItem_attachmentInfo *info = self.data.attachmentInfos[i];
+        model.thumbnail = info.previewUrl;
+        model.original = info.downloadUrl;
         [mutableArray addObject:model];
     }
     self.photosView.imageModelMutableArray = mutableArray;

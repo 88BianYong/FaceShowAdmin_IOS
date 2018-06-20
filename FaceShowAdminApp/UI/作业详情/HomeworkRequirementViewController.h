@@ -7,6 +7,8 @@
 //
 
 #import "ScrollBaseViewController.h"
+@class GetHomeworkRequestItem_data;
 
 @interface HomeworkRequirementViewController : ScrollBaseViewController
+@property(nonatomic, strong) GetHomeworkRequestItem_data *data;
 @end

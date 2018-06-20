@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+@class GetHomeworkRequestItem;
 
 @interface HomeworkDetailViewController : BaseViewController
-
+@property(nonatomic, strong) GetHomeworkRequestItem *item;
 @end

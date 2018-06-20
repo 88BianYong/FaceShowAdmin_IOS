@@ -1,22 +1,27 @@
 //
-//  MemberHomeworkListViewController.m
+//  UnsubmittedHomeworkMemberListViewController.m
 //  FaceShowAdminApp
 //
-//  Created by niuzhaowang on 2018/6/19.
+//  Created by ZLL on 2018/6/20.
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "MemberHomeworkListViewController.h"
+#import "UnsubmittedHomeworkMemberListViewController.h"
 #import "MemberHomeworkCell.h"
 #import "MemberHomeworkDetailViewController.h"
+#import "UserHomeworkFetcher.h"
 
-@interface MemberHomeworkListViewController ()
+@interface UnsubmittedHomeworkMemberListViewController ()
 
 @end
 
-@implementation MemberHomeworkListViewController
+@implementation UnsubmittedHomeworkMemberListViewController
 
 - (void)viewDidLoad {
+    UserHomeworkFetcher *fetcher = [[UserHomeworkFetcher alloc] init];
+    fetcher.stepId = self.stepId;
+    fetcher.finishStatus = @"2";
+    self.dataFetcher = fetcher;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
@@ -27,9 +32,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)firstPageFetch {
-    
-}
+
 - (void)setupUI {
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.rowHeight = 71;
@@ -38,17 +41,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MemberHomeworkCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MemberHomeworkCell"];
-//    cell.data = self.dataArray[indexPath.row];
+    cell.element = self.dataArray[indexPath.row];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MemberHomeworkDetailViewController *vc = [[MemberHomeworkDetailViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 @end
+

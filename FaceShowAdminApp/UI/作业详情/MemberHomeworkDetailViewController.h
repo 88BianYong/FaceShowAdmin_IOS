@@ -7,7 +7,9 @@
 //
 
 #import "ScrollBaseViewController.h"
+@class GetUserHomeworksRequestItem_element;
 
 @interface MemberHomeworkDetailViewController : ScrollBaseViewController
-
+@property(nonatomic, strong) NSString *stepId;
+@property(nonatomic, strong) GetUserHomeworksRequestItem_element *data;
 @end

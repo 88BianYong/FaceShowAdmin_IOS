@@ -10,6 +10,8 @@
 #import "HomeworkMemberView.h"
 #import "PreviewPhotosView.h"
 #import "HomeworkCommentView.h"
+#import "GetUserHomeworksRequest.h"
+#import "ReviewUserHomeworkRequest.h"
 
 @interface MemberHomeworkDetailViewController ()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -19,6 +21,7 @@
 @property (nonatomic, strong) PreviewPhotosView *photosView;
 @property (nonatomic, strong) HomeworkCommentView *commentView;
 @property (nonatomic, strong) UILabel *commentLabel;
+@property (nonatomic, strong) ReviewUserHomeworkRequest *request;
 @end
 
 @implementation MemberHomeworkDetailViewController
@@ -29,6 +32,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupUI];
     [self setupMockData];
+    [self setupData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,9 +110,7 @@
     WEAK_SELF
     [self.commentView setConfirmBlock:^(NSString *comment) {
         STRONG_SELF
-        self.commentView.hidden = YES;
-        self.commentLabel.text = comment;
-        self.commentLabel.hidden = NO;
+        [self reviewUserHomeworkWithComment:comment];
     }];
     [self.view addSubview:self.commentView];
     [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,6 +124,32 @@
     }];
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 140, 0);
     self.commentLabel.hidden = YES;
+}
+
+- (void)reviewUserHomeworkWithComment:(NSString *)comment {
+    [self.request stopRequest];
+    self.request = [[ReviewUserHomeworkRequest alloc]init];
+    self.request.stepId = self.stepId;
+    self.request.userHomeworkId = self.data.homeworkId;
+    if ([comment isEqualToString:@"不合格"]) {
+        self.request.finishStatus = @"1";
+    }else {
+        self.request.finishStatus = @"0";
+    }
+    self.request.assess = comment;
+    WEAK_SELF
+    [self.view nyx_startLoading];
+    [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view nyx_showToast:error.localizedDescription];
+            return;
+        }
+        self.commentView.hidden = YES;
+        self.commentLabel.text = comment;
+        self.commentLabel.hidden = NO;
+    }];
 }
 
 - (void)setupMockData {
@@ -143,6 +171,35 @@
         PreviewPhotosModel *model  = [[PreviewPhotosModel alloc] init];
         model.thumbnail = @"http://i0.sinaimg.cn/edu/2014/0607/U6360P352DT20140607090037.jpg";
         model.original = @"http://i0.sinaimg.cn/edu/2014/0607/U6360P352DT20140607090024.jpg";
+        [mutableArray addObject:model];
+    }
+    self.photosView.imageModelMutableArray = mutableArray;
+    [self.photosView reloadData];
+    [self.photosView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(self.photosView.heightFloat);
+    }];
+}
+
+- (void)setupData {
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineHeightMultiple = 1.4f;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    NSString *title = self.data.title;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
+    self.titleLabel.attributedText = attributedString;
+    self.dateLabel.text = [self.data.submitTime omitSecondOfFullDateString];
+    NSString *content = self.data.content;
+    attributedString = [[NSMutableAttributedString alloc] initWithString:content];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, content.length)];
+    self.contentLabel.attributedText = attributedString;
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    for (int i = 0; i < self.data.attachmentInfos.count; i++) {
+        PreviewPhotosModel *model  = [[PreviewPhotosModel alloc] init];
+        GetHomeworkRequestItem_attachmentInfo *info = self.data.attachmentInfos[i];
+        model.thumbnail = info.previewUrl;
+        model.original = info.downloadUrl;
         [mutableArray addObject:model];
     }
     self.photosView.imageModelMutableArray = mutableArray;

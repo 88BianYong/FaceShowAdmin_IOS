@@ -25,6 +25,9 @@
 #import "CreateSignInViewController.h"
 #import "TaskFilterView.h"
 #import "CreateEvaluateViewController.h"
+#import "HomeworkDetailViewController.h"
+#import "GetHomeworkRequest.h"
+
 @interface TaskViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) ErrorView *errorView;
@@ -41,6 +44,7 @@
 @property (nonatomic, strong) AlertView *alertView;
 @property (nonatomic, assign) InteractType currentType;
 @property (nonatomic, assign) BOOL isLayoutComplete;
+@property(nonatomic, strong) GetHomeworkRequest *getHomeworkRequest;
 @end
 
 @implementation TaskViewController
@@ -332,6 +336,24 @@
             item.data.signIn.stepId = task.stepId;
             signInDetailVC.data = item.data.signIn;
             [self.navigationController pushViewController:signInDetailVC animated:YES];
+        }];
+    }else if (type == InteractType_Homework) {
+        [self.getHomeworkRequest stopRequest];
+        self.getHomeworkRequest = [[GetHomeworkRequest alloc]init];
+        self.getHomeworkRequest.stepId = task.stepId;
+        WEAK_SELF
+        [self.view nyx_startLoading];
+        [self.getHomeworkRequest startRequestWithRetClass:[GetHomeworkRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+            STRONG_SELF
+            [self.view nyx_stopLoading];
+            if (error) {
+                [self.view nyx_showToast:error.localizedDescription];
+                return;
+            }
+            GetHomeworkRequestItem *item = (GetHomeworkRequestItem *)retItem;
+            HomeworkDetailViewController *vc = [[HomeworkDetailViewController alloc]init];
+            vc.item = item;
+            [self.navigationController pushViewController:vc animated:YES];
         }];
     }
 }

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GetUserHomeworksRequestItem_element;
 
 @interface MemberHomeworkCell : UITableViewCell
-
+@property(nonatomic, strong) GetUserHomeworksRequestItem_element *element;
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GetHomeworkRequestItem_data;
 
 @interface HomeworkDetailHeaderView : UIView
 @property (nonatomic, strong) void(^clickBlock) (void);
+@property(nonatomic, strong) GetHomeworkRequestItem_data *data;
 @end
