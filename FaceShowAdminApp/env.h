@@ -15,7 +15,4 @@
 
 //#define HuBeiApp
 
-#define Version 2.0.0
-#define Build 11
-
 #endif /* env_h */

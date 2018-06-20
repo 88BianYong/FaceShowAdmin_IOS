@@ -2959,7 +2959,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CEFC8241FA05FBB001D8C84 /* Build configuration list for PBXNativeTarget "FaceShowAdminApp" */;
 			buildPhases = (
-				7C06898420D398B200C7CA14 /* ShellScript */,
 				99D07E595412ECBB681CE235 /* [CP] Check Pods Manifest.lock */,
 				7CEFC80A1FA05FBB001D8C84 /* Sources */,
 				7CEFC80B1FA05FBB001D8C84 /* Frameworks */,
@@ -3036,19 +3035,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C06898420D398B200C7CA14 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\ndefaultBundleName=\"研修宝(管理端)\"\ndefauleBundleIdentifier=\"com.yanxiu.faceshowadmin\"\n\nhubeiBundleName=\"湖北宝(管理端)\"\nhubeiBundleIdentifier=\"com.yanxiu.faceshowadmin.hubei\"\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleDisplayName $defaultBundleName\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleIdentifier $defauleBundleIdentifier\" \"$INFOPLIST_FILE\"\n\nrm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/AppIcon.appiconset\nrm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/LaunchImage.launchimage\ncp -a ${SRCROOT}/AppIcon\\&LaunchImage/Default/ ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/\n\ncat ${SRCROOT}/FaceShowAdminApp/env.h | while read line\ndo\n    if [ \"$line\" == \"#define HuBeiApp\" ];then\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleDisplayName $hubeiBundleName\" \"$INFOPLIST_FILE\"\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleIdentifier $hubeiBundleIdentifier\" \"$INFOPLIST_FILE\"\n\n        rm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/AppIcon.appiconset\n        rm -rf ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/LaunchImage.launchimage\n        cp -a ${SRCROOT}/AppIcon\\&LaunchImage/Hubei/ ${SRCROOT}/FaceShowAdminApp/Assets.xcassets/\n    elif [[ \"$line\" =~ \"Version\" ]];then\n        arr=($line)\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${arr[2]}\" \"$INFOPLIST_FILE\"\n    elif [[ \"$line\" =~ \"Build\" ]];then\n        arr=($line)\n        /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${arr[2]}\" \"$INFOPLIST_FILE\"\n    fi\ndone\n\n";
-		};
 		962D160D83B23DB8DC940199 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
