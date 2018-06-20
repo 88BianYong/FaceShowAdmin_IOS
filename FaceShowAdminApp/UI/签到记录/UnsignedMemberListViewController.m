@@ -87,9 +87,6 @@ NSString * const kReplenishSignInDidSuccessNotification = @"kReplenishSignInDidS
     self.request.stepId = self.stepId;
     self.request.userId = element.userId;
     self.request.signInTime = time;
-    if ([element.signInType isEqualToString:@"位置签到"]) {
-        self.request.signInPlace = element.signInPlace;
-    }
     [self.parentViewController.view nyx_startLoading];
     WEAK_SELF
     [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

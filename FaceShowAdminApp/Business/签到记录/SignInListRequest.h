@@ -29,9 +29,9 @@
 @property (nonatomic, strong) NSString<Optional> *percent;
 @property (nonatomic, strong) NSString<Optional> *stepFinished;
 @property (nonatomic, strong) NSString<Optional> *stepFinishedTime;
-#warning 签到类型 自己先定义 等server确定后替换
-@property (nonatomic, strong) NSString<Optional> *signInType;
-@property (nonatomic, strong) NSString<Optional> *signInPlace;
+@property (nonatomic, strong) NSString<Optional> *signinType;
+@property (nonatomic, strong) NSString<Optional> *positionSite;
+@property (nonatomic, strong) NSString<Optional> *signinPosition;
 @end
 
 @interface SignInListRequestItem_data: JSONModel

@@ -396,6 +396,9 @@
     self.createSignInRequest.qrcodeRefreshRate = [NSString stringWithFormat:@"%@",@(self.dynamicView.isOn)];
     self.createSignInRequest.startTime = start;
     self.createSignInRequest.endTime = end;
+    self.createSignInRequest.signinType = self.codeTypeView.isSelected? @"1":@"2";
+    self.createSignInRequest.signinPosition = [NSString stringWithFormat:@"%@,%@",@(self.selectedPoi.pt.longitude),@(self.selectedPoi.pt.latitude)];
+    self.createSignInRequest.positionSite = self.selectedPoi.name;
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.createSignInRequest startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

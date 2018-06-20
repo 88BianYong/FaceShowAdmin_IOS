@@ -84,9 +84,6 @@
     self.request.stepId = data.stepId;
     self.request.userId = self.userId;
     self.request.signInTime = time;
-    if ([data.signInType isEqualToString:@"位置签到"]) {
-        self.request.signInPlace = data.signInPlace;
-    }
     [self.parentViewController.view nyx_startLoading];
     WEAK_SELF
     [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

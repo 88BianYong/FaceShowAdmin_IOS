@@ -116,8 +116,7 @@
     NSString *endTime = endArr.lastObject;
     endTime = [endTime substringToIndex:5];
     self.timeLabel.text = [NSString stringWithFormat:@"%@ %@ - %@",startDate,startTime,endTime];
-#warning 签到类型 自己先定义 等server确定后替换
-    if ([data.signInType isEqualToString:@"扫码签到"]) {
+    if ([data.signinType isEqualToString:@"1"]) {
         [self.signInfoButton setImage:[UIImage imageNamed:@"二维码多边形"] forState:UIControlStateNormal];
         [self.signInfoButton mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(-60);
@@ -125,7 +124,7 @@
             make.size.mas_equalTo(CGSizeMake(46, 46));
         }];
     }else {
-        [self.signInfoButton setTitle:[NSString stringWithFormat:@"地点:%@",data.signInPlace] forState:UIControlStateNormal];
+        [self.signInfoButton setTitle:[NSString stringWithFormat:@"地点:%@",data.positionSite] forState:UIControlStateNormal];
         [self.signInfoButton mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(-72);
             make.centerX.mas_equalTo(0);

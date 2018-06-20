@@ -153,7 +153,7 @@
     WEAK_SELF
     [headerView setQrBlock:^{
         STRONG_SELF
-        if ([self.data.signInType isEqualToString:@"扫码签到"]) {
+        if ([self.data.signinType isEqualToString:@"1"]) {
             [TalkingData trackEvent:@"查看签到二维码"];
             QRCodeSignInViewController *vc = [[QRCodeSignInViewController alloc]init];
             vc.data = self.data;

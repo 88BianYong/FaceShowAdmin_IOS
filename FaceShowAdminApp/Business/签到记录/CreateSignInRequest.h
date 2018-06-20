@@ -17,4 +17,7 @@
 @property (nonatomic, strong) NSString<Optional> *antiCheat;
 @property (nonatomic, strong) NSString<Optional> *qrcodeRefreshRate;
 @property (nonatomic, strong) NSString<Optional> *successPrompt;
+@property (nonatomic, strong) NSString<Optional> *signinType; // 签到类型：1-二维码签到 2-位置签到
+@property (nonatomic, strong) NSString<Optional> *signinPosition;
+@property (nonatomic, strong) NSString<Optional> *positionSite;
 @end
