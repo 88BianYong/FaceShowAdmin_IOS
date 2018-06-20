@@ -69,6 +69,8 @@
 		7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9220CA219F0066DE7C /* IMSwitchSettingView.m */; };
 		7C2E6F9820CA21A10066DE7C /* IMTitleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9320CA219F0066DE7C /* IMTitleContentView.m */; };
 		7C2E6F9920CA21A10066DE7C /* IMMemberInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9620CA21A00066DE7C /* IMMemberInfoView.m */; };
+		7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */; };
+		7C3F759320DA493B00F4F418 /* ScoreSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -589,6 +591,10 @@
 		7C2E6F9420CA21A00066DE7C /* IMMemberInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMemberInfoView.h; sourceTree = "<group>"; };
 		7C2E6F9520CA21A00066DE7C /* IMSwitchSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSwitchSettingView.h; sourceTree = "<group>"; };
 		7C2E6F9620CA21A00066DE7C /* IMMemberInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMemberInfoView.m; sourceTree = "<group>"; };
+		7C3F758E20DA45BC00F4F418 /* ScoreEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreEditViewController.h; sourceTree = "<group>"; };
+		7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreEditViewController.m; sourceTree = "<group>"; };
+		7C3F759120DA493B00F4F418 /* ScoreSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreSettingCell.h; sourceTree = "<group>"; };
+		7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreSettingCell.m; sourceTree = "<group>"; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -2992,6 +2998,8 @@
 				E94DDDFA20D3696300729A67 /* LearningSituationViewController.m */,
 				E94DDDFC20D36A5F00729A67 /* ScoreDefineViewController.h */,
 				E94DDDFD20D36A5F00729A67 /* ScoreDefineViewController.m */,
+				7C3F758E20DA45BC00F4F418 /* ScoreEditViewController.h */,
+				7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */,
 			);
 			path = "班级学情";
 			sourceTree = "<group>";
@@ -3030,6 +3038,8 @@
 				E94DDE1620D3760F00729A67 /* TaskNameCell.m */,
 				E94DDE1420D3760F00729A67 /* TaskRankingCell.h */,
 				E94DDE1520D3760F00729A67 /* TaskRankingCell.m */,
+				7C3F759120DA493B00F4F418 /* ScoreSettingCell.h */,
+				7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3561,6 +3571,7 @@
 				E94DDE1F20D3761000729A67 /* TaskRankingCell.m in Sources */,
 				E94DDE6A20DA0F9200729A67 /* GetUserHomeworksRequest.m in Sources */,
 				7CDF123620902EE60044DD95 /* ReportTableViewCell.m in Sources */,
+				7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */,
 				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
 				E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */,
 				E94DDE6120D9F02400729A67 /* TaskFilterView.m in Sources */,
@@ -3594,6 +3605,7 @@
 				7CDF124920902F200044DD95 /* ReportViewController.m in Sources */,
 				7CDF120F20902E8A0044DD95 /* ImageAttachmentView.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
+				7C3F759320DA493B00F4F418 /* ScoreSettingCell.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */,
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,

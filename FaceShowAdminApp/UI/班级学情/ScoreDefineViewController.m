@@ -7,8 +7,11 @@
 //
 
 #import "ScoreDefineViewController.h"
+#import "ScoreEditViewController.h"
+#import "ScoreSettingCell.h"
 
-@interface ScoreDefineViewController ()
+@interface ScoreDefineViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *editButton;
 @end
 
@@ -28,6 +31,19 @@
 
 - (void)setupUI {
     [self setupNavView];
+    
+    self.tableView = [[UITableView alloc]init];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 45;
+    self.tableView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    [self.tableView registerClass:[ScoreSettingCell class] forCellReuseIdentifier:@"ScoreSettingCell"];
 }
 
 - (void)setupNavView {
@@ -49,4 +65,21 @@
     self.editButton = rightButton;
     [self nyx_setupRightWithCustomView:rightButton];
 }
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ScoreSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScoreSettingCell"];
+    return cell;
+}
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ScoreEditViewController *vc = [[ScoreEditViewController alloc]init];
+    vc.scoreName = @"评价";
+    vc.score = @"16";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

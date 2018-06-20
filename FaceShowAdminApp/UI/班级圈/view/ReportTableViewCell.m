@@ -25,7 +25,7 @@
 - (void)setupUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.selectedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"选择按钮"]];
+    self.selectedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"报告选择按钮"]];
     [self.contentView addSubview:self.selectedImageView];
     [self.selectedImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-15);
