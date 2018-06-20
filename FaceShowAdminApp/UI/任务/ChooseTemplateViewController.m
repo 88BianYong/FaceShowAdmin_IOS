@@ -1,50 +1,45 @@
 //
-//  CreateEvaluateViewController.m
+//  ChooseTemplateViewController.m
 //  FaceShowAdminApp
 //
-//  Created by 郑小龙 on 2018/6/19.
+//  Created by 郑小龙 on 2018/6/20.
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "CreateEvaluateViewController.h"
+#import "ChooseTemplateViewController.h"
 #import "GetQuestionGroupTemplatesRequest.h"
 #import "CreateEvaluateHeaderView.h"
 #import "CreateEvaluateCell.h"
 #import "YXNoFloatingHeaderFooterTableView.h"
 #import "QuestionTemplatesViewController.h"
 #import "ErrorView.h"
-#import "CreateComplexRequest.h"
-#import "TaskChooseContentView.h"
-#import "SubordinateCourseViewController.h"
-@interface CreateEvaluateViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "GetQuestionTemplatesRequest.h"
+@interface ChooseTemplateViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
-@property (nonatomic, strong) TaskChooseContentView *courseView;
-
 @property (nonatomic, strong) ErrorView *errorView;
 
 @property (nonatomic, strong) GetQuestionGroupTemplatesRequest *groupRequest;
 @property (nonatomic, strong) GetQuestionGroupTemplatesRequestItem *itemData;
-@property (nonatomic, strong) CreateComplexRequest *createRequest;
-
 @property (nonatomic, assign) NSInteger chooseInteger;
-@property (nonatomic, strong) NSString *courseId;
 
-
+@property (nonatomic, strong) GetQuestionTemplatesRequest *templatesRequest;
 @end
 
-@implementation CreateEvaluateViewController
-
-
+@implementation ChooseTemplateViewController
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    DDLogDebug(@"release========>>%@",[self class]);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"新建评价";
+    self.navigationItem.title = @"选择模板";
     [self setupUI];
     [self setupLayout];
     [self requestForQuestionGroupTemplates];
     WEAK_SELF
     [self nyx_setupRightWithTitle:@"确定" action:^{
         STRONG_SELF
-        [self requestForCreateEvaluate];
+        [self requestForQuestionTemplate];
     }];
 }
 - (void)didReceiveMemoryWarning {
@@ -73,44 +68,14 @@
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[CreateEvaluateCell class] forCellReuseIdentifier:@"CreateEvaluateCell"];
     [self.tableView registerClass:[CreateEvaluateHeaderView class] forHeaderFooterViewReuseIdentifier:@"CreateEvaluateHeaderView"];
-    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49.0f)];
-    tableHeaderView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    self.tableView.tableHeaderView = tableHeaderView;
-    self.courseView = [[TaskChooseContentView alloc] init];
-    self.courseView.chooseContentString = [UserManager sharedInstance].userModel.currentClass.clazsName;
-    WEAK_SELF
-    self.courseView.pushSubordinateCourseBlock = ^{
-        STRONG_SELF
-        SubordinateCourseViewController *VC = [[SubordinateCourseViewController alloc] init];
-        VC.courseId = self.courseId;
-        VC.chooseSubordinateCoursBlock = ^(NSString *courseId,NSString *courseName) {
-            if (courseId == nil) {
-                self.courseView.chooseType = SubordinateCourse_Class;
-                self.courseView.chooseContentString = [UserManager sharedInstance].userModel.currentClass.clazsName;
-                self.courseId = nil;
-            }else {
-                self.courseView.chooseType = SubordinateCourse_Course;
-                self.courseId = courseId;
-                self.courseView.chooseContentString = courseName;
-            }
-        };
-        [self.navigationController pushViewController:VC animated:YES];
-    };
-    [tableHeaderView addSubview:self.courseView];
-    [self.courseView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(tableHeaderView.mas_left);
-        make.right.equalTo(tableHeaderView.mas_right);
-        make.bottom.equalTo(tableHeaderView.mas_bottom);
-        make.height.mas_offset(44.0f);
-    }];
     self.errorView = [[ErrorView alloc]init];
     self.errorView.hidden = YES;
+    WEAK_SELF
     [self.errorView setRetryBlock:^{
         STRONG_SELF
         [self requestForQuestionGroupTemplates];
     }];
     [self.view addSubview:self.errorView];
-    
 }
 - (void)setupLayout {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -167,28 +132,22 @@
     }];
     self.groupRequest = request;
 }
-- (void)requestForCreateEvaluate {
-    GetQuestionGroupTemplatesRequestItem_Data *data = self.itemData.data[self.chooseInteger];
-    CreateComplexRequest *request = [[CreateComplexRequest alloc] init];
-    if (self.courseView.chooseType == SubordinateCourse_Course) {
-        request.courseId = self.courseId;
-    }else {
-        request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
-    }
-    request.createType = CreateComplex_Evaluate;
-    request.templateId = data.templateId;
+- (void)requestForQuestionTemplate {
     [self.view nyx_startLoading];
+    GetQuestionGroupTemplatesRequestItem_Data *data = self.itemData.data[self.chooseInteger];
+    GetQuestionTemplatesRequest *request = [[GetQuestionTemplatesRequest alloc] init];
+    request.templateId = data.templateId;
     WEAK_SELF
-    [request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+    [request startRequestWithRetClass:[GetQuestionTemplatesRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
         [self.view nyx_stopLoading];
         if (error) {
-            [self.view nyx_showToast:@"发布失败请重试"];
-        }else {
-            BLOCK_EXEC(self.reloadComleteBlock);
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.view nyx_showToast:@"模板读取失败请重试"];
         }
+        GetQuestionTemplatesRequestItem *item = retItem;
+        BLOCK_EXEC(self.loadTemplateBlock,item.data);
+        [self.navigationController popViewControllerAnimated:YES];
     }];
-    self.createRequest = request;
+    self.templatesRequest = request;
 }
 @end

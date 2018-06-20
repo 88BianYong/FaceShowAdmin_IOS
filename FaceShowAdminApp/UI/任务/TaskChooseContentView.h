@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger ,SubordinateCourseType) {
     SubordinateCourse_Course
 };
 @interface TaskChooseContentView : UIView
+@property (nonatomic, strong) NSString *nameString;
 @property (nonatomic, strong) NSString *chooseContentString;
 @property (nonatomic, copy) void(^pushSubordinateCourseBlock)(void);
 @property (nonatomic, assign) SubordinateCourseType chooseType;

@@ -28,6 +28,15 @@
     self.questionLabel.textColor = [UIColor colorWithHexString:@"333333"];
     self.questionLabel.numberOfLines = 0;
     [self.contentView addSubview:self.questionLabel];
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] init];
+    WEAK_SELF
+    [[recognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
+        STRONG_SELF
+        if (x.state == UIGestureRecognizerStateEnded) {
+            BLOCK_EXEC(self.clickQuestionTemplateBlock);
+        }
+    }];
+    [self.contentView addGestureRecognizer:recognizer];
 }
 - (void)setupLayout {
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {

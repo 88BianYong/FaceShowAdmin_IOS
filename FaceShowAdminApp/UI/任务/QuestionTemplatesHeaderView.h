@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QuestionTemplatesHeaderView : UITableViewHeaderFooterView
+@property (nonatomic, copy) void(^clickQuestionTemplateBlock)(void);
 - (void)reloadTemplate:(NSString *)title withIndex:(NSInteger)index withType:(NSInteger)type;
 @end

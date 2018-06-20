@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface CreateCommentViewController : BaseViewController
-
+@property (nonatomic, strong) void (^reloadComleteBlock)(void);
 @end

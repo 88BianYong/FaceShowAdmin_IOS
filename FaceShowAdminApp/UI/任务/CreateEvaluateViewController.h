@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface CreateEvaluateViewController : BaseViewController
-
+@property (nonatomic, strong) void (^reloadComleteBlock)(void);
 @end

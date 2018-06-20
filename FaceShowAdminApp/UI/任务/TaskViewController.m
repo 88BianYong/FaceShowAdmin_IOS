@@ -244,7 +244,8 @@
                 WEAK_SELF
                 [vc setComleteBlock:^{
                     STRONG_SELF
-                    //[self firstPageFetch];
+                    self.currentType = InteractType_SignIn;
+                    [self requestTaskInfo];
                 }];
                 [self.navigationController pushViewController:vc animated:YES];
             }
@@ -252,27 +253,69 @@
             case 1:
             {
                 CreateWorkViewController *VC = [[CreateWorkViewController alloc] init];
+                WEAK_SELF
+                VC.reloadComleteBlock = ^{
+                    STRONG_SELF
+                    self.currentType = InteractType_Homework;
+                    [self requestTaskInfo];
+                };
                 [self.navigationController pushViewController:VC animated:YES];
             }
                 break;
             case 2:
             {
                 CreateCommentViewController *VC = [[CreateCommentViewController alloc] init];
+                WEAK_SELF
+                VC.reloadComleteBlock = ^{
+                    STRONG_SELF
+                    self.currentType = InteractType_Comment;
+                    [self requestTaskInfo];
+                };
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+                break;
+            case 3:
+            {
+                CreateComplexViewController *VC = [[CreateComplexViewController alloc] init];
+                VC.createType = CreateComplex_Questionnaire;
+                VC.navigationItem.title = @"新建问卷";
+                WEAK_SELF
+                VC.reloadComleteBlock = ^{
+                    STRONG_SELF
+                    self.currentType = InteractType_Questionare;
+                    [self requestTaskInfo];
+                };
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+                break;
+            case 4:
+            {
+                CreateComplexViewController *VC = [[CreateComplexViewController alloc] init];
+                VC.navigationItem.title = @"新建投票";
+                VC.createType = CreateComplex_Vote;
+                WEAK_SELF
+                VC.reloadComleteBlock = ^{
+                    STRONG_SELF
+                    self.currentType = InteractType_Vote;
+                    [self requestTaskInfo];
+                };
                 [self.navigationController pushViewController:VC animated:YES];
             }
                 break;
             case 5:
             {
                 CreateEvaluateViewController *VC = [[CreateEvaluateViewController alloc] init];
+                WEAK_SELF
+                VC.reloadComleteBlock = ^{
+                    STRONG_SELF
+                    self.currentType = InteractType_Evaluate;
+                    [self requestTaskInfo];
+                };
                 [self.navigationController pushViewController:VC animated:YES];
             }
                 break;
                 
             default:
-            {
-                CreateComplexViewController *VC = [[CreateComplexViewController alloc] init];
-                [self.navigationController pushViewController:VC animated:YES];
-            }
                 break;
         }
     };

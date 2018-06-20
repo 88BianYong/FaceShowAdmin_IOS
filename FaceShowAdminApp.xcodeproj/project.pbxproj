@@ -350,6 +350,8 @@
 		9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F9881FB3EE0F003A9027 /* ScheduleCreateViewController.m */; };
 		9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235F98C1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m */; };
 		924297C020D9E0D30039038E /* UITextField+Restriction.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297BF20D9E0D30039038E /* UITextField+Restriction.m */; };
+		924297C720DA33060039038E /* CreateComplexTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297C520DA33050039038E /* CreateComplexTableHeaderView.m */; };
+		924297CA20DA39FE0039038E /* ChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297C920DA39FE0039038E /* ChooseTemplateViewController.m */; };
 		928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F320CE4BB40052E486 /* PublishTaskView.m */; };
 		928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F620CE520B0052E486 /* PublishTaskHeaderView.m */; };
 		928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F920CE52330052E486 /* PublishTaskCell.m */; };
@@ -1141,6 +1143,10 @@
 		9235F98E1FB3F7CA003A9027 /* ScheduleCreateImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleCreateImageCell.h; sourceTree = "<group>"; };
 		924297BE20D9E0D30039038E /* UITextField+Restriction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Restriction.h"; sourceTree = "<group>"; };
 		924297BF20D9E0D30039038E /* UITextField+Restriction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Restriction.m"; sourceTree = "<group>"; };
+		924297C520DA33050039038E /* CreateComplexTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateComplexTableHeaderView.m; sourceTree = "<group>"; };
+		924297C620DA33050039038E /* CreateComplexTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateComplexTableHeaderView.h; sourceTree = "<group>"; };
+		924297C820DA39FE0039038E /* ChooseTemplateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseTemplateViewController.h; sourceTree = "<group>"; };
+		924297C920DA39FE0039038E /* ChooseTemplateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseTemplateViewController.m; sourceTree = "<group>"; };
 		928216F220CE4BB40052E486 /* PublishTaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskView.h; sourceTree = "<group>"; };
 		928216F320CE4BB40052E486 /* PublishTaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskView.m; sourceTree = "<group>"; };
 		928216F520CE520B0052E486 /* PublishTaskHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskHeaderView.h; sourceTree = "<group>"; };
@@ -2658,6 +2664,8 @@
 		928216F120CE4B190052E486 /* 发布任务 */ = {
 			isa = PBXGroup;
 			children = (
+				924297C620DA33050039038E /* CreateComplexTableHeaderView.h */,
+				924297C520DA33050039038E /* CreateComplexTableHeaderView.m */,
 				928216F220CE4BB40052E486 /* PublishTaskView.h */,
 				928216F320CE4BB40052E486 /* PublishTaskView.m */,
 				928216F820CE52330052E486 /* PublishTaskCell.h */,
@@ -2701,6 +2709,8 @@
 				921016D320D8E995007FEBB7 /* CreateEvaluateViewController.m */,
 				921016E120D8FBEA007FEBB7 /* QuestionTemplatesViewController.h */,
 				921016E220D8FBEA007FEBB7 /* QuestionTemplatesViewController.m */,
+				924297C820DA39FE0039038E /* ChooseTemplateViewController.h */,
+				924297C920DA39FE0039038E /* ChooseTemplateViewController.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -3173,6 +3183,7 @@
 			files = (
 				7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */,
 				7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */,
+				924297C720DA33060039038E /* CreateComplexTableHeaderView.m in Sources */,
 				7CEFC9781FA81106001D8C84 /* SignInListRequest.m in Sources */,
 				921E200620CFB16300A0604F /* SubordinateCourseCell.m in Sources */,
 				7CEFC8DA1FA06720001D8C84 /* LoginDataManager.m in Sources */,
@@ -3435,6 +3446,7 @@
 				9282170820CF70B90052E486 /* GetClassCourseRequest.m in Sources */,
 				921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */,
 				436E6DFA1FB3F395009950EA /* UploadHeadImgRequest.m in Sources */,
+				924297CA20DA39FE0039038E /* ChooseTemplateViewController.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
 				7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */,
 				921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */,

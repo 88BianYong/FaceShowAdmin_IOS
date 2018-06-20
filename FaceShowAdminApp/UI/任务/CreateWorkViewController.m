@@ -425,6 +425,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间
                 [self nyx_enableRightNavigationItem];
                 [self.view nyx_stopLoading];
+                BLOCK_EXEC(self.reloadComleteBlock);
                 [self.navigationController popViewControllerAnimated:YES];
 //                BLOCK_EXEC(self.publishMomentDataBlock,item.data);
 //                [self dismiss];

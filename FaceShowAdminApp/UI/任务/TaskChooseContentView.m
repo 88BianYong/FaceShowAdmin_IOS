@@ -27,6 +27,10 @@
     _chooseContentString = chooseContentString;
     self.contentLabel.text = _chooseContentString;
 }
+- (void)setNameString:(NSString *)nameString {
+    _nameString = nameString;
+    self.nameLabel.text = _nameString;
+}
 #pragma mark - setupUI
 - (void)setupUI {
     self.nameLabel = [[UILabel alloc] init];

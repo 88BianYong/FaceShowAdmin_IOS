@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+#import "CreateComplexRequest.h"
 @interface CreateComplexViewController : BaseViewController
-
+@property (nonatomic, strong) void (^reloadComleteBlock)(void);
+@property (nonatomic, assign) CreateComplexType createType;
 @end

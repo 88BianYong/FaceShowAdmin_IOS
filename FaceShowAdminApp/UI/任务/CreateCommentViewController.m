@@ -112,6 +112,7 @@
         if (error) {
             [self.view nyx_showToast:error.localizedDescription];
         }else {
+            BLOCK_EXEC(self.reloadComleteBlock);
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
