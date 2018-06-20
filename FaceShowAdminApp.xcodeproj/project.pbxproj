@@ -423,6 +423,11 @@
 		E94DDE7020DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6F20DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m */; };
 		E94DDE7320DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE7220DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m */; };
 		E94DDE7620DA392100729A67 /* ReviewUserHomeworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE7520DA392100729A67 /* ReviewUserHomeworkRequest.m */; };
+		E94DDE7920DA456700729A67 /* GetEvaluateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE7720DA456600729A67 /* GetEvaluateRequest.m */; };
+		E94DDE7F20DA4F5E00729A67 /* GetTaskCommentTitleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE7E20DA4F5E00729A67 /* GetTaskCommentTitleRequest.m */; };
+		E94DDE8220DA4FC400729A67 /* GetTaskCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE8120DA4FC400729A67 /* GetTaskCommentRequest.m */; };
+		E94DDE8520DA507A00729A67 /* TaskCommentDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE8420DA507A00729A67 /* TaskCommentDataFetcher.m */; };
+		E94DDE8820DA51C900729A67 /* TaskCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE8720DA51C900729A67 /* TaskCommentViewController.m */; };
 		E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD820CA1D3000D7DDA2 /* IMConfig.m */; };
 		E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD920CA1D3100D7DDA2 /* IMManager.m */; };
 		E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */; };
@@ -1290,6 +1295,16 @@
 		E94DDE7220DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnsubmittedHomeworkMemberListViewController.m; sourceTree = "<group>"; };
 		E94DDE7420DA392100729A67 /* ReviewUserHomeworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewUserHomeworkRequest.h; sourceTree = "<group>"; };
 		E94DDE7520DA392100729A67 /* ReviewUserHomeworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewUserHomeworkRequest.m; sourceTree = "<group>"; };
+		E94DDE7720DA456600729A67 /* GetEvaluateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetEvaluateRequest.m; sourceTree = "<group>"; };
+		E94DDE7820DA456700729A67 /* GetEvaluateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetEvaluateRequest.h; sourceTree = "<group>"; };
+		E94DDE7D20DA4F5E00729A67 /* GetTaskCommentTitleRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetTaskCommentTitleRequest.h; sourceTree = "<group>"; };
+		E94DDE7E20DA4F5E00729A67 /* GetTaskCommentTitleRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetTaskCommentTitleRequest.m; sourceTree = "<group>"; };
+		E94DDE8020DA4FC400729A67 /* GetTaskCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetTaskCommentRequest.h; sourceTree = "<group>"; };
+		E94DDE8120DA4FC400729A67 /* GetTaskCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetTaskCommentRequest.m; sourceTree = "<group>"; };
+		E94DDE8320DA507A00729A67 /* TaskCommentDataFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCommentDataFetcher.h; sourceTree = "<group>"; };
+		E94DDE8420DA507A00729A67 /* TaskCommentDataFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskCommentDataFetcher.m; sourceTree = "<group>"; };
+		E94DDE8620DA51C900729A67 /* TaskCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCommentViewController.h; sourceTree = "<group>"; };
+		E94DDE8720DA51C900729A67 /* TaskCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskCommentViewController.m; sourceTree = "<group>"; };
 		E9540BD820CA1D3000D7DDA2 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
 		E9540BD920CA1D3100D7DDA2 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		E9540BDA20CA1D3100D7DDA2 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
@@ -1649,6 +1664,14 @@
 				E94DDE6C20DA1FDF00729A67 /* UserHomeworkFetcher.m */,
 				E94DDE7420DA392100729A67 /* ReviewUserHomeworkRequest.h */,
 				E94DDE7520DA392100729A67 /* ReviewUserHomeworkRequest.m */,
+				E94DDE7820DA456700729A67 /* GetEvaluateRequest.h */,
+				E94DDE7720DA456600729A67 /* GetEvaluateRequest.m */,
+				E94DDE7D20DA4F5E00729A67 /* GetTaskCommentTitleRequest.h */,
+				E94DDE7E20DA4F5E00729A67 /* GetTaskCommentTitleRequest.m */,
+				E94DDE8020DA4FC400729A67 /* GetTaskCommentRequest.h */,
+				E94DDE8120DA4FC400729A67 /* GetTaskCommentRequest.m */,
+				E94DDE8320DA507A00729A67 /* TaskCommentDataFetcher.h */,
+				E94DDE8420DA507A00729A67 /* TaskCommentDataFetcher.m */,
 				9282170520CF708A0052E486 /* 创建任务 */,
 				7C672B181FB03815004D93DF /* GetTaskRequest.h */,
 				7C672B191FB03815004D93DF /* GetTaskRequest.m */,
@@ -2370,6 +2393,8 @@
 				7C672B461FB1AC17004D93DF /* QuestionUserDetailViewController.m */,
 				43729E171FB6CAD20043C988 /* SubjectivityAnswerViewController.h */,
 				43729E181FB6CAD20043C988 /* SubjectivityAnswerViewController.m */,
+				E94DDE8620DA51C900729A67 /* TaskCommentViewController.h */,
+				E94DDE8720DA51C900729A67 /* TaskCommentViewController.m */,
 			);
 			path = "任务";
 			sourceTree = "<group>";
@@ -3331,6 +3356,7 @@
 				7CEA29C420D8DAA7000CE9EC /* HomeworkRequirementViewController.m in Sources */,
 				7CDF121B20902EC10044DD95 /* ShowPhotosViewController.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
+				E94DDE8820DA51C900729A67 /* TaskCommentViewController.m in Sources */,
 				7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CDF124A20902F200044DD95 /* ClassMomentNotificationViewController.m in Sources */,
@@ -3524,6 +3550,7 @@
 				7C672B501FB2D747004D93DF /* CourseDetailTabContainerView.m in Sources */,
 				7CDF11FA20902E450044DD95 /* PhotoChooseCell.m in Sources */,
 				436CB2281FB15D6000A31585 /* ClazsMemberListFetcher.m in Sources */,
+				E94DDE7920DA456700729A67 /* GetEvaluateRequest.m in Sources */,
 				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
 				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
@@ -3537,6 +3564,7 @@
 				436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */,
 				7C06897620D0EDFB00C7CA14 /* ClassInfoView.m in Sources */,
 				921016D720D8F058007FEBB7 /* GetQuestionGroupTemplatesRequest.m in Sources */,
+				E94DDE7F20DA4F5E00729A67 /* GetTaskCommentTitleRequest.m in Sources */,
 				7CDF123120902EE60044DD95 /* SlideImageView.m in Sources */,
 				7CEFC8E71FA06791001D8C84 /* GetUserInfoRequest.m in Sources */,
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
@@ -3604,12 +3632,14 @@
 				9282170420CE740F0052E486 /* CreateComplexViewController.m in Sources */,
 				7CDF124920902F200044DD95 /* ReportViewController.m in Sources */,
 				7CDF120F20902E8A0044DD95 /* ImageAttachmentView.m in Sources */,
+				E94DDE8520DA507A00729A67 /* TaskCommentDataFetcher.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
 				7C3F759320DA493B00F4F418 /* ScoreSettingCell.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */,
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
+				E94DDE8220DA4FC400729A67 /* GetTaskCommentRequest.m in Sources */,
 				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,

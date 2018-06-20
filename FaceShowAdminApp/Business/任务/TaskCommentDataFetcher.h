@@ -1,5 +1,5 @@
 //
-//  UserHomeworkFetcher.h
+//  TaskCommentDataFetcher.h
 //  FaceShowAdminApp
 //
 //  Created by ZLL on 2018/6/20.
@@ -7,8 +7,9 @@
 //
 
 #import "PagedListFetcherBase.h"
+#import "GetTaskCommentRequest.h"
 
-@interface UserHomeworkFetcher : PagedListFetcherBase
+@interface TaskCommentDataFetcher : PagedListFetcherBase
 @property (nonatomic, strong) NSString *stepId;
-@property (nonatomic, strong) NSString *isFinished;
+@property (nonatomic, strong) void(^finishBlock) (GetTaskCommentRequestItem *item);
 @end

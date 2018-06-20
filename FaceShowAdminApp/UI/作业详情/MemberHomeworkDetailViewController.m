@@ -123,7 +123,13 @@
         make.height.mas_equalTo(140);
     }];
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 140, 0);
-    self.commentLabel.hidden = YES;
+    if (![self.data.finishStatus isEqualToString:@"3"]) {
+        self.commentLabel.hidden = YES;
+        self.commentView.hidden = NO;
+    }else {
+        self.commentLabel.hidden = NO;
+        self.commentView.hidden = YES;
+    }
 }
 
 - (void)reviewUserHomeworkWithComment:(NSString *)comment {
@@ -132,9 +138,9 @@
     self.request.stepId = self.stepId;
     self.request.userHomeworkId = self.data.homeworkId;
     if ([comment isEqualToString:@"不合格"]) {
-        self.request.finishStatus = @"1";
+        self.request.finishStatus = @"2";
     }else {
-        self.request.finishStatus = @"0";
+        self.request.finishStatus = @"1";
     }
     self.request.assess = comment;
     WEAK_SELF

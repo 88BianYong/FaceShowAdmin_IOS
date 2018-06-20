@@ -27,6 +27,8 @@
         prefix = @"投票人数：";
     } else if (type == InteractType_Questionare) {
         prefix = @"提交人数：";
+    }else {
+        prefix = @"评价人数：";
     }
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@/%@",prefix,self.data.questionGroup.answerUserNum,self.data.questionGroup.totalUserNum];
     [self setupUI];
@@ -42,8 +44,10 @@
     InteractType type = [FSDataMappingTable InteractTypeWithKey:self.data.interactType];
     if (type == InteractType_Vote) {
         [TalkingData trackPageBegin:@"投票任务完成详情"];
-    }else {
+    }else if (type == InteractType_Questionare) {
         [TalkingData trackPageBegin:@"问卷任务完成详情"];
+    }else {
+         [TalkingData trackPageBegin:@"评价任务完成详情"];
     }
 }
 
@@ -52,8 +56,10 @@
     InteractType type = [FSDataMappingTable InteractTypeWithKey:self.data.interactType];
     if (type == InteractType_Vote) {
         [TalkingData trackPageEnd:@"投票任务完成详情"];
-    }else {
+    }else if (type == InteractType_Questionare) {
         [TalkingData trackPageEnd:@"问卷任务完成详情"];
+    }else {
+        [TalkingData trackPageEnd:@"评价任务完成详情"];
     }
 }
 

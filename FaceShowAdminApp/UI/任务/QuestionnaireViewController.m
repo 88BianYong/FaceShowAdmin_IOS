@@ -17,6 +17,7 @@
 #import "MJRefresh.h"
 #import "QuestionUserDetailViewController.h"
 #import "SubjectivityAnswerViewController.h"
+#import "GetEvaluateRequest.h"
 
 @interface QuestionnaireViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) ErrorView *errorView;
 @property (nonatomic, strong) GetVoteRequest *voteRequest;
 @property (nonatomic, strong) GetQuestionnaireRequest *questionnaireRequest;
+@property (nonatomic, strong) GetEvaluateRequest *getEvaluateRequest;
 @property (nonatomic, strong) QuestionRequestItem *requestItem;
 @property (nonatomic, strong) QuestionnaireHeaderView *headerView;
 @property (nonatomic, strong) MJRefreshHeaderView *header;
@@ -48,8 +50,10 @@
     // Do any additional setup after loading the view.
     if (self.interactType == InteractType_Vote) {
         self.navigationItem.title = @"投票详情";
-    }else {
+    }else if (self.interactType == InteractType_Questionare) {
         self.navigationItem.title = @"问卷详情";
+    }else {
+        self.navigationItem.title = @"评价详情";
     }
     [self setupUI];
     [self requestPaperInfo];
@@ -64,8 +68,10 @@
     [super viewWillAppear:animated];
     if (self.interactType == InteractType_Vote) {
         [TalkingData trackPageBegin:@"投票详情"];
-    }else {
+    }else if (self.interactType == InteractType_Questionare){
         [TalkingData trackPageBegin:@"问卷详情"];
+    }else {
+        [TalkingData trackPageBegin:@"评价详情"];
     }
 }
 
@@ -73,8 +79,10 @@
     [super viewWillDisappear:animated];
     if (self.interactType == InteractType_Vote) {
         [TalkingData trackPageEnd:@"投票详情"];
-    }else {
+    }else if (self.interactType == InteractType_Questionare){
         [TalkingData trackPageEnd:@"问卷详情"];
+    }else {
+        [TalkingData trackPageEnd:@"评价详情"];
     }
 }
 
@@ -96,13 +104,30 @@
             }
             [self refreshUIWithItem:retItem];
         }];
-    }else {
+    }else if (self.interactType == InteractType_Questionare) {
         [self.questionnaireRequest stopRequest];
         self.questionnaireRequest = [[GetQuestionnaireRequest alloc]init];
         self.questionnaireRequest.stepId = self.stepId;
         [self.view nyx_startLoading];
         WEAK_SELF
         [self.questionnaireRequest startRequestWithRetClass:[QuestionRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+            STRONG_SELF
+            [self.header endRefreshing];
+            [self.view nyx_stopLoading];
+            self.errorView.hidden = YES;
+            if (error) {
+                self.errorView.hidden = NO;
+                return;
+            }
+            [self refreshUIWithItem:retItem];
+        }];
+    }else {
+        [self.getEvaluateRequest stopRequest];
+        self.getEvaluateRequest = [[GetEvaluateRequest alloc]init];
+        self.getEvaluateRequest.stepId = self.stepId;
+        [self.view nyx_startLoading];
+        WEAK_SELF
+        [self.getEvaluateRequest startRequestWithRetClass:[QuestionRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
             STRONG_SELF
             [self.header endRefreshing];
             [self.view nyx_stopLoading];
@@ -127,7 +152,15 @@
     WEAK_SELF
     [self.headerView setDetailBlock:^{
         STRONG_SELF
-        [TalkingData trackEvent:self.interactType == InteractType_Vote ? @"查看投票人数详情" : @"查看问卷人数详情"];
+        NSString *eventTitle;
+        if (self.interactType == InteractType_Vote) {
+            eventTitle = @"查看投票人数详情";
+        }else if (self.interactType == InteractType_Questionare) {
+            eventTitle = @"查看问卷人数详情";
+        }else {
+            eventTitle = @"查看评价人数详情";
+        }
+        [TalkingData trackEvent:eventTitle];
         QuestionUserDetailViewController *vc = [[QuestionUserDetailViewController alloc]init];
         vc.data = self.requestItem.data;
         [self.navigationController pushViewController:vc animated:YES];

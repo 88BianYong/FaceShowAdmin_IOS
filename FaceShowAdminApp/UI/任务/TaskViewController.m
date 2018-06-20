@@ -27,6 +27,7 @@
 #import "CreateEvaluateViewController.h"
 #import "HomeworkDetailViewController.h"
 #import "GetHomeworkRequest.h"
+#import "TaskCommentViewController.h"
 
 @interface TaskViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) EmptyView *emptyView;
@@ -358,7 +359,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GetAllTasksRequestItem_task *task = self.dataArray[indexPath.row];
     InteractType type = [FSDataMappingTable InteractTypeWithKey:task.interactType];
-    if (type == InteractType_Vote || type == InteractType_Questionare) {
+    if (type == InteractType_Vote || type == InteractType_Questionare || type == InteractType_Evaluate) {
         QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (type == InteractType_SignIn) {
@@ -398,6 +399,9 @@
             vc.item = item;
             [self.navigationController pushViewController:vc animated:YES];
         }];
+    }else if (type == InteractType_Comment) {
+        TaskCommentViewController *vc = [[TaskCommentViewController alloc]initWithStepId:task.stepId];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

@@ -19,7 +19,7 @@
     self.request.offset = [NSString stringWithFormat:@"%@",@(self.lastID)];
     self.request.pageSize = [NSString stringWithFormat:@"%@",@(self.pagesize)];
     self.request.stepId = self.stepId;
-    self.request.finishStatus = self.finishStatus;
+    self.request.isFinished = self.isFinished;
     WEAK_SELF
     [self.request startRequestWithRetClass:[GetUserHomeworksRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF

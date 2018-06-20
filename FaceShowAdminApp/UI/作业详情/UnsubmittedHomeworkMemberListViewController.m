@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     UserHomeworkFetcher *fetcher = [[UserHomeworkFetcher alloc] init];
     fetcher.stepId = self.stepId;
-    fetcher.finishStatus = @"2";
+    fetcher.isFinished = @"0";
     self.dataFetcher = fetcher;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
