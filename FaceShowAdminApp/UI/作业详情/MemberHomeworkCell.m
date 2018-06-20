@@ -11,6 +11,7 @@
 @interface MemberHomeworkCell()
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) UILabel *scoreLabel;
 @end
 
 @implementation MemberHomeworkCell
@@ -36,13 +37,21 @@
 - (void)setupUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    self.scoreLabel = [[UILabel alloc]init];
+    self.scoreLabel.font = [UIFont systemFontOfSize:13];
+    self.scoreLabel.textAlignment = NSTextAlignmentRight;
+    [self.contentView addSubview:self.scoreLabel];
+    [self.scoreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-15);
+        make.centerY.mas_equalTo(0);
+    }];
     self.titleLabel = [[UILabel alloc]init];
     self.titleLabel.font = [UIFont systemFontOfSize:14];
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     [self.contentView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
-        make.right.mas_equalTo(-15);
+        make.right.mas_equalTo(-70);
         make.bottom.mas_equalTo(self.contentView.mas_centerY).mas_offset(-3);
     }];
     self.subtitleLabel = [[UILabel alloc]init];
@@ -51,7 +60,7 @@
     [self.contentView addSubview:self.subtitleLabel];
     [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
-        make.right.mas_equalTo(-15);
+        make.right.mas_equalTo(-70);
         make.top.mas_equalTo(self.mas_centerY).mas_offset(3);
     }];
     UIView *line = [[UIView alloc]init];
@@ -64,8 +73,13 @@
     }];
     
     //mock mock
-    self.titleLabel.text = @"大活动";
-    self.subtitleLabel.text = @"发我饿on欧冠飞鸟我给你欧冠";
+    self.titleLabel.text = @"大活动fnowinfoegowengowengowbegoweigoweigoweogwioegewg";
+    self.subtitleLabel.text = @"发我饿on欧冠飞鸟我给你欧冠发我饿on欧冠飞鸟我给你欧冠发我饿on欧冠飞鸟我给你欧冠";
+    self.scoreLabel.text = @"不合格";
+    self.scoreLabel.textColor = [UIColor colorWithHexString:@"666666"];
+//    self.scoreLabel.text = @"优秀";
+//    self.scoreLabel.textColor = [UIColor colorWithHexString:@"f56f5d"];
+    
 }
 
 @end

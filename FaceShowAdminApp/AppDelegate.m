@@ -57,7 +57,13 @@
     } else {
         NSLog(@"经纬度类型设置失败");
     }
-    BOOL ret = [_mapManager start:@"CXHRPRKoQ6Pwj0nCXet7MEhGV63KF7MY" generalDelegate:self];
+    NSString *key = nil;
+#ifdef HuBeiApp
+    key = @"uxIpEttWwNbVFNFF61a41nyNT2oGVT9G";
+#else
+    key = @"CXHRPRKoQ6Pwj0nCXet7MEhGV63KF7MY";
+#endif
+    BOOL ret = [_mapManager start:key generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
     }
