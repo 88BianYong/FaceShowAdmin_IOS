@@ -20,6 +20,8 @@
 #import "IMTopic.h"
 #import "ChatListViewController.h"
 #import "UserPromptsManager.h"
+#import "TrainingProfileViewController.h"
+#import "MyTrainingProjectViewController.h"
 
 UIKIT_EXTERN BOOL testFrameworkOn;
 
@@ -64,6 +66,26 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 }
 
 - (UIViewController *)mainViewController {
+    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
+    if (![data roleExists:UserRole_Teacher]&&![data roleExists:UserRole_UnknownTeacher]) {
+        UIViewController *paneVC = nil;
+        if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
+            TrainingProfileViewController *vc = [[TrainingProfileViewController alloc]init];
+            FSNavigationController *profileNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
+            paneVC = profileNavi;
+        }
+        if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+            MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc]init];
+            FSNavigationController *projectNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
+            paneVC = projectNavi;
+        }
+        MineViewController *mineVC = [[MineViewController alloc]init];
+        YXDrawerViewController *drawerVC = [[YXDrawerViewController alloc]init];
+        drawerVC.paneViewController = paneVC;
+        drawerVC.drawerViewController = mineVC;
+        drawerVC.drawerWidth = 305*kPhoneWidthRatio;
+        return drawerVC;
+    }
     FSTabBarController *tabBarController = [[FSTabBarController alloc] init];
     UIViewController *mainVC = [[MainPageViewController alloc]init];
     mainVC.title = @"首页";

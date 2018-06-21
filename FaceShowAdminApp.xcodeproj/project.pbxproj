@@ -70,6 +70,9 @@
 		7C2E6F9820CA21A10066DE7C /* IMTitleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9320CA219F0066DE7C /* IMTitleContentView.m */; };
 		7C2E6F9920CA21A10066DE7C /* IMMemberInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9620CA21A00066DE7C /* IMMemberInfoView.m */; };
 		7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */; };
+		7C3F759320DA493B00F4F418 /* ScoreSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */; };
+		7C3F75A120DB813E00F4F418 /* GetUserRolesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F759F20DB813D00F4F418 /* GetUserRolesRequest.m */; };
+		7C3F75A220DB813E00F4F418 /* GetUserPlatformRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F75A020DB813E00F4F418 /* GetUserPlatformRequest.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -615,6 +618,12 @@
 		7C2E6F9620CA21A00066DE7C /* IMMemberInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMemberInfoView.m; sourceTree = "<group>"; };
 		7C3F758E20DA45BC00F4F418 /* ScoreEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreEditViewController.h; sourceTree = "<group>"; };
 		7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreEditViewController.m; sourceTree = "<group>"; };
+		7C3F759120DA493B00F4F418 /* ScoreSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreSettingCell.h; sourceTree = "<group>"; };
+		7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreSettingCell.m; sourceTree = "<group>"; };
+		7C3F759D20DB813D00F4F418 /* GetUserRolesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserRolesRequest.h; sourceTree = "<group>"; };
+		7C3F759E20DB813D00F4F418 /* GetUserPlatformRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserPlatformRequest.h; sourceTree = "<group>"; };
+		7C3F759F20DB813D00F4F418 /* GetUserRolesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserRolesRequest.m; sourceTree = "<group>"; };
+		7C3F75A020DB813E00F4F418 /* GetUserPlatformRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserPlatformRequest.m; sourceTree = "<group>"; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -2309,6 +2318,10 @@
 				7CEFC8E31FA06790001D8C84 /* ResetPasswordRequest.m */,
 				7CEFC96F1FA702C5001D8C84 /* ClassListRequest.h */,
 				7CEFC9701FA702C5001D8C84 /* ClassListRequest.m */,
+				7C3F759E20DB813D00F4F418 /* GetUserPlatformRequest.h */,
+				7C3F75A020DB813E00F4F418 /* GetUserPlatformRequest.m */,
+				7C3F759D20DB813D00F4F418 /* GetUserRolesRequest.h */,
+				7C3F759F20DB813D00F4F418 /* GetUserRolesRequest.m */,
 			);
 			name = request;
 			sourceTree = "<group>";
@@ -3336,6 +3349,7 @@
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
 				E94DDEB220DB523600729A67 /* TaskRankingViewController.m in Sources */,
 				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
+				7C3F75A220DB813E00F4F418 /* GetUserPlatformRequest.m in Sources */,
 				7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */,
 				7CDF129A20903B4E0044DD95 /* MJRefreshHeaderView.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
@@ -3603,6 +3617,7 @@
 				E91481C920906307001B7EB5 /* IMMessageMenuItem.m in Sources */,
 				E94DDEB320DB523600729A67 /* StudyScoreViewController.m in Sources */,
 				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
+				7C3F75A120DB813E00F4F418 /* GetUserRolesRequest.m in Sources */,
 				E91DC4B4209065DE003D6F31 /* UIImage+GIF.m in Sources */,
 				E94DDEA220DB516A00729A67 /* TaskRankingFetcher.m in Sources */,
 				E94DDED020DB551D00729A67 /* ScoreRankingCell.m in Sources */,

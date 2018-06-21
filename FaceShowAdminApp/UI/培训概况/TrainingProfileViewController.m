@@ -14,6 +14,7 @@
 #import "ProjectAreaDistributingCell.h"
 #import "TrainingProjectDetailViewController.h"
 #import "ProjectFilterViewController.h"
+#import "YXDrawerController.h"
 
 @interface TrainingProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -26,6 +27,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"培训概况";
+    if ([[YXDrawerController drawer].paneViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navi = (UINavigationController *)[YXDrawerController drawer].paneViewController;
+        if (navi.viewControllers[0] == self) {
+            WEAK_SELF
+            [self nyx_setupLeftWithImageName:@"抽屉列表按钮正常态" highlightImageName:@"抽屉列表按钮点击态" action:^{
+                STRONG_SELF
+                [YXDrawerController showDrawer];
+            }];
+        }
+    }    
     WEAK_SELF
     [self nyx_setupRightWithTitle:@"筛选" action:^{
         STRONG_SELF

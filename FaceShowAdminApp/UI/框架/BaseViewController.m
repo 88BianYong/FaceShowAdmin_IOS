@@ -131,6 +131,9 @@
             UITabBarController *tabBarVC = (UITabBarController *)drawerVC.paneViewController;
             navi = tabBarVC.viewControllers[tabBarVC.selectedIndex];
         }
+        if ([drawerVC.paneViewController isKindOfClass:[UINavigationController class]]) {
+            navi = (UINavigationController *)drawerVC.paneViewController;
+        }
     }
     return navi;
 }

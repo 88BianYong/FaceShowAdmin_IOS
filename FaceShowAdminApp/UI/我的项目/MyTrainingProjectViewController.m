@@ -10,6 +10,7 @@
 #import "ProjectDetailCell.h"
 #import "TitleHeaderView.h"
 #import "TrainingProjectDetailViewController.h"
+#import "YXDrawerController.h"
 
 @interface ProjectGroup :NSObject
 @property (nonatomic, assign) ProjectGroupType type;
@@ -30,6 +31,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的项目";
+    if ([[YXDrawerController drawer].paneViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navi = (UINavigationController *)[YXDrawerController drawer].paneViewController;
+        if (navi.viewControllers[0] == self) {
+            WEAK_SELF
+            [self nyx_setupLeftWithImageName:@"抽屉列表按钮正常态" highlightImageName:@"抽屉列表按钮点击态" action:^{
+                STRONG_SELF
+                [YXDrawerController showDrawer];
+            }];
+        }
+    }
     self.groupArray = [NSMutableArray array];
     ProjectGroup *g1 = [[ProjectGroup alloc]init];
     g1.type = ProjectGroup_InProgress;

@@ -17,12 +17,17 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *projectLabel;
 @property (nonatomic, strong) UILabel *classNameLabel;
+@property (nonatomic, strong) UILabel *roleLabel;
+@property (nonatomic, strong) NSString *roles;
+@property (nonatomic, strong) NSMutableArray *moduleArray;
 @end
 
 @implementation MineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupRoles];
+    [self setupModules];
     [self setupUI];
     [self setupObserver];
 }
@@ -30,6 +35,42 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupRoles {
+    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
+    NSMutableArray *array = [NSMutableArray array];
+    if ([data roleExists:UserRole_PlatformAdmin]) {
+        [array addObject:@"平台管理员"];
+    }
+    if ([data roleExists:UserRole_AreaAdmin]) {
+        [array addObject:@"区域管理员"];
+    }
+    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+        [array addObject:@"项目管理员"];
+    }
+    if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+        [array addObject:@"班主任"];
+    }
+    if ([data roleExists:UserRole_Student]) {
+        [array addObject:@"学员"];
+    }
+    self.roles = [array componentsJoinedByString:@"|"];
+}
+
+- (void)setupModules {
+    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
+    NSMutableArray *array = [NSMutableArray array];
+    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
+        [array addObject:@"培训概况"];
+    }
+    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+        [array addObject:@"我的项目"];
+    }
+    if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+        [array addObject:@"我的班级"];
+    }
+    self.moduleArray = array;
 }
 
 #pragma mark - setupUI
@@ -68,82 +109,42 @@
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
         make.top.mas_equalTo(self.avatarImageView.mas_bottom).offset(10.75f);
+        make.height.mas_equalTo(20);
     }];
-    
-    self.projectLabel = [[UILabel alloc] init];
-    self.projectLabel.font = [UIFont systemFontOfSize:13];
-    self.projectLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
-    self.projectLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:self.projectLabel];
-    [self.projectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.roleLabel = [[UILabel alloc] init];
+    self.roleLabel.font = [UIFont systemFontOfSize:13];
+    self.roleLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
+    self.roleLabel.textAlignment = NSTextAlignmentCenter;
+    self.roleLabel.numberOfLines = 0;
+    self.roleLabel.text = self.roles;
+    [self.view addSubview:self.roleLabel];
+    [self.roleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
         make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(15);
-    }];
-    
-    self.classNameLabel = [[UILabel alloc] init];
-    self.classNameLabel.font = [UIFont systemFontOfSize:13];
-    self.classNameLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
-    self.classNameLabel.textAlignment = NSTextAlignmentCenter;
-    self.classNameLabel.text = [UserManager sharedInstance].userModel.currentClass.clazsName;
-    [self.view addSubview:self.classNameLabel];
-    [self.classNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(25);
-        make.right.mas_equalTo(-25);
-        make.top.mas_equalTo(self.projectLabel.mas_bottom).offset(3);
-    }];
-    
-    UIButton *changeClassBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    changeClassBtn.clipsToBounds = YES;
-    changeClassBtn.layer.cornerRadius = 6;
-    changeClassBtn.layer.borderColor = [UIColor colorWithHexString:@"ffffff"].CGColor;
-    changeClassBtn.layer.borderWidth = 1;
-    changeClassBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [changeClassBtn setTitle:@"切换班级" forState:UIControlStateNormal];
-    [changeClassBtn setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateNormal];
-    [changeClassBtn setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateHighlighted];
-    [changeClassBtn setBackgroundImage:[UIImage yx_createImageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
-    [changeClassBtn setBackgroundImage:[UIImage yx_createImageWithColor:[UIColor colorWithHexString:@"ffffff"]] forState:UIControlStateHighlighted];
-    [changeClassBtn addTarget:self action:@selector(changeClassBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:changeClassBtn];
-    [changeClassBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.classNameLabel.mas_bottom).offset(10.5f);
-        make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(80, 26));
+        make.height.mas_equalTo(40);
     }];
     [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(changeClassBtn.mas_bottom).mas_offset(20);
+        make.bottom.mas_equalTo(self.roleLabel.mas_bottom).mas_offset(20);
     }];
     
-    UIButton *trainingProfileBtn = [self optionBtnWithTitle:@"培训概况" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
-    [self.view addSubview:trainingProfileBtn];
-    [trainingProfileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(backImageView.mas_bottom).offset(30);
-        make.centerX.mas_equalTo(0);
-        make.left.right.mas_equalTo(0);
-    }];
+    UIView *topView = backImageView;
+    for (NSString *item in self.moduleArray) {
+        UIButton *btn = [self optionBtnWithItem:item];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(topView.mas_bottom).offset(30);
+            make.centerX.mas_equalTo(0);
+            make.left.right.mas_equalTo(0);
+        }];
+        topView = btn;
+    }
     
-    UIButton *myProjectBtn = [self optionBtnWithTitle:@"我的项目" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
-    [self.view addSubview:myProjectBtn];
-    [myProjectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(trainingProfileBtn.mas_bottom).offset(30);
-        make.centerX.mas_equalTo(0);
-        make.left.right.mas_equalTo(0);
-    }];
-    
-    UIButton *classHomeBtn = [self optionBtnWithTitle:@"班级首页" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
-    [self.view addSubview:classHomeBtn];
-    [classHomeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(myProjectBtn.mas_bottom).offset(30);
-        make.centerX.mas_equalTo(0);
-        make.left.right.mas_equalTo(0);
-    }];
-    
-    UIButton *mineInfoBtn = [self optionBtnWithTitle:@"我的资料" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
-    [self.view addSubview:mineInfoBtn];
-    [mineInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(classHomeBtn.mas_bottom).offset(30);
+    UIButton *btn = [self optionBtnWithTitle:@"我的资料" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
+    [self.view addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(topView.mas_bottom).offset(30);
         make.centerX.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
     }];
@@ -182,6 +183,20 @@
     }];
 }
 
+- (UIButton *)optionBtnWithItem:(NSString *)item {
+    UIButton *btn = nil;
+    if ([item isEqualToString:@"培训概况"]) {
+        btn = [self optionBtnWithTitle:@"培训概况" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
+    }
+    if ([item isEqualToString:@"我的项目"]) {
+        btn = [self optionBtnWithTitle:@"我的项目" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
+    }
+    if ([item isEqualToString:@"我的班级"]) {
+        btn = [self optionBtnWithTitle:@"我的班级" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
+    }
+    return btn;
+}
+
 - (UIButton *)optionBtnWithTitle:(NSString *)title normalImage:(NSString *)normalImage highlightedImage:(NSString *)highlightedImage {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -213,11 +228,6 @@
 }
 
 #pragma mark - actions
-- (void)changeClassBtnAction {
-    [TalkingData trackEvent:@"点击切换班级"];
-    ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
-    [self.navigationController pushViewController:selectionVC animated:YES];
-}
 
 - (void)logoutBtnAction {
     [TalkingData trackEvent:@"退出登录"];
@@ -226,8 +236,9 @@
 
 - (void)optionBtnAction:(UIButton *)sender {
     [TalkingData trackEvent:[NSString stringWithFormat:@"点击%@",sender.titleLabel.text]];
-    if ([sender.titleLabel.text isEqualToString:@"班级首页"]) {
-        [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
+    if ([sender.titleLabel.text isEqualToString:@"我的班级"]) {
+        ClassSelectionViewController *selectionVC = [[ClassSelectionViewController alloc] init];
+        [self.navigationController pushViewController:selectionVC animated:YES];
     } else if ([sender.titleLabel.text isEqualToString:@"我的资料"]) {
         MyInfoViewController *vc = [[MyInfoViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
