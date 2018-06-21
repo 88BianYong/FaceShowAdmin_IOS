@@ -114,23 +114,16 @@
     if (!_jsconf) {
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.data.configItems.count];
         [self.data.configItems enumerateObjectsUsingBlock:^(GetClazsScoreConfigRequestItem_configItem *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+            NSString *string;
             if ([obj.scoreType isEqualToString:self.currentItem.scoreType]) {
-                [dic setObject:self.currentItem.scoreType forKey:@"scoreType"];
-                [dic setObject:self.currentItem.scoreDefine forKey:@"scoreDefine"];
+                string = [NSString stringWithFormat:@"{\"scoreType\":%@,\"scoreDefine\":%@}",obj.scoreType,obj.scoreDefine];
             }else {
-                [dic setObject:obj.scoreType forKey:@"scoreType"];
-                [dic setObject:obj.scoreDefine forKey:@"scoreDefine"];
+                string = [NSString stringWithFormat:@"{\"scoreType\":%@,\"scoreDefine\":%@}",obj.scoreType,obj.scoreDefine];
             }
-            NSString *str = [dic JsonString];
-            [array addObject:str];
+            [array addObject:string];
         }];
-        NSError *error;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:array options:0 error:&error];
-        NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        result = [result substringWithRange:NSMakeRange(2, [result length] - 4)];
+        NSString *result = [array componentsJoinedByString:@","];
         result = [NSString stringWithFormat:@"%@%@%@",@"[",result,@"]"];
-        result = [result stringByReplacingOccurrencesOfString:@"\'"withString:@""];
         _jsconf = result;
     }
     return _jsconf;
