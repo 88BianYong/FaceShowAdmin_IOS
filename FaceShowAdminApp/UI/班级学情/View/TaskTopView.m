@@ -7,12 +7,12 @@
 //
 
 #import "TaskTopView.h"
+#import "GetUserTaskProgressRequest.h"
 
 @interface TaskTopView()
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *scoreLabel;
 @property (nonatomic, strong) UILabel *rankingLabel;
-@property (nonatomic, strong) UIImageView *enterImageView;
 
 @end
 
@@ -29,16 +29,6 @@
 
 - (void)setupUI {
     self.backgroundColor = [UIColor whiteColor];
-    
-    self.enterImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"单选未选择"] highlightedImage:[UIImage imageNamed:@"单选已选择"]];
-    self.enterImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.enterImageView.clipsToBounds = YES;
-    [self addSubview:self.enterImageView];
-    [self.enterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(0);
-        make.right.mas_equalTo(-10);
-        make.size.mas_equalTo(CGSizeMake(20, 20));
-    }];
     
     self.titleLabel = [[UILabel alloc]init];
     self.titleLabel.font = [UIFont systemFontOfSize:13];
@@ -66,21 +56,6 @@
         make.top.mas_equalTo(self.scoreLabel.mas_bottom).offset(30);
         make.centerX.mas_equalTo(0);
     }];
-    UIButton *button = [[UIButton alloc]init];
-    [button addTarget:self action:@selector(butonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:button];
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
-    WEAK_SELF
-    [RACObserve(button, highlighted) subscribeNext:^(id x) {
-        STRONG_SELF
-        self.enterImageView.highlighted = [x boolValue];
-    }];
-}
-
-- (void)butonAction:(UIButton *)sender {
-    BLOCK_EXEC(self.rankingChoosedBlock);
 }
 
 - (void)setupMock {
@@ -93,4 +68,13 @@
     self.rankingLabel.attributedText = rankingAttStr;
 }
 
+- (void)setItem:(GetUserTaskProgressRequestItem *)item {
+    _item = item;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%@",[item.data.finishPercent floatValue]* 100,@"%"];
+    NSString *ranking = [NSString stringWithFormat:@"班级排名:第%@名",item.data.clazsRank];
+    NSMutableAttributedString *rankingAttStr = [[NSMutableAttributedString alloc]initWithString:ranking];
+    [rankingAttStr addAttributes:@{NSFontAttributeName:self.rankingLabel.font,NSForegroundColorAttributeName:self.rankingLabel.textColor} range:NSMakeRange(0,[ranking length])];
+    [rankingAttStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"1da1f2"] range:NSMakeRange(5, [ranking length] - 5)];
+    self.rankingLabel.attributedText = rankingAttStr;
+}
 @end

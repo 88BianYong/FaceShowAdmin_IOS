@@ -70,7 +70,6 @@
 		7C2E6F9820CA21A10066DE7C /* IMTitleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9320CA219F0066DE7C /* IMTitleContentView.m */; };
 		7C2E6F9920CA21A10066DE7C /* IMMemberInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9620CA21A00066DE7C /* IMMemberInfoView.m */; };
 		7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */; };
-		7C3F759320DA493B00F4F418 /* ScoreSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -407,13 +406,6 @@
 		E94DDE0C20D3734200729A67 /* GetUserClazsScoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0620D3734000729A67 /* GetUserClazsScoreRequest.m */; };
 		E94DDE0D20D3734200729A67 /* GetClazsSocresRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0820D3734100729A67 /* GetClazsSocresRequest.m */; };
 		E94DDE0E20D3734200729A67 /* ScoreRankingFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE0920D3734100729A67 /* ScoreRankingFetcher.m */; };
-		E94DDE1E20D3761000729A67 /* ScroeDetailTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1320D3760F00729A67 /* ScroeDetailTabContainerView.m */; };
-		E94DDE1F20D3761000729A67 /* TaskRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1520D3760F00729A67 /* TaskRankingCell.m */; };
-		E94DDE2020D3761000729A67 /* TaskNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1620D3760F00729A67 /* TaskNameCell.m */; };
-		E94DDE2120D3761000729A67 /* ScoreNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1820D3761000729A67 /* ScoreNameCell.m */; };
-		E94DDE2220D3761000729A67 /* ScoreTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1920D3761000729A67 /* ScoreTopView.m */; };
-		E94DDE2320D3761000729A67 /* ScoreRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */; };
-		E94DDE2420D3761000729A67 /* TaskTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE1D20D3761000729A67 /* TaskTopView.m */; };
 		E94DDE6020D9F02400729A67 /* TaskFilterItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE5D20D9F02300729A67 /* TaskFilterItemView.m */; };
 		E94DDE6120D9F02400729A67 /* TaskFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE5F20D9F02300729A67 /* TaskFilterView.m */; };
 		E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE6220D9F13300729A67 /* GetAllTasksRequest.m */; };
@@ -428,6 +420,24 @@
 		E94DDE8220DA4FC400729A67 /* GetTaskCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE8120DA4FC400729A67 /* GetTaskCommentRequest.m */; };
 		E94DDE8520DA507A00729A67 /* TaskCommentDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE8420DA507A00729A67 /* TaskCommentDataFetcher.m */; };
 		E94DDE8820DA51C900729A67 /* TaskCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE8720DA51C900729A67 /* TaskCommentViewController.m */; };
+		E94DDEA220DB516A00729A67 /* TaskRankingFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE9C20DB516800729A67 /* TaskRankingFetcher.m */; };
+		E94DDEA320DB516A00729A67 /* GetUserTaskProgressRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDE9F20DB516900729A67 /* GetUserTaskProgressRequest.m */; };
+		E94DDEA420DB516A00729A67 /* GetUserTasksProgressRankRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEA020DB516900729A67 /* GetUserTasksProgressRankRequest.m */; };
+		E94DDEB120DB523600729A67 /* ScoreRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEA520DB523300729A67 /* ScoreRankingViewController.m */; };
+		E94DDEB220DB523600729A67 /* TaskRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEA620DB523300729A67 /* TaskRankingViewController.m */; };
+		E94DDEB320DB523600729A67 /* StudyScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEA820DB523400729A67 /* StudyScoreViewController.m */; };
+		E94DDEB420DB523600729A67 /* ScoreDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEAD20DB523500729A67 /* ScoreDetialViewController.m */; };
+		E94DDEB620DB523600729A67 /* TaskScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEB020DB523600729A67 /* TaskScoreViewController.m */; };
+		E94DDEBC20DB550000729A67 /* ScoreSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEBA20DB550000729A67 /* ScoreSettingCell.m */; };
+		E94DDECB20DB551D00729A67 /* ScroeDetailTabContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEC020DB551A00729A67 /* ScroeDetailTabContainerView.m */; };
+		E94DDECC20DB551D00729A67 /* TaskRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEC220DB551A00729A67 /* TaskRankingCell.m */; };
+		E94DDECD20DB551D00729A67 /* TaskNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEC320DB551A00729A67 /* TaskNameCell.m */; };
+		E94DDECE20DB551D00729A67 /* ScoreNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEC520DB551B00729A67 /* ScoreNameCell.m */; };
+		E94DDECF20DB551D00729A67 /* ScoreTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEC620DB551B00729A67 /* ScoreTopView.m */; };
+		E94DDED020DB551D00729A67 /* ScoreRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEC820DB551C00729A67 /* ScoreRankingCell.m */; };
+		E94DDED120DB551D00729A67 /* TaskTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDECA20DB551C00729A67 /* TaskTopView.m */; };
+		E94DDEE220DB5AC000729A67 /* TaskAverageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEDE20DB5ABF00729A67 /* TaskAverageView.m */; };
+		E94DDEE320DB5AC000729A67 /* ScoreAverageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEDF20DB5ABF00729A67 /* ScoreAverageView.m */; };
 		E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD820CA1D3000D7DDA2 /* IMConfig.m */; };
 		E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD920CA1D3100D7DDA2 /* IMManager.m */; };
 		E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */; };
@@ -598,8 +608,6 @@
 		7C2E6F9620CA21A00066DE7C /* IMMemberInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMemberInfoView.m; sourceTree = "<group>"; };
 		7C3F758E20DA45BC00F4F418 /* ScoreEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreEditViewController.h; sourceTree = "<group>"; };
 		7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreEditViewController.m; sourceTree = "<group>"; };
-		7C3F759120DA493B00F4F418 /* ScoreSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreSettingCell.h; sourceTree = "<group>"; };
-		7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreSettingCell.m; sourceTree = "<group>"; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -1263,20 +1271,6 @@
 		E94DDE0920D3734100729A67 /* ScoreRankingFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreRankingFetcher.m; sourceTree = "<group>"; };
 		E94DDE0A20D3734100729A67 /* GetUserClazsScoreRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserClazsScoreRequest.h; sourceTree = "<group>"; };
 		E94DDE0B20D3734200729A67 /* ScoreRankingFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreRankingFetcher.h; sourceTree = "<group>"; };
-		E94DDE1020D3760F00729A67 /* ScoreRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreRankingCell.h; sourceTree = "<group>"; };
-		E94DDE1120D3760F00729A67 /* ScroeDetailTabContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScroeDetailTabContainerView.h; sourceTree = "<group>"; };
-		E94DDE1220D3760F00729A67 /* ScoreTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreTopView.h; sourceTree = "<group>"; };
-		E94DDE1320D3760F00729A67 /* ScroeDetailTabContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScroeDetailTabContainerView.m; sourceTree = "<group>"; };
-		E94DDE1420D3760F00729A67 /* TaskRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRankingCell.h; sourceTree = "<group>"; };
-		E94DDE1520D3760F00729A67 /* TaskRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRankingCell.m; sourceTree = "<group>"; };
-		E94DDE1620D3760F00729A67 /* TaskNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskNameCell.m; sourceTree = "<group>"; };
-		E94DDE1720D3760F00729A67 /* TaskTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTopView.h; sourceTree = "<group>"; };
-		E94DDE1820D3761000729A67 /* ScoreNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreNameCell.m; sourceTree = "<group>"; };
-		E94DDE1920D3761000729A67 /* ScoreTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTopView.m; sourceTree = "<group>"; };
-		E94DDE1A20D3761000729A67 /* ScoreNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreNameCell.h; sourceTree = "<group>"; };
-		E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreRankingCell.m; sourceTree = "<group>"; };
-		E94DDE1C20D3761000729A67 /* TaskNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskNameCell.h; sourceTree = "<group>"; };
-		E94DDE1D20D3761000729A67 /* TaskTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTopView.m; sourceTree = "<group>"; };
 		E94DDE5C20D9F02200729A67 /* TaskFilterItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskFilterItemView.h; sourceTree = "<group>"; };
 		E94DDE5D20D9F02300729A67 /* TaskFilterItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskFilterItemView.m; sourceTree = "<group>"; };
 		E94DDE5E20D9F02300729A67 /* TaskFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskFilterView.h; sourceTree = "<group>"; };
@@ -1305,6 +1299,43 @@
 		E94DDE8420DA507A00729A67 /* TaskCommentDataFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskCommentDataFetcher.m; sourceTree = "<group>"; };
 		E94DDE8620DA51C900729A67 /* TaskCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCommentViewController.h; sourceTree = "<group>"; };
 		E94DDE8720DA51C900729A67 /* TaskCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskCommentViewController.m; sourceTree = "<group>"; };
+		E94DDE9820DA571000729A67 /* RefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshDelegate.h; sourceTree = "<group>"; };
+		E94DDE9C20DB516800729A67 /* TaskRankingFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRankingFetcher.m; sourceTree = "<group>"; };
+		E94DDE9D20DB516800729A67 /* GetUserTaskProgressRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserTaskProgressRequest.h; sourceTree = "<group>"; };
+		E94DDE9E20DB516800729A67 /* GetUserTasksProgressRankRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserTasksProgressRankRequest.h; sourceTree = "<group>"; };
+		E94DDE9F20DB516900729A67 /* GetUserTaskProgressRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserTaskProgressRequest.m; sourceTree = "<group>"; };
+		E94DDEA020DB516900729A67 /* GetUserTasksProgressRankRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserTasksProgressRankRequest.m; sourceTree = "<group>"; };
+		E94DDEA120DB516900729A67 /* TaskRankingFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRankingFetcher.h; sourceTree = "<group>"; };
+		E94DDEA520DB523300729A67 /* ScoreRankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreRankingViewController.m; sourceTree = "<group>"; };
+		E94DDEA620DB523300729A67 /* TaskRankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRankingViewController.m; sourceTree = "<group>"; };
+		E94DDEA720DB523300729A67 /* ScoreDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreDetialViewController.h; sourceTree = "<group>"; };
+		E94DDEA820DB523400729A67 /* StudyScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudyScoreViewController.m; sourceTree = "<group>"; };
+		E94DDEA920DB523400729A67 /* TaskRankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRankingViewController.h; sourceTree = "<group>"; };
+		E94DDEAA20DB523400729A67 /* TaskScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskScoreViewController.h; sourceTree = "<group>"; };
+		E94DDEAB20DB523400729A67 /* ScoreRankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreRankingViewController.h; sourceTree = "<group>"; };
+		E94DDEAD20DB523500729A67 /* ScoreDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreDetialViewController.m; sourceTree = "<group>"; };
+		E94DDEAE20DB523500729A67 /* StudyScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudyScoreViewController.h; sourceTree = "<group>"; };
+		E94DDEB020DB523600729A67 /* TaskScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskScoreViewController.m; sourceTree = "<group>"; };
+		E94DDEBA20DB550000729A67 /* ScoreSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSettingCell.m; sourceTree = "<group>"; };
+		E94DDEBB20DB550000729A67 /* ScoreSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSettingCell.h; sourceTree = "<group>"; };
+		E94DDEBD20DB551900729A67 /* ScoreRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreRankingCell.h; sourceTree = "<group>"; };
+		E94DDEBE20DB551900729A67 /* ScroeDetailTabContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScroeDetailTabContainerView.h; sourceTree = "<group>"; };
+		E94DDEBF20DB551A00729A67 /* ScoreTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreTopView.h; sourceTree = "<group>"; };
+		E94DDEC020DB551A00729A67 /* ScroeDetailTabContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScroeDetailTabContainerView.m; sourceTree = "<group>"; };
+		E94DDEC120DB551A00729A67 /* TaskRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskRankingCell.h; sourceTree = "<group>"; };
+		E94DDEC220DB551A00729A67 /* TaskRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskRankingCell.m; sourceTree = "<group>"; };
+		E94DDEC320DB551A00729A67 /* TaskNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskNameCell.m; sourceTree = "<group>"; };
+		E94DDEC420DB551B00729A67 /* TaskTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTopView.h; sourceTree = "<group>"; };
+		E94DDEC520DB551B00729A67 /* ScoreNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreNameCell.m; sourceTree = "<group>"; };
+		E94DDEC620DB551B00729A67 /* ScoreTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTopView.m; sourceTree = "<group>"; };
+		E94DDEC720DB551B00729A67 /* ScoreNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreNameCell.h; sourceTree = "<group>"; };
+		E94DDEC820DB551C00729A67 /* ScoreRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreRankingCell.m; sourceTree = "<group>"; };
+		E94DDEC920DB551C00729A67 /* TaskNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskNameCell.h; sourceTree = "<group>"; };
+		E94DDECA20DB551C00729A67 /* TaskTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTopView.m; sourceTree = "<group>"; };
+		E94DDEDE20DB5ABF00729A67 /* TaskAverageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskAverageView.m; sourceTree = "<group>"; };
+		E94DDEDF20DB5ABF00729A67 /* ScoreAverageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreAverageView.m; sourceTree = "<group>"; };
+		E94DDEE020DB5ABF00729A67 /* TaskAverageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskAverageView.h; sourceTree = "<group>"; };
+		E94DDEE120DB5ABF00729A67 /* ScoreAverageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreAverageView.h; sourceTree = "<group>"; };
 		E9540BD820CA1D3000D7DDA2 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
 		E9540BD920CA1D3100D7DDA2 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		E9540BDA20CA1D3100D7DDA2 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
@@ -3021,10 +3052,21 @@
 				E94DDE0F20D375FE00729A67 /* View */,
 				E94DDDF920D3696300729A67 /* LearningSituationViewController.h */,
 				E94DDDFA20D3696300729A67 /* LearningSituationViewController.m */,
+				E94DDEA720DB523300729A67 /* ScoreDetialViewController.h */,
+				E94DDEAD20DB523500729A67 /* ScoreDetialViewController.m */,
+				E94DDEAB20DB523400729A67 /* ScoreRankingViewController.h */,
+				E94DDEA520DB523300729A67 /* ScoreRankingViewController.m */,
+				E94DDEAE20DB523500729A67 /* StudyScoreViewController.h */,
+				E94DDEA820DB523400729A67 /* StudyScoreViewController.m */,
+				E94DDEA920DB523400729A67 /* TaskRankingViewController.h */,
+				E94DDEA620DB523300729A67 /* TaskRankingViewController.m */,
+				E94DDEAA20DB523400729A67 /* TaskScoreViewController.h */,
+				E94DDEB020DB523600729A67 /* TaskScoreViewController.m */,
 				E94DDDFC20D36A5F00729A67 /* ScoreDefineViewController.h */,
 				E94DDDFD20D36A5F00729A67 /* ScoreDefineViewController.m */,
 				7C3F758E20DA45BC00F4F418 /* ScoreEditViewController.h */,
 				7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */,
+				E94DDE9820DA571000729A67 /* RefreshDelegate.h */,
 			);
 			path = "班级学情";
 			sourceTree = "<group>";
@@ -3042,6 +3084,12 @@
 				E94DDE0620D3734000729A67 /* GetUserClazsScoreRequest.m */,
 				E94DDE0B20D3734200729A67 /* ScoreRankingFetcher.h */,
 				E94DDE0920D3734100729A67 /* ScoreRankingFetcher.m */,
+				E94DDE9D20DB516800729A67 /* GetUserTaskProgressRequest.h */,
+				E94DDE9F20DB516900729A67 /* GetUserTaskProgressRequest.m */,
+				E94DDE9E20DB516800729A67 /* GetUserTasksProgressRankRequest.h */,
+				E94DDEA020DB516900729A67 /* GetUserTasksProgressRankRequest.m */,
+				E94DDEA120DB516900729A67 /* TaskRankingFetcher.h */,
+				E94DDE9C20DB516800729A67 /* TaskRankingFetcher.m */,
 			);
 			path = "班级学情";
 			sourceTree = "<group>";
@@ -3049,22 +3097,26 @@
 		E94DDE0F20D375FE00729A67 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E94DDE1120D3760F00729A67 /* ScroeDetailTabContainerView.h */,
-				E94DDE1320D3760F00729A67 /* ScroeDetailTabContainerView.m */,
-				E94DDE1220D3760F00729A67 /* ScoreTopView.h */,
-				E94DDE1920D3761000729A67 /* ScoreTopView.m */,
-				E94DDE1A20D3761000729A67 /* ScoreNameCell.h */,
-				E94DDE1820D3761000729A67 /* ScoreNameCell.m */,
-				E94DDE1020D3760F00729A67 /* ScoreRankingCell.h */,
-				E94DDE1B20D3761000729A67 /* ScoreRankingCell.m */,
-				E94DDE1720D3760F00729A67 /* TaskTopView.h */,
-				E94DDE1D20D3761000729A67 /* TaskTopView.m */,
-				E94DDE1C20D3761000729A67 /* TaskNameCell.h */,
-				E94DDE1620D3760F00729A67 /* TaskNameCell.m */,
-				E94DDE1420D3760F00729A67 /* TaskRankingCell.h */,
-				E94DDE1520D3760F00729A67 /* TaskRankingCell.m */,
-				7C3F759120DA493B00F4F418 /* ScoreSettingCell.h */,
-				7C3F759220DA493B00F4F418 /* ScoreSettingCell.m */,
+				E94DDEBB20DB550000729A67 /* ScoreSettingCell.h */,
+				E94DDEBA20DB550000729A67 /* ScoreSettingCell.m */,
+				E94DDEC720DB551B00729A67 /* ScoreNameCell.h */,
+				E94DDEC520DB551B00729A67 /* ScoreNameCell.m */,
+				E94DDEBD20DB551900729A67 /* ScoreRankingCell.h */,
+				E94DDEC820DB551C00729A67 /* ScoreRankingCell.m */,
+				E94DDEBF20DB551A00729A67 /* ScoreTopView.h */,
+				E94DDEC620DB551B00729A67 /* ScoreTopView.m */,
+				E94DDEE120DB5ABF00729A67 /* ScoreAverageView.h */,
+				E94DDEDF20DB5ABF00729A67 /* ScoreAverageView.m */,
+				E94DDEBE20DB551900729A67 /* ScroeDetailTabContainerView.h */,
+				E94DDEC020DB551A00729A67 /* ScroeDetailTabContainerView.m */,
+				E94DDEC920DB551C00729A67 /* TaskNameCell.h */,
+				E94DDEC320DB551A00729A67 /* TaskNameCell.m */,
+				E94DDEC120DB551A00729A67 /* TaskRankingCell.h */,
+				E94DDEC220DB551A00729A67 /* TaskRankingCell.m */,
+				E94DDEC420DB551B00729A67 /* TaskTopView.h */,
+				E94DDECA20DB551C00729A67 /* TaskTopView.m */,
+				E94DDEE020DB5ABF00729A67 /* TaskAverageView.h */,
+				E94DDEDE20DB5ABF00729A67 /* TaskAverageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3218,6 +3270,7 @@
 			files = (
 				7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */,
 				7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */,
+				E94DDEB620DB523600729A67 /* TaskScoreViewController.m in Sources */,
 				924297C720DA33060039038E /* CreateComplexTableHeaderView.m in Sources */,
 				7CEFC9781FA81106001D8C84 /* SignInListRequest.m in Sources */,
 				921E200620CFB16300A0604F /* SubordinateCourseCell.m in Sources */,
@@ -3230,6 +3283,7 @@
 				E932CD7D20BBD67E009F5BC6 /* SignInTypeView.m in Sources */,
 				436CB2211FB15B9100A31585 /* ContactsListCell.m in Sources */,
 				921860701FA9B0160018D982 /* NoticeListRequest.m in Sources */,
+				E94DDEE220DB5AC000729A67 /* TaskAverageView.m in Sources */,
 				4359B9631FB2A44B007D7F30 /* UserSignInPercentRequest.m in Sources */,
 				7CEFC86B1FA065B3001D8C84 /* ConfigManager.m in Sources */,
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
@@ -3244,6 +3298,7 @@
 				7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
+				E94DDEB220DB523600729A67 /* TaskRankingViewController.m in Sources */,
 				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
 				7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */,
 				7CDF129A20903B4E0044DD95 /* MJRefreshHeaderView.m in Sources */,
@@ -3253,6 +3308,7 @@
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
 				7CDF129920903B4E0044DD95 /* MJRefreshConst.m in Sources */,
 				7CDF117C208DB1310044DD95 /* FDActionSheetView.m in Sources */,
+				E94DDECF20DB551D00729A67 /* ScoreTopView.m in Sources */,
 				E9540BE920CA1D6F00D7DDA2 /* IMTopicMessage.m in Sources */,
 				923427A51FA823AE003BCEFD /* MainProjectDetailView.m in Sources */,
 				7CDF121A20902EC10044DD95 /* PreviewPhotosView.m in Sources */,
@@ -3264,6 +3320,7 @@
 				7CEFC96B1FA6DEEB001D8C84 /* ForgotPasswordViewController.m in Sources */,
 				E94DDE6D20DA1FDF00729A67 /* UserHomeworkFetcher.m in Sources */,
 				4359B9691FB2AA75007D7F30 /* DetailCellView.m in Sources */,
+				E94DDEB420DB523600729A67 /* ScoreDetialViewController.m in Sources */,
 				7CEFC8CF1FA06627001D8C84 /* UIViewController+VisibleViewController.m in Sources */,
 				E91481CB20906307001B7EB5 /* IMPhotoBrowserView.m in Sources */,
 				7CEFC9681FA6DA55001D8C84 /* PasswordResetView.m in Sources */,
@@ -3325,6 +3382,7 @@
 				7C06897C20D11A4D00C7CA14 /* FilterItemCell.m in Sources */,
 				9282170120CE738F0052E486 /* CreateCommentViewController.m in Sources */,
 				7CEFC8801FA065D6001D8C84 /* GetRequest.m in Sources */,
+				E94DDED120DB551D00729A67 /* TaskTopView.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				921016E020D8F262007FEBB7 /* CreateEvaluateCell.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
@@ -3340,6 +3398,7 @@
 				7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
 				E94DDE6020D9F02400729A67 /* TaskFilterItemView.m in Sources */,
+				E94DDEA420DB516A00729A67 /* GetUserTasksProgressRankRequest.m in Sources */,
 				7CEA29CA20D8E192000CE9EC /* HomeworkMemberView.m in Sources */,
 				7CDF128A20902FBF0044DD95 /* ClassMomentDiscardCommentRequest.m in Sources */,
 				7C672B6E1FB3FFB0004D93DF /* CourseInfoViewController.m in Sources */,
@@ -3360,7 +3419,6 @@
 				7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CDF124A20902F200044DD95 /* ClassMomentNotificationViewController.m in Sources */,
-				E94DDE2320D3761000729A67 /* ScoreRankingCell.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				7C672B231FB1538C004D93DF /* FillQuestionResultCell.m in Sources */,
 				7CDF123320902EE60044DD95 /* ClassMomentNotificationCell.m in Sources */,
@@ -3369,6 +3427,7 @@
 				7C672B4A1FB2A353004D93DF /* GetCourseRequest.m in Sources */,
 				E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */,
 				E94DDE7320DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m in Sources */,
+				E94DDECB20DB551D00729A67 /* ScroeDetailTabContainerView.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */,
 				E94DDE0520D36EEF00729A67 /* SetClazsScoreConfigRequest.m in Sources */,
@@ -3399,6 +3458,7 @@
 				7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */,
+				E94DDEA320DB516A00729A67 /* GetUserTaskProgressRequest.m in Sources */,
 				E94DDDFB20D3696300729A67 /* LearningSituationViewController.m in Sources */,
 				922942BF20D0BAE600CC21BD /* CreateQuestionGroupItem.m in Sources */,
 				9234279F1FA81CB6003BCEFD /* DetailContainerView.m in Sources */,
@@ -3407,7 +3467,6 @@
 				E91481C620906307001B7EB5 /* ChatListCell.m in Sources */,
 				7CDF11F920902E450044DD95 /* PhotoChooseViewController.m in Sources */,
 				7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */,
-				E94DDE2420D3761000729A67 /* TaskTopView.m in Sources */,
 				7C06897F20D11E1100C7CA14 /* FilterHeaderView.m in Sources */,
 				7C06894420CF6D5200C7CA14 /* ProvinceStatisticView.m in Sources */,
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
@@ -3431,13 +3490,13 @@
 				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				E9540BF720CA1E2200D7DDA2 /* TopicMsg.pbobjc.m in Sources */,
+				E94DDECD20DB551D00729A67 /* TaskNameCell.m in Sources */,
 				7C672B151FB0339D004D93DF /* TaskListCell.m in Sources */,
 				7C672B5F1FB3EC6D004D93DF /* CourseResourceFetcher.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
 				E91481AD209062C4001B7EB5 /* IMImageMessageBaseCell.m in Sources */,
-				E94DDE2020D3761000729A67 /* TaskNameCell.m in Sources */,
-				E94DDE2120D3761000729A67 /* ScoreNameCell.m in Sources */,
 				43729E161FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m in Sources */,
+				E94DDECE20DB551D00729A67 /* ScoreNameCell.m in Sources */,
 				7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
 				E91481AE209062C4001B7EB5 /* IMImageMessageLeftCell.m in Sources */,
@@ -3466,6 +3525,7 @@
 				E91481C820906307001B7EB5 /* IMInputView.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */,
+				E94DDEB120DB523600729A67 /* ScoreRankingViewController.m in Sources */,
 				7CDF127620902FBF0044DD95 /* ClassMomentListFetcher.m in Sources */,
 				7CDF120C20902E8A0044DD95 /* ImageSelectionHandler.m in Sources */,
 				7CEFC9741FA70805001D8C84 /* ClassSelectionViewController.m in Sources */,
@@ -3501,8 +3561,11 @@
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
 				921860851FA9BC1D0018D982 /* NoticeSaveImageCell.m in Sources */,
 				E91481C920906307001B7EB5 /* IMMessageMenuItem.m in Sources */,
+				E94DDEB320DB523600729A67 /* StudyScoreViewController.m in Sources */,
 				9234277E1FA722CF003BCEFD /* CourseListHeaderView.m in Sources */,
 				E91DC4B4209065DE003D6F31 /* UIImage+GIF.m in Sources */,
+				E94DDEA220DB516A00729A67 /* TaskRankingFetcher.m in Sources */,
+				E94DDED020DB551D00729A67 /* ScoreRankingCell.m in Sources */,
 				7CDF1135208D7AA40044DD95 /* UserModel.m in Sources */,
 				43729E191FB6CAD20043C988 /* SubjectivityAnswerViewController.m in Sources */,
 				923427A81FA823C7003BCEFD /* MainClassDetailView.m in Sources */,
@@ -3523,6 +3586,7 @@
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
 				9282171D20CF75E50052E486 /* UpdateComplexRequest.m in Sources */,
 				E91481AC209062C4001B7EB5 /* IMMessageBaseCell.m in Sources */,
+				E94DDEBC20DB550000729A67 /* ScoreSettingCell.m in Sources */,
 				9282171A20CF75C80052E486 /* CreateComplexRequest.m in Sources */,
 				9235F9861FB3EDED003A9027 /* ScheduleDetailViewController.m in Sources */,
 				7C06894A20CF731500C7CA14 /* PercentStatisticView.m in Sources */,
@@ -3559,6 +3623,7 @@
 				921016D120D8DF75007FEBB7 /* CreateHomeworkRequest.m in Sources */,
 				43729E251FB986BE0043C988 /* SubjectivityAnswerTitleView.m in Sources */,
 				E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */,
+				E94DDECC20DB551D00729A67 /* TaskRankingCell.m in Sources */,
 				921DE2E41FB146B000CF39DE /* ResourceUploadViewController.m in Sources */,
 				7C06897320D0D42700C7CA14 /* ClassDetailStatisticView.m in Sources */,
 				436A6B291FB306D2008E461B /* UserSignInRecordListFetcher.m in Sources */,
@@ -3581,13 +3646,11 @@
 				7CDF124C20902F200044DD95 /* PhotoBrowserController.m in Sources */,
 				7CDF128120902FBF0044DD95 /* ClassMomentCancelLikeRequest.m in Sources */,
 				921016E320D8FBEA007FEBB7 /* QuestionTemplatesViewController.m in Sources */,
-				E94DDE1E20D3761000729A67 /* ScroeDetailTabContainerView.m in Sources */,
 				7C672B841FB53929004D93DF /* CourseCommentViewController.m in Sources */,
 				E91481CE20906307001B7EB5 /* IMImageSendingProgressView.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				7CDF127F20902FBF0044DD95 /* ClassMomentListRequest.m in Sources */,
 				436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */,
-				E94DDE2220D3761000729A67 /* ScoreTopView.m in Sources */,
 				E91481C520906307001B7EB5 /* IMMessageTableView.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,
 				E91481AF209062C4001B7EB5 /* IMImageMessageRightCell.m in Sources */,
@@ -3596,7 +3659,6 @@
 				E91481B0209062C4001B7EB5 /* IMTextMessageBaseCell.m in Sources */,
 				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
-				E94DDE1F20D3761000729A67 /* TaskRankingCell.m in Sources */,
 				E94DDE6A20DA0F9200729A67 /* GetUserHomeworksRequest.m in Sources */,
 				7CDF123620902EE60044DD95 /* ReportTableViewCell.m in Sources */,
 				7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */,
@@ -3634,7 +3696,6 @@
 				7CDF120F20902E8A0044DD95 /* ImageAttachmentView.m in Sources */,
 				E94DDE8520DA507A00729A67 /* TaskCommentDataFetcher.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
-				7C3F759320DA493B00F4F418 /* ScoreSettingCell.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */,
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
@@ -3660,6 +3721,7 @@
 				7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */,
 				7CDF121C20902EC10044DD95 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
 				7C06894D20CF79C700C7CA14 /* TrainingProfileHeaderView.m in Sources */,
+				E94DDEE320DB5AC000729A67 /* ScoreAverageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

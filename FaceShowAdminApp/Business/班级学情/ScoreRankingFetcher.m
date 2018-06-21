@@ -28,8 +28,9 @@
             return;
         }
         GetClazsSocresRequestItem *item = (GetClazsSocresRequestItem *)retItem;
-        self.lastID += item.data.elements.count;
-        BLOCK_EXEC(aCompleteBlock, item.data.totalElements.intValue, item.data.elements, nil)
+        self.lastID += item.data.clazsUserScore.elements.count;
+        BLOCK_EXEC(self.finishBlock,item.data.studentAvgScore);
+        BLOCK_EXEC(aCompleteBlock, item.data.clazsUserScore.totalElements.intValue, item.data.clazsUserScore.elements, nil)
     }];
 }
 @end

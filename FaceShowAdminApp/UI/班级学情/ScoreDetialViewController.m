@@ -1,36 +1,29 @@
 //
-//  LearningSituationViewController.m
-//  FaceShowAdminApp
+//  ScoreDetialViewController.m
+//  FaceShowApp
 //
-//  Created by ZLL on 2018/6/15.
+//  Created by ZLL on 2018/6/14.
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "LearningSituationViewController.h"
-#import "ScoreDefineViewController.h"
+#import "ScoreDetialViewController.h"
 #import "ScroeDetailTabContainerView.h"
-#import "TaskRankingViewController.h"
-#import "ScoreRankingViewController.h"
+#import "TaskScoreViewController.h"
+#import "StudyScoreViewController.h"
 #import "RefreshDelegate.h"
 
-@interface LearningSituationViewController ()
+@interface ScoreDetialViewController ()
 @property (nonatomic, strong) NSMutableArray<UIViewController<RefreshDelegate> *> *tabControllers;
 @property (nonatomic, strong) UIView *tabContentView;
-@property (nonatomic, strong) NSString *clazsId;
+
 @end
 
-@implementation LearningSituationViewController
+@implementation ScoreDetialViewController
 
-- (instancetype)initWithClazsId:(NSString *)clazsId {
-    if (self = [super init]) {
-        self.clazsId = clazsId;
-        [self setupUI];
-    }
-    return self;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"班级学情";
+    self.title = @"详情";
+    [self setupUI];
     // Do any additional setup after loading the view.
 }
 
@@ -38,17 +31,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (void)setupUI {
-    WEAK_SELF
-    [self nyx_setupRightWithTitle:@"积分设置" action:^{
-        STRONG_SELF
-        ScoreDefineViewController *vc = [[ScoreDefineViewController alloc]init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
-    
+
     ScroeDetailTabContainerView *tabContainerView = [[ScroeDetailTabContainerView alloc]init];
     NSArray *tabNames = @[@"任务进度",@"学习积分"];
     tabContainerView.tabNameArray = tabNames;
+    WEAK_SELF
     [tabContainerView setTabClickBlock:^(NSInteger index){
         STRONG_SELF
         self.selectedIndex = index;
@@ -61,8 +50,8 @@
     }];
     
     self.tabControllers = [NSMutableArray array];
-    [self.tabControllers addObject:[[TaskRankingViewController alloc]init]];
-    [self.tabControllers addObject:[[ScoreRankingViewController alloc]init]];
+    [self.tabControllers addObject:[[TaskScoreViewController alloc]initWithUserId:self.userId]];
+    [self.tabControllers addObject:[[StudyScoreViewController alloc]initWithUserId:self.userId]];
     for (UIViewController *vc in self.tabControllers) {
         [self addChildViewController:vc];
     }
@@ -72,10 +61,7 @@
         make.left.right.bottom.mas_equalTo(0);
         make.top.mas_equalTo(tabContainerView.mas_bottom);
     }];
-    
-    if (self.selectedIndex < self.tabControllers.count) {
-        tabContainerView.selectedIndex = self.selectedIndex;
-    }
+    [self switchToVCWithIndex:0];
 }
 
 - (void)switchToVCWithIndex:(NSInteger)index {
@@ -89,6 +75,7 @@
     }];
     SAFE_CALL(self.tabControllers[index], refreshUI);
 }
+
 
 @end
 

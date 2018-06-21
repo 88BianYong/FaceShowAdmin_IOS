@@ -10,6 +10,5 @@
 @class GetUserClazsScoreRequestItem;
 
 @interface ScoreTopView : UIView
-@property (nonatomic, copy) void(^rankingChoosedBlock)(void);
 @property(nonatomic, strong) GetUserClazsScoreRequestItem *item;
 @end
