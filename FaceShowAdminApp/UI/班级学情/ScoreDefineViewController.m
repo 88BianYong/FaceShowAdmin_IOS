@@ -9,10 +9,15 @@
 #import "ScoreDefineViewController.h"
 #import "ScoreEditViewController.h"
 #import "ScoreSettingCell.h"
+#import "GetClazsScoreConfigRequest.h"
+#import "ErrorView.h"
 
 @interface ScoreDefineViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) ErrorView *errorView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *editButton;
+@property (nonatomic, strong) GetClazsScoreConfigRequest *request;
+@property (nonatomic, strong) GetClazsScoreConfigRequestItem_data *data;
 @end
 
 @implementation ScoreDefineViewController
@@ -21,6 +26,7 @@
     [super viewDidLoad];
     self.title = @"积分设置";
     [self setupUI];
+    [self requestScoreConfig];
     // Do any additional setup after loading the view.
 }
 
@@ -29,9 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupUI {
-    [self setupNavView];
-    
+- (void)setupUI {    
     self.tableView = [[UITableView alloc]init];
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -44,41 +48,59 @@
         make.edges.mas_equalTo(0);
     }];
     [self.tableView registerClass:[ScoreSettingCell class] forCellReuseIdentifier:@"ScoreSettingCell"];
+    
+    self.errorView = [[ErrorView alloc]init];
+    WEAK_SELF
+    [self.errorView setRetryBlock:^{
+        STRONG_SELF
+        [self requestScoreConfig];
+    }];
 }
 
-- (void)setupNavView {
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setTitle:@"编辑" forState:UIControlStateNormal];
-    rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
-    [rightButton setTitleColor:[UIColor colorWithHexString:@"1da1f2"] forState:UIControlStateNormal];
-    [rightButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
-    rightButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
+- (void)requestScoreConfig {
+    [self.request stopRequest];
+    self.request = [[GetClazsScoreConfigRequest alloc]init];
+    self.request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     WEAK_SELF
-    [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    [self.view nyx_startLoading];
+    [self.request startRequestWithRetClass:[GetClazsScoreConfigRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
-        if ([rightButton.titleLabel.text isEqualToString:@"编辑"]) {
-            [rightButton setTitle:@"保存" forState:UIControlStateNormal];
-        }else {
-            [rightButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view addSubview:self.errorView];
+            [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
+            return;
         }
+        GetClazsScoreConfigRequestItem *item = (GetClazsScoreConfigRequestItem *)retItem;
+        [self.errorView removeFromSuperview];
+        self.data = item.data;
+        [self.tableView reloadData];
     }];
-    self.editButton = rightButton;
-    [self nyx_setupRightWithCustomView:rightButton];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.data.configItems.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ScoreSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScoreSettingCell"];
+    cell.item = self.data.configItems[indexPath.row];
     return cell;
 }
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ScoreEditViewController *vc = [[ScoreEditViewController alloc]init];
-    vc.scoreName = @"评价";
-    vc.score = @"16";
+    vc.data = self.data;
+    vc.currentItem = self.data.configItems[indexPath.row];
+    WEAK_SELF
+    [vc setFinishBlock:^{
+        STRONG_SELF
+        [self requestScoreConfig];
+    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

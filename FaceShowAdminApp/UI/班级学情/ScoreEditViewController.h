@@ -7,8 +7,11 @@
 //
 
 #import "BaseViewController.h"
+@class GetClazsScoreConfigRequestItem_data;
+@class GetClazsScoreConfigRequestItem_configItem;
 
 @interface ScoreEditViewController : BaseViewController
-@property (nonatomic, strong) NSString *scoreName;
-@property (nonatomic, strong) NSString *score;
+@property (nonatomic, strong) GetClazsScoreConfigRequestItem_data *data;
+@property (nonatomic, strong) GetClazsScoreConfigRequestItem_configItem *currentItem;
+@property (nonatomic, strong) void(^finishBlock) (void);
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ScoreSettingCell.h"
+#import "GetClazsScoreConfigRequest.h"
 
 @interface ScoreSettingCell()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -84,4 +85,9 @@
     self.scoreLabel.text = @"16";
 }
 
+- (void)setItem:(GetClazsScoreConfigRequestItem_configItem *)item {
+    _item = item;
+    self.titleLabel.text = item.scoreName;
+    self.scoreLabel.text = item.scoreDefine;
+}
 @end

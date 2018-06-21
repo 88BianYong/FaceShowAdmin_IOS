@@ -8,6 +8,9 @@
 
 #import "SetClazsScoreConfigRequest.h"
 
+@implementation SetClazsScoreConfigRequestItem_undefinedConfig
+@end
+
 @implementation SetClazsScoreConfigRequestItem_data
 @end
 

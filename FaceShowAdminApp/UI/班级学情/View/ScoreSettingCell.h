@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GetClazsScoreConfigRequestItem_configItem;
 
 @interface ScoreSettingCell : UITableViewCell
-
+@property(nonatomic, strong) GetClazsScoreConfigRequestItem_configItem *item;
 @end
