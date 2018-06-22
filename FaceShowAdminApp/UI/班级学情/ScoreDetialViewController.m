@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"详情";
     [self setupUI];
     // Do any additional setup after loading the view.
 }

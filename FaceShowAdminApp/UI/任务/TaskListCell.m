@@ -85,7 +85,7 @@
 - (void)setData:(GetAllTasksRequestItem_task *)data {
     _data = data;
     self.titleLabel.text = data.interactName;
-    if (!data.courseName) {
+    if (data.courseName.length <= 0) {
         data.courseName = @"班级任务";
     }
     self.descLabel.text = [NSString stringWithFormat:@"所属课程:%@",data.courseName];
