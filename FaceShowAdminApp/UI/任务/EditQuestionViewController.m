@@ -154,8 +154,7 @@
     WEAK_SELF
     [[self.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
-        BLOCK_EXEC(self.editQuestionBlock,nil);
-        [self.navigationController popViewControllerAnimated:YES];
+        [self showDeleteQuestionAlert];
     }];
     [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(bottomView.mas_centerY);
@@ -163,6 +162,17 @@
         make.left.equalTo(bottomView.mas_left).offset(15.0f);
         make.right.equalTo(bottomView.mas_right).offset(-15.0f);
     }];
+}
+- (void)showDeleteQuestionAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定删除吗?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        BLOCK_EXEC(self.editQuestionBlock,nil);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:delete];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 - (void)setupNavigationRightView{
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];

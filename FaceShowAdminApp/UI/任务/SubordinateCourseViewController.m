@@ -74,7 +74,7 @@
     self.tableView.hidden = YES;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 45.0f;
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[SubordinateCourseCell class] forCellReuseIdentifier:@"SubordinateCourseCell"];
     self.errorView = [[ErrorView alloc]init];

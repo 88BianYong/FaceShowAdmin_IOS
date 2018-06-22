@@ -17,6 +17,7 @@
 @interface ChooseTemplateViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) ErrorView *errorView;
+@property (nonatomic, strong) UIButton *publishButton;
 
 @property (nonatomic, strong) GetQuestionGroupTemplatesRequest *groupRequest;
 @property (nonatomic, strong) GetQuestionGroupTemplatesRequestItem *itemData;
@@ -36,11 +37,6 @@
     [self setupUI];
     [self setupLayout];
     [self requestForQuestionGroupTemplates];
-    WEAK_SELF
-    [self nyx_setupRightWithTitle:@"确定" action:^{
-        STRONG_SELF
-        [self requestForQuestionTemplate];
-    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -51,10 +47,6 @@
     self.tableView.hidden = NO;
     [self.tableView reloadData];
     self.chooseInteger = 0;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.chooseInteger inSection:0];
-    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    [cell setSelected:YES animated:YES];
 }
 #pragma mark - setupUI
 - (void)setupUI {
@@ -64,7 +56,7 @@
     self.tableView.hidden = YES;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 45.0f;
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[CreateEvaluateCell class] forCellReuseIdentifier:@"CreateEvaluateCell"];
     [self.tableView registerClass:[CreateEvaluateHeaderView class] forHeaderFooterViewReuseIdentifier:@"CreateEvaluateHeaderView"];
@@ -76,6 +68,23 @@
         [self requestForQuestionGroupTemplates];
     }];
     [self.view addSubview:self.errorView];
+    [self setupNavigationRightView];
+}
+- (void)setupNavigationRightView{
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setTitle:@"确定" forState:UIControlStateNormal];
+    rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
+    [rightButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+    [rightButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
+    WEAK_SELF
+    [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        STRONG_SELF
+        [self requestForQuestionTemplate];
+    }];
+    rightButton.enabled = NO;
+    self.publishButton = rightButton;
+    [self nyx_setupRightWithCustomView:rightButton];
 }
 - (void)setupLayout {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,6 +105,7 @@
     CreateEvaluateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CreateEvaluateCell" forIndexPath:indexPath];
     GetQuestionGroupTemplatesRequestItem_Data *data = self.itemData.data[indexPath.row];
     cell.titleString = data.title;
+    cell.enabled = YES;
     WEAK_SELF
     cell.previewTemplateBlock = ^{
         STRONG_SELF
@@ -108,6 +118,7 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.publishButton.enabled = YES;
     self.chooseInteger = indexPath.row;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

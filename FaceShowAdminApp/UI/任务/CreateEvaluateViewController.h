@@ -10,4 +10,6 @@
 
 @interface CreateEvaluateViewController : BaseViewController
 @property (nonatomic, strong) void (^reloadComleteBlock)(void);
+@property (nonatomic, strong) NSMutableArray *templateIdMutableArray;
+
 @end

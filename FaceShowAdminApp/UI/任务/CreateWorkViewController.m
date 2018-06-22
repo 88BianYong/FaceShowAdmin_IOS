@@ -251,7 +251,7 @@
 }
 
 - (void)showAlertView {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"退出此次创建" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否退出此次创建" message:nil preferredStyle:UIAlertControllerStyleAlert];
     WEAK_SELF
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         STRONG_SELF
@@ -427,10 +427,7 @@
                 [self.view nyx_stopLoading];
                 BLOCK_EXEC(self.reloadComleteBlock);
                 [self.navigationController popViewControllerAnimated:YES];
-//                BLOCK_EXEC(self.publishMomentDataBlock,item.data);
-//                [self dismiss];
             });
-
         }
     }];
     self.createRequest = request;

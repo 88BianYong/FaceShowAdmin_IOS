@@ -11,4 +11,5 @@
 @interface CreateEvaluateCell : UITableViewCell
 @property (nonatomic, strong) NSString *titleString;
 @property (nonatomic, copy) void(^previewTemplateBlock)(void);
+@property (nonatomic, assign) BOOL enabled;
 @end

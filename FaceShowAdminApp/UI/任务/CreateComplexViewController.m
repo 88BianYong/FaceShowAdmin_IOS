@@ -181,6 +181,28 @@
         self.publishButton.enabled = NO;
     }
 }
+- (void)backAction {
+    if (self.tableHeaderView.textView.text.length > 0 || self.tableHeaderView.textField.text.length > 0 || self.itemData.questions.count > 0) {
+        [self showAlertView];
+    }else {
+        [super backAction];
+    }
+}
+
+- (void)showAlertView {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否退出此次创建" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    WEAK_SELF
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        STRONG_SELF
+    }];
+    [alertVC addAction:cancleAction];
+    UIAlertAction *backAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        STRONG_SELF
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alertVC addAction:backAction];
+    [[self nyx_visibleViewController] presentViewController:alertVC animated:YES completion:nil];
+}
 #pragma mark - UITableViewDataScore
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.itemData.questions.count;

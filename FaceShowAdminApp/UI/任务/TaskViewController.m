@@ -46,6 +46,7 @@
 @property (nonatomic, assign) InteractType currentType;
 @property (nonatomic, assign) BOOL isLayoutComplete;
 @property(nonatomic, strong) GetHomeworkRequest *getHomeworkRequest;
+@property (nonatomic, strong) NSMutableArray *templateIdMutableArray;//已创建评价模板ID;
 @end
 
 @implementation TaskViewController
@@ -56,6 +57,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.templateIdMutableArray = [[NSMutableArray alloc] init];
     WEAK_SELF
     [self nyx_setupLeftWithImageName:@"抽屉列表按钮正常态" highlightImageName:@"抽屉列表按钮点击态" action:^{
         STRONG_SELF
@@ -156,6 +158,7 @@
             return;
         }
         self.tasksArray = [NSArray arrayWithArray:item.data.tasks];
+        [self splitGetEvaluateTemplateId];
         self.filterArray = [NSArray arrayWithArray:item.data.interactTypes];
         self.dataArray = [self filterWithType:self.currentType];
         if (!self.isLayoutComplete) {
@@ -187,6 +190,13 @@
         }
     }
     return resultArray;
+}
+- (void)splitGetEvaluateTemplateId{
+    [self.tasksArray enumerateObjectsUsingBlock:^(GetAllTasksRequestItem_task * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.interactType.integerValue == 7) {
+            [self.templateIdMutableArray addObject:obj.templateId?:@""];
+        }
+    }];
 }
 
 - (NSInteger)indexForInteractType:(InteractType)type {
@@ -306,6 +316,7 @@
             case 5:
             {
                 CreateEvaluateViewController *VC = [[CreateEvaluateViewController alloc] init];
+                VC.templateIdMutableArray = self.templateIdMutableArray;
                 WEAK_SELF
                 VC.reloadComleteBlock = ^{
                     STRONG_SELF

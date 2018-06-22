@@ -26,6 +26,19 @@
     _titleString = titleString;
     self.nameLabel.text = _titleString;
 }
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    if (_enabled) {
+        self.nameLabel.textColor = [UIColor colorWithHexString:@"333333"];
+        self.nameLabel.highlightedTextColor = [UIColor colorWithHexString:@"0068bd"];
+        self.selectedImageView.highlightedImage = [UIImage imageNamed:@"选择按钮"];
+
+    }else {
+        self.nameLabel.textColor = [UIColor colorWithHexString:@"999999"];
+        self.nameLabel.highlightedTextColor = [UIColor colorWithHexString:@"999999"];
+        self.selectedImageView.highlightedImage = nil;
+    }
+}
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
@@ -46,7 +59,6 @@
     [self.contentView addSubview:self.nameLabel];
     
     self.selectedImageView = [[UIImageView alloc] init];
-    self.selectedImageView.highlightedImage = [UIImage imageNamed:@"选择按钮"];
     [self.contentView addSubview:self.selectedImageView];
     
     self.lineView = [[UIView alloc] init];
