@@ -47,7 +47,6 @@
         self.thirdView.selected = NO;
         BLOCK_EXEC(self.questionTypeBlock,@"1");
     }];
-    self.firstView.selected = YES;
     self.firstView.titleString = @"单选";
     [self addSubview:self.firstView];
     self.secondView = [[EditQuestionTypeView alloc] init];

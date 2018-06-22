@@ -105,6 +105,7 @@
         [self.tableView reloadData];
         [self reloadPublishButtonStatus];
     };
+    self.tableHeaderView.tag = 1;
     self.tableView.tableHeaderView = self.tableHeaderView;
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"keyUploadHeight" object:nil] subscribeNext:^(NSNotification *x) {
         STRONG_SELF
