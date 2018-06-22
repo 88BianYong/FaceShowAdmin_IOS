@@ -57,6 +57,7 @@
 		7C06897C20D11A4D00C7CA14 /* FilterItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897B20D11A4D00C7CA14 /* FilterItemCell.m */; };
 		7C06897F20D11E1100C7CA14 /* FilterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897E20D11E1100C7CA14 /* FilterHeaderView.m */; };
 		7C06898220D2039900C7CA14 /* CustomTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */; };
+		7C07F03620DCAAFE00E6BCE2 /* GetMyProjectsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
@@ -594,6 +595,8 @@
 		7C06897E20D11E1100C7CA14 /* FilterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterHeaderView.m; sourceTree = "<group>"; };
 		7C06898020D2039900C7CA14 /* CustomTimeSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTimeSettingView.h; sourceTree = "<group>"; };
 		7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTimeSettingView.m; sourceTree = "<group>"; };
+		7C07F03420DCAAFE00E6BCE2 /* GetMyProjectsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetMyProjectsRequest.h; sourceTree = "<group>"; };
+		7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMyProjectsRequest.m; sourceTree = "<group>"; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -2294,6 +2297,8 @@
 				436E6E071FB3F9C4009950EA /* UpdateUserInfoRequest.m */,
 				436E6DF81FB3F395009950EA /* UploadHeadImgRequest.h */,
 				436E6DF61FB3F394009950EA /* UploadHeadImgRequest.m */,
+				7C07F03420DCAAFE00E6BCE2 /* GetMyProjectsRequest.h */,
+				7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */,
 				7CEFC8ED1FA067B2001D8C84 /* UserManager.h */,
 				7CEFC8EB1FA067B2001D8C84 /* UserManager.m */,
 				7CDF1133208D7AA30044DD95 /* UserModel.h */,
@@ -3755,6 +3760,7 @@
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				E94DDE8220DA4FC400729A67 /* GetTaskCommentRequest.m in Sources */,
+				7C07F03620DCAAFE00E6BCE2 /* GetMyProjectsRequest.m in Sources */,
 				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,
 				921DE2DE1FB1465900CF39DE /* ResourceManagerFetcher.m in Sources */,

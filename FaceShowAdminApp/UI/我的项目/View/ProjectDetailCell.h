@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetMyProjectsRequest.h"
 
 typedef NS_ENUM(NSUInteger, ProjectGroupType) {
     ProjectGroup_InProgress,
@@ -16,4 +17,5 @@ typedef NS_ENUM(NSUInteger, ProjectGroupType) {
 
 @interface ProjectDetailCell : UITableViewCell
 @property (nonatomic, assign) ProjectGroupType type;
+@property (nonatomic, strong) GetMyProjectsRequestItem_project *data;
 @end

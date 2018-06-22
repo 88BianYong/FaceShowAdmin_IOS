@@ -186,13 +186,13 @@
 - (UIButton *)optionBtnWithItem:(NSString *)item {
     UIButton *btn = nil;
     if ([item isEqualToString:@"培训概况"]) {
-        btn = [self optionBtnWithTitle:@"培训概况" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
+        btn = [self optionBtnWithTitle:@"培训概况" normalImage:@"培训概况" highlightedImage:@"培训概况点击"];
     }
     if ([item isEqualToString:@"我的项目"]) {
-        btn = [self optionBtnWithTitle:@"我的项目" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
+        btn = [self optionBtnWithTitle:@"我的项目" normalImage:@"我的项目" highlightedImage:@"我的项目点击"];
     }
     if ([item isEqualToString:@"我的班级"]) {
-        btn = [self optionBtnWithTitle:@"我的班级" normalImage:@"首页icon正常态" highlightedImage:@"首页icon点击态"];
+        btn = [self optionBtnWithTitle:@"我的班级" normalImage:@"我的班级" highlightedImage:@"我的班级点击"];
     }
     return btn;
 }

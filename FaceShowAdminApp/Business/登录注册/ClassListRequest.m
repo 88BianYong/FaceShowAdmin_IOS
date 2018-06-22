@@ -23,7 +23,7 @@
 @implementation ClassListRequest
 - (instancetype)init {
     if (self = [super init]) {
-        self.method = @"app.manage.clazses";
+        self.method = @"app.manage.plat.clazses";
     }
     return self;
 }

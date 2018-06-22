@@ -33,5 +33,5 @@
 @end
 
 @interface ClassListRequest : YXGetRequest
-
+@property (nonatomic, strong) NSString *platId;
 @end

@@ -111,25 +111,38 @@
     [self.enterClassButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     self.enterClassButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.enterClassButton addTarget:self action:@selector(enterClass) forControlEvents:UIControlEventTouchUpInside];
+    self.enterClassButton.clipsToBounds = YES;
     [self.view addSubview:self.enterClassButton];
-    [self.enterClassButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(50);
-        if (@available(iOS 11.0, *)) {
-            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-        } else {
-            make.bottom.mas_equalTo(0);
-        }
-    }];
+    
     self.slideView = [[QASlideView alloc]init];
     self.slideView.dataSource = self;
     self.slideView.delegate = self;
     [self.view addSubview:self.slideView];
-    [self.slideView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.switchView.mas_bottom);
-        make.bottom.mas_equalTo(self.enterClassButton.mas_top).mas_offset(-5);
-        make.left.right.mas_equalTo(0);
-    }];
+    
+    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
+    if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+        [self.enterClassButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.height.mas_equalTo(50);
+            if (@available(iOS 11.0, *)) {
+                make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            } else {
+                make.bottom.mas_equalTo(0);
+            }
+        }];
+        [self.slideView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.switchView.mas_bottom);
+            make.bottom.mas_equalTo(self.enterClassButton.mas_top).mas_offset(-5);
+            make.left.right.mas_equalTo(0);
+        }];
+    }else {
+        [self.enterClassButton removeFromSuperview];
+        [self.slideView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.switchView.mas_bottom);
+            make.bottom.mas_equalTo(0);
+            make.left.right.mas_equalTo(0);
+        }];
+    }
     
     // mock mock
     self.completeView.number = @"80%";

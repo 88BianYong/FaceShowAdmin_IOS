@@ -61,6 +61,8 @@
                 [manager.getClassRequest stopRequest];
                 manager.getClassRequest = [[ClassListRequest alloc] init];
                 manager.getClassRequest.token = userModel.token;
+                GetUserPlatformRequestItem_platformInfos *plat = platform.data.platformInfos.firstObject;
+                manager.getClassRequest.platId = plat.platformId;
                 [manager.getClassRequest startRequestWithRetClass:[ClassListRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
                     if (error) {
                         BLOCK_EXEC(completeBlock, error);

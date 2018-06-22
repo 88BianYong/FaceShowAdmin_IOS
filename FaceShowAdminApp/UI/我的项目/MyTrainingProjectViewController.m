@@ -11,22 +11,24 @@
 #import "TitleHeaderView.h"
 #import "TrainingProjectDetailViewController.h"
 #import "YXDrawerController.h"
-
-@interface ProjectGroup :NSObject
-@property (nonatomic, assign) ProjectGroupType type;
-@property (nonatomic, assign) NSInteger count;
-@end
-
-@implementation ProjectGroup
-@end
+#import "EmptyView.h"
+#import "ErrorView.h"
+#import "MJRefresh.h"
+#import "GetMyProjectsRequest.h"
 
 @interface MyTrainingProjectViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray<ProjectGroup *> *groupArray;
+@property (nonatomic, strong) MJRefreshHeaderView *header;
+@property (nonatomic, strong) EmptyView *emptyView;
+@property (nonatomic, strong) ErrorView *errorView;
+@property (nonatomic, strong) NSMutableArray<NSArray *> *groupArray;
+@property (nonatomic, strong) GetMyProjectsRequest *projectRequest;
 @end
 
 @implementation MyTrainingProjectViewController
-
+- (void)dealloc {
+    [self.header free];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,17 +44,8 @@
         }
     }
     self.groupArray = [NSMutableArray array];
-    ProjectGroup *g1 = [[ProjectGroup alloc]init];
-    g1.type = ProjectGroup_InProgress;
-    g1.count = 3;
-    ProjectGroup *g2 = [[ProjectGroup alloc]init];
-    g2.type = ProjectGroup_Complete;
-    g2.count = 1;
-    ProjectGroup *g3 = [[ProjectGroup alloc]init];
-    g3.type = ProjectGroup_NotStarted;
-    g3.count = 1;
-    [self.groupArray addObjectsFromArray:@[g1,g2,g3]];
     [self setupUI];
+    [self requestMyProjects];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +71,62 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 5)];
     headerView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.tableView.tableHeaderView = headerView;
+    
+    WEAK_SELF
+    self.header = [MJRefreshHeaderView header];
+    self.header.scrollView = self.tableView;
+    self.header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        STRONG_SELF
+        [self requestMyProjects];
+    };
+    
+    self.emptyView = [[EmptyView alloc]init];
+    [self.view addSubview:self.emptyView];
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    self.errorView = [[ErrorView alloc]init];
+    [self.errorView setRetryBlock:^{
+        STRONG_SELF
+        [self requestMyProjects];
+    }];
+    [self.view addSubview:self.errorView];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    self.emptyView.hidden = YES;
+    self.errorView.hidden = YES;
+}
+
+- (void)requestMyProjects {
+    [self.view nyx_startLoading];
+    [self.projectRequest stopRequest];
+    self.projectRequest = [[GetMyProjectsRequest alloc]init];
+    GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
+    self.projectRequest.platId = plat.platformId;
+    WEAK_SELF
+    [self.projectRequest startRequestWithRetClass:[GetMyProjectsRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.header endRefreshing];
+        [self.view nyx_stopLoading];
+        self.errorView.hidden = YES;
+        self.emptyView.hidden = YES;
+        if (error) {
+            self.errorView.hidden = NO;
+            return;
+        }
+        GetMyProjectsRequestItem *item = (GetMyProjectsRequestItem *)retItem;
+        if (item.data.projectGoingCountes.count == 0 &&
+            item.data.projectNoStartCountes.count == 0 &&
+            item.data.projectFinishedCountes.count == 0) {
+            self.emptyView.hidden = NO;
+            return;
+        }
+        [self.groupArray addObject:item.data.projectGoingCountes];
+        [self.groupArray addObject:item.data.projectFinishedCountes];
+        [self.groupArray addObject:item.data.projectNoStartCountes];
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -89,37 +138,19 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProjectDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectDetailCell"];
-    ProjectGroup *group = self.groupArray[indexPath.section];
-    cell.type = group.type;
+    cell.data = self.groupArray[indexPath.section][indexPath.row];
+    if (indexPath.section == 0) {
+        cell.type = ProjectGroup_InProgress;
+    }else if (indexPath.section == 1) {
+        cell.type = ProjectGroup_Complete;
+    }else {
+        cell.type = ProjectGroup_NotStarted;
+    }
     return cell;
 }
 #pragma mark - UITableViewDelegate
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    TitleHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TitleHeaderView"];
-    ProjectGroup *group = self.groupArray[section];
-    if (group.type == ProjectGroup_InProgress) {
-        header.title = nil;
-    }else if (group.type == ProjectGroup_Complete) {
-        header.title = @"已完成项目";
-    }else if (group.type == ProjectGroup_NotStarted) {
-        header.title = @"未开始项目";
-    }
-    return header;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    ProjectGroup *group = self.groupArray[section];
-    if (group.type == ProjectGroup_InProgress) {
-        return 0;
-    }
-    return 45;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProjectGroup *group = self.groupArray[indexPath.section];
-    if (indexPath.row == group.count-1) {
-        return 106;
-    }
     return 111;
 }
 

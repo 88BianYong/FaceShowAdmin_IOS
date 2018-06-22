@@ -44,7 +44,11 @@ UIKIT_EXTERN BOOL testFrameworkOn;
     }else if (![UserManager sharedInstance].loginStatus) {
         return [self loginViewController];
     }else if (![UserManager sharedInstance].userModel.currentClass) {
-        return [self classSelectionViewController];
+        GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
+        if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+            return [self classSelectionViewController];
+        }
+        return [self mainViewController];
     }else {
         return [self mainViewController];
     }

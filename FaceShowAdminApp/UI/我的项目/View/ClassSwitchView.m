@@ -28,7 +28,7 @@
 - (void)setupUI {
     self.backgroundColor = [UIColor whiteColor];
     self.preButton = [[UIButton alloc]init];
-    [self.preButton setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [self.preButton setBackgroundImage:[UIImage imageNamed:@"左箭头"] forState:UIControlStateNormal];
     [self.preButton addTarget:self action:@selector(preAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.preButton];
     [self.preButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -37,7 +37,7 @@
         make.centerY.mas_equalTo(0);
     }];
     self.nextButton = [[UIButton alloc]init];
-    [self.nextButton setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [self.nextButton setBackgroundImage:[UIImage imageNamed:@"右箭头"] forState:UIControlStateNormal];
     [self.nextButton addTarget:self action:@selector(nextAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.nextButton];
     [self.nextButton mas_makeConstraints:^(MASConstraintMaker *make) {

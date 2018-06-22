@@ -17,7 +17,9 @@
 @property (nonatomic, assign) NSInteger firstLevelSelectedIndex;
 @property (nonatomic, assign) NSInteger secondLevelSelectedIndex;
 @property (nonatomic, assign) NSInteger thirdLevelSelectedIndex;
+@property (nonatomic, assign) NSInteger fourthLevelSelectedIndex;
 
+@property (nonatomic, strong) NSArray *provinceArray;
 @property (nonatomic, strong) NSArray *cityArray;
 @property (nonatomic, strong) NSArray *areaArray;
 @property (nonatomic, strong) NSArray *timeArray;
@@ -33,6 +35,11 @@
     [self nyx_setupRightWithTitle:@"确定" action:^{
         STRONG_SELF
     }];
+    self.firstLevelSelectedIndex = 0;
+    self.secondLevelSelectedIndex = -1;
+    self.thirdLevelSelectedIndex = -1;
+    
+    self.provinceArray = @[@"湖北省",@"湖南省"];
     self.cityArray = @[@"武汉",@"宜昌",@"襄阳",@"荆门",@"黄冈",@"恩施"];
     self.areaArray = @[@"江岸区",@"江汉区",@"昌平区",@"大兴区",@"朝阳区",@"海淀区"];
     self.timeArray = @[@"全部",@"本周",@"本月",@"近三月",@"自定义"];
@@ -74,13 +81,18 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 3;
+    return 4;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0) {
-        return self.cityArray.count;
+        return self.provinceArray.count;
     }else if (section == 1) {
+        return self.cityArray.count;
+    }else if (section == 2) {
+        if (self.secondLevelSelectedIndex == -1) {
+            return 0;
+        }
         return self.areaArray.count;
     }else {
         return self.timeArray.count;
@@ -90,14 +102,17 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FilterItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FilterItemCell" forIndexPath:indexPath];
     if (indexPath.section == 0) {
-        cell.title = self.cityArray[indexPath.row];
+        cell.title = self.provinceArray[indexPath.row];
         cell.isCurrent = indexPath.row==self.firstLevelSelectedIndex;
     }else if (indexPath.section == 1){
-        cell.title = self.areaArray[indexPath.row];
+        cell.title = self.cityArray[indexPath.row];
         cell.isCurrent = indexPath.row==self.secondLevelSelectedIndex;
     }else if (indexPath.section == 2){
-        cell.title = self.timeArray[indexPath.row];
+        cell.title = self.areaArray[indexPath.row];
         cell.isCurrent = indexPath.row==self.thirdLevelSelectedIndex;
+    }else if (indexPath.section == 3){
+        cell.title = self.timeArray[indexPath.row];
+        cell.isCurrent = indexPath.row==self.fourthLevelSelectedIndex;
     }
     WEAK_SELF
     [cell setClickBlock:^(FilterItemCell *item){
@@ -107,9 +122,11 @@
         }
         if (indexPath.section == 0) {
             self.firstLevelSelectedIndex = indexPath.row;
-            self.secondLevelSelectedIndex = 0;
+            self.secondLevelSelectedIndex = -1;
+            self.thirdLevelSelectedIndex = -1;
         }else if (indexPath.section == 1) {
             self.secondLevelSelectedIndex = indexPath.row;
+            self.thirdLevelSelectedIndex = -1;
         }else if (indexPath.section == 2) {
             self.thirdLevelSelectedIndex = indexPath.row;
         }
@@ -123,16 +140,18 @@
     if (kind == UICollectionElementKindSectionHeader) {
         FilterHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FilterHeaderView" forIndexPath:indexPath];
         if (indexPath.section == 0) {
+            headerView.title = @"省";
+        }else if (indexPath.section == 1) {
             headerView.title = @"地市";
-        }else if (indexPath.section == 1){
-            headerView.title = @"区县";
         }else if (indexPath.section == 2){
+            headerView.title = @"区县";
+        }else if (indexPath.section == 3){
             headerView.title = @"时间";
         }
         return headerView;
-    }else if (indexPath.section == 2) {
+    }else if (indexPath.section == 3) {
         CustomTimeSettingView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"CustomTimeSettingView" forIndexPath:indexPath];
-        footer.hidden = self.thirdLevelSelectedIndex != self.timeArray.count-1;
+        footer.hidden = self.fourthLevelSelectedIndex != self.timeArray.count-1;
         return footer;
     }
     return nil;
@@ -140,10 +159,18 @@
 
 #pragma mark - UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    if (section == 2) {
+    if (section == 3) {
         return CGSizeMake(SCREEN_WIDTH, 120);
     }
     return CGSizeZero;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if (section == 2) {
+        if (self.secondLevelSelectedIndex == -1) {
+            return CGSizeZero;
+        }
+    }
+    return CGSizeMake(SCREEN_WIDTH, 50);
 }
 
 @end

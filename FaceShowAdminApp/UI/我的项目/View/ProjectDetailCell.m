@@ -117,22 +117,22 @@
         make.centerY.mas_equalTo(classLabel.mas_centerY);
         make.width.mas_equalTo(self.classNumberLabel.mas_width);
     }];
-    
-    // mock mock
-    self.statisticView.percent = @"80%";
-    self.titleLabel.text = @"湖北高级教师骨干面授";
-    self.dateLabel.text = @"2017.10.4 - 2017.12.31";
-    self.classNumberLabel.text = @"10";
-    self.studentNumberLabel.text = @"234";
-    self.teacherNumberLabel.text = @"567";
+}
+
+- (void)setData:(GetMyProjectsRequestItem_project *)data {
+    _data = data;
+    self.titleLabel.text = data.projectName;
+    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[data.startTime omitSecondOfFullDateString],[data.endTime omitSecondOfFullDateString]];
+    self.classNumberLabel.text = data.clazsNum;
+    self.studentNumberLabel.text = data.studentNum;
+    self.teacherNumberLabel.text = data.masterNum;
+    self.statisticView.percent = [NSString stringWithFormat:@"%.0f%@",data.taskFinishedRate.floatValue,@"%"];
 }
 
 - (void)setType:(ProjectGroupType)type {
     if (type == ProjectGroup_InProgress) {
-        self.statisticView.percent = @"80%";
         self.statisticView.percentColor = [UIColor colorWithHexString:@"e5581a"];
     }else if (type == ProjectGroup_Complete) {
-        self.statisticView.percent = @"80%";
         self.statisticView.percentColor = [UIColor colorWithHexString:@"c2c7ce"];
     }else if (type == ProjectGroup_NotStarted) {
         self.statisticView.percent = @"-";
