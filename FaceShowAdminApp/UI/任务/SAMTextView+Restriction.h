@@ -10,4 +10,6 @@
 
 @interface SAMTextView (Restriction)
 @property (nonatomic, assign) NSInteger characterInteger;
+@property(nonatomic,copy) NSString *oldString;           //设置setter/getter方法的属性
+
 @end

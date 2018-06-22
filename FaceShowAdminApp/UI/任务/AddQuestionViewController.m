@@ -83,13 +83,13 @@
         STRONG_SELF
         CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item = [[CreateQuestionGroupItem_Question_VoteInfo_VoteItem alloc] init];
         [self.question.voteInfo.voteItems addObject:item];
-         [self.tableView reloadData];
         [self reloadPublishButtonStatus];
-
-        //        NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:self.question.voteInfo.voteItems.count - 1 inSection:0];
-        //        [self.tableView beginUpdates];
-        //        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
-        //        [self.tableView endUpdates];
+        NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:self.question.voteInfo.voteItems.count - 1 inSection:0];
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+        EditQuestionCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.question.voteInfo.voteItems.count - 1 inSection:0]];
+        [cell.textView becomeFirstResponder];
     };
     if (self.createType == CreateComplex_Vote) {
         self.tableHeaderView = [[EditQuestionTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 5.0f + 45.0f + 1.0f + 45.0f + 5.0f)];
@@ -106,18 +106,16 @@
         [self reloadPublishButtonStatus];
     };
     self.tableView.tableHeaderView = self.tableHeaderView;
-    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextViewTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *x) {
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"keyUploadHeight" object:nil] subscribeNext:^(NSNotification *x) {
         STRONG_SELF
         SAMTextView *textView = x.object;
         if (textView.tag >= 10087) {
             CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item = self.question.voteInfo.voteItems[textView.tag - 10087];
             item.itemName = textView.text;
-            if (textView.text.length <= 200) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView beginUpdates];
-                    [self.tableView endUpdates];
-                });
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView beginUpdates];
+                [self.tableView endUpdates];
+            });
         }else if (textView.tag == 10001){
             self.question.title = textView.text;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -245,9 +243,4 @@
         return self.footerView;
     }
 }
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    DDLogDebug(@"scrollViewDidScroll");
-}
-
 @end
