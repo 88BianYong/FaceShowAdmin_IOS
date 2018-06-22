@@ -72,7 +72,7 @@
 
 - (void)showSelectionViewFrom:(SignInDateTimeView *)from {
     SignInDateTimeSettingView *settingView = [[SignInDateTimeSettingView alloc]init];
-    settingView.mode = UIDatePickerModeTime;
+    settingView.mode = UIDatePickerModeDate;
     WEAK_SELF
     [settingView setCancelBlock:^{
         STRONG_SELF
@@ -94,4 +94,10 @@
     }];
 }
 
+- (NSString *)startTime {
+    return [self.begintimeView.content stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+}
+- (NSString *)endTime {
+    return [self.endtimeView.content stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+}
 @end

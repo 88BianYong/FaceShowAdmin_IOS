@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ProjectFilterViewController : BaseViewController
-
+@property (nonatomic, strong) void(^selectBlock)(NSString *provinceID,NSString *cityID,NSString *districtID,NSString *startTime,NSString *endTime);
 @end

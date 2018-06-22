@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomTimeSettingView : UICollectionReusableView
-
+@property (nonatomic, strong, readonly) NSString *startTime;
+@property (nonatomic, strong, readonly) NSString *endTime;
 @end

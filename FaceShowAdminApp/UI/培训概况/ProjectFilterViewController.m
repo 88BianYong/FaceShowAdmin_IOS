@@ -17,6 +17,7 @@
 
 @interface ProjectFilterViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) CustomTimeSettingView *timeSettingView;
 @property (nonatomic, assign) NSInteger firstLevelSelectedIndex;
 @property (nonatomic, assign) NSInteger secondLevelSelectedIndex;
 @property (nonatomic, assign) NSInteger thirdLevelSelectedIndex;
@@ -40,6 +41,7 @@
     WEAK_SELF
     [self nyx_setupRightWithTitle:@"确定" action:^{
         STRONG_SELF
+        [self submitFilter];
     }];
     self.firstLevelSelectedIndex = 0;
     self.secondLevelSelectedIndex = -1;
@@ -53,6 +55,34 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)submitFilter {
+    NSString *provinceID = self.provinceArray[self.firstLevelSelectedIndex].areaID;
+    NSString *cityID = self.secondLevelSelectedIndex != -1? self.cityArray[self.secondLevelSelectedIndex].areaID:nil;
+    NSString *districtID = self.thirdLevelSelectedIndex != -1? self.areaArray[self.thirdLevelSelectedIndex].areaID:nil;
+    NSString *startTime = nil;
+    NSString *endTime = nil;
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    if (self.fourthLevelSelectedIndex == 1) {
+        endTime = [dateFormatter stringFromDate:date];
+        NSDate *startDate = [NSDate dateWithTimeInterval:-7*24*60*60 sinceDate:date];
+        startTime = [dateFormatter stringFromDate:startDate];
+    }else if (self.fourthLevelSelectedIndex == 2) {
+        endTime = [dateFormatter stringFromDate:date];
+        NSDate *startDate = [NSDate dateWithTimeInterval:-30*24*60*60 sinceDate:date];
+        startTime = [dateFormatter stringFromDate:startDate];
+    }else if (self.fourthLevelSelectedIndex == 3) {
+        endTime = [dateFormatter stringFromDate:date];
+        NSDate *startDate = [NSDate dateWithTimeInterval:-90*24*60*60 sinceDate:date];
+        startTime = [dateFormatter stringFromDate:startDate];
+    }else if (self.fourthLevelSelectedIndex == 4) {
+        startTime = self.timeSettingView.startTime;
+        endTime = self.timeSettingView.endTime;
+    }
+    BLOCK_EXEC(self.selectBlock,provinceID,cityID,districtID,startTime,endTime);
 }
 
 - (void)setupUI {
@@ -101,7 +131,9 @@
     [self.scopeRequest stopRequest];
     self.scopeRequest = [[GetUserManagerScopeRequest alloc]init];
     GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
-    self.scopeRequest.platId = plat.platformId;
+//    self.scopeRequest.platId = plat.platformId;
+#warning 先写死101测试
+    self.scopeRequest.platId = @"101";
     WEAK_SELF
     [self.scopeRequest startRequestWithRetClass:[GetUserManagerScopeRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
@@ -125,9 +157,9 @@
 
 - (void)setupProcince {
     self.provinceArray = [NSMutableArray array];
-    for (NSString *province in self.requestItem.data.provinceIdScope) {
+    for (NSNumber *province in self.requestItem.data.provinceIdScope) {
         for (Area *area in [AreaManager sharedInstance].areaModel.data) {
-            if ([province isEqualToString:area.areaID]) {
+            if (province.integerValue == area.areaID.integerValue) {
                 [self.provinceArray addObject:area];
                 break;
             }
@@ -137,9 +169,9 @@
 
 - (void)setupCityWithProvince:(Area *)province {
     self.cityArray = [NSMutableArray array];
-    for (NSString *city in self.requestItem.data.cityIdScope) {
+    for (NSNumber *city in self.requestItem.data.cityIdScope) {
         for (Area *area in province.sub) {
-            if ([city isEqualToString:area.areaID]) {
+            if (city.integerValue == area.areaID.integerValue) {
                 [self.cityArray addObject:area];
                 break;
             }
@@ -149,10 +181,10 @@
 
 - (void)setupAreaWithCity:(Area *)city {
     self.areaArray = [NSMutableArray array];
-    for (NSString *district in self.requestItem.data.districtIdScope) {
+    for (NSNumber *district in self.requestItem.data.districtIdScope) {
         for (Area *area in city.sub) {
-            if ([district isEqualToString:area.areaID]) {
-                [self.cityArray addObject:area];
+            if (district.integerValue == area.areaID.integerValue) {
+                [self.areaArray addObject:area];
                 break;
             }
         }
@@ -236,6 +268,7 @@
     }else if (indexPath.section == 3) {
         CustomTimeSettingView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"CustomTimeSettingView" forIndexPath:indexPath];
         footer.hidden = self.fourthLevelSelectedIndex != self.timeArray.count-1;
+        self.timeSettingView = footer;
         return footer;
     }
     return nil;
