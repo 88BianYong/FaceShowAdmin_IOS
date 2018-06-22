@@ -160,7 +160,10 @@
         STRONG_SELF
         BLOCK_EXEC(self.addQuestionBlock,self.question);
         [self setupModel];
+        [self.tableHeaderView reloadSelected];
+        self.serialNumber++;
         [self.tableView reloadData];
+        [self reloadPublishButtonStatus];
     }];
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(bottomView.mas_centerY);
@@ -233,6 +236,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     EditQuestionHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"EditQuestionHeaderView"];
     headerView.textView.text = self.question.title;
+    headerView.tag = self.serialNumber;
     return headerView;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

@@ -30,11 +30,15 @@
     }
     return self;
 }
+- (void)setTag:(NSInteger)tag {
+    [super setTag:tag];
+    self.titleLabel.text = [NSString stringWithFormat:@"问题%ld:",(long)tag];
+}
 #pragma mark - setupUI
 - (void)setupUI {
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-    self.titleLabel.text = @"问题1";
+    self.titleLabel.text = @"问题1:";
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     [self.contentView addSubview:self.titleLabel];
     

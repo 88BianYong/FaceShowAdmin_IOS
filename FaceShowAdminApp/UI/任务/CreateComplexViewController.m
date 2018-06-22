@@ -116,6 +116,7 @@
         STRONG_SELF
         AddQuestionViewController *VC = [[AddQuestionViewController alloc] init];
         VC.createType = self.createType;
+        VC.serialNumber = self.itemData.questions.count + 1;
         WEAK_SELF
         VC.addQuestionBlock = ^(CreateQuestionGroupItem_Question *item) {
             STRONG_SELF
@@ -230,6 +231,7 @@
         EditQuestionViewController *VC = [[EditQuestionViewController alloc] init];
         VC.question = question;
         VC.createType = self.createType;
+        VC.serialNumber = section + 1;
         WEAK_SELF
         VC.editQuestionBlock = ^(CreateQuestionGroupItem_Question *item) {
             STRONG_SELF
@@ -269,6 +271,7 @@
     EditQuestionViewController *VC = [[EditQuestionViewController alloc] init];
     VC.question = question;
     VC.createType = self.createType;
+    VC.serialNumber = indexPath.section + 1;
     WEAK_SELF
     VC.editQuestionBlock = ^(CreateQuestionGroupItem_Question *item) {
         STRONG_SELF

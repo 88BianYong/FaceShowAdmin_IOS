@@ -112,6 +112,11 @@
         make.height.mas_offset(5.0f);
     }];
 }
+- (void)reloadSelected {
+    self.firstView.selected = YES;
+    self.secondView.selected = NO;
+    self.thirdView.selected = NO;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

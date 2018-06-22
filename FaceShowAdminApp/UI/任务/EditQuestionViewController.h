@@ -13,4 +13,5 @@
 @property (nonatomic, assign) CreateComplexType createType;
 @property (nonatomic, strong) CreateQuestionGroupItem_Question *question;
 @property (nonatomic, copy) void(^editQuestionBlock)(CreateQuestionGroupItem_Question *item);
+@property (nonatomic, assign) NSInteger serialNumber;
 @end

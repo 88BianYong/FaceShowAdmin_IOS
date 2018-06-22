@@ -10,4 +10,5 @@
 
 @interface EditQuestionTableHeaderView : UIView
 @property (nonatomic, copy) void(^questionTypeBlock)(NSString *typeString);
+- (void)reloadSelected;
 @end

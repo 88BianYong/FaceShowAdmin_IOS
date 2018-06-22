@@ -12,4 +12,5 @@
 @interface AddQuestionViewController : BaseViewController
 @property (nonatomic, assign) CreateComplexType createType;
 @property (nonatomic, copy) void(^addQuestionBlock)(CreateQuestionGroupItem_Question *item);
+@property (nonatomic, assign) NSInteger serialNumber;
 @end
