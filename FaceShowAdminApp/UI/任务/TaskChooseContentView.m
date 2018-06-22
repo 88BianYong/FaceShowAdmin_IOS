@@ -70,7 +70,7 @@
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).offset(15.0f);
         make.centerY.equalTo(self.mas_centerY);
-        make.width.mas_offset(100.0f);
+        make.width.mas_offset(70.0f);
     }];
     
     [self.nextImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -80,8 +80,8 @@
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.nextImageView.mas_left).offset(-5.0f);
-        make.left.equalTo(self.nameLabel.mas_right).offset(10.0f).priorityLow();
+        make.right.equalTo(self.nextImageView.mas_left).offset(-5.0f).priorityHigh();
+        make.left.equalTo(self.nameLabel.mas_right).priorityHigh();
         make.centerY.equalTo(self.mas_centerY);
     }];
     

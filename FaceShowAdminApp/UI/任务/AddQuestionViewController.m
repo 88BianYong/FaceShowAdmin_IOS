@@ -228,6 +228,7 @@
         STRONG_SELF
         [self.question.voteInfo.voteItems removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
+        [self reloadPublishButtonStatus];
     };
     cell.tag = indexPath.row + 1;
     return cell;

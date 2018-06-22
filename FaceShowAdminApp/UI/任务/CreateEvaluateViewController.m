@@ -127,6 +127,9 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 #pragma mark - UITableViewDataScore
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -206,7 +209,7 @@
         STRONG_SELF
         [self.view nyx_stopLoading];
         if (error) {
-            [self.view nyx_showToast:@"发布失败请重试"];
+            [self.view nyx_showToast:@"模板加载失败请重试"];
         }else {
             BLOCK_EXEC(self.reloadComleteBlock);
             [self.navigationController popViewControllerAnimated:YES];

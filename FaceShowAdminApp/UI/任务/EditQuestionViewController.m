@@ -29,7 +29,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"添加问题";
+    self.navigationItem.title = @"编辑问题";
     [self setupModel];
     [self setupUI];
     [self setupLayout];
@@ -234,6 +234,7 @@
         STRONG_SELF
         [self.editQuestion.voteInfo.voteItems removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
+        [self reloadPublishButtonStatus];
     };
     return cell;
 }
