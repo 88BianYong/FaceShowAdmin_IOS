@@ -10,5 +10,6 @@
 @class GetUserHomeworksRequestItem_element;
 
 @interface MemberHomeworkCell : UITableViewCell
+@property(nonatomic, strong) NSString *isFinished;
 @property(nonatomic, strong) GetUserHomeworksRequestItem_element *element;
 @end

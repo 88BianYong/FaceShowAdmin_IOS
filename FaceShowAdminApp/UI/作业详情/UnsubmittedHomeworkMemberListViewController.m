@@ -47,6 +47,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MemberHomeworkCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MemberHomeworkCell"];
     cell.element = self.dataArray[indexPath.row];
+    cell.isFinished = @"0";
     return cell;
 }
 

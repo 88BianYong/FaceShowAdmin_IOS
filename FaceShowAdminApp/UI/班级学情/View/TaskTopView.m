@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-        [self setupMock];
+//        [self setupMock];
     }
     return self;
 }

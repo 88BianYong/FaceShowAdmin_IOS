@@ -12,8 +12,11 @@
 #import "HomeworkCommentView.h"
 #import "GetUserHomeworksRequest.h"
 #import "ReviewUserHomeworkRequest.h"
+#import "GetUserHomeworkDetailRequest.h"
+#import "ErrorView.h"
 
 @interface MemberHomeworkDetailViewController ()
+@property (nonatomic, strong) ErrorView *errorView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) HomeworkMemberView *memberView;
 @property (nonatomic, strong) UILabel *dateLabel;
@@ -21,7 +24,9 @@
 @property (nonatomic, strong) PreviewPhotosView *photosView;
 @property (nonatomic, strong) HomeworkCommentView *commentView;
 @property (nonatomic, strong) UILabel *commentLabel;
-@property (nonatomic, strong) ReviewUserHomeworkRequest *request;
+@property (nonatomic, strong) ReviewUserHomeworkRequest *reviewRequest;
+@property (nonatomic, strong) GetUserHomeworkDetailRequest *detailRequest;
+@property (nonatomic, strong) GetUserHomeworkDetailRequestItem *detailRequestItem;
 @end
 
 @implementation MemberHomeworkDetailViewController
@@ -31,8 +36,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupUI];
-    [self setupMockData];
-    [self setupData];
+    [self requestHomeworkDetail];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,29 +127,68 @@
         make.height.mas_equalTo(140);
     }];
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 140, 0);
-    if (![self.data.finishStatus isEqualToString:@"3"]) {
+    
+    self.errorView = [[ErrorView alloc]init];
+    [self.errorView setRetryBlock:^{
+        STRONG_SELF
+        [self requestHomeworkDetail];
+    }];
+    if ([self.data.assess length] <= 0) {
         self.commentLabel.hidden = YES;
         self.commentView.hidden = NO;
     }else {
         self.commentLabel.hidden = NO;
         self.commentView.hidden = YES;
     }
+    
+}
+
+- (void)requestHomeworkDetail {
+    [self.detailRequest stopRequest];
+    self.detailRequest = [[GetUserHomeworkDetailRequest alloc]init];
+    self.detailRequest.userHomeworkId = self.data.elementId;
+    WEAK_SELF
+    [self.view nyx_startLoading];
+    [self.detailRequest startRequestWithRetClass:[GetUserHomeworkDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view addSubview:self.errorView];
+            [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
+            return;
+        }
+        [self.errorView removeFromSuperview];
+        GetUserHomeworkDetailRequestItem *item = (GetUserHomeworkDetailRequestItem *)retItem;
+        self.detailRequestItem = item;
+        [self setupData];
+        if ([self.detailRequestItem.data.assess length] <= 0) {
+            self.commentLabel.hidden = YES;
+            self.commentView.hidden = NO;
+        }else {
+            self.commentLabel.hidden = NO;
+            self.commentView.hidden = YES;
+        }
+    }];
 }
 
 - (void)reviewUserHomeworkWithComment:(NSString *)comment {
-    [self.request stopRequest];
-    self.request = [[ReviewUserHomeworkRequest alloc]init];
-    self.request.stepId = self.stepId;
-    self.request.userHomeworkId = self.data.homeworkId;
-    if ([comment isEqualToString:@"不合格"]) {
-        self.request.finishStatus = @"2";
-    }else {
-        self.request.finishStatus = @"1";
-    }
-    self.request.assess = comment;
+    [self.reviewRequest stopRequest];
+    self.reviewRequest = [[ReviewUserHomeworkRequest alloc]init];
+    self.reviewRequest.stepId = self.stepId;
+    self.reviewRequest.userHomeworkId = self.data.elementId;
+    //后续可能会设置不通过重做作业,本期先默认都通过 1
+//    if ([comment isEqualToString:@"不合格"]) {
+//        self.reviewRequest.finishStatus = @"2";
+//    }else {
+//        self.reviewRequest.finishStatus = @"1";
+//    }
+    self.reviewRequest.finishStatus = @"1";
+    self.reviewRequest.assess = comment;
     WEAK_SELF
     [self.view nyx_startLoading];
-    [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+    [self.reviewRequest startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
         [self.view nyx_stopLoading];
         if (error) {
@@ -155,6 +198,7 @@
         self.commentView.hidden = YES;
         self.commentLabel.text = comment;
         self.commentLabel.hidden = NO;
+        BLOCK_EXEC(self.commentComleteBlock,comment);
     }];
 }
 
@@ -191,19 +235,20 @@
     paragraphStyle.lineHeightMultiple = 1.4f;
     paragraphStyle.alignment = NSTextAlignmentCenter;
     
-    NSString *title = self.data.title;
+    NSString *title = self.detailRequestItem.data.title;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
     self.titleLabel.attributedText = attributedString;
     self.dateLabel.text = [self.data.submitTime omitSecondOfFullDateString];
-    NSString *content = self.data.content;
+    NSString *content = self.detailRequestItem.data.content;
     attributedString = [[NSMutableAttributedString alloc] initWithString:content];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, content.length)];
     self.contentLabel.attributedText = attributedString;
+    self.commentLabel.text = self.detailRequestItem.data.assess;
     NSMutableArray *mutableArray = [NSMutableArray array];
-    for (int i = 0; i < self.data.attachmentInfos.count; i++) {
+    for (int i = 0; i < self.detailRequestItem.data.attachmentInfos.count; i++) {
         PreviewPhotosModel *model  = [[PreviewPhotosModel alloc] init];
-        GetHomeworkRequestItem_attachmentInfo *info = self.data.attachmentInfos[i];
+        GetHomeworkRequestItem_attachmentInfo *info = self.detailRequestItem.data.attachmentInfos[i];
         model.thumbnail = info.previewUrl;
         model.original = info.downloadUrl;
         [mutableArray addObject:model];

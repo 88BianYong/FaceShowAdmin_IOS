@@ -448,6 +448,7 @@
 		E94DDED120DB551D00729A67 /* TaskTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDECA20DB551C00729A67 /* TaskTopView.m */; };
 		E94DDEE220DB5AC000729A67 /* TaskAverageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEDE20DB5ABF00729A67 /* TaskAverageView.m */; };
 		E94DDEE320DB5AC000729A67 /* ScoreAverageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEDF20DB5ABF00729A67 /* ScoreAverageView.m */; };
+		E94DDEE920DCD31B00729A67 /* GetUserHomeworkDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94DDEE820DCD31B00729A67 /* GetUserHomeworkDetailRequest.m */; };
 		E9540BDC20CA1D3100D7DDA2 /* IMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD820CA1D3000D7DDA2 /* IMConfig.m */; };
 		E9540BDD20CA1D3100D7DDA2 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BD920CA1D3100D7DDA2 /* IMManager.m */; };
 		E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540BE020CA1D6E00D7DDA2 /* IMTopic.m */; };
@@ -1366,6 +1367,8 @@
 		E94DDEDF20DB5ABF00729A67 /* ScoreAverageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreAverageView.m; sourceTree = "<group>"; };
 		E94DDEE020DB5ABF00729A67 /* TaskAverageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskAverageView.h; sourceTree = "<group>"; };
 		E94DDEE120DB5ABF00729A67 /* ScoreAverageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreAverageView.h; sourceTree = "<group>"; };
+		E94DDEE720DCD31B00729A67 /* GetUserHomeworkDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetUserHomeworkDetailRequest.h; sourceTree = "<group>"; };
+		E94DDEE820DCD31B00729A67 /* GetUserHomeworkDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetUserHomeworkDetailRequest.m; sourceTree = "<group>"; };
 		E9540BD820CA1D3000D7DDA2 /* IMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConfig.m; sourceTree = "<group>"; };
 		E9540BD920CA1D3100D7DDA2 /* IMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		E9540BDA20CA1D3100D7DDA2 /* IMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
@@ -1723,6 +1726,8 @@
 				E94DDE6920DA0F9200729A67 /* GetUserHomeworksRequest.m */,
 				E94DDE6B20DA1FDF00729A67 /* UserHomeworkFetcher.h */,
 				E94DDE6C20DA1FDF00729A67 /* UserHomeworkFetcher.m */,
+				E94DDEE720DCD31B00729A67 /* GetUserHomeworkDetailRequest.h */,
+				E94DDEE820DCD31B00729A67 /* GetUserHomeworkDetailRequest.m */,
 				E94DDE7420DA392100729A67 /* ReviewUserHomeworkRequest.h */,
 				E94DDE7520DA392100729A67 /* ReviewUserHomeworkRequest.m */,
 				E94DDE7820DA456700729A67 /* GetEvaluateRequest.h */,
@@ -3414,6 +3419,7 @@
 				7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */,
 				7C06895620CF9E8100C7CA14 /* ProjectLevelDistributingCell.m in Sources */,
 				E91481B1209062C4001B7EB5 /* IMTextMessageLeftCell.m in Sources */,
+				E94DDEE920DCD31B00729A67 /* GetUserHomeworkDetailRequest.m in Sources */,
 				921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */,
 				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,

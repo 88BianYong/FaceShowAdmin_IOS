@@ -95,4 +95,21 @@
         self.scoreLabel.textColor = [UIColor colorWithHexString:@"f56f5d"];
     }
 }
+
+- (void)setIsFinished:(NSString *)isFinished {
+    _isFinished = isFinished;
+    if (![isFinished boolValue]) {
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.right.mas_equalTo(-70);
+            make.centerY.mas_equalTo(self.contentView.mas_centerY);
+        }];
+    }else {
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.right.mas_equalTo(-70);
+            make.bottom.mas_equalTo(self.contentView.mas_centerY).mas_offset(-3);
+        }];
+    }
+}
 @end

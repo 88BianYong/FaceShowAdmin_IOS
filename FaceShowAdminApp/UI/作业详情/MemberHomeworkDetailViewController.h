@@ -12,4 +12,5 @@
 @interface MemberHomeworkDetailViewController : ScrollBaseViewController
 @property(nonatomic, strong) NSString *stepId;
 @property(nonatomic, strong) GetUserHomeworksRequestItem_element *data;
+@property (nonatomic, strong) void (^commentComleteBlock)(NSString *comment);
 @end

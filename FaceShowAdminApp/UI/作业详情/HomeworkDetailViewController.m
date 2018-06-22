@@ -37,7 +37,6 @@
 - (void)setupUI {
     HomeworkDetailHeaderView *headerView = [[HomeworkDetailHeaderView alloc]init];
     self.headerView = headerView;
-    self.item.data.stepId = @"5698";
     self.headerView.data = self.item.data;
     WEAK_SELF
     [headerView setClickBlock:^{

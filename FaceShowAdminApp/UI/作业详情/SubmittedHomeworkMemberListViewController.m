@@ -10,6 +10,7 @@
 #import "MemberHomeworkCell.h"
 #import "MemberHomeworkDetailViewController.h"
 #import "UserHomeworkFetcher.h"
+#import "GetUserHomeworksRequest.h"
 
 @interface SubmittedHomeworkMemberListViewController ()
 
@@ -47,6 +48,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MemberHomeworkCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MemberHomeworkCell"];
     cell.element = self.dataArray[indexPath.row];
+    cell.isFinished = @"1";
     return cell;
 }
 
@@ -54,6 +56,13 @@
     MemberHomeworkDetailViewController *vc = [[MemberHomeworkDetailViewController alloc]init];
     vc.data = self.dataArray[indexPath.row];
     vc.stepId = self.stepId;
+    WEAK_SELF
+    [vc setCommentComleteBlock:^(NSString *comment) {
+        STRONG_SELF
+        GetUserHomeworksRequestItem_element *element = self.dataArray[indexPath.row];
+        element.assess = comment;
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end
