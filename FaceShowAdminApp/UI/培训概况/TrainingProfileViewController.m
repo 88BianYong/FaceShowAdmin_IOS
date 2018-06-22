@@ -41,6 +41,10 @@
     [self nyx_setupRightWithTitle:@"筛选" action:^{
         STRONG_SELF
         ProjectFilterViewController *vc = [[ProjectFilterViewController alloc]init];
+        WEAK_SELF
+        [vc setSelectBlock:^(NSString *provinceID, NSString *cityID, NSString *districtID, NSString *startTime, NSString *endTime) {
+            STRONG_SELF
+        }];
         [self.navigationController pushViewController:vc animated:YES];
     }];
     [self setupUI];    

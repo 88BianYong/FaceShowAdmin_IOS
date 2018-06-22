@@ -83,6 +83,7 @@
         endTime = self.timeSettingView.endTime;
     }
     BLOCK_EXEC(self.selectBlock,provinceID,cityID,districtID,startTime,endTime);
+    [self backAction];
 }
 
 - (void)setupUI {
