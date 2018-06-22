@@ -14,7 +14,7 @@ static const char characterIntegerKey = '\0';
 - (void)setCharacterInteger:(NSInteger)characterInteger {
     [self willChangeValueForKey:@"characterInteger"];
     objc_setAssociatedObject(self, &characterIntegerKey,
-                             @(characterInteger), OBJC_ASSOCIATION_ASSIGN);
+                             @(characterInteger), OBJC_ASSOCIATION_RETAIN);
     [self didChangeValueForKey:@"characterInteger"];
     WEAK_SELF
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *x) {

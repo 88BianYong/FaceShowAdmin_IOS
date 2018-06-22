@@ -9,11 +9,11 @@
 #import "SAMTextView+Restriction.h"
 #import <objc/runtime.h>
 @implementation SAMTextView (Restriction)
-static const char characterIntegerKey = '\0';
+static NSString *characterIntegerKey = @"characterIntegerKey";
 - (void)setCharacterInteger:(NSInteger)characterInteger {
     [self willChangeValueForKey:@"characterInteger"];
     objc_setAssociatedObject(self, &characterIntegerKey,
-                             @(characterInteger), OBJC_ASSOCIATION_ASSIGN);
+                             @(characterInteger), OBJC_ASSOCIATION_RETAIN);
     [self didChangeValueForKey:@"characterInteger"];
     WEAK_SELF
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UITextViewTextDidChangeNotification object:nil] subscribeNext:^(NSNotification *x) {
