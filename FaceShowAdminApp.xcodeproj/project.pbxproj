@@ -58,6 +58,9 @@
 		7C06897F20D11E1100C7CA14 /* FilterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897E20D11E1100C7CA14 /* FilterHeaderView.m */; };
 		7C06898220D2039900C7CA14 /* CustomTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */; };
 		7C07F03620DCAAFE00E6BCE2 /* GetMyProjectsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */; };
+		7C07F03820DCD79800E6BCE2 /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C07F03720DCD79700E6BCE2 /* area.json */; };
+		7C07F03B20DCD8B700E6BCE2 /* AreaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03A20DCD8B700E6BCE2 /* AreaManager.m */; };
+		7C07F03E20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
@@ -598,6 +601,11 @@
 		7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTimeSettingView.m; sourceTree = "<group>"; };
 		7C07F03420DCAAFE00E6BCE2 /* GetMyProjectsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetMyProjectsRequest.h; sourceTree = "<group>"; };
 		7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMyProjectsRequest.m; sourceTree = "<group>"; };
+		7C07F03720DCD79700E6BCE2 /* area.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = area.json; sourceTree = "<group>"; };
+		7C07F03920DCD8B700E6BCE2 /* AreaManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaManager.h; sourceTree = "<group>"; };
+		7C07F03A20DCD8B700E6BCE2 /* AreaManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaManager.m; sourceTree = "<group>"; };
+		7C07F03C20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetUserManagerScopeRequest.h; sourceTree = "<group>"; };
+		7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetUserManagerScopeRequest.m; sourceTree = "<group>"; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -2240,6 +2248,8 @@
 				7CEFC8D11FA066B8001D8C84 /* FSDataMappingTable.m */,
 				7C2558311FBBD97800C9BE38 /* PageNameMappingTable.h */,
 				7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */,
+				7C07F03920DCD8B700E6BCE2 /* AreaManager.h */,
+				7C07F03A20DCD8B700E6BCE2 /* AreaManager.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -2304,6 +2314,8 @@
 				436E6DF61FB3F394009950EA /* UploadHeadImgRequest.m */,
 				7C07F03420DCAAFE00E6BCE2 /* GetMyProjectsRequest.h */,
 				7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */,
+				7C07F03C20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.h */,
+				7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */,
 				7CEFC8ED1FA067B2001D8C84 /* UserManager.h */,
 				7CEFC8EB1FA067B2001D8C84 /* UserManager.m */,
 				7CDF1133208D7AA30044DD95 /* UserModel.h */,
@@ -2501,6 +2513,7 @@
 			children = (
 				923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */,
 				7CEFC9611FA6D7B3001D8C84 /* Metro Playtype.otf */,
+				7C07F03720DCD79700E6BCE2 /* area.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -3253,6 +3266,7 @@
 				923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */,
 				7CDF129B20903B4E0044DD95 /* MJRefresh.bundle in Resources */,
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
+				7C07F03820DCD79800E6BCE2 /* area.json in Resources */,
 				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,
 				7CDF128520902FBF0044DD95 /* classMomentClickLike_mock.json in Resources */,
 				E91481CA20906307001B7EB5 /* 加载动效.gif in Resources */,
@@ -3389,6 +3403,7 @@
 				7CEFC8CD1FA06627001D8C84 /* UIView+YXShadowColor.m in Sources */,
 				924297D620DA54FF0039038E /* EditQuestionFooterView.m in Sources */,
 				7C672B381FB1A362004D93DF /* ClassUserQuestionRequest.m in Sources */,
+				7C07F03E20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m in Sources */,
 				7C672B621FB3F54E004D93DF /* CourseResourceCell.m in Sources */,
 				E9540C4220CA1F4B00D7DDA2 /* IMServiceManager.m in Sources */,
 				7C672B591FB2E0E4004D93DF /* CourseTaskCell.m in Sources */,
@@ -3574,6 +3589,7 @@
 				7CDF123520902EE60044DD95 /* ClassMomentCell.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				7CDF128620902FBF0044DD95 /* ReportRequest.m in Sources */,
+				7C07F03B20DCD8B700E6BCE2 /* AreaManager.m in Sources */,
 				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
 				7CDF128420902FBF0044DD95 /* ClassMomentClickLikeRequest.m in Sources */,
 				7C672B201FB1536E004D93DF /* ChooseQuestionResultCell.m in Sources */,

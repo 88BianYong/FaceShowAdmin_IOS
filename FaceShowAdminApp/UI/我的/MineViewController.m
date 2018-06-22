@@ -11,6 +11,7 @@
 #import "MyInfoViewController.h"
 #import "TrainingProfileViewController.h"
 #import "MyTrainingProjectViewController.h"
+#import "YXDrawerController.h"
 
 @interface MineViewController ()
 @property (nonatomic, strong) UIImageView *avatarImageView;
@@ -243,9 +244,23 @@
         MyInfoViewController *vc = [[MyInfoViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([sender.titleLabel.text isEqualToString:@"培训概况"]) {
+        if ([[YXDrawerController drawer].paneViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navi = (UINavigationController *)[YXDrawerController drawer].paneViewController;
+            if ([navi.viewControllers[0] isKindOfClass:[TrainingProfileViewController class]]) {
+                [YXDrawerController hideDrawer];
+                return;
+            }
+        }
         TrainingProfileViewController *vc = [[TrainingProfileViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([sender.titleLabel.text isEqualToString:@"我的项目"]) {
+        if ([[YXDrawerController drawer].paneViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navi = (UINavigationController *)[YXDrawerController drawer].paneViewController;
+            if ([navi.viewControllers[0] isKindOfClass:[MyTrainingProjectViewController class]]) {
+                [YXDrawerController hideDrawer];
+                return;
+            }
+        }
         MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }

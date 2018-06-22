@@ -11,6 +11,9 @@
 #import "FilterItemCell.h"
 #import "FilterHeaderView.h"
 #import "CustomTimeSettingView.h"
+#import "GetUserManagerScopeRequest.h"
+#import "ErrorView.h"
+#import "AreaManager.h"
 
 @interface ProjectFilterViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -18,10 +21,13 @@
 @property (nonatomic, assign) NSInteger secondLevelSelectedIndex;
 @property (nonatomic, assign) NSInteger thirdLevelSelectedIndex;
 @property (nonatomic, assign) NSInteger fourthLevelSelectedIndex;
+@property (nonatomic, strong) ErrorView *errorView;
+@property (nonatomic, strong) GetUserManagerScopeRequest *scopeRequest;
+@property (nonatomic, strong) GetUserManagerScopeRequestItem *requestItem;
 
-@property (nonatomic, strong) NSArray *provinceArray;
-@property (nonatomic, strong) NSArray *cityArray;
-@property (nonatomic, strong) NSArray *areaArray;
+@property (nonatomic, strong) NSMutableArray<Area *> *provinceArray;
+@property (nonatomic, strong) NSMutableArray<Area *> *cityArray;
+@property (nonatomic, strong) NSMutableArray<Area *> *areaArray;
 @property (nonatomic, strong) NSArray *timeArray;
 @end
 
@@ -38,12 +44,10 @@
     self.firstLevelSelectedIndex = 0;
     self.secondLevelSelectedIndex = -1;
     self.thirdLevelSelectedIndex = -1;
-    
-    self.provinceArray = @[@"湖北省",@"湖南省"];
-    self.cityArray = @[@"武汉",@"宜昌",@"襄阳",@"荆门",@"黄冈",@"恩施"];
-    self.areaArray = @[@"江岸区",@"江汉区",@"昌平区",@"大兴区",@"朝阳区",@"海淀区"];
+
     self.timeArray = @[@"全部",@"本周",@"本月",@"近三月",@"自定义"];
     [self setupUI];
+    [self requestScope];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +81,82 @@
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, -500, SCREEN_WIDTH, 500)];
     topView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.collectionView addSubview:topView];
+    self.collectionView.hidden = YES;
+    
+    WEAK_SELF
+    self.errorView = [[ErrorView alloc]init];
+    [self.errorView setRetryBlock:^{
+        STRONG_SELF
+        [self requestScope];
+    }];
+    [self.view addSubview:self.errorView];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    self.errorView.hidden = YES;
+}
+
+- (void)requestScope {
+    [self.view nyx_startLoading];
+    [self.scopeRequest stopRequest];
+    self.scopeRequest = [[GetUserManagerScopeRequest alloc]init];
+    GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
+    self.scopeRequest.platId = plat.platformId;
+    WEAK_SELF
+    [self.scopeRequest startRequestWithRetClass:[GetUserManagerScopeRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        self.errorView.hidden = YES;
+        if (error) {
+            self.errorView.hidden = NO;
+            return;
+        }
+        self.requestItem = retItem;
+        [self setupData];
+        self.collectionView.hidden = NO;
+        [self.collectionView reloadData];
+    }];
+}
+
+- (void)setupData {
+    [self setupProcince];
+    [self setupCityWithProvince:self.provinceArray.firstObject];
+}
+
+- (void)setupProcince {
+    self.provinceArray = [NSMutableArray array];
+    for (NSString *province in self.requestItem.data.provinceIdScope) {
+        for (Area *area in [AreaManager sharedInstance].areaModel.data) {
+            if ([province isEqualToString:area.areaID]) {
+                [self.provinceArray addObject:area];
+                break;
+            }
+        }
+    }
+}
+
+- (void)setupCityWithProvince:(Area *)province {
+    self.cityArray = [NSMutableArray array];
+    for (NSString *city in self.requestItem.data.cityIdScope) {
+        for (Area *area in province.sub) {
+            if ([city isEqualToString:area.areaID]) {
+                [self.cityArray addObject:area];
+                break;
+            }
+        }
+    }
+}
+
+- (void)setupAreaWithCity:(Area *)city {
+    self.areaArray = [NSMutableArray array];
+    for (NSString *district in self.requestItem.data.districtIdScope) {
+        for (Area *area in city.sub) {
+            if ([district isEqualToString:area.areaID]) {
+                [self.cityArray addObject:area];
+                break;
+            }
+        }
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -102,13 +182,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FilterItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FilterItemCell" forIndexPath:indexPath];
     if (indexPath.section == 0) {
-        cell.title = self.provinceArray[indexPath.row];
+        cell.title = self.provinceArray[indexPath.row].name;
         cell.isCurrent = indexPath.row==self.firstLevelSelectedIndex;
     }else if (indexPath.section == 1){
-        cell.title = self.cityArray[indexPath.row];
+        cell.title = self.cityArray[indexPath.row].name;
         cell.isCurrent = indexPath.row==self.secondLevelSelectedIndex;
     }else if (indexPath.section == 2){
-        cell.title = self.areaArray[indexPath.row];
+        cell.title = self.areaArray[indexPath.row].name;
         cell.isCurrent = indexPath.row==self.thirdLevelSelectedIndex;
     }else if (indexPath.section == 3){
         cell.title = self.timeArray[indexPath.row];
@@ -124,11 +204,15 @@
             self.firstLevelSelectedIndex = indexPath.row;
             self.secondLevelSelectedIndex = -1;
             self.thirdLevelSelectedIndex = -1;
+            [self setupCityWithProvince:self.provinceArray[indexPath.row]];
         }else if (indexPath.section == 1) {
             self.secondLevelSelectedIndex = indexPath.row;
             self.thirdLevelSelectedIndex = -1;
+            [self setupAreaWithCity:self.cityArray[indexPath.row]];
         }else if (indexPath.section == 2) {
             self.thirdLevelSelectedIndex = indexPath.row;
+        }else if (indexPath.section == 3) {
+            self.fourthLevelSelectedIndex = indexPath.row;
         }
         [self.collectionView reloadData];
     }];

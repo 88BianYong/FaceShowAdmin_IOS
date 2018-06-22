@@ -59,7 +59,6 @@
         make.left.right.mas_equalTo(0);
         make.top.mas_equalTo(v1.mas_bottom);
         make.height.mas_equalTo(50);
-        make.bottom.mas_equalTo(0);
     }];
     UIView *v2 = [v1 clone];
     [self addSubview:v2];
