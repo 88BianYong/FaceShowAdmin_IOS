@@ -200,7 +200,7 @@
                 *stop = YES;
             }
         }];
-        self.publishButton.enabled = ([self.question.title yx_stringByTrimmingCharacters].length != 0 && !isEmpty);
+        self.publishButton.enabled = ([self.question.title yx_stringByTrimmingCharacters].length != 0 && !isEmpty && self.question.voteInfo.voteItems.count > 0);
     }
     self.addButton.enabled = self.publishButton.enabled;
 }

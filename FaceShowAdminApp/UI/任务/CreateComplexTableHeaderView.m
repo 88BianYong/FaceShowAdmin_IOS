@@ -122,7 +122,7 @@
     }];
     
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.containerView.mas_left).offset(15.0f);
+        make.left.equalTo(self.containerView.mas_left).offset(15.0f).priorityHigh();
         make.right.equalTo(self.containerView.mas_right).offset(-15.0f).priorityHigh();
         make.top.equalTo(self.containerView.mas_top).offset(20.0f);
     }];

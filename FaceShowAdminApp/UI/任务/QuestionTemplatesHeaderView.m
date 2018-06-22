@@ -54,7 +54,7 @@
     if (type == 2){
         typeString = @"多选";
     }else if (type == 3) {
-        typeString = @"开发题";
+        typeString = @"主观题";
     }
     NSString *contentString = [NSString stringWithFormat:@"%ld、%@(%@)",(long)index,title,typeString];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

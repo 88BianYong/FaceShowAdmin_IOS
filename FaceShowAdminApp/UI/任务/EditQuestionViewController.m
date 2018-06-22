@@ -206,7 +206,7 @@
                 *stop = YES;
             }
         }];
-        self.publishButton.enabled = ([self.editQuestion.title yx_stringByTrimmingCharacters].length != 0 && !isEmpty);
+        self.publishButton.enabled = ([self.editQuestion.title yx_stringByTrimmingCharacters].length != 0 && !isEmpty && self.editQuestion.voteInfo.voteItems.count > 0);
     }
 }
 - (void)setupLayout {

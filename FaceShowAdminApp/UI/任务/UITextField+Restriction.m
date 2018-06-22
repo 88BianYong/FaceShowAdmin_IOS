@@ -30,7 +30,7 @@ static const char characterIntegerKey = '\0';
 #pragma mark - Method
 - (void)textFieldChanged:(UITextField *)textField {
     NSString *toBeString = textField.text;
-    textField.text = [self disable_emoji:toBeString];
+    toBeString = [self disable_emoji:toBeString];
     NSString *lang = [[textField textInputMode] primaryLanguage]; // 获取当前键盘输入模式
     //简体中文输入,第三方输入法（搜狗）所有模式下都会显示“zh-Hans”
     if([lang isEqualToString:@"zh-Hans"]) {

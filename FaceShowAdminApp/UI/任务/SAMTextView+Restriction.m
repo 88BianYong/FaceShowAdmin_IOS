@@ -37,7 +37,7 @@ static NSString *oldStringKey = @"oldStringKey";
 #pragma mark - Method
 - (void)textViewChanged:(SAMTextView *)textView {
     NSString *toBeString = textView.text;
-    textView.text = [self disable_emoji:toBeString];
+    toBeString = [self disable_emoji:toBeString];
     NSString *lang = [[textView textInputMode] primaryLanguage];
     if([lang isEqualToString:@"zh-Hans"]) {
         UITextRange *selectedRange = [textView markedTextRange];

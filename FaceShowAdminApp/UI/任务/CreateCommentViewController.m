@@ -97,8 +97,8 @@
 }
 - (void)setupLayout {
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(15.0f);
-        make.right.equalTo(self.view.mas_right).offset(-15.0f);
+        make.left.equalTo(self.view.mas_left).offset(15.0f).priorityHigh();
+        make.right.equalTo(self.view.mas_right).offset(-15.0f).priorityHigh();
         make.top.equalTo(self.view.mas_top).offset(25.0f);
     }];
     

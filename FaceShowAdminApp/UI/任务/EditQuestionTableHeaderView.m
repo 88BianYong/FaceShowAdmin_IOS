@@ -58,7 +58,7 @@
         self.thirdView.selected = YES;
         BLOCK_EXEC(self.questionTypeBlock,@"3");
     }];
-    self.thirdView.titleString = @"开放式";
+    self.thirdView.titleString = @"主观题";
     [self addSubview:self.thirdView];
     
     self.oneLineView = [[UIView alloc] init];

@@ -20,7 +20,7 @@
 #import "SubordinateCourseViewController.h"
 #import "CreateHomeworkRequest.h"
 #import "UITextField+Restriction.h"
-@interface CreateWorkViewController ()<UITextViewDelegate>
+@interface CreateWorkViewController ()<UITextFieldDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *createWorkView;
 
@@ -100,6 +100,7 @@
     
     self.textField = [[UITextField alloc] init];
     self.textField.characterInteger = 20;
+    self.textField.delegate = self;
     self.textField.backgroundColor = [UIColor whiteColor];
     self.textField.textColor = [UIColor colorWithHexString:@"333333"];
     self.textField.font = [UIFont boldSystemFontOfSize:16.0f];
@@ -277,8 +278,8 @@
     }];
     
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.createWorkView.mas_left).offset(15.0f);
-        make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f);
+        make.left.equalTo(self.createWorkView.mas_left).offset(15.0f).priorityHigh();
+        make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f).priorityHigh();
         make.top.equalTo(self.createWorkView.mas_top).offset(25.0f);
     }];
     
@@ -417,14 +418,13 @@
     WEAK_SELF
     [request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
+        [self.view nyx_stopLoading];
         if (error) {
             [self nyx_enableRightNavigationItem];
-            [self.view nyx_stopLoading];
             [self.view nyx_showToast:@"发布失败请重试"];
         }else {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间
                 [self nyx_enableRightNavigationItem];
-                [self.view nyx_stopLoading];
                 BLOCK_EXEC(self.reloadComleteBlock);
                 [self.navigationController popViewControllerAnimated:YES];
             });

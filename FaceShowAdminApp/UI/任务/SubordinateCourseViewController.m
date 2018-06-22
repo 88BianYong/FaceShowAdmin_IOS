@@ -17,6 +17,8 @@
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, assign) NSInteger chooseInteger;
 @property (nonatomic, strong) ErrorView *errorView;
+@property (nonatomic, strong) UIButton *publishButton;
+
 
 @end
 
@@ -31,17 +33,6 @@
     [self setupUI];
     [self setupLayout];
     [self requestForGetClassCourse];
-    WEAK_SELF
-    [self nyx_setupRightWithTitle:@"确定" action:^{
-        STRONG_SELF
-        if (self.chooseInteger == 0) {
-            BLOCK_EXEC(self.chooseSubordinateCoursBlock,nil,nil);
-        }else {
-            GetClassCourseRequestItem_Data *data = self.itemData.data[self.chooseInteger - 1];
-            BLOCK_EXEC(self.chooseSubordinateCoursBlock,data.courseId,data.courseName);
-        }
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -49,6 +40,7 @@
 #pragma mark - set
 - (void)setItemData:(GetClassCourseRequestItem *)itemData {
     _itemData = itemData;
+    self.publishButton.enabled = YES;
     self.tableView.hidden = NO;
     [self.tableView reloadData];
     if (self.courseId == nil) {
@@ -85,7 +77,29 @@
         [self requestForGetClassCourse];
     }];
     [self.view addSubview:self.errorView];
-    
+    [self setupNavigationRightView];
+}
+- (void)setupNavigationRightView{
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setTitle:@"确定" forState:UIControlStateNormal];
+    rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
+    [rightButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+    [rightButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
+    WEAK_SELF
+    [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        STRONG_SELF
+        if (self.chooseInteger == 0) {
+            BLOCK_EXEC(self.chooseSubordinateCoursBlock,nil,nil);
+        }else {
+            GetClassCourseRequestItem_Data *data = self.itemData.data[self.chooseInteger - 1];
+            BLOCK_EXEC(self.chooseSubordinateCoursBlock,data.courseId,data.courseName);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    rightButton.enabled = NO;
+    self.publishButton = rightButton;
+    [self nyx_setupRightWithCustomView:rightButton];
 }
 - (void)setupLayout {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
