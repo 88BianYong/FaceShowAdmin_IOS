@@ -53,7 +53,7 @@
 }
 - (void)reloadTemplate:(NSString *)title withType:(NSInteger)type {
     self.contentLabel.text = title;
-    if (type == 1) {
+    if (type == 2) {
         self.typeView.layer.cornerRadius = 3.0f;
     }else {
         self.typeView.layer.cornerRadius = 7.5f;

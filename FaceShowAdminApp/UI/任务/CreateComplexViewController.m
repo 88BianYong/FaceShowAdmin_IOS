@@ -126,6 +126,7 @@
                 self.itemData.questions = mutableArray;
             }
             [self.itemData.questions addObject:item];
+            [self formatQuestionData];
             [self.tableView reloadData];
             [self reloadPublishButtonStatus];
         };
@@ -157,8 +158,8 @@
     WEAK_SELF
     [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
-        self.itemData.title = self.tableHeaderView.textField.text;
-        self.itemData.desc = self.tableHeaderView.textView.text;
+        self.itemData.title = [self.tableHeaderView.textField.text yx_stringByTrimmingCharacters];
+        self.itemData.desc = [self.tableHeaderView.textView.text yx_stringByTrimmingCharacters];
         [self requestForCreateEvaluate];
     }];
     rightButton.enabled = NO;
@@ -240,6 +241,12 @@
             }else {
                 [self.itemData.questions replaceObjectAtIndex:section withObject:item];
             }
+            [self.itemData.questions enumerateObjectsUsingBlock:^(CreateQuestionGroupItem_Question *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.title = [obj.title yx_stringByTrimmingCharacters];
+                [obj.voteInfo.voteItems enumerateObjectsUsingBlock:^(CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item, NSUInteger idx, BOOL * _Nonnull stop) {
+                    item.itemName = [item.itemName yx_stringByTrimmingCharacters];
+                }];
+            }];//去除空格
             [self.tableView reloadData];
         };
         [self.navigationController pushViewController:VC animated:YES];
@@ -280,6 +287,12 @@
         }else {
             [self.itemData.questions replaceObjectAtIndex:indexPath.section withObject:item];
         }
+        [self.itemData.questions enumerateObjectsUsingBlock:^(CreateQuestionGroupItem_Question *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.title = [obj.title yx_stringByTrimmingCharacters];
+            [obj.voteInfo.voteItems enumerateObjectsUsingBlock:^(CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item, NSUInteger idx, BOOL * _Nonnull stop) {
+                item.itemName = [item.itemName yx_stringByTrimmingCharacters];
+            }];
+        }];//去除空格
         [self.tableView reloadData];
     };
     [self.navigationController pushViewController:VC animated:YES];
@@ -287,6 +300,14 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.tableHeaderView keyBoardHide];
+}
+- (void)formatQuestionData {
+    [self.itemData.questions enumerateObjectsUsingBlock:^(CreateQuestionGroupItem_Question *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.title = [obj.title yx_stringByTrimmingCharacters];
+        [obj.voteInfo.voteItems enumerateObjectsUsingBlock:^(CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item, NSUInteger idx, BOOL * _Nonnull stop) {
+            item.itemName = [item.itemName yx_stringByTrimmingCharacters];
+        }];
+    }];//去除空格
 }
 #pragma mark - request
 - (void)requestForCreateEvaluate {

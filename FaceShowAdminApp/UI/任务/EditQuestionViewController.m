@@ -111,6 +111,7 @@
         [self.tableView reloadData];
         [self reloadPublishButtonStatus];
     };
+    self.tableHeaderView.tag = self.editQuestion.questionType.integerValue;
     self.tableView.tableHeaderView = self.tableHeaderView;
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"keyUploadHeight" object:nil] subscribeNext:^(NSNotification *x) {
         STRONG_SELF
@@ -206,7 +207,7 @@
                 *stop = YES;
             }
         }];
-        self.publishButton.enabled = ([self.editQuestion.title yx_stringByTrimmingCharacters].length != 0 && !isEmpty && self.editQuestion.voteInfo.voteItems.count > 0);
+        self.publishButton.enabled = ([self.editQuestion.title yx_stringByTrimmingCharacters].length != 0 && !isEmpty && self.editQuestion.voteInfo.voteItems.count > 1);
     }
 }
 - (void)setupLayout {

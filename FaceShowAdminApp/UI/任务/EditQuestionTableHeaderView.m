@@ -26,6 +26,16 @@
     }
     return self;
 }
+- (void)setTag:(NSInteger)tag {
+    [super setTag:tag];
+    if (tag == 1) {
+        self.firstView.selected = YES;
+    }else if (tag == 2){
+        self.secondView.selected = YES;
+    }else {
+        self.thirdView.selected = YES;
+    }
+}
 #pragma mark - setupUI
 - (void)setupUI {
     self.firstView = [[EditQuestionTypeView alloc] init];
@@ -38,7 +48,6 @@
         BLOCK_EXEC(self.questionTypeBlock,@"1");
     }];
     self.firstView.titleString = @"单选";
-    self.firstView.selected = YES;
     [self addSubview:self.firstView];
     self.secondView = [[EditQuestionTypeView alloc] init];
     [[self.secondView.clickButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

@@ -411,8 +411,8 @@
     }else {
         request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     }
-    request.desc = self.createWorkTextView.text;
-    request.title = self.textField.text;
+    request.desc = [self.createWorkTextView.text yx_stringByTrimmingCharacters];
+    request.title = [self.textField.text yx_stringByTrimmingCharacters];
     request.resourceKey = resourceIds;
     [self nyx_disableRightNavigationItem];
     WEAK_SELF

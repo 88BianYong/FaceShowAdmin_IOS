@@ -121,7 +121,7 @@
     }else {
         request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     }
-    request.title = self.textField.text;
+    request.title = [self.textField.text yx_stringByTrimmingCharacters];
     WEAK_SELF
     [request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
