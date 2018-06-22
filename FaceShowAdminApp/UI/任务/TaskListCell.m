@@ -85,7 +85,10 @@
 - (void)setData:(GetAllTasksRequestItem_task *)data {
     _data = data;
     self.titleLabel.text = data.interactName;
-    self.descLabel.text = @"所属课程:课程或班级的名字";
+    if (!data.courseName) {
+        data.courseName = @"班级任务";
+    }
+    self.descLabel.text = [NSString stringWithFormat:@"所属课程:%@",data.courseName];
     NSString *count = [NSString stringWithFormat:@"%@/%@",data.finishedStudentNum,data.totalStudentNum];
     self.completionLabel.text = count;
 }

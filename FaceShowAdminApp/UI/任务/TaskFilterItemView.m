@@ -82,6 +82,6 @@
     self.iconImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@图标默认", item.interactTypeName]];
     self.iconImageView.highlightedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@图标选择",item.interactTypeName]];
     self.titleLabel.text = item.interactTypeName;
-    self.completionLabel.text = [NSString stringWithFormat:@"%@/%@",item.finishNum,item.taskNum];
+    self.completionLabel.text = item.taskNum;
 }
 @end

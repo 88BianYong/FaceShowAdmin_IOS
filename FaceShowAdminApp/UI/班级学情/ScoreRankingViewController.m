@@ -28,6 +28,13 @@
         STRONG_SELF
         self.topView.averageValue = avargeValue;
     }];
+    self.topView = [[ScoreAverageView alloc]init];
+    [self.view addSubview:self.topView];
+    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(5);
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(130);
+    }];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
@@ -40,13 +47,6 @@
 
 #pragma mark - setupUI
 - (void)setupUI {
-    self.topView = [[ScoreAverageView alloc]init];
-    [self.view addSubview:self.topView];
-    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(5);
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(135);
-    }];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
