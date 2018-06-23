@@ -139,6 +139,15 @@
         make.right.equalTo(bottomView.mas_right).offset(-15.0f);
     }];
     [self setupNavigationRightView];
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] init];
+    [[recognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
+        STRONG_SELF
+        if (x.state == UIGestureRecognizerStateEnded) {
+            [self.tableHeaderView.textField  resignFirstResponder];
+            [self.tableHeaderView.textView resignFirstResponder];
+        }
+    }];
+    [self.tableView addGestureRecognizer:recognizer];
 }
 - (void)setupLayout {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -176,7 +185,6 @@
 }
 - (void)reloadPublishButtonStatus {
     if (([self.tableHeaderView.textField.text yx_stringByTrimmingCharacters].length != 0) &&
-        ([self.tableHeaderView.textView.text yx_stringByTrimmingCharacters].length != 0) &&
         (self.itemData.questions.count > 0)) {
         self.publishButton.enabled = YES;
     }else {
