@@ -42,4 +42,12 @@
     }];
 }
 
+- (void)setData:(GetSummaryRequestItem_platformStatisticInfo *)data {
+    self.provinceStatisticView.data = data;
+    self.percentStatisticView.data = data;
+}
+
+- (void)setArea:(Area *)area {
+    self.provinceStatisticView.area = area;
+}
 @end

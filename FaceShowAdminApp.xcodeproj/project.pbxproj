@@ -61,6 +61,9 @@
 		7C07F03820DCD79800E6BCE2 /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C07F03720DCD79700E6BCE2 /* area.json */; };
 		7C07F03B20DCD8B700E6BCE2 /* AreaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03A20DCD8B700E6BCE2 /* AreaManager.m */; };
 		7C07F03E20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */; };
+		7C07F04120DDE2BF00E6BCE2 /* GetSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04020DDE2BF00E6BCE2 /* GetSummaryRequest.m */; };
+		7C07F04420DE1F9F00E6BCE2 /* ProjectDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04320DE1F9F00E6BCE2 /* ProjectDetailRequest.m */; };
+		7C07F04720DE296100E6BCE2 /* GetCountClazsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04620DE296100E6BCE2 /* GetCountClazsRequest.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
@@ -607,6 +610,12 @@
 		7C07F03A20DCD8B700E6BCE2 /* AreaManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaManager.m; sourceTree = "<group>"; };
 		7C07F03C20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetUserManagerScopeRequest.h; sourceTree = "<group>"; };
 		7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetUserManagerScopeRequest.m; sourceTree = "<group>"; };
+		7C07F03F20DDE2BF00E6BCE2 /* GetSummaryRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetSummaryRequest.h; sourceTree = "<group>"; };
+		7C07F04020DDE2BF00E6BCE2 /* GetSummaryRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetSummaryRequest.m; sourceTree = "<group>"; };
+		7C07F04220DE1F9F00E6BCE2 /* ProjectDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectDetailRequest.h; sourceTree = "<group>"; };
+		7C07F04320DE1F9F00E6BCE2 /* ProjectDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailRequest.m; sourceTree = "<group>"; };
+		7C07F04520DE296100E6BCE2 /* GetCountClazsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCountClazsRequest.h; sourceTree = "<group>"; };
+		7C07F04620DE296100E6BCE2 /* GetCountClazsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCountClazsRequest.m; sourceTree = "<group>"; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -2319,6 +2328,12 @@
 				7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */,
 				7C07F03C20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.h */,
 				7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */,
+				7C07F03F20DDE2BF00E6BCE2 /* GetSummaryRequest.h */,
+				7C07F04020DDE2BF00E6BCE2 /* GetSummaryRequest.m */,
+				7C07F04220DE1F9F00E6BCE2 /* ProjectDetailRequest.h */,
+				7C07F04320DE1F9F00E6BCE2 /* ProjectDetailRequest.m */,
+				7C07F04520DE296100E6BCE2 /* GetCountClazsRequest.h */,
+				7C07F04620DE296100E6BCE2 /* GetCountClazsRequest.m */,
 				7CEFC8ED1FA067B2001D8C84 /* UserManager.h */,
 				7CEFC8EB1FA067B2001D8C84 /* UserManager.m */,
 				7CDF1133208D7AA30044DD95 /* UserModel.h */,
@@ -3595,6 +3610,7 @@
 				7CDF123520902EE60044DD95 /* ClassMomentCell.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
 				7CDF128620902FBF0044DD95 /* ReportRequest.m in Sources */,
+				7C07F04420DE1F9F00E6BCE2 /* ProjectDetailRequest.m in Sources */,
 				7C07F03B20DCD8B700E6BCE2 /* AreaManager.m in Sources */,
 				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
 				7CDF128420902FBF0044DD95 /* ClassMomentClickLikeRequest.m in Sources */,
@@ -3634,6 +3650,7 @@
 				7CDF11A3208DB4A50044DD95 /* QiniuTokenRequest.m in Sources */,
 				7CEFC9B41FA9672A001D8C84 /* SignInDateTimeSettingView.m in Sources */,
 				7C06897020D0D32200C7CA14 /* ClassDetailStatisticItemView.m in Sources */,
+				7C07F04720DE296100E6BCE2 /* GetCountClazsRequest.m in Sources */,
 				7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */,
 				7CDF124D20902F200044DD95 /* ClassMomentViewController.m in Sources */,
 				9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */,
@@ -3784,6 +3801,7 @@
 				E94DDE8520DA507A00729A67 /* TaskCommentDataFetcher.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
+				7C07F04120DDE2BF00E6BCE2 /* GetSummaryRequest.m in Sources */,
 				E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */,
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,

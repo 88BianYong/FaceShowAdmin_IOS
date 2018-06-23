@@ -11,6 +11,8 @@
 #import "ClassSwitchView.h"
 #import "ClassInfoView.h"
 #import "QASlideView.h"
+#import "ProjectDetailRequest.h"
+#import "ErrorView.h"
 
 @interface TrainingProjectDetailViewController ()<QASlideViewDelegate,QASlideViewDataSource>
 @property (nonatomic, strong) UILabel *dateLabel;
@@ -20,6 +22,9 @@
 @property (nonatomic, strong) ClassSwitchView *switchView;
 @property (nonatomic, strong) QASlideView *slideView;
 @property (nonatomic, strong) UIButton *enterClassButton;
+@property (nonatomic, strong) ProjectDetailRequest *detailRequest;
+@property (nonatomic, strong) ProjectDetailRequestItem *requestItem;
+@property (nonatomic, strong) ErrorView *errorView;
 @end
 
 @implementation TrainingProjectDetailViewController
@@ -27,8 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"湖北高级教师骨干项目";
     [self setupUI];
+    [self requestProjectDetail];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -144,34 +149,90 @@
         }];
     }
     
-    // mock mock
-    self.completeView.number = @"80%";
-    self.scoreView.number = @"75";
-    self.dateLabel.text = @"2017.3.4 - 2017.6.23";
-    self.statisticLabel.text = [NSString stringWithFormat:@"班级  %@     学员  %@     班主任  %@",@(5),@(125),@(10)];
-//    self.switchView.className = @"骨干面授一般";
+    for (UIView *v in self.view.subviews) {
+        v.hidden = YES;
+    }
+    
+    self.errorView = [[ErrorView alloc]init];
+    [self.errorView setRetryBlock:^{
+        STRONG_SELF
+        [self requestProjectDetail];
+    }];
+    [self.view addSubview:self.errorView];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    self.errorView.hidden = YES;
 }
 
 - (void)enterClass {
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    ProjectDetailRequestItem_clazs *clazs = self.requestItem.data.clazses[self.slideView.currentIndex];
+    ClassListRequestItem_clazsInfos *clazsInfo = [[ClassListRequestItem_clazsInfos alloc]init];
+    clazsInfo.clazsName = clazs.clazsName;
+    clazsInfo.clazsId = clazs.clazsId;
+    clazsInfo.platId = clazs.platId;
+    clazsInfo.projectId = clazs.projectId;
+    [UserManager sharedInstance].userModel.currentClass = clazsInfo;
+    [[UserManager sharedInstance] saveData];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
+}
+
+- (void)requestProjectDetail {
+    [self.view nyx_startLoading];
+    [self.detailRequest stopRequest];
+    self.detailRequest = [[ProjectDetailRequest alloc]init];
+    self.detailRequest.projectId = self.projectId;
+    WEAK_SELF
+    [self.detailRequest startRequestWithRetClass:[ProjectDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        self.errorView.hidden = YES;
+        if (error) {
+            self.errorView.hidden = NO;
+            return;
+        }
+        for (UIView *v in self.view.subviews) {
+            v.hidden = NO;
+        }
+        self.errorView.hidden = YES;
+        [self refreshUIWithItem:retItem];
+    }];
+}
+
+- (void)refreshUIWithItem:(ProjectDetailRequestItem *)item {
+    self.requestItem = item;
+    self.navigationItem.title = item.data.projectCount.projectName;
+    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[item.data.projectCount.startTime omitSecondOfFullDateString],[item.data.projectCount.endTime omitSecondOfFullDateString]];
+    self.completeView.number = [NSString stringWithFormat:@"%.0f%@",item.data.projectCount.taskFinishedRate.floatValue*100,@"%"];
+    self.scoreView.number = item.data.projectCount.studentAvgScore;
+    self.statisticLabel.text = [NSString stringWithFormat:@"班级  %@     学员  %@     班主任  %@",item.data.projectCount.clazsNum,item.data.projectCount.studentNum,item.data.projectCount.masterNum];
+    if (self.requestItem.data.clazses.count > 0) {
+        [self.slideView reloadData];
+    }else {
+        self.switchView.hidden = YES;
+        self.enterClassButton.hidden = YES;
+    }
 }
 
 #pragma mark - QASlideViewDataSource
 - (NSInteger)numberOfItemsInSlideView:(QASlideView *)slideView {
-    return 10;
+    return self.requestItem.data.clazses.count;
 }
 - (QASlideItemBaseView *)slideView:(QASlideView *)slideView itemViewAtIndex:(NSInteger)index {
     ClassInfoView *infoView = [[ClassInfoView alloc]init];
+    ProjectDetailRequestItem_clazs *clazs = self.requestItem.data.clazses[index];
+    infoView.clazsId = clazs.clazsId;
     return infoView;
 }
 #pragma mark - QASlideViewDelegate
 - (void)slideView:(QASlideView *)slideView didSlideFromIndex:(NSInteger)from toIndex:(NSInteger)to {
-    self.switchView.className = [NSString stringWithFormat:@"面授骨干%@班",@(to+1)];
+    ProjectDetailRequestItem_clazs *clazs = self.requestItem.data.clazses[to];
+    self.switchView.className = clazs.clazsName;
     [self.switchView resetPreNext];
     if (to == 0) {
         [self.switchView reachFirst];
     }
-    if (to == 10-1) {
+    if (to == self.requestItem.data.clazses.count-1) {
         [self.switchView reachLast];
     }
 }

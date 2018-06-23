@@ -97,17 +97,18 @@
         make.top.mas_equalTo(self.studentView.mas_top);
         make.centerX.mas_equalTo(self.taskView.mas_centerX);
     }];
-    
-    // mock mock
-    self.courseView.number = @"30";
-    self.homeworkView.number = @"4";
-    self.signinView.number = @"22";
-    self.resourceView.number = @"77";
-    self.taskView.number = @"6";
-    self.classMomentView.number = @"8";
-    self.studentView.number = @"123";
-    self.teacherView.number = @"5";
-    self.commentView.number = @"99";
+}
+
+- (void)setData:(GetCountClazsRequestItem_data *)data {
+    self.courseView.number = data.courseNum;
+    self.homeworkView.number = data.homeworkNum;
+    self.signinView.number = data.signedNum;
+    self.resourceView.number = data.resourceNum;
+    self.taskView.number = data.taskNum;
+    self.classMomentView.number = data.momentNum;
+    self.studentView.number = data.studentNum;
+    self.teacherView.number = data.masterNum;
+    self.commentView.number = data.evaluateNum;
 }
 
 @end

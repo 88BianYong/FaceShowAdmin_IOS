@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetSummaryRequest.h"
 
 @interface PercentStatisticView : UIView
-
+@property (nonatomic, strong) GetSummaryRequestItem_platformStatisticInfo *data;
 @end

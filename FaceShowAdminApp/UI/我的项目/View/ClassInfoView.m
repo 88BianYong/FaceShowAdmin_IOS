@@ -9,10 +9,12 @@
 #import "ClassInfoView.h"
 #import "ClassStatisticView.h"
 #import "ClassDetailStatisticView.h"
+#import "GetCountClazsRequest.h"
 
 @interface ClassInfoView ()
 @property (nonatomic, strong) ClassStatisticView *statisticView;
 @property (nonatomic, strong) ClassDetailStatisticView *detailStatisticView;
+@property (nonatomic, strong) GetCountClazsRequest *clazsRequest;
 @end
 
 @implementation ClassInfoView
@@ -69,6 +71,26 @@
     [self.detailStatisticView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
         make.top.mas_equalTo(line2.mas_bottom);
+    }];
+}
+
+- (void)setClazsId:(NSString *)clazsId {
+    _clazsId = clazsId;
+    [self nyx_startLoading];
+    [self.clazsRequest stopRequest];
+    self.clazsRequest = [[GetCountClazsRequest alloc]init];
+    self.clazsRequest.clazsId = self.clazsId;
+    WEAK_SELF
+    [self.clazsRequest startRequestWithRetClass:[GetCountClazsRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self nyx_stopLoading];
+        if (error) {
+            [self nyx_showToast:error.localizedDescription];
+            return;
+        }
+        GetCountClazsRequestItem *item = (GetCountClazsRequestItem *)retItem;
+        self.statisticView.data = item.data;
+        self.detailStatisticView.data = item.data;
     }];
 }
 

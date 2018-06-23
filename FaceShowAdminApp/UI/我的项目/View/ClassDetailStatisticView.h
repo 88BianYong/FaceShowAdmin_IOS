@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetCountClazsRequest.h"
 
 @interface ClassDetailStatisticView : UIView
-
+@property (nonatomic, strong) GetCountClazsRequestItem_data *data;
 @end

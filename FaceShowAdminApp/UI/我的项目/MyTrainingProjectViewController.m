@@ -156,6 +156,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
+    GetMyProjectsRequestItem_project *project = self.groupArray[indexPath.section][indexPath.row];
+    vc.projectId = project.projectId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

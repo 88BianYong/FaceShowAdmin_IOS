@@ -36,14 +36,14 @@
         make.centerX.mas_equalTo(self.mas_centerX).multipliedBy(1.0/3.0);
     }];
     self.signinView = [[PercentStatisticItemView alloc]init];
-    self.signinView.name = @"学员出勤率";
+    self.signinView.name = @"学员签到率";
     [self addSubview:self.signinView];
     [self.signinView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
         make.centerX.mas_equalTo(self.mas_centerX);
     }];
     self.useView = [[PercentStatisticItemView alloc]init];
-    self.useView.name = @"昨日使用人数";
+    self.useView.name = @"项目满意度";
     [self addSubview:self.useView];
     [self.useView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
@@ -64,11 +64,13 @@
         make.centerY.mas_equalTo(0);
         make.centerX.mas_equalTo(self.mas_centerX).multipliedBy(4.0/3.0);
     }];
-    
-    // mock mock
-    self.completeView.percent = @"89%";
-    self.signinView.percent = @"80%";
-    self.useView.percent = @"80%";
+}
+
+- (void)setData:(GetSummaryRequestItem_platformStatisticInfo *)data {
+    _data = data;
+    self.completeView.percent = [NSString stringWithFormat:@"%.0f%@",data.taskFinishPercent.floatValue*100,@"%"];
+    self.signinView.percent = [NSString stringWithFormat:@"%.0f%@",data.signPercent.floatValue*100,@"%"];
+    self.useView.percent = [NSString stringWithFormat:@"%.0f%@",data.projectSatisfiedPercent.floatValue*100,@"%"];
 }
 
 @end

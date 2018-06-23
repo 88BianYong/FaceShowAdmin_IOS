@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface TrainingProjectDetailViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *projectId;
 @end

@@ -182,6 +182,7 @@
     }
     
     _maxHeight += 4;
+    _maxHeight = MAX(_maxHeight, 20);
     _perHeight = (CGRectGetHeight(self.frame) - 30 - _originSize.y - self.contentInsets.top)/_maxHeight;
     
     

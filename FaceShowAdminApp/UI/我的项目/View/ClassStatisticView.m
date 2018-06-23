@@ -64,11 +64,12 @@
         make.centerY.mas_equalTo(0);
         make.centerX.mas_equalTo(self.mas_centerX).multipliedBy(4.0/3.0);
     }];
-    
-    // mock mock
-    self.completeView.percent = @"89%";
-    self.signinView.percent = @"80%";
-    self.useView.percent = @"80%";
+}
+
+- (void)setData:(GetCountClazsRequestItem_data *)data {
+    self.completeView.percent = [NSString stringWithFormat:@"%.0f%@",[data.taskFinishedRate floatValue]* 100,@"%"];
+    self.signinView.percent = data.studentAvgScore;
+    self.useView.percent = [NSString stringWithFormat:@"%.0f%@",[data.studentReportRate floatValue]* 100,@"%"];;
 }
 
 @end

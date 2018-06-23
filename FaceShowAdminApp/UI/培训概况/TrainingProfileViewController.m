@@ -15,14 +15,28 @@
 #import "TrainingProjectDetailViewController.h"
 #import "ProjectFilterViewController.h"
 #import "YXDrawerController.h"
+#import "GetSummaryRequest.h"
+#import "ErrorView.h"
+#import "MJRefresh.h"
 
 @interface TrainingProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) TrainingProfileHeaderView *headerView;
+@property (nonatomic, strong) MJRefreshHeaderView *header;
+@property (nonatomic, strong) ErrorView *errorView;
+@property (nonatomic, strong) GetSummaryRequest *getSummaryRequest;
+@property (nonatomic, strong) GetSummaryRequestItem *requestItem;
+@property (nonatomic, strong) Area *province;
+@property (nonatomic, strong) Area *city;
+@property (nonatomic, strong) Area *district;
+@property (nonatomic, strong) NSString *startTime;
+@property (nonatomic, strong) NSString *endTime;
 @end
 
 @implementation TrainingProfileViewController
-
+- (void)dealloc {
+    [self.header free];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,12 +56,19 @@
         STRONG_SELF
         ProjectFilterViewController *vc = [[ProjectFilterViewController alloc]init];
         WEAK_SELF
-        [vc setSelectBlock:^(NSString *provinceID, NSString *cityID, NSString *districtID, NSString *startTime, NSString *endTime) {
+        [vc setSelectBlock:^(Area *province, Area *city, Area *district, NSString *startTime, NSString *endTime) {
             STRONG_SELF
+            self.province = province;
+            self.city = city;
+            self.district = district;
+            self.startTime = startTime;
+            self.endTime = endTime;
+            [self requestSummary];
         }];
         [self.navigationController pushViewController:vc animated:YES];
     }];
-    [self setupUI];    
+    [self setupUI];
+    [self requestSummary];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +95,70 @@
     
     self.headerView = [[TrainingProfileHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 324)];
     self.tableView.tableHeaderView = self.headerView;
+    self.tableView.hidden = YES;
+    
+    WEAK_SELF
+    self.header = [MJRefreshHeaderView header];
+    self.header.scrollView = self.tableView;
+    self.header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        STRONG_SELF
+        [self requestSummary];
+    };
+
+    self.errorView = [[ErrorView alloc]init];
+    [self.errorView setRetryBlock:^{
+        STRONG_SELF
+        [self requestSummary];
+    }];
+    [self.view addSubview:self.errorView];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    self.errorView.hidden = YES;
+}
+
+- (void)requestSummary {
+    [self.view nyx_startLoading];
+    [self.getSummaryRequest stopRequest];
+    self.getSummaryRequest = [[GetSummaryRequest alloc]init];
+    GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
+    self.getSummaryRequest.platId = plat.platformId;
+    self.getSummaryRequest.provinceId = self.province.areaID;
+    self.getSummaryRequest.cityId = self.city.areaID;
+    self.getSummaryRequest.districtId = self.district.areaID;
+    self.getSummaryRequest.startTime = self.startTime;
+    self.getSummaryRequest.endTime = self.endTime;
+    if (!self.province) {
+        self.getSummaryRequest.groupByType = @"2";
+    }else if (!self.city) {
+        self.getSummaryRequest.groupByType = @"3";
+    }else {
+        self.getSummaryRequest.groupByType = @"4";
+    }
+    WEAK_SELF
+    [self.getSummaryRequest startRequestWithRetClass:[GetSummaryRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.header endRefreshing];
+        [self.view nyx_stopLoading];
+        self.errorView.hidden = YES;
+        if (error) {
+            self.errorView.hidden = NO;
+            return;
+        }
+        GetSummaryRequestItem *item = (GetSummaryRequestItem *)retItem;
+        self.requestItem = item;
+        self.headerView.data = item.data.platformStatisticInfo;
+        Area *area = self.province;
+        if (self.city) {
+            area = self.city;
+        }
+        if (self.district) {
+            area = self.district;
+        }
+        self.headerView.area = area;
+        [self.tableView reloadData];
+        self.tableView.hidden = NO;
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -84,19 +169,33 @@
     if (section == 0 || section == 1) {
         return 1;
     }
-    return 5;
+    if (section == 2) {
+        return self.requestItem.data.platformStatisticInfo.onGoingprojectList.count;
+    }else {
+        return self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         ProjectLevelDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectLevelDistributingCell"];
+        cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListLevel;
         return cell;
     }else if (indexPath.section == 1) {
         ProjectAreaDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectAreaDistributingCell"];
+        cell.groupByType = self.requestItem.data.platformStatisticInfo.groupByType;
+        cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListArea;
+        return cell;
+    }else if (indexPath.section == 2) {
+        TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
+        GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
+        cell.name = ongoing.projectName;
+        cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.onGoingprojectList.count-1;
         return cell;
     }else {
         TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
-        cell.name = @"2017测试项目";
-        cell.lineHidden = indexPath.row==4;
+        GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
+        cell.name = top.project.projectName;
+        cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count-1;
         return cell;
     }
 }
@@ -127,6 +226,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
+    if (indexPath.section == 2) {
+        GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
+        vc.projectId = ongoing.projectID;
+    }else if (indexPath.section == 3) {
+        GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
+        vc.projectId = top.projectId;
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

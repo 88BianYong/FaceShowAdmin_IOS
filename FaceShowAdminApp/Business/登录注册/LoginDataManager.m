@@ -128,9 +128,7 @@
         [manager.roleRequest stopRequest];
         manager.roleRequest = [[GetUserRolesRequest alloc]init];
         GetUserPlatformRequestItem_platformInfos *platform = platformItem.data.platformInfos.firstObject;
-//        manager.roleRequest.platId = platform.platformId;
-#warning 先写死101测试
-        manager.roleRequest.platId = @"101";
+        manager.roleRequest.platId = platform.platformId;
         manager.roleRequest.token = token;
         WEAK_SELF
         [manager.roleRequest startRequestWithRetClass:[GetUserRolesRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

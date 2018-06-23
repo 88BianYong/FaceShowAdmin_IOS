@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetSummaryRequest.h"
 
 @interface ProjectLevelDistributingCell : UITableViewCell
-
+@property (nonatomic, strong) NSArray<GetSummaryRequestItem_projectStatisticInfo *> *dataArray;
 @end

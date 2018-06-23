@@ -126,7 +126,7 @@
     self.classNumberLabel.text = data.clazsNum;
     self.studentNumberLabel.text = data.studentNum;
     self.teacherNumberLabel.text = data.masterNum;
-    self.statisticView.percent = [NSString stringWithFormat:@"%.0f%@",data.taskFinishedRate.floatValue,@"%"];
+    self.statisticView.percent = [NSString stringWithFormat:@"%.0f%@",data.taskFinishedRate.floatValue*100,@"%"];
 }
 
 - (void)setType:(ProjectGroupType)type {

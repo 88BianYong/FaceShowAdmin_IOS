@@ -8,9 +8,11 @@
 
 #import "ProjectAreaDistributingCell.h"
 #import <JHChart/JHColumnChart.h>
+#import "AreaManager.h"
 
 @interface ProjectAreaDistributingCell ()
 @property (nonatomic, strong) JHColumnChart *column;
+@property (nonatomic, strong) UILabel *emptyLabel;
 @end
 
 @implementation ProjectAreaDistributingCell
@@ -57,7 +59,16 @@
     [self.contentView addSubview:column];
     self.column = column;
     
-    [self setupMock];
+    self.emptyLabel = [[UILabel alloc]init];
+    self.emptyLabel.text = @"无数据";
+    self.emptyLabel.textColor = [UIColor colorWithHexString:@"333333"];
+    self.emptyLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:self.emptyLabel];
+    [self.emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(0);
+    }];
+
+//    [self setupMock];
 }
 
 - (void)setupMock {
@@ -81,6 +92,79 @@
     /*        Module prompt         */
     self.column.xShowInfoText = @[@"A班级",@"B班级",@"C班级",@"D班级",@"E班级",@"F班级",@"G班级",@"H班级",@"i班级",@"J班级",@"L班级",@"M班级",@"N班级"];
     [self.column showAnimation];
+}
+
+- (void)setDataArray:(NSArray<GetSummaryRequestItem_projectStatisticInfo *> *)dataArray {
+    NSMutableArray *valueArr = [NSMutableArray array];
+    for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
+        [valueArr addObject:@[@(info.projectNum.integerValue)]];
+    }
+    NSMutableArray *textArr = [NSMutableArray array];
+    if ([self.groupByType isEqualToString:@"2"]) {
+        for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
+            for (Area *area in [AreaManager sharedInstance].areaModel.data) {
+                if (info.provinceId.integerValue == area.areaID.integerValue) {
+                    [textArr addObject:area.name];
+                    break;
+                }
+            }
+        }
+    }else if ([self.groupByType isEqualToString:@"3"]) {
+        NSMutableArray<Area *> *provinceArray = [NSMutableArray array];
+        for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
+            for (Area *area in [AreaManager sharedInstance].areaModel.data) {
+                if (info.provinceId.integerValue == area.areaID.integerValue) {
+                    [provinceArray addObject:area];
+                    break;
+                }
+            }
+        }
+        [dataArray enumerateObjectsUsingBlock:^(GetSummaryRequestItem_projectStatisticInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            for (Area *area in provinceArray[idx].sub) {
+                if (obj.cityId.integerValue == area.areaID.integerValue) {
+                    [textArr addObject:area.name];
+                    break;
+                }
+            }
+        }];
+    }else if ([self.groupByType isEqualToString:@"4"]) {
+        NSMutableArray<Area *> *provinceArray = [NSMutableArray array];
+        for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
+            for (Area *area in [AreaManager sharedInstance].areaModel.data) {
+                if (info.provinceId.integerValue == area.areaID.integerValue) {
+                    [provinceArray addObject:area];
+                    break;
+                }
+            }
+        }
+        NSMutableArray<Area *> *cityArray = [NSMutableArray array];
+        [dataArray enumerateObjectsUsingBlock:^(GetSummaryRequestItem_projectStatisticInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            for (Area *area in provinceArray[idx].sub) {
+                if (obj.cityId.integerValue == area.areaID.integerValue) {
+                    [cityArray addObject:area];
+                    break;
+                }
+            }
+        }];
+        [dataArray enumerateObjectsUsingBlock:^(GetSummaryRequestItem_projectStatisticInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            for (Area *area in cityArray[idx].sub) {
+                if (obj.districtId.integerValue == area.areaID.integerValue) {
+                    [textArr addObject:area.name];
+                    break;
+                }
+            }
+        }];
+    }
+    
+    self.column.valueArr = valueArr;
+    self.column.xShowInfoText = textArr;
+    self.column.columnBGcolorsArr = @[[UIColor colorWithHexString:@"0068bd"]];
+    if (valueArr.count == 0) {
+        self.emptyLabel.hidden = NO;
+    }else {
+        self.emptyLabel.hidden = YES;
+        [self.column showAnimation];
+    }
 }
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "AreaManager.h"
 
 @interface ProjectFilterViewController : BaseViewController
-@property (nonatomic, strong) void(^selectBlock)(NSString *provinceID,NSString *cityID,NSString *districtID,NSString *startTime,NSString *endTime);
+@property (nonatomic, strong) void(^selectBlock)(Area *province,Area *city,Area *district,NSString *startTime,NSString *endTime);
 @end

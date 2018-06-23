@@ -158,7 +158,10 @@ static const NSInteger kItemViewTagBase = 1234;
         [itemView removeFromSuperview];
     }
     [self.remainedItemViewArray removeAllObjects];
-    
+    NSInteger itemCount = [self.dataSource numberOfItemsInSlideView:self];
+    if (itemCount == 0) {
+        return;
+    }
     [self layoutItemContainerView];
     [self loadAndLayoutItemViews];
     [self scrollToItemIndex:self.currentIndex animated:NO];

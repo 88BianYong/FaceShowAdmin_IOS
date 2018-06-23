@@ -43,7 +43,7 @@
         STRONG_SELF
         [self submitFilter];
     }];
-    self.firstLevelSelectedIndex = 0;
+    self.firstLevelSelectedIndex = -1;
     self.secondLevelSelectedIndex = -1;
     self.thirdLevelSelectedIndex = -1;
 
@@ -58,9 +58,9 @@
 }
 
 - (void)submitFilter {
-    NSString *provinceID = self.provinceArray[self.firstLevelSelectedIndex].areaID;
-    NSString *cityID = self.secondLevelSelectedIndex != -1? self.cityArray[self.secondLevelSelectedIndex].areaID:nil;
-    NSString *districtID = self.thirdLevelSelectedIndex != -1? self.areaArray[self.thirdLevelSelectedIndex].areaID:nil;
+    Area *province = self.firstLevelSelectedIndex != -1? self.provinceArray[self.firstLevelSelectedIndex]:nil;
+    Area *city = self.secondLevelSelectedIndex != -1? self.cityArray[self.secondLevelSelectedIndex]:nil;
+    Area *district = self.thirdLevelSelectedIndex != -1? self.areaArray[self.thirdLevelSelectedIndex]:nil;
     NSString *startTime = nil;
     NSString *endTime = nil;
     NSDate *date = [NSDate date];
@@ -82,7 +82,7 @@
         startTime = self.timeSettingView.startTime;
         endTime = self.timeSettingView.endTime;
     }
-    BLOCK_EXEC(self.selectBlock,provinceID,cityID,districtID,startTime,endTime);
+    BLOCK_EXEC(self.selectBlock,province,city,district,startTime,endTime);
     [self backAction];
 }
 
@@ -132,9 +132,7 @@
     [self.scopeRequest stopRequest];
     self.scopeRequest = [[GetUserManagerScopeRequest alloc]init];
     GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
-//    self.scopeRequest.platId = plat.platformId;
-#warning 先写死101测试
-    self.scopeRequest.platId = @"101";
+    self.scopeRequest.platId = plat.platformId;
     WEAK_SELF
     [self.scopeRequest startRequestWithRetClass:[GetUserManagerScopeRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
@@ -153,7 +151,6 @@
 
 - (void)setupData {
     [self setupProcince];
-    [self setupCityWithProvince:self.provinceArray.firstObject];
 }
 
 - (void)setupProcince {
@@ -201,6 +198,9 @@
     if (section == 0) {
         return self.provinceArray.count;
     }else if (section == 1) {
+        if (self.firstLevelSelectedIndex == -1) {
+            return 0;
+        }
         return self.cityArray.count;
     }else if (section == 2) {
         if (self.secondLevelSelectedIndex == -1) {
@@ -283,6 +283,11 @@
     return CGSizeZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        if (self.firstLevelSelectedIndex == -1) {
+            return CGSizeZero;
+        }
+    }
     if (section == 2) {
         if (self.secondLevelSelectedIndex == -1) {
             return CGSizeZero;

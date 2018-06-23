@@ -72,27 +72,31 @@
         make.centerX.mas_equalTo(self.mas_centerX).multipliedBy(5.0/3.0);
     }];
     self.placeView = [[NameNumberView alloc]init];
-    self.placeView.name = @"已使用地方";
+    self.placeView.name = @"班主任数量";
     [self addSubview:self.placeView];
     [self.placeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.projectView.mas_bottom).mas_offset(28);
         make.centerX.mas_equalTo(self.projectView.mas_centerX);
     }];
     self.areaView = [[NameNumberView alloc]init];
-    self.areaView.name = @"已使用区县";
+    self.areaView.name = @"课程数量";
     [self addSubview:self.areaView];
     [self.areaView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.placeView.mas_top);
         make.centerX.mas_equalTo(self.classView.mas_centerX);
     }];
-    
-    // mock mock
-    self.provinceLabel.text = @"湖北省";
-    self.projectView.number = @"24";
-    self.classView.number = @"37";
-    self.studentView.number = @"240";
-    self.placeView.number = @"198";
-    self.areaView.number = @"5";
 }
 
+- (void)setData:(GetSummaryRequestItem_platformStatisticInfo *)data {
+    _data = data;
+    self.projectView.number = data.projectNum;
+    self.classView.number = data.clazsNum;
+    self.studentView.number = data.studentNum;
+    self.placeView.number = data.teacherNum;
+    self.areaView.number = data.courseNum;
+}
+- (void)setArea:(Area *)area {
+    _area = area;
+    self.provinceLabel.text = area? area.name:@"全部";
+}
 @end

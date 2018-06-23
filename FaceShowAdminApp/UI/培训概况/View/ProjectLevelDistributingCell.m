@@ -11,6 +11,7 @@
 
 @interface ProjectLevelDistributingCell ()
 @property (nonatomic, strong) JHPieChart *pie;
+@property (nonatomic, strong) UILabel *emptyLabel;
 @end
 
 @implementation ProjectLevelDistributingCell
@@ -45,20 +46,36 @@
     [self.contentView addSubview:pie];
     self.pie = pie;
     
-    [self setupMock];
+    self.emptyLabel = [[UILabel alloc]init];
+    self.emptyLabel.text = @"无数据";
+    self.emptyLabel.textColor = [UIColor colorWithHexString:@"333333"];
+    self.emptyLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:self.emptyLabel];
+    [self.emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(0);
+    }];
 }
 
-- (void)setupMock {
-    /* Pie chart value, will automatically according to the percentage of numerical calculation */
-    self.pie.valueArr = @[@18,@14,@25,@40,@18];
-    /* The description of each sector must be filled, and the number must be the same as the pie chart. */
-    self.pie.descArr = @[@"第一个元素",@"第二个元素",@"第三个元素",@"第四个元素",@"5"];
+- (void)setDataArray:(NSArray<GetSummaryRequestItem_projectStatisticInfo *> *)dataArray {
+    NSMutableArray *valueArr = [NSMutableArray array];
+    NSMutableArray *descArr = [NSMutableArray array];
+    for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
+        [valueArr addObject:@(info.projectNum.integerValue)];
+        [descArr addObject:info.projectLevelName];
+    }
+    self.pie.valueArr = valueArr;
+    self.pie.descArr = descArr;
     self.pie.colorArr = @[[UIColor colorWithHexString:@"21c7dc"],
                           [UIColor colorWithHexString:@"59afe7"],
                           [UIColor colorWithHexString:@"ccf1fc"],
                           [UIColor colorWithHexString:@"83d6f1"],
                           [UIColor colorWithHexString:@"25b7fc"]];
-    [self.pie showAnimation];
+    if (valueArr.count == 0) {
+        self.emptyLabel.hidden = NO;
+    }else {
+        self.emptyLabel.hidden = YES;
+        [self.pie showAnimation];
+    }
 }
 
 @end

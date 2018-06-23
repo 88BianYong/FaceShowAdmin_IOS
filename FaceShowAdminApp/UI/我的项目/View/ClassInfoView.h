@@ -9,5 +9,5 @@
 #import "QASlideItemBaseView.h"
 
 @interface ClassInfoView : QASlideItemBaseView
-
+@property (nonatomic, strong) NSString *clazsId;
 @end

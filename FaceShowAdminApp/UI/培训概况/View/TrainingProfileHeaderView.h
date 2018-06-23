@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetSummaryRequest.h"
+#import "AreaManager.h"
 
 @interface TrainingProfileHeaderView : UIView
-
+@property (nonatomic, strong) GetSummaryRequestItem_platformStatisticInfo *data;
+@property (nonatomic, strong) Area *area;
 @end

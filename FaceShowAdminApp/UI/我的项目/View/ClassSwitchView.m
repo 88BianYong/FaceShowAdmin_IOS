@@ -63,7 +63,7 @@
     [self addSubview:promptLabel];
     [promptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
-        make.top.mas_equalTo(self.classNameLabel.mas_bottom).mas_offset(6);
+        make.top.mas_equalTo(self.classNameLabel.mas_bottom).mas_offset(5);
     }];
 }
 
