@@ -87,6 +87,8 @@
     self.getClassRequest = [[ClassListRequest alloc]init];
     GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
     self.getClassRequest.platId = plat.platformId;
+#warning 先写死101
+    self.getClassRequest.platId = @"101";
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.getClassRequest startRequestWithRetClass:[ClassListRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

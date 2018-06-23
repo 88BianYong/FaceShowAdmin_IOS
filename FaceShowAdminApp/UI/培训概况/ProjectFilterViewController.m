@@ -133,6 +133,8 @@
     self.scopeRequest = [[GetUserManagerScopeRequest alloc]init];
     GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
     self.scopeRequest.platId = plat.platformId;
+#warning 先写死101
+    self.scopeRequest.platId = @"101";
     WEAK_SELF
     [self.scopeRequest startRequestWithRetClass:[GetUserManagerScopeRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
