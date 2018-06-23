@@ -14,11 +14,15 @@
 #import "SignInDetailRequest.h"
 #import "SignInDetailViewController.h"
 #import "EmptyView.h"
+#import "GetHomeworkRequest.h"
+#import "HomeworkDetailViewController.h"
 
 @interface CourseTaskViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SignInDetailRequest *request;
 @property (nonatomic, strong) EmptyView *emptyView;
+@property(nonatomic, strong) GetHomeworkRequest *getHomeworkRequest;
+
 @end
 
 @implementation CourseTaskViewController
@@ -88,7 +92,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GetCourseRequestItem_InteractStep *task = self.interactSteps[indexPath.row];
     InteractType type = [FSDataMappingTable InteractTypeWithKey:task.interactType];
-    if (type == InteractType_Vote || type == InteractType_Questionare) {
+    if (type == InteractType_Vote || type == InteractType_Questionare || type == InteractType_Evaluate) {
         QuestionnaireViewController *vc = [[QuestionnaireViewController alloc]initWithStepId:task.stepId interactType:type];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (type == InteractType_Comment) {
@@ -112,6 +116,24 @@
             item.data.signIn.stepId = task.stepId;
             signInDetailVC.data = item.data.signIn;
             [self.navigationController pushViewController:signInDetailVC animated:YES];
+        }];
+    }else if (type == InteractType_Homework) {
+        [self.getHomeworkRequest stopRequest];
+        self.getHomeworkRequest = [[GetHomeworkRequest alloc]init];
+        self.getHomeworkRequest.stepId = task.stepId;
+        WEAK_SELF
+        [self.view nyx_startLoading];
+        [self.getHomeworkRequest startRequestWithRetClass:[GetHomeworkRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+            STRONG_SELF
+            [self.view nyx_stopLoading];
+            if (error) {
+                [self.view nyx_showToast:error.localizedDescription];
+                return;
+            }
+            GetHomeworkRequestItem *item = (GetHomeworkRequestItem *)retItem;
+            HomeworkDetailViewController *vc = [[HomeworkDetailViewController alloc]init];
+            vc.item = item;
+            [self.navigationController pushViewController:vc animated:YES];
         }];
     }
 }

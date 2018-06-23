@@ -94,9 +94,13 @@
     } else if (type == InteractType_Questionare) {
         self.typeImageView.image = [UIImage imageNamed:@"问卷icon"];
     } else if (type == InteractType_Comment) {
-        self.typeImageView.image = [UIImage imageNamed:@"评论icon"];
+        self.typeImageView.image = [UIImage imageNamed:@"讨论"];
     } else if (type == InteractType_SignIn) {
         self.typeImageView.image = [UIImage imageNamed:@"签到icon"];
+    } else if (type == InteractType_Homework) {
+        self.typeImageView.image = [UIImage imageNamed:@"作业"];
+    } else if (type == InteractType_Evaluate) {
+        self.typeImageView.image = [UIImage imageNamed:@"评论"];
     }
 }
 

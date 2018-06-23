@@ -89,8 +89,13 @@
         data.courseName = @"班级任务";
     }
     self.descLabel.text = [NSString stringWithFormat:@"所属课程:%@",data.courseName];
-    NSString *count = [NSString stringWithFormat:@"%@/%@",data.finishedStudentNum,data.totalStudentNum];
-    self.completionLabel.text = count;
+    InteractType type = [FSDataMappingTable InteractTypeWithKey:data.interactType];
+    if (type == InteractType_Comment) {
+        self.completionLabel.text = data.finishedStudentNum;
+    }else {
+        NSString *count = [NSString stringWithFormat:@"%@/%@",data.finishedStudentNum,data.totalStudentNum];
+        self.completionLabel.text = count;
+    }
 }
 
 @end
