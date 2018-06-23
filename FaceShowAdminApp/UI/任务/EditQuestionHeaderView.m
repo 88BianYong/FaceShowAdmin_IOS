@@ -8,7 +8,7 @@
 
 #import "EditQuestionHeaderView.h"
 #import "SAMTextView+Restriction.h"
-@interface EditQuestionHeaderView ()
+@interface EditQuestionHeaderView ()<UITextViewDelegate>
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIView *bottomView;
 @end
@@ -49,6 +49,7 @@
     self.textView.placeholder = @"请输入问题";
     self.textView.scrollEnabled = NO;
     self.textView.tag = 10001;
+    self.textView.delegate = self;
     [self.contentView addSubview:self.textView];
     
     self.bottomView = [[UIView alloc] init];
@@ -63,15 +64,22 @@
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
         make.top.equalTo(self.contentView.mas_top).offset(8.0f);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-15.0f);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-14.0f);
         make.height.mas_greaterThanOrEqualTo(30.0f).priorityHigh();
         make.left.equalTo(self.titleLabel.mas_right).offset(6.0f);
     }];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(5.0f);
+        make.height.mas_equalTo(4.0f);
         make.bottom.equalTo(self.contentView.mas_bottom);
         make.left.equalTo(self.contentView.mas_left);
         make.right.equalTo(self.contentView.mas_right);
     }];
+}
+#pragma mark - UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        return NO;
+    }
+    return YES;
 }
 @end

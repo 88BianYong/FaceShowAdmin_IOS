@@ -13,6 +13,7 @@
 #import "EditQuestionHeaderView.h"
 #import "EditQuestionTableHeaderView.h"
 #import "FSDefaultHeaderFooterView.h"
+#import "EditTemporaryCell.h"
 @interface AddQuestionViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) EditQuestionTableHeaderView *tableHeaderView;
@@ -74,6 +75,7 @@
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[EditQuestionCell class] forCellReuseIdentifier:@"EditQuestionCell"];
+    [self.tableView registerClass:[EditTemporaryCell class] forCellReuseIdentifier:@"EditTemporaryCell"];
     [self.tableView registerClass:[EditQuestionHeaderView class] forHeaderFooterViewReuseIdentifier:@"EditQuestionHeaderView"];
     [self.tableView registerClass:[EditQuestionFooterView class] forHeaderFooterViewReuseIdentifier:@"EditQuestionFooterView"];
     [self.tableView registerClass:[FSDefaultHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"FSDefaultHeaderFooterView"];
@@ -84,11 +86,11 @@
         CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item = [[CreateQuestionGroupItem_Question_VoteInfo_VoteItem alloc] init];
         [self.question.voteInfo.voteItems addObject:item];
         [self reloadPublishButtonStatus];
-        NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:self.question.voteInfo.voteItems.count - 1 inSection:0];
+        NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:self.question.voteInfo.voteItems.count inSection:0];
         [self.tableView beginUpdates];
         [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
-        EditQuestionCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.question.voteInfo.voteItems.count - 1 inSection:0]];
+        EditQuestionCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.question.voteInfo.voteItems.count inSection:0]];
         [cell.textView becomeFirstResponder];
     };
     if (self.createType == CreateComplex_Vote) {
@@ -218,21 +220,26 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.question.voteInfo.voteItems.count;
+    return self.question.voteInfo.voteItems.count + 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EditQuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditQuestionCell" forIndexPath:indexPath];
-    CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item = self.question.voteInfo.voteItems[indexPath.row];
-    cell.textView.text = item.itemName;
-    WEAK_SELF
-    cell.deleteQuestionBlock = ^{
-        STRONG_SELF
-        [self.question.voteInfo.voteItems removeObjectAtIndex:indexPath.row];
-        [self.tableView reloadData];
-        [self reloadPublishButtonStatus];
-    };
-    cell.tag = indexPath.row + 1;
-    return cell;
+    if (indexPath.row == 0) {//TD:ios10 6p 输入跳动问题 没找到原因 暂时这么改现象不会出现 zheng
+        EditTemporaryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditTemporaryCell" forIndexPath:indexPath];
+        return cell;
+    }else {
+        EditQuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditQuestionCell" forIndexPath:indexPath];
+        CreateQuestionGroupItem_Question_VoteInfo_VoteItem *item = self.question.voteInfo.voteItems[indexPath.row - 1];
+        cell.textView.text = item.itemName;
+        WEAK_SELF
+        cell.deleteQuestionBlock = ^{
+            STRONG_SELF
+            [self.question.voteInfo.voteItems removeObjectAtIndex:indexPath.row - 1];
+            [self.tableView reloadData];
+            [self reloadPublishButtonStatus];
+        };
+        cell.tag = indexPath.row;
+        return cell;
+    }
 }
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

@@ -366,6 +366,7 @@
 		924297D920DA55450039038E /* EditQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297D820DA55450039038E /* EditQuestionCell.m */; };
 		924297DF20DA6AF90039038E /* EditQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 924297DE20DA6AF90039038E /* EditQuestionTypeView.m */; };
 		9248566C20DB7F5B00FDAA59 /* AddQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248566B20DB7F5B00FDAA59 /* AddQuestionViewController.m */; };
+		9248566F20DDEC5D00FDAA59 /* EditTemporaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248566E20DDEC5D00FDAA59 /* EditTemporaryCell.m */; };
 		928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F320CE4BB40052E486 /* PublishTaskView.m */; };
 		928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F620CE520B0052E486 /* PublishTaskHeaderView.m */; };
 		928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928216F920CE52330052E486 /* PublishTaskCell.m */; };
@@ -1205,6 +1206,8 @@
 		924297DE20DA6AF90039038E /* EditQuestionTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditQuestionTypeView.m; sourceTree = "<group>"; };
 		9248566A20DB7F5B00FDAA59 /* AddQuestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddQuestionViewController.h; sourceTree = "<group>"; };
 		9248566B20DB7F5B00FDAA59 /* AddQuestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddQuestionViewController.m; sourceTree = "<group>"; };
+		9248566D20DDEC5D00FDAA59 /* EditTemporaryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTemporaryCell.h; sourceTree = "<group>"; };
+		9248566E20DDEC5D00FDAA59 /* EditTemporaryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTemporaryCell.m; sourceTree = "<group>"; };
 		928216F220CE4BB40052E486 /* PublishTaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskView.h; sourceTree = "<group>"; };
 		928216F320CE4BB40052E486 /* PublishTaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishTaskView.m; sourceTree = "<group>"; };
 		928216F520CE520B0052E486 /* PublishTaskHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishTaskHeaderView.h; sourceTree = "<group>"; };
@@ -2816,6 +2819,8 @@
 				924297D520DA54FF0039038E /* EditQuestionFooterView.m */,
 				924297D720DA55450039038E /* EditQuestionCell.h */,
 				924297D820DA55450039038E /* EditQuestionCell.m */,
+				9248566D20DDEC5D00FDAA59 /* EditTemporaryCell.h */,
+				9248566E20DDEC5D00FDAA59 /* EditTemporaryCell.m */,
 			);
 			name = "发布任务";
 			sourceTree = "<group>";
@@ -3408,6 +3413,7 @@
 				E9540C4220CA1F4B00D7DDA2 /* IMServiceManager.m in Sources */,
 				7C672B591FB2E0E4004D93DF /* CourseTaskCell.m in Sources */,
 				7CDF127B20902FBF0044DD95 /* ClassMomentCommentRequest.m in Sources */,
+				9248566F20DDEC5D00FDAA59 /* EditTemporaryCell.m in Sources */,
 				9234277A1FA722CF003BCEFD /* MainPageScrollView.m in Sources */,
 				7CDF129D20903B4E0044DD95 /* MJRefreshFooterView.m in Sources */,
 				7CDF123920902EE60044DD95 /* ClassMomentFloatingView.m in Sources */,
