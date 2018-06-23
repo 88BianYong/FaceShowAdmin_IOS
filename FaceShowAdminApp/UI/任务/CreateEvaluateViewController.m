@@ -166,6 +166,10 @@
     if (cell.enabled) {
         self.chooseInteger = indexPath.row;
         self.publishButton.enabled = YES;
+    }else {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.chooseInteger inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [cell setSelected:YES animated:NO];
     }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

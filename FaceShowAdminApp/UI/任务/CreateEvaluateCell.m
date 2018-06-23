@@ -38,7 +38,6 @@
         self.nameLabel.highlightedTextColor = [UIColor colorWithHexString:@"999999"];
         self.selectedImageView.highlightedImage = nil;
     }
-    self.userInteractionEnabled =_enabled;
 }
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
