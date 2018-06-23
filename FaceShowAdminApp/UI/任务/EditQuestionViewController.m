@@ -236,7 +236,7 @@
     return self.editQuestion.voteInfo.voteItems.count + 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {//TD:ios10 6p 输入跳动问题 没找到原因 暂时这么改现象不会出现 zheng
+    if (indexPath.row == 0) {//TD:ios10.3.3 6sp 输入跳动问题 没找到原因 暂时这么改现象不会出现 zheng
         EditTemporaryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditTemporaryCell" forIndexPath:indexPath];
         return cell;
     }else {

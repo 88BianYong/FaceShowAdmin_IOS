@@ -52,6 +52,8 @@ static NSString *oldStringKey = @"oldStringKey";
         NSString *getStr = [self getSubString:toBeString];
         if(getStr && getStr.length > 0) {
             textView.text= getStr;
+        }else {
+            textView.text = toBeString;
         }
     }
     if (self.oldString.length != textView.text.length) {

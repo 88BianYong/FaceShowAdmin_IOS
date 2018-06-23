@@ -215,6 +215,27 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(-49.0f);
     }];
 }
+- (void)backAction {
+    if ([self.question.title yx_stringByTrimmingCharacters].length > 0 || self.question.voteInfo.voteItems.count > 0) {
+        [self showAlertView];
+    }else {
+        [super backAction];
+    }
+}
+- (void)showAlertView {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否退出问题添加" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    WEAK_SELF
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        STRONG_SELF
+    }];
+    [alertVC addAction:cancleAction];
+    UIAlertAction *backAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        STRONG_SELF
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alertVC addAction:backAction];
+    [[self nyx_visibleViewController] presentViewController:alertVC animated:YES completion:nil];
+}
 #pragma mark - UITableViewDataScore
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -223,7 +244,7 @@
     return self.question.voteInfo.voteItems.count + 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {//TD:ios10 6p 输入跳动问题 没找到原因 暂时这么改现象不会出现 zheng
+    if (indexPath.row == 0) {//TD:ios10.3.3 6sp 输入跳动问题 没找到原因 暂时这么改现象不会出现 zheng
         EditTemporaryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditTemporaryCell" forIndexPath:indexPath];
         return cell;
     }else {

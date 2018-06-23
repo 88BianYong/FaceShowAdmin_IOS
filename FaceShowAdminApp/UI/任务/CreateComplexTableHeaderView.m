@@ -135,8 +135,8 @@
     }];
     
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.containerView.mas_left).offset(15.0f);
-        make.right.equalTo(self.containerView.mas_right).offset(-15.0f).priorityHigh();
+        make.left.equalTo(self.containerView.mas_left).offset(11.0f);
+        make.right.equalTo(self.containerView.mas_right).offset(-11.0f).priorityHigh();
         make.top.equalTo(self.lineView.mas_top).offset(10.0f);
         make.height.mas_offset(90.0f);
     }];

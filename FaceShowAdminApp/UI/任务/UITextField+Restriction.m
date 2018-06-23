@@ -48,6 +48,8 @@ static const char characterIntegerKey = '\0';
         NSString *getStr = [self getSubString:toBeString];
         if(getStr && getStr.length > 0) {
             textField.text= getStr;
+        }else {
+            textField.text = toBeString;
         }
     }
 }

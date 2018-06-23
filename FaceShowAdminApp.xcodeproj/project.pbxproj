@@ -2783,8 +2783,6 @@
 		928216F120CE4B190052E486 /* 发布任务 */ = {
 			isa = PBXGroup;
 			children = (
-				924297C620DA33050039038E /* CreateComplexTableHeaderView.h */,
-				924297C520DA33050039038E /* CreateComplexTableHeaderView.m */,
 				928216F220CE4BB40052E486 /* PublishTaskView.h */,
 				928216F320CE4BB40052E486 /* PublishTaskView.m */,
 				928216F820CE52330052E486 /* PublishTaskCell.h */,
@@ -2803,6 +2801,8 @@
 				921016DC20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m */,
 				921016DE20D8F261007FEBB7 /* CreateEvaluateCell.h */,
 				921016DF20D8F262007FEBB7 /* CreateEvaluateCell.m */,
+				924297C620DA33050039038E /* CreateComplexTableHeaderView.h */,
+				924297C520DA33050039038E /* CreateComplexTableHeaderView.m */,
 				921016E420D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.h */,
 				921016E520D8FCFB007FEBB7 /* QuestionTemplatesTableHeaderView.m */,
 				921016E720D8FD0D007FEBB7 /* QuestionTemplatesHeaderView.h */,
