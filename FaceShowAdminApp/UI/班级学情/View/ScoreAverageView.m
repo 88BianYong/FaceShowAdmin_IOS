@@ -48,6 +48,11 @@
 
 - (void)setAverageValue:(NSString *)averageValue {
     _averageValue = averageValue;
-    self.scoreLabel.text = averageValue;
+    if ([averageValue containsString:@"."]) {
+        self.scoreLabel.text = [NSString stringWithFormat:@"%.2f",[averageValue floatValue]];
+    }else {
+        self.scoreLabel.text = [NSString stringWithFormat:@"%.0f",[averageValue floatValue]];;
+    }
+    
 }
 @end
