@@ -36,6 +36,13 @@
     self.courseView.nameString = @"所属课程";
     self.courseView.chooseContentString = [UserManager sharedInstance].userModel.currentClass.clazsName;
     [self addSubview:self.courseView];
+    
+    self.templateView = [[TaskChooseContentView alloc] init];
+    self.templateView.nameString = @"选择模板";
+    self.templateView.chooseContentString = @"不使用模板";
+    [self addSubview:self.templateView];
+    
+    
     self.containerView = [[UIView alloc] init];
     self.containerView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.containerView];
@@ -95,10 +102,6 @@
             self.inputLabel.text = [NSString stringWithFormat:@"%@",@(self.textView.text.length)];
         }
     }];
-    self.templateView = [[TaskChooseContentView alloc] init];
-    self.templateView.nameString = @"选择模板";
-    self.templateView.chooseContentString = @"不使用模板";
-    [self addSubview:self.templateView];
 }
 - (void)setupLayout {
     [self.courseView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,19 +110,22 @@
         make.top.equalTo(self.mas_top).offset(5.0f);
         make.height.mas_offset(45.0f);
     }];
-    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left);
-        make.right.equalTo(self.mas_right);
-        make.top.equalTo(self.courseView.mas_bottom).offset(5.0f);
-        make.height.mas_offset(56.0f + 143.0f);
-    }];
     
     [self.templateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
-        make.top.equalTo(self.containerView.mas_bottom).offset(5.0f);
+        make.top.equalTo(self.courseView.mas_bottom).offset(5.0f);
         make.height.mas_offset(45.0f);
     }];
+    
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.top.equalTo(self.templateView.mas_bottom).offset(5.0f);
+        make.height.mas_offset(56.0f + 143.0f);
+    }];
+    
+
     
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.containerView.mas_left).offset(15.0f).priorityHigh();

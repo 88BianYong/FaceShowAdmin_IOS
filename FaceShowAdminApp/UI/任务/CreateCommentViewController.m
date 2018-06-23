@@ -61,7 +61,7 @@
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.view.mas_top).offset(5.0f);
+        make.top.equalTo(self.view.mas_top).offset(55.0f);
         make.height.mas_offset(56.0f);
     }];
     
@@ -96,17 +96,16 @@
     };
 }
 - (void)setupLayout {
-    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(15.0f).priorityHigh();
-        make.right.equalTo(self.view.mas_right).offset(-15.0f).priorityHigh();
-        make.top.equalTo(self.view.mas_top).offset(25.0f);
-    }];
-    
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.view.mas_top).offset(56.0f + 5.0f + 5.0f);
+        make.top.equalTo(self.view.mas_top).offset(5.0f);
         make.height.mas_offset(45.0f);
+    }];
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(15.0f).priorityHigh();
+        make.right.equalTo(self.view.mas_right).offset(-15.0f).priorityHigh();
+        make.top.equalTo(self.contentView.mas_bottom).offset(25.0f);
     }];
 }
 - (void)didReceiveMemoryWarning {

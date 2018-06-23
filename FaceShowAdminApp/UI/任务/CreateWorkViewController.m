@@ -138,7 +138,7 @@
         [self.createWorkView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view.mas_left);
             make.right.equalTo(self.view.mas_right);
-            make.top.equalTo(self.scrollView.mas_top);
+            make.top.equalTo(self.contentView.mas_bottom);
             make.height.mas_offset(180.0f+[ImageAttachmentContainerView heightForCount:images.count]);
         }];
         [containerView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -206,6 +206,16 @@
         }
     }];
     [self setupNavigationRightView];
+    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] init];
+    [[recognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
+        STRONG_SELF
+        if (x.state == UIGestureRecognizerStateEnded) {
+            [self.textField  resignFirstResponder];
+            [self.createWorkTextView resignFirstResponder];
+        }
+    }];
+    [self.scrollView addGestureRecognizer:recognizer];
 }
 - (void)setupNavigationRightView{
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -270,10 +280,18 @@
         make.edges.equalTo(self.view);
     }];
     
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.top.equalTo(self.scrollView.mas_top).offset(5.0f);
+        make.height.mas_offset(45.0f);
+    }];
+    
+    
     [self.createWorkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.scrollView.mas_top);
+        make.top.equalTo(self.contentView.mas_bottom);
         make.height.mas_offset(56.0f + 213.0f);
     }];
     
@@ -295,13 +313,6 @@
         make.right.equalTo(self.createWorkView.mas_right).offset(-15.0f);
         make.top.equalTo(self.lineView.mas_top).offset(10.0f);
         make.height.mas_offset(90.0f);
-    }];
-    
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.createWorkView.mas_bottom).offset(5.0f);
-        make.height.mas_offset(45.0f);
     }];
 }
 #pragma mark - imagePicker
@@ -405,6 +416,7 @@
     }];
 }
 - (void)requestForPublishMoment:(NSString *)resourceIds{
+    [self.view nyx_startLoading];
     CreateHomeworkRequest *request = [[CreateHomeworkRequest alloc] init];
     if (self.contentView.chooseType == SubordinateCourse_Course) {
         request.courseId = self.courseId;
@@ -418,12 +430,13 @@
     WEAK_SELF
     [request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
-        [self.view nyx_stopLoading];
         if (error) {
+            [self.view nyx_stopLoading];
             [self nyx_enableRightNavigationItem];
             [self.view nyx_showToast:@"发布失败请重试"];
         }else {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{//图片转换时间
+                [self.view nyx_stopLoading];
                 [self nyx_enableRightNavigationItem];
                 BLOCK_EXEC(self.reloadComleteBlock);
                 [self.navigationController popViewControllerAnimated:YES];
