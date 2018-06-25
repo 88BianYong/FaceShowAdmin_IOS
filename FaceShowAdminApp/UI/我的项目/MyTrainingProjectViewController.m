@@ -122,6 +122,7 @@
             self.emptyView.hidden = NO;
             return;
         }
+        [self.groupArray removeAllObjects];
         [self.groupArray addObject:item.data.projectGoingCountes];
         [self.groupArray addObject:item.data.projectFinishedCountes];
         [self.groupArray addObject:item.data.projectNoStartCountes];
