@@ -36,15 +36,6 @@
 
 - (void)setupUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    JHPieChart *pie = [[JHPieChart alloc] initWithFrame:CGRectMake(20, 30, SCREEN_WIDTH-40, 320)];
-    pie.backgroundColor = [UIColor whiteColor];
-    pie.didClickType = JHPieChartDidClickTranslateToBig;
-    pie.animationDuration = 0.5;
-    pie.positionChangeLengthWhenClick = 15;
-    pie.showDescripotion = YES;
-    pie.animationType = JHPieChartAnimationByOrder;
-    [self.contentView addSubview:pie];
-    self.pie = pie;
     
     self.emptyLabel = [[UILabel alloc]init];
     self.emptyLabel.text = @"无数据";
@@ -57,12 +48,24 @@
 }
 
 - (void)setDataArray:(NSArray<GetSummaryRequestItem_projectStatisticInfo *> *)dataArray {
+    [self.pie removeFromSuperview];
+    JHPieChart *pie = [[JHPieChart alloc] initWithFrame:CGRectMake(20, 30, SCREEN_WIDTH-40, 320)];
+    pie.backgroundColor = [UIColor whiteColor];
+    pie.didClickType = JHPieChartDidClickTranslateToBig;
+    pie.animationDuration = 0.5;
+    pie.positionChangeLengthWhenClick = 15;
+    pie.showDescripotion = YES;
+    pie.animationType = JHPieChartAnimationByOrder;
+    [self.contentView addSubview:pie];
+    self.pie = pie;
+    
     NSMutableArray *valueArr = [NSMutableArray array];
     NSMutableArray *descArr = [NSMutableArray array];
     for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
         [valueArr addObject:@(info.projectNum.integerValue)];
         [descArr addObject:info.projectLevelName];
     }
+    
     self.pie.valueArr = valueArr;
     self.pie.descArr = descArr;
     self.pie.colorArr = @[[UIColor colorWithHexString:@"21c7dc"],
