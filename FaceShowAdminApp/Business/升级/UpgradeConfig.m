@@ -9,7 +9,7 @@
 #import "UpgradeConfig.h"
 
 #ifdef HuBeiApp
-NSString * const kProductLine = @"5";
+NSString * const kProductLine = @"8";
 #else
 NSString * const kProductLine = @"5";
 #endif
