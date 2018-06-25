@@ -77,8 +77,7 @@ UIKIT_EXTERN BOOL testFrameworkOn;
             TrainingProfileViewController *vc = [[TrainingProfileViewController alloc]init];
             FSNavigationController *profileNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
             paneVC = profileNavi;
-        }
-        if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+        }else if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
             MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc]init];
             FSNavigationController *projectNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
             paneVC = projectNavi;
