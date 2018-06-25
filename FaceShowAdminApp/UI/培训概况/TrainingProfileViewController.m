@@ -29,6 +29,7 @@
 @property (nonatomic, strong) Area *province;
 @property (nonatomic, strong) Area *city;
 @property (nonatomic, strong) Area *district;
+@property (nonatomic, assign) NSInteger timeIndex;
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *endTime;
 @end
@@ -55,12 +56,14 @@
     [self nyx_setupRightWithTitle:@"筛选" action:^{
         STRONG_SELF
         ProjectFilterViewController *vc = [[ProjectFilterViewController alloc]init];
+        vc.chooseArray = @[self.province?:@(0),self.city?:@(0),self.district?:@(0),@(self.timeIndex),self.startTime?:@"",self.endTime?:@""];
         WEAK_SELF
-        [vc setSelectBlock:^(Area *province, Area *city, Area *district, NSString *startTime, NSString *endTime) {
+        [vc setSelectBlock:^(Area *province, Area *city, Area *district, NSInteger timeIndex, NSString *startTime, NSString *endTime)  {
             STRONG_SELF
             self.province = province;
             self.city = city;
             self.district = district;
+            self.timeIndex = timeIndex;
             self.startTime = startTime;
             self.endTime = endTime;
             [self requestSummary];

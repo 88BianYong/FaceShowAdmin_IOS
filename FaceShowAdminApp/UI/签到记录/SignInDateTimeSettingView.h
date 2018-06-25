@@ -12,4 +12,5 @@
 @property (nonatomic, assign) UIDatePickerMode mode;
 @property (nonatomic, strong) void(^cancelBlock)(void);
 @property (nonatomic, strong) void(^confirmBlock)(NSString *result);
+@property (nonatomic, strong) NSTimeZone *timeZone;
 @end

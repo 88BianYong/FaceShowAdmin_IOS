@@ -58,6 +58,10 @@
 }
 
 - (void)submitFilter {
+    if (self.fourthLevelSelectedIndex == 4 && [self compareOneDay:self.timeSettingView.startTime withAnotherDay:self.timeSettingView.endTime]) {
+        [self.view nyx_showToast:@"结束时间大于开始时间,请重新选择"];
+        return;
+    }
     Area *province = self.firstLevelSelectedIndex != -1? self.provinceArray[self.firstLevelSelectedIndex]:nil;
     Area *city = self.secondLevelSelectedIndex != -1? self.cityArray[self.secondLevelSelectedIndex]:nil;
     Area *district = self.thirdLevelSelectedIndex != -1? self.areaArray[self.thirdLevelSelectedIndex]:nil;
@@ -82,7 +86,7 @@
         startTime = self.timeSettingView.startTime;
         endTime = self.timeSettingView.endTime;
     }
-    BLOCK_EXEC(self.selectBlock,province,city,district,startTime,endTime);
+    BLOCK_EXEC(self.selectBlock,province,city,district,self.fourthLevelSelectedIndex,startTime,endTime);
     [self backAction];
 }
 
@@ -126,6 +130,20 @@
     }];
     self.errorView.hidden = YES;
 }
+- (BOOL)compareOneDay:(NSString *)oneDayStr withAnotherDay:(NSString *)anotherDayStr
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dateA = [dateFormatter dateFromString:oneDayStr];
+    NSDate *dateB = [dateFormatter dateFromString:anotherDayStr];
+    NSComparisonResult result = [dateA compare:dateB];
+    if (result == NSOrderedDescending) {
+        //NSLog(@"oneDay比 anotherDay时间晚");
+        return YES;
+    }else {
+        return NO;
+    }
+}
 
 - (void)requestScope {
     [self.view nyx_startLoading];
@@ -144,11 +162,50 @@
         }
         self.requestItem = retItem;
         [self setupData];
+        [self reloadDefaultChoose];
         self.collectionView.hidden = NO;
         [self.collectionView reloadData];
     }];
 }
-
+- (void)reloadDefaultChoose {
+    if (self.chooseArray.count != 6) {
+        return;
+    }
+    self.firstLevelSelectedIndex = -1;
+    self.secondLevelSelectedIndex = -1;
+    self.thirdLevelSelectedIndex = -1;
+    if ([self.chooseArray[0] isKindOfClass:[Area class]]) {
+        Area *item = self.chooseArray[0];
+        [self.requestItem.data.provinceIdScope enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.integerValue == item.areaID.integerValue) {
+                self.firstLevelSelectedIndex = idx;
+                [self setupCityWithProvince:self.provinceArray[idx]];
+                *stop = YES;
+            }
+        }];
+    }
+    if ([self.chooseArray[1] isKindOfClass:[Area class]] && self.firstLevelSelectedIndex > -1) {
+        [self.requestItem.data.cityIdScope enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            Area *item = self.chooseArray[1];
+            if (obj.integerValue == item.areaID.integerValue) {
+                self.secondLevelSelectedIndex = idx;
+                [self setupAreaWithCity:self.cityArray[idx]];
+                *stop = YES;
+            }
+        }];
+    }
+    if ([self.chooseArray[2] isKindOfClass:[Area class]] && self.secondLevelSelectedIndex > -1) {
+        [self.requestItem.data.districtIdScope enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            Area *item = self.chooseArray[2];
+            if (obj.integerValue == item.areaID.integerValue) {
+                self.thirdLevelSelectedIndex = idx;
+                *stop = YES;
+            }
+        }];
+    }
+    self.fourthLevelSelectedIndex = [self.chooseArray[3] integerValue];
+    [self.collectionView reloadData];
+}
 - (void)setupData {
     [self setupProcince];
 }
@@ -230,20 +287,32 @@
     WEAK_SELF
     [cell setClickBlock:^(FilterItemCell *item){
         STRONG_SELF
-        if (item.isCurrent) {
-            return;
-        }
         if (indexPath.section == 0) {
-            self.firstLevelSelectedIndex = indexPath.row;
-            self.secondLevelSelectedIndex = -1;
-            self.thirdLevelSelectedIndex = -1;
-            [self setupCityWithProvince:self.provinceArray[indexPath.row]];
+            if (item.isCurrent) {
+                self.firstLevelSelectedIndex = -1;
+                self.secondLevelSelectedIndex = -1;
+                self.thirdLevelSelectedIndex = -1;
+            }else {
+                self.firstLevelSelectedIndex = indexPath.row;
+                self.secondLevelSelectedIndex = -1;
+                self.thirdLevelSelectedIndex = -1;
+                [self setupCityWithProvince:self.provinceArray[indexPath.row]];
+            }
         }else if (indexPath.section == 1) {
-            self.secondLevelSelectedIndex = indexPath.row;
-            self.thirdLevelSelectedIndex = -1;
-            [self setupAreaWithCity:self.cityArray[indexPath.row]];
+            if (item.isCurrent) {
+                self.secondLevelSelectedIndex = -1;
+                self.thirdLevelSelectedIndex = -1;
+            }else {
+                self.secondLevelSelectedIndex = indexPath.row;
+                self.thirdLevelSelectedIndex = -1;
+                [self setupAreaWithCity:self.cityArray[indexPath.row]];
+            }
         }else if (indexPath.section == 2) {
-            self.thirdLevelSelectedIndex = indexPath.row;
+            if (item.isCurrent) {
+                self.thirdLevelSelectedIndex = -1;
+            }else {
+                self.thirdLevelSelectedIndex = indexPath.row;
+            }
         }else if (indexPath.section == 3) {
             self.fourthLevelSelectedIndex = indexPath.row;
         }

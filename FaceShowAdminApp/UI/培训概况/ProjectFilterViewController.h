@@ -10,5 +10,6 @@
 #import "AreaManager.h"
 
 @interface ProjectFilterViewController : BaseViewController
-@property (nonatomic, strong) void(^selectBlock)(Area *province,Area *city,Area *district,NSString *startTime,NSString *endTime);
+@property (nonatomic, strong) void(^selectBlock)(Area *province,Area *city,Area *district,NSInteger timeIndex,NSString *startTime,NSString *endTime);
+@property (nonatomic, strong) NSArray *chooseArray;
 @end
