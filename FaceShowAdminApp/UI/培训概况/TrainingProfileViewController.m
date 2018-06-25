@@ -123,8 +123,6 @@
     self.getSummaryRequest = [[GetSummaryRequest alloc]init];
     GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
     self.getSummaryRequest.platId = plat.platformId;
-#warning 先写死101
-    self.getSummaryRequest.platId = @"101";
     self.getSummaryRequest.provinceId = self.province.areaID;
     self.getSummaryRequest.cityId = self.city.areaID;
     self.getSummaryRequest.districtId = self.district.areaID;

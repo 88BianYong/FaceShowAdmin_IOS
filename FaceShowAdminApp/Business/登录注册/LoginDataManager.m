@@ -63,8 +63,6 @@
                 manager.getClassRequest.token = userModel.token;
                 GetUserPlatformRequestItem_platformInfos *plat = platform.data.platformInfos.firstObject;
                 manager.getClassRequest.platId = plat.platformId;
-#warning 先写死101
-                manager.getClassRequest.platId = @"101";
                 [manager.getClassRequest startRequestWithRetClass:[ClassListRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
                     if (error) {
                         BLOCK_EXEC(completeBlock, error);
@@ -131,8 +129,6 @@
         manager.roleRequest = [[GetUserRolesRequest alloc]init];
         GetUserPlatformRequestItem_platformInfos *platform = platformItem.data.platformInfos.firstObject;
         manager.roleRequest.platId = platform.platformId;
-#warning 先写死101
-        manager.roleRequest.platId = @"101";
         manager.roleRequest.token = token;
         WEAK_SELF
         [manager.roleRequest startRequestWithRetClass:[GetUserRolesRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

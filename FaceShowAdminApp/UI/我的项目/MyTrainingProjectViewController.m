@@ -104,8 +104,6 @@
     self.projectRequest = [[GetMyProjectsRequest alloc]init];
     GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
     self.projectRequest.platId = plat.platformId;
-#warning 先写死101
-    self.projectRequest.platId = @"101";
     WEAK_SELF
     [self.projectRequest startRequestWithRetClass:[GetMyProjectsRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
