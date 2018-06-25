@@ -83,7 +83,7 @@ NSString * const kQiNiuUpload = @"http://niuugcupload.yanxiu.com";
 - (NSString *)appName {
     if (!_appName) {
         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-        _appName = [infoDictionary objectForKey:@"CFBundleName"];
+        _appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
     }
     return _appName;
 }

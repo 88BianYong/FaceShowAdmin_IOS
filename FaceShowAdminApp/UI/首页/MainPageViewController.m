@@ -60,7 +60,7 @@
         STRONG_SELF
         [YXDrawerController showDrawer];
     }];
-    self.navigationItem.title = @"研修宝";
+    self.navigationItem.title = [ConfigManager sharedInstance].appName;
     [self setupUI];
     [self setupLayout];
     [self requestMainPageClassInfo];
