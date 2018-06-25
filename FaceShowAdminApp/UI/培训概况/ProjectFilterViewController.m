@@ -59,7 +59,7 @@
 
 - (void)submitFilter {
     if (self.fourthLevelSelectedIndex == 4 && [self compareOneDay:self.timeSettingView.startTime withAnotherDay:self.timeSettingView.endTime]) {
-        [self.view nyx_showToast:@"结束时间大于开始时间,请重新选择"];
+        [self.view nyx_showToast:@"结束时间应大于开始时间,请重新选择"];
         return;
     }
     Area *province = self.firstLevelSelectedIndex != -1? self.provinceArray[self.firstLevelSelectedIndex]:nil;
