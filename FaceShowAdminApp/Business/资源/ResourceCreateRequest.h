@@ -9,7 +9,6 @@
 #import "YXGetRequest.h"
 @interface ResourceCreateRequestItem : HttpBaseRequestItem
 @property (nonatomic, strong) NSString<Optional> *resid;
-@property (nonatomic, strong) NSString<Optional> *desc;
 @end
 @interface ResourceCreateRequest : YXGetRequest
 @property (nonatomic, strong) NSString<Optional> *filename;

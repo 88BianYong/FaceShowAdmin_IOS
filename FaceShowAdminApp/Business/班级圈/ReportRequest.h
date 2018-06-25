@@ -9,7 +9,6 @@
 #import "GetRequest.h"
 
 @interface ReportRequestItem: HttpBaseRequestItem
-@property (nonatomic, strong) NSString<Optional> *desc;
 @end
 
 @interface ReportRequest : GetRequest

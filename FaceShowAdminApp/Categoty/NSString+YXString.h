@@ -63,5 +63,8 @@
 
 // FullDateStringFormat: yyyy-MM-dd HH:mm:ss
 - (NSString *)omitSecondOfFullDateString;
+//yyyy-MM-dd
+- (NSString *)formatDateOfFullDateString;
+
 
 @end

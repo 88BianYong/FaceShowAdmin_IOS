@@ -194,7 +194,7 @@
 - (void)splitGetEvaluateTemplateId{
     [self.tasksArray enumerateObjectsUsingBlock:^(GetAllTasksRequestItem_task * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.interactType.integerValue == 7) {
-            [self.templateIdMutableArray addObject:obj.templateId?:@""];
+            [self.templateIdMutableArray addObject:obj];
         }
     }];
 }

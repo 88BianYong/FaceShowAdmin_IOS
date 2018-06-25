@@ -16,6 +16,7 @@
 #import "CreateComplexRequest.h"
 #import "TaskChooseContentView.h"
 #import "SubordinateCourseViewController.h"
+#import "GetAllTasksRequest.h"
 @interface CreateEvaluateViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) TaskChooseContentView *courseView;
@@ -88,6 +89,7 @@
                 self.courseId = courseId;
                 self.courseView.chooseContentString = courseName;
             }
+            [self.tableView reloadData];
         };
         [self.navigationController pushViewController:VC animated:YES];
     };
@@ -143,8 +145,8 @@
     GetQuestionGroupTemplatesRequestItem_Data *data = self.itemData.data[indexPath.row];
     cell.titleString = data.title;
     __block BOOL isCreatBool = NO;
-    [self.templateIdMutableArray enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.integerValue == data.templateId.integerValue) {
+    [self.templateIdMutableArray enumerateObjectsUsingBlock:^(GetAllTasksRequestItem_task *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ((obj.templateId.integerValue == data.templateId.integerValue) && [self subordinateCourseIdForItem:obj]) {
             isCreatBool = YES;
             *stop = YES;
         }
@@ -159,6 +161,13 @@
         [self.navigationController pushViewController:VC animated:YES];
     };
     return cell;
+}
+- (BOOL )subordinateCourseIdForItem:(GetAllTasksRequestItem_task *)item{
+    if (self.courseView.chooseType == SubordinateCourse_Course) {
+        return [self.courseId isEqualToString:item.courseId];
+    }else {
+        return [[UserManager sharedInstance].userModel.currentClass.clazsId isEqualToString:item.clazsId];
+    }
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -228,4 +228,10 @@
     return [dateFormatter stringFromDate:date];
 }
 
+- (NSString *)formatDateOfFullDateString{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSDate *date = [dateFormatter dateFromString:self];
+    return [dateFormatter stringFromDate:date];
+}
 @end

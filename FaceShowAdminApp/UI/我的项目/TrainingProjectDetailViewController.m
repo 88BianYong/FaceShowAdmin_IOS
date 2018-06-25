@@ -202,9 +202,9 @@
 - (void)refreshUIWithItem:(ProjectDetailRequestItem *)item {
     self.requestItem = item;
     self.navigationItem.title = item.data.projectCount.projectName;
-    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[item.data.projectCount.startTime omitSecondOfFullDateString],[item.data.projectCount.endTime omitSecondOfFullDateString]];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[item.data.projectCount.startTime omitSecondOfFullDateString],[item.data.projectCount.endTime formatDateOfFullDateString]];
     self.completeView.number = [NSString stringWithFormat:@"%.0f%@",item.data.projectCount.taskFinishedRate.floatValue*100,@"%"];
-    self.scoreView.number = item.data.projectCount.studentAvgScore;
+    self.scoreView.number = item.data.projectCount.projectLikedRate;
     self.statisticLabel.text = [NSString stringWithFormat:@"班级  %@     学员  %@     班主任  %@",item.data.projectCount.clazsNum,item.data.projectCount.studentNum,item.data.projectCount.masterNum];
     if (self.requestItem.data.clazses.count > 0) {
         [self.slideView reloadData];
