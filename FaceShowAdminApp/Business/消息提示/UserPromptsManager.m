@@ -61,6 +61,10 @@ NSString * const kHasNewResourceNotification = @"kHasNewResourceNotification";
 }
 
 - (void)resumeHeartbeat {
+    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
+    if (![data roleExists:UserRole_Teacher]&&![data roleExists:UserRole_UnknownTeacher]) {
+        return;
+    }
     WEAK_SELF
     if (!self.timer) {
         self.timer = [[YXGCDTimer alloc] initWithInterval:30 repeats:YES triggerBlock:^{
