@@ -122,7 +122,7 @@
 - (void)setData:(GetMyProjectsRequestItem_project *)data {
     _data = data;
     self.titleLabel.text = data.projectName;
-    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[data.startTime omitSecondOfFullDateString],[data.endTime omitSecondOfFullDateString]];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[data.startTime substringToIndex:10],[data.endTime substringToIndex:10]];
     self.classNumberLabel.text = data.clazsNum;
     self.studentNumberLabel.text = data.studentNum;
     self.teacherNumberLabel.text = data.masterNum;

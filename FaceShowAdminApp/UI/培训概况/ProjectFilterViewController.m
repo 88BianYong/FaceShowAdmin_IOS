@@ -232,6 +232,9 @@
             }
         }
     }
+    if (self.cityArray.count == 0) {
+        [self.cityArray addObjectsFromArray:province.sub];
+    }
 }
 
 - (void)setupAreaWithCity:(Area *)city {
@@ -243,6 +246,9 @@
                 break;
             }
         }
+    }
+    if (self.areaArray.count == 0) {
+        [self.areaArray addObjectsFromArray:city.sub];
     }
 }
 

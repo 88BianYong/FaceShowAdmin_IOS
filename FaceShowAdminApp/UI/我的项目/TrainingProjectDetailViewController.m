@@ -123,31 +123,20 @@
     self.slideView.dataSource = self;
     self.slideView.delegate = self;
     [self.view addSubview:self.slideView];
-    
-    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
-    if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
-        [self.enterClassButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(50);
-            if (@available(iOS 11.0, *)) {
-                make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-            } else {
-                make.bottom.mas_equalTo(0);
-            }
-        }];
-        [self.slideView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.switchView.mas_bottom);
-            make.bottom.mas_equalTo(self.enterClassButton.mas_top).mas_offset(-5);
-            make.left.right.mas_equalTo(0);
-        }];
-    }else {
-        [self.enterClassButton removeFromSuperview];
-        [self.slideView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.switchView.mas_bottom);
+    [self.enterClassButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
             make.bottom.mas_equalTo(0);
-            make.left.right.mas_equalTo(0);
-        }];
-    }
+        }
+    }];
+    [self.slideView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.switchView.mas_bottom);
+        make.bottom.mas_equalTo(self.enterClassButton.mas_top).mas_offset(-5);
+        make.left.right.mas_equalTo(0);
+    }];
     
     for (UIView *v in self.view.subviews) {
         v.hidden = YES;
@@ -202,7 +191,7 @@
 - (void)refreshUIWithItem:(ProjectDetailRequestItem *)item {
     self.requestItem = item;
     self.navigationItem.title = item.data.projectCount.projectName;
-    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[item.data.projectCount.startTime omitSecondOfFullDateString],[item.data.projectCount.endTime formatDateOfFullDateString]];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[item.data.projectCount.startTime substringToIndex:10],[item.data.projectCount.endTime substringToIndex:10]];
     self.completeView.number = [NSString stringWithFormat:@"%.0f%@",item.data.projectCount.taskFinishedRate.floatValue*100,@"%"];
     self.scoreView.number = item.data.projectCount.projectLikedRate;
     self.statisticLabel.text = [NSString stringWithFormat:@"班级  %@     学员  %@     班主任  %@",item.data.projectCount.clazsNum,item.data.projectCount.studentNum,item.data.projectCount.masterNum];

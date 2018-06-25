@@ -68,11 +68,11 @@
     
     self.pie.valueArr = valueArr;
     self.pie.descArr = descArr;
-    self.pie.colorArr = @[[UIColor colorWithHexString:@"21c7dc"],
-                          [UIColor colorWithHexString:@"59afe7"],
-                          [UIColor colorWithHexString:@"ccf1fc"],
-                          [UIColor colorWithHexString:@"83d6f1"],
-                          [UIColor colorWithHexString:@"25b7fc"]];
+    self.pie.colorArr = @[[UIColor colorWithHexString:@"3da6f0"],
+                          [UIColor colorWithHexString:@"1add96"],
+                          [UIColor colorWithHexString:@"f0d53d"],
+                          [UIColor colorWithHexString:@"b85ef1"],
+                          [UIColor colorWithHexString:@"f26d86"]];
     if (valueArr.count == 0) {
         self.emptyLabel.hidden = NO;
         self.pie.hidden = YES;
