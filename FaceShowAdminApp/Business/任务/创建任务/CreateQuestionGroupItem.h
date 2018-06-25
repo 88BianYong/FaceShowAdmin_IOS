@@ -24,6 +24,7 @@
 @property (nonatomic, copy) NSString<Optional> *title;
 @property (nonatomic, copy) NSString<Optional> *desc;
 @property (nonatomic, copy) NSString<Optional> *questionType;//：1-单选 2-多选 3-主观题
+@property (nonatomic, copy) NSString<Optional> *templateId;
 @property (nonatomic, strong) CreateQuestionGroupItem_Question_VoteInfo<Optional> *voteInfo;
 @end
 @interface CreateQuestionGroupItem : JSONModel

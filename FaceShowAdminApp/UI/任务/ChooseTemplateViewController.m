@@ -46,7 +46,17 @@
     _itemData = itemData;
     self.tableView.hidden = NO;
     [self.tableView reloadData];
-    self.chooseInteger = 0;
+    self.chooseInteger = -1;
+    [self.itemData.data enumerateObjectsUsingBlock:^(GetQuestionGroupTemplatesRequestItem_Data *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.templateId isEqualToString:self.templateId]) {
+            self.chooseInteger = idx;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.chooseInteger inSection:0];
+            [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            [cell setSelected:YES animated:YES];
+            *stop = YES;
+        }
+    }];
 }
 #pragma mark - setupUI
 - (void)setupUI {

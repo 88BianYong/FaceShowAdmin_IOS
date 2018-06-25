@@ -82,6 +82,10 @@
     self.tableHeaderView.templateView.pushSubordinateCourseBlock = ^{
         STRONG_SELF
         ChooseTemplateViewController *VC = [[ChooseTemplateViewController alloc] init];
+        if (self.itemData.questions.count > 0) {
+            CreateQuestionGroupItem_Question *question = self.itemData.questions[0];
+            VC.templateId = question.templateId;
+        }
         VC.loadTemplateBlock = ^(CreateQuestionGroupItem *itemData) {
             STRONG_SELF
             self.itemData = itemData;

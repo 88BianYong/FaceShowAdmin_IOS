@@ -57,7 +57,7 @@
     item6.name = @"评价";
     item6.defaultImage = @"发布评论";
     
-    self.dataArray = @[item1,item2,item3,item4,item5,item6];
+    self.dataArray = @[item1,item2,item6,item4,item5,item3];
 
 }
 - (void)setupUI {

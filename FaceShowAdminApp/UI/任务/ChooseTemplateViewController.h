@@ -8,7 +8,8 @@
 
 #import "BaseViewController.h"
 #import "CreateQuestionGroupItem.h"
-
 @interface ChooseTemplateViewController : BaseViewController
 @property (nonatomic, copy) void(^loadTemplateBlock)(CreateQuestionGroupItem *itemData);
+@property (nonatomic, copy) NSString *templateId;
+
 @end
