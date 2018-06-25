@@ -121,6 +121,14 @@
     if (self.maskView.superview) {
         return;
     }
+    if ([UIDevice currentDevice].systemVersion.floatValue<11) {
+        [self.headerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(20);
+            make.height.mas_equalTo(44+200*kPhoneWidthRatio);
+        }];
+    }
+    
     self.maskView = [[UIView alloc]init];
     self.maskView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.5];
     [self.view addSubview:self.maskView];
@@ -154,6 +162,13 @@
     self.emptyView.hidden = YES;
 }
 - (void)searchFieldDidEndEditting {
+    if ([UIDevice currentDevice].systemVersion.floatValue<11) {
+        [self.headerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+            make.height.mas_equalTo(44+200*kPhoneWidthRatio);
+        }];
+    }
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.maskView removeFromSuperview];
     [self.resultView removeFromSuperview];
