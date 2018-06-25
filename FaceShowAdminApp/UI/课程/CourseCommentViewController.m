@@ -132,6 +132,7 @@
             }];
             [self.view layoutIfNeeded];
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, [UIScreen mainScreen].bounds.size.height-keyboardFrame.origin.y+inputHieght, 0);
+            [self hideFloatingView];
         }];
     }];
 }
@@ -250,7 +251,23 @@
             [self deleteCommentWithIndex:row];
         }
     };
+    GetCourseCommentRequestItem_element *item = self.dataArray[row];
     [self.view addSubview:self.floatingView];
-    [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Like | ClassMomentFloatingStyle_Delete];    
+    if (item.userLiked.integerValue == 1) {
+        [self.floatingView reloadFloatingView:rect withStyle: ClassMomentFloatingStyle_Delete];
+    }else {
+        [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Like | ClassMomentFloatingStyle_Delete];
+    }  
+}
+- (void)hideFloatingView {
+    if (self.floatingView.superview != nil) {
+        [self.floatingView hiddenViewAnimate:YES];
+//        self.tapGesture.enabled = NO;
+    }
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.floatingView.superview != nil) {
+        [self.floatingView hiddenViewAnimate:YES];
+    }
 }
 @end

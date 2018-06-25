@@ -412,6 +412,7 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
               moment.myLike.integerValue < 0) {
         [self.floatingView reloadFloatingView:rect withStyle:ClassMomentFloatingStyle_Comment | ClassMomentFloatingStyle_Like];
     }
+    
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     ClassMomentFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"ClassMomentFooterView"];

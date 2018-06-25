@@ -58,14 +58,14 @@
         make.centerX.mas_equalTo(0);
     }];
     self.completeView = [[ProjectDetailStatisticItemView alloc]init];
-    self.completeView.name = @"任务完成度";
+    self.completeView.name = @"任务完成率";
     [bgView addSubview:self.completeView];
     [self.completeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.dateLabel.mas_bottom).mas_offset(15);
         make.centerX.mas_equalTo(bgView.mas_centerX).multipliedBy(0.5);
     }];
     self.scoreView = [[ProjectDetailStatisticItemView alloc]init];
-    self.scoreView.name = @"平均积分";
+    self.scoreView.name = @"项目满意度";
     [bgView addSubview:self.scoreView];
     [self.scoreView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.completeView.mas_top);
@@ -176,6 +176,7 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
 }
 
+
 - (void)requestProjectDetail {
     [self.view nyx_startLoading];
     [self.detailRequest stopRequest];
@@ -203,7 +204,7 @@
     self.navigationItem.title = item.data.projectCount.projectName;
     self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[item.data.projectCount.startTime substringToIndex:10],[item.data.projectCount.endTime substringToIndex:10]];
     self.completeView.number = [NSString stringWithFormat:@"%.0f%@",item.data.projectCount.taskFinishedRate.floatValue*100,@"%"];
-    self.scoreView.number = item.data.projectCount.projectLikedRate;
+    self.scoreView.number = [NSString stringWithFormat:@"%.0f%@",item.data.projectCount.projectLikedRate.floatValue*100,@"%"];
     self.statisticLabel.text = [NSString stringWithFormat:@"班级  %@     学员  %@     班主任  %@",item.data.projectCount.clazsNum,item.data.projectCount.studentNum,item.data.projectCount.masterNum];
     if (self.requestItem.data.clazses.count > 0) {
         [self.slideView reloadData];

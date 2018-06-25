@@ -176,8 +176,8 @@
     self.thirdLevelSelectedIndex = -1;
     if ([self.chooseArray[0] isKindOfClass:[Area class]]) {
         Area *item = self.chooseArray[0];
-        [self.requestItem.data.provinceIdScope enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.integerValue == item.areaID.integerValue) {
+        [self.provinceArray enumerateObjectsUsingBlock:^(Area *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.areaID.integerValue == item.areaID.integerValue) {
                 self.firstLevelSelectedIndex = idx;
                 [self setupCityWithProvince:self.provinceArray[idx]];
                 *stop = YES;
@@ -185,9 +185,9 @@
         }];
     }
     if ([self.chooseArray[1] isKindOfClass:[Area class]] && self.firstLevelSelectedIndex > -1) {
-        [self.requestItem.data.cityIdScope enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.cityArray enumerateObjectsUsingBlock:^(Area *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             Area *item = self.chooseArray[1];
-            if (obj.integerValue == item.areaID.integerValue) {
+            if (obj.areaID.integerValue == item.areaID.integerValue) {
                 self.secondLevelSelectedIndex = idx;
                 [self setupAreaWithCity:self.cityArray[idx]];
                 *stop = YES;
@@ -195,9 +195,9 @@
         }];
     }
     if ([self.chooseArray[2] isKindOfClass:[Area class]] && self.secondLevelSelectedIndex > -1) {
-        [self.requestItem.data.districtIdScope enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.areaArray enumerateObjectsUsingBlock:^(Area *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             Area *item = self.chooseArray[2];
-            if (obj.integerValue == item.areaID.integerValue) {
+            if (obj.areaID.integerValue == item.areaID.integerValue) {
                 self.thirdLevelSelectedIndex = idx;
                 *stop = YES;
             }
@@ -236,7 +236,6 @@
         [self.cityArray addObjectsFromArray:province.sub];
     }
 }
-
 - (void)setupAreaWithCity:(Area *)city {
     self.areaArray = [NSMutableArray array];
     for (NSNumber *district in self.requestItem.data.districtIdScope) {

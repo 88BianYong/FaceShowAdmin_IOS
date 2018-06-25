@@ -135,6 +135,34 @@
             make.size.mas_offset(CGSizeMake(1.0f, 25.0f));
             make.right.equalTo(self.commentButton.mas_left);
         }];
+    }else if (floatingStyle == (ClassMomentFloatingStyle_Delete | ClassMomentFloatingStyle_Like)){
+        [self addSubview:self.likeButton];
+        [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.mas_left);
+            make.height.equalTo(self.mas_height);
+            make.top.equalTo(self.mas_top);
+            make.width.mas_offset(80.0f);
+        }];
+        [self addSubview:self.deleteButton];
+        [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(self.mas_height);
+            make.top.equalTo(self.mas_top);
+            make.right.equalTo(self.mas_right);
+            make.width.mas_offset(80.0f);
+        }];
+        [self addSubview:self.oneLineView];
+        [self.oneLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self);
+            make.size.mas_offset(CGSizeMake(1.0f, 25.0f));
+        }];
+    }else if (floatingStyle == ClassMomentFloatingStyle_Delete){
+        [self addSubview:self.deleteButton];
+        [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(self.mas_height);
+            make.top.equalTo(self.mas_top);
+            make.right.equalTo(self.mas_right);
+            make.width.mas_offset(80.0f);
+        }];
     }else {
         [self addSubview:self.likeButton];
         [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -185,6 +213,16 @@
         [self.likeButton setTitle:@"赞" forState:UIControlStateNormal];
         widthFloat = 160.0f;
         self.oneLineView.hidden = NO;
+        self.twoLineView.hidden = YES;
+    }
+    else if (style == (ClassMomentFloatingStyle_Delete | ClassMomentFloatingStyle_Like)) {
+        [self.likeButton setTitle:@"赞" forState:UIControlStateNormal];
+        widthFloat = 160.0f;
+        self.oneLineView.hidden = NO;
+        self.twoLineView.hidden = YES;
+    }else {
+        widthFloat = 80.0f;
+        self.oneLineView.hidden = YES;
         self.twoLineView.hidden = YES;
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

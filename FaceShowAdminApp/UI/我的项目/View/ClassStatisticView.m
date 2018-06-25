@@ -29,7 +29,7 @@
 - (void)setupUI {
     self.backgroundColor = [UIColor whiteColor];
     self.completeView = [[PercentStatisticItemView alloc]init];
-    self.completeView.name = @"任务完成度";
+    self.completeView.name = @"任务完成率";
     [self addSubview:self.completeView];
     [self.completeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
@@ -43,7 +43,7 @@
         make.centerX.mas_equalTo(self.mas_centerX);
     }];
     self.useView = [[PercentStatisticItemView alloc]init];
-    self.useView.name = @"学员出勤率";
+    self.useView.name = @"学员签到率";
     [self addSubview:self.useView];
     [self.useView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
