@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString<Optional> *submitTime;
 @property (nonatomic, strong) NSString<Optional> *finishStatus;//1-审核通过  2-审核未通过  3-已提交未审核
 @property (nonatomic, strong) NSString<Optional> *assess;
+@property (nonatomic, strong) NSString<Optional> *avatar;
 @property (nonatomic, strong) NSArray<Optional,GetHomeworkRequestItem_attachmentInfo> *attachmentInfos;
 @end
 

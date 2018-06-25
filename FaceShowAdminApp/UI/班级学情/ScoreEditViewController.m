@@ -77,6 +77,12 @@
 }
 
 - (void)saveAction {
+    NSString *searchText = self.textfield.text;
+    NSRange range = [searchText rangeOfString:@"^(\\d|[1-9]\\d|100)$" options:NSRegularExpressionSearch];
+    if (range.location == NSNotFound) {
+        [self.view nyx_showToast:@"请输入0-100之间的整数!"];
+        return;
+    }
     [self.textfield resignFirstResponder];
     self.currentItem.scoreDefine = self.textfield.text;
     [self.request stopRequest];

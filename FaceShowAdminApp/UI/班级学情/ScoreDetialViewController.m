@@ -60,7 +60,14 @@
         make.left.right.bottom.mas_equalTo(0);
         make.top.mas_equalTo(tabContainerView.mas_bottom);
     }];
-    [self switchToVCWithIndex:0];
+    if (self.selectedIndex) {
+        if (self.selectedIndex < self.tabControllers.count) {
+            [self switchToVCWithIndex:self.selectedIndex];
+            tabContainerView.selectedIndex = self.selectedIndex;
+        }
+    }else {
+        [self switchToVCWithIndex:0];
+    }
 }
 
 - (void)switchToVCWithIndex:(NSInteger)index {

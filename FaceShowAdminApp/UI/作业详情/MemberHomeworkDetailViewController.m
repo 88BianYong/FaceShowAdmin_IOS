@@ -239,7 +239,10 @@
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
     self.titleLabel.attributedText = attributedString;
-    self.dateLabel.text = [self.data.submitTime omitSecondOfFullDateString];
+    
+    self.memberView.name = self.detailRequestItem.data.userName;
+    self.memberView.headUrl = self.detailRequestItem.data.avatar;
+    self.dateLabel.text = [self.detailRequestItem.data.submitTime omitSecondOfFullDateString];
     NSString *content = self.detailRequestItem.data.content;
     attributedString = [[NSMutableAttributedString alloc] initWithString:content];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, content.length)];

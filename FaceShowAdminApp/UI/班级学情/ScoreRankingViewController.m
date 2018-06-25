@@ -91,6 +91,7 @@
     ScoreDetialViewController *vc = [[ScoreDetialViewController alloc]init];
     vc.userId = element.userId;
     vc.title = element.realName;
+    vc.selectedIndex = 1;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

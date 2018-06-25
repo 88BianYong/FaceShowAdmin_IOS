@@ -67,6 +67,7 @@
     self.tabControllers = [NSMutableArray array];
     SubmittedHomeworkMemberListViewController *submittedVC = [[SubmittedHomeworkMemberListViewController alloc]init];
     submittedVC.stepId = stepId;
+    submittedVC.requirementTitle = self.item.data.title;
     UnsubmittedHomeworkMemberListViewController *unsubmittedVC = [[UnsubmittedHomeworkMemberListViewController alloc]init];
     unsubmittedVC.stepId = stepId;
     [self.tabControllers addObject:submittedVC];

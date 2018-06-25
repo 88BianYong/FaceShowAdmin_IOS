@@ -55,6 +55,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MemberHomeworkDetailViewController *vc = [[MemberHomeworkDetailViewController alloc]init];
     vc.data = self.dataArray[indexPath.row];
+    vc.title = self.requirementTitle;
     vc.stepId = self.stepId;
     WEAK_SELF
     [vc setCommentComleteBlock:^(NSString *comment) {

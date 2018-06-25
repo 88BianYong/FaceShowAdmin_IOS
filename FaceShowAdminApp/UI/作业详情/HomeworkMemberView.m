@@ -45,13 +45,17 @@
     }];
     
     // mock mock
-    [self.imageView setBackgroundColor:[UIColor redColor]];
-    self.nameLabel.text = @"横扫一";
+//    [self.imageView setBackgroundColor:[UIColor redColor]];
+//    self.nameLabel.text = @"横扫一";
 }
 
 - (void)setHeadUrl:(NSString *)headUrl {
     _headUrl = headUrl;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:nil];
+    WEAK_SELF
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:[UIImage imageNamed:@"聊聊默认头像"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        STRONG_SELF
+        self.imageView.contentMode = isEmpty(image) ? UIViewContentModeCenter : UIViewContentModeScaleToFill;
+    }];
 }
 
 - (void)setName:(NSString *)name {

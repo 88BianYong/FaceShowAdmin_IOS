@@ -10,4 +10,5 @@
 
 @interface SubmittedHomeworkMemberListViewController : PagedListViewControllerBase
 @property(nonatomic, strong) NSString *stepId;
+@property(nonatomic, strong) NSString *requirementTitle;
 @end
