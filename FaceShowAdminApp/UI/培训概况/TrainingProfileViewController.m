@@ -148,14 +148,7 @@
         GetSummaryRequestItem *item = (GetSummaryRequestItem *)retItem;
         self.requestItem = item;
         self.headerView.data = item.data.platformStatisticInfo;
-        Area *area = self.province;
-        if (self.city) {
-            area = self.city;
-        }
-        if (self.district) {
-            area = self.district;
-        }
-        self.headerView.area = area;
+        [self.headerView updateWithPtocince:self.province city:self.city district:self.district];
         [self.tableView reloadData];
         self.tableView.hidden = NO;
     }];
@@ -225,6 +218,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section != 2 && indexPath.section != 3) {
+        return;
+    }
     TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
     if (indexPath.section == 2) {
         GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];

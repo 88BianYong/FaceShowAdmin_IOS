@@ -47,7 +47,7 @@
     self.percentStatisticView.data = data;
 }
 
-- (void)setArea:(Area *)area {
-    self.provinceStatisticView.area = area;
+- (void)updateWithPtocince:(Area *)province city:(Area *)city district:(Area *)district {
+    [self.provinceStatisticView updateWithPtocince:province city:city district:district];
 }
 @end

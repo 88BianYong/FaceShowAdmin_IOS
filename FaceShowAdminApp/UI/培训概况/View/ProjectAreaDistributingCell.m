@@ -161,8 +161,10 @@
     self.column.columnBGcolorsArr = @[[UIColor colorWithHexString:@"0068bd"]];
     if (valueArr.count == 0) {
         self.emptyLabel.hidden = NO;
+        self.column.hidden = YES;
     }else {
         self.emptyLabel.hidden = YES;
+        self.column.hidden = NO;
         [self.column showAnimation];
     }
 }

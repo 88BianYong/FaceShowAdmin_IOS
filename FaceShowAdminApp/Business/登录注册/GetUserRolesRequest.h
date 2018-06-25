@@ -27,6 +27,7 @@ typedef NS_ENUM(NSUInteger, UserRoleType) {
 @interface GetUserRolesRequestItem_data : JSONModel
 @property (nonatomic, strong) NSArray<GetUserRolesRequestItem_roleInfos,Optional> *roleInfos;
 - (BOOL)roleExists:(UserRoleType)roleType;
+- (BOOL)isUnknownRole;
 @end
 
 @interface GetUserRolesRequestItem : HttpBaseRequestItem

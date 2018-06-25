@@ -137,6 +137,12 @@
                 BLOCK_EXEC(completeBlock,nil,nil,error);
                 return;
             }
+            GetUserRolesRequestItem *item = retItem;
+            if ([item.data isUnknownRole]) {
+                NSError *unknownRoleErr = [NSError errorWithDomain:@"unkown_role" code:-1 userInfo:@{NSLocalizedDescriptionKey:@"当前账号权限不足"}];
+                BLOCK_EXEC(completeBlock,nil,nil,unknownRoleErr);
+                return;
+            }
             BLOCK_EXEC(completeBlock,platformItem,retItem,error);
         }];
     }];

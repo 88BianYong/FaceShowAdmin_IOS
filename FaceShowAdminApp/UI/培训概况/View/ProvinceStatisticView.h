@@ -12,5 +12,5 @@
 
 @interface ProvinceStatisticView : UIView
 @property (nonatomic, strong) GetSummaryRequestItem_platformStatisticInfo *data;
-@property (nonatomic, strong) Area *area;
+- (void)updateWithPtocince:(Area *)province city:(Area *)city district:(Area *)district;
 @end

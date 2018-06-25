@@ -72,8 +72,10 @@
                           [UIColor colorWithHexString:@"25b7fc"]];
     if (valueArr.count == 0) {
         self.emptyLabel.hidden = NO;
+        self.pie.hidden = YES;
     }else {
         self.emptyLabel.hidden = YES;
+        self.pie.hidden = NO;
         [self.pie showAnimation];
     }
 }

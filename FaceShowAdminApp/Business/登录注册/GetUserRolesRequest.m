@@ -20,6 +20,20 @@
     }
     return NO;
 }
+
+- (BOOL)isUnknownRole {
+    for (GetUserRolesRequestItem_roleInfos *role in self.roleInfos) {
+        if (role.roleId.integerValue == UserRole_PlatformAdmin||
+            role.roleId.integerValue == UserRole_AreaAdmin||
+            role.roleId.integerValue == UserRole_ProjectAdmin||
+            role.roleId.integerValue == UserRole_ProjectSteward||
+            role.roleId.integerValue == UserRole_Teacher||
+            role.roleId.integerValue == UserRole_UnknownTeacher) {
+            return NO;
+        }
+    }
+    return YES;
+}
 @end
 
 @implementation GetUserRolesRequestItem

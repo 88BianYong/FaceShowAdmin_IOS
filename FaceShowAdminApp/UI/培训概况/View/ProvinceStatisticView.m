@@ -95,8 +95,21 @@
     self.placeView.number = data.teacherNum;
     self.areaView.number = data.courseNum;
 }
-- (void)setArea:(Area *)area {
-    _area = area;
-    self.provinceLabel.text = area? area.name:@"全部";
+
+- (void)updateWithPtocince:(Area *)province city:(Area *)city district:(Area *)district {
+    if (!province) {
+        self.provinceLabel.text = @"全部";
+    }else {
+        NSString *title = province.name;
+        if (city) {
+            title = [title stringByAppendingString:@"-"];
+            title = [title stringByAppendingString:city.name];
+        }
+        if (district) {
+            title = [title stringByAppendingString:@"-"];
+            title = [title stringByAppendingString:district.name];
+        }
+        self.provinceLabel.text = title;
+    }
 }
 @end
