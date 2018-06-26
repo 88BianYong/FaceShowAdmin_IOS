@@ -30,6 +30,10 @@
     WEAK_SELF
     [self nyx_setupRightWithTitle:@"确定" action:^{
         STRONG_SELF
+        if (self.results.count == 0) {
+            [self.view nyx_showToast:@"请先指定签到地点"];
+            return;
+        }
         BLOCK_EXEC(self.selectBlock,self.results[self.currentIndex]);
         [self.navigationController popViewControllerAnimated:YES];
     }];
