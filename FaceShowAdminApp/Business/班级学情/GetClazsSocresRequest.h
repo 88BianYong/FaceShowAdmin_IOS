@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString<Optional> *sex;
 @property (nonatomic, strong) NSString<Optional> *school;
 @property (nonatomic, strong) NSString<Optional> *avatar;
+@property (nonatomic, strong) NSString<Optional> *userRank;
 @property (nonatomic, strong) NSString<Optional> *totalScore;
 @property (nonatomic, strong) NSArray<Optional,GetUserClazsScoreRequestItem_userScoreItem> *userScoreItems;
 @end
