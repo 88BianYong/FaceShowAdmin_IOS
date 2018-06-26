@@ -53,7 +53,7 @@
     pie.backgroundColor = [UIColor whiteColor];
     pie.didClickType = JHPieChartDidClickTranslateToBig;
     pie.animationDuration = 0.5;
-    pie.positionChangeLengthWhenClick = 15;
+    pie.positionChangeLengthWhenClick = 5;
     pie.showDescripotion = YES;
     pie.animationType = JHPieChartAnimationByOrder;
     [self.contentView addSubview:pie];
