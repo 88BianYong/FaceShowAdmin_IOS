@@ -39,7 +39,7 @@
 - (void)setupNav {
     self.title = @"选择班级";
     WEAK_SELF
-    if (![UserManager sharedInstance].userModel.currentClass) {
+    if (![UserManager sharedInstance].userModel.currentClass && [UserManager sharedInstance].mainPage == MainPage_ClassDetail) {
         [self nyx_setupLeftWithTitle:@"退出" action:^{
             STRONG_SELF
             [UserManager sharedInstance].loginStatus = NO;

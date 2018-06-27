@@ -264,7 +264,7 @@
     [self.view nyx_startLoading];
     WEAK_SELF
     NSData *data = [UIImage compressionImage:self.imageCell.photoImageView.image limitSize:0.1 * 1024 * 1024];
-    [[QiniuDataManager sharedInstance]uploadData:data withProgressBlock:nil completeBlock:^(NSString *key, NSError *error) {
+    [[QiniuDataManager sharedInstance]uploadData:data withProgressBlock:nil completeBlock:^(NSString *key,NSString *host, NSError *error) {
         STRONG_SELF
         if (error) {
             [self.view nyx_stopLoading];
@@ -273,9 +273,9 @@
             return;
         }
         if (self.element == nil) {
-            [self requestForScheduleCreate:[NSString stringWithFormat:@"%@/%@",[ConfigManager sharedInstance].qiNiuUpLoad,key]];
+            [self requestForScheduleCreate:[NSString stringWithFormat:@"%@/%@",host,key]];
         }else {
-            [self requestForScheduleUpdate:[NSString stringWithFormat:@"%@/%@",[ConfigManager sharedInstance].qiNiuUpLoad,key]];
+            [self requestForScheduleUpdate:[NSString stringWithFormat:@"%@/%@",host,key]];
         }
     }];
 }

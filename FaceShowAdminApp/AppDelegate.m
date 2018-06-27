@@ -87,7 +87,18 @@
     }];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kClassDidSelectNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
+        [UserManager sharedInstance].mainPage = MainPage_ClassDetail;
         [self.appDelegateHelper handleClassChange];
+    }];
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kTrainingProfileDidSelectNotification object:nil]subscribeNext:^(id x) {
+        STRONG_SELF
+        [UserManager sharedInstance].mainPage = MainPage_TrainingProfile;
+        [self.appDelegateHelper handleShowTrainingProfile];
+    }];
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kMyProjectDidSelectNotification object:nil]subscribeNext:^(id x) {
+        STRONG_SELF
+        [UserManager sharedInstance].mainPage = MainPage_MyProject;
+        [self.appDelegateHelper handleShowMyProject];
     }];
 #warning 因为后端删除班级逻辑问题,现在暂不处理删除班级,待后续重新考虑
 //    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kIMTopicDidRemoveNotification object:nil] subscribeNext:^(id x) {

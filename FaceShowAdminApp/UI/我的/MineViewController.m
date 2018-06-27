@@ -251,8 +251,7 @@
                 return;
             }
         }
-        TrainingProfileViewController *vc = [[TrainingProfileViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kTrainingProfileDidSelectNotification object:nil];
     } else if ([sender.titleLabel.text isEqualToString:@"我的项目"]) {
         if ([[YXDrawerController drawer].paneViewController isKindOfClass:[UINavigationController class]]) {
             UINavigationController *navi = (UINavigationController *)[YXDrawerController drawer].paneViewController;
@@ -261,8 +260,7 @@
                 return;
             }
         }
-        MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kMyProjectDidSelectNotification object:nil];
     }
 }
 

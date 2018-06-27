@@ -9,6 +9,8 @@
 #import "UserModel.h"
 
 NSString * const kClassDidSelectNotification = @"kClassDidSelectNotification";
+NSString * const kTrainingProfileDidSelectNotification = @"kTrainingProfileDidSelectNotification";
+NSString * const kMyProjectDidSelectNotification = @"kMyProjectDidSelectNotification";
 
 @implementation UserModel
 

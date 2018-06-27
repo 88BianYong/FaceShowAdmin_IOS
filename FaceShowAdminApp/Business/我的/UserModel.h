@@ -14,6 +14,9 @@
 #import "GetUserPlatformRequest.h"
 
 extern NSString * const kClassDidSelectNotification;
+extern NSString * const kTrainingProfileDidSelectNotification;
+extern NSString * const kMyProjectDidSelectNotification;
+
 @interface UserModel : JSONModel
 @property (nonatomic, copy) NSString<Optional> *userID;
 @property (nonatomic, copy) NSString<Optional> *realName;

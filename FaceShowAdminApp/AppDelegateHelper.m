@@ -43,12 +43,8 @@ UIKIT_EXTERN BOOL testFrameworkOn;
         return [self testViewController];
     }else if (![UserManager sharedInstance].loginStatus) {
         return [self loginViewController];
-    }else if (![UserManager sharedInstance].userModel.currentClass) {
-        GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
-        if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
-            return [self classSelectionViewController];
-        }
-        return [self mainViewController];
+    }else if (![UserManager sharedInstance].userModel.currentClass&&[UserManager sharedInstance].mainPage==MainPage_ClassDetail) {
+        return [self classSelectionViewController];
     }else {
         return [self mainViewController];
     }
@@ -70,21 +66,22 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 }
 
 - (UIViewController *)mainViewController {
-    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
-    if (![data roleExists:UserRole_Teacher]&&![data roleExists:UserRole_UnknownTeacher]) {
-        UIViewController *paneVC = nil;
-        if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
-            TrainingProfileViewController *vc = [[TrainingProfileViewController alloc]init];
-            FSNavigationController *profileNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
-            paneVC = profileNavi;
-        }else if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
-            MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc]init];
-            FSNavigationController *projectNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
-            paneVC = projectNavi;
-        }
+    if ([UserManager sharedInstance].mainPage == MainPage_TrainingProfile) {
+        TrainingProfileViewController *vc = [[TrainingProfileViewController alloc]init];
+        FSNavigationController *profileNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
         MineViewController *mineVC = [[MineViewController alloc]init];
         YXDrawerViewController *drawerVC = [[YXDrawerViewController alloc]init];
-        drawerVC.paneViewController = paneVC;
+        drawerVC.paneViewController = profileNavi;
+        drawerVC.drawerViewController = mineVC;
+        drawerVC.drawerWidth = 305*kPhoneWidthRatio;
+        return drawerVC;
+    }
+    if ([UserManager sharedInstance].mainPage == MainPage_MyProject) {
+        MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc]init];
+        FSNavigationController *projectNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
+        MineViewController *mineVC = [[MineViewController alloc]init];
+        YXDrawerViewController *drawerVC = [[YXDrawerViewController alloc]init];
+        drawerVC.paneViewController = projectNavi;
         drawerVC.drawerViewController = mineVC;
         drawerVC.drawerWidth = 305*kPhoneWidthRatio;
         return drawerVC;
@@ -156,6 +153,18 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 }
 
 - (void)handleClassChange {
+    [self.window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    self.window.rootViewController.view.hidden = YES;
+    self.window.rootViewController = [self rootViewController];
+}
+
+- (void)handleShowTrainingProfile {
+    [self.window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    self.window.rootViewController.view.hidden = YES;
+    self.window.rootViewController = [self rootViewController];
+}
+
+- (void)handleShowMyProject {
     [self.window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
     self.window.rootViewController.view.hidden = YES;
     self.window.rootViewController = [self rootViewController];

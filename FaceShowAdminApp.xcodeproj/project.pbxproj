@@ -71,6 +71,7 @@
 		7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */; };
 		7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */; };
 		7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */; };
+		7C2E221D20E366000055843D /* RefreshBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E221C20E366000055843D /* RefreshBaseViewController.m */; };
 		7C2E6F8E20CA216E0066DE7C /* IMPrivateSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F8A20CA216C0066DE7C /* IMPrivateSettingViewController.m */; };
 		7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F8D20CA216E0066DE7C /* IMGroupSettingViewController.m */; };
 		7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9220CA219F0066DE7C /* IMSwitchSettingView.m */; };
@@ -627,6 +628,8 @@
 		7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveUserCommentRequest.m; sourceTree = "<group>"; };
 		7C2558371FBD47BF00C9BE38 /* DeleteStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteStepRequest.h; sourceTree = "<group>"; };
 		7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteStepRequest.m; sourceTree = "<group>"; };
+		7C2E221B20E366000055843D /* RefreshBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshBaseViewController.h; sourceTree = "<group>"; };
+		7C2E221C20E366000055843D /* RefreshBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshBaseViewController.m; sourceTree = "<group>"; };
 		7C2E6F8A20CA216C0066DE7C /* IMPrivateSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPrivateSettingViewController.m; sourceTree = "<group>"; };
 		7C2E6F8B20CA216D0066DE7C /* IMPrivateSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPrivateSettingViewController.h; sourceTree = "<group>"; };
 		7C2E6F8C20CA216D0066DE7C /* IMGroupSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGroupSettingViewController.h; sourceTree = "<group>"; };
@@ -2301,6 +2304,8 @@
 				7CEFC8F21FA068D3001D8C84 /* BaseViewController.m */,
 				7CEFC8F61FA068D3001D8C84 /* ScrollBaseViewController.h */,
 				7CEFC8F71FA068D3001D8C84 /* ScrollBaseViewController.m */,
+				7C2E221B20E366000055843D /* RefreshBaseViewController.h */,
+				7C2E221C20E366000055843D /* RefreshBaseViewController.m */,
 			);
 			path = "框架";
 			sourceTree = "<group>";
@@ -3460,6 +3465,7 @@
 				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
 				E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */,
+				7C2E221D20E366000055843D /* RefreshBaseViewController.m in Sources */,
 				7CDF128D2090307F0044DD95 /* CommentInputView.m in Sources */,
 				7CDF120B20902E8A0044DD95 /* ImageAttachmentContainerView.m in Sources */,
 				E9540C4A20CA1F6F00D7DDA2 /* IM.xcdatamodeld in Sources */,

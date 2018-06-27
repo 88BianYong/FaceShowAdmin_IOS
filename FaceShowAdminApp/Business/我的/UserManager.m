@@ -19,6 +19,7 @@ NSString * const kUserDidLogoutNotification = @"kUserDidLogoutNotification";
     static UserManager *sharedInstance;
     dispatch_once(&once, ^{
         sharedInstance = [[UserManager alloc] init];
+        sharedInstance.mainPage = MainPage_Undefined;
         [sharedInstance loadData];
     });
     
@@ -43,6 +44,14 @@ NSString * const kUserDidLogoutNotification = @"kUserDidLogoutNotification";
 
 - (void)setUserModel:(UserModel *)userModel {
     _userModel = userModel;
+    GetUserRolesRequestItem_data *data = self.userModel.roleRequestItem.data;
+    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
+        self.mainPage = MainPage_TrainingProfile;
+    }else if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+        self.mainPage = MainPage_MyProject;
+    }else if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+        self.mainPage = MainPage_ClassDetail;
+    }
     [self saveData];
 }
 

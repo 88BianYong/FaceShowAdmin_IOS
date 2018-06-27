@@ -307,7 +307,7 @@
     [self.view.window nyx_startLoading];
     WEAK_SELF
     NSData *data = [UIImage compressionImage:self.imageCell.photoImageView.image limitSize:0.1 * 1024 * 1024];
-    [[QiniuDataManager sharedInstance]uploadData:data withProgressBlock:nil completeBlock:^(NSString *key, NSError *error) {
+    [[QiniuDataManager sharedInstance]uploadData:data withProgressBlock:nil completeBlock:^(NSString *key,NSString *host, NSError *error) {
         STRONG_SELF
         if (error) {
             [self.view nyx_stopLoading];
@@ -315,7 +315,7 @@
             [self.view nyx_showToast:@"发布失败请重试"];
             return;
         }
-        [self requestForNoticeSave:[NSString stringWithFormat:@"%@/%@",[ConfigManager sharedInstance].qiNiuUpLoad,key]];
+        [self requestForNoticeSave:[NSString stringWithFormat:@"%@/%@",host,key]];
     }];
 }
 - (void)requestForNoticeSave:(NSString *)imageUrl{

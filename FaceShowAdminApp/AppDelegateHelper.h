@@ -25,4 +25,7 @@
 - (void)handleClassChange;
 
 - (void)handleRemoveFromOneClass:(IMTopic *)topic;
+
+- (void)handleShowTrainingProfile;
+- (void)handleShowMyProject;
 @end
