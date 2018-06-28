@@ -72,6 +72,7 @@
 		7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */; };
 		7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */; };
 		7C2E221D20E366000055843D /* RefreshBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E221C20E366000055843D /* RefreshBaseViewController.m */; };
+		7C2E222920E49AE00055843D /* ResourceGenerateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E222820E49AE00055843D /* ResourceGenerateRequest.m */; };
 		7C2E6F8E20CA216E0066DE7C /* IMPrivateSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F8A20CA216C0066DE7C /* IMPrivateSettingViewController.m */; };
 		7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F8D20CA216E0066DE7C /* IMGroupSettingViewController.m */; };
 		7C2E6F9720CA21A10066DE7C /* IMSwitchSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F9220CA219F0066DE7C /* IMSwitchSettingView.m */; };
@@ -632,6 +633,8 @@
 		7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteStepRequest.m; sourceTree = "<group>"; };
 		7C2E221B20E366000055843D /* RefreshBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshBaseViewController.h; sourceTree = "<group>"; };
 		7C2E221C20E366000055843D /* RefreshBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshBaseViewController.m; sourceTree = "<group>"; };
+		7C2E222720E49AE00055843D /* ResourceGenerateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceGenerateRequest.h; sourceTree = "<group>"; };
+		7C2E222820E49AE00055843D /* ResourceGenerateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceGenerateRequest.m; sourceTree = "<group>"; };
 		7C2E6F8A20CA216C0066DE7C /* IMPrivateSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPrivateSettingViewController.m; sourceTree = "<group>"; };
 		7C2E6F8B20CA216D0066DE7C /* IMPrivateSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPrivateSettingViewController.h; sourceTree = "<group>"; };
 		7C2E6F8C20CA216D0066DE7C /* IMGroupSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGroupSettingViewController.h; sourceTree = "<group>"; };
@@ -2704,6 +2707,8 @@
 				921DE2F01FB15EF000CF39DE /* ResourceUploadRequest.m */,
 				9235F9791FB3DF1C003A9027 /* ResourceCreateRequest.h */,
 				9235F97A1FB3DF1C003A9027 /* ResourceCreateRequest.m */,
+				7C2E222720E49AE00055843D /* ResourceGenerateRequest.h */,
+				7C2E222820E49AE00055843D /* ResourceGenerateRequest.m */,
 			);
 			path = "资源";
 			sourceTree = "<group>";
@@ -3837,6 +3842,7 @@
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
 				921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
+				7C2E222920E49AE00055843D /* ResourceGenerateRequest.m in Sources */,
 				7CDF123720902EE60044DD95 /* ClassMomentLikeView.m in Sources */,
 				436A6B231FB303AB008E461B /* UserSignInListViewController.m in Sources */,
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,

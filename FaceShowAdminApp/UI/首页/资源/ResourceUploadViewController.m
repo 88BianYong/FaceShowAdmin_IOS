@@ -10,6 +10,7 @@
 #import <SAMTextView.h>
 #import "ResourceUploadRequest.h"
 #import "ResourceCreateRequest.h"
+#import "ResourceGenerateRequest.h"
 @interface ResourceUploadViewController ()<UITextFieldDelegate, UITextViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) UIButton *navRightBtn;
 @property (nonatomic, strong) ResourceUploadRequest *uploadRequest;
 @property (nonatomic, strong) ResourceCreateRequest *createRequest;
-
+@property (nonatomic, strong) ResourceGenerateRequest *generateRequest;
 
 
 @end
@@ -176,6 +177,29 @@
 - (void)requestForResourceCreate {
     [TalkingData trackEvent:@"提交资源"];
     if ([self.textView.text hasPrefix:@"http://"] || [self.textView.text hasPrefix:@"https://"]) {
+#ifdef HuBeiApp
+        [self.generateRequest stopRequest];
+        self.generateRequest = [[ResourceGenerateRequest alloc]init];
+        self.generateRequest.key = @"";
+        self.generateRequest.dtype = @"app";
+        self.generateRequest.domain = @"";
+        self.generateRequest.filename = @"";
+        self.generateRequest.filesize = @"";
+        self.generateRequest.ext = @"";
+        self.generateRequest.isexternalUrl = @"1";
+        self.generateRequest.reserve = [NSString stringWithFormat:@"{\"typeId\":1000,\"title\":\"%@\",\"username\":\"%@\",\"externalUrl\":\"%@\",\"uid\":\"%@\",\"shareType\":0,\"from\":6,\"source\":\"ios\",\"description\":\"\"}",@"外部链接类型",@"",self.textView.text,[UserManager sharedInstance].userModel.userID];
+        WEAK_SELF
+        [self.generateRequest startRequestWithRetClass:[ResourceGenerateRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+            STRONG_SELF
+            if (error) {
+                [self.view nyx_showToast:error.localizedDescription];
+                [self.view.window nyx_stopLoading];
+            }else {
+                ResourceGenerateRequestItem *item = retItem;
+                [self requestForResource:item.data.resid];
+            }
+        }];
+#else
         self.createRequest = [[ResourceCreateRequest alloc] init];
         self.createRequest.filename = @"外部链接类型";
         NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
@@ -199,6 +223,7 @@
                 }
             }
         }];
+#endif
     }else {
         [self.view nyx_showToast:@"链接地址不正确"];
     }
