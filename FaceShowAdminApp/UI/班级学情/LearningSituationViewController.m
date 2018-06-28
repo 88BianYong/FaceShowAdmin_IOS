@@ -7,16 +7,17 @@
 //
 
 #import "LearningSituationViewController.h"
-#import "ScoreDefineViewController.h"
-#import "ScroeDetailTabContainerView.h"
-#import "TaskRankingViewController.h"
-#import "ScoreRankingViewController.h"
-#import "RefreshDelegate.h"
+#import "ClassRankViewController.h"
+#import "LearningSituationView.h"
+#import "GetCountClazsRequest.h"
+#import "ErrorView.h"
 
 @interface LearningSituationViewController ()
-@property (nonatomic, strong) NSMutableArray<UIViewController<RefreshDelegate> *> *tabControllers;
-@property (nonatomic, strong) UIView *tabContentView;
+@property (nonatomic, strong) LearningSituationView *situationView;
 @property (nonatomic, strong) NSString *clazsId;
+@property (nonatomic, strong) UIButton *enterClassButton;
+@property (nonatomic, strong) GetCountClazsRequest *clazsRequest;
+@property (nonatomic, strong) ErrorView *errorView;
 @end
 
 @implementation LearningSituationViewController
@@ -24,13 +25,14 @@
 - (instancetype)initWithClazsId:(NSString *)clazsId {
     if (self = [super init]) {
         self.clazsId = clazsId;
+        [self requestClassDetail];
         [self setupUI];
     }
     return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"班级学情";
+    self.title = @"学情排名";
     // Do any additional setup after loading the view.
 }
 
@@ -38,54 +40,67 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (void)setupUI {
+    self.enterClassButton = [[UIButton alloc]init];
+    self.enterClassButton.backgroundColor = [UIColor whiteColor];
+    [self.enterClassButton setTitle:@"查看学员学情排名" forState:UIControlStateNormal];
+    [self.enterClassButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+    self.enterClassButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.enterClassButton addTarget:self action:@selector(enterClass) forControlEvents:UIControlEventTouchUpInside];
+    self.enterClassButton.clipsToBounds = YES;
+    [self.view addSubview:self.enterClassButton];
+    [self.enterClassButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.mas_equalTo(0);
+        }
+    }];
+    
+    self.situationView = [[LearningSituationView alloc]init];
+    [self.view addSubview:self.situationView];
+    [self.situationView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(5);
+        make.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(self.enterClassButton.mas_top).offset(-5);
+    }];
+    
+    self.errorView = [[ErrorView alloc]init];
     WEAK_SELF
-    [self nyx_setupRightWithTitle:@"积分设置" action:^{
+    [self.errorView setRetryBlock:^{
         STRONG_SELF
-        ScoreDefineViewController *vc = [[ScoreDefineViewController alloc]init];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self requestClassDetail];
     }];
-    
-    ScroeDetailTabContainerView *tabContainerView = [[ScroeDetailTabContainerView alloc]init];
-    NSArray *tabNames = @[@"任务进度",@"学习积分"];
-    tabContainerView.tabNameArray = tabNames;
-    [tabContainerView setTabClickBlock:^(NSInteger index){
-        STRONG_SELF
-        self.selectedIndex = index;
-        [self switchToVCWithIndex:index];
-    }];
-    [self.view addSubview:tabContainerView];
-    [tabContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.mas_equalTo(0);
-        make.height.mas_equalTo(44);
-    }];
-    
-    self.tabControllers = [NSMutableArray array];
-    [self.tabControllers addObject:[[TaskRankingViewController alloc]init]];
-    [self.tabControllers addObject:[[ScoreRankingViewController alloc]init]];
-    for (UIViewController *vc in self.tabControllers) {
-        [self addChildViewController:vc];
-    }
-    self.tabContentView = [[UIView alloc]init];
-    [self.view addSubview:self.tabContentView];
-    [self.tabContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(0);
-        make.top.mas_equalTo(tabContainerView.mas_bottom);
-    }];
-    
-    [self switchToVCWithIndex:0];
 }
 
-- (void)switchToVCWithIndex:(NSInteger)index {
-    for (UIView *v in self.tabContentView.subviews) {
-        [v removeFromSuperview];
-    }
-    UIView *v = self.tabControllers[index].view;
-    [self.tabContentView addSubview:v];
-    [v mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
+- (void)enterClass {
+    ClassRankViewController *vc = [[ClassRankViewController alloc]initWithClazsId:self.clazsId];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)requestClassDetail {
+    [self.clazsRequest stopRequest];
+    self.clazsRequest = [[GetCountClazsRequest alloc]init];
+    self.clazsRequest.clazsId = self.clazsId;
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.clazsRequest startRequestWithRetClass:[GetCountClazsRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view addSubview:self.errorView];
+            [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
+            return;
+        }
+        [self.errorView removeFromSuperview];
+        GetCountClazsRequestItem *item = (GetCountClazsRequestItem *)retItem;
+        self.situationView.item = item;
     }];
-    SAFE_CALL(self.tabControllers[index], refreshUI);
 }
 
 @end
