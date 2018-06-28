@@ -73,15 +73,25 @@
 - (void)showSelectionViewFrom:(SignInDateTimeView *)from {
     SignInDateTimeSettingView *settingView = [[SignInDateTimeSettingView alloc]init];
     settingView.mode = UIDatePickerModeDate;
+    if (from == self.begintimeView) {
+        settingView.date = self.beginDate;
+    }else if (from == self.endtimeView) {
+        settingView.date = self.endDate;
+    }
     WEAK_SELF
     [settingView setCancelBlock:^{
         STRONG_SELF
         [self.alertView hide];
     }];
-    [settingView setConfirmBlock:^(NSString *result){
+    [settingView setConfirmBlock:^(NSString *result,NSDate *date){
         STRONG_SELF
         from.content = result;
         [self.alertView hide];
+        if (from == self.begintimeView) {
+            self.beginDate = date;
+        }else if (from == self.endtimeView) {
+            self.endDate = date;
+        }
     }];
     self.alertView = [[AlertView alloc]init];
     self.alertView.contentView = settingView;

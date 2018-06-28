@@ -11,6 +11,7 @@
 @interface SignInDateTimeSettingView : UIView
 @property (nonatomic, assign) UIDatePickerMode mode;
 @property (nonatomic, strong) void(^cancelBlock)(void);
-@property (nonatomic, strong) void(^confirmBlock)(NSString *result);
+@property (nonatomic, strong) void(^confirmBlock)(NSString *result,NSDate *date);
 @property (nonatomic, strong) NSTimeZone *timeZone;
+@property (nonatomic, strong) NSDate *date;
 @end

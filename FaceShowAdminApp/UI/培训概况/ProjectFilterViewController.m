@@ -30,6 +30,9 @@
 @property (nonatomic, strong) NSMutableArray<Area *> *cityArray;
 @property (nonatomic, strong) NSMutableArray<Area *> *areaArray;
 @property (nonatomic, strong) NSArray *timeArray;
+
+@property (nonatomic, strong) NSDate *beginDate;
+@property (nonatomic, strong) NSDate *endDate;
 @end
 
 @implementation ProjectFilterViewController
@@ -343,6 +346,8 @@
     }else if (indexPath.section == 3) {
         CustomTimeSettingView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"CustomTimeSettingView" forIndexPath:indexPath];
         footer.hidden = self.fourthLevelSelectedIndex != self.timeArray.count-1;
+        footer.beginDate = self.beginDate;
+        footer.endDate = self.endDate;
         self.timeSettingView = footer;
         return footer;
     }

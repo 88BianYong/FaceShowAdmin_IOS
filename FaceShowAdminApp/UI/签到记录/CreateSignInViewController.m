@@ -31,6 +31,9 @@
 @property (nonatomic, strong) AlertView *alertView;
 @property (nonatomic, strong) CreateSignInRequest *createSignInRequest;
 @property (nonatomic, strong) BMKPoiInfo *selectedPoi;
+@property (nonatomic, strong) NSDate *signInDate;
+@property (nonatomic, strong) NSDate *beginTime;
+@property (nonatomic, strong) NSDate *endTime;
 @end
 
 @implementation CreateSignInViewController
@@ -337,19 +340,31 @@
     SignInDateTimeSettingView *settingView = [[SignInDateTimeSettingView alloc]init];
     if (from == self.dateView) {
         settingView.mode = UIDatePickerModeDate;
-    }else {
+        settingView.date = self.signInDate;
+    }else if (from == self.begintimeView){
         settingView.mode = UIDatePickerModeTime;
+        settingView.date = self.beginTime;
+    }else if (from == self.endtimeView) {
+        settingView.mode = UIDatePickerModeTime;
+        settingView.date = self.endTime;
     }
     WEAK_SELF
     [settingView setCancelBlock:^{
         STRONG_SELF
         [self.alertView hide];
     }];
-    [settingView setConfirmBlock:^(NSString *result){
+    [settingView setConfirmBlock:^(NSString *result,NSDate *date){
         STRONG_SELF
         from.content = result;
         [self refreshSubmitButton];
         [self.alertView hide];
+        if (from == self.dateView) {
+            self.signInDate = date;
+        }else if (from == self.begintimeView){
+            self.beginTime = date;
+        }else if (from == self.endtimeView) {
+            self.endTime = date;
+        }
     }];
     self.alertView = [[AlertView alloc]init];
     self.alertView.contentView = settingView;

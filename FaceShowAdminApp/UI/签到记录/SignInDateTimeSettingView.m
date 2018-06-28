@@ -81,7 +81,7 @@
     }
     NSString  *string = [[NSString alloc]init];
     string = [dateFormatter stringFromDate:date];
-    BLOCK_EXEC(self.confirmBlock,string);
+    BLOCK_EXEC(self.confirmBlock,string,date);
 }
 
 - (void)cancelAction {
@@ -92,5 +92,10 @@
     _mode = mode;
     self.datePicker.datePickerMode = mode;
 }
-
+- (void)setDate:(NSDate *)date {
+    _date = date;
+    if (date) {
+        self.datePicker.date = date;
+    }
+}
 @end

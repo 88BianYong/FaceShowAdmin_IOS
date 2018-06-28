@@ -11,4 +11,7 @@
 @interface CustomTimeSettingView : UICollectionReusableView
 @property (nonatomic, strong, readonly) NSString *startTime;
 @property (nonatomic, strong, readonly) NSString *endTime;
+
+@property (nonatomic, strong) NSDate *beginDate;
+@property (nonatomic, strong) NSDate *endDate;
 @end
