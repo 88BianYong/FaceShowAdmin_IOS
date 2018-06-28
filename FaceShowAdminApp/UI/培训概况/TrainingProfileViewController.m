@@ -202,6 +202,12 @@
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     TitleHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TitleHeaderView"];
+    header.tag = section;
+    WEAK_SELF
+    header.titleButtonBlock = ^{
+        STRONG_SELF
+        
+    };
     if (section == 0) {
         header.title = @"项目级别分布";
     }else if (section == 1) {
@@ -234,12 +240,12 @@
     }
     TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
     if (indexPath.section == 3) {
-        GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
-        vc.projectId = ongoing.projectID;
-    }else if (indexPath.section == 4) {
         GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
         vc.projectId = top.projectId;
-    }
+    }else if (indexPath.section == 4) {
+        GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
+        vc.projectId = ongoing.projectID;
+       }
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -10,4 +10,5 @@
 
 @interface TitleHeaderView : UITableViewHeaderFooterView
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, copy) void(^titleButtonBlock)(void);
 @end
