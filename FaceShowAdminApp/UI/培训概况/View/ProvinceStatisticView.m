@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NameNumberView *studentView;
 @property (nonatomic, strong) NameNumberView *placeView;
 @property (nonatomic, strong) NameNumberView *areaView;
+@property (nonatomic, strong) NameNumberView *appUsedView;
 @end
 
 @implementation ProvinceStatisticView
@@ -85,6 +86,14 @@
         make.top.mas_equalTo(self.placeView.mas_top);
         make.centerX.mas_equalTo(self.classView.mas_centerX);
     }];
+    
+    self.appUsedView = [[NameNumberView alloc]init];
+    self.appUsedView.name = @"App使用";
+    [self addSubview:self.appUsedView];
+    [self.appUsedView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.placeView.mas_top);
+        make.centerX.mas_equalTo(self.studentView.mas_centerX);
+    }];
 }
 
 - (void)setData:(GetSummaryRequestItem_platformStatisticInfo *)data {
@@ -94,6 +103,7 @@
     self.studentView.number = data.studentNum;
     self.placeView.number = data.teacherNum;
     self.areaView.number = data.courseNum;
+    self.appUsedView.number = @"100/356";//data.app使用
 }
 
 - (void)updateWithPtocince:(Area *)province city:(Area *)city district:(Area *)district {
