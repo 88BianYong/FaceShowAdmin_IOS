@@ -58,12 +58,21 @@
     pie.animationType = JHPieChartAnimationByOrder;
     [self.contentView addSubview:pie];
     self.pie = pie;
+    WEAK_SELF
+    self.pie.chooseSelectedBlock = ^(NSInteger integer) {
+        STRONG_SELF
+//        DDLogDebug(@"%@",dataArray[integer]);
+    };
     
     NSMutableArray *valueArr = [NSMutableArray array];
     NSMutableArray *descArr = [NSMutableArray array];
     for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
         [valueArr addObject:@(info.projectNum.integerValue)];
-        [descArr addObject:info.projectLevelName];
+        if (info.projectType.integerValue > 0) {
+            [descArr addObject:info.projectTypeName?:@""];
+        }else {
+            [descArr addObject:info.projectLevelName?:@""];
+        }
     }
     
     self.pie.valueArr = valueArr;

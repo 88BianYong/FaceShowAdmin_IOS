@@ -58,4 +58,6 @@ typedef NS_ENUM(NSInteger,JHPieChartDidClickType) {
  * Default is JHPieChartDidClickNormalType;
  */
 @property (nonatomic , assign)JHPieChartDidClickType didClickType;
+
+@property (nonatomic, copy) void(^chooseSelectedBlock)(NSInteger integer);
 @end

@@ -11,4 +11,5 @@
 @interface TrainingProjectCell : UITableViewCell
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL lineHidden;
+- (void)reloadTraining:(NSString *)name percent:(NSString *)percent level:(NSInteger)level;
 @end

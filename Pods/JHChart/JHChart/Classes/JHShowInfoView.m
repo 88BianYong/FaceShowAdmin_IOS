@@ -39,7 +39,7 @@
     
     
     _showContentString = showContentString;
-    CGSize size = [showContentString boundingRectWithSize:CGSizeMake(50, 100) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:8],NSForegroundColorAttributeName:[UIColor darkGrayColor]} context:nil].size;
+    CGSize size = [showContentString boundingRectWithSize:CGSizeMake(80, 100) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:8],NSForegroundColorAttributeName:[UIColor darkGrayColor]} context:nil].size;
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width+10, 30);
     

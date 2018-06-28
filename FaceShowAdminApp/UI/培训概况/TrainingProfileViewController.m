@@ -159,16 +159,16 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 5;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0 || section == 1) {
+    if (section == 0 || section == 1 || section == 2) {
         return 1;
     }
-    if (section == 2) {
-        return self.requestItem.data.platformStatisticInfo.onGoingprojectList.count;
-    }else {
+    if (section == 3) {
         return self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count;
+    }else {
+        return self.requestItem.data.platformStatisticInfo.onGoingprojectList.count;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -176,22 +176,26 @@
         ProjectLevelDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectLevelDistributingCell"];
         cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListLevel;
         return cell;
-    }else if (indexPath.section == 1) {
+    } else if (indexPath.section == 1) {
+        ProjectLevelDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectLevelDistributingCell"];
+        cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListType;
+        return cell;
+    }else if (indexPath.section == 2) {
         ProjectAreaDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectAreaDistributingCell"];
         cell.groupByType = self.requestItem.data.platformStatisticInfo.groupByType;
         cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListArea;
         return cell;
-    }else if (indexPath.section == 2) {
+    }else if (indexPath.section == 3) {
+        TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
+        GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
+        [cell reloadTraining:top.project.projectName percent:[NSString stringWithFormat:@"%.0f%%",[top.percent floatValue] * 100] level:indexPath.row + 1];
+        cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count-1;
+        return cell;
+    }else {
         TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
         GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
         cell.name = ongoing.projectName;
         cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.onGoingprojectList.count-1;
-        return cell;
-    }else {
-        TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
-        GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
-        cell.name = top.project.projectName;
-        cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count-1;
         return cell;
     }
 }
@@ -201,11 +205,13 @@
     if (section == 0) {
         header.title = @"项目级别分布";
     }else if (section == 1) {
-        header.title = @"项目地区分布";
+        header.title = @"项目类型分布";
     }else if (section == 2) {
-        header.title = @"进行中的项目";
+        header.title = @"项目地区分布";
     }else if (section == 3) {
         header.title = @"项目满意度TOP5";
+    }else if (section == 4) {
+        header.title = @"进行中的项目";
     }
     return header;
 }
@@ -214,6 +220,8 @@
     if (indexPath.section == 0) {
         return 380;
     }else if (indexPath.section == 1) {
+        return 380;
+    }else if (indexPath.section == 2) {
         return 350;
     }else {
         return 50;
@@ -221,14 +229,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section != 2 && indexPath.section != 3) {
+    if (indexPath.section != 3 && indexPath.section != 4) {
         return;
     }
     TrainingProjectDetailViewController *vc = [[TrainingProjectDetailViewController alloc]init];
-    if (indexPath.section == 2) {
+    if (indexPath.section == 3) {
         GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
         vc.projectId = ongoing.projectID;
-    }else if (indexPath.section == 3) {
+    }else if (indexPath.section == 4) {
         GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
         vc.projectId = top.projectId;
     }

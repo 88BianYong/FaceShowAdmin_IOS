@@ -10,7 +10,7 @@
 #import <JHChart/JHColumnChart.h>
 #import "AreaManager.h"
 
-@interface ProjectAreaDistributingCell ()
+@interface ProjectAreaDistributingCell ()<JHColumnChartDelegate>
 @property (nonatomic, strong) JHColumnChart *column;
 @property (nonatomic, strong) UILabel *emptyLabel;
 @end
@@ -55,6 +55,7 @@
     /*        X, Y axis line color         */
     column.colorForXYLine = [UIColor darkGrayColor];
     column.isShowLineChart = NO;
+    column.delegate = self;
 
     [self.contentView addSubview:column];
     self.column = column;
@@ -168,5 +169,7 @@
         [self.column showAnimation];
     }
 }
-
+- (void)columnChart:(JHColumnChart *)chart columnItem:(JHColumnItem *)item didClickAtIndexPath:(JHIndexPath *)indexPath {
+    DDLogDebug(@"1212123");
+}
 @end

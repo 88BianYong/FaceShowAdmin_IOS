@@ -53,11 +53,17 @@
         make.height.mas_equalTo(1);
     }];
 }
-
 - (void)setName:(NSString *)name {
     _name = name;
-    self.nameLabel.text = name;
+    self.nameLabel.text = _name;
 }
+- (void)reloadTraining:(NSString *)name percent:(NSString *)percent level:(NSInteger)level {
+    NSString *contentString = [NSString stringWithFormat:@"%ld、  %@  %@",(long)level,percent,name];
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:contentString];
+    [attString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"0068bd"] range:NSMakeRange(3, percent.length + 1)];
+    self.nameLabel.attributedText = attString;
+}
+
 
 - (void)setLineHidden:(BOOL)lineHidden {
     _lineHidden = lineHidden;

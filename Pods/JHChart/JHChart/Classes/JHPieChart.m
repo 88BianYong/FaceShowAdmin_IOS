@@ -215,8 +215,17 @@
             [_layersArr addObject:itemsView];
             
             [self addSubview:itemsView];
-            
         }
+        
+//        for (NSInteger i = 0; i<_countPreAngeleArr.count-1; i++) {
+//            JHShowInfoView * showInfoView = [[JHShowInfoView alloc] init];
+//            [self addSubview:showInfoView];
+//            CGFloat present = [_valueArr[i] floatValue]/_allValueCount*100;
+//            [showInfoView updateFrameTo:CGRectMake(0, 0, self.showInfoView.frame.size.width, self.showInfoView.frame.size.height) andBGColor:[UIColor clearColor] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",self.descArr[i],[self.valueArr[i] integerValue],present,'%']];
+//            float NOW_ANGLE = [_countPreAngeleArr[i] floatValue]+[_angleArr[i] floatValue]/2.0f;
+//            CGPoint centerPoint = P_M(self.frame.size.width / 2 + self.chartArcLength / 2*cos(NOW_ANGLE) + 10, self.chartOrigin.y + self.chartArcLength / 2 * sin(NOW_ANGLE) - 30.0f);
+//            showInfoView.center = centerPoint;
+//        }
         
         _pieForeView = [[JHPieForeBGView alloc] initWithFrame:CGRectMake(10, 10, wid,  wid)];
         
@@ -225,7 +234,7 @@
         _pieForeView.backgroundColor = [UIColor clearColor];
         if (_showInfoView==nil) {
             _showInfoView = [[JHShowInfoView alloc] init];
-            _showInfoView.hidden = YES;
+//            _showInfoView.hidden = YES;
             [_pieForeView addSubview:_showInfoView];
         }
         __weak typeof(self) weakSelf = self;
@@ -304,8 +313,9 @@
                 
             }
             CGFloat present = [_valueArr[i] floatValue]/_allValueCount*100;
-            
-            
+            if (self.chooseSelectedBlock != nil) {
+                self.chooseSelectedBlock(i);
+            }
             if (_didClickType == JHPieChartDidClickTranslateToBig) {
                 if (_saveIndex == i) {
                     saveItems = nil;
@@ -318,6 +328,7 @@
                 [itemsView itemDidClickWithRediusChange:self.positionChangeLengthWhenClick];
                 
                 self.showInfoView.hidden = !itemsView.hasClick;
+//                self.showInfoView.hidden = NO;
                 [self.showInfoView updateFrameTo:CGRectMake(p.x, p.y, self.showInfoView.frame.size.width, self.showInfoView.frame.size.height) andBGColor:colors[i%colors.count] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",weakself.descArr[i],[self.valueArr[i] integerValue],present,'%']];
                 return;
             }
@@ -362,7 +373,4 @@
     
     
 }
-
-
-
 @end
