@@ -260,6 +260,7 @@
                 }];
             }];//去除空格
             [self.tableView reloadData];
+            [self reloadPublishButtonStatus];
         };
         [self.navigationController pushViewController:VC animated:YES];
     };
@@ -306,6 +307,7 @@
             }];
         }];//去除空格
         [self.tableView reloadData];
+        [self reloadPublishButtonStatus];
     };
     [self.navigationController pushViewController:VC animated:YES];
 }
