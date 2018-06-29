@@ -30,13 +30,17 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>需要访问您的相机</string>
+	<string>上传照片是否允许打开相机?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>需要访问您的地理位置</string>
+	<string>签到功能需要使用您的位置信息,是否允许打开定位?</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>签到功能需要使用您的位置信息,是否允许打开定位?</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>签到功能需要使用您的位置信息,是否允许打开定位?</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>需要访问您的相册</string>
+	<string>是否允许此APP保存图片到相册?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>需要访问您的相册</string>
+	<string>上传照片是否允许打开相册?</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Metro Playtype.otf</string>
