@@ -58,7 +58,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>扫描二维码,上传照片是否允许打开相机?</string>
+	<string>上传照片是否允许打开相机?</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>签到功能需要使用您的位置信息,是否允许打开定位?</string>
 	<key>NSLocationAlwaysUsageDescription</key>
