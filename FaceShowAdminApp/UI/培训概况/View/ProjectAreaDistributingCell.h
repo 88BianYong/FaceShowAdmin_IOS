@@ -12,4 +12,5 @@
 @interface ProjectAreaDistributingCell : UITableViewCell
 @property (nonatomic, strong) NSArray<GetSummaryRequestItem_projectStatisticInfo *> *dataArray;
 @property (nonatomic, strong) NSString *groupByType;
+@property (nonatomic, copy) void(^searchProjectBlock)(NSString *provinceId,NSString *cityId, NSString *districtId);
 @end

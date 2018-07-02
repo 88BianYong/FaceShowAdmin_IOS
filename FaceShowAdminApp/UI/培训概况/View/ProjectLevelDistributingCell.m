@@ -53,7 +53,7 @@
     pie.backgroundColor = [UIColor whiteColor];
     pie.didClickType = JHPieChartDidClickTranslateToBig;
     pie.animationDuration = 0.5;
-    pie.positionChangeLengthWhenClick = 5;
+    pie.positionChangeLengthWhenClick = 0;
     pie.showDescripotion = YES;
     pie.animationType = JHPieChartAnimationByOrder;
     [self.contentView addSubview:pie];
@@ -61,14 +61,19 @@
     WEAK_SELF
     self.pie.chooseSelectedBlock = ^(NSInteger integer) {
         STRONG_SELF
-//        DDLogDebug(@"%@",dataArray[integer]);
+        GetSummaryRequestItem_projectStatisticInfo *data = dataArray[integer];
+        if (self.isTypeBool) {
+             BLOCK_EXEC(self.searchProjectBlock,data.projectType);
+        }else {
+             BLOCK_EXEC(self.searchProjectBlock,data.projectLevel);
+        }
     };
     
     NSMutableArray *valueArr = [NSMutableArray array];
     NSMutableArray *descArr = [NSMutableArray array];
     for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
         [valueArr addObject:@(info.projectNum.integerValue)];
-        if (info.projectType.integerValue > 0) {
+        if (self.isTypeBool) {
             [descArr addObject:info.projectTypeName?:@""];
         }else {
             [descArr addObject:info.projectLevelName?:@""];

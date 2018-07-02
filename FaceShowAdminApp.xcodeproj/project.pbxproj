@@ -400,6 +400,9 @@
 		9282170B20CF74A60052E486 /* CreateCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282170A20CF74A60052E486 /* CreateCommentRequest.m */; };
 		9282171A20CF75C80052E486 /* CreateComplexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282171920CF75C80052E486 /* CreateComplexRequest.m */; };
 		9282171D20CF75E50052E486 /* UpdateComplexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282171C20CF75E50052E486 /* UpdateComplexRequest.m */; };
+		928D0CAF21352BEF0043E5A8 /* ProjectsByTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D0CAE21352BEF0043E5A8 /* ProjectsByTypeViewController.m */; };
+		928D0CB22135359A0043E5A8 /* ProjectsByTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D0CB12135359A0043E5A8 /* ProjectsByTypeRequest.m */; };
+		928D0CB5213535FF0043E5A8 /* ProjectsByTypeFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 928D0CB4213535FF0043E5A8 /* ProjectsByTypeFetcher.m */; };
 		92B74EFE20D8A5A50021C683 /* TaskChooseContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B74EFD20D8A5A50021C683 /* TaskChooseContentView.m */; };
 		92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA62F1FAAB69300DB5873 /* QAFileUploadFirstStepRequest.m */; };
 		92CAA6351FAAB69400DB5873 /* QADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAA6311FAAB69300DB5873 /* QADataManager.m */; };
@@ -1307,6 +1310,12 @@
 		9282171920CF75C80052E486 /* CreateComplexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateComplexRequest.m; sourceTree = "<group>"; };
 		9282171B20CF75E50052E486 /* UpdateComplexRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateComplexRequest.h; sourceTree = "<group>"; };
 		9282171C20CF75E50052E486 /* UpdateComplexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateComplexRequest.m; sourceTree = "<group>"; };
+		928D0CAD21352BEF0043E5A8 /* ProjectsByTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectsByTypeViewController.h; sourceTree = "<group>"; };
+		928D0CAE21352BEF0043E5A8 /* ProjectsByTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectsByTypeViewController.m; sourceTree = "<group>"; };
+		928D0CB02135359A0043E5A8 /* ProjectsByTypeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectsByTypeRequest.h; sourceTree = "<group>"; };
+		928D0CB12135359A0043E5A8 /* ProjectsByTypeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectsByTypeRequest.m; sourceTree = "<group>"; };
+		928D0CB3213535FF0043E5A8 /* ProjectsByTypeFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectsByTypeFetcher.h; sourceTree = "<group>"; };
+		928D0CB4213535FF0043E5A8 /* ProjectsByTypeFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectsByTypeFetcher.m; sourceTree = "<group>"; };
 		92B74EFC20D8A5A50021C683 /* TaskChooseContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskChooseContentView.h; sourceTree = "<group>"; };
 		92B74EFD20D8A5A50021C683 /* TaskChooseContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskChooseContentView.m; sourceTree = "<group>"; };
 		92CAA62E1FAAB69300DB5873 /* QADataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QADataManager.h; sourceTree = "<group>"; };
@@ -1670,6 +1679,8 @@
 				7C06893C20CF69DA00C7CA14 /* TrainingProfileViewController.m */,
 				7C06897720D1190900C7CA14 /* ProjectFilterViewController.h */,
 				7C06897820D1190900C7CA14 /* ProjectFilterViewController.m */,
+				928D0CAD21352BEF0043E5A8 /* ProjectsByTypeViewController.h */,
+				928D0CAE21352BEF0043E5A8 /* ProjectsByTypeViewController.m */,
 			);
 			path = "培训概况";
 			sourceTree = "<group>";
@@ -2498,6 +2509,10 @@
 				7CEFC8EB1FA067B2001D8C84 /* UserManager.m */,
 				7CDF1133208D7AA30044DD95 /* UserModel.h */,
 				7CDF1134208D7AA30044DD95 /* UserModel.m */,
+				928D0CB02135359A0043E5A8 /* ProjectsByTypeRequest.h */,
+				928D0CB12135359A0043E5A8 /* ProjectsByTypeRequest.m */,
+				928D0CB3213535FF0043E5A8 /* ProjectsByTypeFetcher.h */,
+				928D0CB4213535FF0043E5A8 /* ProjectsByTypeFetcher.m */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -3603,6 +3618,7 @@
 				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
 				7C3F75A220DB813E00F4F418 /* GetUserPlatformRequest.m in Sources */,
 				7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */,
+				928D0CB5213535FF0043E5A8 /* ProjectsByTypeFetcher.m in Sources */,
 				7CDF129A20903B4E0044DD95 /* MJRefreshHeaderView.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
 				E9540BE720CA1D6F00D7DDA2 /* IMUserInterface.m in Sources */,
@@ -3948,6 +3964,7 @@
 				7CDF11FA20902E450044DD95 /* PhotoChooseCell.m in Sources */,
 				436CB2281FB15D6000A31585 /* ClazsMemberListFetcher.m in Sources */,
 				E94DDE7920DA456700729A67 /* GetEvaluateRequest.m in Sources */,
+				928D0CB22135359A0043E5A8 /* ProjectsByTypeRequest.m in Sources */,
 				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
 				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
 				924297DF20DA6AF90039038E /* EditQuestionTypeView.m in Sources */,
@@ -4019,6 +4036,7 @@
 				7CDF128320902FBF0044DD95 /* ClassMomentReplyRequest.m in Sources */,
 				E94DDDFE20D36A5F00729A67 /* ScoreDefineViewController.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
+				928D0CAF21352BEF0043E5A8 /* ProjectsByTypeViewController.m in Sources */,
 				7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */,
 				7C672B531FB2DF93004D93DF /* CourseTaskViewController.m in Sources */,
 				7CDF120E20902E8A0044DD95 /* AlbumListViewController.m in Sources */,

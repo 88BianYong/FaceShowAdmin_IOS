@@ -96,6 +96,7 @@
 }
 
 - (void)setDataArray:(NSArray<GetSummaryRequestItem_projectStatisticInfo *> *)dataArray {
+    _dataArray = dataArray;
     NSMutableArray *valueArr = [NSMutableArray array];
     for (GetSummaryRequestItem_projectStatisticInfo *info in dataArray) {
         [valueArr addObject:@[@(info.projectNum.integerValue)]];
@@ -169,7 +170,14 @@
         [self.column showAnimation];
     }
 }
-- (void)columnChart:(JHColumnChart *)chart columnItem:(JHColumnItem *)item didClickAtIndexPath:(JHIndexPath *)indexPath {
-    DDLogDebug(@"1212123");
+- (void)columnChart:(JHColumnChart *)chart columnItem:(UIView *)item didClickAtIndexRow:(NSIndexPath *)indexPath {
+    GetSummaryRequestItem_projectStatisticInfo *data = self.dataArray[indexPath.section];
+    if ([self.groupByType isEqualToString:@"2"]) {
+        BLOCK_EXEC(self.searchProjectBlock,data.provinceId,nil,nil);
+    }else if ([self.groupByType isEqualToString:@"3"]) {
+       BLOCK_EXEC(self.searchProjectBlock,data.provinceId,data.cityId,nil);
+    }else if ([self.groupByType isEqualToString:@"4"]) {
+       BLOCK_EXEC(self.searchProjectBlock,data.provinceId,data.cityId,data.districtId);
+    }
 }
 @end

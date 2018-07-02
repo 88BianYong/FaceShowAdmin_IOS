@@ -90,8 +90,12 @@
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
         if (_delegate) {
             [_delegate pieChart:self animationDidEnd:flag];
+            for (UIView *view in [self.superview subviews]) {
+                if ([view isKindOfClass:NSClassFromString(@"JHShowInfoView")] && view.tag == self.tag) {
+                    view.hidden = NO;
+                }
+            }
         }
-    
 }
 
 

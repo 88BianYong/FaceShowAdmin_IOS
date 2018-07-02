@@ -25,6 +25,8 @@
 
 @property (nonatomic,strong) NSMutableArray * countPreAngeleArr;
 
+@property (nonatomic,strong) NSMutableArray *labelPointArr;
+
 
 @property (nonatomic,strong) NSMutableArray * layersArr;
 
@@ -49,6 +51,7 @@
         _animationType = JHPieChartAnimationNormalType;
         _saveIndex = -1;
         _didClickType = JHPieChartDidClickNormalType;
+        _labelPointArr = [[NSMutableArray alloc] initWithCapacity:5];
     }
     
     return self;
@@ -72,18 +75,17 @@
         if (!self.showDescripotion) {
             return;
         }
-        
+        [_labelPointArr removeAllObjects];
+
         for (NSInteger i = 0; i<_descArr.count; i++) {
         
             [self drawQuartWithColor:colors[i%colors.count] andBeginPoint:P_M(15+self.frame.size.width/2*(i%2), 20*(i/2  )+25+_chartArcLength*2) andContext:contex];
             CGFloat present = [_valueArr[i] floatValue]/_allValueCount*100;
             [self drawText:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",_descArr[i],[_valueArr[i] integerValue],present,'%'] andContext:contex atPoint:P_M(30+self.frame.size.width/2*(i%2), 20*(i/2  )+25+_chartArcLength*2) WithColor:[UIColor blackColor] andTextFontSize:8];
+            
+            [_labelPointArr addObject:NSStringFromCGPoint(P_M(30+self.frame.size.width/2*(i%2), 20*(i/2  )+25+_chartArcLength*2))];
         }
-       
-        
     }
-    
-    
 }
 - (void)drawText:(NSString *)text andContext:(CGContextRef )context atPoint:(CGPoint )rect WithColor:(UIColor *)color andTextFontSize:(CGFloat )fontSize{
     
@@ -217,16 +219,18 @@
             [self addSubview:itemsView];
         }
         
-//        for (NSInteger i = 0; i<_countPreAngeleArr.count-1; i++) {
-//            JHShowInfoView * showInfoView = [[JHShowInfoView alloc] init];
-//            [self addSubview:showInfoView];
-//            CGFloat present = [_valueArr[i] floatValue]/_allValueCount*100;
-//            [showInfoView updateFrameTo:CGRectMake(0, 0, self.showInfoView.frame.size.width, self.showInfoView.frame.size.height) andBGColor:[UIColor clearColor] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",self.descArr[i],[self.valueArr[i] integerValue],present,'%']];
-//            float NOW_ANGLE = [_countPreAngeleArr[i] floatValue]+[_angleArr[i] floatValue]/2.0f;
-//            CGPoint centerPoint = P_M(self.frame.size.width / 2 + self.chartArcLength / 2*cos(NOW_ANGLE) + 10, self.chartOrigin.y + self.chartArcLength / 2 * sin(NOW_ANGLE) - 30.0f);
-//            showInfoView.center = centerPoint;
-//        }
-        
+        for (NSInteger i = 0; i<_countPreAngeleArr.count-1; i++) {
+            JHShowInfoView * showInfoView = [[JHShowInfoView alloc] init];
+            showInfoView.tag = i;
+            showInfoView.hidden = YES;
+            [self addSubview:showInfoView];
+            CGFloat present = [_valueArr[i] floatValue]/_allValueCount*100;
+            [showInfoView updateFrameTo:CGRectMake(0, 0, self.showInfoView.frame.size.width, self.showInfoView.frame.size.height) andBGColor:[UIColor clearColor] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",self.descArr[i],[self.valueArr[i] integerValue],present,'%']];
+            float NOW_ANGLE = [_countPreAngeleArr[i] floatValue]+[_angleArr[i] floatValue]/2.0f;
+            CGPoint centerPoint = P_M(self.frame.size.width / 2 + self.chartArcLength / 2*cos(NOW_ANGLE) + 10, self.chartOrigin.y + self.chartArcLength / 2 * sin(NOW_ANGLE) - 30.0f);
+            showInfoView.center = centerPoint;
+        }
+    
         _pieForeView = [[JHPieForeBGView alloc] initWithFrame:CGRectMake(10, 10, wid,  wid)];
         
         _pieForeView.center = CGPointMake(self.frame.size.width/2, 10+wid/2);
@@ -234,7 +238,7 @@
         _pieForeView.backgroundColor = [UIColor clearColor];
         if (_showInfoView==nil) {
             _showInfoView = [[JHShowInfoView alloc] init];
-//            _showInfoView.hidden = YES;
+            _showInfoView.hidden = YES;
             [_pieForeView addSubview:_showInfoView];
         }
         __weak typeof(self) weakSelf = self;
@@ -328,7 +332,7 @@
                 [itemsView itemDidClickWithRediusChange:self.positionChangeLengthWhenClick];
                 
                 self.showInfoView.hidden = !itemsView.hasClick;
-//                self.showInfoView.hidden = NO;
+                self.showInfoView.hidden = YES;
                 [self.showInfoView updateFrameTo:CGRectMake(p.x, p.y, self.showInfoView.frame.size.width, self.showInfoView.frame.size.height) andBGColor:colors[i%colors.count] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",weakself.descArr[i],[self.valueArr[i] integerValue],present,'%']];
                 return;
             }
@@ -343,7 +347,8 @@
                 if (weakself.saveIndex==i) {
                     
                     if (saveItems.center.x==self.frame.size.width/2) {
-                        weakself.showInfoView.hidden = NO;
+//                        weakself.showInfoView.hidden = NO;
+                        self.showInfoView.hidden = YES;
                         itemsView.center = CGPointMake(weakself.frame.size.width/2+xSpa, 10+wid/2+spa);
                         [weakself.showInfoView updateFrameTo:CGRectMake(p.x, p.y, weakself.showInfoView.frame.size.width, weakself.showInfoView.frame.size.height) andBGColor:colors[i%colors.count] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",weakself.descArr[i],[weakself.valueArr[i] integerValue],present,'%']];
 //                        _showInfoView.frame = C   GRectMake(p.x, p.y, _showInfoView.frame.size.width, _showInfoView.frame.size.height);
@@ -357,7 +362,8 @@
                 }else{
                     
                     saveItems.center = CGPointMake(self.frame.size.width/2, 10+wid/2);
-                    weakself.showInfoView.hidden = NO;
+//                    weakself.showInfoView.hidden = NO;
+                    self.showInfoView.hidden = YES;
                     [weakself.showInfoView updateFrameTo:CGRectMake(p.x, p.y, weakself.showInfoView.frame.size.width, weakself.showInfoView.frame.size.height) andBGColor:colors[i%colors.count] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",weakself.descArr[i],[weakself.valueArr[i] integerValue],present,'%']];
                     itemsView.center = CGPointMake(weakself.frame.size.width/2+xSpa, 10+wid/2+spa);
                     
@@ -372,5 +378,18 @@
     }
     
     
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    [_labelPointArr enumerateObjectsUsingBlock:^(NSString  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGPoint p = CGPointFromString(obj);
+        CGRect rect = CGRectMake(p.x, p.y, p.x + ([UIScreen mainScreen].bounds.size.width - 60.0f)/2.0f, 20.0f);
+         if(CGRectContainsPoint(rect, point)){
+             if (self.chooseSelectedBlock != nil) {
+                 self.chooseSelectedBlock(idx);
+             }
+         }
+    }]; 
 }
 @end

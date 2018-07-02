@@ -145,6 +145,12 @@
     GetQuestionGroupTemplatesRequestItem_Data *data = self.itemData.data[indexPath.row];
     cell.titleString = data.title;
     __block BOOL isCreatBool = NO;
+    if (self.courseView.chooseType == SubordinateCourse_Class && data.templateType.integerValue == 2) {//班级下不允许选择课程模板
+        isCreatBool = YES;
+    }
+    if (self.courseView.chooseType == SubordinateCourse_Course && data.templateType.integerValue == 1) {//课程下不允许选择班级模板
+        isCreatBool = YES;
+    }
     [self.templateIdMutableArray enumerateObjectsUsingBlock:^(GetAllTasksRequestItem_task *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ((obj.templateId.integerValue == data.templateId.integerValue) && [self subordinateCourseIdForItem:obj]) {
             isCreatBool = YES;
@@ -157,7 +163,6 @@
     if (self.courseView.chooseType == SubordinateCourse_Course && data.templateType.integerValue == 1) {//课程下不允许选择班级模板
         isCreatBool = YES;
     }
-
     cell.enabled = !isCreatBool;
     WEAK_SELF
     cell.previewTemplateBlock = ^{

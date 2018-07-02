@@ -11,4 +11,6 @@
 
 @interface ProjectLevelDistributingCell : UITableViewCell
 @property (nonatomic, strong) NSArray<GetSummaryRequestItem_projectStatisticInfo *> *dataArray;
+@property (nonatomic, copy) void(^searchProjectBlock)(NSString *value);
+@property (nonatomic, assign) BOOL isTypeBool;
 @end

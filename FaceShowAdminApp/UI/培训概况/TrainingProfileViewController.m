@@ -18,6 +18,8 @@
 #import "GetSummaryRequest.h"
 #import "ErrorView.h"
 #import "MJRefresh.h"
+#import "ProjectsByTypeViewController.h"
+
 
 @interface TrainingProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -175,15 +177,48 @@
     if (indexPath.section == 0) {
         ProjectLevelDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectLevelDistributingCell"];
         cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListLevel;
+        WEAK_SELF
+        cell.searchProjectBlock = ^(NSString *value) {
+            STRONG_SELF
+            ProjectsByTypeViewController *VC = [[ProjectsByTypeViewController alloc] init];
+            VC.startTime = self.startTime;
+            VC.endTime = self.endTime;
+            VC.projectQueryType = @"1";
+            VC.projectQueryTypeValue = value;
+            [self.navigationController pushViewController:VC animated:YES];
+        };
         return cell;
     } else if (indexPath.section == 1) {
         ProjectLevelDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectLevelDistributingCell"];
+        cell.isTypeBool = YES;
         cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListType;
+        WEAK_SELF
+        cell.searchProjectBlock = ^(NSString *value) {
+            STRONG_SELF
+            ProjectsByTypeViewController *VC = [[ProjectsByTypeViewController alloc] init];
+            VC.startTime = self.startTime;
+            VC.endTime = self.endTime;
+            VC.projectQueryType = @"2";
+            VC.projectQueryTypeValue = value;
+            [self.navigationController pushViewController:VC animated:YES];
+        };
         return cell;
     }else if (indexPath.section == 2) {
         ProjectAreaDistributingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectAreaDistributingCell"];
         cell.groupByType = self.requestItem.data.platformStatisticInfo.groupByType;
         cell.dataArray = self.requestItem.data.platformStatisticInfo.projectStatisticInfoListArea;
+        WEAK_SELF
+        cell.searchProjectBlock = ^(NSString *provinceId, NSString *cityId, NSString *districtId) {
+            STRONG_SELF
+            ProjectsByTypeViewController *VC = [[ProjectsByTypeViewController alloc] init];
+            VC.startTime = self.startTime;
+            VC.endTime = self.endTime;
+            VC.projectQueryType = @"2";
+            VC.provinceId = provinceId;
+            VC.cityId = cityId;
+            VC.districtId = districtId;
+            [self.navigationController pushViewController:VC animated:YES];
+        };
         return cell;
     }else if (indexPath.section == 3) {
         TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
