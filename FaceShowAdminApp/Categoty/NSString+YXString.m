@@ -235,3 +235,11 @@
     return [dateFormatter stringFromDate:date];
 }
 @end
+
+@implementation NSString (YXDecimalNumber)
+- (NSString *)decimalNumberString {
+    NSString *dStr = [NSString stringWithFormat:@"%f", self.doubleValue];
+    NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
+    return [dn stringValue];
+}
+@end

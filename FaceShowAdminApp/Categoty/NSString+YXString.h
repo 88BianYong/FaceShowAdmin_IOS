@@ -68,3 +68,7 @@
 
 
 @end
+
+@interface NSString (YXDecimalNumber)
+- (NSString *)decimalNumberString;
+@end
