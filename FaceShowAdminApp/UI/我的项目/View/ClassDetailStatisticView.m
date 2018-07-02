@@ -102,13 +102,13 @@
 - (void)setData:(GetCountClazsRequestItem_data *)data {
     self.teacherView.number = data.masterNum;
     self.studentView.number = data.studentNum;
-    self.appUsedView.number = data.signedNum;//app使用
+    self.appUsedView.number = [NSString stringWithFormat:@"%@/%@",data.appUsedNum,data.studentNum];
     self.courseView.number = data.courseNum;
     self.taskView.number = data.taskNum;
     self.signedView.number = data.signedNum;
     self.momentView.number = data.momentNum;
     self.resourceView.number = data.resourceNum;
-    self.commentView.number = data.evaluateNum;//项目满意度
+    self.commentView.number = [NSString stringWithFormat:@"%.0f%@",[data.projectSatisfiedPercent floatValue] * 100,@"%"];
 }
 
 @end

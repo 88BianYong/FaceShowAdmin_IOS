@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSString<Optional> *studentNum;
 @property (nonatomic, strong) NSString<Optional> *masterNum;
 @property (nonatomic, strong) NSString<Optional> *evaluateNum;
+@property (nonatomic, strong) NSString<Optional> *appUsedNum;
+@property (nonatomic, strong) NSString<Optional> *projectSatisfiedPercent;
 @end
 
 @interface GetCountClazsRequestItem:HttpBaseRequestItem

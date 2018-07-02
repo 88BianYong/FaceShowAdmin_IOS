@@ -103,7 +103,7 @@
     self.studentView.number = data.studentNum;
     self.placeView.number = data.teacherNum;
     self.areaView.number = data.courseNum;
-    self.appUsedView.number = @"100/356";//data.app使用
+    self.appUsedView.number = [NSString stringWithFormat:@"%@/%@",data.appUsedNum,data.studentNum]; 
 }
 
 - (void)updateWithPtocince:(Area *)province city:(Area *)city district:(Area *)district {
