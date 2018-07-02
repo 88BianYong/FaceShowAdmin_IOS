@@ -45,6 +45,7 @@
     [self.moreButton setTitle:@"更多" forState:UIControlStateNormal];
     [self.moreButton setTitleColor:[UIColor colorWithHexString:@"0068be"] forState:UIControlStateNormal];
     self.moreButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    self.moreButton.hidden = YES;
     [self.contentView addSubview:self.moreButton];
     [self.moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_offset(35.0f);

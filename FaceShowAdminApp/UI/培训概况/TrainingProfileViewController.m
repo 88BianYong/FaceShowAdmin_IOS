@@ -202,7 +202,7 @@
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     TitleHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TitleHeaderView"];
-    header.tag = section;
+//    header.tag = section;
     WEAK_SELF
     header.titleButtonBlock = ^{
         STRONG_SELF
