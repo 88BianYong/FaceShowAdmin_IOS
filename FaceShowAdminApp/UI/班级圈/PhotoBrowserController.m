@@ -96,10 +96,11 @@
         if (integer == 1) {
             [self.view nyx_showToast:@"已删除"];
             [self.images removeObjectAtIndex:self.currentIndex];
-            [self.slideView reloadData];
             BLOCK_EXEC(self.deleteImageBlock,self.currentIndex);
             if (isEmpty(self.images)) {
                 [self backAction];
+            }else {
+                [self.slideView reloadData];
             }
         }
         [alertView hide];
