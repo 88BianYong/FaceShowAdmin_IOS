@@ -195,7 +195,7 @@
     self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@",[item.data.projectCount.startTime substringToIndex:10],[item.data.projectCount.endTime substringToIndex:10]];
     self.completeView.number = [NSString stringWithFormat:@"%.0f%@",item.data.projectCount.taskFinishedRate.floatValue*100,@"%"];
     self.scoreView.number = [NSString stringWithFormat:@"%.0f%@",item.data.projectCount.projectLikedRate.floatValue*100,@"%"];
-    self.statisticLabel.text = [NSString stringWithFormat:@"班级  %@     学员  %@     班主任  %@",item.data.projectCount.clazsNum,item.data.projectCount.studentNum,item.data.projectCount.masterNum];
+    self.statisticLabel.text = [NSString stringWithFormat:@"班级  %@     班主任  %@     学员  %@     app使用  %@/%@",item.data.projectCount.clazsNum,item.data.projectCount.masterNum,item.data.projectCount.studentNum,item.data.projectCount.appUsedNum,item.data.projectCount.studentNum];
     if (self.requestItem.data.clazses.count > 0) {
         [self.slideView reloadData];
     }else {

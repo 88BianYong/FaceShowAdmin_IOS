@@ -30,7 +30,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"班级学情";
+    self.title = @"学情排名";
     // Do any additional setup after loading the view.
 }
 

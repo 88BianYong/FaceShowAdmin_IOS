@@ -88,7 +88,7 @@
     }];
     
     self.appUsedView = [[NameNumberView alloc]init];
-    self.appUsedView.name = @"App使用";
+    self.appUsedView.name = @"app使用";
     [self addSubview:self.appUsedView];
     [self.appUsedView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.placeView.mas_top);

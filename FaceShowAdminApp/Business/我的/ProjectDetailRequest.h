@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSString<Optional> *studentAvgScore;
 @property (nonatomic, strong) NSString<Optional> *taskFinishedRate;
 @property (nonatomic, strong) NSString<Optional> *projectLikedRate;
+@property (nonatomic, strong) NSString<Optional> *appUsedNum;
 @end
 
 @interface ProjectDetailRequestItem_data:JSONModel

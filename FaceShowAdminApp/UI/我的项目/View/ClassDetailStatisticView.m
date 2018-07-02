@@ -48,7 +48,7 @@
         make.centerX.mas_equalTo(self.mas_centerX);
     }];
     self.appUsedView = [[ClassDetailStatisticItemView alloc]init];
-    self.appUsedView.name = @"APP使用";
+    self.appUsedView.name = @"app使用";
     [self addSubview:self.appUsedView];
     [self.appUsedView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.teacherView.mas_top);
