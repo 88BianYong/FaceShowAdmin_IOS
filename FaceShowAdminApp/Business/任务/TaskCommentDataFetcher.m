@@ -29,7 +29,7 @@
             return;
         }
         GetTaskCommentTitleRequestItem *item = (GetTaskCommentTitleRequestItem *)retItem;
-        self.title = item.data.desc;
+        self.title = item.data.title;
         [self requestCommentsWithCompleteBlock:aCompleteBlock];
     }];
 }
