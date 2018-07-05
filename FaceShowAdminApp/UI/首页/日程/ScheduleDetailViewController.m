@@ -12,20 +12,11 @@
 #import "ScheduleCreateViewController.h"
 #import "ScheduleDeleteRequest.h"
 #import "ShowPhotosViewController.h"
-@interface ScheduleDetailViewController ()
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIView *containerView;
-@property (nonatomic, strong) UIView *topView;
-@property (nonatomic, strong) UIImageView *headerBackImage;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIImageView *imageView;
+@interface ScheduleDetailViewController ()<UIWebViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic, strong) AlertView *alertView;
-
+@property (nonatomic, strong) UIWebView *webview;
+@property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) ScheduleDeleteRequest *deleteRequest;
-
-
-
-
 @end
 
 @implementation ScheduleDetailViewController
@@ -35,9 +26,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"日程管理";
+    self.navigationItem.title = self.element.subject;
+//    self.element.imageUrl = @"http://pavlal4my.bkt.clouddn.com/FlI2oVB7zX9cig0-FTKyFUGGzDPq";
+//    self.element.type = @"1";
     [self setupUI];
-    [self setupLayout];
     if (self.element == nil) {
         ScheduleCreateViewController *VC = [[ScheduleCreateViewController alloc] init];
         FSNavigationController *nav = [[FSNavigationController alloc] initWithRootViewController:VC];
@@ -49,20 +41,8 @@
                 return;
             }
             self.element = item;
-            self.titleLabel.text = self.element.subject;
-            self.imageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
-            UIImageView *placeholderImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"朋友圈一张图加载失败图片"]];
-            [self.imageView addSubview:placeholderImageView];
-            [placeholderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.center.equalTo(self.imageView);
-            }];
-            [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.element.imageUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-                STRONG_SELF
-                if (error == nil) {
-                    [self.imageView removeSubviews];
-                    self.imageView.backgroundColor = [UIColor clearColor];
-                }
-            }];
+            self.navigationItem.title = self.element.subject;
+            [self loadWebViewWithUrl:self.element.imageUrl];
         };
         [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
         }];
@@ -74,54 +54,28 @@
 }
 #pragma mark - setupUI
 - (void)setupUI {
-    self.scrollView = [[UIScrollView alloc] init];
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.backgroundColor = [UIColor whiteColor];
-    self.scrollView.contentSize = [UIScreen mainScreen].bounds.size;
-    [self.view addSubview:self.scrollView];
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, -360, self.view.bounds.size.width, 360.0f)];
-    topView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    [self.scrollView addSubview:topView];
-    
-    self.containerView = [[UIView alloc] init];
-    self.containerView.backgroundColor = [UIColor whiteColor];
-    [self.scrollView addSubview:self.containerView];
-    
-    self.topView = [[UIView alloc] init];
-    self.topView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    [self.containerView addSubview:self.topView];
-    
-    self.headerBackImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"日常管理背景图"]];
-    [self.containerView addSubview:self.headerBackImage];
-    
-    self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-    self.titleLabel.text = self.element.subject;
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.numberOfLines = 0;
-    [self.containerView addSubview:self.titleLabel];
     WEAK_SELF
-    self.imageView = [[UIImageView alloc] init];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.imageView.clipsToBounds = YES;
-    self.imageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
-    [self.containerView addSubview:self.imageView];
-    UIImageView *placeholderImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"朋友圈一张图加载失败图片"]];
-    [self.imageView addSubview:placeholderImageView];
-    [placeholderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.imageView);
-    }];
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.element.imageUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        STRONG_SELF
-        if (error == nil) {
-            [placeholderImageView removeFromSuperview];
-            self.imageView.backgroundColor = [UIColor clearColor];
+    self.webview = [[UIWebView alloc]init];
+    self.webview.scalesPageToFit = YES;
+    self.webview.delegate = self;
+    [self loadWebViewWithUrl:self.element.imageUrl];
+    [self.view addSubview:self.webview];
+    [self.webview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15.0f);
+        make.right.mas_equalTo(-15.0f);
+        make.top.mas_equalTo(15);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-15);
+        } else {
+            make.bottom.mas_equalTo(-15);
         }
     }];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-    self.imageView.userInteractionEnabled = YES;
-    [self.imageView addGestureRecognizer:tap];
+    
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    self.tap.numberOfTouchesRequired = 1;
+    self.tap.delegate = self;
+    self.webview.userInteractionEnabled = YES;
+    [self.webview addGestureRecognizer:self.tap];
     [self nyx_setupRightWithImageName:@"更多操作按钮正常态" highlightImageName:@"更多操作按钮点击态" action:^{
         STRONG_SELF
         [self showAlertView];
@@ -196,20 +150,8 @@
     VC.reloadDateBlock = ^(ScheduleDetailRequestItem_Data_Schedules_Elements *item) {
         STRONG_SELF
         self.element = item;
-        self.titleLabel.text = self.element.subject;
-        self.imageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
-        UIImageView *placeholderImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"朋友圈一张图加载失败图片"]];
-        [self.imageView addSubview:placeholderImageView];
-        [placeholderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.imageView);
-        }];
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.element.imageUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            STRONG_SELF
-            if (error == nil) {
-                [self.imageView removeSubviews];
-                self.imageView.backgroundColor = [UIColor clearColor];
-            }
-        }];
+        self.navigationItem.title = self.element.subject;
+        [self loadWebViewWithUrl:self.element.imageUrl];
     };
     [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
     }];
@@ -230,54 +172,43 @@
     }];
 }
 
-- (void)setupLayout {
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
-    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.scrollView.mas_top);
-        make.height.mas_offset(SCREEN_WIDTH - 30.0f + 80.0f);
-    }];
-    
-    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.containerView.mas_left);
-        make.right.equalTo(self.containerView.mas_right);
-        make.top.equalTo(self.containerView.mas_top);
-        make.height.mas_offset(5.0f);
-    }];
-    
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.containerView.mas_left).offset(25.0f);
-        make.right.equalTo(self.containerView.mas_right).offset(-25.0f);
-        make.top.equalTo(self.topView.mas_bottom).offset(20.0f);
-    }];
-    
-    [self.headerBackImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.containerView.mas_left);
-        make.right.equalTo(self.containerView.mas_right);
-        make.top.equalTo(self.topView.mas_bottom);
-        make.height.mas_equalTo(100);
-    }];
-    
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.containerView.mas_left).offset(15.0f);
-        make.right.equalTo(self.containerView.mas_right).offset(-15.0f);
-        make.top.equalTo(self.headerBackImage.mas_bottom);
-        make.width.equalTo(self.imageView.mas_height);
-    }];
-}
 - (void)tapAction:(UITapGestureRecognizer *)sender {
+    if ([self.element.type isEqualToString:@"1"]) {
+        return;
+    }
     ShowPhotosViewController *showPhotosVC = [[ShowPhotosViewController alloc] init];
     PreviewPhotosModel *model = [[PreviewPhotosModel alloc] init];
     model.original = self.element.imageUrl;
     NSMutableArray *photoArr = [NSMutableArray arrayWithObject:model];
-    showPhotosVC.animateRect = [self.view convertRect:self.imageView.frame toView:self.view.window.rootViewController.view];
+    showPhotosVC.animateRect = [self.view convertRect:self.webview.frame toView:self.view.window.rootViewController.view];
     showPhotosVC.imageModelMutableArray = photoArr;
     showPhotosVC.startInteger = 0;
     [self.view.window.rootViewController presentViewController:showPhotosVC animated:YES completion:nil];
 }
 
+#pragma mark - UIWebView
+- (void)loadWebViewWithUrl:(NSString *)url {
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
+    [self.webview loadRequest:request];
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [self.view nyx_startLoading];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.view nyx_stopLoading];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self.view nyx_stopLoading];
+    [self.view nyx_showToast:@"加载失败"];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    if (gestureRecognizer == self.tap)
+    {
+        return YES;
+    }
+    return NO;
+}
 @end

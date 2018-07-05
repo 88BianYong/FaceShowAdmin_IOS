@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString<Optional> *remark;
 @property (nonatomic, strong) NSString<Optional> *status;
 @property (nonatomic, strong) NSString<Optional> *imageUrl;
+@property (nonatomic, strong) NSString<Optional> *type;
 @end
 @interface ScheduleDetailRequestItem_Data_Schedules : JSONModel
 @property (nonatomic, strong) NSArray<ScheduleDetailRequestItem_Data_Schedules_Elements,Optional> *elements;
