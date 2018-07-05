@@ -11,5 +11,5 @@
 @interface ChooseTemplateViewController : BaseViewController
 @property (nonatomic, copy) void(^loadTemplateBlock)(CreateQuestionGroupItem *itemData);
 @property (nonatomic, copy) NSString *templateId;
-
+@property (nonatomic, copy) NSString *interactType;
 @end

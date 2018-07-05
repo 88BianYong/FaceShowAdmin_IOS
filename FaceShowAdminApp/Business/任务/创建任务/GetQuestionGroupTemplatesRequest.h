@@ -19,4 +19,5 @@
 @end
 @interface GetQuestionGroupTemplatesRequest : YXGetRequest
 @property (nonatomic, copy) NSString<Optional> *clazsId;
+@property (nonatomic, copy) NSString<Optional> *interactType;//3-投票 5-问卷 7-评价
 @end

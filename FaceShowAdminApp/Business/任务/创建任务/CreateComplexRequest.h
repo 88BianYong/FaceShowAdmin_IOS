@@ -6,7 +6,7 @@
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "YXGetRequest.h"
+#import "YXPostRequest.h"
 #import "GetTaskRequest.h"
 typedef NS_ENUM(NSInteger,CreateComplexType) {
     CreateComplex_Vote,//投票
@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger,CreateComplexType) {
 @property (nonatomic, strong) GetTaskRequestItem_Task<Optional> *data;
 @end
 
-@interface CreateComplexRequest : YXGetRequest
+@interface CreateComplexRequest : YXPostRequest
 @property (nonatomic, copy) NSString<Optional> *courseId;
 @property (nonatomic, copy) NSString<Optional> *clazsId;
 @property (nonatomic, copy) NSString<Optional> *questionGroup;

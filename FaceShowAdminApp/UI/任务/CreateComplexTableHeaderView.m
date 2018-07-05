@@ -61,6 +61,7 @@
     
     self.textView = [[SAMTextView alloc] init];
     self.textView.characterInteger = 200;
+    self.textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.textView.font = [UIFont systemFontOfSize:15.0f];
     self.textView.textColor = [UIColor colorWithHexString:@"333333"];
     self.textView.placeholder = @"内容(选填)";

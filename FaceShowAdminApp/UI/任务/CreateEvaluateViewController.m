@@ -151,6 +151,13 @@
             *stop = YES;
         }
     }];
+    if (self.courseView.chooseType == SubordinateCourse_Class && data.templateType.integerValue != 1) {//班级下不允许选择课程模板
+        isCreatBool = YES;
+    }
+    if (self.courseView.chooseType == SubordinateCourse_Course && data.templateType.integerValue == 1) {//课程下不允许选择班级模板
+        isCreatBool = YES;
+    }
+
     cell.enabled = !isCreatBool;
     WEAK_SELF
     cell.previewTemplateBlock = ^{
@@ -193,6 +200,7 @@
     [self.view nyx_startLoading];
     GetQuestionGroupTemplatesRequest *request = [[GetQuestionGroupTemplatesRequest alloc] init];
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    request.interactType = @"7";
     WEAK_SELF
     [request startRequestWithRetClass:[GetQuestionGroupTemplatesRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF

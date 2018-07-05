@@ -66,7 +66,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(8.0f);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-14.0f);
         make.height.mas_greaterThanOrEqualTo(30.0f).priorityHigh();
-        make.left.equalTo(self.titleLabel.mas_right).offset(6.0f);
+        make.left.equalTo(self.contentView.mas_left).offset(79.0f);
     }];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(4.0f);

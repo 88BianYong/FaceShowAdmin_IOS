@@ -13,10 +13,12 @@
 #import "YXNoFloatingHeaderFooterTableView.h"
 #import "QuestionTemplatesViewController.h"
 #import "ErrorView.h"
+#import "EmptyView.h"
 #import "GetQuestionTemplatesRequest.h"
 @interface ChooseTemplateViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) ErrorView *errorView;
+@property (nonatomic, strong) EmptyView *emptyView;
 @property (nonatomic, strong) UIButton *publishButton;
 
 @property (nonatomic, strong) GetQuestionGroupTemplatesRequest *groupRequest;
@@ -77,6 +79,11 @@
         STRONG_SELF
         [self requestForQuestionGroupTemplates];
     }];
+    self.emptyView = [[EmptyView alloc]init];
+    self.emptyView.title = @"暂无可使用模板";
+    self.emptyView.hidden = YES;
+    [self.view addSubview:self.emptyView];
+
     [self.view addSubview:self.errorView];
     [self setupNavigationRightView];
 }
@@ -101,6 +108,9 @@
         make.edges.equalTo(self.view);
     }];
     [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
 }
@@ -143,13 +153,20 @@
     [self.view nyx_startLoading];
     GetQuestionGroupTemplatesRequest *request = [[GetQuestionGroupTemplatesRequest alloc] init];
     request.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    request.interactType = self.interactType;
     WEAK_SELF
     [request startRequestWithRetClass:[GetQuestionGroupTemplatesRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
         [self.view nyx_stopLoading];
         self.errorView.hidden = YES;
+        self.emptyView.hidden = YES;
         if (error) {
             self.errorView.hidden = NO;
+            return;
+        }
+        GetQuestionGroupTemplatesRequestItem *item = retItem;
+        if (item.data.count == 0) {
+            self.emptyView.hidden = NO;
             return;
         }
         self.itemData = retItem;

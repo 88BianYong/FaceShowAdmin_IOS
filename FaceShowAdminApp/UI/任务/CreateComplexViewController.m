@@ -86,6 +86,11 @@
             CreateQuestionGroupItem_Question *question = self.itemData.questions[0];
             VC.templateId = question.templateId;
         }
+        if (self.createType == CreateComplex_Questionnaire) {
+            VC.interactType = @"5";
+        }else if (self.createType == CreateComplex_Vote) {
+            VC.interactType = @"3";
+        }
         VC.loadTemplateBlock = ^(CreateQuestionGroupItem *itemData) {
             STRONG_SELF
             self.itemData = itemData;
@@ -143,15 +148,15 @@
         make.right.equalTo(bottomView.mas_right).offset(-15.0f);
     }];
     [self setupNavigationRightView];
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] init];
-    [[recognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
-        STRONG_SELF
-        if (x.state == UIGestureRecognizerStateEnded) {
-            [self.tableHeaderView.textField  resignFirstResponder];
-            [self.tableHeaderView.textView resignFirstResponder];
-        }
-    }];
-    [self.tableView addGestureRecognizer:recognizer];
+//    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] init];
+//    [[recognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
+//        STRONG_SELF
+//        if (x.state == UIGestureRecognizerStateEnded) {
+//            [self.tableHeaderView.textField  resignFirstResponder];
+//            [self.tableHeaderView.textView resignFirstResponder];
+//        }
+//    }];
+//    [self.tableView addGestureRecognizer:recognizer];
 }
 - (void)setupLayout {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
