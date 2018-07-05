@@ -151,7 +151,7 @@
             *stop = YES;
         }
     }];
-    if (self.courseView.chooseType == SubordinateCourse_Class && data.templateType.integerValue != 1) {//班级下不允许选择课程模板
+    if (self.courseView.chooseType == SubordinateCourse_Class && (data.templateType.integerValue == 2 || data.templateType.integerValue == 3)) {//班级下不允许选择课程模板
         isCreatBool = YES;
     }
     if (self.courseView.chooseType == SubordinateCourse_Course && data.templateType.integerValue == 1) {//课程下不允许选择班级模板
