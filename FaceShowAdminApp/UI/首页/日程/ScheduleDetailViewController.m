@@ -12,10 +12,9 @@
 #import "ScheduleCreateViewController.h"
 #import "ScheduleDeleteRequest.h"
 #import "ShowPhotosViewController.h"
-@interface ScheduleDetailViewController ()<UIWebViewDelegate,UIGestureRecognizerDelegate>
+@interface ScheduleDetailViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong) AlertView *alertView;
 @property (nonatomic, strong) UIWebView *webview;
-@property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) ScheduleDeleteRequest *deleteRequest;
 @end
 
@@ -27,8 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = self.element.subject;
-//    self.element.imageUrl = @"http://pavlal4my.bkt.clouddn.com/FlI2oVB7zX9cig0-FTKyFUGGzDPq";
-//    self.element.type = @"1";
+    self.element.imageUrl = @"http://pavlal4my.bkt.clouddn.com/FlI2oVB7zX9cig0-FTKyFUGGzDPq";
     [self setupUI];
     if (self.element == nil) {
         ScheduleCreateViewController *VC = [[ScheduleCreateViewController alloc] init];
@@ -71,11 +69,6 @@
         }
     }];
     
-    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-    self.tap.numberOfTouchesRequired = 1;
-    self.tap.delegate = self;
-    self.webview.userInteractionEnabled = YES;
-    [self.webview addGestureRecognizer:self.tap];
     [self nyx_setupRightWithImageName:@"更多操作按钮正常态" highlightImageName:@"更多操作按钮点击态" action:^{
         STRONG_SELF
         [self showAlertView];
@@ -172,20 +165,6 @@
     }];
 }
 
-- (void)tapAction:(UITapGestureRecognizer *)sender {
-    if ([self.element.type isEqualToString:@"1"]) {
-        return;
-    }
-    ShowPhotosViewController *showPhotosVC = [[ShowPhotosViewController alloc] init];
-    PreviewPhotosModel *model = [[PreviewPhotosModel alloc] init];
-    model.original = self.element.imageUrl;
-    NSMutableArray *photoArr = [NSMutableArray arrayWithObject:model];
-    showPhotosVC.animateRect = [self.view convertRect:self.webview.frame toView:self.view.window.rootViewController.view];
-    showPhotosVC.imageModelMutableArray = photoArr;
-    showPhotosVC.startInteger = 0;
-    [self.view.window.rootViewController presentViewController:showPhotosVC animated:YES completion:nil];
-}
-
 #pragma mark - UIWebView
 - (void)loadWebViewWithUrl:(NSString *)url {
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
@@ -203,12 +182,4 @@
     [self.view nyx_showToast:@"加载失败"];
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-    if (gestureRecognizer == self.tap)
-    {
-        return YES;
-    }
-    return NO;
-}
 @end
