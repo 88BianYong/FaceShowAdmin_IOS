@@ -12,6 +12,7 @@
 #import "ScheduleCreateViewController.h"
 #import "ScheduleDeleteRequest.h"
 #import "ShowPhotosViewController.h"
+#import "FSDataMappingTable.h"
 @interface ScheduleDetailViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong) AlertView *alertView;
 @property (nonatomic, strong) UIWebView *webview;
@@ -26,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = self.element.subject;
-    self.element.imageUrl = @"http://pavlal4my.bkt.clouddn.com/FlI2oVB7zX9cig0-FTKyFUGGzDPq";
     [self setupUI];
     if (self.element == nil) {
         ScheduleCreateViewController *VC = [[ScheduleCreateViewController alloc] init];
@@ -40,7 +40,7 @@
             }
             self.element = item;
             self.navigationItem.title = self.element.subject;
-            [self loadWebViewWithUrl:self.element.imageUrl];
+            [self loadWebViewWithUrl:self.element.attachmentInfo.previewUrl ? self.element.attachmentInfo.previewUrl : self.element.imageUrl];
         };
         [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
         }];
@@ -56,7 +56,7 @@
     self.webview = [[UIWebView alloc]init];
     self.webview.scalesPageToFit = YES;
     self.webview.delegate = self;
-    [self loadWebViewWithUrl:self.element.imageUrl];
+    [self loadWebViewWithUrl:self.element.attachmentInfo.previewUrl ? self.element.attachmentInfo.previewUrl : self.element.imageUrl];
     [self.view addSubview:self.webview];
     [self.webview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15.0f);
@@ -77,8 +77,14 @@
 
 - (void)showAlertView {
     FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    actionSheetView.titleArray = @[@{@"title":@"修改"},
-                                   @{@"title":@"删除"}];
+    NSArray *titleArray;
+    if ([FSDataMappingTable ResourceTypeWithKey:self.element.attachmentInfo.resType] == ResourceType_Image || (!self.element.attachmentInfo && self.element.imageUrl)) {
+        titleArray = @[@{@"title":@"修改"},
+                       @{@"title":@"删除"}];
+    }else {
+        titleArray = @[@{@"title":@"删除"}];
+    }
+    actionSheetView.titleArray = titleArray;
     self.alertView = [[AlertView alloc]init];
     self.alertView.backgroundColor = [UIColor clearColor];
     self.alertView.hideWhenMaskClicked = YES;
@@ -91,7 +97,7 @@
                 make.left.equalTo(view.mas_left);
                 make.right.equalTo(view.mas_right);
                 make.top.equalTo(view.mas_bottom);
-                make.height.mas_offset(155.0f);
+                make.height.mas_offset(50 * titleArray.count + 55);
             }];
             [view layoutIfNeeded];
         } completion:^(BOOL finished) {
@@ -104,7 +110,7 @@
             make.left.equalTo(view.mas_left);
             make.right.equalTo(view.mas_right);
             make.top.equalTo(view.mas_bottom);
-            make.height.mas_offset(155.0f );
+            make.height.mas_offset(50 * titleArray.count + 55);
         }];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.3 animations:^{
@@ -116,7 +122,7 @@
                     } else {
                         make.bottom.mas_equalTo(0);
                     }
-                    make.height.mas_offset(155.0f);
+                    make.height.mas_offset(50 * titleArray.count + 55);
                 }];
                 [view layoutIfNeeded];
             } completion:^(BOOL finished) {
@@ -126,11 +132,16 @@
     }];
     actionSheetView.actionSheetBlock = ^(NSInteger integer) {
         STRONG_SELF
-        if (integer == 1) {
-            [self createScheduleViewController];
-        }else if (integer == 2) {
+        if (titleArray.count == 1) {
             [TalkingData trackEvent:@"删除日程"];
             [self requestForDeleteSchedule];
+        }else {
+            if (integer == 1) {
+                [self createScheduleViewController];
+            }else if (integer == 2) {
+                [TalkingData trackEvent:@"删除日程"];
+                [self requestForDeleteSchedule];
+            }
         }
         [self.alertView hide];
     };
@@ -144,7 +155,7 @@
         STRONG_SELF
         self.element = item;
         self.navigationItem.title = self.element.subject;
-        [self loadWebViewWithUrl:self.element.imageUrl];
+        [self loadWebViewWithUrl:self.element.attachmentInfo.previewUrl ? self.element.attachmentInfo.previewUrl : self.element.imageUrl];
     };
     [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
     }];

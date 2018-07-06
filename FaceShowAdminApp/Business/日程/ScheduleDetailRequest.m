@@ -7,6 +7,9 @@
 //
 
 #import "ScheduleDetailRequest.h"
+@implementation ScheduleDetailRequestItem_attachmentInfo
+@end
+
 @implementation ScheduleDetailRequestItem_Data_Schedules_Elements
 + (JSONKeyMapper *)keyMapper{
     return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"elementId"}];
@@ -22,6 +25,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.method = @"schedule.list";
+        self.isApp = @"1";
     }
     return self;
 }
