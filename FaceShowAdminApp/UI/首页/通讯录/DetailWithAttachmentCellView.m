@@ -37,7 +37,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(15);
         make.centerY.mas_equalTo(0);
-        make.width.mas_equalTo(60);
+        make.right.mas_equalTo(-50);
     }];
     
     UIImageView *attachmentImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"进入页面按钮正常态"] highlightedImage:[UIImage imageNamed:@"进入页面按钮点击态"]];

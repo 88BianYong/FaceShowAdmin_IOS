@@ -11,6 +11,8 @@
 #import "ContactsListCell.h"
 #import "AddMemberViewController.h"
 #import "ContactsDetailViewController.h"
+#import "HubeiContactsDetailViewController.h"
+#import "HubeiAddMemberViewController.h"
 
 @interface ContactsViewController ()
 
@@ -128,11 +130,19 @@
     [self nyx_setupRightWithTitle:@"添加" action:^{
         STRONG_SELF
         [TalkingData trackEvent:@"添加学员"];
+#ifdef HuBeiApp
+        HubeiAddMemberViewController *vc = [[HubeiAddMemberViewController alloc] init];
+        vc.saveSucceedBlock = ^{
+            [self firstPageFetch];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+#else
         AddMemberViewController *vc = [[AddMemberViewController alloc] init];
         vc.saveSucceedBlock = ^{
             [self firstPageFetch];
         };
         [self.navigationController pushViewController:vc animated:YES];
+#endif
     }];
 //    UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    navRightBtn.frame = CGRectMake(0, 0, 65, 30);
@@ -205,11 +215,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+#ifdef HuBeiApp
+    HubeiContactsDetailViewController *vc = [[HubeiContactsDetailViewController alloc] init];
+    GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
+    vc.userId = data.userId;
+    vc.isAdministrator = indexPath.section == 0;
+    [self.navigationController pushViewController:vc animated:YES];
+#else
     ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
     GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
     vc.userId = data.userId;
     vc.isAdministrator = indexPath.section == 0;
     [self.navigationController pushViewController:vc animated:YES];
+#endif
 }
 
 @end

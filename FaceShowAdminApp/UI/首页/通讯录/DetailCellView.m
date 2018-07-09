@@ -26,9 +26,7 @@
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_offset(15);
             make.centerY.mas_equalTo(0);
-            make.width.mas_equalTo(60);
         }];
-        
         self.contentLabel = [[UILabel alloc] init];
         self.contentLabel.font = [UIFont systemFontOfSize:14];
         self.contentLabel.textColor = [UIColor colorWithHexString:@"999999"];
@@ -36,11 +34,10 @@
         self.contentLabel.text = content;
         [self addSubview:self.contentLabel];
         [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(titleLabel.mas_right);
+            make.left.mas_greaterThanOrEqualTo(titleLabel.mas_right).mas_offset(10);
             make.right.mas_equalTo(-15);
             make.centerY.mas_equalTo(0);
         }];
-        
         self.bottomLineView = [[UIView alloc] init];
         self.bottomLineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
         [self addSubview:self.bottomLineView];

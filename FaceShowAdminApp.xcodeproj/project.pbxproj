@@ -71,6 +71,18 @@
 		7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */; };
 		7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */; };
 		7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */; };
+		7C2DC37A20F30E0300B689C0 /* CreateUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */; };
+		7C2DC37D20F3124A00B689C0 /* GetUserInfoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC37C20F3124A00B689C0 /* GetUserInfoDetailRequest.m */; };
+		7C2DC38220F314EA00B689C0 /* HubeiContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38120F314EA00B689C0 /* HubeiContactsDetailViewController.m */; };
+		7C2DC38520F334D800B689C0 /* HubeiAddMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38420F334D800B689C0 /* HubeiAddMemberViewController.m */; };
+		7C2DC38820F336E400B689C0 /* CascadeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38720F336E400B689C0 /* CascadeItemCell.m */; };
+		7C2DC38A20F3478900B689C0 /* StageSubject.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2DC38920F3478900B689C0 /* StageSubject.json */; };
+		7C2DC38D20F347AF00B689C0 /* StageSubjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38C20F347AF00B689C0 /* StageSubjectManager.m */; };
+		7C2DC39020F34C3400B689C0 /* HubeiStageSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38F20F34C3400B689C0 /* HubeiStageSelectionViewController.m */; };
+		7C2DC39320F3507B00B689C0 /* HubeiSubjectSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC39220F3507B00B689C0 /* HubeiSubjectSelectionViewController.m */; };
+		7C2DC39620F3587C00B689C0 /* HubeiProvinceSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC39520F3587C00B689C0 /* HubeiProvinceSelectionViewController.m */; };
+		7C2DC39920F3589100B689C0 /* HubeiCitySelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC39820F3589100B689C0 /* HubeiCitySelectionViewController.m */; };
+		7C2DC39C20F358BB00B689C0 /* HubeiDistrictSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC39B20F358BB00B689C0 /* HubeiDistrictSelectionViewController.m */; };
 		7C2E221D20E366000055843D /* RefreshBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E221C20E366000055843D /* RefreshBaseViewController.m */; };
 		7C2E222920E49AE00055843D /* ResourceGenerateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E222820E49AE00055843D /* ResourceGenerateRequest.m */; };
 		7C2E6F8E20CA216E0066DE7C /* IMPrivateSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F8A20CA216C0066DE7C /* IMPrivateSettingViewController.m */; };
@@ -631,6 +643,29 @@
 		7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveUserCommentRequest.m; sourceTree = "<group>"; };
 		7C2558371FBD47BF00C9BE38 /* DeleteStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteStepRequest.h; sourceTree = "<group>"; };
 		7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteStepRequest.m; sourceTree = "<group>"; };
+		7C2DC37820F30E0300B689C0 /* CreateUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateUserRequest.h; sourceTree = "<group>"; };
+		7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateUserRequest.m; sourceTree = "<group>"; };
+		7C2DC37B20F3124A00B689C0 /* GetUserInfoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetUserInfoDetailRequest.h; sourceTree = "<group>"; };
+		7C2DC37C20F3124A00B689C0 /* GetUserInfoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoDetailRequest.m; sourceTree = "<group>"; };
+		7C2DC38020F314EA00B689C0 /* HubeiContactsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiContactsDetailViewController.h; sourceTree = "<group>"; };
+		7C2DC38120F314EA00B689C0 /* HubeiContactsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiContactsDetailViewController.m; sourceTree = "<group>"; };
+		7C2DC38320F334D800B689C0 /* HubeiAddMemberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiAddMemberViewController.h; sourceTree = "<group>"; };
+		7C2DC38420F334D800B689C0 /* HubeiAddMemberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiAddMemberViewController.m; sourceTree = "<group>"; };
+		7C2DC38620F336E400B689C0 /* CascadeItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CascadeItemCell.h; sourceTree = "<group>"; };
+		7C2DC38720F336E400B689C0 /* CascadeItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CascadeItemCell.m; sourceTree = "<group>"; };
+		7C2DC38920F3478900B689C0 /* StageSubject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StageSubject.json; sourceTree = "<group>"; };
+		7C2DC38B20F347AF00B689C0 /* StageSubjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSubjectManager.h; sourceTree = "<group>"; };
+		7C2DC38C20F347AF00B689C0 /* StageSubjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSubjectManager.m; sourceTree = "<group>"; };
+		7C2DC38E20F34C3400B689C0 /* HubeiStageSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiStageSelectionViewController.h; sourceTree = "<group>"; };
+		7C2DC38F20F34C3400B689C0 /* HubeiStageSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiStageSelectionViewController.m; sourceTree = "<group>"; };
+		7C2DC39120F3507B00B689C0 /* HubeiSubjectSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiSubjectSelectionViewController.h; sourceTree = "<group>"; };
+		7C2DC39220F3507B00B689C0 /* HubeiSubjectSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiSubjectSelectionViewController.m; sourceTree = "<group>"; };
+		7C2DC39420F3587C00B689C0 /* HubeiProvinceSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiProvinceSelectionViewController.h; sourceTree = "<group>"; };
+		7C2DC39520F3587C00B689C0 /* HubeiProvinceSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiProvinceSelectionViewController.m; sourceTree = "<group>"; };
+		7C2DC39720F3589100B689C0 /* HubeiCitySelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiCitySelectionViewController.h; sourceTree = "<group>"; };
+		7C2DC39820F3589100B689C0 /* HubeiCitySelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiCitySelectionViewController.m; sourceTree = "<group>"; };
+		7C2DC39A20F358BB00B689C0 /* HubeiDistrictSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiDistrictSelectionViewController.h; sourceTree = "<group>"; };
+		7C2DC39B20F358BB00B689C0 /* HubeiDistrictSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiDistrictSelectionViewController.m; sourceTree = "<group>"; };
 		7C2E221B20E366000055843D /* RefreshBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshBaseViewController.h; sourceTree = "<group>"; };
 		7C2E221C20E366000055843D /* RefreshBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshBaseViewController.m; sourceTree = "<group>"; };
 		7C2E222720E49AE00055843D /* ResourceGenerateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceGenerateRequest.h; sourceTree = "<group>"; };
@@ -1512,6 +1547,7 @@
 		436CB2221FB15BAE00A31585 /* 通讯录 */ = {
 			isa = PBXGroup;
 			children = (
+				7C2DC37E20F3140600B689C0 /* 湖北 */,
 				436CB2231FB15C9B00A31585 /* ClazsMemberListRequest.h */,
 				436CB2241FB15C9B00A31585 /* ClazsMemberListRequest.m */,
 				436CB2261FB15D6000A31585 /* ClazsMemberListFetcher.h */,
@@ -1540,6 +1576,7 @@
 		43FDDF4E1FB0716C001D2127 /* 通讯录 */ = {
 			isa = PBXGroup;
 			children = (
+				7C2DC37F20F314C300B689C0 /* 湖北 */,
 				43FDDF501FB071A0001D2127 /* View */,
 				436CB21C1FB1494100A31585 /* ContactsViewController.h */,
 				436CB21D1FB1494100A31585 /* ContactsViewController.m */,
@@ -1666,6 +1703,40 @@
 				E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */,
 			);
 			path = TalkingData;
+			sourceTree = "<group>";
+		};
+		7C2DC37E20F3140600B689C0 /* 湖北 */ = {
+			isa = PBXGroup;
+			children = (
+				7C2DC37820F30E0300B689C0 /* CreateUserRequest.h */,
+				7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */,
+				7C2DC37B20F3124A00B689C0 /* GetUserInfoDetailRequest.h */,
+				7C2DC37C20F3124A00B689C0 /* GetUserInfoDetailRequest.m */,
+			);
+			path = "湖北";
+			sourceTree = "<group>";
+		};
+		7C2DC37F20F314C300B689C0 /* 湖北 */ = {
+			isa = PBXGroup;
+			children = (
+				7C2DC38020F314EA00B689C0 /* HubeiContactsDetailViewController.h */,
+				7C2DC38120F314EA00B689C0 /* HubeiContactsDetailViewController.m */,
+				7C2DC38320F334D800B689C0 /* HubeiAddMemberViewController.h */,
+				7C2DC38420F334D800B689C0 /* HubeiAddMemberViewController.m */,
+				7C2DC38E20F34C3400B689C0 /* HubeiStageSelectionViewController.h */,
+				7C2DC38F20F34C3400B689C0 /* HubeiStageSelectionViewController.m */,
+				7C2DC39120F3507B00B689C0 /* HubeiSubjectSelectionViewController.h */,
+				7C2DC39220F3507B00B689C0 /* HubeiSubjectSelectionViewController.m */,
+				7C2DC39420F3587C00B689C0 /* HubeiProvinceSelectionViewController.h */,
+				7C2DC39520F3587C00B689C0 /* HubeiProvinceSelectionViewController.m */,
+				7C2DC39720F3589100B689C0 /* HubeiCitySelectionViewController.h */,
+				7C2DC39820F3589100B689C0 /* HubeiCitySelectionViewController.m */,
+				7C2DC39A20F358BB00B689C0 /* HubeiDistrictSelectionViewController.h */,
+				7C2DC39B20F358BB00B689C0 /* HubeiDistrictSelectionViewController.m */,
+				7C2DC38620F336E400B689C0 /* CascadeItemCell.h */,
+				7C2DC38720F336E400B689C0 /* CascadeItemCell.m */,
+			);
+			name = "湖北";
 			sourceTree = "<group>";
 		};
 		7C2E6F9020CA218F0066DE7C /* Setting */ = {
@@ -2274,6 +2345,8 @@
 				7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */,
 				7C07F03920DCD8B700E6BCE2 /* AreaManager.h */,
 				7C07F03A20DCD8B700E6BCE2 /* AreaManager.m */,
+				7C2DC38B20F347AF00B689C0 /* StageSubjectManager.h */,
+				7C2DC38C20F347AF00B689C0 /* StageSubjectManager.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -2546,6 +2619,7 @@
 				923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */,
 				7CEFC9611FA6D7B3001D8C84 /* Metro Playtype.otf */,
 				7C07F03720DCD79700E6BCE2 /* area.json */,
+				7C2DC38920F3478900B689C0 /* StageSubject.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -3311,6 +3385,7 @@
 				7CDF128520902FBF0044DD95 /* classMomentClickLike_mock.json in Resources */,
 				E91481CA20906307001B7EB5 /* 加载动效.gif in Resources */,
 				7CEFC8461FA06577001D8C84 /* MockConfig.plist in Resources */,
+				7C2DC38A20F3478900B689C0 /* StageSubject.json in Resources */,
 				E91481162090589E001B7EB5 /* 研修宝‘‘聊聊’’实现方案.pdf in Resources */,
 				7CEFC9021FA06A5C001D8C84 /* Default-568h@2x.png in Resources */,
 				7CEFC93D1FA0866C001D8C84 /* Empty.xib in Resources */,
@@ -3407,6 +3482,7 @@
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
+				7C2DC38D20F347AF00B689C0 /* StageSubjectManager.m in Sources */,
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
 				E94DDEB220DB523600729A67 /* TaskRankingViewController.m in Sources */,
 				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
@@ -3415,6 +3491,7 @@
 				7CDF129A20903B4E0044DD95 /* MJRefreshHeaderView.m in Sources */,
 				7C672B311FB156F8004D93DF /* QuestionnaireViewController.m in Sources */,
 				E9540BE720CA1D6F00D7DDA2 /* IMUserInterface.m in Sources */,
+				7C2DC39320F3507B00B689C0 /* HubeiSubjectSelectionViewController.m in Sources */,
 				43729E1F1FB6DFB80043C988 /* SubjectivityAnswerCell.m in Sources */,
 				92CAA6421FAACDF400DB5873 /* FDActionSheetFooterView.m in Sources */,
 				7CDF129920903B4E0044DD95 /* MJRefreshConst.m in Sources */,
@@ -3531,10 +3608,12 @@
 				7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */,
 				7CDF121D20902EC10044DD95 /* PhotosScrollView.m in Sources */,
 				7CEA29C420D8DAA7000CE9EC /* HomeworkRequirementViewController.m in Sources */,
+				7C2DC37A20F30E0300B689C0 /* CreateUserRequest.m in Sources */,
 				7CDF121B20902EC10044DD95 /* ShowPhotosViewController.m in Sources */,
 				7CEFC95D1FA6D331001D8C84 /* LoginActionView.m in Sources */,
 				E94DDE8820DA51C900729A67 /* TaskCommentViewController.m in Sources */,
 				7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */,
+				7C2DC38820F336E400B689C0 /* CascadeItemCell.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CDF124A20902F200044DD95 /* ClassMomentNotificationViewController.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
@@ -3542,6 +3621,7 @@
 				7CDF123320902EE60044DD95 /* ClassMomentNotificationCell.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */,
+				7C2DC38220F314EA00B689C0 /* HubeiContactsDetailViewController.m in Sources */,
 				7C672B4A1FB2A353004D93DF /* GetCourseRequest.m in Sources */,
 				E9540BE620CA1D6F00D7DDA2 /* IMTopic.m in Sources */,
 				E94DDE7320DA20EF00729A67 /* UnsubmittedHomeworkMemberListViewController.m in Sources */,
@@ -3573,6 +3653,7 @@
 				E91481CD20906307001B7EB5 /* IMSlideView.m in Sources */,
 				4359B9661FB2AA18007D7F30 /* ContactsDetailViewController.m in Sources */,
 				7CDF120D20902E8A0044DD95 /* PhotoListViewController.m in Sources */,
+				7C2DC39620F3587C00B689C0 /* HubeiProvinceSelectionViewController.m in Sources */,
 				7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */,
@@ -3590,6 +3671,7 @@
 				7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */,
 				E9540C2020CA1EB200D7DDA2 /* GetTopicMsgsRequest.m in Sources */,
 				924297D920DA55450039038E /* EditQuestionCell.m in Sources */,
+				7C2DC39920F3589100B689C0 /* HubeiCitySelectionViewController.m in Sources */,
 				E9540BE820CA1D6F00D7DDA2 /* IMMember.m in Sources */,
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */,
@@ -3601,6 +3683,7 @@
 				7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */,
 				7CDF129C20903B4E0044DD95 /* MJRefreshBaseView.m in Sources */,
 				7C672B681FB3FC4B004D93DF /* ResourceDisplayViewController.m in Sources */,
+				7C2DC39020F34C3400B689C0 /* HubeiStageSelectionViewController.m in Sources */,
 				7C672B411FB1A8EF004D93DF /* QuestionTabContainerView.m in Sources */,
 				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
 				7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */,
@@ -3666,6 +3749,7 @@
 				436E6DFA1FB3F395009950EA /* UploadHeadImgRequest.m in Sources */,
 				924297CA20DA39FE0039038E /* ChooseTemplateViewController.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
+				7C2DC39C20F358BB00B689C0 /* HubeiDistrictSelectionViewController.m in Sources */,
 				7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */,
 				921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
@@ -3761,6 +3845,7 @@
 				921860791FA9B0680018D982 /* NoticeSaveRequest.m in Sources */,
 				7C672B471FB1AC17004D93DF /* QuestionUserDetailViewController.m in Sources */,
 				928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */,
+				7C2DC38520F334D800B689C0 /* HubeiAddMemberViewController.m in Sources */,
 				7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7C06895320CF83A700C7CA14 /* TrainingProjectCell.m in Sources */,
@@ -3848,6 +3933,7 @@
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
 				7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */,
 				E914818E20906203001B7EB5 /* IMTimeHandleManger.m in Sources */,
+				7C2DC37D20F3124A00B689C0 /* GetUserInfoDetailRequest.m in Sources */,
 				7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */,
 				7CDF121C20902EC10044DD95 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
 				7C06894D20CF79C700C7CA14 /* TrainingProfileHeaderView.m in Sources */,
