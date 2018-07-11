@@ -448,8 +448,8 @@
     self.request.recordeducation = self.educationTF.text;
     self.request.graduation = self.graduationTF.text;
     self.request.professional = self.professionalTF.text;
-    self.request.childProjectId = self.childProjectIdTF.text;
-    self.request.childProjectName = self.childProjectNameTF.text;
+    self.request.childprojectId = self.childProjectIdTF.text;
+    self.request.childprojectName = self.childProjectNameTF.text;
     self.request.organizer = self.organizerTF.text;
     self.request.job = self.jobTF.text;
     self.request.telephone = self.telephoneTF.text;
