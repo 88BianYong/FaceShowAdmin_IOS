@@ -30,4 +30,10 @@
 @property (nonatomic, strong) NSString<Optional> *graduation;
 @property (nonatomic, strong) NSString<Optional> *professional;
 @property (nonatomic, strong) NSString<Optional> *title;
+@property (nonatomic, strong) NSString<Optional> *childProjectId;
+@property (nonatomic, strong) NSString<Optional> *childProjectName;
+@property (nonatomic, strong) NSString<Optional> *organizer;
+@property (nonatomic, strong) NSString<Optional> *telephone;
+@property (nonatomic, strong) NSString<Optional> *job;
+@property (nonatomic, strong) NSString<Optional> *email;
 @end

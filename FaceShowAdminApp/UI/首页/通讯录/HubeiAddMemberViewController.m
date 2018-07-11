@@ -34,6 +34,12 @@
 @property (nonatomic, strong) AddMemberTextField *educationTF;
 @property (nonatomic, strong) AddMemberTextField *graduationTF;
 @property (nonatomic, strong) AddMemberTextField *professionalTF;
+@property (nonatomic, strong) AddMemberTextField *childProjectIdTF;
+@property (nonatomic, strong) AddMemberTextField *childProjectNameTF;
+@property (nonatomic, strong) AddMemberTextField *organizerTF;
+@property (nonatomic, strong) AddMemberTextField *jobTF;
+@property (nonatomic, strong) AddMemberTextField *telephoneTF;
+@property (nonatomic, strong) AddMemberTextField *emailTF;
 
 @property (nonatomic, strong) CreateUserRequest *request;
 
@@ -69,7 +75,7 @@
 
 #pragma mark - setupUI
 - (void)setupUI {
-    //姓名-联系电话-性别-学段-学科-省市区-学校-身份证号-学校所在区域-学校类别-民族-职称-最高学历-毕业院校-所学专业
+    //姓名-手机号-性别-学段-学科-省市区-学校-身份证号-子项目编号-子项目名称-承训单位-学校所在区域-学校类别-民族-职称--职务（非必填）最高学历-毕业院校-所学专业-电话（非必填）-电子邮箱（非必填）
     self.nameTF = [[AddMemberTextField alloc] init];
     self.nameTF.placeholder = @"姓名";
     [self.contentView addSubview:self.nameTF];
@@ -79,7 +85,7 @@
         make.height.mas_equalTo(46);
     }];
     self.numberTF = [[AddMemberTextField alloc] init];
-    self.numberTF.placeholder = @"联系电话";
+    self.numberTF.placeholder = @"手机号";
     self.numberTF.keyboardType = UIKeyboardTypeNumberPad;
     [self.contentView addSubview:self.numberTF];
     [self.numberTF mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -151,12 +157,36 @@
         make.top.mas_equalTo(self.schoolTF.mas_bottom);
         make.height.mas_equalTo(46);
     }];
+    self.childProjectIdTF = [[AddMemberTextField alloc] init];
+    self.childProjectIdTF.placeholder = @"子项目编号";
+    [self.contentView addSubview:self.childProjectIdTF];
+    [self.childProjectIdTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.idCardTF.mas_bottom);
+        make.height.mas_equalTo(46);
+    }];
+    self.childProjectNameTF = [[AddMemberTextField alloc] init];
+    self.childProjectNameTF.placeholder = @"子项目名称";
+    [self.contentView addSubview:self.childProjectNameTF];
+    [self.childProjectNameTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.childProjectIdTF.mas_bottom);
+        make.height.mas_equalTo(46);
+    }];
+    self.organizerTF = [[AddMemberTextField alloc] init];
+    self.organizerTF.placeholder = @"承训单位";
+    [self.contentView addSubview:self.organizerTF];
+    [self.organizerTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.childProjectNameTF.mas_bottom);
+        make.height.mas_equalTo(46);
+    }];
     self.areaTF = [[AddMemberTextField alloc] init];
     self.areaTF.placeholder = @"学校所在区域";
     [self.contentView addSubview:self.areaTF];
     [self.areaTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.idCardTF.mas_bottom);
+        make.top.mas_equalTo(self.organizerTF.mas_bottom);
         make.height.mas_equalTo(46);
     }];
     self.schoolTypeTF = [[AddMemberTextField alloc] init];
@@ -183,12 +213,20 @@
         make.top.mas_equalTo(self.nationTF.mas_bottom);
         make.height.mas_equalTo(46);
     }];
+    self.jobTF = [[AddMemberTextField alloc] init];
+    self.jobTF.placeholder = @"职务";
+    [self.contentView addSubview:self.jobTF];
+    [self.jobTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.titleTF.mas_bottom);
+        make.height.mas_equalTo(46);
+    }];
     self.educationTF = [[AddMemberTextField alloc] init];
     self.educationTF.placeholder = @"最高学历";
     [self.contentView addSubview:self.educationTF];
     [self.educationTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.titleTF.mas_bottom);
+        make.top.mas_equalTo(self.jobTF.mas_bottom);
         make.height.mas_equalTo(46);
     }];
     self.graduationTF = [[AddMemberTextField alloc] init];
@@ -201,11 +239,28 @@
     }];
     self.professionalTF = [[AddMemberTextField alloc] init];
     self.professionalTF.placeholder = @"所学专业";
-    self.professionalTF.needBottomLine = NO;
     [self.contentView addSubview:self.professionalTF];
     [self.professionalTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
         make.top.mas_equalTo(self.graduationTF.mas_bottom);
+        make.height.mas_equalTo(46);
+    }];
+    self.telephoneTF = [[AddMemberTextField alloc] init];
+    self.telephoneTF.placeholder = @"电话";
+    self.telephoneTF.keyboardType = UIKeyboardTypeNumberPad;
+    [self.contentView addSubview:self.telephoneTF];
+    [self.telephoneTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.professionalTF.mas_bottom);
+        make.height.mas_equalTo(46);
+    }];
+    self.emailTF = [[AddMemberTextField alloc] init];
+    self.emailTF.placeholder = @"电子邮箱";
+    self.emailTF.needBottomLine = NO;
+    [self.contentView addSubview:self.emailTF];
+    [self.emailTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.telephoneTF.mas_bottom);
         make.height.mas_equalTo(46);
         make.bottom.mas_equalTo(-5);
     }];
@@ -258,6 +313,18 @@
         STRONG_SELF
         [self refreshSaveBtn];
     }];
+    [[self.childProjectNameTF rac_textSignal] subscribeNext:^(id x) {
+        STRONG_SELF
+        [self refreshSaveBtn];
+    }];
+    [[self.childProjectIdTF rac_textSignal] subscribeNext:^(id x) {
+        STRONG_SELF
+        [self refreshSaveBtn];
+    }];
+    [[self.organizerTF rac_textSignal] subscribeNext:^(id x) {
+        STRONG_SELF
+        [self refreshSaveBtn];
+    }];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kStageSubjectDidSelectNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
         NSNotification *noti = x;
@@ -291,6 +358,9 @@
                               !isEmpty(self.educationTF.text) &&
                               !isEmpty(self.graduationTF.text) &&
                               !isEmpty(self.professionalTF.text) &&
+                              !isEmpty(self.childProjectNameTF.text) &&
+                              !isEmpty(self.childProjectIdTF.text) &&
+                              !isEmpty(self.organizerTF.text) &&
                               !isEmpty(self.sexCell.title) &&
                               !isEmpty(self.stageSubjectCell.title) &&
                               !isEmpty(self.provinceCell.title);
@@ -378,6 +448,12 @@
     self.request.recordeducation = self.educationTF.text;
     self.request.graduation = self.graduationTF.text;
     self.request.professional = self.professionalTF.text;
+    self.request.childProjectId = self.childProjectIdTF.text;
+    self.request.childProjectName = self.childProjectNameTF.text;
+    self.request.organizer = self.organizerTF.text;
+    self.request.job = self.jobTF.text;
+    self.request.telephone = self.telephoneTF.text;
+    self.request.email = self.emailTF.text;
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.request startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {

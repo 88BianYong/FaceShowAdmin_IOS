@@ -116,8 +116,8 @@
         make.right.bottom.mas_equalTo(0);
         make.height.mas_equalTo(1);
     }];
-    //-联系电话-性别-学段-学科-省市区-学校-身份证号-学校所在区域-学校类别-民族-职称-最高学历-毕业院校-所学专业
-    NSArray *titles = @[@"联系电话", @"性别", @"学段", @"学科", @"省", @"市", @"区", @"学校", @"身份证号", @"学校所在区域", @"学校类别", @"民族", @"职称", @"最高学历", @"毕业院校", @"所学专业"];
+    //-手机号-性别-学段-学科-省市区-学校-身份证号-子项目编号-子项目名称-承训单位-学校所在区域-学校类别-民族-职称--职务（非必填）最高学历-毕业院校-所学专业-电话（非必填）-电子邮箱（非必填）
+    NSArray *titles = @[@"手机号", @"性别", @"学段", @"学科", @"省", @"市", @"区", @"学校", @"身份证号", @"子项目编号", @"子项目名称", @"承训单位", @"学校所在区域", @"学校类别", @"民族", @"职称", @"职务", @"最高学历", @"毕业院校", @"所学专业", @"电话", @"电子邮箱"];
     Area *province = nil;
     Area *city = nil;
     Area *district = nil;
@@ -155,13 +155,19 @@
                           isEmpty(district) ? @"暂无" : district.name,
                           isEmpty(self.data.school) ? @"暂无" : self.data.school,
                           isEmpty(self.data.aui.idCard) ? @"暂无" : self.data.aui.idCard,
+                          isEmpty(self.data.aui.childprojectId) ? @"暂无" : self.data.aui.childprojectId,
+                          isEmpty(self.data.aui.childprojectName) ? @"暂无" : self.data.aui.childprojectName,
+                          isEmpty(self.data.aui.organizer) ? @"暂无" : self.data.aui.organizer,
                           isEmpty(self.data.aui.area) ? @"暂无" : self.data.aui.area,
                           isEmpty(self.data.aui.schoolType) ? @"暂无" : self.data.aui.schoolType,
                           isEmpty(self.data.aui.nation) ? @"暂无" : self.data.aui.nation,
                           isEmpty(self.data.aui.title) ? @"暂无" : self.data.aui.title,
+                          isEmpty(self.data.aui.job) ? @"暂无" : self.data.aui.job,
                           isEmpty(self.data.aui.recordeducation) ? @"暂无" : self.data.aui.recordeducation,
                           isEmpty(self.data.aui.graduation) ? @"暂无" : self.data.aui.graduation,
-                          isEmpty(self.data.aui.professional) ? @"暂无" : self.data.aui.professional
+                          isEmpty(self.data.aui.professional) ? @"暂无" : self.data.aui.professional,
+                          isEmpty(self.data.aui.telephone) ? @"暂无" : self.data.aui.telephone,
+                          isEmpty(self.data.email) ? @"暂无" : self.data.email
                           ];
     self.lastBottom = headWhiteView.mas_bottom;
     for (int i = 0; i < titles.count; i++) {
