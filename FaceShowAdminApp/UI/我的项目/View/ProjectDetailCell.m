@@ -136,7 +136,7 @@
         self.statisticView.percentColor = [UIColor colorWithHexString:@"c2c7ce"];
     }else if (type == ProjectGroup_NotStarted) {
         self.statisticView.percent = @"-";
-        self.statisticView.percentColor = [UIColor colorWithHexString:@"e5581a"];
+        self.statisticView.percentColor = [UIColor colorWithHexString:@"c2c7ce"];
     }
 }
 

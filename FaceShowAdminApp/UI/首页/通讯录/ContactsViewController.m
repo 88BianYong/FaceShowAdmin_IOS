@@ -215,19 +215,27 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
+        GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
+        vc.userId = data.userId;
+        vc.isAdministrator = indexPath.section == 0;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
 #ifdef HuBeiApp
-    HubeiContactsDetailViewController *vc = [[HubeiContactsDetailViewController alloc] init];
-    GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
-    vc.userId = data.userId;
-    vc.isAdministrator = indexPath.section == 0;
-    [self.navigationController pushViewController:vc animated:YES];
+        HubeiContactsDetailViewController *vc = [[HubeiContactsDetailViewController alloc] init];
+        GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
+        vc.userId = data.userId;
+        vc.isAdministrator = indexPath.section == 0;
+        [self.navigationController pushViewController:vc animated:YES];
 #else
-    ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
-    GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
-    vc.userId = data.userId;
-    vc.isAdministrator = indexPath.section == 0;
-    [self.navigationController pushViewController:vc animated:YES];
+        ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
+        GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
+        vc.userId = data.userId;
+        vc.isAdministrator = indexPath.section == 0;
+        [self.navigationController pushViewController:vc animated:YES];
 #endif
+    }
 }
 
 @end
