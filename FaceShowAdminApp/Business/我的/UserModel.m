@@ -55,4 +55,10 @@ NSString * const kMyProjectDidSelectNotification = @"kMyProjectDidSelectNotifica
     }
 }
 
+- (NSString *)stageName {
+    if ([_stageName isEqualToString:@"通识"]) {
+        return @"跨学段";
+    }
+    return _stageName;
+}
 @end
