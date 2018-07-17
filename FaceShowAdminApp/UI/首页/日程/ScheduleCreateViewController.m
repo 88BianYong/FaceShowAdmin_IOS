@@ -213,7 +213,7 @@
 }
 
 - (BOOL)isTitleLength:(NSString *)contentString {
-    return (contentString.length > 0 && contentString.length <= 20) ? YES : NO;
+    return (contentString.length > 0 && contentString.length <= 20 && [contentString yx_isValidString]) ? YES : NO;
 }
 
 - (void)didReceiveMemoryWarning {

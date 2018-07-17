@@ -96,6 +96,8 @@
         complete = [NSString stringWithFormat:@"投票人数：%@",count];
     } else if (type == InteractType_Questionare) {
         complete = [NSString stringWithFormat:@"提交人数：%@",count];
+    } else if (type == InteractType_Evaluate) {
+        complete = [NSString stringWithFormat:@"提交人数：%@",count];
     }
     NSRange range = [complete rangeOfString:count];
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:complete];

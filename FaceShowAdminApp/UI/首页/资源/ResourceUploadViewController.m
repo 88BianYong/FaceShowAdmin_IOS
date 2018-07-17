@@ -152,7 +152,7 @@
 }
 
 - (BOOL)isTitleLength:(NSString *)contentString {
-    return contentString.length > 0  ? YES : NO;
+    return (contentString.length > 0  && [contentString yx_isValidString]) ? YES : NO;
 }
 - (BOOL)isContentLength:(NSString *)contentString {
     return contentString.length > 0  ? YES : NO;
@@ -169,6 +169,8 @@
     WEAK_SELF
     [[self.navRightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
+        [self.textField resignFirstResponder];
+        [self.textView resignFirstResponder];
          [self requestForResourceCreate];
     }];
     [self nyx_setupRightWithCustomView:self.navRightBtn];
