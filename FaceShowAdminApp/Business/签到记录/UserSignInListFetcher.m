@@ -33,7 +33,7 @@
             return;
         }
         UserSignInListRequestItem *item = (UserSignInListRequestItem *)retItem;
-        UserSignInListRequestItem_callbacks *callback1 = item.data.callbacks.firstObject;
+        UserSignInListRequestItem_callbacks *callback1 = item.data.callbacks.lastObject;
         self.signInTime = callback1.callbackValue;
         UserSignInListRequestItem_callbacks *callback2 = item.data.callbacks.lastObject;
         self.callbackId = callback2.callbackValue;
