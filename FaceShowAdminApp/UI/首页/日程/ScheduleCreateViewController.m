@@ -284,6 +284,7 @@
     self.createRequest.subject = self.titleCell.textField.text;
     self.createRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     self.createRequest.imageUrl = imageUrl;
+    self.createRequest.remark = @"图片";
     WEAK_SELF
     [self.createRequest startRequestWithRetClass:[ScheduleCreateRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
@@ -306,6 +307,7 @@
     self.updateRequest.scheduleId = self.element.elementId;
     self.updateRequest.subject = self.titleCell.textField.text;
     self.updateRequest.imageUrl = imageUrl;
+    self.updateRequest.remark = @"图片";
     WEAK_SELF
     [self.updateRequest startRequestWithRetClass:[ScheduleUpdateRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF

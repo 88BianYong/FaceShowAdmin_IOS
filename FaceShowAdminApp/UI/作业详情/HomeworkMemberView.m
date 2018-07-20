@@ -26,6 +26,7 @@
 
 - (void)setupUI {
     self.imageView = [[UIImageView alloc]init];
+    self.imageView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.layer.cornerRadius = 11;
     self.imageView.clipsToBounds = YES;

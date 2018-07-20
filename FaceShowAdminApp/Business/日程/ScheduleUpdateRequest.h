@@ -20,4 +20,5 @@
 @property (nonatomic, strong) NSString<Optional> *subject;
 @property (nonatomic, strong) NSString<Optional> *clazsId;
 @property (nonatomic, strong) NSString<Optional> *imageUrl;
+@property (nonatomic, strong) NSString<Optional> *remark;
 @end
