@@ -35,9 +35,9 @@
 - (void)setTag:(NSInteger)tag {
     [super setTag:tag];
     self.textView.tag = 10086 + tag;
-    char letter = (int)tag + 96;
-    NSString *letterStr = [[NSString stringWithFormat:@"%c",letter] uppercaseString];
-    self.titleLabel.text = [NSString stringWithFormat:@"%@:",letterStr];
+//    char letter = (int)tag + 96;
+//    NSString *letterStr = [[NSString stringWithFormat:@"%c",letter] uppercaseString];
+    self.titleLabel.text = [NSString stringWithFormat:@"(%ld):",tag];
 }
 #pragma mark - setupUI
 - (void)setupUI {
@@ -74,16 +74,17 @@
         make.size.mas_offset(CGSizeMake(21.0f + 26.0f, 21.0f + 26.0f));
         make.top.equalTo(self.contentView.mas_top).offset(3.0f);
     }];
-    
+    [self.titleLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.deleteButton.mas_right);
         make.top.equalTo(self.contentView.mas_top).offset(16.0f);
     }];
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.titleLabel.mas_right).offset(10.0).priorityHigh();
         make.right.equalTo(self.contentView.mas_right).offset(-15.0f);
         make.top.equalTo(self.contentView.mas_top).offset(8.0f);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-8.0f);
-        make.left.equalTo(self.contentView.mas_left).offset(15.0f + 21.0 + 20.0f + 12.0f);
         make.height.mas_greaterThanOrEqualTo(28.0f).priorityHigh();
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
