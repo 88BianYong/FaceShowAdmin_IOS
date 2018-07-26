@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSString *courseId;
 @property (nonatomic, strong) CreateQuestionGroupItem *itemData;
 
+@property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) UIButton *publishButton;
 @property (nonatomic, strong) CreateComplexRequest *createRequest;
@@ -105,14 +106,17 @@
     };
     self.tableView.tableHeaderView = self.tableHeaderView;
     
-    UIView *bottomView = [[UIView alloc] init];
-    bottomView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.bottomView = [[UIView alloc] init];
+    self.bottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.bottomView];
+    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.height.mas_offset(49.0f);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom);
+        }        make.height.mas_offset(49.0f);
     }];
     self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.addButton.backgroundColor = [UIColor colorWithHexString:@"0068bd"];
@@ -120,7 +124,7 @@
     self.addButton.clipsToBounds = YES;
     self.addButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [self.addButton setTitle:@"添加问题" forState:UIControlStateNormal];
-    [bottomView addSubview:self.addButton];
+    [self.bottomView addSubview:self.addButton];
     [[self.addButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
         AddQuestionViewController *VC = [[AddQuestionViewController alloc] init];
@@ -142,10 +146,10 @@
         [self.navigationController pushViewController:VC animated:YES];
     }];
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(bottomView.mas_centerY);
+        make.centerY.equalTo(self.bottomView.mas_centerY);
         make.height.mas_offset(39.0f);
-        make.left.equalTo(bottomView.mas_left).offset(15.0f);
-        make.right.equalTo(bottomView.mas_right).offset(-15.0f);
+        make.left.equalTo(self.bottomView.mas_left).offset(15.0f);
+        make.right.equalTo(self.bottomView.mas_right).offset(-15.0f);
     }];
     [self setupNavigationRightView];
 //    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] init];
@@ -163,7 +167,11 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.top.equalTo(self.view.mas_top);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-49.0f);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49.0f);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-49.0f);
+        }
     }];
 }
 - (void)setupNavigationRightView{

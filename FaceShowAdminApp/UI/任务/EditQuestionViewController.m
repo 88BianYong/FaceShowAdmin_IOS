@@ -14,6 +14,10 @@
 #import "EditQuestionTableHeaderView.h"
 #import "FSDefaultHeaderFooterView.h"
 #import "EditTemporaryCell.h"
+#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define kVerticalBottomUpwardHeight (IS_IPHONE_X ? 34.0f : 0.0f)
+
 @interface EditQuestionViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) EditQuestionTableHeaderView *tableHeaderView;
@@ -21,6 +25,8 @@
 @property (nonatomic, strong) EditQuestionFooterView *footerView;
 @property (nonatomic, strong) CreateQuestionGroupItem_Question *editQuestion;
 @property (nonatomic, strong) UIButton *deleteButton;
+@property (nonatomic, strong) UIView *bottomView;
+
 @end
 
 @implementation EditQuestionViewController
@@ -45,6 +51,19 @@
         [UIView animateWithDuration:duration.floatValue animations:^{
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, [UIScreen mainScreen].bounds.size.height-keyboardFrame.origin.y, 0);
         }];
+        
+        [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+            if (keyboardFrame.origin.y == SCREEN_HEIGHT) {
+                [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.bottom.mas_equalTo(-(SCREEN_HEIGHT - keyboardFrame.origin.y) - kVerticalBottomUpwardHeight);
+                }];
+            }else {
+                [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.bottom.mas_equalTo(-(SCREEN_HEIGHT - keyboardFrame.origin.y));
+                }];
+            }
+        }];
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -146,13 +165,13 @@
     [self.tableView addGestureRecognizer:recognizer];
 }
 - (void)setupDeleteButton {
-    UIView *bottomView = [[UIView alloc] init];
-    bottomView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.bottomView = [[UIView alloc] init];
+    self.bottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.bottomView];
+    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom);
+        make.bottom.mas_equalTo(-kVerticalBottomUpwardHeight);
         make.height.mas_offset(49.0f);
     }];
     self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -161,17 +180,17 @@
     self.deleteButton.clipsToBounds = YES;
     self.deleteButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [self.deleteButton setTitle:@"删除问题" forState:UIControlStateNormal];
-    [bottomView addSubview:self.deleteButton];
+    [self.bottomView addSubview:self.deleteButton];
     WEAK_SELF
     [[self.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
         [self showDeleteQuestionAlert];
     }];
     [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(bottomView.mas_centerY);
+        make.centerY.equalTo(self.bottomView.mas_centerY);
         make.height.mas_offset(39.0f);
-        make.left.equalTo(bottomView.mas_left).offset(15.0f);
-        make.right.equalTo(bottomView.mas_right).offset(-15.0f);
+        make.left.equalTo(self.bottomView.mas_left).offset(15.0f);
+        make.right.equalTo(self.bottomView.mas_right).offset(-15.0f);
     }];
 }
 - (void)showDeleteQuestionAlert {
@@ -225,7 +244,11 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.top.equalTo(self.view.mas_top);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-49.0f);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49.0f);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-49.0f);
+        }
     }];
 }
 #pragma mark - UITableViewDataScore
