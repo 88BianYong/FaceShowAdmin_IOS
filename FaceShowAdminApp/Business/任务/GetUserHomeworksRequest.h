@@ -29,15 +29,17 @@
 
 @interface GetUserHomeworksRequestItem_userHomeworks : JSONModel
 @property (nonatomic, strong) NSArray<Optional,GetUserHomeworksRequestItem_element> *elements;
-@end
-
-@interface GetUserHomeworksRequestItem_data : JSONModel
-@property (nonatomic, strong) GetUserHomeworksRequestItem_userHomeworks<Optional> *userHomeworks;
 @property (nonatomic, strong) NSString<Optional> *pageSize;
 @property (nonatomic, strong) NSString<Optional> *pageNum;
 @property (nonatomic, strong) NSString<Ignore> *offset;
 @property (nonatomic, strong) NSString<Optional> *totalElements;
 @property (nonatomic, strong) NSString<Ignore> *lastPageNumber;
+@end
+
+@interface GetUserHomeworksRequestItem_data : JSONModel
+@property (nonatomic, strong) GetUserHomeworksRequestItem_userHomeworks<Optional> *userHomeworks;
+@property (nonatomic, strong) NSString<Optional> *totalUserNum;
+@property (nonatomic, strong) NSString<Ignore> *finishUserNum;
 @end
 
 @interface GetUserHomeworksRequestItem : HttpBaseRequestItem

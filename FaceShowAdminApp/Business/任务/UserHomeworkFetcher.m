@@ -29,7 +29,7 @@
         }
         GetUserHomeworksRequestItem *item = (GetUserHomeworksRequestItem *)retItem;
         self.lastID += item.data.userHomeworks.elements.count;
-        BLOCK_EXEC(aCompleteBlock, item.data.totalElements.intValue, item.data.userHomeworks.elements, nil)
+        BLOCK_EXEC(aCompleteBlock, item.data.userHomeworks.totalElements.intValue, item.data.userHomeworks.elements, nil)
     }];
 }
 @end
