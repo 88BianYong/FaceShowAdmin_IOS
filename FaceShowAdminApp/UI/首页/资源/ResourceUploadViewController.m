@@ -179,7 +179,6 @@
 - (void)requestForResourceCreate {
     [TalkingData trackEvent:@"提交资源"];
     if ([self.textView.text hasPrefix:@"http://"] || [self.textView.text hasPrefix:@"https://"]) {
-#ifdef HuBeiApp
         [self.generateRequest stopRequest];
         self.generateRequest = [[ResourceGenerateRequest alloc]init];
         self.generateRequest.key = @"";
@@ -201,31 +200,6 @@
                 [self requestForResource:item.data.resid];
             }
         }];
-#else
-        self.createRequest = [[ResourceCreateRequest alloc] init];
-        self.createRequest.filename = @"外部链接类型";
-        NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
-        self.createRequest.createtime = [NSString stringWithFormat:@"%d",(int)interval/1000];
-        self.createRequest.reserve  = [NSString stringWithFormat:@"{\"typeId\":1000,\"title\":\"%@\",\"username\":\"%@\",\"externalUrl\":\"%@\",\"uid\":\"%@\",\"shareType\":0,\"from\":6,\"source\":\"ios\",\"description\":\"\"}",self.createRequest.filename,[UserManager sharedInstance].userModel.passport?:@"",self.textView.text,
-                                       [UserManager sharedInstance].userModel.userID
-                                       ];
-        [self.view.window nyx_startLoading];
-        WEAK_SELF
-        [self.createRequest startRequestWithRetClass:[ResourceCreateRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
-            STRONG_SELF
-            if (error) {
-                [self.view nyx_showToast:error.localizedDescription];
-                [self.view.window nyx_stopLoading];
-            }else {
-                ResourceCreateRequestItem *item = retItem;
-                if (item.resid.length > 0) {
-                    [self requestForResource:item.resid];
-                }else {
-                    [self.view nyx_showToast:item.desc];
-                }
-            }
-        }];
-#endif
     }else {
         [self.view nyx_showToast:@"链接地址不正确"];
     }
