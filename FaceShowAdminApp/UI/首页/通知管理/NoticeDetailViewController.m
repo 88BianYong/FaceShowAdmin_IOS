@@ -10,6 +10,7 @@
 #import "NoticeDeleteRequest.h"
 #import "FDActionSheetView.h"
 #import "AlertView.h"
+#import "ShowPhotosViewController.h"
 @interface NoticeDetailViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
@@ -108,6 +109,7 @@
     
     WEAK_SELF
     self.imageView = [[UIImageView alloc] init];
+    self.imageView.userInteractionEnabled = YES;
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.clipsToBounds = YES;
     self.imageView.hidden = YES;
@@ -129,7 +131,9 @@
         self.contentHeight += 21.0f + SCREEN_WIDTH - 25.0f - 25.0f + 55.0f;
         self.imageView.hidden = NO;
     }
-
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self.imageView addGestureRecognizer:tap];
+    
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH , self.contentHeight);
     [self nyx_setupRightWithImageName:@"更多操作按钮正常态" highlightImageName:@"更多操作按钮点击态" action:^{
         STRONG_SELF
@@ -254,6 +258,18 @@
         }
     }];
 }
+
+- (void)tapAction:(UITapGestureRecognizer *)sender {
+    ShowPhotosViewController *showPhotosVC = [[ShowPhotosViewController alloc] init];
+    PreviewPhotosModel *model = [[PreviewPhotosModel alloc] init];
+    model.original = self.element.attachUrl;
+    NSMutableArray *photoArr = [NSMutableArray arrayWithObject:model];
+    showPhotosVC.animateRect = [self.view convertRect:self.imageView.frame toView:self.view.window.rootViewController.view];
+    showPhotosVC.imageModelMutableArray = photoArr;
+    showPhotosVC.startInteger = 0;
+    [[self nyx_visibleViewController] presentViewController:showPhotosVC animated:YES completion:nil];
+}
+
 #pragma mark - request
 - (void)requestForDeleteNotice {
     [self.deleteRequest stopRequest];
