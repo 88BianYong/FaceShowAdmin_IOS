@@ -45,9 +45,9 @@ NSString * const kUserDidLogoutNotification = @"kUserDidLogoutNotification";
 - (void)setUserModel:(UserModel *)userModel {
     _userModel = userModel;
     GetUserRolesRequestItem_data *data = self.userModel.roleRequestItem.data;
-    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
+    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]||[data roleExists:UserRole_OrganAdmin]) {
         self.mainPage = MainPage_TrainingProfile;
-    }else if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+    }else if ([data roleExists:UserRole_ProjectAdmin]) {
         self.mainPage = MainPage_MyProject;
     }else if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
         self.mainPage = MainPage_ClassDetail;
