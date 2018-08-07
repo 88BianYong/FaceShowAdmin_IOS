@@ -51,13 +51,7 @@
 
 - (void)setAverageValue:(NSString *)averageValue {
     _averageValue = averageValue;
-    CGFloat average = [averageValue floatValue] * 100;
-    averageValue = [NSString stringWithFormat:@"%@",@(average)];
-    if ([averageValue containsString:@"."]) {
-        self.scoreLabel.text = [NSString stringWithFormat:@"%.2f%@",[averageValue floatValue],@"%"];
-    }else {
-        self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%@",[averageValue floatValue],@"%"];
-    }
+    self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%%",[averageValue floatValue]*100];
 }
 
 
