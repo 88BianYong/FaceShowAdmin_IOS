@@ -78,7 +78,7 @@
 - (void)showAlertView {
     FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     NSArray *titleArray;
-    if ([FSDataMappingTable ResourceTypeWithKey:self.element.attachmentInfo.resType] == ResourceType_Image) {
+    if ([FSDataMappingTable ResourceTypeWithKey:self.element.attachmentInfo.resType] == ResourceType_Image || (!self.element.attachmentInfo && self.element.imageUrl)) {
         titleArray = @[@{@"title":@"修改"},
                        @{@"title":@"删除"}];
     }else {
