@@ -15,6 +15,7 @@ extern NSString * const kUserDidLogoutNotification;
 typedef NS_ENUM(NSUInteger, MainPageType) {
     MainPage_TrainingProfile,
     MainPage_MyProject,
+    MainPage_ProjectList,
     MainPage_ClassDetail,
     MainPage_Undefined
 };

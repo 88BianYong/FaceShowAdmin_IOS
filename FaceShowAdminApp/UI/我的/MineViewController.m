@@ -12,6 +12,7 @@
 #import "TrainingProfileViewController.h"
 #import "MyTrainingProjectViewController.h"
 #import "YXDrawerController.h"
+#import "ProjectListViewController.h"
 
 @interface MineViewController ()
 @property (nonatomic, strong) UIImageView *avatarImageView;
@@ -47,9 +48,18 @@
     if ([data roleExists:UserRole_AreaAdmin]) {
         [array addObject:@"区域管理员"];
     }
+#ifdef HuBeiApp
+    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+        [array addObject:@"机构管理员"];
+    }
+    if ([data roleExists:UserRole_ProvinceAdmin]) {
+        [array addObject:@"省级管理员"];
+    }
+#else
     if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
         [array addObject:@"项目管理员"];
     }
+#endif
     if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
         [array addObject:@"班主任"];
     }
@@ -62,12 +72,28 @@
 - (void)setupModules {
     GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
     NSMutableArray *array = [NSMutableArray array];
+#ifdef HuBeiApp
+    if ([data roleExists:UserRole_PlatformAdmin]||
+        [data roleExists:UserRole_AreaAdmin]||
+        [data roleExists:UserRole_ProjectAdmin]||
+        [data roleExists:UserRole_ProjectSteward]||
+        [data roleExists:UserRole_ProvinceAdmin]) {
+        [array addObject:@"培训概况"];
+    }
+    if ([data roleExists:UserRole_ProvinceAdmin]) {
+        [array addObject:@"项目列表"];
+    }
+    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+        [array addObject:@"我的项目"];
+    }
+#else
     if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
         [array addObject:@"培训概况"];
     }
     if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
         [array addObject:@"我的项目"];
     }
+#endif
     if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
         [array addObject:@"我的班级"];
     }
@@ -189,6 +215,9 @@
     if ([item isEqualToString:@"培训概况"]) {
         btn = [self optionBtnWithTitle:@"培训概况" normalImage:@"培训概况" highlightedImage:@"培训概况点击"];
     }
+    if ([item isEqualToString:@"项目列表"]) {
+        btn = [self optionBtnWithTitle:@"项目列表" normalImage:@"我的项目" highlightedImage:@"我的项目点击"];
+    }
     if ([item isEqualToString:@"我的项目"]) {
         btn = [self optionBtnWithTitle:@"我的项目" normalImage:@"我的项目" highlightedImage:@"我的项目点击"];
     }
@@ -261,6 +290,15 @@
             }
         }
         [[NSNotificationCenter defaultCenter]postNotificationName:kMyProjectDidSelectNotification object:nil];
+    }else if ([sender.titleLabel.text isEqualToString:@"项目列表"]) {
+        if ([[YXDrawerController drawer].paneViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navi = (UINavigationController *)[YXDrawerController drawer].paneViewController;
+            if ([navi.viewControllers[0] isKindOfClass:[ProjectListViewController class]]) {
+                [YXDrawerController hideDrawer];
+                return;
+            }
+        }
+        [[NSNotificationCenter defaultCenter]postNotificationName:kProjectListDidSelectNotification object:nil];
     }
 }
 

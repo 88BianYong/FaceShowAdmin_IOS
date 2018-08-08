@@ -145,6 +145,7 @@
 		7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B881FB53966004D93DF /* GetCourseCommentTitleRequest.m */; };
 		7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B8B1FB53966004D93DF /* CourseCommentDataFetcher.m */; };
 		7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B921FB55307004D93DF /* DeleteCommentRequest.m */; };
+		7C6BC158211A940B002DF5B0 /* ProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BC157211A940A002DF5B0 /* ProjectListViewController.m */; };
 		7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */; };
 		7C84301820BBD3DF00A05C14 /* SignInPlaceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301720BBD3DF00A05C14 /* SignInPlaceHeaderView.m */; };
 		7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301E20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m */; };
@@ -790,6 +791,8 @@
 		7C672B8C1FB53967004D93DF /* GetCourseCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCourseCommentRequest.h; sourceTree = "<group>"; };
 		7C672B911FB55307004D93DF /* DeleteCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteCommentRequest.h; sourceTree = "<group>"; };
 		7C672B921FB55307004D93DF /* DeleteCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCommentRequest.m; sourceTree = "<group>"; };
+		7C6BC156211A940A002DF5B0 /* ProjectListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectListViewController.h; sourceTree = "<group>"; };
+		7C6BC157211A940A002DF5B0 /* ProjectListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectListViewController.m; sourceTree = "<group>"; };
 		7C84301320BBD2E000A05C14 /* SignInPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceViewController.h; sourceTree = "<group>"; };
 		7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInPlaceViewController.m; sourceTree = "<group>"; };
 		7C84301620BBD3DF00A05C14 /* SignInPlaceHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceHeaderView.h; sourceTree = "<group>"; };
@@ -1669,6 +1672,8 @@
 				7C06895C20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m */,
 				7C06896220D0B26D00C7CA14 /* TrainingProjectDetailViewController.h */,
 				7C06896320D0B26D00C7CA14 /* TrainingProjectDetailViewController.m */,
+				7C6BC156211A940A002DF5B0 /* ProjectListViewController.h */,
+				7C6BC157211A940A002DF5B0 /* ProjectListViewController.m */,
 			);
 			path = "我的项目";
 			sourceTree = "<group>";
@@ -3862,6 +3867,7 @@
 				E91481CE20906307001B7EB5 /* IMImageSendingProgressView.m in Sources */,
 				9234277D1FA722CF003BCEFD /* CourseListCell.m in Sources */,
 				7CDF127F20902FBF0044DD95 /* ClassMomentListRequest.m in Sources */,
+				7C6BC158211A940B002DF5B0 /* ProjectListViewController.m in Sources */,
 				436CB21E1FB1494100A31585 /* ContactsViewController.m in Sources */,
 				E91481C520906307001B7EB5 /* IMMessageTableView.m in Sources */,
 				7CEFC8211FA05FBB001D8C84 /* main.m in Sources */,

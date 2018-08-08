@@ -16,6 +16,7 @@
 extern NSString * const kClassDidSelectNotification;
 extern NSString * const kTrainingProfileDidSelectNotification;
 extern NSString * const kMyProjectDidSelectNotification;
+extern NSString * const kProjectListDidSelectNotification;
 
 @interface UserModel : JSONModel
 @property (nonatomic, copy) NSString<Optional> *userID;

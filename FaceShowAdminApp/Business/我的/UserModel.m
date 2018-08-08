@@ -11,6 +11,7 @@
 NSString * const kClassDidSelectNotification = @"kClassDidSelectNotification";
 NSString * const kTrainingProfileDidSelectNotification = @"kTrainingProfileDidSelectNotification";
 NSString * const kMyProjectDidSelectNotification = @"kMyProjectDidSelectNotification";
+NSString * const kProjectListDidSelectNotification = @"kProjectListDidSelectNotification";
 
 @implementation UserModel
 

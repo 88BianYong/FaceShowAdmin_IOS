@@ -22,6 +22,7 @@
 #import "UserPromptsManager.h"
 #import "TrainingProfileViewController.h"
 #import "MyTrainingProjectViewController.h"
+#import "ProjectListViewController.h"
 
 UIKIT_EXTERN BOOL testFrameworkOn;
 
@@ -78,6 +79,16 @@ UIKIT_EXTERN BOOL testFrameworkOn;
     }
     if ([UserManager sharedInstance].mainPage == MainPage_MyProject) {
         MyTrainingProjectViewController *vc = [[MyTrainingProjectViewController alloc]init];
+        FSNavigationController *projectNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
+        MineViewController *mineVC = [[MineViewController alloc]init];
+        YXDrawerViewController *drawerVC = [[YXDrawerViewController alloc]init];
+        drawerVC.paneViewController = projectNavi;
+        drawerVC.drawerViewController = mineVC;
+        drawerVC.drawerWidth = 305*kPhoneWidthRatio;
+        return drawerVC;
+    }
+    if ([UserManager sharedInstance].mainPage == MainPage_ProjectList) {
+        ProjectListViewController *vc = [[ProjectListViewController alloc]init];
         FSNavigationController *projectNavi = [[FSNavigationController alloc] initWithRootViewController:vc];
         MineViewController *mineVC = [[MineViewController alloc]init];
         YXDrawerViewController *drawerVC = [[YXDrawerViewController alloc]init];
@@ -165,6 +176,12 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 }
 
 - (void)handleShowMyProject {
+    [self.window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    self.window.rootViewController.view.hidden = YES;
+    self.window.rootViewController = [self rootViewController];
+}
+
+- (void)handleShowProjectList {
     [self.window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
     self.window.rootViewController.view.hidden = YES;
     self.window.rootViewController = [self rootViewController];

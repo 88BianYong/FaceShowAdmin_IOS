@@ -27,6 +27,7 @@
             role.roleId.integerValue == UserRole_AreaAdmin||
             role.roleId.integerValue == UserRole_ProjectAdmin||
             role.roleId.integerValue == UserRole_ProjectSteward||
+            role.roleId.integerValue == UserRole_ProvinceAdmin||
             role.roleId.integerValue == UserRole_Teacher||
             role.roleId.integerValue == UserRole_UnknownTeacher) {
             return NO;

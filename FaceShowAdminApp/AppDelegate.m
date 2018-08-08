@@ -100,6 +100,11 @@
         [UserManager sharedInstance].mainPage = MainPage_MyProject;
         [self.appDelegateHelper handleShowMyProject];
     }];
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kProjectListDidSelectNotification object:nil]subscribeNext:^(id x) {
+        STRONG_SELF
+        [UserManager sharedInstance].mainPage = MainPage_ProjectList;
+        [self.appDelegateHelper handleShowProjectList];
+    }];
 #warning 因为后端删除班级逻辑问题,现在暂不处理删除班级,待后续重新考虑
 //    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kIMTopicDidRemoveNotification object:nil] subscribeNext:^(id x) {
 //        STRONG_SELF

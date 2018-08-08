@@ -28,4 +28,5 @@
 
 - (void)handleShowTrainingProfile;
 - (void)handleShowMyProject;
+- (void)handleShowProjectList;
 @end
