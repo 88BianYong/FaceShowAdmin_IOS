@@ -91,7 +91,7 @@
         [placeholderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self.imageCell.photoImageView);
         }];
-        [self.imageCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:self.element.attachmentInfo.previewUrl ? self.element.attachmentInfo.previewUrl : self.element.imageUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.imageCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:self.element.imageUrl ? self.element.imageUrl :  self.element.attachmentInfo.previewUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             STRONG_SELF
             if (error == nil) {
                 [placeholderImageView removeFromSuperview];

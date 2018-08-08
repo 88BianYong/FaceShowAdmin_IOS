@@ -40,7 +40,7 @@
             }
             self.element = item;
             self.navigationItem.title = self.element.subject;
-            [self loadWebViewWithUrl:self.element.attachmentInfo.previewUrl ? self.element.attachmentInfo.previewUrl : self.element.imageUrl];
+            [self loadWebViewWithUrl:self.element.imageUrl ? self.element.imageUrl : self.element.attachmentInfo.previewUrl];
         };
         [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
         }];
@@ -56,7 +56,7 @@
     self.webview = [[UIWebView alloc]init];
     self.webview.scalesPageToFit = YES;
     self.webview.delegate = self;
-    [self loadWebViewWithUrl:self.element.attachmentInfo.previewUrl ? self.element.attachmentInfo.previewUrl : self.element.imageUrl];
+    [self loadWebViewWithUrl:self.element.imageUrl ? self.element.imageUrl : self.element.attachmentInfo.previewUrl];
     [self.view addSubview:self.webview];
     [self.webview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15.0f);
@@ -78,7 +78,7 @@
 - (void)showAlertView {
     FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     NSArray *titleArray;
-    if ([FSDataMappingTable ResourceTypeWithKey:self.element.attachmentInfo.resType] == ResourceType_Image || (!self.element.attachmentInfo && self.element.imageUrl)) {
+    if ([FSDataMappingTable ResourceTypeWithKey:self.element.attachmentInfo.resType] == ResourceType_Image) {
         titleArray = @[@{@"title":@"修改"},
                        @{@"title":@"删除"}];
     }else {
@@ -155,7 +155,7 @@
         STRONG_SELF
         self.element = item;
         self.navigationItem.title = self.element.subject;
-        [self loadWebViewWithUrl:self.element.attachmentInfo.previewUrl ? self.element.attachmentInfo.previewUrl : self.element.imageUrl];
+        [self loadWebViewWithUrl:self.element.imageUrl ? self.element.imageUrl : self.element.attachmentInfo.previewUrl];
     };
     [[self nyx_visibleViewController] presentViewController:nav animated:YES completion:^{
     }];
