@@ -47,10 +47,7 @@
     if ([data roleExists:UserRole_AreaAdmin]) {
         [array addObject:@"区域管理员"];
     }
-    if ([data roleExists:UserRole_OrganAdmin]) {
-        [array addObject:@"机构管理员"];
-    }
-    if ([data roleExists:UserRole_ProjectAdmin]) {
+    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
         [array addObject:@"项目管理员"];
     }
     if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
@@ -65,13 +62,10 @@
 - (void)setupModules {
     GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
     NSMutableArray *array = [NSMutableArray array];
-    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]||[data roleExists:UserRole_OrganAdmin]) {
+    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
         [array addObject:@"培训概况"];
     }
-    if ([data roleExists:UserRole_OrganAdmin]) {
-        [array addObject:@"项目列表"];
-    }
-    if ([data roleExists:UserRole_ProjectAdmin]) {
+    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
         [array addObject:@"我的项目"];
     }
     if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
@@ -194,9 +188,6 @@
     UIButton *btn = nil;
     if ([item isEqualToString:@"培训概况"]) {
         btn = [self optionBtnWithTitle:@"培训概况" normalImage:@"培训概况" highlightedImage:@"培训概况点击"];
-    }
-    if ([item isEqualToString:@"项目列表"]) {
-        btn = [self optionBtnWithTitle:@"项目列表" normalImage:@"我的项目" highlightedImage:@"我的项目点击"];
     }
     if ([item isEqualToString:@"我的项目"]) {
         btn = [self optionBtnWithTitle:@"我的项目" normalImage:@"我的项目" highlightedImage:@"我的项目点击"];
