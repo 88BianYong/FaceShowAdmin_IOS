@@ -4095,6 +4095,7 @@
 				PROVISIONING_PROFILE = "3c2cd62c-cca3-4458-bd5b-2ecf6257b71a";
 				PROVISIONING_PROFILE_SPECIFIER = DevAll;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Debug;
 		};
@@ -4123,6 +4124,7 @@
 				PROVISIONING_PROFILE = "79b2e425-0cf4-4019-a976-a8ab6f864407";
 				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Rel;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Release;
 		};
