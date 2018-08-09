@@ -37,7 +37,7 @@
     self.textView.tag = 10086 + tag;
 //    char letter = (int)tag + 96;
 //    NSString *letterStr = [[NSString stringWithFormat:@"%c",letter] uppercaseString];
-    self.titleLabel.text = [NSString stringWithFormat:@"(%ld):",tag];
+    self.titleLabel.text = [NSString stringWithFormat:@"(%@):",@(tag)];
 }
 #pragma mark - setupUI
 - (void)setupUI {

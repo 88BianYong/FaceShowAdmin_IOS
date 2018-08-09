@@ -13,6 +13,7 @@
 #import "IMUserInterface.h"
 #import "UserPromptsManager.h"
 #import <BaiduMapKit/BaiduMapAPI_Map/BMKMapComponent.h>
+#import "YXInitRequest.h"
 
 @interface AppDelegate ()<BMKGeneralDelegate>
 @property (nonatomic, strong) AppDelegateHelper *appDelegateHelper;
@@ -30,6 +31,8 @@
     [TalkingData sessionStarted:kTalkingDataAppKey withChannelId:kTalkingDataChannel];
     // 百度地图
     [self setupBaiduMap];
+    // 初始化请求，检测版本更新等
+    [[YXInitHelper sharedHelper] requestCompeletion:nil];
     
     [self registerNotifications];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];

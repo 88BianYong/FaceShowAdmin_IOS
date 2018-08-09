@@ -146,6 +146,8 @@
 		7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B8B1FB53966004D93DF /* CourseCommentDataFetcher.m */; };
 		7C672B931FB55307004D93DF /* DeleteCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672B921FB55307004D93DF /* DeleteCommentRequest.m */; };
 		7C6BC158211A940B002DF5B0 /* ProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BC157211A940A002DF5B0 /* ProjectListViewController.m */; };
+		7C6BC15B211BD897002DF5B0 /* ProjectListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BC15A211BD897002DF5B0 /* ProjectListRequest.m */; };
+		7C6BC15E211BDE05002DF5B0 /* ProjectListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BC15D211BDE05002DF5B0 /* ProjectListFetcher.m */; };
 		7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */; };
 		7C84301820BBD3DF00A05C14 /* SignInPlaceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301720BBD3DF00A05C14 /* SignInPlaceHeaderView.m */; };
 		7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301E20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m */; };
@@ -793,6 +795,10 @@
 		7C672B921FB55307004D93DF /* DeleteCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCommentRequest.m; sourceTree = "<group>"; };
 		7C6BC156211A940A002DF5B0 /* ProjectListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectListViewController.h; sourceTree = "<group>"; };
 		7C6BC157211A940A002DF5B0 /* ProjectListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectListViewController.m; sourceTree = "<group>"; };
+		7C6BC159211BD897002DF5B0 /* ProjectListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectListRequest.h; sourceTree = "<group>"; };
+		7C6BC15A211BD897002DF5B0 /* ProjectListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectListRequest.m; sourceTree = "<group>"; };
+		7C6BC15C211BDE05002DF5B0 /* ProjectListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectListFetcher.h; sourceTree = "<group>"; };
+		7C6BC15D211BDE05002DF5B0 /* ProjectListFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectListFetcher.m; sourceTree = "<group>"; };
 		7C84301320BBD2E000A05C14 /* SignInPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceViewController.h; sourceTree = "<group>"; };
 		7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInPlaceViewController.m; sourceTree = "<group>"; };
 		7C84301620BBD3DF00A05C14 /* SignInPlaceHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceHeaderView.h; sourceTree = "<group>"; };
@@ -2426,6 +2432,10 @@
 				7C07F04320DE1F9F00E6BCE2 /* ProjectDetailRequest.m */,
 				7C07F04520DE296100E6BCE2 /* GetCountClazsRequest.h */,
 				7C07F04620DE296100E6BCE2 /* GetCountClazsRequest.m */,
+				7C6BC159211BD897002DF5B0 /* ProjectListRequest.h */,
+				7C6BC15A211BD897002DF5B0 /* ProjectListRequest.m */,
+				7C6BC15C211BDE05002DF5B0 /* ProjectListFetcher.h */,
+				7C6BC15D211BDE05002DF5B0 /* ProjectListFetcher.m */,
 				7CEFC8ED1FA067B2001D8C84 /* UserManager.h */,
 				7CEFC8EB1FA067B2001D8C84 /* UserManager.m */,
 				7CDF1133208D7AA30044DD95 /* UserModel.h */,
@@ -3476,6 +3486,7 @@
 				4359B9631FB2A44B007D7F30 /* UserSignInPercentRequest.m in Sources */,
 				7CEFC86B1FA065B3001D8C84 /* ConfigManager.m in Sources */,
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
+				7C6BC15B211BD897002DF5B0 /* ProjectListRequest.m in Sources */,
 				928216F720CE520B0052E486 /* PublishTaskHeaderView.m in Sources */,
 				7CEFC86C1FA065B3001D8C84 /* FileLogger.m in Sources */,
 				436CB2251FB15C9B00A31585 /* ClazsMemberListRequest.m in Sources */,
@@ -3920,6 +3931,7 @@
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				E94DDE8220DA4FC400729A67 /* GetTaskCommentRequest.m in Sources */,
+				7C6BC15E211BDE05002DF5B0 /* ProjectListFetcher.m in Sources */,
 				7C07F03620DCAAFE00E6BCE2 /* GetMyProjectsRequest.m in Sources */,
 				7C672B771FB402BC004D93DF /* CourseLectureCell.m in Sources */,
 				7CEFC8CE1FA06627001D8C84 /* UIViewController+NavigationItem.m in Sources */,

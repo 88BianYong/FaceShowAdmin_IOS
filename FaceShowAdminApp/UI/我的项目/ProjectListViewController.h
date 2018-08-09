@@ -6,8 +6,8 @@
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "PagedListViewControllerBase.h"
 
-@interface ProjectListViewController : BaseViewController
+@interface ProjectListViewController : PagedListViewControllerBase
 
 @end
