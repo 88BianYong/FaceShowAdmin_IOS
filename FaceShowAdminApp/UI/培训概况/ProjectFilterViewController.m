@@ -362,6 +362,9 @@
     return CGSizeZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if (section == 0 && self.provinceArray.count == 0) {
+        return CGSizeZero;
+    }
     if (section == 1) {
         if (self.firstLevelSelectedIndex == -1) {
             return CGSizeZero;
