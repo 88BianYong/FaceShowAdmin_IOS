@@ -233,7 +233,7 @@
 - (void)setupData {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineHeightMultiple = 1.4f;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
     
     NSString *title = self.detailRequestItem.data.title;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
