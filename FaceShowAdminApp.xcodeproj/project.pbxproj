@@ -58,7 +58,6 @@
 		7C06897F20D11E1100C7CA14 /* FilterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06897E20D11E1100C7CA14 /* FilterHeaderView.m */; };
 		7C06898220D2039900C7CA14 /* CustomTimeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */; };
 		7C07F03620DCAAFE00E6BCE2 /* GetMyProjectsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */; };
-		7C07F03820DCD79800E6BCE2 /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C07F03720DCD79700E6BCE2 /* area.json */; };
 		7C07F03E20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */; };
 		7C07F04120DDE2BF00E6BCE2 /* GetSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04020DDE2BF00E6BCE2 /* GetSummaryRequest.m */; };
 		7C07F04420DE1F9F00E6BCE2 /* ProjectDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04320DE1F9F00E6BCE2 /* ProjectDetailRequest.m */; };
@@ -93,6 +92,7 @@
 		7C32AD5721215697000705E8 /* BasicDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C32AD5621215697000705E8 /* BasicDataManager.m */; };
 		7C32AD5A21215733000705E8 /* BasicDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C32AD5921215733000705E8 /* BasicDataRequest.m */; };
 		7C32AD6021216CC2000705E8 /* AreaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C32AD5E21216CC1000705E8 /* AreaManager.m */; };
+		7C32AD73212170FA000705E8 /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C32AD72212170FA000705E8 /* area.json */; };
 		7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */; };
 		7C3F75A120DB813E00F4F418 /* GetUserRolesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F759F20DB813D00F4F418 /* GetUserRolesRequest.m */; };
 		7C3F75A220DB813E00F4F418 /* GetUserPlatformRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F75A020DB813E00F4F418 /* GetUserPlatformRequest.m */; };
@@ -627,7 +627,6 @@
 		7C06898120D2039900C7CA14 /* CustomTimeSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTimeSettingView.m; sourceTree = "<group>"; };
 		7C07F03420DCAAFE00E6BCE2 /* GetMyProjectsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetMyProjectsRequest.h; sourceTree = "<group>"; };
 		7C07F03520DCAAFE00E6BCE2 /* GetMyProjectsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMyProjectsRequest.m; sourceTree = "<group>"; };
-		7C07F03720DCD79700E6BCE2 /* area.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = area.json; sourceTree = "<group>"; };
 		7C07F03C20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetUserManagerScopeRequest.h; sourceTree = "<group>"; };
 		7C07F03D20DCDFE500E6BCE2 /* GetUserManagerScopeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetUserManagerScopeRequest.m; sourceTree = "<group>"; };
 		7C07F03F20DDE2BF00E6BCE2 /* GetSummaryRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetSummaryRequest.h; sourceTree = "<group>"; };
@@ -692,6 +691,7 @@
 		7C32AD5921215733000705E8 /* BasicDataRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicDataRequest.m; sourceTree = "<group>"; };
 		7C32AD5E21216CC1000705E8 /* AreaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaManager.m; sourceTree = "<group>"; };
 		7C32AD5F21216CC1000705E8 /* AreaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaManager.h; sourceTree = "<group>"; };
+		7C32AD72212170FA000705E8 /* area.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = area.json; sourceTree = "<group>"; };
 		7C3F758E20DA45BC00F4F418 /* ScoreEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreEditViewController.h; sourceTree = "<group>"; };
 		7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreEditViewController.m; sourceTree = "<group>"; };
 		7C3F759D20DB813D00F4F418 /* GetUserRolesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserRolesRequest.h; sourceTree = "<group>"; };
@@ -1775,7 +1775,7 @@
 		7C32AD5121215587000705E8 /* 基础数据 */ = {
 			isa = PBXGroup;
 			children = (
-				7C32AD6121216CDD000705E8 /* 地区 */,
+				7C32AD7421217104000705E8 /* 地区 */,
 				7C32AD52212155B8000705E8 /* BasicDataConfig.h */,
 				7C32AD53212155B8000705E8 /* BasicDataConfig.m */,
 				7C32AD5521215697000705E8 /* BasicDataManager.h */,
@@ -1786,13 +1786,14 @@
 			path = "基础数据";
 			sourceTree = "<group>";
 		};
-		7C32AD6121216CDD000705E8 /* 地区 */ = {
+		7C32AD7421217104000705E8 /* 地区 */ = {
 			isa = PBXGroup;
 			children = (
 				7C32AD5F21216CC1000705E8 /* AreaManager.h */,
 				7C32AD5E21216CC1000705E8 /* AreaManager.m */,
+				7C32AD72212170FA000705E8 /* area.json */,
 			);
-			name = "地区";
+			path = "地区";
 			sourceTree = "<group>";
 		};
 		7C672B021FB00218004D93DF /* 课程 */ = {
@@ -2664,7 +2665,6 @@
 			children = (
 				923427921FA72F1E003BCEFD /* METRO-LIGHT PLAYTYPE.otf */,
 				7CEFC9611FA6D7B3001D8C84 /* Metro Playtype.otf */,
-				7C07F03720DCD79700E6BCE2 /* area.json */,
 				7C2DC38920F3478900B689C0 /* StageSubject.json */,
 			);
 			path = Resource;
@@ -3424,9 +3424,9 @@
 			files = (
 				7CDF127920902FBF0044DD95 /* classMomentList_mock.json in Resources */,
 				923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */,
+				7C32AD73212170FA000705E8 /* area.json in Resources */,
 				7CDF129B20903B4E0044DD95 /* MJRefresh.bundle in Resources */,
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
-				7C07F03820DCD79800E6BCE2 /* area.json in Resources */,
 				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,
 				7CDF128520902FBF0044DD95 /* classMomentClickLike_mock.json in Resources */,
 				E91481CA20906307001B7EB5 /* 加载动效.gif in Resources */,
