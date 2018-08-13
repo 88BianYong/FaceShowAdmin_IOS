@@ -14,6 +14,7 @@
 #import "UserPromptsManager.h"
 #import <BaiduMapKit/BaiduMapAPI_Map/BMKMapComponent.h>
 #import "YXInitRequest.h"
+#import "BasicDataManager.h"
 
 @interface AppDelegate ()<BMKGeneralDelegate>
 @property (nonatomic, strong) AppDelegateHelper *appDelegateHelper;
@@ -33,6 +34,8 @@
     [self setupBaiduMap];
     // 初始化请求，检测版本更新等
     [[YXInitHelper sharedHelper] requestCompeletion:nil];
+    // 检查基础数据更新
+    [[BasicDataManager sharedInstance]checkAndUpdataBasicData];
     
     [self registerNotifications];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
