@@ -21,6 +21,7 @@
 @property (nonatomic, strong) YXNoFloatingHeaderFooterTableView *tableView;
 @property (nonatomic, strong) EditQuestionTableHeaderView *tableHeaderView;
 @property (nonatomic, strong) UIButton *publishButton;
+@property (nonatomic, strong) EditQuestionHeaderView *headerView;
 @property (nonatomic, strong) EditQuestionFooterView *footerView;
 
 
@@ -184,6 +185,8 @@
         [self setupModel];
         [self.tableHeaderView reloadSelected];
         self.serialNumber++;
+        self.headerView.textLabel.text = self.question.title;
+        self.headerView.tag = self.serialNumber;
         [self.tableView reloadData];
         [self reloadPublishButtonStatus];
     }];
@@ -283,10 +286,10 @@
 }
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    EditQuestionHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"EditQuestionHeaderView"];
-    headerView.textView.text = self.question.title;
-    headerView.tag = self.serialNumber;
-    return headerView;
+    self.headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"EditQuestionHeaderView"];
+    self.headerView.textView.text = self.question.title;
+    self.headerView.tag = self.serialNumber;
+    return self.headerView;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (self.question.questionType.integerValue == 3) {
