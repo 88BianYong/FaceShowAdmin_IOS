@@ -185,7 +185,7 @@
         [self setupModel];
         [self.tableHeaderView reloadSelected];
         self.serialNumber++;
-        self.headerView.textLabel.text = self.question.title;
+        self.headerView.textView.text = self.question.title;
         self.headerView.tag = self.serialNumber;
         [self.tableView reloadData];
         [self reloadPublishButtonStatus];
