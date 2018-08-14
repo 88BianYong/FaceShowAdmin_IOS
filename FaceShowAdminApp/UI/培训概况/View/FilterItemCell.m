@@ -29,6 +29,7 @@
     [self.itemButton setTitleColor:[UIColor colorWithHexString:@"333333"] forState:UIControlStateNormal];
     [self.itemButton setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateSelected];
     self.itemButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
+    self.itemButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.itemButton.layer.cornerRadius = 5;
     self.itemButton.clipsToBounds = YES;
     [self.itemButton addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
