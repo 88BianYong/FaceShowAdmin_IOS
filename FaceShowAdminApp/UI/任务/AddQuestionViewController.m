@@ -22,6 +22,8 @@
 @property (nonatomic, strong) EditQuestionTableHeaderView *tableHeaderView;
 @property (nonatomic, strong) UIButton *publishButton;
 @property (nonatomic, strong) EditQuestionFooterView *footerView;
+
+
 @property (nonatomic, strong) CreateQuestionGroupItem_Question *question;
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) UIView *bottomView;
@@ -178,6 +180,7 @@
     [[self.addButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
         BLOCK_EXEC(self.addQuestionBlock,self.question);
+        [self.view endEditing:YES];
         [self setupModel];
         [self.tableHeaderView reloadSelected];
         self.serialNumber++;
