@@ -13,6 +13,7 @@
 #import "MyTrainingProjectViewController.h"
 #import "YXDrawerController.h"
 #import "ProjectListViewController.h"
+#import "ForgotPasswordViewController.h"
 
 @interface MineViewController ()
 @property (nonatomic, strong) UIImageView *avatarImageView;
@@ -175,6 +176,13 @@
         make.centerX.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
     }];
+    UIButton *password = [self optionBtnWithTitle:@"修改密码" normalImage:@"忘记密码icon正常态管理端" highlightedImage:@"忘记密码icon选择态管理端"];
+    [self.view addSubview:password];
+    [password mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(btn.mas_bottom).offset(30);
+        make.centerX.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+    }];
     
     UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     logoutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -299,6 +307,11 @@
             }
         }
         [[NSNotificationCenter defaultCenter]postNotificationName:kProjectListDidSelectNotification object:nil];
+    }else if ([sender.titleLabel.text isEqualToString:@"修改密码"]) {
+        ForgotPasswordViewController *vc = [[ForgotPasswordViewController alloc] init];
+        vc.isModify = YES;
+        vc.phoneNum = [UserManager sharedInstance].userModel.mobilePhone;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

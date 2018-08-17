@@ -30,6 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"忘记密码";
+    if (self.isModify) {
+        self.navigationItem.title = @"修改密码";
+    }
     [self setupUI];
 }
 
@@ -49,6 +52,9 @@
     self.accountView = [[PhoneInputView alloc]init];
     self.accountView.inputView.textField.text = self.phoneNum;
     self.accountView.inputView.textField.keyboardType = UIKeyboardTypeNumberPad;
+    if (self.isModify) {
+        self.accountView.userInteractionEnabled = NO;
+    }
 //    self.accountView.inputView.placeHolder = @"手机号";
     WEAK_SELF
     [self.accountView setTextChangeBlock:^{

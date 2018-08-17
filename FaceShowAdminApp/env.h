@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-//#undef DEBUG
+#undef DEBUG
 
 #define HuBeiApp
 
