@@ -523,6 +523,14 @@
 		E98CA171209063CF00BCE36D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98CA16E209063CF00BCE36D /* ChatViewController.m */; };
 		E9A9537620E48E1200779590 /* ClassRankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A9537520E48E1200779590 /* ClassRankViewController.m */; };
 		E9A9537920E48F1400779590 /* LearningSituationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A9537820E48F1400779590 /* LearningSituationView.m */; };
+		E9B39A74212E94F0007ABA54 /* ContactsCurrentClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A6B212E94EF007ABA54 /* ContactsCurrentClassView.m */; };
+		E9B39A75212E94F0007ABA54 /* ContactsClassFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A6D212E94EF007ABA54 /* ContactsClassFilterView.m */; };
+		E9B39A76212E94F0007ABA54 /* ContactsClassFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A6F212E94EF007ABA54 /* ContactsClassFilterCell.m */; };
+		E9B39A77212E94F0007ABA54 /* ContactsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A70212E94F0007ABA54 /* ContactsCell.m */; };
+		E9B39A78212E94F0007ABA54 /* ContactsSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A72212E94F0007ABA54 /* ContactsSearchBarView.m */; };
+		E9B39A7D212E9609007ABA54 /* ContactMemberContactsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A7A212E9608007ABA54 /* ContactMemberContactsRequest.m */; };
+		E9B39A7E212E9609007ABA54 /* ContactMemberContactsRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B39A7C212E9608007ABA54 /* ContactMemberContactsRequest.json */; };
+		E9B39A81212E9815007ABA54 /* IMContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A80212E9815007ABA54 /* IMContactsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1543,6 +1551,21 @@
 		E9A9537520E48E1200779590 /* ClassRankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassRankViewController.m; sourceTree = "<group>"; };
 		E9A9537720E48F1400779590 /* LearningSituationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LearningSituationView.h; sourceTree = "<group>"; };
 		E9A9537820E48F1400779590 /* LearningSituationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LearningSituationView.m; sourceTree = "<group>"; };
+		E9B39A6A212E94EF007ABA54 /* ContactsCurrentClassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsCurrentClassView.h; sourceTree = "<group>"; };
+		E9B39A6B212E94EF007ABA54 /* ContactsCurrentClassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsCurrentClassView.m; sourceTree = "<group>"; };
+		E9B39A6C212E94EF007ABA54 /* ContactsSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsSearchBarView.h; sourceTree = "<group>"; };
+		E9B39A6D212E94EF007ABA54 /* ContactsClassFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsClassFilterView.m; sourceTree = "<group>"; };
+		E9B39A6E212E94EF007ABA54 /* ContactsClassFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsClassFilterCell.h; sourceTree = "<group>"; };
+		E9B39A6F212E94EF007ABA54 /* ContactsClassFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsClassFilterCell.m; sourceTree = "<group>"; };
+		E9B39A70212E94F0007ABA54 /* ContactsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsCell.m; sourceTree = "<group>"; };
+		E9B39A71212E94F0007ABA54 /* ContactsClassFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsClassFilterView.h; sourceTree = "<group>"; };
+		E9B39A72212E94F0007ABA54 /* ContactsSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsSearchBarView.m; sourceTree = "<group>"; };
+		E9B39A73212E94F0007ABA54 /* ContactsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsCell.h; sourceTree = "<group>"; };
+		E9B39A7A212E9608007ABA54 /* ContactMemberContactsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactMemberContactsRequest.m; sourceTree = "<group>"; };
+		E9B39A7B212E9608007ABA54 /* ContactMemberContactsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactMemberContactsRequest.h; sourceTree = "<group>"; };
+		E9B39A7C212E9608007ABA54 /* ContactMemberContactsRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContactMemberContactsRequest.json; sourceTree = "<group>"; };
+		E9B39A7F212E9815007ABA54 /* IMContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMContactsViewController.h; sourceTree = "<group>"; };
+		E9B39A80212E9815007ABA54 /* IMContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMContactsViewController.m; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3175,6 +3198,7 @@
 		E914813320905910001B7EB5 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				E9B39A79212E95F0007ABA54 /* 通讯录 */,
 				E9540C1920CA1EB100D7DDA2 /* CreateTopicRequest.h */,
 				E9540C1120CA1EAF00D7DDA2 /* CreateTopicRequest.m */,
 				E9540C1D20CA1EB200D7DDA2 /* GetMemberTopicsRequest.h */,
@@ -3200,6 +3224,7 @@
 		E914818B209061E6001B7EB5 /* IM */ = {
 			isa = PBXGroup;
 			children = (
+				E9B39A65212E9455007ABA54 /* 聊聊-通讯录 */,
 				E9024A42209063940002444F /* Controller */,
 				E914818C20906203001B7EB5 /* IMTimeHandleManger.h */,
 				E914818D20906203001B7EB5 /* IMTimeHandleManger.m */,
@@ -3362,6 +3387,43 @@
 			path = "升级";
 			sourceTree = "<group>";
 		};
+		E9B39A65212E9455007ABA54 /* 聊聊-通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				E9B39A7F212E9815007ABA54 /* IMContactsViewController.h */,
+				E9B39A80212E9815007ABA54 /* IMContactsViewController.m */,
+				E9B39A66212E94AB007ABA54 /* View */,
+			);
+			path = "聊聊-通讯录";
+			sourceTree = "<group>";
+		};
+		E9B39A66212E94AB007ABA54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9B39A73212E94F0007ABA54 /* ContactsCell.h */,
+				E9B39A70212E94F0007ABA54 /* ContactsCell.m */,
+				E9B39A6E212E94EF007ABA54 /* ContactsClassFilterCell.h */,
+				E9B39A6F212E94EF007ABA54 /* ContactsClassFilterCell.m */,
+				E9B39A71212E94F0007ABA54 /* ContactsClassFilterView.h */,
+				E9B39A6D212E94EF007ABA54 /* ContactsClassFilterView.m */,
+				E9B39A6A212E94EF007ABA54 /* ContactsCurrentClassView.h */,
+				E9B39A6B212E94EF007ABA54 /* ContactsCurrentClassView.m */,
+				E9B39A6C212E94EF007ABA54 /* ContactsSearchBarView.h */,
+				E9B39A72212E94F0007ABA54 /* ContactsSearchBarView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E9B39A79212E95F0007ABA54 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				E9B39A7B212E9608007ABA54 /* ContactMemberContactsRequest.h */,
+				E9B39A7A212E9608007ABA54 /* ContactMemberContactsRequest.m */,
+				E9B39A7C212E9608007ABA54 /* ContactMemberContactsRequest.json */,
+			);
+			name = "通讯录";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3429,6 +3491,7 @@
 				7CEFC9621FA6D7D7001D8C84 /* Metro Playtype.otf in Resources */,
 				9234278D1FA722E4003BCEFD /* GetCurrentClazsRequest_mock.json in Resources */,
 				7CDF128520902FBF0044DD95 /* classMomentClickLike_mock.json in Resources */,
+				E9B39A7E212E9609007ABA54 /* ContactMemberContactsRequest.json in Resources */,
 				E91481CA20906307001B7EB5 /* 加载动效.gif in Resources */,
 				7CEFC8461FA06577001D8C84 /* MockConfig.plist in Resources */,
 				7C2DC38A20F3478900B689C0 /* StageSubject.json in Resources */,
@@ -3599,13 +3662,16 @@
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */,
 				7C06895620CF9E8100C7CA14 /* ProjectLevelDistributingCell.m in Sources */,
+				E9B39A81212E9815007ABA54 /* IMContactsViewController.m in Sources */,
 				E91481B1209062C4001B7EB5 /* IMTextMessageLeftCell.m in Sources */,
 				E94DDEE920DCD31B00729A67 /* GetUserHomeworkDetailRequest.m in Sources */,
 				921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */,
 				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
 				E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */,
+				E9B39A77212E94F0007ABA54 /* ContactsCell.m in Sources */,
 				7C2E221D20E366000055843D /* RefreshBaseViewController.m in Sources */,
+				E9B39A7D212E9609007ABA54 /* ContactMemberContactsRequest.m in Sources */,
 				7CDF128D2090307F0044DD95 /* CommentInputView.m in Sources */,
 				7CDF120B20902E8A0044DD95 /* ImageAttachmentContainerView.m in Sources */,
 				E9540C4A20CA1F6F00D7DDA2 /* IM.xcdatamodeld in Sources */,
@@ -3684,6 +3750,7 @@
 				E91481AA209062C4001B7EB5 /* IMMessageCellFactory.m in Sources */,
 				E9540C2520CA1EB200D7DDA2 /* TopicMsgData.m in Sources */,
 				92CAA63F1FAACDDA00DB5873 /* FDActionSheetCell.m in Sources */,
+				E9B39A78212E94F0007ABA54 /* ContactsSearchBarView.m in Sources */,
 				7CDF11A2208DB4A50044DD95 /* QiniuConfig.m in Sources */,
 				7CEFC8861FA065D6001D8C84 /* YXPostRequest.m in Sources */,
 				E9540C0820CA1E6800D7DDA2 /* IMImageMessageSender.m in Sources */,
@@ -3705,6 +3772,7 @@
 				7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */,
 				7CEFC8C21FA06627001D8C84 /* NSMutableDictionary+YXDictionarys.m in Sources */,
 				E9540C2220CA1EB200D7DDA2 /* CreateTopicRequest.m in Sources */,
+				E9B39A76212E94F0007ABA54 /* ContactsClassFilterCell.m in Sources */,
 				E94DDEA320DB516A00729A67 /* GetUserTaskProgressRequest.m in Sources */,
 				E94DDDFB20D3696300729A67 /* LearningSituationViewController.m in Sources */,
 				922942BF20D0BAE600CC21BD /* CreateQuestionGroupItem.m in Sources */,
@@ -3827,6 +3895,7 @@
 				7CDF1173208D99150044DD95 /* QASlideView.m in Sources */,
 				7CDF1176208D99380044DD95 /* QASlideItemBaseView.m in Sources */,
 				921016DD20D8F24B007FEBB7 /* CreateEvaluateHeaderView.m in Sources */,
+				E9B39A75212E94F0007ABA54 /* ContactsClassFilterView.m in Sources */,
 				924297D020DA54C40039038E /* EditQuestionTableHeaderView.m in Sources */,
 				7CEFC9171FA071B4001D8C84 /* SimpleAlertView.m in Sources */,
 				E9540C2120CA1EB200D7DDA2 /* GetMemberTopicsRequest.m in Sources */,
@@ -3876,6 +3945,7 @@
 				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
 				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
 				924297DF20DA6AF90039038E /* EditQuestionTypeView.m in Sources */,
+				E9B39A74212E94F0007ABA54 /* ContactsCurrentClassView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
 				7CEFC9051FA06CB1001D8C84 /* AppDelegateHelper.m in Sources */,
 				7CEFC8C51FA06627001D8C84 /* NSString+YXString.m in Sources */,

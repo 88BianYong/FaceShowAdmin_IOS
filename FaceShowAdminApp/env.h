@@ -11,8 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
-#undef DEBUG
+//#undef DEBUG
 
-#define HuBeiApp
+//#define HuBeiApp
 
 #endif /* env_h */

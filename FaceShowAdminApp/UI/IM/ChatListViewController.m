@@ -7,13 +7,15 @@
 //
 
 #import "ChatListViewController.h"
-#import "ContactsViewController.h"
+#import "IMContactsViewController.h"
 #import "ChatListCell.h"
 #import "IMManager.h"
 #import "IMUserInterface.h"
 #import "ChatViewController.h"
 #import "IMTimeHandleManger.h"
 #import "YXDrawerController.h"
+#import "ContactsViewController.h"
+#import "GetUserRolesRequest.h"
 
 @interface ChatListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -53,6 +55,16 @@
         STRONG_SELF
         [YXDrawerController showDrawer];
     }];
+    
+    GetUserRolesRequestItem *roles = [UserManager sharedInstance].userModel.roleRequestItem;
+    if ([roles.data roleExists:UserRole_Teacher]||[roles.data roleExists:UserRole_UnknownTeacher]) {
+        [self nyx_setupRightWithTitle:@"通讯录" action:^{
+            STRONG_SELF
+            IMContactsViewController *contactsVC = [[IMContactsViewController alloc] init];
+            [self.navigationController pushViewController:contactsVC animated:YES];
+            [TalkingData trackEvent:@"聊聊-通讯录"];
+        }];
+    }
 }
 
 #pragma mark - setupUI
