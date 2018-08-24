@@ -515,6 +515,7 @@
 		E9540C4A20CA1F6F00D7DDA2 /* IM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9540C4420CA1F6E00D7DDA2 /* IM.xcdatamodeld */; };
 		E9540C4B20CA1F6F00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C4720CA1F6E00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m */; };
 		E9540C4C20CA1F6F00D7DDA2 /* IMDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C4820CA1F6F00D7DDA2 /* IMDatabaseManager.m */; };
+		E97D2E86212FAA6E00FECFE0 /* IMTopicInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E85212FAA6E00FECFE0 /* IMTopicInfoItem.m */; };
 		E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */; };
 		E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF3208D916F00138D44 /* YXInitRequest.m */; };
 		E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF4208D916F00138D44 /* UpgradeConfig.m */; };
@@ -1535,6 +1536,8 @@
 		E9540C4720CA1F6E00D7DDA2 /* IMTopicOfflineMsgFetchRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTopicOfflineMsgFetchRecord.m; sourceTree = "<group>"; };
 		E9540C4820CA1F6F00D7DDA2 /* IMDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDatabaseManager.m; sourceTree = "<group>"; };
 		E9540C4920CA1F6F00D7DDA2 /* IMDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDatabaseManager.h; sourceTree = "<group>"; };
+		E97D2E84212FAA6E00FECFE0 /* IMTopicInfoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMTopicInfoItem.h; sourceTree = "<group>"; };
+		E97D2E85212FAA6E00FECFE0 /* IMTopicInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMTopicInfoItem.m; sourceTree = "<group>"; };
 		E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkingDataConfig.h; sourceTree = "<group>"; };
 		E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkingDataConfig.m; sourceTree = "<group>"; };
 		E9822FF2208D916F00138D44 /* YXInitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXInitRequest.h; sourceTree = "<group>"; };
@@ -3228,6 +3231,8 @@
 				E9024A42209063940002444F /* Controller */,
 				E914818C20906203001B7EB5 /* IMTimeHandleManger.h */,
 				E914818D20906203001B7EB5 /* IMTimeHandleManger.m */,
+				E97D2E84212FAA6E00FECFE0 /* IMTopicInfoItem.h */,
+				E97D2E85212FAA6E00FECFE0 /* IMTopicInfoItem.m */,
 				E914819320906271001B7EB5 /* View */,
 			);
 			path = IM;
@@ -3757,6 +3762,7 @@
 				7CEFC8991FA06614001D8C84 /* CollectionViewEqualSpaceFlowLayout.m in Sources */,
 				7CDF1122208D76C00044DD95 /* GetUserPromptsRequest.m in Sources */,
 				E91481C720906307001B7EB5 /* IMMessageMenuView.m in Sources */,
+				E97D2E86212FAA6E00FECFE0 /* IMTopicInfoItem.m in Sources */,
 				7CEFC8FA1FA068D3001D8C84 /* BaseViewController.m in Sources */,
 				7C06893D20CF69DA00C7CA14 /* TrainingProfileViewController.m in Sources */,
 				E914818A20905FC1001B7EB5 /* YXGCDTimer.m in Sources */,
