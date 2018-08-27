@@ -528,17 +528,17 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
             return;
         }
         IMTopic *topic = [IMUserInterface findTopicWithMember:member];
-        ContactMemberContactsRequestItem_Data_Gcontacts_Groups *group;
-        if (self.info.group) {
-            group = self.info.group;
-        }else {
-            group = [[ContactMemberContactsRequestItem_Data_Gcontacts_Groups alloc]init];
-            group.groupId = 0;
-            group.groupName = self.topic.group;
-        }
         if (topic) {
             chatVC.topic = topic;
         }else {
+            ContactMemberContactsRequestItem_Data_Gcontacts_Groups *group;
+            if (self.info.group) {
+                group = self.info.group;
+            }else {
+                group = [[ContactMemberContactsRequestItem_Data_Gcontacts_Groups alloc]init];
+                group.groupId = self.topic.groupID ? [NSString stringWithFormat:@"%@",@(self.topic.groupID)] : @"0";
+                group.groupName = self.topic.group;
+            }
             IMTopicInfoItem *item = [[IMTopicInfoItem alloc]init];
             item.member = member;
             item.group = group;
