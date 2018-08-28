@@ -190,12 +190,12 @@
             colors = k_COLOR_STOCK;
             
         }
-        
+        CGFloat width = self.frame.size.width / 2;
         
         for (NSInteger i = 0; i<_countPreAngeleArr.count-1; i++) {
             
             JHPieItemsView *itemsView = [[JHPieItemsView alloc] initWithFrame:CGRectMake(10, 10, wid/2, wid/2) andBeginAngle:[_countPreAngeleArr[i] floatValue] andEndAngle:[_countPreAngeleArr[i+1] floatValue] andFillColor:colors[i%colors.count]];
-            
+            NSLog(@"%@",NSStringFromCGRect(itemsView.frame));
             itemsView.center = CGPointMake(self.frame.size.width/2, 10+wid/2);
             
             itemsView.tag = i;
@@ -217,19 +217,24 @@
             [_layersArr addObject:itemsView];
             
             [self addSubview:itemsView];
+            width = itemsView.frame.size.width;
         }
         
-        for (NSInteger i = 0; i<_countPreAngeleArr.count-1; i++) {
-            JHShowInfoView * showInfoView = [[JHShowInfoView alloc] init];
-            showInfoView.tag = i;
-            showInfoView.hidden = YES;
-            [self addSubview:showInfoView];
-            CGFloat present = [_valueArr[i] floatValue]/_allValueCount*100;
-            [showInfoView updateFrameTo:CGRectMake(0, 0, self.showInfoView.frame.size.width, self.showInfoView.frame.size.height) andBGColor:[UIColor clearColor] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",self.descArr[i],[self.valueArr[i] integerValue],present,'%']];
-            float NOW_ANGLE = [_countPreAngeleArr[i] floatValue]+[_angleArr[i] floatValue]/2.0f;
-            CGPoint centerPoint = P_M(self.frame.size.width / 2 + self.chartArcLength / 2*cos(NOW_ANGLE) + 10, self.chartOrigin.y + self.chartArcLength / 2 * sin(NOW_ANGLE) - 30.0f);
-            showInfoView.center = centerPoint;
-        }
+        
+        
+        
+        
+//        for (NSInteger i = 0; i<_countPreAngeleArr.count-1; i++) {
+//            JHShowInfoView * showInfoView = [[JHShowInfoView alloc] init];
+//            showInfoView.tag = i;
+//            showInfoView.hidden = YES;
+//            [self addSubview:showInfoView];
+//            CGFloat present = [_valueArr[i] floatValue]/_allValueCount*100;
+//            [showInfoView updateFrameTo:CGRectMake(0, 0, self.showInfoView.frame.size.width, self.showInfoView.frame.size.height) andBGColor:[UIColor clearColor] andShowContentString:[NSString stringWithFormat:@"%@ 数量:% 3ld 占比:%.1f%c",self.descArr[i],[self.valueArr[i] integerValue],present,'%']];
+//            float NOW_ANGLE = [_countPreAngeleArr[i] floatValue]+[_angleArr[i] floatValue]/2.0f;
+//            CGPoint centerPoint = P_M(self.frame.size.width / 2 + self.chartArcLength / 2*cos(NOW_ANGLE) + 10, self.chartOrigin.y + self.chartArcLength / 2 * sin(NOW_ANGLE) - 30.0f);
+//            showInfoView.center = centerPoint;
+//        }
     
         _pieForeView = [[JHPieForeBGView alloc] initWithFrame:CGRectMake(10, 10, wid,  wid)];
         
