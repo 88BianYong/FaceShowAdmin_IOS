@@ -34,22 +34,26 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.mas_equalTo(15);
     }];
-    UILabel *descLabel = [[UILabel alloc]init];
-    descLabel.textColor = [UIColor colorWithHexString:@"999999"];
-    descLabel.font = [UIFont systemFontOfSize:12];
-    [self addSubview:descLabel];
-    [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.top.mas_equalTo(titleLabel.mas_bottom).mas_offset(10);
-        make.bottom.mas_equalTo(-15);
-    }];
+
     self.switchView = [[UISwitch alloc]init];
     self.switchView.onTintColor = [UIColor colorWithHexString:@"1da1f2"];
     [self.switchView addTarget:self action:@selector(stateChange:) forControlEvents:UIControlEventValueChanged];
     [self addSubview:self.switchView];
     [self.switchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-15);
-        make.bottom.mas_equalTo(-10);
+        make.bottom.mas_equalTo(-15);
+    }];
+    
+    UILabel *descLabel = [[UILabel alloc]init];
+    descLabel.textColor = [UIColor colorWithHexString:@"999999"];
+    descLabel.font = [UIFont systemFontOfSize:12];
+    descLabel.numberOfLines = 0;
+    [self addSubview:descLabel];
+    [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15);
+        make.top.mas_equalTo(titleLabel.mas_bottom).mas_offset(10);
+        make.right.mas_equalTo(self.switchView.mas_left).offset(-5);
+        make.bottom.mas_equalTo(-15);
     }];
     
     self.titleLabel = titleLabel;

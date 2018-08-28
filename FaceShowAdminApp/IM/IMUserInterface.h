@@ -32,6 +32,12 @@
 + (void)resetUnreadMessageCountWithTopicID:(int64_t)topicID;
 
 /**
+ 清空某个话题的历史消息
+
+ @param topicID 话题id
+ */
++ (void)clearTheHistoryRecordsInTopic:(int64_t)topicID;
+/**
  从通讯录选择某一个联系人/群聊界面点击某个联系人的头像进入聊天界面的时候调用
  
  @param member 联系人信息
