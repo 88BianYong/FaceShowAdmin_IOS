@@ -15,6 +15,9 @@
     }
     // maybe ASI bug, must initWithURL, init will cause crash after change url later
     self->_request = [[ASIHTTPRequest alloc] initWithURL:nil];
+    
+    
+    [self->_request setUserAgentString:@""];
     return self->_request;
 }
 
@@ -22,4 +25,5 @@
     [self request].url = [NSURL URLWithString:[self _generateFullUrl]];
     [self request].requestMethod = @"GET";
 }
+
 @end
