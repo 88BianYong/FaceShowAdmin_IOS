@@ -37,6 +37,20 @@
  @param topicID 话题id
  */
 + (void)clearTheHistoryRecordsInTopic:(int64_t)topicID;
+
+/**
+ 某个话题禁言
+
+ @param topicID 话题id
+ */
++ (void)forbidTalkingInTopic:(ino64_t)topicID;
+
+/**
+ 消息免打扰(只是忽略通知)
+
+ @param topicID 话题id
+ */
++ (void)ignoreNoticeInTopic:(ino64_t)topicID;
 /**
  从通讯录选择某一个联系人/群聊界面点击某个联系人的头像进入聊天界面的时候调用
  

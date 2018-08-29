@@ -30,11 +30,13 @@
 #import "IMPrivateSettingViewController.h"
 #import "IMTopicInfoItem.h"
 #import "ContactMemberContactsRequest.h"
+#import "ForbidTalkingView.h"
 
 NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCountClearNotification";
 
 @interface ChatViewController ()<UITableViewDataSource,UITableViewDelegate,IMMessageCellDelegate>
-@property (strong,nonatomic)UIActivityIndicatorView *activity;
+@property (nonatomic, strong) ForbidTalkingView *forbidTalkingView;
+@property (nonatomic, strong,)UIActivityIndicatorView *activity;
 @property (nonatomic, strong) IMMessageTableView *tableView;
 @property (nonatomic, strong) IMInputView *imInputView;
 @property (nonatomic, strong) ImageSelectionHandler *imageHandler;
@@ -89,6 +91,10 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
             IMGroupSettingViewController *vc = [[IMGroupSettingViewController alloc]init];
             vc.topic = self.topic;
             vc.isManager = YES;
+            [vc setForbidTalkingStateChangeBlock:^(BOOL isForbidden) {
+                STRONG_SELF
+                [self updateForbidTalkingState:isForbidden];
+            }];
             [self.navigationController pushViewController:vc animated:YES];
         }else {
             IMPrivateSettingViewController *vc = [[IMPrivateSettingViewController alloc]init];
@@ -105,12 +111,27 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
     [self setupUI];
     [self setupData];
     [self setupObserver];
+    [self updateForbidTalkingState:YES];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateForbidTalkingState:(BOOL)isForbidden {
+    if (isForbidden) {
+        self.forbidTalkingView.hidden = NO;
+        [self.forbidTalkingView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(45);
+        }];
+    }else {
+        self.forbidTalkingView.hidden = YES;
+        [self.forbidTalkingView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+        }];
+    }
 }
 
 - (void)setupTitleWithTopic:(IMTopic *)topic {
@@ -127,6 +148,13 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
 
 - (void)setupUI {
     self.view.backgroundColor = [UIColor colorWithHexString:@"dfe3e5"];
+    
+    self.forbidTalkingView = [[ForbidTalkingView alloc]init];
+    [self.view addSubview:self.forbidTalkingView];
+    [self.forbidTalkingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.mas_equalTo(0);
+        make.height.mas_equalTo(45);
+    }];
     
     self.imInputView = [[IMInputView alloc]init];
     self.imInputView.isChangeBool = YES;
@@ -202,7 +230,8 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.forbidTalkingView.mas_bottom);
         make.bottom.equalTo(self.imInputView.mas_top);
     }];
     

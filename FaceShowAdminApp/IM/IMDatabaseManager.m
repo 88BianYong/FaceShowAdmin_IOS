@@ -829,7 +829,7 @@ NSString * const kIMTopicDidRemoveNotification = @"kIMTopicDidRemoveNotification
         [entity MR_deleteEntityInContext:localContext];
     }];
 }
-
+#pragma mark - 清空历史消息
 - (void)clearTheHistoryRecordsInTopic:(int64_t)topicID {
     dispatch_barrier_async(self.operationQueue, ^{
         [self clearTheHistoryRecordsInQueueInTopic:topicID];
@@ -846,6 +846,14 @@ NSString * const kIMTopicDidRemoveNotification = @"kIMTopicDidRemoveNotification
         IMTopicEntity *entity = [IMTopicEntity MR_findFirstWithPredicate:predicate inContext:localContext];
         entity.isClearedHistory = YES;
     }];
+}
+#pragma mark - 禁言
+- (void)forbidTalkingInTopic:(ino64_t)topicID {
+    
+}
+#pragma mark - 消息免打扰
+- (void)ignoreNoticeInTopic:(ino64_t)topicID {
+    
 }
 @end
 

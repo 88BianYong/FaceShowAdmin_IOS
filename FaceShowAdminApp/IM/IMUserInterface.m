@@ -146,6 +146,15 @@
 + (void)clearTheHistoryRecordsInTopic:(int64_t)topicID {
     [[IMDatabaseManager sharedInstance] clearTheHistoryRecordsInTopic:topicID];
 }
+
++ (void)forbidTalkingInTopic:(ino64_t)topicID {
+    
+}
+
++ (void)ignoreNoticeInTopic:(ino64_t)topicID {
+    
+}
+
 + (IMTopic *)findTopicWithMember:(IMMember *)member {
    return [[IMDatabaseManager sharedInstance] findTopicWithMember:member];
 }

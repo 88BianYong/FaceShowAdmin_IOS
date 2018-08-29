@@ -42,9 +42,12 @@
     IMSwitchSettingView *hushView = [[IMSwitchSettingView alloc]init];
     hushView.title = @"学员禁言";
     hushView.desc = @"开启后，学员不可以发送消息，只有班主任可以发";
+    hushView.isOn = YES;
     WEAK_SELF
     [hushView setStateChangeBlock:^(BOOL isOn) {
         STRONG_SELF
+        //发送请求,成功后回调
+        BLOCK_EXEC(self.forbidTalkingStateChangeBlock,isOn);
     }];
     
     IMSwitchSettingView *unremindView = [[IMSwitchSettingView alloc]init];

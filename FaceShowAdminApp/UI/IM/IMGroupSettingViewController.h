@@ -12,4 +12,5 @@
 @interface IMGroupSettingViewController : BaseViewController
 @property (nonatomic, assign) BOOL isManager;
 @property (nonatomic, strong) IMTopic *topic;
+@property (nonatomic, strong) void(^forbidTalkingStateChangeBlock)(BOOL isForbidden);
 @end
