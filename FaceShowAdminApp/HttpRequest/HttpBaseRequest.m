@@ -85,9 +85,14 @@
                 andCompleteBlock:(HttpRequestCompleteBlock)completeBlock {
     self->_completeBlock = completeBlock;
     self->_retClass = retClass;
+#ifdef HuBeiApp
+    NSString *name = @"FaceShowAdmin_Hubei";
+#else
+    NSString *name = @"FaceShowAdmin";
+#endif
     
     NSString *version = [UIDevice currentDevice].systemVersion;
-    [self.request setUserAgentString:[NSString stringWithFormat:@"%@, ios %@, %@ v%@",[self deviceModelName],version,[ConfigManager sharedInstance].appName,[ConfigManager sharedInstance].clientVersion]];
+    [[self request] setUserAgentString:[NSString stringWithFormat:@"%@, ios %@, %@ v%@",[self deviceModelName],version,name,[ConfigManager sharedInstance].clientVersion]];
     
     NSString *key = NSStringFromClass([self class]);
     if ([[YXMockManager sharedInstance] hasMockDataForKey:key]) {
