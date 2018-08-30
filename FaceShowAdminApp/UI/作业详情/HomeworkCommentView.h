@@ -10,4 +10,5 @@
 
 @interface HomeworkCommentView : UIView
 @property (nonatomic, strong) void(^confirmBlock)(NSString *comment);
+- (void)reloadData;
 @end

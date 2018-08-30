@@ -22,6 +22,7 @@
     UserHomeworkFetcher *fetcher = [[UserHomeworkFetcher alloc] init];
     fetcher.stepId = self.stepId;
     fetcher.isFinished = @"1";
+    fetcher.pagesize = 100000;
     self.dataFetcher = fetcher;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -54,9 +55,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MemberHomeworkDetailViewController *vc = [[MemberHomeworkDetailViewController alloc]init];
-    vc.data = self.dataArray[indexPath.row];
+    vc.dataArray = self.dataArray;
     vc.title = self.requirementTitle;
     vc.stepId = self.stepId;
+    vc.currentIndex = indexPath.row;
     WEAK_SELF
     [vc setCommentComleteBlock:^(NSString *comment) {
         STRONG_SELF

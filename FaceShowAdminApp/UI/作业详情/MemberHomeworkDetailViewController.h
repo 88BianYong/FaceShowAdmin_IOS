@@ -6,11 +6,12 @@
 //  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "ScrollBaseViewController.h"
+#import "BaseViewController.h"
 @class GetUserHomeworksRequestItem_element;
 
-@interface MemberHomeworkDetailViewController : ScrollBaseViewController
+@interface MemberHomeworkDetailViewController : BaseViewController
+@property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, strong) NSMutableArray *dataArray; 
 @property(nonatomic, strong) NSString *stepId;
-@property(nonatomic, strong) GetUserHomeworksRequestItem_element *data;
 @property (nonatomic, strong) void (^commentComleteBlock)(NSString *comment);
 @end

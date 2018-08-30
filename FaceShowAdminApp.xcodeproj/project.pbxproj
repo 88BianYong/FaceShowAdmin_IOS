@@ -520,6 +520,8 @@
 		E9540C4C20CA1F6F00D7DDA2 /* IMDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9540C4820CA1F6F00D7DDA2 /* IMDatabaseManager.m */; };
 		E97D2E86212FAA6E00FECFE0 /* IMTopicInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E85212FAA6E00FECFE0 /* IMTopicInfoItem.m */; };
 		E97D2E8C2136765A00FECFE0 /* ForbidTalkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E8B2136765A00FECFE0 /* ForbidTalkingView.m */; };
+		E97D2E922136A4D400FECFE0 /* HomeworkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E902136A4D300FECFE0 /* HomeworkDetailView.m */; };
+		E97D2E952137A5A700FECFE0 /* HomeworkAttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E942137A5A600FECFE0 /* HomeworkAttachmentView.m */; };
 		E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */; };
 		E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF3208D916F00138D44 /* YXInitRequest.m */; };
 		E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF4208D916F00138D44 /* UpgradeConfig.m */; };
@@ -1550,6 +1552,10 @@
 		E97D2E85212FAA6E00FECFE0 /* IMTopicInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMTopicInfoItem.m; sourceTree = "<group>"; };
 		E97D2E8A2136765A00FECFE0 /* ForbidTalkingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForbidTalkingView.h; sourceTree = "<group>"; };
 		E97D2E8B2136765A00FECFE0 /* ForbidTalkingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForbidTalkingView.m; sourceTree = "<group>"; };
+		E97D2E902136A4D300FECFE0 /* HomeworkDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeworkDetailView.m; sourceTree = "<group>"; };
+		E97D2E912136A4D400FECFE0 /* HomeworkDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkDetailView.h; sourceTree = "<group>"; };
+		E97D2E932137A5A600FECFE0 /* HomeworkAttachmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkAttachmentView.h; sourceTree = "<group>"; };
+		E97D2E942137A5A600FECFE0 /* HomeworkAttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeworkAttachmentView.m; sourceTree = "<group>"; };
 		E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkingDataConfig.h; sourceTree = "<group>"; };
 		E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkingDataConfig.m; sourceTree = "<group>"; };
 		E9822FF2208D916F00138D44 /* YXInitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXInitRequest.h; sourceTree = "<group>"; };
@@ -2192,6 +2198,10 @@
 				7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */,
 				7CEA29CB20D8F31B000CE9EC /* HomeworkCommentView.h */,
 				7CEA29CC20D8F31B000CE9EC /* HomeworkCommentView.m */,
+				E97D2E932137A5A600FECFE0 /* HomeworkAttachmentView.h */,
+				E97D2E942137A5A600FECFE0 /* HomeworkAttachmentView.m */,
+				E97D2E912136A4D400FECFE0 /* HomeworkDetailView.h */,
+				E97D2E902136A4D300FECFE0 /* HomeworkDetailView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3862,6 +3872,8 @@
 				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
 				7CDF128420902FBF0044DD95 /* ClassMomentClickLikeRequest.m in Sources */,
 				7C672B201FB1536E004D93DF /* ChooseQuestionResultCell.m in Sources */,
+				E97D2E922136A4D400FECFE0 /* HomeworkDetailView.m in Sources */,
+				E97D2E952137A5A700FECFE0 /* HomeworkAttachmentView.m in Sources */,
 				7CEFC8C61FA06627001D8C84 /* UIButton+ExpandHitArea.m in Sources */,
 				7C672B651FB3F66C004D93DF /* ResourceTypeMapping.m in Sources */,
 				7CDF120A20902E8A0044DD95 /* PhotoCell.m in Sources */,

@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString<Optional> *assess;
 @property (nonatomic, strong) NSString<Optional> *avatar;
 @property (nonatomic, strong) NSArray<Optional,GetHomeworkRequestItem_attachmentInfo> *attachmentInfos;
+@property (nonatomic, strong) NSArray<GetHomeworkRequestItem_attachmentInfo, Optional> *attachmentInfos2;
 @end
 
 @interface GetUserHomeworkDetailRequestItem : HttpBaseRequestItem

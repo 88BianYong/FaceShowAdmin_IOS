@@ -21,6 +21,7 @@ static const NSInteger kBtnTagBase = 100;
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
+        [self reloadData];
     }
     return self;
 }
@@ -72,8 +73,6 @@ static const NSInteger kBtnTagBase = 100;
         make.right.bottom.mas_equalTo(-15);
         make.height.mas_equalTo(39);
     }];
-    
-    [self btnAction:self.btnArray.firstObject];
 }
 
 - (UIButton *)btnWithTitle:(NSString *)title {
@@ -112,4 +111,12 @@ static const NSInteger kBtnTagBase = 100;
     }
 }
 
+- (void)reloadData {
+    for (UIButton *btn in self.btnArray) {
+        if ([btn.titleLabel.text isEqualToString:@"合格"]) {
+            [self btnAction:btn];
+            break;
+        }
+    }
+}
 @end
