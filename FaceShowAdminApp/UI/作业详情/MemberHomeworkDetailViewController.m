@@ -16,6 +16,9 @@
 #import "ErrorView.h"
 #import "QASlideView.h"
 #import "HomeworkDetailView.h"
+#import "YXResourceDisplayViewController.h"
+#import "YXPlayerViewController.h"
+#import "ResourceTypeMapping.h"
 
 @interface MemberHomeworkDetailViewController ()<QASlideViewDelegate,QASlideViewDataSource>
 @property (nonatomic, strong) QASlideView *slideView;
@@ -81,6 +84,10 @@
         [self reloadCancleButtonWithComent:comment];
         BLOCK_EXEC(self.commentComleteBlock,comment);
     }];
+    [infoView setPreviewAction:^(GetHomeworkRequestItem_attachmentInfo *attachment) {
+        STRONG_SELF
+        [self previewAttachment:attachment];
+    }];
     return infoView;
 }
 
@@ -96,6 +103,21 @@
         self.cancleButton.hidden = YES;
     }else {
         self.cancleButton.hidden = NO;
+    }
+}
+
+#pragma mark - previewAttachment
+- (void)previewAttachment:(GetHomeworkRequestItem_attachmentInfo *)attach {
+    if ([[ResourceTypeMapping resourceTypeWithString:attach.ext] isEqualToString:@"video"]) {
+        YXPlayerViewController *vc = [[YXPlayerViewController alloc] init];
+        vc.videoUrl = attach.previewUrl;
+        vc.title = attach.resName;
+        [self presentViewController:vc animated:YES completion:nil];
+    }else {
+        YXResourceDisplayViewController *vc = [[YXResourceDisplayViewController alloc]init];
+        vc.urlString = attach.previewUrl;
+        vc.name = attach.resName;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 @end

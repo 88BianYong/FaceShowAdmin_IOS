@@ -169,7 +169,6 @@
         STRONG_SELF
         [self requestHomeworkDetail];
     }];
-    [self reloadCommentViewWithComment:self.data.assess];
 }
 
 - (void)reviewUserHomeworkWithComment:(NSString *)comment {
@@ -315,6 +314,7 @@
             WEAK_SELF
             [attach setPreviewAction:^(HomeworkAttachmentView *attachment) {
                 STRONG_SELF
+                BLOCK_EXEC(self.previewAction,attachment.data);
             }];
             [self.attachmentContainerView addSubview:attach];
             [attach mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -340,30 +340,30 @@
     }
 }
 
+
 - (void)setupMock {
     GetHomeworkRequestItem_attachmentInfo *attach1 = [[GetHomeworkRequestItem_attachmentInfo alloc]init];
     attach1.resName = @"附件1";
     attach1.ext = @"doc";
-    attach1.previewUrl = @"http://pic.58pic.com/58pic/15/23/09/74T58PICZjg_1024.jpg";
+    attach1.previewUrl = @"http://pavlal4my.bkt.clouddn.com/Fh0Q6qT3-7pbhKXBQsvk0XifJHNH";
     GetHomeworkRequestItem_attachmentInfo *attach2 = [[GetHomeworkRequestItem_attachmentInfo alloc]init];
     attach2.resName = @"附件2";
     attach2.ext = @"xlsx";
-    attach2.previewUrl = @"http://fc.topitme.com/c/46/4b/11204201334c04b46cl.jpg";
+    attach2.previewUrl = @"http://pavlal4my.bkt.clouddn.com/Fh0Q6qT3-7pbhKXBQsvk0XifJHNH";
     GetHomeworkRequestItem_attachmentInfo *attach3 = [[GetHomeworkRequestItem_attachmentInfo alloc]init];
     attach3.resName = @"附件3";
     attach3.ext = @"ppt";
-    attach3.previewUrl = @"http://pic.58pic.com/58pic/13/19/88/82X58PICteS_1024.jpg";
+    attach3.previewUrl = @"http://pavlal4my.bkt.clouddn.com/Fh0Q6qT3-7pbhKXBQsvk0XifJHNH";
     GetHomeworkRequestItem_attachmentInfo *attach4 = [[GetHomeworkRequestItem_attachmentInfo alloc]init];
     attach4.resName = @"附件4";
     attach4.ext = @"jpg";
     attach4.previewUrl = @"http://imgsrc.baidu.com/imgad/pic/item/b21bb051f8198618076e0ba640ed2e738bd4e6e3.jpg";
     GetHomeworkRequestItem_attachmentInfo *attach5 = [[GetHomeworkRequestItem_attachmentInfo alloc]init];
     attach5.resName = @"附件5";
-    attach5.ext = @"mp4";
-    attach5.previewUrl = @"http://pic.58pic.com/58pic/13/68/96/68x58PICrws_1024.jpg";
+    attach5.ext = @"m3u8";
+    attach5.previewUrl = @"http://yuncdn.teacherclub.com.cn/course/cf/ts/xkb/zgxsfzhxsyjg/video/4.1-1_l/4.1-1_l.m3u8";
+    //    self.userHomework = [[GetHomeworkRequestItem_userHomework alloc]init];
     self.userHomework.attachmentInfos2 = @[attach1,attach2,attach3,attach4,attach5];
-    self.userHomework.title = @"ahsdioahsiofhoiasf";
-    self.userHomework.content = @"迆你弄已热弄热欧冠no工农人工 工农热弄拜佛问佛跟我跟博物馆北外波纹管版本噢吧宫本 讴歌吧不改波哥噢 能喔";
-    self.userHomework.attachmentInfos = @[attach1,attach2,attach3,attach4,attach5];
 }
+
 @end

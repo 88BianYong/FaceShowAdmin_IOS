@@ -229,7 +229,6 @@
 		7CEA29CA20D8E192000CE9EC /* HomeworkMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */; };
 		7CEA29CD20D8F31B000CE9EC /* HomeworkCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29CC20D8F31B000CE9EC /* HomeworkCommentView.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
-		7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
 		7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8341FA06543001D8C84 /* AlertView.m */; };
 		7CEFC83B1FA06562001D8C84 /* TestsRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8381FA06562001D8C84 /* TestsRootViewController.m */; };
@@ -522,6 +521,16 @@
 		E97D2E8C2136765A00FECFE0 /* ForbidTalkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E8B2136765A00FECFE0 /* ForbidTalkingView.m */; };
 		E97D2E922136A4D400FECFE0 /* HomeworkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E902136A4D300FECFE0 /* HomeworkDetailView.m */; };
 		E97D2E952137A5A700FECFE0 /* HomeworkAttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E942137A5A600FECFE0 /* HomeworkAttachmentView.m */; };
+		E97D2EAD21391ED200FECFE0 /* YXPlayerTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E9B21391ECF00FECFE0 /* YXPlayerTopView.m */; };
+		E97D2EAE21391ED200FECFE0 /* PreventHangingCourseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E9E21391ECF00FECFE0 /* PreventHangingCourseView.m */; };
+		E97D2EAF21391ED200FECFE0 /* YXPlayerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2E9F21391ECF00FECFE0 /* YXPlayerBottomView.m */; };
+		E97D2EB021391ED200FECFE0 /* LePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2EA121391ED000FECFE0 /* LePlayerView.m */; };
+		E97D2EB121391ED200FECFE0 /* YXPlayerBufferingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2EA521391ED000FECFE0 /* YXPlayerBufferingView.m */; };
+		E97D2EB221391ED200FECFE0 /* LePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2EAA21391ED100FECFE0 /* LePlayer.m */; };
+		E97D2EB321391ED200FECFE0 /* YXPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2EAB21391ED200FECFE0 /* YXPlayerViewController.m */; };
+		E97D2EB421391ED200FECFE0 /* YXSlideProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2EAC21391ED200FECFE0 /* YXSlideProgressView.m */; };
+		E97D2EBB21391EF600FECFE0 /* YXFileDownloadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2EB521391EF500FECFE0 /* YXFileDownloadProgressView.m */; };
+		E97D2EBD21391EF600FECFE0 /* FileDownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E97D2EBA21391EF600FECFE0 /* FileDownloadHelper.m */; };
 		E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */; };
 		E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF3208D916F00138D44 /* YXInitRequest.m */; };
 		E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9822FF4208D916F00138D44 /* UpgradeConfig.m */; };
@@ -538,6 +547,14 @@
 		E9B39A7D212E9609007ABA54 /* ContactMemberContactsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A7A212E9608007ABA54 /* ContactMemberContactsRequest.m */; };
 		E9B39A7E212E9609007ABA54 /* ContactMemberContactsRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B39A7C212E9608007ABA54 /* ContactMemberContactsRequest.json */; };
 		E9B39A81212E9815007ABA54 /* IMContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39A80212E9815007ABA54 /* IMContactsViewController.m */; };
+		E9DD071D21391FB300FC8B9C /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD071321391FB100FC8B9C /* DownloadManager.m */; };
+		E9DD071E21391FB300FC8B9C /* DownloaderEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD071621391FB200FC8B9C /* DownloaderEntity.m */; };
+		E9DD071F21391FB300FC8B9C /* PersistentUrlDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD071721391FB200FC8B9C /* PersistentUrlDownloader.m */; };
+		E9DD072021391FB300FC8B9C /* UrlDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD071821391FB200FC8B9C /* UrlDownloader.m */; };
+		E9DD072121391FB300FC8B9C /* DownloadModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = E9DD071B21391FB300FC8B9C /* DownloadModel.xcdatamodel */; };
+		E9DD072221391FB300FC8B9C /* BaseDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD071C21391FB300FC8B9C /* BaseDownloader.m */; };
+		E9DD07252139200700FC8B9C /* YXResourceDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD07242139200700FC8B9C /* YXResourceDisplayViewController.m */; };
+		E9DD07272139244200FC8B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DD07262139244100FC8B9C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -977,7 +994,6 @@
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CEFC81F1FA05FBB001D8C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CEFC8201FA05FBB001D8C84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CEFC82D1FA063BC001D8C84 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -1556,6 +1572,29 @@
 		E97D2E912136A4D400FECFE0 /* HomeworkDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkDetailView.h; sourceTree = "<group>"; };
 		E97D2E932137A5A600FECFE0 /* HomeworkAttachmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkAttachmentView.h; sourceTree = "<group>"; };
 		E97D2E942137A5A600FECFE0 /* HomeworkAttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeworkAttachmentView.m; sourceTree = "<group>"; };
+		E97D2E9A21391ECF00FECFE0 /* YXPlayProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayProgressDelegate.h; sourceTree = "<group>"; };
+		E97D2E9B21391ECF00FECFE0 /* YXPlayerTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPlayerTopView.m; sourceTree = "<group>"; };
+		E97D2E9C21391ECF00FECFE0 /* YXSlideProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXSlideProgressView.h; sourceTree = "<group>"; };
+		E97D2E9D21391ECF00FECFE0 /* LePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LePlayer.h; sourceTree = "<group>"; };
+		E97D2E9E21391ECF00FECFE0 /* PreventHangingCourseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreventHangingCourseView.m; sourceTree = "<group>"; };
+		E97D2E9F21391ECF00FECFE0 /* YXPlayerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPlayerBottomView.m; sourceTree = "<group>"; };
+		E97D2EA021391ED000FECFE0 /* LePlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LePlayerView.h; sourceTree = "<group>"; };
+		E97D2EA121391ED000FECFE0 /* LePlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LePlayerView.m; sourceTree = "<group>"; };
+		E97D2EA221391ED000FECFE0 /* PreventHangingCourseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreventHangingCourseView.h; sourceTree = "<group>"; };
+		E97D2EA321391ED000FECFE0 /* YXPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayerViewController.h; sourceTree = "<group>"; };
+		E97D2EA421391ED000FECFE0 /* YXBrowserExitDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXBrowserExitDelegate.h; sourceTree = "<group>"; };
+		E97D2EA521391ED000FECFE0 /* YXPlayerBufferingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPlayerBufferingView.m; sourceTree = "<group>"; };
+		E97D2EA621391ED100FECFE0 /* SpacemanBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpacemanBlocks.h; sourceTree = "<group>"; };
+		E97D2EA721391ED100FECFE0 /* YXPlayerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayerBottomView.h; sourceTree = "<group>"; };
+		E97D2EA821391ED100FECFE0 /* YXPlayerBufferingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayerBufferingView.h; sourceTree = "<group>"; };
+		E97D2EA921391ED100FECFE0 /* YXPlayerTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayerTopView.h; sourceTree = "<group>"; };
+		E97D2EAA21391ED100FECFE0 /* LePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LePlayer.m; sourceTree = "<group>"; };
+		E97D2EAB21391ED200FECFE0 /* YXPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPlayerViewController.m; sourceTree = "<group>"; };
+		E97D2EAC21391ED200FECFE0 /* YXSlideProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXSlideProgressView.m; sourceTree = "<group>"; };
+		E97D2EB521391EF500FECFE0 /* YXFileDownloadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXFileDownloadProgressView.m; sourceTree = "<group>"; };
+		E97D2EB821391EF600FECFE0 /* FileDownloadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloadHelper.h; sourceTree = "<group>"; };
+		E97D2EB921391EF600FECFE0 /* YXFileDownloadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXFileDownloadProgressView.h; sourceTree = "<group>"; };
+		E97D2EBA21391EF600FECFE0 /* FileDownloadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloadHelper.m; sourceTree = "<group>"; };
 		E9822FEE208D8ABF00138D44 /* TalkingDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkingDataConfig.h; sourceTree = "<group>"; };
 		E9822FEF208D8ABF00138D44 /* TalkingDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkingDataConfig.m; sourceTree = "<group>"; };
 		E9822FF2208D916F00138D44 /* YXInitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXInitRequest.h; sourceTree = "<group>"; };
@@ -1587,6 +1626,20 @@
 		E9B39A7C212E9608007ABA54 /* ContactMemberContactsRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContactMemberContactsRequest.json; sourceTree = "<group>"; };
 		E9B39A7F212E9815007ABA54 /* IMContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMContactsViewController.h; sourceTree = "<group>"; };
 		E9B39A80212E9815007ABA54 /* IMContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMContactsViewController.m; sourceTree = "<group>"; };
+		E9DD071221391FB100FC8B9C /* BaseDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDownloader.h; sourceTree = "<group>"; };
+		E9DD071321391FB100FC8B9C /* DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
+		E9DD071421391FB100FC8B9C /* PersistentUrlDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentUrlDownloader.h; sourceTree = "<group>"; };
+		E9DD071521391FB100FC8B9C /* DownloaderEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloaderEntity.h; sourceTree = "<group>"; };
+		E9DD071621391FB200FC8B9C /* DownloaderEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloaderEntity.m; sourceTree = "<group>"; };
+		E9DD071721391FB200FC8B9C /* PersistentUrlDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentUrlDownloader.m; sourceTree = "<group>"; };
+		E9DD071821391FB200FC8B9C /* UrlDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlDownloader.m; sourceTree = "<group>"; };
+		E9DD071921391FB200FC8B9C /* UrlDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlDownloader.h; sourceTree = "<group>"; };
+		E9DD071A21391FB200FC8B9C /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
+		E9DD071B21391FB300FC8B9C /* DownloadModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DownloadModel.xcdatamodel; sourceTree = "<group>"; };
+		E9DD071C21391FB300FC8B9C /* BaseDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDownloader.m; sourceTree = "<group>"; };
+		E9DD07232139200700FC8B9C /* YXResourceDisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXResourceDisplayViewController.h; sourceTree = "<group>"; };
+		E9DD07242139200700FC8B9C /* YXResourceDisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXResourceDisplayViewController.m; sourceTree = "<group>"; };
+		E9DD07262139244100FC8B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2228,6 +2281,8 @@
 		7CEFC8101FA05FBB001D8C84 /* FaceShowAdminApp */ = {
 			isa = PBXGroup;
 			children = (
+				E97D2EBE21391F5A00FECFE0 /* Download */,
+				E97D2E9721391E6500FECFE0 /* ResourceBrowser */,
 				E914808A2090574C001B7EB5 /* IM */,
 				7CEFC9601FA6D796001D8C84 /* Resource */,
 				7CEFC8F01FA0680E001D8C84 /* UI */,
@@ -2245,11 +2300,11 @@
 				7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */,
 				7CEFC9031FA06CB1001D8C84 /* AppDelegateHelper.h */,
 				7CEFC9041FA06CB1001D8C84 /* AppDelegateHelper.m */,
-				7CEFC81A1FA05FBB001D8C84 /* Assets.xcassets */,
 				7CEFC81F1FA05FBB001D8C84 /* Info.plist */,
 				7CEFC82D1FA063BC001D8C84 /* PrefixHeader.pch */,
 				E9384D5120995D5000632169 /* env.h */,
 				7CEFC93C1FA0866C001D8C84 /* Empty.xib */,
+				E9DD07262139244100FC8B9C /* Assets.xcassets */,
 				7CEFC8201FA05FBB001D8C84 /* main.m */,
 			);
 			path = FaceShowAdminApp;
@@ -3409,6 +3464,64 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E97D2E9721391E6500FECFE0 /* ResourceBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				E97D2EB821391EF600FECFE0 /* FileDownloadHelper.h */,
+				E97D2EBA21391EF600FECFE0 /* FileDownloadHelper.m */,
+				E9DD07232139200700FC8B9C /* YXResourceDisplayViewController.h */,
+				E9DD07242139200700FC8B9C /* YXResourceDisplayViewController.m */,
+				E97D2EB921391EF600FECFE0 /* YXFileDownloadProgressView.h */,
+				E97D2EB521391EF500FECFE0 /* YXFileDownloadProgressView.m */,
+				E97D2E9921391E9D00FECFE0 /* Video */,
+			);
+			path = ResourceBrowser;
+			sourceTree = "<group>";
+		};
+		E97D2E9921391E9D00FECFE0 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				E97D2E9D21391ECF00FECFE0 /* LePlayer.h */,
+				E97D2EAA21391ED100FECFE0 /* LePlayer.m */,
+				E97D2EA021391ED000FECFE0 /* LePlayerView.h */,
+				E97D2EA121391ED000FECFE0 /* LePlayerView.m */,
+				E97D2EA221391ED000FECFE0 /* PreventHangingCourseView.h */,
+				E97D2E9E21391ECF00FECFE0 /* PreventHangingCourseView.m */,
+				E97D2EA621391ED100FECFE0 /* SpacemanBlocks.h */,
+				E97D2EA421391ED000FECFE0 /* YXBrowserExitDelegate.h */,
+				E97D2EA721391ED100FECFE0 /* YXPlayerBottomView.h */,
+				E97D2E9F21391ECF00FECFE0 /* YXPlayerBottomView.m */,
+				E97D2EA821391ED100FECFE0 /* YXPlayerBufferingView.h */,
+				E97D2EA521391ED000FECFE0 /* YXPlayerBufferingView.m */,
+				E97D2EA921391ED100FECFE0 /* YXPlayerTopView.h */,
+				E97D2E9B21391ECF00FECFE0 /* YXPlayerTopView.m */,
+				E97D2EA321391ED000FECFE0 /* YXPlayerViewController.h */,
+				E97D2EAB21391ED200FECFE0 /* YXPlayerViewController.m */,
+				E97D2E9A21391ECF00FECFE0 /* YXPlayProgressDelegate.h */,
+				E97D2E9C21391ECF00FECFE0 /* YXSlideProgressView.h */,
+				E97D2EAC21391ED200FECFE0 /* YXSlideProgressView.m */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		E97D2EBE21391F5A00FECFE0 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				E9DD071221391FB100FC8B9C /* BaseDownloader.h */,
+				E9DD071C21391FB300FC8B9C /* BaseDownloader.m */,
+				E9DD071521391FB100FC8B9C /* DownloaderEntity.h */,
+				E9DD071621391FB200FC8B9C /* DownloaderEntity.m */,
+				E9DD071A21391FB200FC8B9C /* DownloadManager.h */,
+				E9DD071321391FB100FC8B9C /* DownloadManager.m */,
+				E9DD071B21391FB300FC8B9C /* DownloadModel.xcdatamodel */,
+				E9DD071421391FB100FC8B9C /* PersistentUrlDownloader.h */,
+				E9DD071721391FB200FC8B9C /* PersistentUrlDownloader.m */,
+				E9DD071921391FB200FC8B9C /* UrlDownloader.h */,
+				E9DD071821391FB200FC8B9C /* UrlDownloader.m */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
 		E9822FF1208D910E00138D44 /* 升级 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3533,10 +3646,10 @@
 				E91481162090589E001B7EB5 /* 研修宝‘‘聊聊’’实现方案.pdf in Resources */,
 				7CEFC9021FA06A5C001D8C84 /* Default-568h@2x.png in Resources */,
 				7CEFC93D1FA0866C001D8C84 /* Empty.xib in Resources */,
+				E9DD07272139244200FC8B9C /* Assets.xcassets in Resources */,
 				7CDF127C20902FBF0044DD95 /* classMomentComment_mock.json in Resources */,
 				7CEFC8471FA06577001D8C84 /* neterror_mock.json in Resources */,
 				E91481172090589E001B7EB5 /* 研修宝“聊聊”集成文档v1.0.pdf in Resources */,
-				7CEFC81B1FA05FBB001D8C84 /* Assets.xcassets in Resources */,
 				7CEFC8451FA06577001D8C84 /* errorcode_mock.json in Resources */,
 				7CDF127720902FBF0044DD95 /* classMomentPublish_mock.json in Resources */,
 			);
@@ -3597,6 +3710,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */,
+				E97D2EBD21391EF600FECFE0 /* FileDownloadHelper.m in Sources */,
+				E97D2EAE21391ED200FECFE0 /* PreventHangingCourseView.m in Sources */,
 				7CEFC9711FA702C5001D8C84 /* ClassListRequest.m in Sources */,
 				E94DDEB620DB523600729A67 /* TaskScoreViewController.m in Sources */,
 				924297C720DA33060039038E /* CreateComplexTableHeaderView.m in Sources */,
@@ -3624,6 +3739,7 @@
 				E9540BF820CA1E2200D7DDA2 /* TopicGet.pbobjc.m in Sources */,
 				7CDF121E20902EC10044DD95 /* CircleSpreadTransition.m in Sources */,
 				92E886A51FB3FCF10006A08E /* ScheduleCreateRequest.m in Sources */,
+				E9DD07252139200700FC8B9C /* YXResourceDisplayViewController.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
@@ -3631,6 +3747,7 @@
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
 				E94DDEB220DB523600729A67 /* TaskRankingViewController.m in Sources */,
 				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
+				E97D2EB321391ED200FECFE0 /* YXPlayerViewController.m in Sources */,
 				7C3F75A220DB813E00F4F418 /* GetUserPlatformRequest.m in Sources */,
 				7C672B8D1FB53967004D93DF /* GetCourseCommentRequest.m in Sources */,
 				928D0CB5213535FF0043E5A8 /* ProjectsByTypeFetcher.m in Sources */,
@@ -3739,6 +3856,7 @@
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
 				921016DA20D8F073007FEBB7 /* GetQuestionTemplatesRequest.m in Sources */,
+				E97D2EB021391ED200FECFE0 /* LePlayerView.m in Sources */,
 				7C2E6F8F20CA216E0066DE7C /* IMGroupSettingViewController.m in Sources */,
 				7CEFC95C1FA6D331001D8C84 /* VerifyCodeInputView.m in Sources */,
 				E94DDE6020D9F02400729A67 /* TaskFilterItemView.m in Sources */,
@@ -3846,6 +3964,7 @@
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				E9540BF720CA1E2200D7DDA2 /* TopicMsg.pbobjc.m in Sources */,
 				E94DDECD20DB551D00729A67 /* TaskNameCell.m in Sources */,
+				E97D2EAD21391ED200FECFE0 /* YXPlayerTopView.m in Sources */,
 				7C672B151FB0339D004D93DF /* TaskListCell.m in Sources */,
 				7C672B5F1FB3EC6D004D93DF /* CourseResourceFetcher.m in Sources */,
 				7CEFC91C1FA071BE001D8C84 /* ErrorView.m in Sources */,
@@ -3917,6 +4036,7 @@
 				E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */,
 				E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */,
 				E9540C3420CA1F0D00D7DDA2 /* IMEventHandler.m in Sources */,
+				E97D2EB121391ED200FECFE0 /* YXPlayerBufferingView.m in Sources */,
 				7CDF123220902EE60044DD95 /* ClassMomentTableHeaderView.m in Sources */,
 				7CEFC8E91FA06791001D8C84 /* GetVerifyCodeRequest.m in Sources */,
 				7CEFC95B1FA6D331001D8C84 /* PasswordInputView.m in Sources */,
@@ -3945,6 +4065,7 @@
 				7C2E6F8E20CA216E0066DE7C /* IMPrivateSettingViewController.m in Sources */,
 				7C06895D20CFBB0D00C7CA14 /* MyTrainingProjectViewController.m in Sources */,
 				92CAA6361FAAB69400DB5873 /* QAFileUploadSecondStepRequest.m in Sources */,
+				E97D2EBB21391EF600FECFE0 /* YXFileDownloadProgressView.m in Sources */,
 				E9540C0720CA1E6800D7DDA2 /* IMImageMessage.m in Sources */,
 				921016D420D8E995007FEBB7 /* CreateEvaluateViewController.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
@@ -3984,6 +4105,7 @@
 				928D0CB22135359A0043E5A8 /* ProjectsByTypeRequest.m in Sources */,
 				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
 				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
+				E9DD072121391FB300FC8B9C /* DownloadModel.xcdatamodel in Sources */,
 				924297DF20DA6AF90039038E /* EditQuestionTypeView.m in Sources */,
 				E9B39A74212E94F0007ABA54 /* ContactsCurrentClassView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
@@ -4015,6 +4137,7 @@
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
 				7CDF124C20902F200044DD95 /* PhotoBrowserController.m in Sources */,
 				7CDF128120902FBF0044DD95 /* ClassMomentCancelLikeRequest.m in Sources */,
+				E9DD071D21391FB300FC8B9C /* DownloadManager.m in Sources */,
 				921016E320D8FBEA007FEBB7 /* QuestionTemplatesViewController.m in Sources */,
 				E9A9537620E48E1200779590 /* ClassRankViewController.m in Sources */,
 				7C672B841FB53929004D93DF /* CourseCommentViewController.m in Sources */,
@@ -4034,6 +4157,7 @@
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
 				E94DDE6A20DA0F9200729A67 /* GetUserHomeworksRequest.m in Sources */,
 				7CDF123620902EE60044DD95 /* ReportTableViewCell.m in Sources */,
+				E9DD071F21391FB300FC8B9C /* PersistentUrlDownloader.m in Sources */,
 				7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */,
 				436E6DFE1FB3F609009950EA /* UserInfoHeaderCell.m in Sources */,
 				E9540C2620CA1EB200D7DDA2 /* SaveImageMsgRequest.m in Sources */,
@@ -4043,6 +4167,7 @@
 				9218607C1FA9B9930018D982 /* NoticeSaveViewController.m in Sources */,
 				7CEFC8FC1FA068D3001D8C84 /* ScrollBaseViewController.m in Sources */,
 				9235F9891FB3EE0F003A9027 /* ScheduleCreateViewController.m in Sources */,
+				E97D2EB221391ED200FECFE0 /* LePlayer.m in Sources */,
 				E9540C3520CA1F0D00D7DDA2 /* IMTopicChangeEventHandler.m in Sources */,
 				7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */,
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
@@ -4054,13 +4179,17 @@
 				7CDF128320902FBF0044DD95 /* ClassMomentReplyRequest.m in Sources */,
 				E94DDDFE20D36A5F00729A67 /* ScoreDefineViewController.m in Sources */,
 				923427791FA722CF003BCEFD /* TodaySignInsCell.m in Sources */,
+				E9DD071E21391FB300FC8B9C /* DownloaderEntity.m in Sources */,
 				928D0CAF21352BEF0043E5A8 /* ProjectsByTypeViewController.m in Sources */,
 				7C672B8F1FB53967004D93DF /* GetCourseCommentTitleRequest.m in Sources */,
 				7C672B531FB2DF93004D93DF /* CourseTaskViewController.m in Sources */,
 				7CDF120E20902E8A0044DD95 /* AlbumListViewController.m in Sources */,
 				7CDF124E20902F200044DD95 /* ClassMomentUserViewController.m in Sources */,
+				E9DD072221391FB300FC8B9C /* BaseDownloader.m in Sources */,
 				7C672B741FB40100004D93DF /* CourseBriefViewController.m in Sources */,
+				E97D2EAF21391ED200FECFE0 /* YXPlayerBottomView.m in Sources */,
 				7C672B2E1FB15431004D93DF /* QuestionRequestItem.m in Sources */,
+				E9DD072021391FB300FC8B9C /* UrlDownloader.m in Sources */,
 				E91481AB209062C4001B7EB5 /* IMTextMessageRightCell.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
 				7CDF128020902FBF0044DD95 /* ClassMomentUserListFetcher.m in Sources */,
@@ -4099,6 +4228,7 @@
 				E914818E20906203001B7EB5 /* IMTimeHandleManger.m in Sources */,
 				7C2DC37D20F3124A00B689C0 /* GetUserInfoDetailRequest.m in Sources */,
 				7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */,
+				E97D2EB421391ED200FECFE0 /* YXSlideProgressView.m in Sources */,
 				7CDF121C20902EC10044DD95 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
 				7C06894D20CF79C700C7CA14 /* TrainingProfileHeaderView.m in Sources */,
 				E94DDEE320DB5AC000729A67 /* ScoreAverageView.m in Sources */,

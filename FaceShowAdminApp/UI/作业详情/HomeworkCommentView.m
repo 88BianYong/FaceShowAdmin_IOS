@@ -21,7 +21,6 @@ static const NSInteger kBtnTagBase = 100;
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-        [self reloadData];
     }
     return self;
 }
