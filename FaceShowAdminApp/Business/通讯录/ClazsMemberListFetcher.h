@@ -12,4 +12,5 @@
 extern NSString * const kClassMemberDidChangeNotification;
 
 @interface ClazsMemberListFetcher : PagedListFetcherBase
+@property (nonatomic, strong) NSString<Optional> *keyWords;
 @end

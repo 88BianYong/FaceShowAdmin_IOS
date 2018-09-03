@@ -10,10 +10,12 @@
 #import "ErrorView.h"
 #import "GetUserInfoRequest.h"
 #import "UserSignInPercentRequest.h"
+#import "GetMemberIdRequest.h"
 #import "DetailCellView.h"
 #import "DetailWithAttachmentCellView.h"
 #import "UserSignInListViewController.h"
 #import "UnsignedMemberListViewController.h"
+#import "ChatViewController.h"
 
 @interface ContactsDetailViewController ()
 @property (nonatomic, strong) ErrorView *errorView;
@@ -23,6 +25,8 @@
 @property (nonatomic, strong) GetUserInfoRequest *userInfoRequest;
 @property (nonatomic, strong) UserSignInPercentRequest *percentRequest;
 @property (nonatomic, strong) GetUserInfoRequestItem_Data *data;
+@property (nonatomic, strong) GetMemberIdRequest *memberIdRequest;
+@property (nonatomic, strong) GetMemberIdRequestItem_data *memberData;
 @end
 
 @implementation ContactsDetailViewController
@@ -42,8 +46,10 @@
         make.edges.mas_equalTo(0);
     }];
     self.errorView.hidden = YES;
-    
+
     [self requestUserInfo];
+
+    [self requestMemberId];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +78,16 @@
     }];
 }
 
+- (void)requestMemberId {
+    self.memberIdRequest = [[GetMemberIdRequest alloc]init];
+    self.memberIdRequest.bizSource = @"1";
+    self.memberIdRequest.userId = self.userId;
+    [self.memberIdRequest startRequestWithRetClass:[GetMemberIdRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        GetMemberIdRequestItem *item = (GetMemberIdRequestItem *)retItem;
+        self.memberData = item.data;
+    }];
+}
+
 #pragma mark - setupUI
 - (void)setupUI {
     UIView *headWhiteView = [[UIView alloc] init];
@@ -96,6 +112,16 @@
         make.centerY.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(55, 55));
     }];
+
+    UIButton *sendMessageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [sendMessageButton setImage:[UIImage imageNamed:@"对话"] forState:0];
+    [sendMessageButton addTarget:self action:@selector(clickSendMessageAction) forControlEvents:UIControlEventTouchUpInside];
+    [headWhiteView addSubview:sendMessageButton];
+    [sendMessageButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-10);
+        make.size.mas_equalTo(CGSizeMake(25, 25));
+        make.centerY.mas_equalTo(0);
+    }];
     
     UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.font = [UIFont boldSystemFontOfSize:18];
@@ -104,10 +130,11 @@
     [headWhiteView addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(avatarImageView.mas_right).offset(15);
-        make.right.mas_equalTo(-15);
+        make.right.mas_equalTo(sendMessageButton.mas_left).offset(-15);
         make.centerY.mas_equalTo(0);
     }];
-    
+
+
     UIView *bottomLine = [[UIView alloc] init];
     bottomLine.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     [headWhiteView addSubview:bottomLine];
@@ -128,6 +155,24 @@
     self.lastBottom = headWhiteView.mas_bottom;
     for (int i = 0; i < titles.count; i++) {
         DetailCellView *detailCell = [[DetailCellView alloc] initWithTitle:titles[i] content:contents[i]];
+        WEAK_SELF
+        detailCell.clickContentBlock = ^(NSString *content){
+            STRONG_SELF
+            if (i) {
+                return;
+            }
+            NSString *urlStr=[[NSString alloc] initWithFormat:@"tel:%@",content];
+            UIApplication *application = [UIApplication sharedApplication];
+            NSURL *URL = [NSURL URLWithString:urlStr];
+            if (@available(iOS 10.0, *)) {
+                [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+
+                }];
+            } else {
+                // Fallback on earlier versions
+                [application openURL:URL];
+            }
+        };
         if (i == titles.count - 1) {
             detailCell.needBottomLine = NO;
         }
@@ -136,6 +181,9 @@
             make.left.right.mas_equalTo(0);
             make.height.mas_equalTo(46);
             make.top.mas_equalTo(self.lastBottom);
+            if (self.isAdministrator && i == titles.count - 1){
+                make.bottom.mas_equalTo(0);
+            }
         }];
         self.lastBottom = detailCell.mas_bottom;
     }
@@ -201,6 +249,13 @@
         UserSignInPercentRequestItem *item = (UserSignInPercentRequestItem *)retItem;
         self.percentCell.contentLabel.text = [NSString stringWithFormat:@"%.f%%", roundf(item.data.userSigninNum.floatValue/item.data.totalSigninNum.floatValue*100)];
     }];
+}
+
+-(void)clickSendMessageAction{
+    [self.view nyx_showToast:@"开启私聊..."];
+    if (self.data) {
+
+    }
 }
 
 @end

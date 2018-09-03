@@ -11,6 +11,7 @@
 @interface DetailCellView : UIView
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, assign) BOOL needBottomLine;
+@property (nonatomic, copy) void (^clickContentBlock)(NSString *content);
 
 - (instancetype)initWithTitle:(NSString *)title content:(NSString *)content;
 @end

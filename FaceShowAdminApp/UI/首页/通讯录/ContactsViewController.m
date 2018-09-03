@@ -13,8 +13,13 @@
 #import "ContactsDetailViewController.h"
 #import "HubeiContactsDetailViewController.h"
 #import "HubeiAddMemberViewController.h"
+#import "ContactsSearchHeadView.h"
+#import "ContactsSearchResultView.h"
 
-@interface ContactsViewController ()
+@interface ContactsViewController ()<ContactsSearchHeadViewDelegate>
+@property (nonatomic, strong) ContactsSearchHeadView *headerView;
+@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, strong) ContactsSearchResultView *resultView;
 
 @end
 
@@ -23,9 +28,10 @@
 - (void)viewDidLoad {
     ClazsMemberListFetcher *fetcher = [[ClazsMemberListFetcher alloc] init];
     fetcher.pagesize = 10;
+    fetcher.keyWords = @"";
     self.dataFetcher = fetcher;
     [super viewDidLoad];
-    self.title = @"通讯录";
+    self.title = @"人员管理";
     [self setupUI];
 }
 
@@ -60,7 +66,6 @@
         
         // 隐藏失败界面
         [self hideErrorView];
-        
         [self->_header setLastUpdateTime:[NSDate date]];
         self.total = total;
         [self.dataArray removeAllObjects];
@@ -123,6 +128,22 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[ContactsListCell class] forCellReuseIdentifier:@"ContactsListCell"];
     [self setupNavRightView];
+    self.headerView = [[ContactsSearchHeadView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
+    self.headerView.delegate = self;
+    [self.view addSubview:self.headerView];
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        if (@available(iOS 11.0, *)) {
+            make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        } else {
+            make.top.mas_equalTo(0);
+        }
+        make.height.mas_equalTo(44);
+    }];
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.headerView.mas_bottom);
+        make.left.right.bottom.mas_equalTo(0);
+    }];
 }
 
 - (void)setupNavRightView {
@@ -235,6 +256,90 @@
         vc.isAdministrator = indexPath.section == 0;
         [self.navigationController pushViewController:vc animated:YES];
 #endif
+    }
+}
+
+#pragma mark - SearchHeadViewDelegate
+- (void)searchFieldDidBeginEditting {
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    if (self.maskView.superview) {
+        return;
+    }
+    if ([UIDevice currentDevice].systemVersion.floatValue<11) {
+        [self.headerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(20);
+            make.height.mas_equalTo(44);
+        }];
+    }
+
+    self.maskView = [[UIView alloc]init];
+    self.maskView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.5];
+    [self.view addSubview:self.maskView];
+    [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.headerView.mas_top).mas_offset(44);
+        make.left.right.bottom.mas_equalTo(0);
+    }];
+
+    self.resultView = [[ContactsSearchResultView alloc]init];
+    WEAK_SELF
+    [self.resultView setSelectBlock:^(NSIndexPath *indexPath, GetUserInfoRequestItem_Data *data) {
+        STRONG_SELF
+        [self.headerView endSearching];
+        if (indexPath.section == 0) {
+            ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
+            GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
+            vc.userId = data.userId;
+            vc.isAdministrator = indexPath.section == 0;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else {
+#ifdef HuBeiApp
+            HubeiContactsDetailViewController *vc = [[HubeiContactsDetailViewController alloc] init];
+            GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
+            vc.userId = data.userId;
+            vc.isAdministrator = indexPath.section == 0;
+            [self.navigationController pushViewController:vc animated:YES];
+#else
+            ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
+            GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
+            vc.userId = data.userId;
+            vc.isAdministrator = indexPath.section == 0;
+            [self.navigationController pushViewController:vc animated:YES];
+#endif
+        }
+    }];
+    [self.view addSubview:self.resultView];
+    self.resultView.hidden = YES;
+    [self.resultView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.maskView.mas_top);
+        make.left.right.bottom.mas_equalTo(0);
+    }];
+}
+- (void)searchFieldDidEndEditting {
+    if ([UIDevice currentDevice].systemVersion.floatValue<11) {
+        [self.headerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+            make.height.mas_equalTo(44);
+        }];
+    }
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.headerView.mas_bottom);
+    }];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.maskView removeFromSuperview];
+    [self.resultView removeFromSuperview];
+    [self.emptyView removeFromSuperview];
+}
+
+- (void)searchFieldDidTextChange:(NSString *)searchStr{
+    if (searchStr.length > 0){
+        self.resultView.hidden = NO;
+        self.emptyView.hidden = YES;
+        [self.resultView searchWithString:searchStr];
+    }else {
+        self.resultView.hidden = YES;
+        self.emptyView.hidden = YES;
     }
 }
 

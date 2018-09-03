@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YXApnsContentModel.h"
 @class IMTopic;
 
 @interface AppDelegateHelper : NSObject
@@ -29,4 +30,11 @@
 - (void)handleShowTrainingProfile;
 - (void)handleShowMyProject;
 - (void)handleShowProjectList;
+- (void)handleOpenUrl:(NSURL *)url;
+
+// Apns
+- (void)handleApnsData:(YXApnsContentModel *)apns;
+- (void)handleApnsDataOnForeground:(YXApnsContentModel *)apns;
+
+
 @end

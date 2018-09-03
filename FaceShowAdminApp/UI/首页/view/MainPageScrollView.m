@@ -27,7 +27,7 @@ static const CGFloat kTopMargin = 16.f;
 }
 #pragma mark - setupUI
 - (void)setupUI {
-    NSArray *array = @[@{@"name":@"通讯录",@"image":@"通讯录",@"tag":@(MainPagePushType_Contacts)},
+    NSArray *array = @[@{@"name":@"人员管理",@"image":@"通讯录",@"tag":@(MainPagePushType_Contacts)},
                        @{@"name":@"通知管理",@"image":@"通知管理",@"tag":@(MainPagePushType_Notice)},
                        @{@"name":@"签到记录",@"image":@"签到记录",@"tag":@(MainPagePushType_Check)},
                        @{@"name":@"日程管理",@"image":@"日程管理",@"tag":@(MainPagePushType_Schedule)},

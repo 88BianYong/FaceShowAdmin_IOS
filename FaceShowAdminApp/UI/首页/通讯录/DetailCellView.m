@@ -17,7 +17,6 @@
 - (instancetype)initWithTitle:(NSString *)title content:(NSString *)content {
     if (self = [super init]) {
         self.backgroundColor = [UIColor colorWithHexString:@"ffffff"];
-        
         UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.font = [UIFont systemFontOfSize:14];
         titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
@@ -32,6 +31,9 @@
         self.contentLabel.textColor = [UIColor colorWithHexString:@"999999"];
         self.contentLabel.textAlignment = NSTextAlignmentRight;
         self.contentLabel.text = content;
+        self.contentLabel.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickContentLabelAction)];
+        [self.contentLabel addGestureRecognizer:tap];
         [self addSubview:self.contentLabel];
         [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_greaterThanOrEqualTo(titleLabel.mas_right).mas_offset(10);
@@ -54,5 +56,10 @@
     _needBottomLine = needBottomLine;
     self.bottomLineView.hidden = !needBottomLine;
 }
+
+-(void)clickContentLabelAction{
+    BLOCK_EXEC(self.clickContentBlock,self.contentLabel.text);
+}
+
 
 @end

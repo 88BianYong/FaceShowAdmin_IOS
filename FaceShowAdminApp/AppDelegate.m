@@ -15,6 +15,7 @@
 #import <BaiduMapKit/BaiduMapAPI_Map/BMKMapComponent.h>
 #import "YXInitRequest.h"
 #import "BasicDataManager.h"
+#import "YXGeTuiManager.h"
 
 @interface AppDelegate ()<BMKGeneralDelegate>
 @property (nonatomic, strong) AppDelegateHelper *appDelegateHelper;
@@ -79,6 +80,7 @@
     WEAK_SELF
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kUserDidLoginNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
+        [[YXGeTuiManager sharedInstance] loginSuccess];
         [[UserPromptsManager sharedInstance] resumeHeartbeat];
         [[IMManager sharedInstance]setupWithCurrentMember:[[UserManager sharedInstance].userModel.imInfo.imMember toIMMember] token:[UserManager sharedInstance].userModel.imInfo.imToken];
         [[IMManager sharedInstance]setupWithSceneID:[UserManager sharedInstance].userModel.currentClass.clazsId];
@@ -87,6 +89,7 @@
     }];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kUserDidLogoutNotification object:nil]subscribeNext:^(id x) {
         STRONG_SELF
+        [[YXGeTuiManager sharedInstance] logoutSuccess];
         [self.appDelegateHelper handleLogoutSuccess];
         [[IMManager sharedInstance] stopConnection];
         [[UserPromptsManager sharedInstance] suspendHeartbeat];
@@ -148,6 +151,40 @@
     [[IMManager sharedInstance] stopConnection];
     [GlobalUtils clearCore];
 }
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [GeTuiSdk resume]; // 后台恢复SDK 运行
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [[YXGeTuiManager sharedInstance] registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    DDLogError(@"%@",[NSString stringWithFormat: @"Error: %@",err]);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    [[YXGeTuiManager sharedInstance] handleApnsContent:userInfo];
+    application.applicationIconBadgeNumber -= 1;
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    [self.appDelegateHelper handleOpenUrl:url];
+    return YES;
+}
+
+#pragma mark - Apns Delegate
+- (void)handleApnsData:(YXApnsContentModel *)apns {
+    [self.appDelegateHelper handleApnsData:apns];
+}
+
+- (void)handleApnsDataOnForeground:(YXApnsContentModel *)apns {
+    [self.appDelegateHelper handleApnsDataOnForeground:apns];
+}
+
 
 #pragma mark - BMKGeneralDelegate
 - (void)onGetNetworkState:(int)iError {

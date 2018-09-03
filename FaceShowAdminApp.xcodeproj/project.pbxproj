@@ -93,6 +93,8 @@
 		7C32AD5A21215733000705E8 /* BasicDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C32AD5921215733000705E8 /* BasicDataRequest.m */; };
 		7C32AD6021216CC2000705E8 /* AreaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C32AD5E21216CC1000705E8 /* AreaManager.m */; };
 		7C32AD73212170FA000705E8 /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C32AD72212170FA000705E8 /* area.json */; };
+		7C3F6BE021393AAC007B2A28 /* ContactsSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F6BDF21393AAC007B2A28 /* ContactsSearchResultView.m */; };
+		7C3F6BE3213D0A87007B2A28 /* GetMemberIdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F6BE2213D0A87007B2A28 /* GetMemberIdRequest.m */; };
 		7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */; };
 		7C3F75A120DB813E00F4F418 /* GetUserRolesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F759F20DB813D00F4F418 /* GetUserRolesRequest.m */; };
 		7C3F75A220DB813E00F4F418 /* GetUserPlatformRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F75A020DB813E00F4F418 /* GetUserPlatformRequest.m */; };
@@ -151,6 +153,28 @@
 		7C6BC158211A940B002DF5B0 /* ProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BC157211A940A002DF5B0 /* ProjectListViewController.m */; };
 		7C6BC15B211BD897002DF5B0 /* ProjectListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BC15A211BD897002DF5B0 /* ProjectListRequest.m */; };
 		7C6BC15E211BDE05002DF5B0 /* ProjectListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BC15D211BDE05002DF5B0 /* ProjectListFetcher.m */; };
+		7C6CE77C212E935300BA6594 /* ContactsSearchHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE77B212E935300BA6594 /* ContactsSearchHeadView.m */; };
+		7C6CE78521339B8D00BA6594 /* YXApnsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE77F21339B8D00BA6594 /* YXApnsContentModel.m */; };
+		7C6CE78621339B8D00BA6594 /* GeTuiConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE78321339B8D00BA6594 /* GeTuiConfig.m */; };
+		7C6CE78721339B8D00BA6594 /* YXGeTuiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE78421339B8D00BA6594 /* YXGeTuiManager.m */; };
+		7C6CE78E2133A08C00BA6594 /* libGeTuiSdk-1.6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6CE78A2133A08C00BA6594 /* libGeTuiSdk-1.6.2.0.a */; };
+		7C6CE78F2133A08C00BA6594 /* libGtExtensionSdk-1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6CE78D2133A08C00BA6594 /* libGtExtensionSdk-1.1.0.a */; };
+		7C6CE79D2133A50A00BA6594 /* ApnsResourceDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7912133A50A00BA6594 /* ApnsResourceDisplayViewController.m */; };
+		7C6CE79E2133A50A00BA6594 /* ApnsQuestionnaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7922133A50A00BA6594 /* ApnsQuestionnaireViewController.m */; };
+		7C6CE79F2133A50A00BA6594 /* ApnsMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7932133A50A00BA6594 /* ApnsMessageDetailViewController.m */; };
+		7C6CE7A02133A50A00BA6594 /* ApnsSignInDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7942133A50A00BA6594 /* ApnsSignInDetailViewController.m */; };
+		7C6CE7A12133A50A00BA6594 /* ApnsCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE79B2133A50A00BA6594 /* ApnsCourseDetailViewController.m */; };
+		7C6CE7A22133A50A00BA6594 /* ApnsQuestionnaireResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE79C2133A50A00BA6594 /* ApnsQuestionnaireResultViewController.m */; };
+		7C6CE7AA2133A59000BA6594 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7A52133A58F00BA6594 /* MessageViewController.m */; };
+		7C6CE7AB2133A59000BA6594 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7A72133A58F00BA6594 /* MessageDetailViewController.m */; };
+		7C6CE7AC2133A59000BA6594 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7A92133A58F00BA6594 /* MessageCell.m */; };
+		7C6CE7BA2133A64A00BA6594 /* NotiListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7B02133A64A00BA6594 /* NotiListFetcher.m */; };
+		7C6CE7BB2133A64A00BA6594 /* GetNoticeListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7B12133A64A00BA6594 /* GetNoticeListRequest.m */; };
+		7C6CE7BC2133A64A00BA6594 /* GetNoticeDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7B22133A64A00BA6594 /* GetNoticeDetailRequest.m */; };
+		7C6CE7BD2133A64A00BA6594 /* GetNoticeDetail_Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C6CE7B32133A64A00BA6594 /* GetNoticeDetail_Mock.json */; };
+		7C6CE7BE2133A64A00BA6594 /* UserMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7B42133A64A00BA6594 /* UserMessageManager.m */; };
+		7C6CE7BF2133A64A00BA6594 /* MessageHasUnViewRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CE7B62133A64A00BA6594 /* MessageHasUnViewRequest.m */; };
+		7C6CE7C02133A64A00BA6594 /* GetNoticeList_Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C6CE7B72133A64A00BA6594 /* GetNoticeList_Mock.json */; };
 		7C84301520BBD2E000A05C14 /* SignInPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */; };
 		7C84301820BBD3DF00A05C14 /* SignInPlaceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301720BBD3DF00A05C14 /* SignInPlaceHeaderView.m */; };
 		7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301E20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m */; };
@@ -724,6 +748,10 @@
 		7C32AD5E21216CC1000705E8 /* AreaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaManager.m; sourceTree = "<group>"; };
 		7C32AD5F21216CC1000705E8 /* AreaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaManager.h; sourceTree = "<group>"; };
 		7C32AD72212170FA000705E8 /* area.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = area.json; sourceTree = "<group>"; };
+		7C3F6BDE21393AAC007B2A28 /* ContactsSearchResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsSearchResultView.h; sourceTree = "<group>"; };
+		7C3F6BDF21393AAC007B2A28 /* ContactsSearchResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsSearchResultView.m; sourceTree = "<group>"; };
+		7C3F6BE1213D0A87007B2A28 /* GetMemberIdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetMemberIdRequest.h; sourceTree = "<group>"; };
+		7C3F6BE2213D0A87007B2A28 /* GetMemberIdRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMemberIdRequest.m; sourceTree = "<group>"; };
 		7C3F758E20DA45BC00F4F418 /* ScoreEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreEditViewController.h; sourceTree = "<group>"; };
 		7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreEditViewController.m; sourceTree = "<group>"; };
 		7C3F759D20DB813D00F4F418 /* GetUserRolesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserRolesRequest.h; sourceTree = "<group>"; };
@@ -840,6 +868,50 @@
 		7C6BC15A211BD897002DF5B0 /* ProjectListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectListRequest.m; sourceTree = "<group>"; };
 		7C6BC15C211BDE05002DF5B0 /* ProjectListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectListFetcher.h; sourceTree = "<group>"; };
 		7C6BC15D211BDE05002DF5B0 /* ProjectListFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectListFetcher.m; sourceTree = "<group>"; };
+		7C6CE77A212E935300BA6594 /* ContactsSearchHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsSearchHeadView.h; sourceTree = "<group>"; };
+		7C6CE77B212E935300BA6594 /* ContactsSearchHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsSearchHeadView.m; sourceTree = "<group>"; };
+		7C6CE77D212E939700BA6594 /* ContactsSearchHeadViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsSearchHeadViewDelegate.h; sourceTree = "<group>"; };
+		7C6CE77F21339B8D00BA6594 /* YXApnsContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXApnsContentModel.m; sourceTree = "<group>"; };
+		7C6CE78021339B8D00BA6594 /* GeTuiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiConfig.h; sourceTree = "<group>"; };
+		7C6CE78121339B8D00BA6594 /* YXGeTuiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGeTuiManager.h; sourceTree = "<group>"; };
+		7C6CE78221339B8D00BA6594 /* YXApnsContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXApnsContentModel.h; sourceTree = "<group>"; };
+		7C6CE78321339B8D00BA6594 /* GeTuiConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeTuiConfig.m; sourceTree = "<group>"; };
+		7C6CE78421339B8D00BA6594 /* YXGeTuiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGeTuiManager.m; sourceTree = "<group>"; };
+		7C6CE78821339D8200BA6594 /* FaceShowAdminApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceShowAdminApp.entitlements; sourceTree = "<group>"; };
+		7C6CE78A2133A08C00BA6594 /* libGeTuiSdk-1.6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.6.2.0.a"; sourceTree = "<group>"; };
+		7C6CE78B2133A08C00BA6594 /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
+		7C6CE78C2133A08C00BA6594 /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
+		7C6CE78D2133A08C00BA6594 /* libGtExtensionSdk-1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGtExtensionSdk-1.1.0.a"; sourceTree = "<group>"; };
+		7C6CE7912133A50A00BA6594 /* ApnsResourceDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsResourceDisplayViewController.m; sourceTree = "<group>"; };
+		7C6CE7922133A50A00BA6594 /* ApnsQuestionnaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsQuestionnaireViewController.m; sourceTree = "<group>"; };
+		7C6CE7932133A50A00BA6594 /* ApnsMessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsMessageDetailViewController.m; sourceTree = "<group>"; };
+		7C6CE7942133A50A00BA6594 /* ApnsSignInDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsSignInDetailViewController.m; sourceTree = "<group>"; };
+		7C6CE7952133A50A00BA6594 /* ApnsCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsCourseDetailViewController.h; sourceTree = "<group>"; };
+		7C6CE7962133A50A00BA6594 /* ApnsQuestionnaireResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsQuestionnaireResultViewController.h; sourceTree = "<group>"; };
+		7C6CE7972133A50A00BA6594 /* ApnsQuestionnaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsQuestionnaireViewController.h; sourceTree = "<group>"; };
+		7C6CE7982133A50A00BA6594 /* ApnsResourceDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsResourceDisplayViewController.h; sourceTree = "<group>"; };
+		7C6CE7992133A50A00BA6594 /* ApnsSignInDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsSignInDetailViewController.h; sourceTree = "<group>"; };
+		7C6CE79A2133A50A00BA6594 /* ApnsMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsMessageDetailViewController.h; sourceTree = "<group>"; };
+		7C6CE79B2133A50A00BA6594 /* ApnsCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsCourseDetailViewController.m; sourceTree = "<group>"; };
+		7C6CE79C2133A50A00BA6594 /* ApnsQuestionnaireResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsQuestionnaireResultViewController.m; sourceTree = "<group>"; };
+		7C6CE7A42133A58F00BA6594 /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
+		7C6CE7A52133A58F00BA6594 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		7C6CE7A62133A58F00BA6594 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		7C6CE7A72133A58F00BA6594 /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
+		7C6CE7A82133A58F00BA6594 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		7C6CE7A92133A58F00BA6594 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		7C6CE7AE2133A64A00BA6594 /* UserMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessageManager.h; sourceTree = "<group>"; };
+		7C6CE7AF2133A64A00BA6594 /* MessageHasUnViewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHasUnViewRequest.h; sourceTree = "<group>"; };
+		7C6CE7B02133A64A00BA6594 /* NotiListFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiListFetcher.m; sourceTree = "<group>"; };
+		7C6CE7B12133A64A00BA6594 /* GetNoticeListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNoticeListRequest.m; sourceTree = "<group>"; };
+		7C6CE7B22133A64A00BA6594 /* GetNoticeDetailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNoticeDetailRequest.m; sourceTree = "<group>"; };
+		7C6CE7B32133A64A00BA6594 /* GetNoticeDetail_Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetNoticeDetail_Mock.json; sourceTree = "<group>"; };
+		7C6CE7B42133A64A00BA6594 /* UserMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMessageManager.m; sourceTree = "<group>"; };
+		7C6CE7B52133A64A00BA6594 /* NotiListFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiListFetcher.h; sourceTree = "<group>"; };
+		7C6CE7B62133A64A00BA6594 /* MessageHasUnViewRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageHasUnViewRequest.m; sourceTree = "<group>"; };
+		7C6CE7B72133A64A00BA6594 /* GetNoticeList_Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetNoticeList_Mock.json; sourceTree = "<group>"; };
+		7C6CE7B82133A64A00BA6594 /* GetNoticeDetailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNoticeDetailRequest.h; sourceTree = "<group>"; };
+		7C6CE7B92133A64A00BA6594 /* GetNoticeListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNoticeListRequest.h; sourceTree = "<group>"; };
 		7C84301320BBD2E000A05C14 /* SignInPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceViewController.h; sourceTree = "<group>"; };
 		7C84301420BBD2E000A05C14 /* SignInPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInPlaceViewController.m; sourceTree = "<group>"; };
 		7C84301620BBD3DF00A05C14 /* SignInPlaceHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInPlaceHeaderView.h; sourceTree = "<group>"; };
@@ -1649,8 +1721,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C2558301FBAD2AE00C9BE38 /* AdSupport.framework in Frameworks */,
+				7C6CE78F2133A08C00BA6594 /* libGtExtensionSdk-1.1.0.a in Frameworks */,
 				7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */,
 				7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */,
+				7C6CE78E2133A08C00BA6594 /* libGeTuiSdk-1.6.2.0.a in Frameworks */,
 				7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */,
 				0E64934C2AC2C290F4690087 /* libPods-FaceShowAdminApp.a in Frameworks */,
 			);
@@ -1667,6 +1741,8 @@
 				436CB2241FB15C9B00A31585 /* ClazsMemberListRequest.m */,
 				436CB2261FB15D6000A31585 /* ClazsMemberListFetcher.h */,
 				436CB2271FB15D6000A31585 /* ClazsMemberListFetcher.m */,
+				7C3F6BE1213D0A87007B2A28 /* GetMemberIdRequest.h */,
+				7C3F6BE2213D0A87007B2A28 /* GetMemberIdRequest.m */,
 				436CB22C1FB1A2BE00A31585 /* CreateMemberRequest.h */,
 				436CB22D1FB1A2BE00A31585 /* CreateMemberRequest.m */,
 				4359B9611FB2A44B007D7F30 /* UserSignInPercentRequest.h */,
@@ -1718,6 +1794,11 @@
 				436A6B1F1FB2F7E0008E461B /* DetailWithAttachmentCellView.m */,
 				436A6B2A1FB30865008E461B /* UserSignInListCell.h */,
 				436A6B2B1FB30865008E461B /* UserSignInListCell.m */,
+				7C6CE77A212E935300BA6594 /* ContactsSearchHeadView.h */,
+				7C6CE77B212E935300BA6594 /* ContactsSearchHeadView.m */,
+				7C6CE77D212E939700BA6594 /* ContactsSearchHeadViewDelegate.h */,
+				7C3F6BDE21393AAC007B2A28 /* ContactsSearchResultView.h */,
+				7C3F6BDF21393AAC007B2A28 /* ContactsSearchResultView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2043,6 +2124,81 @@
 			name = "讨论";
 			sourceTree = "<group>";
 		};
+		7C6CE77E21339B8D00BA6594 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				7C6CE78021339B8D00BA6594 /* GeTuiConfig.h */,
+				7C6CE78321339B8D00BA6594 /* GeTuiConfig.m */,
+				7C6CE78221339B8D00BA6594 /* YXApnsContentModel.h */,
+				7C6CE77F21339B8D00BA6594 /* YXApnsContentModel.m */,
+				7C6CE78121339B8D00BA6594 /* YXGeTuiManager.h */,
+				7C6CE78421339B8D00BA6594 /* YXGeTuiManager.m */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		7C6CE7892133A08C00BA6594 /* 个推 */ = {
+			isa = PBXGroup;
+			children = (
+				7C6CE78A2133A08C00BA6594 /* libGeTuiSdk-1.6.2.0.a */,
+				7C6CE78B2133A08C00BA6594 /* GeTuiExtSdk.h */,
+				7C6CE78C2133A08C00BA6594 /* GeTuiSdk.h */,
+				7C6CE78D2133A08C00BA6594 /* libGtExtensionSdk-1.1.0.a */,
+			);
+			path = "个推";
+			sourceTree = "<group>";
+		};
+		7C6CE7902133A50A00BA6594 /* 推送 */ = {
+			isa = PBXGroup;
+			children = (
+				7C6CE7952133A50A00BA6594 /* ApnsCourseDetailViewController.h */,
+				7C6CE79B2133A50A00BA6594 /* ApnsCourseDetailViewController.m */,
+				7C6CE79A2133A50A00BA6594 /* ApnsMessageDetailViewController.h */,
+				7C6CE7932133A50A00BA6594 /* ApnsMessageDetailViewController.m */,
+				7C6CE7962133A50A00BA6594 /* ApnsQuestionnaireResultViewController.h */,
+				7C6CE79C2133A50A00BA6594 /* ApnsQuestionnaireResultViewController.m */,
+				7C6CE7972133A50A00BA6594 /* ApnsQuestionnaireViewController.h */,
+				7C6CE7922133A50A00BA6594 /* ApnsQuestionnaireViewController.m */,
+				7C6CE7982133A50A00BA6594 /* ApnsResourceDisplayViewController.h */,
+				7C6CE7912133A50A00BA6594 /* ApnsResourceDisplayViewController.m */,
+				7C6CE7992133A50A00BA6594 /* ApnsSignInDetailViewController.h */,
+				7C6CE7942133A50A00BA6594 /* ApnsSignInDetailViewController.m */,
+			);
+			path = "推送";
+			sourceTree = "<group>";
+		};
+		7C6CE7A32133A58F00BA6594 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				7C6CE7A62133A58F00BA6594 /* MessageCell.h */,
+				7C6CE7A92133A58F00BA6594 /* MessageCell.m */,
+				7C6CE7A42133A58F00BA6594 /* MessageDetailViewController.h */,
+				7C6CE7A72133A58F00BA6594 /* MessageDetailViewController.m */,
+				7C6CE7A82133A58F00BA6594 /* MessageViewController.h */,
+				7C6CE7A52133A58F00BA6594 /* MessageViewController.m */,
+			);
+			path = "消息";
+			sourceTree = "<group>";
+		};
+		7C6CE7AD2133A64A00BA6594 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				7C6CE7B32133A64A00BA6594 /* GetNoticeDetail_Mock.json */,
+				7C6CE7B82133A64A00BA6594 /* GetNoticeDetailRequest.h */,
+				7C6CE7B22133A64A00BA6594 /* GetNoticeDetailRequest.m */,
+				7C6CE7B72133A64A00BA6594 /* GetNoticeList_Mock.json */,
+				7C6CE7B92133A64A00BA6594 /* GetNoticeListRequest.h */,
+				7C6CE7B12133A64A00BA6594 /* GetNoticeListRequest.m */,
+				7C6CE7AF2133A64A00BA6594 /* MessageHasUnViewRequest.h */,
+				7C6CE7B62133A64A00BA6594 /* MessageHasUnViewRequest.m */,
+				7C6CE7B52133A64A00BA6594 /* NotiListFetcher.h */,
+				7C6CE7B02133A64A00BA6594 /* NotiListFetcher.m */,
+				7C6CE7AE2133A64A00BA6594 /* UserMessageManager.h */,
+				7C6CE7B42133A64A00BA6594 /* UserMessageManager.m */,
+			);
+			path = "消息";
+			sourceTree = "<group>";
+		};
 		7CDF111C208D76C00044DD95 /* 消息提示 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2283,6 +2439,8 @@
 			children = (
 				E97D2EBE21391F5A00FECFE0 /* Download */,
 				E97D2E9721391E6500FECFE0 /* ResourceBrowser */,
+				7C6CE78821339D8200BA6594 /* FaceShowAdminApp.entitlements */,
+				7C6CE77E21339B8D00BA6594 /* Push */,
 				E914808A2090574C001B7EB5 /* IM */,
 				7CEFC9601FA6D796001D8C84 /* Resource */,
 				7CEFC8F01FA0680E001D8C84 /* UI */,
@@ -2355,6 +2513,7 @@
 		7CEFC84A1FA06593001D8C84 /* 3rdLib */ = {
 			isa = PBXGroup;
 			children = (
+				7C6CE7892133A08C00BA6594 /* 个推 */,
 				7CDF128E20903B4E0044DD95 /* MJRefresh */,
 				7C2558271FBAD0A100C9BE38 /* TalkingData */,
 			);
@@ -2475,6 +2634,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				7C6CE7AD2133A64A00BA6594 /* 消息 */,
 				7C32AD5121215587000705E8 /* 基础数据 */,
 				E94DDDFF20D36CD000729A67 /* 班级学情 */,
 				7CDF124F20902F8A0044DD95 /* 班级圈 */,
@@ -2504,6 +2664,8 @@
 		7CEFC8F01FA0680E001D8C84 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7C6CE7A32133A58F00BA6594 /* 消息 */,
+				7C6CE7902133A50A00BA6594 /* 推送 */,
 				7CEA29AD20D8B354000CE9EC /* 作业详情 */,
 				E94DDDF820D3690500729A67 /* 班级学情 */,
 				7C06895A20CFBAEC00C7CA14 /* 我的项目 */,
@@ -3606,6 +3768,14 @@
 					7CEFC80D1FA05FBB001D8C84 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -3632,6 +3802,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C6CE7C02133A64A00BA6594 /* GetNoticeList_Mock.json in Resources */,
 				7CDF127920902FBF0044DD95 /* classMomentList_mock.json in Resources */,
 				923427931FA72F41003BCEFD /* METRO-LIGHT PLAYTYPE.otf in Resources */,
 				7C32AD73212170FA000705E8 /* area.json in Resources */,
@@ -3652,6 +3823,7 @@
 				E91481172090589E001B7EB5 /* 研修宝“聊聊”集成文档v1.0.pdf in Resources */,
 				7CEFC8451FA06577001D8C84 /* errorcode_mock.json in Resources */,
 				7CDF127720902FBF0044DD95 /* classMomentPublish_mock.json in Resources */,
+				7C6CE7BD2133A64A00BA6594 /* GetNoticeDetail_Mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3742,9 +3914,11 @@
 				E9DD07252139200700FC8B9C /* YXResourceDisplayViewController.m in Sources */,
 				7CEFC9821FA81775001D8C84 /* SignInListCell.m in Sources */,
 				7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */,
+				7C6CE7A12133A50A00BA6594 /* ApnsCourseDetailViewController.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				7C2DC38D20F347AF00B689C0 /* StageSubjectManager.m in Sources */,
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
+				7C6CE78621339B8D00BA6594 /* GeTuiConfig.m in Sources */,
 				E94DDEB220DB523600729A67 /* TaskRankingViewController.m in Sources */,
 				E9540C3620CA1F0D00D7DDA2 /* IMEventHandlerFactory.m in Sources */,
 				E97D2EB321391ED200FECFE0 /* YXPlayerViewController.m in Sources */,
@@ -3798,6 +3972,7 @@
 				7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */,
 				7CEFC89A1FA06614001D8C84 /* ExtendTextField.m in Sources */,
 				7C06896420D0B26D00C7CA14 /* TrainingProjectDetailViewController.m in Sources */,
+				7C6CE77C212E935300BA6594 /* ContactsSearchHeadView.m in Sources */,
 				E94DDE7020DA20DC00729A67 /* SubmittedHomeworkMemberListViewController.m in Sources */,
 				E9822FF0208D8ABF00138D44 /* TalkingDataConfig.m in Sources */,
 				9234278E1FA722E4003BCEFD /* ClazsGetClazsRequest.m in Sources */,
@@ -3821,6 +3996,7 @@
 				921E200220CFAC7200A0604F /* SubordinateCourseViewController.m in Sources */,
 				E9540C3320CA1F0D00D7DDA2 /* IMNewMessageEventHandler.m in Sources */,
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
+				7C6CE7BC2133A64A00BA6594 /* GetNoticeDetailRequest.m in Sources */,
 				E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */,
 				E9B39A77212E94F0007ABA54 /* ContactsCell.m in Sources */,
 				7C2E221D20E366000055843D /* RefreshBaseViewController.m in Sources */,
@@ -3833,6 +4009,7 @@
 				7C672B121FB01081004D93DF /* CourseListItemCell.m in Sources */,
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
 				E9540C3720CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m in Sources */,
+				7C6CE7BB2133A64A00BA6594 /* GetNoticeListRequest.m in Sources */,
 				7CEFC8E61FA06791001D8C84 /* LoginRequest.m in Sources */,
 				921860691FA99C3C0018D982 /* NoticeDetailViewController.m in Sources */,
 				9218607F1FA9BBC00018D982 /* NoticeSaveTitleCell.m in Sources */,
@@ -3846,6 +4023,7 @@
 				E94DDED120DB551D00729A67 /* TaskTopView.m in Sources */,
 				921DE2EE1FB158D600CF39DE /* GetResourceDetailRequest.m in Sources */,
 				921016E020D8F262007FEBB7 /* CreateEvaluateCell.m in Sources */,
+				7C3F6BE021393AAC007B2A28 /* ContactsSearchResultView.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
 				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
 				7CEA29B520D8B451000CE9EC /* HomeworkDetailHeaderView.m in Sources */,
@@ -3882,8 +4060,11 @@
 				E94DDE8820DA51C900729A67 /* TaskCommentViewController.m in Sources */,
 				7C06896D20D0D1C400C7CA14 /* ClassStatisticView.m in Sources */,
 				7C2DC38820F336E400B689C0 /* CascadeItemCell.m in Sources */,
+				7C6CE7BE2133A64A00BA6594 /* UserMessageManager.m in Sources */,
+				7C6CE7AA2133A59000BA6594 /* MessageViewController.m in Sources */,
 				7CEFC8C31FA06627001D8C84 /* NSObject+BackgroundTask.m in Sources */,
 				7CDF124A20902F200044DD95 /* ClassMomentNotificationViewController.m in Sources */,
+				7C6CE7A22133A50A00BA6594 /* ApnsQuestionnaireResultViewController.m in Sources */,
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				7C672B231FB1538C004D93DF /* FillQuestionResultCell.m in Sources */,
 				7CDF123320902EE60044DD95 /* ClassMomentNotificationCell.m in Sources */,
@@ -3898,6 +4079,7 @@
 				E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */,
 				E94DDE0520D36EEF00729A67 /* SetClazsScoreConfigRequest.m in Sources */,
 				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
+				7C3F6BE3213D0A87007B2A28 /* GetMemberIdRequest.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
 				436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
@@ -3972,6 +4154,7 @@
 				43729E161FB6AEC60043C988 /* GetSubjectivityAnswerReuqest.m in Sources */,
 				E94DDECE20DB551D00729A67 /* ScoreNameCell.m in Sources */,
 				7CEFC9C31FA9B293001D8C84 /* SignedMemberListViewController.m in Sources */,
+				7C6CE7AB2133A59000BA6594 /* MessageDetailViewController.m in Sources */,
 				7CEFC8821FA065D6001D8C84 /* HttpBaseRequestItem_Error.m in Sources */,
 				E91481AE209062C4001B7EB5 /* IMImageMessageLeftCell.m in Sources */,
 				921860591FA965E00018D982 /* NoticeListViewController.m in Sources */,
@@ -4001,6 +4184,7 @@
 				E9540C0C20CA1E6800D7DDA2 /* IMTextMessage.m in Sources */,
 				924297CD20DA546F0039038E /* EditQuestionViewController.m in Sources */,
 				E91481C820906307001B7EB5 /* IMInputView.m in Sources */,
+				7C6CE7BA2133A64A00BA6594 /* NotiListFetcher.m in Sources */,
 				7CEFC8841FA065D6001D8C84 /* UploadRequest.m in Sources */,
 				7C672B341FB15BF6004D93DF /* QuestionnaireHeaderView.m in Sources */,
 				E94DDEB120DB523600729A67 /* ScoreRankingViewController.m in Sources */,
@@ -4018,11 +4202,13 @@
 				7C672AF51FAAC1D1004D93DF /* UserSignedCell.m in Sources */,
 				7CEFC89D1FA06614001D8C84 /* YXNoFloatingHeaderFooterTableView.m in Sources */,
 				9282170820CF70B90052E486 /* GetClassCourseRequest.m in Sources */,
+				7C6CE7AC2133A59000BA6594 /* MessageCell.m in Sources */,
 				921860661FA97FEC0018D982 /* FSDefaultHeaderFooterView.m in Sources */,
 				436E6DFA1FB3F395009950EA /* UploadHeadImgRequest.m in Sources */,
 				924297CA20DA39FE0039038E /* ChooseTemplateViewController.m in Sources */,
 				7CEFC8EE1FA067B2001D8C84 /* UserManager.m in Sources */,
 				7C2DC39C20F358BB00B689C0 /* HubeiDistrictSelectionViewController.m in Sources */,
+				7C6CE78521339B8D00BA6594 /* YXApnsContentModel.m in Sources */,
 				7C672B2B1FB15431004D93DF /* GetQuestionnaireRequest.m in Sources */,
 				921860731FA9B0400018D982 /* NoticeDeleteRequest.m in Sources */,
 				7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */,
@@ -4035,6 +4221,7 @@
 				9235F97F1FB3ED83003A9027 /* ScheduleDetailRequest.m in Sources */,
 				E9822FF9208D916F00138D44 /* UpgradeConfig.m in Sources */,
 				E9822FF8208D916F00138D44 /* YXInitRequest.m in Sources */,
+				7C6CE7A02133A50A00BA6594 /* ApnsSignInDetailViewController.m in Sources */,
 				E9540C3420CA1F0D00D7DDA2 /* IMEventHandler.m in Sources */,
 				E97D2EB121391ED200FECFE0 /* YXPlayerBufferingView.m in Sources */,
 				7CDF123220902EE60044DD95 /* ClassMomentTableHeaderView.m in Sources */,
@@ -4069,6 +4256,7 @@
 				E9540C0720CA1E6800D7DDA2 /* IMImageMessage.m in Sources */,
 				921016D420D8E995007FEBB7 /* CreateEvaluateViewController.m in Sources */,
 				7CEFC8DB1FA06720001D8C84 /* LoginUtils.m in Sources */,
+				7C6CE79F2133A50A00BA6594 /* ApnsMessageDetailViewController.m in Sources */,
 				9282171D20CF75E50052E486 /* UpdateComplexRequest.m in Sources */,
 				E91481AC209062C4001B7EB5 /* IMMessageBaseCell.m in Sources */,
 				E94DDEBC20DB550000729A67 /* ScoreSettingCell.m in Sources */,
@@ -4101,6 +4289,7 @@
 				7C672B501FB2D747004D93DF /* CourseDetailTabContainerView.m in Sources */,
 				7CDF11FA20902E450044DD95 /* PhotoChooseCell.m in Sources */,
 				436CB2281FB15D6000A31585 /* ClazsMemberListFetcher.m in Sources */,
+				7C6CE79D2133A50A00BA6594 /* ApnsResourceDisplayViewController.m in Sources */,
 				E94DDE7920DA456700729A67 /* GetEvaluateRequest.m in Sources */,
 				928D0CB22135359A0043E5A8 /* ProjectsByTypeRequest.m in Sources */,
 				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
@@ -4127,11 +4316,13 @@
 				7C672B471FB1AC17004D93DF /* QuestionUserDetailViewController.m in Sources */,
 				928216F420CE4BB40052E486 /* PublishTaskView.m in Sources */,
 				7C2DC38520F334D800B689C0 /* HubeiAddMemberViewController.m in Sources */,
+				7C6CE7BF2133A64A00BA6594 /* MessageHasUnViewRequest.m in Sources */,
 				7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7C06895320CF83A700C7CA14 /* TrainingProjectCell.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
 				E9540BF520CA1E2200D7DDA2 /* ImMqtt.pbobjc.m in Sources */,
+				7C6CE78721339B8D00BA6594 /* YXGeTuiManager.m in Sources */,
 				92CAA6341FAAB69400DB5873 /* QAFileUploadFirstStepRequest.m in Sources */,
 				7CDF117F208DB16D0044DD95 /* FDActionSheetHeaderView.m in Sources */,
 				7CEFC9101FA071A8001D8C84 /* PagedListViewControllerBase.m in Sources */,
@@ -4152,6 +4343,7 @@
 				E91481AF209062C4001B7EB5 /* IMImageMessageRightCell.m in Sources */,
 				7C2E6F9820CA21A10066DE7C /* IMTitleContentView.m in Sources */,
 				7C672B5C1FB313DD004D93DF /* CourseResourceRequest.m in Sources */,
+				7C6CE79E2133A50A00BA6594 /* ApnsQuestionnaireViewController.m in Sources */,
 				E91481B0209062C4001B7EB5 /* IMTextMessageBaseCell.m in Sources */,
 				7C672B1F1FB1536E004D93DF /* OptionItemResultView.m in Sources */,
 				436CB22E1FB1A2BE00A31585 /* CreateMemberRequest.m in Sources */,
@@ -4353,6 +4545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = FaceShowAdminApp/FaceShowAdminApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P8ZS8UUN27;
@@ -4364,11 +4557,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FaceShowAdminApp/3rdLib/TalkingData",
+					"$(PROJECT_DIR)/FaceShowAdminApp/3rdLib/个推",
 				);
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "47ff3ec4-ab1e-4709-b45b-b1cf4af0c9bb";
+				PROVISIONING_PROFILE = "888fa854-faf4-4007-831b-e3a5bc9b73c7";
 				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";
@@ -4382,6 +4576,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = FaceShowAdminApp/FaceShowAdminApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P8ZS8UUN27;
@@ -4393,11 +4589,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FaceShowAdminApp/3rdLib/TalkingData",
+					"$(PROJECT_DIR)/FaceShowAdminApp/3rdLib/个推",
 				);
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79b2e425-0cf4-4019-a976-a8ab6f864407";
+				PROVISIONING_PROFILE = "92481ff3-672b-44d6-a225-912267f3d450";
 				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Rel;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";

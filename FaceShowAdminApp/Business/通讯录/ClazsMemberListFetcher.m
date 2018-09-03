@@ -19,6 +19,7 @@ NSString * const kClassMemberDidChangeNotification = @"kClassMemberDidChangeNoti
     [self.request stopRequest];
     self.request = [[ClazsMemberListRequest alloc] init];
     self.request.pageSize = [NSString stringWithFormat:@"%@", @(self.pagesize)];
+    self.request.keyWords = [NSString stringWithFormat:@"%@",self.keyWords];
     if (self.lastID != 0) {
         self.request.offset = [NSString stringWithFormat:@"%@", @(self.lastID)];
     }

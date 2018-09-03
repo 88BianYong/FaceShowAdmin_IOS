@@ -96,7 +96,17 @@
         make.centerY.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(55, 55));
     }];
-    
+
+    UIButton *sendMessageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [sendMessageButton setImage:[UIImage imageNamed:@"对话"] forState:0];
+    [sendMessageButton addTarget:self action:@selector(clickSendMessageAction) forControlEvents:UIControlEventTouchUpInside];
+    [headWhiteView addSubview:sendMessageButton];
+    [sendMessageButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-10);
+        make.size.mas_equalTo(CGSizeMake(25, 25));
+        make.centerY.mas_equalTo(0);
+    }];
+
     UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.font = [UIFont boldSystemFontOfSize:18];
     nameLabel.textColor = [UIColor colorWithHexString:@"333333"];
@@ -104,7 +114,7 @@
     [headWhiteView addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(avatarImageView.mas_right).offset(15);
-        make.right.mas_equalTo(-15);
+        make.right.mas_equalTo(sendMessageButton.mas_left).offset(-15);
         make.centerY.mas_equalTo(0);
     }];
     
@@ -172,6 +182,24 @@
     self.lastBottom = headWhiteView.mas_bottom;
     for (int i = 0; i < titles.count; i++) {
         DetailCellView *detailCell = [[DetailCellView alloc] initWithTitle:titles[i] content:contents[i]];
+        WEAK_SELF
+        detailCell.clickContentBlock = ^(NSString *content){
+            STRONG_SELF
+            if (i) {
+                return;
+            }
+            NSString *urlStr=[[NSString alloc] initWithFormat:@"tel:%@",content];
+            UIApplication *application = [UIApplication sharedApplication];
+            NSURL *URL = [NSURL URLWithString:urlStr];
+            if (@available(iOS 10.0, *)) {
+                [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+
+                }];
+            } else {
+                // Fallback on earlier versions
+                [application openURL:URL];
+            }
+        };
         if (i == titles.count - 1) {
             detailCell.needBottomLine = NO;
         }
@@ -248,6 +276,10 @@
         UserSignInPercentRequestItem *item = (UserSignInPercentRequestItem *)retItem;
         self.percentCell.contentLabel.text = [NSString stringWithFormat:@"%.f%%", roundf(item.data.userSigninNum.floatValue/item.data.totalSigninNum.floatValue*100)];
     }];
+}
+
+-(void)clickSendMessageAction{
+    [self.view nyx_showToast:@"开启私聊..."];
 }
 
 @end

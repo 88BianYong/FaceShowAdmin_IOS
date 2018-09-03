@@ -28,6 +28,7 @@
 
 @interface ClazsMemberListRequest : YXGetRequest
 @property (nonatomic, strong) NSString *clazsId;
+@property (nonatomic, strong) NSString<Optional> *keyWords;
 @property (nonatomic, strong) NSString<Optional> *pageSize;
 @property (nonatomic, strong) NSString<Optional> *offset;
 @end
