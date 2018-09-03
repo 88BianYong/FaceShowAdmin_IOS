@@ -16,6 +16,8 @@
 #import "UserSignInListViewController.h"
 #import "UnsignedMemberListViewController.h"
 #import "ChatViewController.h"
+#import "IMUserInterface.h"
+#import "IMTopicInfoItem.h"
 
 @interface ContactsDetailViewController ()
 @property (nonatomic, strong) ErrorView *errorView;
@@ -48,8 +50,10 @@
     self.errorView.hidden = YES;
 
     [self requestUserInfo];
+    
+    [self requestMemberIdAndComplete:^(NSError *error) {
 
-    [self requestMemberId];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,13 +82,14 @@
     }];
 }
 
-- (void)requestMemberId {
+
+- (void)requestMemberIdAndComplete:(void(^)(NSError *error))completeBlock{
     self.memberIdRequest = [[GetMemberIdRequest alloc]init];
-    self.memberIdRequest.bizSource = @"1";
     self.memberIdRequest.userId = self.userId;
     [self.memberIdRequest startRequestWithRetClass:[GetMemberIdRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         GetMemberIdRequestItem *item = (GetMemberIdRequestItem *)retItem;
         self.memberData = item.data;
+        BLOCK_EXEC(completeBlock,error);
     }];
 }
 
@@ -252,10 +257,42 @@
 }
 
 -(void)clickSendMessageAction{
-    [self.view nyx_showToast:@"开启私聊..."];
-    if (self.data) {
-
+    if (self.memberData) {
+        [self startChat];
+    }else {
+        WEAK_SELF
+        [self requestMemberIdAndComplete:^(NSError *error) {
+            STRONG_SELF
+            if (error) {
+                [self.view nyx_showToast:error.localizedDescription];
+            }else{
+                [self startChat];
+            }
+        }];
     }
+}
+
+- (void)startChat {
+    ChatViewController *chatVC = [[ChatViewController alloc]init];
+    IMMember *member = [[IMMember alloc] init];
+    member.userID = atoll([self.userId UTF8String]);
+    member.memberID = atoll([self.memberData.memberId UTF8String]);
+    member.avatar = self.data.avatar;
+    member.name = self.data.realName;
+    //如果是自己则返回
+    GetUserInfoRequestItem_imTokenInfo *info = [UserManager sharedInstance].userModel.imInfo;
+    if (member.memberID == [info.imMember toIMMember].memberID) {
+        return;
+    }
+    IMTopic *topic = [IMUserInterface findTopicWithMember:member];
+    if (topic) {
+        chatVC.topic = topic;
+    }else {
+        IMTopicInfoItem *item = [[IMTopicInfoItem alloc]init];
+        item.member = member;
+        chatVC.info = item;
+    }
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 @end

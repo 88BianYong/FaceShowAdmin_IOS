@@ -15,6 +15,10 @@
 #import "UserSignInListViewController.h"
 #import "UnsignedMemberListViewController.h"
 #import "AreaManager.h"
+#import "GetMemberIdRequest.h"
+#import "ChatViewController.h"
+#import "IMUserInterface.h"
+#import "IMTopicInfoItem.h"
 
 @interface HubeiContactsDetailViewController ()
 @property (nonatomic, strong) ErrorView *errorView;
@@ -24,6 +28,9 @@
 @property (nonatomic, strong) GetUserInfoDetailRequest *userInfoRequest;
 @property (nonatomic, strong) UserSignInPercentRequest *percentRequest;
 @property (nonatomic, strong) GetUserInfoDetailRequestItem_Data *data;
+@property (nonatomic, strong) GetMemberIdRequest *memberIdRequest;
+@property (nonatomic, strong) GetMemberIdRequestItem_data *memberData;
+
 @end
 
 @implementation HubeiContactsDetailViewController
@@ -45,6 +52,11 @@
     self.errorView.hidden = YES;
     
     [self requestUserInfo];
+
+    [self requestMemberIdAndComplete:^(NSError *error) {
+
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +81,16 @@
         GetUserInfoDetailRequestItem *item = (GetUserInfoDetailRequestItem *)retItem;
         self.data = item.data;
         [self setupUI];
+    }];
+}
+
+- (void)requestMemberIdAndComplete:(void(^)(NSError *error))completeBlock{
+    self.memberIdRequest = [[GetMemberIdRequest alloc]init];
+    self.memberIdRequest.userId = self.userId;
+    [self.memberIdRequest startRequestWithRetClass:[GetMemberIdRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        GetMemberIdRequestItem *item = (GetMemberIdRequestItem *)retItem;
+        self.memberData = item.data;
+        BLOCK_EXEC(completeBlock,error);
     }];
 }
 
@@ -279,7 +301,43 @@
 }
 
 -(void)clickSendMessageAction{
-    [self.view nyx_showToast:@"开启私聊..."];
+    if (self.memberData) {
+        [self startChat];
+    }else {
+        WEAK_SELF
+        [self requestMemberIdAndComplete:^(NSError *error) {
+            STRONG_SELF
+            if (error) {
+                [self.view nyx_showToast:error.localizedDescription];
+            }else{
+                [self startChat];
+            }
+        }];
+    }
 }
+
+- (void)startChat {
+    ChatViewController *chatVC = [[ChatViewController alloc]init];
+    IMMember *member = [[IMMember alloc] init];
+    member.userID = atoll([self.userId UTF8String]);
+    member.memberID = atoll([self.memberData.memberId UTF8String]);
+    member.avatar = self.data.avatar;
+    member.name = self.data.realName;
+    //如果是自己则返回
+    GetUserInfoRequestItem_imTokenInfo *info = [UserManager sharedInstance].userModel.imInfo;
+    if (member.memberID == [info.imMember toIMMember].memberID) {
+        return;
+    }
+    IMTopic *topic = [IMUserInterface findTopicWithMember:member];
+    if (topic) {
+        chatVC.topic = topic;
+    }else {
+        IMTopicInfoItem *item = [[IMTopicInfoItem alloc]init];
+        item.member = member;
+        chatVC.info = item;
+    }
+    [self.navigationController pushViewController:chatVC animated:YES];
+}
+
 
 @end

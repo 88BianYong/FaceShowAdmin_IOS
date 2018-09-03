@@ -7,6 +7,8 @@
 //
 
 #import "GetMemberIdRequest.h"
+#import "IMConfig.h"
+#import "IMManager.h"
 
 @implementation GetMemberIdRequestItem_data
 
@@ -16,10 +18,18 @@
 
 @end
 
+@interface GetMemberIdRequest ()
+@property (nonatomic, strong) NSString *bizSource;
+@property (nonatomic, strong) NSString *imToken;
+@end
+
 @implementation GetMemberIdRequest
 - (instancetype)init {
     if (self = [super init]) {
+        self.urlHead = kIMRequestUrlHead;
         self.method = @"login.getMemberId";
+        self.bizSource = kBizSourse;
+        self.imToken = [IMManager sharedInstance].token;
     }
     return self;
 }

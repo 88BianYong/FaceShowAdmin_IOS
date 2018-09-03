@@ -32,7 +32,7 @@ static CGFloat const placeHolderFont = 14.0;
     self.searchBar = [[UISearchBar alloc]init];
     self.searchBar.delegate = self;
     self.searchBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
-    self.searchBar.placeholder = @"搜索地点";
+    self.searchBar.placeholder = @"搜索";
     [self.searchBar setImage:[UIImage imageNamed:@"搜索"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     [self.searchBar setImage:[UIImage imageNamed:@"删除按钮2正常态"] forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
     UITextField *field = [self.searchBar valueForKey:@"searchField"];

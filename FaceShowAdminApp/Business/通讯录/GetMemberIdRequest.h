@@ -20,6 +20,5 @@
 @end
 
 @interface GetMemberIdRequest : YXGetRequest
-@property (nonatomic, strong) NSString *bizSource;
 @property (nonatomic, strong) NSString *userId;
 @end
