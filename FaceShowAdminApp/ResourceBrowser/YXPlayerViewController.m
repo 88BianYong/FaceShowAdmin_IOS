@@ -259,8 +259,8 @@ static const NSTimeInterval kTopBottomHiddenTime = 5;
 //    self.navigationController.navigationBarHidden = NO;
     [UIApplication sharedApplication].statusBarHidden = NO;
     [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
-    SAFE_CALL(self.exitDelegate, browserExit);
     [self dismissViewControllerAnimated:YES completion:nil];
+    SAFE_CALL(self.exitDelegate, browserExit);
     
 }
 

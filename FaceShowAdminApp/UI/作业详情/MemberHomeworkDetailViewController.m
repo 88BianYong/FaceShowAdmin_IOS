@@ -20,9 +20,10 @@
 #import "YXPlayerViewController.h"
 #import "ResourceTypeMapping.h"
 
-@interface MemberHomeworkDetailViewController ()<QASlideViewDelegate,QASlideViewDataSource>
+@interface MemberHomeworkDetailViewController ()<QASlideViewDelegate,QASlideViewDataSource,YXBrowserExitDelegate>
 @property (nonatomic, strong) QASlideView *slideView;
 @property (nonatomic, strong) UIButton *cancleButton;
+@property (nonatomic, assign) BOOL isPlayerShowing;
 @end
 
 @implementation MemberHomeworkDetailViewController
@@ -93,6 +94,9 @@
 
 #pragma mark - QASlideViewDelegate
 - (void)slideView:(QASlideView *)slideView didSlideFromIndex:(NSInteger)from toIndex:(NSInteger)to {
+    if (self.isPlayerShowing) {
+        return;
+    }
     self.currentIndex = to;
     HomeworkDetailView *view = [self.slideView itemViewAtIndex:self.currentIndex];
     [self reloadCancleButtonWithComent:view.data.assess];
@@ -109,9 +113,12 @@
 #pragma mark - previewAttachment
 - (void)previewAttachment:(GetHomeworkRequestItem_attachmentInfo *)attach {
     if ([[ResourceTypeMapping resourceTypeWithString:attach.ext] isEqualToString:@"video"]) {
+        self.currentIndex = self.slideView.currentIndex;
+        self.isPlayerShowing = YES;
         YXPlayerViewController *vc = [[YXPlayerViewController alloc] init];
         vc.videoUrl = attach.previewUrl;
         vc.title = attach.resName;
+        vc.exitDelegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     }else {
         YXResourceDisplayViewController *vc = [[YXResourceDisplayViewController alloc]init];
@@ -119,5 +126,11 @@
         vc.name = attach.resName;
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+#pragma mark - YXBrowserExitDelegate
+- (void)browserExit {
+    self.isPlayerShowing = NO;
+    self.slideView.currentIndex = self.currentIndex;
+    [self.slideView reloadData];
 }
 @end

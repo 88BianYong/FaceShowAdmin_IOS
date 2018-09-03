@@ -59,7 +59,7 @@ static const NSInteger kItemViewTagBase = 1234;
 - (void)layoutSubviews{
     [super layoutSubviews];
     if (self.layoutComplete) {
-        return;
+//        return;
     }
     [self loadItemViewsForFirstLayout];
     self.layoutComplete = YES;
@@ -89,13 +89,13 @@ static const NSInteger kItemViewTagBase = 1234;
     NSInteger preIndex = [self preItemIndex];
     NSInteger nextIndex = [self nextItemIndex];
     for (NSInteger i=preIndex; i<=nextIndex; i++) {
-        if ([self isItemExistingWithIndex:i]) {
-            continue;
+        QASlideItemBaseView *itemView = [self itemViewAtIndex:i];
+        if (!itemView) {
+            itemView = [self.dataSource slideView:self itemViewAtIndex:i];
+            itemView.tag = kItemViewTagBase+i;
+            [self.itemContainerView addSubview:itemView];
         }
-        QASlideItemBaseView *itemView = [self.dataSource slideView:self itemViewAtIndex:i];
-        itemView.tag = kItemViewTagBase+i;
-        [self.itemContainerView addSubview:itemView];
-        [itemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [itemView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.mas_equalTo(0);
             make.left.mas_equalTo(self.mainScrollView.width*i);
             make.width.mas_equalTo(self.mainScrollView.width);
@@ -114,14 +114,14 @@ static const NSInteger kItemViewTagBase = 1234;
     return MIN(self.currentIndex+1, itemCount-1);
 }
 
-- (BOOL)isItemExistingWithIndex:(NSInteger)index{
+- (QASlideItemBaseView *)itemViewWithIndex:(NSInteger)index{
     for (QASlideItemBaseView *itemView in self.remainedItemViewArray) {
         NSInteger itemIndex = itemView.tag-kItemViewTagBase;
         if (itemIndex == index) {
-            return YES;
+            return itemView;
         }
     }
-    return NO;
+    return nil;
 }
 
 - (void)setupForegroundStatusWithItemView:(QASlideItemBaseView *)itemView{
