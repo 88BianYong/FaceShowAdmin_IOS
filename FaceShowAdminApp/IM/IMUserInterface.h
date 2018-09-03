@@ -85,6 +85,22 @@
  */
 + (void)updateTopicInfoWithTopicID:(int64_t)topicID;
 
+/**
+ 目前指 禁言 设置 -2018.9.3
+ 
+ */
++ (void)updatePublicConfigWithTopicId:(int64_t)topicID
+                                speak:(NSString *)speak
+                        completeBlock:(void(^)(NSError *error))completeBlock;
+
+/**
+ 目前指 免打扰 设置 -2018.9.3
+ */
++ (void)updatePersonalConfigWithTopicId:(int64_t)topicID
+                                  quite:(NSString *)quite
+                          completeBlock:(void(^)(NSError *error))completeBlock;;
+
+
 // Notifications
 UIKIT_EXTERN NSNotificationName const kIMMessageDidUpdateNotification;
 

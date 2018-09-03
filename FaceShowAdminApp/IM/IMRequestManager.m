@@ -16,6 +16,8 @@
 #import "CreateTopicRequest.h"
 #import "SaveTextMsgRequest.h"
 #import "SaveImageMsgRequest.h"
+#import "UpdatePublicConfigRequest.h"
+#import "UpdatePersonalConfigRequest.h"
 
 @interface IMRequestManager()
 @property (nonatomic, strong) GetMemberTopicsRequest *getTopicsRequest;
@@ -26,7 +28,8 @@
 @property (nonatomic, strong) SaveImageMsgRequest *saveImageMsgRequest;
 @property (nonatomic, strong) GetTopicsRequest *getTopicInfoRequest;
 @property (nonatomic, strong) MqttServerRequest *mqttServerRequest;
-
+@property (nonatomic, strong) UpdatePublicConfigRequest *updatePublicConfigRequest;
+@property (nonatomic, strong) UpdatePersonalConfigRequest *updatePersonalConfigRequest;
 @property (nonatomic, assign) NSTimeInterval timeoffset;
 @end
 
@@ -220,6 +223,42 @@
         MqttServerRequestItem *item = (MqttServerRequestItem *)retItem;
         BLOCK_EXEC(completeBlock,[item.data toServerConfig],nil);
         [[NSUserDefaults standardUserDefaults]setValue:[item toJSONString] forKey:@"kMqttServerKey"];
+    }];
+}
+
+- (void)updatePublicConfigWithTopicId:(NSString *)topicId speak:(NSString *)speak completeBlock:(void (^)(IMTopic *, NSError *))completeBlock {
+    [self.updatePublicConfigRequest stopRequest];
+    self.updatePublicConfigRequest = [[UpdatePublicConfigRequest alloc]init];
+    self.updatePublicConfigRequest.topicId = topicId;
+    self.updatePublicConfigRequest.speak = speak;
+    WEAK_SELF
+    [self.updatePublicConfigRequest startRequestWithRetClass:[UpdatePublicConfigRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        if (error) {
+            BLOCK_EXEC(completeBlock,nil,error);
+            return;
+        }
+        UpdatePublicConfigRequestItem *item = (UpdatePublicConfigRequestItem *)retItem;
+        TopicData_topic *topic = item.data.topic.firstObject;
+        BLOCK_EXEC(completeBlock,[topic toIMTopic],nil);
+    }];
+}
+
+- (void)updatePersonalConfigWithTopicId:(NSString *)topicId quite:(NSString *)quite completeBlock:(void (^)(IMTopic *, NSError *))completeBlock {
+    [self.updatePersonalConfigRequest stopRequest];
+    self.updatePersonalConfigRequest = [[UpdatePersonalConfigRequest alloc]init];
+    self.updatePersonalConfigRequest.topicId = topicId;
+    self.updatePersonalConfigRequest.quite = quite;
+    WEAK_SELF
+    [self.updatePersonalConfigRequest startRequestWithRetClass:[UpdatePersonalConfigRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        if (error) {
+            BLOCK_EXEC(completeBlock,nil,error);
+            return;
+        }
+        UpdatePersonalConfigRequestItem *item = (UpdatePersonalConfigRequestItem *)retItem;
+        TopicData_topic *topic = item.data.topic.firstObject;
+        BLOCK_EXEC(completeBlock,[topic toIMTopic],nil);
     }];
 }
 

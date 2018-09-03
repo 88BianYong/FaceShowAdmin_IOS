@@ -169,7 +169,7 @@
         self.timeLabel.text = @"";
     }
     self.tipImageView.hidden = topic.unreadCount==0;
-    self.stateImageView.hidden = NO;
+    self.stateImageView.hidden = [topic.personalConfig.quite isEqualToString:@"1"] ? NO : YES;
 }
 
 - (void)setupMockData {

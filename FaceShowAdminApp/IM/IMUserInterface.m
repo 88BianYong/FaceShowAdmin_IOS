@@ -212,4 +212,32 @@
         [[IMDatabaseManager sharedInstance]updateTopicInfo:topic];
     }];
 }
+
++ (void)updatePublicConfigWithTopicId:(int64_t)topicID speak:(NSString *)speak completeBlock:(void (^)(NSError *))completeBlock {
+    NSString *topicIDStr = [NSString stringWithFormat:@"%@",@(topicID)];
+    WEAK_SELF
+    [[IMRequestManager sharedInstance]updatePublicConfigWithTopicId:topicIDStr speak:speak completeBlock:^(IMTopic *topic, NSError *error) {
+        STRONG_SELF
+        if (error) {
+            BLOCK_EXEC(completeBlock,error);
+            return;
+        }
+        [[IMDatabaseManager sharedInstance]updateConfigInTopic:topic];
+        BLOCK_EXEC(completeBlock,nil);
+    }];
+}
+
++ (void)updatePersonalConfigWithTopicId:(int64_t)topicID quite:(NSString *)quite completeBlock:(void (^)(NSError *))completeBlock {
+    NSString *topicIDStr = [NSString stringWithFormat:@"%@",@(topicID)];
+    WEAK_SELF
+    [[IMRequestManager sharedInstance]updatePersonalConfigWithTopicId:topicIDStr quite:quite completeBlock:^(IMTopic *topic, NSError *error) {
+        STRONG_SELF
+        if (error) {
+            BLOCK_EXEC(completeBlock,error);
+            return;
+        }
+        [[IMDatabaseManager sharedInstance]updateConfigInTopic:topic];
+        BLOCK_EXEC(completeBlock,nil);
+    }];
+}
 @end

@@ -146,7 +146,7 @@
             if ([IMUserInterface isSameTopicWithOneTopic:item anotherTopic:topic]) {
                 NSUInteger index = [self.dataArray indexOfObject:item];
                 [self.dataArray replaceObjectAtIndex:index withObject:topic];
-//                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
                 return;
             }
         }
@@ -269,7 +269,7 @@
     [self.navigationController pushViewController:chatVC animated:YES];
     if (topic.type == TopicType_Group) {
         [TalkingData trackEvent:@"点击班级群聊"];
-    }
+    } 
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

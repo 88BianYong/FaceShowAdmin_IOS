@@ -586,6 +586,8 @@
 		E9DD072221391FB300FC8B9C /* BaseDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD071C21391FB300FC8B9C /* BaseDownloader.m */; };
 		E9DD07252139200700FC8B9C /* YXResourceDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DD07242139200700FC8B9C /* YXResourceDisplayViewController.m */; };
 		E9DD07272139244200FC8B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DD07262139244100FC8B9C /* Assets.xcassets */; };
+		E9F33E1E213D28DE0008EFCD /* UpdatePublicConfigRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F33E1D213D28DE0008EFCD /* UpdatePublicConfigRequest.m */; };
+		E9F33E21213D29030008EFCD /* UpdatePersonalConfigRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F33E20213D29030008EFCD /* UpdatePersonalConfigRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1729,6 +1731,10 @@
 		E9DD07232139200700FC8B9C /* YXResourceDisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXResourceDisplayViewController.h; sourceTree = "<group>"; };
 		E9DD07242139200700FC8B9C /* YXResourceDisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXResourceDisplayViewController.m; sourceTree = "<group>"; };
 		E9DD07262139244100FC8B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9F33E1C213D28DE0008EFCD /* UpdatePublicConfigRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdatePublicConfigRequest.h; sourceTree = "<group>"; };
+		E9F33E1D213D28DE0008EFCD /* UpdatePublicConfigRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdatePublicConfigRequest.m; sourceTree = "<group>"; };
+		E9F33E1F213D29030008EFCD /* UpdatePersonalConfigRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdatePersonalConfigRequest.h; sourceTree = "<group>"; };
+		E9F33E20213D29030008EFCD /* UpdatePersonalConfigRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdatePersonalConfigRequest.m; sourceTree = "<group>"; };
 		ECFAEF2F1F662397205C64BB /* Pods-FaceShowAdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceShowAdminApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceShowAdminApp/Pods-FaceShowAdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3479,6 +3485,7 @@
 		E914813320905910001B7EB5 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				E9F33E1B213D285D0008EFCD /* 设置 */,
 				E9B39A79212E95F0007ABA54 /* 通讯录 */,
 				E9540C1920CA1EB100D7DDA2 /* CreateTopicRequest.h */,
 				E9540C1120CA1EAF00D7DDA2 /* CreateTopicRequest.m */,
@@ -3763,6 +3770,17 @@
 				E9B39A7C212E9608007ABA54 /* ContactMemberContactsRequest.json */,
 			);
 			name = "通讯录";
+			sourceTree = "<group>";
+		};
+		E9F33E1B213D285D0008EFCD /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				E9F33E1C213D28DE0008EFCD /* UpdatePublicConfigRequest.h */,
+				E9F33E1D213D28DE0008EFCD /* UpdatePublicConfigRequest.m */,
+				E9F33E1F213D29030008EFCD /* UpdatePersonalConfigRequest.h */,
+				E9F33E20213D29030008EFCD /* UpdatePersonalConfigRequest.m */,
+			);
+			name = "设置";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -4172,6 +4190,7 @@
 				7C672B411FB1A8EF004D93DF /* QuestionTabContainerView.m in Sources */,
 				7CEFC9651FA6DA26001D8C84 /* PhoneInputView.m in Sources */,
 				7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */,
+				E9F33E21213D29030008EFCD /* UpdatePersonalConfigRequest.m in Sources */,
 				7CDF1121208D76C00044DD95 /* UserPromptsManager.m in Sources */,
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
 				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
@@ -4354,6 +4373,7 @@
 				7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */,
 				7CEFC8871FA065D6001D8C84 /* YXUploadRequest.m in Sources */,
 				7C06895320CF83A700C7CA14 /* TrainingProjectCell.m in Sources */,
+				E9F33E1E213D28DE0008EFCD /* UpdatePublicConfigRequest.m in Sources */,
 				7CEFC9111FA071A8001D8C84 /* PagedListFetcherBase.m in Sources */,
 				E9540BF520CA1E2200D7DDA2 /* ImMqtt.pbobjc.m in Sources */,
 				7C6CE78721339B8D00BA6594 /* YXGeTuiManager.m in Sources */,

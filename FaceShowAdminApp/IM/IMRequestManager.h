@@ -42,4 +42,11 @@
 
 - (void)requestMqttServerWithCompleteBlock:(void(^)(MqttServerConfig *config,NSError *error))completeBlock;
 
+- (void)updatePublicConfigWithTopicId:(NSString *)topicId
+                               speak:(NSString *)speak
+                       completeBlock:(void(^)(IMTopic *topic,NSError *error))completeBlock;
+
+- (void)updatePersonalConfigWithTopicId:(NSString *)topicId
+                               quite:(NSString *)quite
+                       completeBlock:(void(^)(IMTopic *topic,NSError *error))completeBlock;
 @end

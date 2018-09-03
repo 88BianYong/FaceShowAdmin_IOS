@@ -90,11 +90,7 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
         if (self.topic.type == TopicType_Group) {
             IMGroupSettingViewController *vc = [[IMGroupSettingViewController alloc]init];
             vc.topic = self.topic;
-            vc.isManager = YES;
-            [vc setForbidTalkingStateChangeBlock:^(BOOL isForbidden) {
-                STRONG_SELF
-                [self updateForbidTalkingState:isForbidden];
-            }];
+            vc.isManager = [self.topic.curMemberRole isEqualToString:@"2"] ? YES : NO;
             [self.navigationController pushViewController:vc animated:YES];
         }else {
             IMPrivateSettingViewController *vc = [[IMPrivateSettingViewController alloc]init];
@@ -111,7 +107,8 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
     [self setupUI];
     [self setupData];
     [self setupObserver];
-    [self updateForbidTalkingState:YES];
+    BOOL forbid = [self.topic.personalConfig.speak isEqualToString:@"0"] ? YES : NO;
+    [self updateForbidTalkingState:self.topic ? forbid : NO];
     // Do any additional setup after loading the view.
 }
 
@@ -375,6 +372,8 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
                 }
                 self.topic = topic;
                 [self setupTitleWithTopic:topic];
+                BOOL forbid = [topic.personalConfig.speak isEqualToString:@"0"] ? YES : NO;
+                [self updateForbidTalkingState:forbid];
             };
             return;
         }

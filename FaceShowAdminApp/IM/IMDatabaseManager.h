@@ -58,8 +58,6 @@
 
 #pragma mark - 清空历史消息
 - (void)clearTheHistoryRecordsInTopic:(int64_t)topicID;
-#pragma mark - 禁言
-- (void)forbidTalkingInTopic:(ino64_t)topicID;
-#pragma mark - 消息免打扰
-- (void)ignoreNoticeInTopic:(ino64_t)topicID;
+#pragma mark - 禁言/免打扰更新
+- (void)updateConfigInTopic:(IMTopic *)topic;
 @end

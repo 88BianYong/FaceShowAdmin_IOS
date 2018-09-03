@@ -250,7 +250,7 @@
     paragraphStyle.lineHeightMultiple = 1.4f;
     paragraphStyle.alignment = NSTextAlignmentLeft;
     
-    NSString *title = [NSString stringWithFormat:@"%@  ",self.userHomework.title];
+    NSString *title = [NSString stringWithFormat:@"%@ ",self.userHomework.title];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
     if (self.userHomework.attachmentInfos2.count > 0) {
