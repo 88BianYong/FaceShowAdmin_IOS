@@ -98,6 +98,9 @@
 		7C3F759020DA45BC00F4F418 /* ScoreEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F758F20DA45BC00F4F418 /* ScoreEditViewController.m */; };
 		7C3F75A120DB813E00F4F418 /* GetUserRolesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F759F20DB813D00F4F418 /* GetUserRolesRequest.m */; };
 		7C3F75A220DB813E00F4F418 /* GetUserPlatformRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F75A020DB813E00F4F418 /* GetUserPlatformRequest.m */; };
+		7C591316213E3AB200CE548F /* MemberOnline.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C591315213E3AB100CE548F /* MemberOnline.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7C59131B213E3ACA00CE548F /* IMOnlineHeartbeatRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C591318213E3AC900CE548F /* IMOnlineHeartbeatRequest.m */; };
+		7C59131C213E3ACA00CE548F /* IMHeartbeatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C591319213E3ACA00CE548F /* IMHeartbeatManager.m */; };
 		7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */; };
 		7C672AEF1FAAAF5E004D93DF /* UserSignInListFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AEE1FAAAF5E004D93DF /* UserSignInListFetcher.m */; };
 		7C672AF21FAAB8F3004D93DF /* UserUnsignedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C672AF11FAAB8F3004D93DF /* UserUnsignedCell.m */; };
@@ -762,6 +765,12 @@
 		7C3F759E20DB813D00F4F418 /* GetUserPlatformRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserPlatformRequest.h; sourceTree = "<group>"; };
 		7C3F759F20DB813D00F4F418 /* GetUserRolesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserRolesRequest.m; sourceTree = "<group>"; };
 		7C3F75A020DB813E00F4F418 /* GetUserPlatformRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserPlatformRequest.m; sourceTree = "<group>"; };
+		7C591314213E3AB100CE548F /* MemberOnline.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberOnline.pbobjc.h; sourceTree = "<group>"; };
+		7C591315213E3AB100CE548F /* MemberOnline.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberOnline.pbobjc.m; sourceTree = "<group>"; };
+		7C591317213E3AC900CE548F /* IMOnlineHeartbeatRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOnlineHeartbeatRequest.h; sourceTree = "<group>"; };
+		7C591318213E3AC900CE548F /* IMOnlineHeartbeatRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOnlineHeartbeatRequest.m; sourceTree = "<group>"; };
+		7C591319213E3ACA00CE548F /* IMHeartbeatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHeartbeatManager.m; sourceTree = "<group>"; };
+		7C59131A213E3ACA00CE548F /* IMHeartbeatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHeartbeatManager.h; sourceTree = "<group>"; };
 		7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListRequest.h; sourceTree = "<group>"; };
 		7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignInListRequest.m; sourceTree = "<group>"; };
 		7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSignInListFetcher.h; sourceTree = "<group>"; };
@@ -3376,6 +3385,10 @@
 			children = (
 				E9540BEB20CA1DEE00D7DDA2 /* IMConnectionManager.h */,
 				E9540BEA20CA1DEE00D7DDA2 /* IMConnectionManager.m */,
+				7C59131A213E3ACA00CE548F /* IMHeartbeatManager.h */,
+				7C591319213E3ACA00CE548F /* IMHeartbeatManager.m */,
+				7C591317213E3AC900CE548F /* IMOnlineHeartbeatRequest.h */,
+				7C591318213E3AC900CE548F /* IMOnlineHeartbeatRequest.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -3391,6 +3404,8 @@
 				E9540BF420CA1E2200D7DDA2 /* TopicGet.pbobjc.m */,
 				E9540BF120CA1E2100D7DDA2 /* TopicMsg.pbobjc.h */,
 				E9540BF020CA1E2100D7DDA2 /* TopicMsg.pbobjc.m */,
+				7C591314213E3AB100CE548F /* MemberOnline.pbobjc.h */,
+				7C591315213E3AB100CE548F /* MemberOnline.pbobjc.m */,
 			);
 			name = Protos;
 			sourceTree = "<group>";
@@ -4145,6 +4160,7 @@
 				7CEFC9371FA0816D001D8C84 /* TaskViewController.m in Sources */,
 				7C672B3E1FB1A784004D93DF /* QuestionUserCell.m in Sources */,
 				E9540BF620CA1E2200D7DDA2 /* MqttMsg.pbobjc.m in Sources */,
+				7C59131C213E3ACA00CE548F /* IMHeartbeatManager.m in Sources */,
 				7CEFC8491FA06577001D8C84 /* YXMockParser.m in Sources */,
 				7CDF123820902EE60044DD95 /* ClassMomentHeaderView.m in Sources */,
 				9235F98D1FB3F7AE003A9027 /* ScheduleCreateTitleCell.m in Sources */,
@@ -4185,6 +4201,7 @@
 				7C06896A20D0BEC900C7CA14 /* ClassSwitchView.m in Sources */,
 				7CDF123520902EE60044DD95 /* ClassMomentCell.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
+				7C59131B213E3ACA00CE548F /* IMOnlineHeartbeatRequest.m in Sources */,
 				7CDF128620902FBF0044DD95 /* ReportRequest.m in Sources */,
 				7C07F04420DE1F9F00E6BCE2 /* ProjectDetailRequest.m in Sources */,
 				43651B971FB0075000B7EB65 /* ClassListCell.m in Sources */,
@@ -4263,6 +4280,7 @@
 				E9540C2120CA1EB200D7DDA2 /* GetMemberTopicsRequest.m in Sources */,
 				922942C220D0C81600CC21BD /* SAMTextView+Restriction.m in Sources */,
 				43729E1C1FB6CBC60043C988 /* GetSubjectivityAnswerListFetcher.m in Sources */,
+				7C591316213E3AB200CE548F /* MemberOnline.pbobjc.m in Sources */,
 				7C672B011FAAF387004D93DF /* QRCodeSignInViewController.m in Sources */,
 				7C672B051FB00230004D93DF /* GetCourseListRequest.m in Sources */,
 				7C2E6F8E20CA216E0066DE7C /* IMPrivateSettingViewController.m in Sources */,
