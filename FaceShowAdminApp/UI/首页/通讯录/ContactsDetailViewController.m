@@ -86,6 +86,7 @@
 - (void)requestMemberIdAndComplete:(void(^)(NSError *error))completeBlock{
     self.memberIdRequest = [[GetMemberIdRequest alloc]init];
     self.memberIdRequest.userId = self.userId;
+    self.memberIdRequest.fromGroupTopicId = [UserManager sharedInstance].userModel.currentClass.topicId;
     [self.memberIdRequest startRequestWithRetClass:[GetMemberIdRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         GetMemberIdRequestItem *item = (GetMemberIdRequestItem *)retItem;
         self.memberData = item.data;
@@ -290,6 +291,7 @@
     }else {
         IMTopicInfoItem *item = [[IMTopicInfoItem alloc]init];
         item.member = member;
+        item.group =  [self.memberData.topic toContactsGroup];
         chatVC.info = item;
     }
     [self.navigationController pushViewController:chatVC animated:YES];

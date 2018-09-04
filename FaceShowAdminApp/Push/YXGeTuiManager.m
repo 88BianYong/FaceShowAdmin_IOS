@@ -57,8 +57,7 @@
             [[UIApplication sharedApplication] registerForRemoteNotifications];
             [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         }
-    }
-    else {
+    }else {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
@@ -77,7 +76,6 @@
     [GeTuiSdk registerDeviceToken:token];
 }
 
-
 #pragma mark - iOS10 Notification Delegate
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     UNNotification *notification = response.notification;
@@ -87,7 +85,6 @@
     [self handleApnsContent:userInfo];
     completionHandler();
 }
-
 
 #pragma mark - login/out
 - (void)loginSuccess {
