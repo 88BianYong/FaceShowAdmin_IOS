@@ -19,6 +19,7 @@
 #import "ChatViewController.h"
 #import "IMUserInterface.h"
 #import "IMTopicInfoItem.h"
+#import "ClassListRequest.h"
 
 @interface HubeiContactsDetailViewController ()
 @property (nonatomic, strong) ErrorView *errorView;
@@ -30,7 +31,11 @@
 @property (nonatomic, strong) GetUserInfoDetailRequestItem_Data *data;
 @property (nonatomic, strong) GetMemberIdRequest *memberIdRequest;
 @property (nonatomic, strong) GetMemberIdRequestItem_data *memberData;
-
+@property (nonatomic, strong) ClassListRequest *getClassRequest;
+@property (nonatomic, strong) NSArray<ClassListRequestItem_clazsInfos *> *allClassInfo;
+@property (nonatomic, strong) UIButton *sendMessageBtn;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UIImageView *avatarImageView;
 @end
 
 @implementation HubeiContactsDetailViewController
@@ -57,6 +62,19 @@
 
     }];
 
+    //当前用户包含教师角色 并且点开的用户不是自己 再请求班级列表 看自己当前是否在本班级
+    GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
+    BOOL isTeacher = [data roleExists:UserRole_Teacher] || [data roleExists:UserRole_UnknownTeacher];
+    BOOL isCurrentUser = [self.userId isEqualToString:[UserManager sharedInstance].userModel.userID];
+    if (!isTeacher || isCurrentUser) {
+        //不能聊天
+        return;
+    }else{
+        [self requestClassAndComplete:^(NSError *error) {
+            STRONG_SELF
+            [self refreshSendButton];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,6 +113,52 @@
     }];
 }
 
+- (void)requestClassAndComplete:(void(^)(NSError *error))completeBlock{
+    [self.getClassRequest stopRequest];
+    self.getClassRequest = [[ClassListRequest alloc]init];
+    GetUserPlatformRequestItem_platformInfos *plat = [UserManager sharedInstance].userModel.platformRequestItem.data.platformInfos.firstObject;
+    self.getClassRequest.platId = plat.platformId;
+    WEAK_SELF
+    [self.getClassRequest startRequestWithRetClass:[ClassListRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        ClassListRequestItem *item = (ClassListRequestItem *)retItem;
+        self.allClassInfo = [NSArray arrayWithArray:item.data.clazsInfos];
+        BLOCK_EXEC(completeBlock,error);
+    }];
+}
+
+- (void)refreshSendButton {
+    if (!self.allClassInfo) {
+        return;
+    }
+    if (![self.allClassInfo count]) {
+        return;
+    }
+    if (!self.sendMessageBtn) {
+        return;
+    }
+    ClassListRequestItem_clazsInfos *currentInfo = [UserManager sharedInstance].userModel.currentClass;
+    BOOL isInClass = NO;
+    //当前用户在当前的班级里面 才可以聊天
+    for (ClassListRequestItem_clazsInfos *info in self.allClassInfo) {
+        if ([currentInfo.clazsId isEqualToString:info.clazsId]) {
+            isInClass = YES;
+            break;
+        }
+    }
+    if (!isInClass) {
+        return;
+    }
+    [self.sendMessageBtn setHidden:NO];
+    [self.nameLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(0);
+        make.left.mas_equalTo(self.avatarImageView.mas_right).offset(15);
+        make.right.mas_equalTo(self.sendMessageBtn.mas_left).offset(-15);
+    }];
+}
+
+
+
 #pragma mark - setupUI
 - (void)setupUI {
     UIView *headWhiteView = [[UIView alloc] init];
@@ -119,16 +183,18 @@
         make.centerY.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(55, 55));
     }];
+    self.avatarImageView = avatarImageView;
 
-    UIButton *sendMessageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [sendMessageButton setImage:[UIImage imageNamed:@"对话"] forState:0];
-    [sendMessageButton addTarget:self action:@selector(clickSendMessageAction) forControlEvents:UIControlEventTouchUpInside];
-    [headWhiteView addSubview:sendMessageButton];
-    [sendMessageButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+    self.sendMessageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.sendMessageBtn setImage:[UIImage imageNamed:@"对话"] forState:0];
+    [self.sendMessageBtn addTarget:self action:@selector(clickSendMessageAction) forControlEvents:UIControlEventTouchUpInside];
+    [headWhiteView addSubview:self.sendMessageBtn];
+    [self.sendMessageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-10);
         make.size.mas_equalTo(CGSizeMake(25, 25));
         make.centerY.mas_equalTo(0);
     }];
+    [self.sendMessageBtn setHidden:YES];
 
     UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.font = [UIFont boldSystemFontOfSize:18];
@@ -137,9 +203,10 @@
     [headWhiteView addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(avatarImageView.mas_right).offset(15);
-        make.right.mas_equalTo(sendMessageButton.mas_left).offset(-15);
         make.centerY.mas_equalTo(0);
+        make.right.mas_equalTo(-15);
     }];
+    self.nameLabel = nameLabel;
     
     UIView *bottomLine = [[UIView alloc] init];
     bottomLine.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];

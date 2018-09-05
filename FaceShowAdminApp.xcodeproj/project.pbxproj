@@ -187,6 +187,7 @@
 		7CA81735213D3E7500824589 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81734213D3E7500824589 /* Security.framework */; };
 		7CA81737213D3EB300824589 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81736213D3EB300824589 /* SystemConfiguration.framework */; };
 		7CA81739213D3ECA00824589 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81738213D3EC900824589 /* libsqlite3.0.tbd */; };
+		7CA81742213F79F500824589 /* ApnsChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA81741213F79F500824589 /* ApnsChatViewController.m */; };
 		7CDF1121208D76C00044DD95 /* UserPromptsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF111D208D76C00044DD95 /* UserPromptsManager.m */; };
 		7CDF1122208D76C00044DD95 /* GetUserPromptsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF1120208D76C00044DD95 /* GetUserPromptsRequest.m */; };
 		7CDF1135208D7AA40044DD95 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF1134208D7AA30044DD95 /* UserModel.m */; };
@@ -942,6 +943,8 @@
 		7CA81734213D3E7500824589 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7CA81736213D3EB300824589 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7CA81738213D3EC900824589 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		7CA81740213F79F500824589 /* ApnsChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApnsChatViewController.h; sourceTree = "<group>"; };
+		7CA81741213F79F500824589 /* ApnsChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApnsChatViewController.m; sourceTree = "<group>"; };
 		7CDF111D208D76C00044DD95 /* UserPromptsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPromptsManager.m; sourceTree = "<group>"; };
 		7CDF111E208D76C00044DD95 /* GetUserPromptsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserPromptsRequest.h; sourceTree = "<group>"; };
 		7CDF111F208D76C00044DD95 /* UserPromptsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPromptsManager.h; sourceTree = "<group>"; };
@@ -2194,6 +2197,8 @@
 				7C6CE7912133A50A00BA6594 /* ApnsResourceDisplayViewController.m */,
 				7C6CE7992133A50A00BA6594 /* ApnsSignInDetailViewController.h */,
 				7C6CE7942133A50A00BA6594 /* ApnsSignInDetailViewController.m */,
+				7CA81740213F79F500824589 /* ApnsChatViewController.h */,
+				7CA81741213F79F500824589 /* ApnsChatViewController.m */,
 			);
 			path = "推送";
 			sourceTree = "<group>";
@@ -4419,6 +4424,7 @@
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
 				7CEFC8C81FA06627001D8C84 /* UIImage+Color.m in Sources */,
 				E97D2E8C2136765A00FECFE0 /* ForbidTalkingView.m in Sources */,
+				7CA81742213F79F500824589 /* ApnsChatViewController.m in Sources */,
 				7CEFC97C1FA813E3001D8C84 /* SignInListViewController.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */,

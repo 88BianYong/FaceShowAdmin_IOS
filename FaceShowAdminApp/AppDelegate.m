@@ -37,7 +37,7 @@
     [[YXInitHelper sharedHelper] requestCompeletion:nil];
     // 检查基础数据更新
     [[BasicDataManager sharedInstance]checkAndUpdataBasicData];
-    
+    [[YXGeTuiManager sharedInstance] registerGeTuiWithDelegate:self];
     [self registerNotifications];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];

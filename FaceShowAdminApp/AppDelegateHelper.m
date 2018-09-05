@@ -23,11 +23,7 @@
 #import "TrainingProfileViewController.h"
 #import "MyTrainingProjectViewController.h"
 #import "ProjectListViewController.h"
-#import "ApnsSignInDetailViewController.h"
-#import "ApnsQuestionnaireViewController.h"
-#import "ApnsMessageDetailViewController.h"
-#import "ApnsCourseDetailViewController.h"
-#import "ApnsResourceDisplayViewController.h"
+#import "ApnsChatViewController.h"
 
 UIKIT_EXTERN BOOL testFrameworkOn;
 
@@ -269,100 +265,31 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 
 - (void)handleApnsData:(YXApnsContentModel *)apns {
     NSInteger type = apns.type.integerValue;
-    
-//    if (type == 100) {
-//        [self goSignInWithData:apns];
-//    }else if (type == 101) {
-//        [self goVoteWithData:apns];
-//    }else if (type == 102) {
-//        [self goQuestionnaireWithData:apns];
-//    }else if (type == 120) {
-//        [self goNoticeDetailWithData:apns];
-//    }else if (type == 130) {
-//        [self goClassWithData:apns];
-//    }else if (type == 131) {
-//        [self goResourceWithData:apns];
-//    }else if (type == 140) {
-//        [self goCourseDetailWithData:apns];
-//    }
-
-}
-/*
-- (void)goSignInWithData:(YXApnsContentModel *)data {
-    [self.getSigninRequest stopRequest];
-    self.getSigninRequest = [[GetSigninRequest alloc]init];
-    self.getSigninRequest.stepId = data.objectId;
-    WEAK_SELF
-    [self.getSigninRequest startRequestWithRetClass:[GetSigninRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
-        STRONG_SELF
-        if (error) {
-            [[UIApplication sharedApplication].keyWindow nyx_showToast:error.localizedDescription];
-            return;
-        }
-        GetSigninRequestItem *item = retItem;
-        item.data.signIn.stepId = data.objectId;
-        ApnsSignInDetailViewController *signInDetailVC = [[ApnsSignInDetailViewController alloc] init];
-        signInDetailVC.signIn = item.data.signIn;
-        FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:signInDetailVC];
-        [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
-    }];
-}
-
-- (void)goVoteWithData:(YXApnsContentModel *)data {
-    ApnsQuestionnaireViewController *vc = [[ApnsQuestionnaireViewController alloc]initWithStepId:data.objectId interactType:InteractType_Vote];
-    vc.name = data.title;
-    FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:vc];
-    [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
-}
-
-- (void)goQuestionnaireWithData:(YXApnsContentModel *)data {
-    ApnsQuestionnaireViewController *vc = [[ApnsQuestionnaireViewController alloc]initWithStepId:data.objectId interactType:InteractType_Questionare];
-    vc.name = data.title;
-    FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:vc];
-    [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
-}
-
-- (void)goNoticeDetailWithData:(YXApnsContentModel *)data {
-    ApnsMessageDetailViewController *vc = [[ApnsMessageDetailViewController alloc]init];
-    vc.noticeId = data.objectId;
-    FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:vc];
-    [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
-}
-
-- (void)goClassWithData:(YXApnsContentModel *)data {
-    FSTabBarController *tabBarController = (FSTabBarController *)self.window.rootViewController;
-    if ([tabBarController isKindOfClass:[FSTabBarController class]]) {
-        tabBarController.selectedIndex = 0;
+    if (type == 22101) {
+        [self goChatWithData:apns];
     }
 }
 
-- (void)goResourceWithData:(YXApnsContentModel *)data {
-    [self.resourceDetailRequest stopRequest];
-    self.resourceDetailRequest = [[GetResourceDetailRequest alloc] init];
-    self.resourceDetailRequest.resId = data.objectId;
-    WEAK_SELF
-    [self.resourceDetailRequest startRequestWithRetClass:[GetResourceDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
-        STRONG_SELF
-        if (error) {
-            [[UIApplication sharedApplication].keyWindow nyx_showToast:error.localizedDescription];
-            return;
+- (void)goChatWithData:(YXApnsContentModel *)data{
+    NSArray *topics =  [IMUserInterface findAllTopics];
+    IMTopic *currentTopic;
+    for (IMTopic *topic in topics) {
+        if (topic.topicID == data.objectId.integerValue) {
+            currentTopic = topic;
+            break;
         }
-        GetResourceDetailRequestItem *item = (GetResourceDetailRequestItem *)retItem;
-        ApnsResourceDisplayViewController *vc = [[ApnsResourceDisplayViewController alloc] init];
-        vc.urlString = item.data.type.integerValue ? item.data.url : item.data.ai.previewUrl;
-        vc.name = item.data.resName;
-        FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:vc];
-        [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
-    }];
-}
-
-- (void)goCourseDetailWithData:(YXApnsContentModel *)data {
-    ApnsCourseDetailViewController *vc = [[ApnsCourseDetailViewController alloc]init];
-    vc.courseId = data.objectId;
-    FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:vc];
+    }
+    if (!currentTopic) {
+        currentTopic = [[IMTopic alloc]init];
+        currentTopic.topicID = atoll([data.objectId UTF8String]);
+    }
+    ApnsChatViewController *chat = [[ApnsChatViewController alloc]init];
+    chat.topic = currentTopic;
+    FSNavigationController *navi = [[FSNavigationController alloc] initWithRootViewController:chat];
     [[self lastPresentedViewController] presentViewController:navi animated:YES completion:nil];
 }
-*/
+
+
 - (void)handleRemoveFromOneClass:(IMTopic *)topic {
     NSArray *topicsArray = [IMUserInterface findAllTopics];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

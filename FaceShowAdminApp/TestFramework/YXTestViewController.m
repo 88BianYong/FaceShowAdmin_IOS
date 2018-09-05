@@ -13,7 +13,7 @@
 #import "TrainingProjectDetailViewController.h"
 #import "ProjectFilterViewController.h"
 #import "HomeworkDetailViewController.h"
-
+#import "YXApnsContentModel.h"
 @interface YXTestViewController ()
 @end
 

@@ -1,18 +1,18 @@
 //
-//  ApnsCourseDetailViewController.m
-//  FaceShowApp
+//  ApnsChatViewController.m
+//  FaceShowAdminApp
 //
-//  Created by niuzhaowang on 2017/10/23.
-//  Copyright © 2017年 niuzhaowang. All rights reserved.
+//  Created by SRT on 2018/9/5.
+//  Copyright © 2018年 niuzhaowang. All rights reserved.
 //
 
-#import "ApnsCourseDetailViewController.h"
+#import "ApnsChatViewController.h"
 
-@interface ApnsCourseDetailViewController ()
+@interface ApnsChatViewController ()
 
 @end
 
-@implementation ApnsCourseDetailViewController
+@implementation ApnsChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +22,7 @@
         STRONG_SELF
         [self backAction];
     }];
+
 }
 
 - (void)didReceiveMemoryWarning {

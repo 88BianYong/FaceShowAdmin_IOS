@@ -49,15 +49,7 @@
 }
 
 - (void)registerUserNotification {
-    float sysVer = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if(sysVer < 10.0){
-        if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
-            UIUserNotificationType types = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
-            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
-            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        }
-    }else {
+    if (@available(iOS 10.0, *)) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
@@ -65,6 +57,14 @@
                 [[UIApplication sharedApplication] registerForRemoteNotifications];
             }
         }];
+    } else {
+        // Fallback on earlier versions
+        if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+            UIUserNotificationType types = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        }
     }
 }
 
@@ -77,7 +77,8 @@
 }
 
 #pragma mark - iOS10 Notification Delegate
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(10.0)){
+
     UNNotification *notification = response.notification;
     UNNotificationRequest *request = notification.request;
     UNNotificationContent *content = request.content;
@@ -136,8 +137,9 @@
     [GeTuiSdk handleRemoteNotification:dict];
     
     self.handleddByAPNS = YES;
+    NSString *payload = [NSString stringWithFormat:@"%@",[dict valueForKey:@"payload"]];
+    YXApnsContentModel *apns = [[YXApnsContentModel alloc]initWithString:payload error:nil];
     
-    YXApnsContentModel *apns = [[YXApnsContentModel alloc]initWithString:[dict valueForKey:@"payload"] error:nil];
     SAFE_CALL_OneParam(self.delegate, handleApnsData, apns);
 }
 
