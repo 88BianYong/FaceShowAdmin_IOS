@@ -564,7 +564,7 @@ NSString * const kIMUnreadMessageCountClearNotification = @"kIMUnreadMessageCoun
                 group = self.info.group;
             }else {
                 group = [[ContactMemberContactsRequestItem_Data_Gcontacts_Groups alloc]init];
-                group.groupId = self.topic.groupID ? [NSString stringWithFormat:@"%@",@(self.topic.groupID)] : @"0";
+                group.groupId = [NSString stringWithFormat:@"%@",@(self.topic.topicID)];
                 group.groupName = self.topic.group;
             }
             IMTopicInfoItem *item = [[IMTopicInfoItem alloc]init];
