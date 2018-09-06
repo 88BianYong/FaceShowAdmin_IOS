@@ -83,7 +83,7 @@
     [infoView setCommentComleteBlock:^(NSString *comment) {
         STRONG_SELF
         [self reloadCancleButtonWithComent:comment];
-        BLOCK_EXEC(self.commentComleteBlock,comment);
+        BLOCK_EXEC(self.commentComleteBlock,comment,self.currentIndex);
     }];
     [infoView setPreviewAction:^(GetHomeworkRequestItem_attachmentInfo *attachment) {
         STRONG_SELF

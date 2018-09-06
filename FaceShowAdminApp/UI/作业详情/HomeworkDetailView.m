@@ -239,7 +239,7 @@
 }
 
 - (void)reloadData {
-    [self setupMock];
+//    [self setupMock];
     [self reloadContentData];
     [self reloadCommentViewWithComment:self.userHomework.assess];
     [self reloadAttachmentView];

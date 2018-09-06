@@ -60,11 +60,11 @@
     vc.stepId = self.stepId;
     vc.currentIndex = indexPath.row;
     WEAK_SELF
-    [vc setCommentComleteBlock:^(NSString *comment) {
+    [vc setCommentComleteBlock:^(NSString *comment, NSInteger currentIndex) {
         STRONG_SELF
-        GetUserHomeworksRequestItem_element *element = self.dataArray[indexPath.row];
+        GetUserHomeworksRequestItem_element *element = self.dataArray[currentIndex];
         element.assess = comment;
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:currentIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     }];
     [self.navigationController pushViewController:vc animated:YES];
 }

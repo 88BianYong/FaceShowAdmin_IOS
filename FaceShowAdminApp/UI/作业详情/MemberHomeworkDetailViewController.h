@@ -13,5 +13,5 @@
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) NSMutableArray *dataArray; 
 @property(nonatomic, strong) NSString *stepId;
-@property (nonatomic, strong) void (^commentComleteBlock)(NSString *comment);
+@property (nonatomic, strong) void (^commentComleteBlock)(NSString *comment,NSInteger currentIndex);
 @end
