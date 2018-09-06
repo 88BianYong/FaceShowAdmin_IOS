@@ -62,14 +62,10 @@
 
     }];
 
-    //当前用户包含教师角色 并且点开的用户不是自己 再请求班级列表 看自己当前是否在本班级
+    //当前用户包含教师角色 再请求班级列表 看自己当前是否在本班级
     GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
     BOOL isTeacher = [data roleExists:UserRole_Teacher] || [data roleExists:UserRole_UnknownTeacher];
-    BOOL isCurrentUser = [self.userId isEqualToString:[UserManager sharedInstance].userModel.userID];
-    if (!isTeacher || isCurrentUser) {
-        //不能聊天
-        return;
-    }else{
+    if (isTeacher) {
         [self requestClassAndComplete:^(NSError *error) {
             STRONG_SELF
             [self refreshSendButton];

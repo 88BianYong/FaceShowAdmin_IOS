@@ -15,6 +15,7 @@
 #import "HubeiAddMemberViewController.h"
 #import "ContactsSearchHeadView.h"
 #import "ContactsSearchResultView.h"
+#import "MyInfoViewController.h"
 
 @interface ContactsViewController ()<ContactsSearchHeadViewDelegate>
 @property (nonatomic, strong) ContactsSearchHeadView *headerView;
@@ -237,11 +238,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
         GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
-        vc.userId = data.userId;
-        vc.isAdministrator = indexPath.section == 0;
-        [self.navigationController pushViewController:vc animated:YES];
+        NSString *currentUserId = [UserManager sharedInstance].userModel.userID;
+        if ([data.userId isEqualToString:currentUserId]) {
+            MyInfoViewController *vc = [[MyInfoViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
+            vc.userId = data.userId;
+            vc.isAdministrator = indexPath.section == 0;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }else {
 #ifdef HuBeiApp
         HubeiContactsDetailViewController *vc = [[HubeiContactsDetailViewController alloc] init];
@@ -287,10 +294,16 @@
         STRONG_SELF
         [self.headerView endSearching];
         if (indexPath.section == 0) {
-            ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
-            vc.userId = data.userId;
-            vc.isAdministrator = indexPath.section == 0;
-            [self.navigationController pushViewController:vc animated:YES];
+            NSString *currentUserId = [UserManager sharedInstance].userModel.userID;
+            if ([data.userId isEqualToString:currentUserId]) {
+                MyInfoViewController *vc = [[MyInfoViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else{
+                ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
+                vc.userId = data.userId;
+                vc.isAdministrator = indexPath.section == 0;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }else {
 #ifdef HuBeiApp
             HubeiContactsDetailViewController *vc = [[HubeiContactsDetailViewController alloc] init];
