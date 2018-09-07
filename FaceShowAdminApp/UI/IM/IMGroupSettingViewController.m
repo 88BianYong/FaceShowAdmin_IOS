@@ -49,8 +49,10 @@
     WEAK_SELF
     [hushView setStateChangeBlock:^(BOOL isOn) {
         STRONG_SELF
+        [self.view nyx_startLoading];
         [IMUserInterface updatePublicConfigWithTopicId:self.topic.topicID speak:isOn ? @"0" : @"1" completeBlock:^(NSError *error) {
             STRONG_SELF
+            [self.view nyx_stopLoading];
             if (error) {
                 [self.view nyx_showToast:error.localizedDescription];
                 self.hushView.isOn = [self.topic.personalConfig.speak isEqualToString:@"0"] ? YES : NO;
@@ -67,8 +69,10 @@
     self.unremindView = unremindView;
     [unremindView setStateChangeBlock:^(BOOL isOn) {
         STRONG_SELF
+        [self.view nyx_startLoading];
         [IMUserInterface updatePersonalConfigWithTopicId:self.topic.topicID quite:isOn ? @"1" : @"0"  completeBlock:^(NSError *error) {
             STRONG_SELF
+            [self.view nyx_stopLoading];
             if (error) {
                 [self.view nyx_showToast:error.localizedDescription];
                 self.unremindView.isOn = isOnState;
