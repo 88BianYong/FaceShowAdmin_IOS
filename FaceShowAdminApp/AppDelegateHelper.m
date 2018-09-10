@@ -265,7 +265,7 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 
 - (void)handleApnsData:(YXApnsContentModel *)apns {
     NSInteger type = apns.type.integerValue;
-    if (type == 22101) {
+    if (type == 221001) {
         [self goChatWithData:apns];
     }
 }
