@@ -195,7 +195,7 @@ UIKIT_EXTERN BOOL testFrameworkOn;
 
 #pragma mark - Apns
 - (void)handleApnsDataOnForeground:(YXApnsContentModel *)apns {
-    [self showNotificationView:apns];
+//    [self showNotificationView:apns];
 }
 
 - (void)showNotificationView:(YXApnsContentModel *)apns {
