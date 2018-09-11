@@ -31,6 +31,7 @@
 }
 
 - (void)backAction {
+    [super backAction];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
