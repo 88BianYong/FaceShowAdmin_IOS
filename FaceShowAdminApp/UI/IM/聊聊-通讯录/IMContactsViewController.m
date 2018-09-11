@@ -106,6 +106,7 @@
     self.searchView =  [[ContactsSearchBarView alloc]init];
     [self.searchView setSearchBlock:^(NSString *text){
         STRONG_SELF
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:NSNotFound inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         [self searchContanctslWithKeyword:text];
         [TalkingData trackEvent:@"点击聊聊搜索框"];
     }];
@@ -281,9 +282,9 @@
 }
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.view endEditing:YES];
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    [self.view endEditing:YES];
+//}
 
 - (void)setCurrentSelectedGroupIndex:(NSInteger)currentSelectedGroupIndex {
     _currentSelectedGroupIndex = currentSelectedGroupIndex;

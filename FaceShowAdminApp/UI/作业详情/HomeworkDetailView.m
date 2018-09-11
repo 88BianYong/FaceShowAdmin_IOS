@@ -248,7 +248,7 @@
 - (void)reloadContentData {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineHeightMultiple = 1.4f;
-    paragraphStyle.alignment = NSTextAlignmentLeft;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
     
     NSString *title = [NSString stringWithFormat:@"%@ ",self.userHomework.title];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
