@@ -240,9 +240,9 @@
 
 - (void)reloadData {
 //    [self setupMock];
+    [self reloadAttachmentView];
     [self reloadContentData];
     [self reloadCommentViewWithComment:self.userHomework.assess];
-    [self reloadAttachmentView];
 }
 
 - (void)reloadContentData {
