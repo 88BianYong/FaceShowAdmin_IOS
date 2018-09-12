@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, EventType) {
-    EventType_NewTopic = 101,//V1.2.2 禁言也走此事件
+    EventType_NewTopic = 101,//V1.2.2 禁言也走此事件 免打扰
     EventType_TopicAddMember = 111,
     EventType_TopicRemoveMember = 112,
     EventType_NewMessage = 121
