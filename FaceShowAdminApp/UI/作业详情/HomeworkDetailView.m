@@ -267,6 +267,7 @@
     self.memberView.headUrl = self.userHomework.avatar;
     self.dateLabel.text = [self.userHomework.submitTime omitSecondOfFullDateString];
     NSString *content = self.userHomework.content;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
     attributedString = [[NSMutableAttributedString alloc] initWithString:content];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, content.length)];
     self.contentLabel.attributedText = attributedString;
