@@ -164,6 +164,13 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
     self.tableView.estimatedRowHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
     self.tableView.estimatedSectionHeaderHeight = 0;
+    NSInteger msgCount = [UserPromptsManager sharedInstance].data.momentMsgNew.promptNum.integerValue;
+    if (msgCount > 0) {
+        self.headerView.hidden = NO;
+        self.headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 157.0f + 81.0f);
+        self.headerView.messageInteger = msgCount;
+        self.tableView.tableHeaderView = self.headerView;
+    }
     
 //    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    rightButton.frame = CGRectMake(0, 0, 40.0f, 40.0f);
@@ -387,6 +394,9 @@ typedef NS_ENUM(NSUInteger,ClassMomentCommentType) {
         if (msgCount > 0) {
             self.headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 157.0f + 81.0f);
             self.headerView.messageInteger = msgCount;
+            self.tableView.tableHeaderView = self.headerView;
+        }else{
+            self.headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 157.0f);
             self.tableView.tableHeaderView = self.headerView;
         }
     }];
