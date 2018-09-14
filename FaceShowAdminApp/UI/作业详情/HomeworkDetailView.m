@@ -141,7 +141,7 @@
     
     self.attachmentContainerView = [[UIView alloc]init];
     self.attachTitleLabel = [[UILabel alloc]init];
-    self.attachTitleLabel.text = @"作业附件:";
+    self.attachTitleLabel.text = @"作业附件";
     self.attachTitleLabel.font = [UIFont systemFontOfSize:14];
     self.attachTitleLabel.textAlignment = NSTextAlignmentCenter;
     self.attachTitleLabel.textColor = [UIColor colorWithHexString:@"333333"];
