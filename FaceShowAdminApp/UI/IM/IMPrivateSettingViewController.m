@@ -55,7 +55,7 @@
     }];
 
     NSString *fromName = self.topic ? self.topic.group : self.info.group.groupName;
-    if (fromName) {
+    if (!isEmpty(fromName)) {
         self.classNameView = [[IMTitleContentView alloc]init];
         self.classNameView.title = @"来自";
         self.classNameView.name = self.topic ? self.topic.group : self.info.group.groupName;
@@ -90,7 +90,7 @@
     [self.view addSubview:unremindView];
     [unremindView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        if (fromName) {
+        if (!isEmpty(fromName)) {
             make.top.mas_equalTo(self.classNameView.mas_bottom).mas_offset(5);
         }else{
             make.top.mas_equalTo(infoView.mas_bottom).mas_offset(5);
