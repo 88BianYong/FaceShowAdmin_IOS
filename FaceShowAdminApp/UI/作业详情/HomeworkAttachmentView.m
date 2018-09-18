@@ -56,7 +56,7 @@
 
 - (void)setData:(GetHomeworkRequestItem_attachmentInfo *)data {
     _data = data;
-    self.imageView.image = [UIImage imageNamed:[ResourceTypeMapping resourceTypeWithString:data.ext]];
+    self.imageView.image = [UIImage imageNamed:data.resType];
     self.titleLabel.text = data.resName;
 }
 
