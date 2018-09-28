@@ -68,7 +68,7 @@
 
 - (void)setData:(GetCountClazsRequestItem_data *)data {
     self.completeView.percent = [NSString stringWithFormat:@"%.0f%@",[data.taskFinishedRate floatValue]* 100,@"%"];
-    self.signinView.percent = [data.studentAvgScore decimalNumberString];
+    self.signinView.percent = [NSString stringWithFormat:@"%.0f",data.studentAvgScore.floatValue];
     self.useView.percent = [NSString stringWithFormat:@"%.0f%@",[data.studentReportRate floatValue]* 100,@"%"];;
 }
 
