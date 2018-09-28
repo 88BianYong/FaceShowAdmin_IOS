@@ -63,6 +63,8 @@
 @property (nonatomic, strong) NSString<Optional> *projectSatisfiedPercent;
 @property (nonatomic, strong) NSString<Optional> *groupByType;
 @property (nonatomic, strong) NSString<Optional> *appUsedNum;
+@property (nonatomic, strong) NSString<Optional> *appUserdPercent;
+@property (nonatomic, strong) NSString<Optional> *institutionNum;
 @property (nonatomic, strong) NSArray<GetSummaryRequestItem_projectStatisticInfo,Optional> *projectStatisticInfoListLevel;
 @property (nonatomic, strong) NSArray<GetSummaryRequestItem_projectStatisticInfo,Optional> *projectStatisticInfoListType;
 @property (nonatomic, strong) NSArray<GetSummaryRequestItem_projectStatisticInfo,Optional> *projectStatisticInfoListArea;

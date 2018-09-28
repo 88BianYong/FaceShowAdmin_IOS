@@ -364,7 +364,7 @@
     attach5.ext = @"m3u8";
     attach5.previewUrl = @"http://yuncdn.teacherclub.com.cn/course/cf/ts/xkb/zgxsfzhxsyjg/video/4.1-1_l/4.1-1_l.m3u8";
     //    self.userHomework = [[GetHomeworkRequestItem_userHomework alloc]init];
-    self.userHomework.attachmentInfos2 = @[attach1,attach2,attach3,attach4,attach5];
+    self.userHomework.attachmentInfos2 = (NSArray<GetHomeworkRequestItem_attachmentInfo, Optional> *)@[attach1,attach2,attach3,attach4,attach5];
 }
 
 @end
