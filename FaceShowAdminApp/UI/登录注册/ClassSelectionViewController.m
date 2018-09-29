@@ -62,13 +62,8 @@
     [UserManager sharedInstance].userModel.currentClass = self.selectedClass;
     [[UserManager sharedInstance] saveData];
     //使用情况统计
-    ClassListRequestItem_clazsInfos *info =[UserManager sharedInstance].userModel.currentClass;
     AddAppUseRecordRequest *request = [[AddAppUseRecordRequest alloc]init];
-    request.platId = info.platId;
-    request.projectId = info.projectId;
-    request.clazsId = info.clazsId;
-    request.methord = @"app.clazs.getStudentClazs";
-    request.actionType = @"3";
+    request.actionType = AppUseRecordActionType_GetStudentClazs;
     [[AppUseRecordManager sharedInstance]addRecord:request];
     [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
 }

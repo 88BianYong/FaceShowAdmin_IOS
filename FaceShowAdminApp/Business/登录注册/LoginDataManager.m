@@ -87,6 +87,10 @@
                             userModel.currentClass = userModel.clazsInfos.firstObject;
                             [[UserManager sharedInstance] saveData];
                         }
+                        //使用情况统计
+                        AddAppUseRecordRequest *request = [[AddAppUseRecordRequest alloc]init];
+                        request.actionType = AppUseRecordActionType_AccountLogin;
+                        [[AppUseRecordManager sharedInstance]addRecord:request];
                         [UserManager sharedInstance].loginStatus = YES;
                     }];
                 }];
@@ -105,16 +109,11 @@
                     if (userModel.clazsInfos.count == 1) {
                         userModel.currentClass = userModel.clazsInfos.firstObject;
                         [[UserManager sharedInstance] saveData];
-                        //使用情况统计
-                        ClassListRequestItem_clazsInfos *info =[UserManager sharedInstance].userModel.currentClass;
-                        AddAppUseRecordRequest *request = [[AddAppUseRecordRequest alloc]init];
-                        request.platId = info.platId;
-                        request.projectId = info.projectId;
-                        request.clazsId = info.clazsId;
-                        request.methord = @"accountLogin";
-                        request.actionType = @"1";
-                        [[AppUseRecordManager sharedInstance]addRecord:request];
                     }
+                    //使用情况统计
+                    AddAppUseRecordRequest *request = [[AddAppUseRecordRequest alloc]init];
+                    request.actionType = AppUseRecordActionType_AccountLogin;
+                    [[AppUseRecordManager sharedInstance]addRecord:request];
                     [UserManager sharedInstance].loginStatus = YES;
                 }];
             }

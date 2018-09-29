@@ -49,13 +49,8 @@
         [[IMManager sharedInstance]setupWithSceneID:[UserManager sharedInstance].userModel.currentClass.clazsId];
         [[IMManager sharedInstance] startConnection];
         //使用情况统计
-        ClassListRequestItem_clazsInfos *info =[UserManager sharedInstance].userModel.currentClass;
         AddAppUseRecordRequest *request = [[AddAppUseRecordRequest alloc]init];
-        request.platId = info.platId;
-        request.projectId = info.projectId;
-        request.clazsId = info.clazsId;
-        request.methord = @"autoLogin";
-        request.actionType = @"2";
+        request.actionType = AppUseRecordActionType_AutoLogin;
         [[AppUseRecordManager sharedInstance]addRecord:request];
     }
     
