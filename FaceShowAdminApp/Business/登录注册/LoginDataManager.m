@@ -12,6 +12,7 @@
 #import "ClassListRequest.h"
 #import "GetUserPlatformRequest.h"
 #import "GetUserRolesRequest.h"
+#import "AppUseRecordManager.h"
 
 @interface LoginDataManager()
 @property (nonatomic, strong) LoginRequest *loginRequest;
@@ -104,6 +105,15 @@
                     if (userModel.clazsInfos.count == 1) {
                         userModel.currentClass = userModel.clazsInfos.firstObject;
                         [[UserManager sharedInstance] saveData];
+                        //使用情况统计
+                        ClassListRequestItem_clazsInfos *info =[UserManager sharedInstance].userModel.currentClass;
+                        AddAppUseRecordRequest *request = [[AddAppUseRecordRequest alloc]init];
+                        request.platId = info.platId;
+                        request.projectId = info.projectId;
+                        request.clazsId = info.clazsId;
+                        request.methord = @"accountLogin";
+                        request.actionType = @"1";
+                        [[AppUseRecordManager sharedInstance]addRecord:request];
                     }
                     [UserManager sharedInstance].loginStatus = YES;
                 }];

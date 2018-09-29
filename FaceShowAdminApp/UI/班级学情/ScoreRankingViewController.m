@@ -26,7 +26,7 @@
     WEAK_SELF
     [fetcher setFinishBlock:^(NSString *avargeValue) {
         STRONG_SELF
-        self.topView.averageValue = avargeValue;
+        self.topView.averageValue = [NSString stringWithFormat:@"%.0f",avargeValue.floatValue];
     }];
     self.topView = [[ScoreAverageView alloc]init];
     [self.view addSubview:self.topView];

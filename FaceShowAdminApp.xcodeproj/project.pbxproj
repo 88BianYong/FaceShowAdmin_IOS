@@ -183,6 +183,8 @@
 		7C84301F20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84301E20BCE8BF00A05C14 /* SignInPlaceSearchResultView.m */; };
 		7C84302220BCEA7400A05C14 /* PlaceSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84302120BCEA7400A05C14 /* PlaceSearchResultCell.m */; };
 		7C84302520BD083800A05C14 /* PlaceSearchEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C84302420BD083800A05C14 /* PlaceSearchEmptyView.m */; };
+		7C96A857215F3056007AAD82 /* AddAppUseRecordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A855215F3055007AAD82 /* AddAppUseRecordRequest.m */; };
+		7C96A858215F3056007AAD82 /* AppUseRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A856215F3055007AAD82 /* AppUseRecordManager.m */; };
 		7CA81733213D3DC700824589 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81732213D3DC600824589 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7CA81735213D3E7500824589 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81734213D3E7500824589 /* Security.framework */; };
 		7CA81737213D3EB300824589 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81736213D3EB300824589 /* SystemConfiguration.framework */; };
@@ -939,6 +941,10 @@
 		7C84302120BCEA7400A05C14 /* PlaceSearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceSearchResultCell.m; sourceTree = "<group>"; };
 		7C84302320BD083800A05C14 /* PlaceSearchEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceSearchEmptyView.h; sourceTree = "<group>"; };
 		7C84302420BD083800A05C14 /* PlaceSearchEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceSearchEmptyView.m; sourceTree = "<group>"; };
+		7C96A853215F3055007AAD82 /* AddAppUseRecordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAppUseRecordRequest.h; sourceTree = "<group>"; };
+		7C96A854215F3055007AAD82 /* AppUseRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUseRecordManager.h; sourceTree = "<group>"; };
+		7C96A855215F3055007AAD82 /* AddAppUseRecordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAppUseRecordRequest.m; sourceTree = "<group>"; };
+		7C96A856215F3055007AAD82 /* AppUseRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUseRecordManager.m; sourceTree = "<group>"; };
 		7CA81732213D3DC600824589 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7CA81734213D3E7500824589 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7CA81736213D3EB300824589 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -2235,6 +2241,17 @@
 			path = "消息";
 			sourceTree = "<group>";
 		};
+		7C96A852215F3055007AAD82 /* 用户使用统计 */ = {
+			isa = PBXGroup;
+			children = (
+				7C96A853215F3055007AAD82 /* AddAppUseRecordRequest.h */,
+				7C96A855215F3055007AAD82 /* AddAppUseRecordRequest.m */,
+				7C96A854215F3055007AAD82 /* AppUseRecordManager.h */,
+				7C96A856215F3055007AAD82 /* AppUseRecordManager.m */,
+			);
+			path = "用户使用统计";
+			sourceTree = "<group>";
+		};
 		7CDF111C208D76C00044DD95 /* 消息提示 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2670,6 +2687,7 @@
 		7CEFC8D01FA06670001D8C84 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				7C96A852215F3055007AAD82 /* 用户使用统计 */,
 				7C6CE7AD2133A64A00BA6594 /* 消息 */,
 				7C32AD5121215587000705E8 /* 基础数据 */,
 				E94DDDFF20D36CD000729A67 /* 班级学情 */,
@@ -3970,6 +3988,7 @@
 				7CEA29B020D8B3BC000CE9EC /* HomeworkDetailViewController.m in Sources */,
 				7C6CE7A12133A50A00BA6594 /* ApnsCourseDetailViewController.m in Sources */,
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
+				7C96A858215F3056007AAD82 /* AppUseRecordManager.m in Sources */,
 				7C2DC38D20F347AF00B689C0 /* StageSubjectManager.m in Sources */,
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
 				7C6CE78621339B8D00BA6594 /* GeTuiConfig.m in Sources */,
@@ -4197,6 +4216,7 @@
 				7CEFC9BD1FA9A102001D8C84 /* SignInDetailHeaderView.m in Sources */,
 				E9F33E21213D29030008EFCD /* UpdatePersonalConfigRequest.m in Sources */,
 				7CDF1121208D76C00044DD95 /* UserPromptsManager.m in Sources */,
+				7C96A857215F3056007AAD82 /* AddAppUseRecordRequest.m in Sources */,
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
 				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,

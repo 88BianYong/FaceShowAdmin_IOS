@@ -11,6 +11,7 @@
 #import "ClassListRequest.h"
 #import "EmptyView.h"
 #import "AppDelegateHelper.h"
+#import "AppUseRecordManager.h"
 
 @interface ClassSelectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) EmptyView *emptyView;
@@ -60,6 +61,15 @@
 - (void)navRightBtnAction:(UIButton *)sender {
     [UserManager sharedInstance].userModel.currentClass = self.selectedClass;
     [[UserManager sharedInstance] saveData];
+    //使用情况统计
+    ClassListRequestItem_clazsInfos *info =[UserManager sharedInstance].userModel.currentClass;
+    AddAppUseRecordRequest *request = [[AddAppUseRecordRequest alloc]init];
+    request.platId = info.platId;
+    request.projectId = info.projectId;
+    request.clazsId = info.clazsId;
+    request.methord = @"app.clazs.getStudentClazs";
+    request.actionType = @"3";
+    [[AppUseRecordManager sharedInstance]addRecord:request];
     [[NSNotificationCenter defaultCenter]postNotificationName:kClassDidSelectNotification object:nil];
 }
 
