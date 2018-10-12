@@ -70,7 +70,6 @@
 		7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */; };
 		7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */; };
 		7C2DC37A20F30E0300B689C0 /* CreateUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */; };
-		7C2DC37D20F3124A00B689C0 /* GetUserInfoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC37C20F3124A00B689C0 /* GetUserInfoDetailRequest.m */; };
 		7C2DC38220F314EA00B689C0 /* HubeiContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38120F314EA00B689C0 /* HubeiContactsDetailViewController.m */; };
 		7C2DC38520F334D800B689C0 /* HubeiAddMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38420F334D800B689C0 /* HubeiAddMemberViewController.m */; };
 		7C2DC38820F336E400B689C0 /* CascadeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38720F336E400B689C0 /* CascadeItemCell.m */; };
@@ -262,6 +261,7 @@
 		7CEA29C720D8E02F000CE9EC /* MemberHomeworkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C620D8E02F000CE9EC /* MemberHomeworkDetailViewController.m */; };
 		7CEA29CA20D8E192000CE9EC /* HomeworkMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */; };
 		7CEA29CD20D8F31B000CE9EC /* HomeworkCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA29CC20D8F31B000CE9EC /* HomeworkCommentView.m */; };
+		7CEDC7BA216DB75700985EBF /* GetUserInfoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDC7B9216DB75700985EBF /* GetUserInfoDetailRequest.m */; };
 		7CEFC8131FA05FBB001D8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */; };
 		7CEFC8211FA05FBB001D8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8201FA05FBB001D8C84 /* main.m */; };
 		7CEFC8351FA06543001D8C84 /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFC8341FA06543001D8C84 /* AlertView.m */; };
@@ -716,8 +716,6 @@
 		7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteStepRequest.m; sourceTree = "<group>"; };
 		7C2DC37820F30E0300B689C0 /* CreateUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateUserRequest.h; sourceTree = "<group>"; };
 		7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateUserRequest.m; sourceTree = "<group>"; };
-		7C2DC37B20F3124A00B689C0 /* GetUserInfoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetUserInfoDetailRequest.h; sourceTree = "<group>"; };
-		7C2DC37C20F3124A00B689C0 /* GetUserInfoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoDetailRequest.m; sourceTree = "<group>"; };
 		7C2DC38020F314EA00B689C0 /* HubeiContactsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiContactsDetailViewController.h; sourceTree = "<group>"; };
 		7C2DC38120F314EA00B689C0 /* HubeiContactsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HubeiContactsDetailViewController.m; sourceTree = "<group>"; };
 		7C2DC38320F334D800B689C0 /* HubeiAddMemberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiAddMemberViewController.h; sourceTree = "<group>"; };
@@ -1091,6 +1089,8 @@
 		7CEA29C920D8E192000CE9EC /* HomeworkMemberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkMemberView.m; sourceTree = "<group>"; };
 		7CEA29CB20D8F31B000CE9EC /* HomeworkCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeworkCommentView.h; sourceTree = "<group>"; };
 		7CEA29CC20D8F31B000CE9EC /* HomeworkCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkCommentView.m; sourceTree = "<group>"; };
+		7CEDC7B8216DB75700985EBF /* GetUserInfoDetailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoDetailRequest.h; sourceTree = "<group>"; };
+		7CEDC7B9216DB75700985EBF /* GetUserInfoDetailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoDetailRequest.m; sourceTree = "<group>"; };
 		7CEFC80E1FA05FBB001D8C84 /* FaceShowAdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceShowAdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEFC8111FA05FBB001D8C84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CEFC8121FA05FBB001D8C84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1948,10 +1948,10 @@
 		7C2DC37E20F3140600B689C0 /* 湖北 */ = {
 			isa = PBXGroup;
 			children = (
+				7CEDC7B8216DB75700985EBF /* GetUserInfoDetailRequest.h */,
+				7CEDC7B9216DB75700985EBF /* GetUserInfoDetailRequest.m */,
 				7C2DC37820F30E0300B689C0 /* CreateUserRequest.h */,
 				7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */,
-				7C2DC37B20F3124A00B689C0 /* GetUserInfoDetailRequest.h */,
-				7C2DC37C20F3124A00B689C0 /* GetUserInfoDetailRequest.m */,
 			);
 			path = "湖北";
 			sourceTree = "<group>";
@@ -4490,6 +4490,7 @@
 				7CDF11A1208DB4A50044DD95 /* QiniuDataManager.m in Sources */,
 				7CEA29CD20D8F31B000CE9EC /* HomeworkCommentView.m in Sources */,
 				7CEFC8831FA065D6001D8C84 /* PostRequest.m in Sources */,
+				7CEDC7BA216DB75700985EBF /* GetUserInfoDetailRequest.m in Sources */,
 				921DE2F11FB15EF000CF39DE /* ResourceUploadRequest.m in Sources */,
 				7CEFC8CB1FA06627001D8C84 /* UIImage+YXResize.m in Sources */,
 				7C2E222920E49AE00055843D /* ResourceGenerateRequest.m in Sources */,
@@ -4498,7 +4499,6 @@
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
 				7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */,
 				E914818E20906203001B7EB5 /* IMTimeHandleManger.m in Sources */,
-				7C2DC37D20F3124A00B689C0 /* GetUserInfoDetailRequest.m in Sources */,
 				7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */,
 				E97D2EB421391ED200FECFE0 /* YXSlideProgressView.m in Sources */,
 				7CDF121C20902EC10044DD95 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
