@@ -190,7 +190,7 @@
 - (void)showSignSelectWithIsType:(BOOL)isType{
     [self.promptView resignFirstResponder];
     FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    actionSheetView.titleArray =  isType? @[@{@"title":@"扫码签到"}, @{@"title":@"位置签到"}] : @[@{@"title":@"班级签到"}, @{@"title":@"小组签到"}] ;
+    actionSheetView.titleArray =  isType? @[@{@"title":@"扫码签到"}, @{@"title":@"位置签到"}] : @[@{@"title":@"全员签到"}, @{@"title":@"分组签到"}] ;
     self.alertView = [[AlertView alloc] init];
     self.alertView.backgroundColor = [UIColor clearColor];
     self.alertView.hideWhenMaskClicked = YES;
