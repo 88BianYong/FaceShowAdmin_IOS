@@ -8,6 +8,6 @@
 
 #import "PagedListViewControllerBase.h"
 
-@interface IMContactsViewController : BaseViewController
+@interface IMContactsViewController : PagedListViewControllerBase
 
 @end
