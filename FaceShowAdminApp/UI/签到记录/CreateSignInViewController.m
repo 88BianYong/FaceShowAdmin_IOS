@@ -23,6 +23,8 @@
 #import "SignInTypeSelectView.h"
 #import "SignInScopeSelectView.h"
 #import "FDActionSheetView.h"
+#import "SignInListViewController.h"
+#import "TaskViewController.h"
 
 @interface CreateSignInViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) SAMTextView *titleView;
@@ -535,7 +537,13 @@
             return;
         }
         BLOCK_EXEC(self.comleteBlock);
-        [self.navigationController popViewControllerAnimated:YES];
+        for (UIViewController *vc in self.navigationController.childViewControllers) {
+            if ([vc isKindOfClass:[TaskViewController class]]) {
+                [self.navigationController popToViewController:vc animated:YES];
+            }else if([vc isKindOfClass:[SignInListViewController class]]){
+                [self.navigationController popToViewController:vc animated:YES];
+            }
+        }
     }];
 }
 
@@ -598,6 +606,7 @@
         }
         SignInDetailRequestItem *item = (SignInDetailRequestItem *)retItem;
         [self.titleView setText:item.data.signIn.title];
+        [self.promptView setText:item.data.signIn.successPrompt];
         NSArray *startArr = [item.data.signIn.startTime componentsSeparatedByString:@" "];
         [self.dateView setContent:[NSString stringWithFormat:@"%@",startArr.firstObject]];
         NSString *startTime = [startArr.lastObject substringToIndex:5];

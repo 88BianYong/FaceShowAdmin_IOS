@@ -124,11 +124,15 @@
             make.size.mas_equalTo(CGSizeMake(46, 46));
         }];
     }else {
-        [self.signInfoButton setTitle:[NSString stringWithFormat:@"地点:%@",data.positionSite] forState:UIControlStateNormal];
-        [self.signInfoButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(-72);
-            make.centerX.mas_equalTo(0);
-        }];
+        if (data.positionSite.length > 0) {
+            [self.signInfoButton setTitle:[NSString stringWithFormat:@"地点:%@",data.positionSite] forState:UIControlStateNormal];
+            [self.signInfoButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.mas_equalTo(-72);
+                make.centerX.mas_equalTo(0);
+            }];
+        }else{
+            [self.signInfoButton setHidden:YES];
+        }
     }
     NSString *count = [NSString stringWithFormat:@"%@/%@",data.signInUserNum,data.totalUserNum];
     NSString *complete = [NSString stringWithFormat:@"签到人数：%@",count];

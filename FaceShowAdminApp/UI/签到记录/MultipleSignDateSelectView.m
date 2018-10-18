@@ -153,7 +153,7 @@
     }else {
         if (_type == SignDateSelectTypeMode_Date) {
             int i = [self.startDate.content isAscendingCompareTimeDate:self.endDate.content];
-            if (i < 1) {
+            if (i < 0) {
                 return @"结束日期必须大于开始日期";
             }else{
                 return nil;
