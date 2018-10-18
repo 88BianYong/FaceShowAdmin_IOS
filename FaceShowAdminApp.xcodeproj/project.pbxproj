@@ -190,6 +190,9 @@
 		7CA81739213D3ECA00824589 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81738213D3EC900824589 /* libsqlite3.0.tbd */; };
 		7CA81742213F79F500824589 /* ApnsChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA81741213F79F500824589 /* ApnsChatViewController.m */; };
 		7CCB291621786DCA003E98A3 /* ChooseCreateSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291521786DCA003E98A3 /* ChooseCreateSignInViewController.m */; };
+		7CCB29192178D236003E98A3 /* IMGroupMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB29172178D236003E98A3 /* IMGroupMemberView.m */; };
+		7CCB291C2178D2AB003E98A3 /* IMGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291B2178D2AB003E98A3 /* IMGroupMemberViewController.m */; };
+		7CCB291F2178D3CD003E98A3 /* GetContactRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291D2178D3CD003E98A3 /* GetContactRequest.m */; };
 		7CCD2D98217582CC00971FC5 /* SignGroupPlaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D97217582CC00971FC5 /* SignGroupPlaceView.m */; };
 		7CCD2D9B217584A500971FC5 /* MultipleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D9A217584A500971FC5 /* MultipleCreateViewController.m */; };
 		7CCD2D9E21758AFF00971FC5 /* SignGroupPlaceSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D9D21758AFF00971FC5 /* SignGroupPlaceSelectView.m */; };
@@ -962,6 +965,12 @@
 		7CA81741213F79F500824589 /* ApnsChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApnsChatViewController.m; sourceTree = "<group>"; };
 		7CCB291421786DCA003E98A3 /* ChooseCreateSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseCreateSignInViewController.h; sourceTree = "<group>"; };
 		7CCB291521786DCA003E98A3 /* ChooseCreateSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseCreateSignInViewController.m; sourceTree = "<group>"; };
+		7CCB29172178D236003E98A3 /* IMGroupMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGroupMemberView.m; sourceTree = "<group>"; };
+		7CCB29182178D236003E98A3 /* IMGroupMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGroupMemberView.h; sourceTree = "<group>"; };
+		7CCB291A2178D2AA003E98A3 /* IMGroupMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGroupMemberViewController.h; sourceTree = "<group>"; };
+		7CCB291B2178D2AB003E98A3 /* IMGroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGroupMemberViewController.m; sourceTree = "<group>"; };
+		7CCB291D2178D3CD003E98A3 /* GetContactRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetContactRequest.m; sourceTree = "<group>"; };
+		7CCB291E2178D3CD003E98A3 /* GetContactRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetContactRequest.h; sourceTree = "<group>"; };
 		7CCD2D96217582CC00971FC5 /* SignGroupPlaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignGroupPlaceView.h; sourceTree = "<group>"; };
 		7CCD2D97217582CC00971FC5 /* SignGroupPlaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignGroupPlaceView.m; sourceTree = "<group>"; };
 		7CCD2D99217584A500971FC5 /* MultipleCreateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleCreateViewController.h; sourceTree = "<group>"; };
@@ -1806,6 +1815,8 @@
 		436CB2221FB15BAE00A31585 /* 通讯录 */ = {
 			isa = PBXGroup;
 			children = (
+				7CCB291E2178D3CD003E98A3 /* GetContactRequest.h */,
+				7CCB291D2178D3CD003E98A3 /* GetContactRequest.m */,
 				7C2DC37E20F3140600B689C0 /* 湖北 */,
 				436CB2231FB15C9B00A31585 /* ClazsMemberListRequest.h */,
 				436CB2241FB15C9B00A31585 /* ClazsMemberListRequest.m */,
@@ -2016,6 +2027,8 @@
 		7C2E6F9020CA218F0066DE7C /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				7CCB29182178D236003E98A3 /* IMGroupMemberView.h */,
+				7CCB29172178D236003E98A3 /* IMGroupMemberView.m */,
 				7C2E6F9120CA219F0066DE7C /* IMTitleContentView.h */,
 				7C2E6F9320CA219F0066DE7C /* IMTitleContentView.m */,
 				7C2E6F9520CA21A00066DE7C /* IMSwitchSettingView.h */,
@@ -3417,6 +3430,8 @@
 				E98CA16E209063CF00BCE36D /* ChatViewController.m */,
 				7C2E6F8C20CA216D0066DE7C /* IMGroupSettingViewController.h */,
 				7C2E6F8D20CA216E0066DE7C /* IMGroupSettingViewController.m */,
+				7CCB291A2178D2AA003E98A3 /* IMGroupMemberViewController.h */,
+				7CCB291B2178D2AB003E98A3 /* IMGroupMemberViewController.m */,
 				7C2E6F8B20CA216D0066DE7C /* IMPrivateSettingViewController.h */,
 				7C2E6F8A20CA216C0066DE7C /* IMPrivateSettingViewController.m */,
 			);
@@ -4157,6 +4172,7 @@
 				7C3F6BE021393AAC007B2A28 /* ContactsSearchResultView.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
 				7CCD2D9B217584A500971FC5 /* MultipleCreateViewController.m in Sources */,
+				7CCB291F2178D3CD003E98A3 /* GetContactRequest.m in Sources */,
 				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
 				7CEA29B520D8B451000CE9EC /* HomeworkDetailHeaderView.m in Sources */,
 				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
@@ -4509,6 +4525,7 @@
 				7CEFC9231FA0739B001D8C84 /* YXDrawerViewController.m in Sources */,
 				7CEFC8C81FA06627001D8C84 /* UIImage+Color.m in Sources */,
 				E97D2E8C2136765A00FECFE0 /* ForbidTalkingView.m in Sources */,
+				7CCB29192178D236003E98A3 /* IMGroupMemberView.m in Sources */,
 				7CA81742213F79F500824589 /* ApnsChatViewController.m in Sources */,
 				7CEFC97C1FA813E3001D8C84 /* SignInListViewController.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
@@ -4539,6 +4556,7 @@
 				E94DDE8520DA507A00729A67 /* TaskCommentDataFetcher.m in Sources */,
 				436E6E0C1FB40348009950EA /* UpdateTextInfoViewController.m in Sources */,
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
+				7CCB291C2178D2AB003E98A3 /* IMGroupMemberViewController.m in Sources */,
 				7C07F04120DDE2BF00E6BCE2 /* GetSummaryRequest.m in Sources */,
 				E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */,
 				7CD978F721760592008592E2 /* GroupListRequest.m in Sources */,
