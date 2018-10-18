@@ -33,7 +33,7 @@
     self.backgroundColor = [UIColor whiteColor];
     self.titleLabel = [[UILabel alloc]init];
     self.titleLabel.font = [UIFont systemFontOfSize:14];
-    self.titleLabel.text = @"签到范围";
+    self.titleLabel.text = @"签到类型";
     self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,13 +77,13 @@
     switch (signScopeType) {
         case SignInScopeType_Class:
         {
-            [self.signTypeButton setTitle:@"班级签到" forState:UIControlStateNormal];
+            [self.signTypeButton setTitle:@"全员签到" forState:UIControlStateNormal];
             [self.signTypeButton setImage:[UIImage imageNamed:@"全员签到"] forState:UIControlStateNormal];
         }
             break;
         case SignInScopeType_Group:
         {
-            [self.signTypeButton setTitle:@"小组签到" forState:UIControlStateNormal];
+            [self.signTypeButton setTitle:@"分组签到" forState:UIControlStateNormal];
             [self.signTypeButton setImage:[UIImage imageNamed:@"分组签到"] forState:UIControlStateNormal];
         }
             break;
