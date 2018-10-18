@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"选择创建签到";
+    self.navigationItem.title = @"选择创建方式";
     [self setupUI];
 }
 
@@ -38,14 +38,14 @@
     WEAK_SELF
     [[create rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
-        [TalkingData trackEvent:@"发布签到"];
+        [TalkingData trackEvent:@"创建签到"];
         CreateSignInViewController *create = [[CreateSignInViewController alloc] init];
         [self.navigationController pushViewController:create animated:YES];
     }];
 
     UIButton *multipleCreate = [UIButton buttonWithType:UIButtonTypeCustom];
     multipleCreate.backgroundColor = [UIColor whiteColor];
-    [multipleCreate setTitle:_isMultiple?@"一键创建":@"批量签到" forState:UIControlStateNormal];
+    [multipleCreate setTitle:_isMultiple?@"一键创建班级签到":@"批量创建签到" forState:UIControlStateNormal];
     [multipleCreate setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.view addSubview:multipleCreate];
     [multipleCreate mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -56,7 +56,7 @@
     }];
     [[multipleCreate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
-//        [TalkingData trackEvent:_isMultiple?@"一键创建":@"批量签到"];
+        [TalkingData trackEvent:self.isMultiple?@"一键创建班级签到":@"批量创建签到"];
         MultipleCreateViewController *create = [[MultipleCreateViewController alloc] init];
         create.isDefault = self.isMultiple;
         [self.navigationController pushViewController:create animated:YES];
