@@ -23,6 +23,8 @@
 #import "SignInTypeSelectView.h"
 #import "SignInScopeSelectView.h"
 #import "FDActionSheetView.h"
+#import "SignInListViewController.h"
+#import "TaskViewController.h"
 
 @interface MultipleCreateViewController ()<UITextViewDelegate>
 
@@ -383,7 +385,13 @@
             return;
         }
         BLOCK_EXEC(self.comleteBlock);
-        [self.navigationController popViewControllerAnimated:YES];
+        for (UIViewController *vc in self.navigationController.childViewControllers) {
+            if ([vc isKindOfClass:[TaskViewController class]]) {
+                [self.navigationController popToViewController:vc animated:YES];
+            }else if([vc isKindOfClass:[SignInListViewController class]]){
+                [self.navigationController popToViewController:vc animated:YES];
+            }
+        }
     }];
 
 }

@@ -11,6 +11,7 @@
 
 @interface MultipleSignDateView()
 @property (nonatomic, strong) MASViewAttribute *timeSelectLastBottom;
+@property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) NSMutableArray<MultipleSignDateSelectView *>*selectViewArr;
 @property (nonatomic, strong) MultipleSignDateSelectView *dateSelectView;
@@ -51,18 +52,28 @@
     };
     self.timeSelectLastBottom = self.dateSelectView.mas_bottom;
 
+    self.backgroundView = [[UIView alloc] init];
+    self.backgroundView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:self.backgroundView];
+    [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.timeSelectLastBottom).offset(5);
+        make.left.right.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
+
     self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.addButton setTitle:@"添加时间" forState:UIControlStateNormal];
+    [self.addButton setTitle:@"添加时间段" forState:UIControlStateNormal];
     [self.addButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.addButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
     self.addButton.layer.borderColor = [UIColor colorWithHexString:@"0068bd"].CGColor;
     self.addButton.layer.borderWidth = 1.0;
-    [self addSubview:self.addButton];
+    self.addButton.layer.masksToBounds = YES;
+    self.addButton.layer.cornerRadius = 5;
+    [self.backgroundView addSubview:self.addButton];
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.timeSelectLastBottom).offset(10);
-        make.size.mas_equalTo(CGSizeMake(120, 40));
+        make.centerY.mas_equalTo(0);
         make.left.mas_equalTo(15);
-        make.bottom.mas_equalTo(-10);
+        make.width.mas_equalTo(100);
     }];
     [self.addButton addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
 
@@ -137,13 +148,11 @@
 }
 
 - (void)updateAddButton{
-    [self.addButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.timeSelectLastBottom).offset(10);
-        make.size.mas_equalTo(CGSizeMake(120, 40));
-        make.left.mas_equalTo(15);
-        make.bottom.mas_equalTo(-10);
+    [self.backgroundView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.timeSelectLastBottom).offset(5);
+        make.left.right.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(50);
     }];
-
 }
 
 - (NSString *)signInTimeSetting{
