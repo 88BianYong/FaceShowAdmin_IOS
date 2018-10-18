@@ -121,12 +121,7 @@
             return;
         }
         [self.view.window nyx_showToast:@"删除成功"];
-        if (self.deleteBlock) {
-            self.deleteBlock();
-        }else{
-
-        }
-//        BLOCK_EXEC(self.deleteBlock);
+        BLOCK_EXEC(self.deleteBlock);
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

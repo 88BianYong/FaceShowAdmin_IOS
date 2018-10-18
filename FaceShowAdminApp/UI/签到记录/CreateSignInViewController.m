@@ -510,13 +510,21 @@
     self.createSignInRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     self.createSignInRequest.title = self.titleView.text;
     self.createSignInRequest.successPrompt = self.promptView.text;
+    self.createSignInRequest.signinType = [NSString stringWithFormat:@"%lu",(unsigned long)self.signTypeSelectView.signType];
     self.createSignInRequest.antiCheat = [NSString stringWithFormat:@"%@",@(YES)];
-    self.createSignInRequest.qrcodeRefreshRate = [NSString stringWithFormat:@"%@",@(self.dynamicView.isOn)];
     self.createSignInRequest.startTime = start;
     self.createSignInRequest.endTime = end;
     self.createSignInRequest.signinType = [NSString stringWithFormat:@"%lu",(unsigned long)self.signTypeSelectView.signType];
-    self.createSignInRequest.signinPosition = [NSString stringWithFormat:@"%@,%@",@(self.selectedPoi.pt.longitude),@(self.selectedPoi.pt.latitude)];
-    self.createSignInRequest.positionSite = self.selectedPoi.name;
+    if (self.signTypeSelectView.signType == SignInType_Code) {
+        self.createSignInRequest.qrcodeRefreshRate = [NSString stringWithFormat:@"%@",@(self.dynamicView.isOn)];
+    }else{
+        if (self.signScopeSelectView.signScopeType == SignInScopeType_Class) {
+            self.createSignInRequest.signinPosition = [NSString stringWithFormat:@"%@,%@",@(self.selectedPoi.pt.longitude),@(self.selectedPoi.pt.latitude)];
+            self.createSignInRequest.positionSite = self.selectedPoi.name;
+        }else{
+            self.createSignInRequest.signinExts = self.placeView.signInExts;
+        }
+    }
     [self.view nyx_startLoading];
     WEAK_SELF
     [self.createSignInRequest startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
