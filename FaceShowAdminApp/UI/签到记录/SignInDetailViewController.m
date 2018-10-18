@@ -98,6 +98,7 @@
     actionSheetView.actionSheetBlock = ^(NSInteger integer) {
         STRONG_SELF
         if (integer == 1) {
+            [TalkingData trackEvent:@"编辑签到"];
             [self updateSignIn];
         }else if(integer == 2){
             [TalkingData trackEvent:@"删除签到"];
