@@ -58,6 +58,10 @@
     return self.switchView.isOn;
 }
 
+- (void)setIsOn:(BOOL)isOn{
+    [self.switchView setOn:isOn animated:YES];
+}
+
 - (void)setTitle:(NSString *)title {
     _title = title;
     self.titleLabel.text = title;

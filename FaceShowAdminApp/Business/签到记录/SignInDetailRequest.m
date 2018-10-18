@@ -8,6 +8,12 @@
 
 #import "SignInDetailRequest.h"
 
+@implementation SignInDetailRequest_Item_signInExts
+@end
+
+@implementation SignInDetailRequestItem_data_signIns
+@end
+
 @implementation SignInDetailRequestItem_data
 @end
 

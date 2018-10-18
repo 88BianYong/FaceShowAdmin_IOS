@@ -10,4 +10,5 @@
 
 @interface CreateSignInViewController : ScrollBaseViewController
 @property (nonatomic, strong) void (^comleteBlock)(void);
+@property (nonatomic, copy) NSString *stepId;
 @end

@@ -24,8 +24,31 @@
 // 去掉两端空白，并合并中间多余空白
 - (NSString *)nyx_stringByTrimmingExtraSpaces;
 
-//两个时间比较 1为时间date较self大 0为相等 -1为时间date较self小
+
+
+/**
+ 两个时间比较 1为时间date较self大 0为相等 -1为时间date较self小
+
+ @param date 另一个时间
+ @return 返回值
+ */
 - (int)isAscendingCompareDate:(NSString *)date;
+
+/**
+ 两个时间比较 1为时间date较self大 0为相等 -1为时间date较self小 (比较类型为HH:mm)
+
+ @param date 另一个时间
+ @return 返回值
+ */
+- (int)isAscendingCompareTime:(NSString *)date;
+
+/**
+ 两个时间比较 1为时间date较self大 0为相等 -1为时间date较self小 (比较类型为yyyy-MM-dd)
+
+ @param date 另一个时间
+ @return 返回值
+ */
+- (int)isAscendingCompareTimeDate:(NSString *)date;
 
 #pragma mark - encode & decode
 

@@ -189,6 +189,17 @@
 		7CA81737213D3EB300824589 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81736213D3EB300824589 /* SystemConfiguration.framework */; };
 		7CA81739213D3ECA00824589 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81738213D3EC900824589 /* libsqlite3.0.tbd */; };
 		7CA81742213F79F500824589 /* ApnsChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA81741213F79F500824589 /* ApnsChatViewController.m */; };
+		7CCB291621786DCA003E98A3 /* ChooseCreateSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291521786DCA003E98A3 /* ChooseCreateSignInViewController.m */; };
+		7CCD2D98217582CC00971FC5 /* SignGroupPlaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D97217582CC00971FC5 /* SignGroupPlaceView.m */; };
+		7CCD2D9B217584A500971FC5 /* MultipleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D9A217584A500971FC5 /* MultipleCreateViewController.m */; };
+		7CCD2D9E21758AFF00971FC5 /* SignGroupPlaceSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D9D21758AFF00971FC5 /* SignGroupPlaceSelectView.m */; };
+		7CCD2DA121759C0900971FC5 /* MultipleSignDateSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2DA021759C0900971FC5 /* MultipleSignDateSelectView.m */; };
+		7CCD2DA42175C42F00971FC5 /* MultipleSignDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2DA32175C42F00971FC5 /* MultipleSignDateView.m */; };
+		7CD978F721760592008592E2 /* GroupListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD978F621760592008592E2 /* GroupListRequest.m */; };
+		7CD978FA2176E0FA008592E2 /* UpdateSignInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD978F92176E0F9008592E2 /* UpdateSignInRequest.m */; };
+		7CD978FD2176EBA8008592E2 /* BatchCreateSignInsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD978FC2176EBA8008592E2 /* BatchCreateSignInsRequest.m */; };
+		7CD9790021770D6A008592E2 /* SignInTypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD978FF21770D6A008592E2 /* SignInTypeSelectView.m */; };
+		7CD9790321771432008592E2 /* SignInScopeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9790221771432008592E2 /* SignInScopeSelectView.m */; };
 		7CDF1121208D76C00044DD95 /* UserPromptsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF111D208D76C00044DD95 /* UserPromptsManager.m */; };
 		7CDF1122208D76C00044DD95 /* GetUserPromptsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF1120208D76C00044DD95 /* GetUserPromptsRequest.m */; };
 		7CDF1135208D7AA40044DD95 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF1134208D7AA30044DD95 /* UserModel.m */; };
@@ -949,6 +960,29 @@
 		7CA81738213D3EC900824589 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7CA81740213F79F500824589 /* ApnsChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApnsChatViewController.h; sourceTree = "<group>"; };
 		7CA81741213F79F500824589 /* ApnsChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApnsChatViewController.m; sourceTree = "<group>"; };
+		7CCB291421786DCA003E98A3 /* ChooseCreateSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseCreateSignInViewController.h; sourceTree = "<group>"; };
+		7CCB291521786DCA003E98A3 /* ChooseCreateSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseCreateSignInViewController.m; sourceTree = "<group>"; };
+		7CCD2D96217582CC00971FC5 /* SignGroupPlaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignGroupPlaceView.h; sourceTree = "<group>"; };
+		7CCD2D97217582CC00971FC5 /* SignGroupPlaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignGroupPlaceView.m; sourceTree = "<group>"; };
+		7CCD2D99217584A500971FC5 /* MultipleCreateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleCreateViewController.h; sourceTree = "<group>"; };
+		7CCD2D9A217584A500971FC5 /* MultipleCreateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleCreateViewController.m; sourceTree = "<group>"; };
+		7CCD2D9C21758AFF00971FC5 /* SignGroupPlaceSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignGroupPlaceSelectView.h; sourceTree = "<group>"; };
+		7CCD2D9D21758AFF00971FC5 /* SignGroupPlaceSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignGroupPlaceSelectView.m; sourceTree = "<group>"; };
+		7CCD2D9F21759C0900971FC5 /* MultipleSignDateSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleSignDateSelectView.h; sourceTree = "<group>"; };
+		7CCD2DA021759C0900971FC5 /* MultipleSignDateSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleSignDateSelectView.m; sourceTree = "<group>"; };
+		7CCD2DA22175C42F00971FC5 /* MultipleSignDateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleSignDateView.h; sourceTree = "<group>"; };
+		7CCD2DA32175C42F00971FC5 /* MultipleSignDateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleSignDateView.m; sourceTree = "<group>"; };
+		7CD978F42175D46F008592E2 /* SignDateSelectTypeMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignDateSelectTypeMode.h; sourceTree = "<group>"; };
+		7CD978F521760592008592E2 /* GroupListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupListRequest.h; sourceTree = "<group>"; };
+		7CD978F621760592008592E2 /* GroupListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupListRequest.m; sourceTree = "<group>"; };
+		7CD978F82176E0F9008592E2 /* UpdateSignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateSignInRequest.h; sourceTree = "<group>"; };
+		7CD978F92176E0F9008592E2 /* UpdateSignInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateSignInRequest.m; sourceTree = "<group>"; };
+		7CD978FB2176EBA8008592E2 /* BatchCreateSignInsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchCreateSignInsRequest.h; sourceTree = "<group>"; };
+		7CD978FC2176EBA8008592E2 /* BatchCreateSignInsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchCreateSignInsRequest.m; sourceTree = "<group>"; };
+		7CD978FE21770D6A008592E2 /* SignInTypeSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInTypeSelectView.h; sourceTree = "<group>"; };
+		7CD978FF21770D6A008592E2 /* SignInTypeSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInTypeSelectView.m; sourceTree = "<group>"; };
+		7CD9790121771432008592E2 /* SignInScopeSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInScopeSelectView.h; sourceTree = "<group>"; };
+		7CD9790221771432008592E2 /* SignInScopeSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInScopeSelectView.m; sourceTree = "<group>"; };
 		7CDF111D208D76C00044DD95 /* UserPromptsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPromptsManager.m; sourceTree = "<group>"; };
 		7CDF111E208D76C00044DD95 /* GetUserPromptsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserPromptsRequest.h; sourceTree = "<group>"; };
 		7CDF111F208D76C00044DD95 /* UserPromptsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPromptsManager.h; sourceTree = "<group>"; };
@@ -3006,6 +3040,10 @@
 				7CEFC97E1FA8145F001D8C84 /* SignInListFetcher.m */,
 				7CEFC9B51FA9734E001D8C84 /* CreateSignInRequest.h */,
 				7CEFC9B61FA9734E001D8C84 /* CreateSignInRequest.m */,
+				7CD978FB2176EBA8008592E2 /* BatchCreateSignInsRequest.h */,
+				7CD978FC2176EBA8008592E2 /* BatchCreateSignInsRequest.m */,
+				7CD978F82176E0F9008592E2 /* UpdateSignInRequest.h */,
+				7CD978F92176E0F9008592E2 /* UpdateSignInRequest.m */,
 				7C672AEA1FAAADB3004D93DF /* UserSignInListRequest.h */,
 				7C672AEB1FAAADB3004D93DF /* UserSignInListRequest.m */,
 				7C672AED1FAAAF5E004D93DF /* UserSignInListFetcher.h */,
@@ -3014,6 +3052,8 @@
 				7C672AFA1FAAD356004D93DF /* ReplenishSignInRequest.m */,
 				7C672AFC1FAAEE6D004D93DF /* SignInDetailRequest.h */,
 				7C672AFD1FAAEE6D004D93DF /* SignInDetailRequest.m */,
+				7CD978F521760592008592E2 /* GroupListRequest.h */,
+				7CD978F621760592008592E2 /* GroupListRequest.m */,
 			);
 			path = "签到记录";
 			sourceTree = "<group>";
@@ -3024,8 +3064,12 @@
 				7CEFC9831FA82059001D8C84 /* View */,
 				7CEFC97A1FA813E3001D8C84 /* SignInListViewController.h */,
 				7CEFC97B1FA813E3001D8C84 /* SignInListViewController.m */,
+				7CCB291421786DCA003E98A3 /* ChooseCreateSignInViewController.h */,
+				7CCB291521786DCA003E98A3 /* ChooseCreateSignInViewController.m */,
 				7CEFC9841FA82C40001D8C84 /* CreateSignInViewController.h */,
 				7CEFC9851FA82C40001D8C84 /* CreateSignInViewController.m */,
+				7CCD2D99217584A500971FC5 /* MultipleCreateViewController.h */,
+				7CCD2D9A217584A500971FC5 /* MultipleCreateViewController.m */,
 				7CEFC9B81FA99F08001D8C84 /* SignInDetailViewController.h */,
 				7CEFC9B91FA99F08001D8C84 /* SignInDetailViewController.m */,
 				7CEFC9C11FA9B293001D8C84 /* SignedMemberListViewController.h */,
@@ -3074,6 +3118,19 @@
 				7C84302120BCEA7400A05C14 /* PlaceSearchResultCell.m */,
 				7C84302320BD083800A05C14 /* PlaceSearchEmptyView.h */,
 				7C84302420BD083800A05C14 /* PlaceSearchEmptyView.m */,
+				7CCD2D9C21758AFF00971FC5 /* SignGroupPlaceSelectView.h */,
+				7CCD2D9D21758AFF00971FC5 /* SignGroupPlaceSelectView.m */,
+				7CD978FE21770D6A008592E2 /* SignInTypeSelectView.h */,
+				7CD978FF21770D6A008592E2 /* SignInTypeSelectView.m */,
+				7CD9790121771432008592E2 /* SignInScopeSelectView.h */,
+				7CD9790221771432008592E2 /* SignInScopeSelectView.m */,
+				7CCD2D96217582CC00971FC5 /* SignGroupPlaceView.h */,
+				7CCD2D97217582CC00971FC5 /* SignGroupPlaceView.m */,
+				7CCD2D9F21759C0900971FC5 /* MultipleSignDateSelectView.h */,
+				7CCD2DA021759C0900971FC5 /* MultipleSignDateSelectView.m */,
+				7CD978F42175D46F008592E2 /* SignDateSelectTypeMode.h */,
+				7CCD2DA22175C42F00971FC5 /* MultipleSignDateView.h */,
+				7CCD2DA32175C42F00971FC5 /* MultipleSignDateView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -4071,6 +4128,7 @@
 				7C672B561FB2E077004D93DF /* CourseResourceViewController.m in Sources */,
 				7C6CE7BC2133A64A00BA6594 /* GetNoticeDetailRequest.m in Sources */,
 				E94DDE6420D9F13300729A67 /* GetAllTasksRequest.m in Sources */,
+				7CD9790021770D6A008592E2 /* SignInTypeSelectView.m in Sources */,
 				E9B39A77212E94F0007ABA54 /* ContactsCell.m in Sources */,
 				7C2E221D20E366000055843D /* RefreshBaseViewController.m in Sources */,
 				E9B39A7D212E9609007ABA54 /* ContactMemberContactsRequest.m in Sources */,
@@ -4098,11 +4156,13 @@
 				921016E020D8F262007FEBB7 /* CreateEvaluateCell.m in Sources */,
 				7C3F6BE021393AAC007B2A28 /* ContactsSearchResultView.m in Sources */,
 				7CEFC8C11FA06627001D8C84 /* NSDictionary+Dictionarys.m in Sources */,
+				7CCD2D9B217584A500971FC5 /* MultipleCreateViewController.m in Sources */,
 				7C672B7F1FB53916004D93DF /* CourseCommentTitleView.m in Sources */,
 				7CEA29B520D8B451000CE9EC /* HomeworkDetailHeaderView.m in Sources */,
 				7C672B441FB1AA4A004D93DF /* QuestionUserListViewController.m in Sources */,
 				E9540C4C20CA1F6F00D7DDA2 /* IMDatabaseManager.m in Sources */,
 				7C672B4D1FB2A54B004D93DF /* CourseDetailViewController.m in Sources */,
+				7CCD2DA42175C42F00971FC5 /* MultipleSignDateView.m in Sources */,
 				921860631FA978A90018D982 /* NoticeListCell.m in Sources */,
 				9234277C1FA722CF003BCEFD /* MainPageFooterView.m in Sources */,
 				921860821FA9BBDB0018D982 /* NoticeSaveContentCell.m in Sources */,
@@ -4126,6 +4186,7 @@
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
 				7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */,
 				7CDF121D20902EC10044DD95 /* PhotosScrollView.m in Sources */,
+				7CCD2D98217582CC00971FC5 /* SignGroupPlaceView.m in Sources */,
 				7CEA29C420D8DAA7000CE9EC /* HomeworkRequirementViewController.m in Sources */,
 				7C2DC37A20F30E0300B689C0 /* CreateUserRequest.m in Sources */,
 				7CDF121B20902EC10044DD95 /* ShowPhotosViewController.m in Sources */,
@@ -4141,6 +4202,7 @@
 				9234277F1FA722CF003BCEFD /* MainPageTableHeaderView.m in Sources */,
 				7C672B231FB1538C004D93DF /* FillQuestionResultCell.m in Sources */,
 				7CDF123320902EE60044DD95 /* ClassMomentNotificationCell.m in Sources */,
+				7CD9790321771432008592E2 /* SignInScopeSelectView.m in Sources */,
 				923427961FA817FA003BCEFD /* MainPageDetailViewController.m in Sources */,
 				921DE2DB1FB1463A00CF39DE /* ResourceManagerRequest.m in Sources */,
 				7C2DC38220F314EA00B689C0 /* HubeiContactsDetailViewController.m in Sources */,
@@ -4218,6 +4280,7 @@
 				7CDF1121208D76C00044DD95 /* UserPromptsManager.m in Sources */,
 				7C96A857215F3056007AAD82 /* AddAppUseRecordRequest.m in Sources */,
 				7CEFC83C1FA06562001D8C84 /* YXTestViewController.m in Sources */,
+				7CCD2D9E21758AFF00971FC5 /* SignGroupPlaceSelectView.m in Sources */,
 				9218606F1FA9B0160018D982 /* NoticeListFetcher.m in Sources */,
 				7CEFC9221FA0739B001D8C84 /* YXDrawerController.m in Sources */,
 				E9540BF720CA1E2200D7DDA2 /* TopicMsg.pbobjc.m in Sources */,
@@ -4242,6 +4305,7 @@
 				7C2E6F9920CA21A10066DE7C /* IMMemberInfoView.m in Sources */,
 				7CEFC8CC1FA06627001D8C84 /* UIView+Loading.m in Sources */,
 				E94DDE0220D36D1B00729A67 /* GetClazsScoreConfigRequest.m in Sources */,
+				7CD978FD2176EBA8008592E2 /* BatchCreateSignInsRequest.m in Sources */,
 				7C06896A20D0BEC900C7CA14 /* ClassSwitchView.m in Sources */,
 				7CDF123520902EE60044DD95 /* ClassMomentCell.m in Sources */,
 				9234277B1FA722CF003BCEFD /* MainPageTopView.m in Sources */,
@@ -4373,6 +4437,7 @@
 				7C06896720D0B6BB00C7CA14 /* ProjectDetailStatisticItemView.m in Sources */,
 				7C06895020CF80E400C7CA14 /* TitleHeaderView.m in Sources */,
 				E9DD072121391FB300FC8B9C /* DownloadModel.xcdatamodel in Sources */,
+				7CD978FA2176E0FA008592E2 /* UpdateSignInRequest.m in Sources */,
 				924297DF20DA6AF90039038E /* EditQuestionTypeView.m in Sources */,
 				E9B39A74212E94F0007ABA54 /* ContactsCurrentClassView.m in Sources */,
 				7CEFC9161FA071B4001D8C84 /* SimpleAlertButton.m in Sources */,
@@ -4464,6 +4529,7 @@
 				E9DD072021391FB300FC8B9C /* UrlDownloader.m in Sources */,
 				E91481AB209062C4001B7EB5 /* IMTextMessageRightCell.m in Sources */,
 				7CEFC96E1FA6DF77001D8C84 /* PasswordSubmitView.m in Sources */,
+				7CCD2DA121759C0900971FC5 /* MultipleSignDateSelectView.m in Sources */,
 				7CDF128020902FBF0044DD95 /* ClassMomentUserListFetcher.m in Sources */,
 				921DE2D81FB1461000CF39DE /* ResourceManagerViewController.m in Sources */,
 				E9540C2320CA1EB200D7DDA2 /* TopicData.m in Sources */,
@@ -4475,6 +4541,7 @@
 				7CEFC9B71FA9734E001D8C84 /* CreateSignInRequest.m in Sources */,
 				7C07F04120DDE2BF00E6BCE2 /* GetSummaryRequest.m in Sources */,
 				E9540C2820CA1EB200D7DDA2 /* MqttServerRequest.m in Sources */,
+				7CD978F721760592008592E2 /* GroupListRequest.m in Sources */,
 				E9822FFA208D916F00138D44 /* UpgradePromptHandler.m in Sources */,
 				7CEFC9C01FA9ADB5001D8C84 /* SignInTabContainerView.m in Sources */,
 				E94DDE8220DA4FC400729A67 /* GetTaskCommentRequest.m in Sources */,
@@ -4498,6 +4565,7 @@
 				436A6B231FB303AB008E461B /* UserSignInListViewController.m in Sources */,
 				7CEFC8E81FA06791001D8C84 /* ResetPasswordRequest.m in Sources */,
 				7CEFC9BA1FA99F08001D8C84 /* SignInDetailViewController.m in Sources */,
+				7CCB291621786DCA003E98A3 /* ChooseCreateSignInViewController.m in Sources */,
 				E914818E20906203001B7EB5 /* IMTimeHandleManger.m in Sources */,
 				7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */,
 				E97D2EB421391ED200FECFE0 /* YXSlideProgressView.m in Sources */,
@@ -4748,10 +4816,10 @@
 					"\"Metal\"",
 					"-w",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin.hubei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "888fa854-faf4-4007-831b-e3a5bc9b73c7";
-				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Dev;
+				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Hubei_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
@@ -4888,10 +4956,10 @@
 					"\"Metal\"",
 					"-w",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin.hubei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "92481ff3-672b-44d6-a225-912267f3d450";
-				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Rel;
+				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Hubei_Rel;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};

@@ -16,24 +16,39 @@
 #import "SignInTypeView.h"
 #import "SignInLocationView.h"
 #import "SignInPlaceViewController.h"
+#import "GroupListRequest.h"
+#import "SignInDetailRequest.h"
+#import "UpdateSignInRequest.h"
+#import "SignGroupPlaceView.h"
+#import "SignInTypeSelectView.h"
+#import "SignInScopeSelectView.h"
+#import "FDActionSheetView.h"
 
 @interface CreateSignInViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) SAMTextView *titleView;
-@property (nonatomic, strong) SAMTextView *promptView;
 @property (nonatomic, strong) SignInDateTimeView *dateView;
 @property (nonatomic, strong) SignInDateTimeView *begintimeView;
 @property (nonatomic, strong) SignInDateTimeView *endtimeView;
-@property (nonatomic, strong) SignInTypeView *codeTypeView;
+@property (nonatomic, strong) SAMTextView *promptView;
+@property (nonatomic, strong) UIView *signInTypeContainerView;
+@property (nonatomic, strong) SignInTypeSelectView *signTypeSelectView;
+@property (nonatomic, strong) SignInScopeSelectView *signScopeSelectView;
 @property (nonatomic, strong) SignInSwitchView *dynamicView;
-@property (nonatomic, strong) SignInTypeView *locationTypeView;
 @property (nonatomic, strong) SignInLocationView *locatonView;
+@property (nonatomic, strong) SignGroupPlaceView *placeView;
 @property (nonatomic, strong) UIButton *submitButton;
 @property (nonatomic, strong) AlertView *alertView;
 @property (nonatomic, strong) CreateSignInRequest *createSignInRequest;
+@property (nonatomic, strong) GroupListRequest *grouplistRequest;
+@property (nonatomic, strong) SignInDetailRequest *detailRequest;
+@property (nonatomic, strong) UpdateSignInRequest *updateRequest;
 @property (nonatomic, strong) BMKPoiInfo *selectedPoi;
 @property (nonatomic, strong) NSDate *signInDate;
 @property (nonatomic, strong) NSDate *beginTime;
 @property (nonatomic, strong) NSDate *endTime;
+@property (nonatomic, copy) NSArray *groupSignInfo;
+@property (nonatomic, strong) NSString *defaultSignInPosition;
+@property (nonatomic, copy) NSArray *defaultSignInExts;
 @end
 
 @implementation CreateSignInViewController
@@ -41,15 +56,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"新建签到";
     self.submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
     [self.submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [self.submitButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
     [self.submitButton setTitleColor:[UIColor colorWithHexString:@"999999"] forState:UIControlStateDisabled];
-    [self.submitButton addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
+    WEAK_SELF
+    [[self.submitButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        STRONG_SELF
+        if (isEmpty(self.stepId)) {
+            [self submit];
+        }else{
+            [self updateSignInRequest];
+        }
+    }];
     self.submitButton.enabled = NO;
     [self nyx_setupRightWithCustomView:self.submitButton];
     [self setupUI];
+    [self requestGroupList];
+    if (self.stepId) {
+        self.navigationItem.title = @"修改签到";
+        [self requestDetail];
+    }else{
+        self.navigationItem.title = @"新建签到";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,166 +170,27 @@
         make.height.mas_equalTo(50);
         make.bottom.mas_equalTo(0);
     }];
-    
-    UIView *signInContainerView = [[UIView alloc]init];
-    signInContainerView.backgroundColor = [UIColor whiteColor];
-    [self.contentView addSubview:signInContainerView];
-    [signInContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(dateContainerView.mas_bottom).mas_offset(5);
-        make.left.right.mas_equalTo(0);
-    }];
-    
-    UIView *signTypeBgView = [[UIView alloc]init];
-    signTypeBgView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    [signInContainerView addSubview:signTypeBgView];
-    [signTypeBgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.mas_equalTo(0);
-        make.height.mas_equalTo(45.f);
-    }];
-    UILabel *signTypeLabel = [[UILabel alloc]init];
-    signTypeLabel.backgroundColor = [UIColor clearColor];
-    signTypeLabel.textColor = [UIColor colorWithHexString:@"999999"];
-    signTypeLabel.font = [UIFont boldSystemFontOfSize:14.f];
-    signTypeLabel.text = @"签到类型";
-    [signTypeBgView addSubview:signTypeLabel];
-    [signTypeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15.f);
-        make.right.top.bottom.mas_equalTo(0);
-    }];
-    
-    self.codeTypeView = [[SignInTypeView alloc]init];
-    self.codeTypeView.title = @"扫码签到";
-    [signInContainerView addSubview:self.codeTypeView];
-    [self.codeTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(signTypeLabel.mas_bottom);
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(50);
-    }];
 
-    UIView *v3 = [v1 clone];
-    [signInContainerView addSubview:v3];
-    [v3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.codeTypeView.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-    self.dynamicView = [[SignInSwitchView alloc]init];
-    self.dynamicView.title = @"使用动态刷新的二维码";
-    [signInContainerView addSubview:self.dynamicView];
-    [self.dynamicView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(v3.mas_bottom);
-        make.height.mas_equalTo(50);
-    }];
-    
-    UIView *v4 = [v1 clone];
-    [signInContainerView addSubview:v4];
-    [v4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.dynamicView.mas_bottom);
-        make.height.mas_equalTo(5);
-    }];
-    
-    self.locationTypeView = [[SignInTypeView alloc]init];
-    self.locationTypeView.title = @"位置签到";
-    [signInContainerView addSubview:self.locationTypeView];
-    [self.locationTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(v4.mas_bottom);
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(50);
-        make.bottom.mas_equalTo(0);
-    }];
-    UIView *v5 = [v1 clone];
-    [signInContainerView addSubview:v5];
-    v5.hidden = YES;
-    [v5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.locationTypeView.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-    self.locatonView = [[SignInLocationView alloc]init];
-    self.locatonView.hidden = YES;
-    self.locatonView.placeholderStr = @"请指定签到地点";
-    [self.locatonView setSelectionBlock:^{
-        STRONG_SELF
-        DDLogDebug(@"Location selection");
-        [self showSignInPlaceSelectionVC];
-    }];
-    [signInContainerView addSubview:self.locatonView];
-    [self.locatonView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(v5.mas_bottom);
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(50);
-        make.bottom.mas_equalTo(0);
-    }];
-    
-    self.codeTypeView.isSelected = YES;
-    [self.codeTypeView setChooseSignTypeBlock:^(void) {
-        STRONG_SELF
-        self.locationTypeView.isSelected = NO;
-        self.dynamicView.hidden = NO;
-        v3.hidden = NO;
-        v5.hidden = YES;
-        self.locatonView.hidden = YES;
-        [v4 mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            make.top.mas_equalTo(self.dynamicView.mas_bottom);
-            make.height.mas_equalTo(5);
-        }];
-        [self.locationTypeView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(v4.mas_bottom);
-            make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(50);
-            make.bottom.mas_equalTo(0);
-        }];
-        [self refreshSubmitButton];
-    }];
-    [self.locationTypeView setChooseSignTypeBlock:^(void) {
-        STRONG_SELF
-        self.codeTypeView.isSelected = NO;
-        v5.hidden = NO;
-        self.locatonView.hidden = NO;
-        self.dynamicView.hidden = YES;
-        v3.hidden = YES;
-        [v4 mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            make.top.mas_equalTo(self.codeTypeView.mas_bottom);
-            make.height.mas_equalTo(5);
-        }];
-        [self.locationTypeView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(v4.mas_bottom);
-            make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(50);
-        }];
-        [self refreshSubmitButton];
-    }];
-    
     UIView *signPrmoptBgView = [[UIView alloc]init];
-    signPrmoptBgView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    signPrmoptBgView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:signPrmoptBgView];
     [signPrmoptBgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(signInContainerView.mas_bottom);
-        make.height.mas_equalTo(45.f);
+        make.top.mas_equalTo(dateContainerView.mas_bottom).offset(5);
     }];
     UILabel *signPromptLabel = [[UILabel alloc]init];
     signPromptLabel.backgroundColor = [UIColor clearColor];
-    signPromptLabel.textColor = [UIColor colorWithHexString:@"999999"];
-    signPromptLabel.font = [UIFont boldSystemFontOfSize:14.f];
+    signPromptLabel.textColor = [UIColor colorWithHexString:@"333333"];
+    signPromptLabel.font = [UIFont systemFontOfSize:14.f];
     signPromptLabel.text = @"签到成功提示语";
     [signPrmoptBgView addSubview:signPromptLabel];
     [signPromptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15.f);
-        make.right.top.bottom.mas_equalTo(0);
+        make.left.top.mas_equalTo(15.f);
+        make.right.mas_equalTo(0);
     }];
-    
+
     self.promptView = [[SAMTextView alloc]init];
-    self.promptView.backgroundColor = [UIColor whiteColor];
+    self.promptView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
     self.promptView.font = [UIFont systemFontOfSize:14];
     self.promptView.textColor = [UIColor colorWithHexString:@"333333"];
     self.promptView.text = @"签到成功!";
@@ -309,13 +199,72 @@
     self.promptView.textContainerInset = UIEdgeInsetsMake(20, 15, 20, 15);
     self.promptView.delegate = self;
     self.promptView.scrollEnabled = NO;
-    [self.contentView addSubview:self.promptView];
+    [signPrmoptBgView addSubview:self.promptView];
     [self.promptView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(signPrmoptBgView.mas_bottom);
-        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(signPromptLabel.mas_bottom).offset(5);
+        make.left.mas_equalTo(15);
+        make.right.mas_equalTo(-15);
         make.height.mas_equalTo(100);
         make.bottom.mas_equalTo(-40);
     }];
+
+    self.signInTypeContainerView = [[UIView alloc]init];
+    self.signInTypeContainerView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    [self.contentView addSubview:self.signInTypeContainerView];
+    [self.signInTypeContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(signPrmoptBgView.mas_bottom).mas_offset(5);
+        make.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+    }];
+
+    self.signTypeSelectView = [[SignInTypeSelectView alloc] init];
+    [self.signInTypeContainerView addSubview:self.signTypeSelectView];
+    [self.signTypeSelectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
+    self.signTypeSelectView.ChooseSignTypeBlock = ^{
+        STRONG_SELF
+        [self showSignSelectWithIsType:YES];
+    };
+
+    self.dynamicView = [[SignInSwitchView alloc]init];
+    self.dynamicView.title = @"使用动态刷新的二维码";
+    [self.signInTypeContainerView addSubview:self.dynamicView];
+    [self.dynamicView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+        make.height.mas_equalTo(50);
+        make.bottom.mas_equalTo(0);
+    }];
+
+    self.signScopeSelectView = [[SignInScopeSelectView alloc] init];
+    [self.signInTypeContainerView addSubview:self.signScopeSelectView];
+    self.signScopeSelectView.ChooseSignScopeBlock = ^{
+        STRONG_SELF
+        if(self.groupSignInfo.count > 0){
+            [self showSignSelectWithIsType:NO];
+        }
+    };
+
+    self.locatonView = [[SignInLocationView alloc] init];
+    [self.signInTypeContainerView addSubview:self.locatonView];
+    self.locatonView.selectionBlock = ^{
+        STRONG_SELF
+        [self showSignInPlaceSelectionVCFromIndex:-1];
+    };
+
+    self.placeView = [[SignGroupPlaceView alloc] init];
+    [self.signInTypeContainerView addSubview:self.placeView];
+    self.placeView.changePlaceBlock = ^(NSInteger index) {
+        STRONG_SELF
+        [self showSignInPlaceSelectionVCFromIndex:index];
+    };
+
+    [self.signScopeSelectView setHidden:YES];
+    [self.locatonView setHidden:YES];
+    [self.placeView setHidden:YES];
+
 }
 
 - (void)refreshSubmitButton {
@@ -324,14 +273,164 @@
         && self.dateView.content.length>0
         && self.begintimeView.content.length>0
         && self.endtimeView.content.length>0) {
-        if (!self.codeTypeView.isSelected && self.locationTypeView.isSelected && [self.locatonView.title length] <= 0) {
-            self.submitButton.enabled = NO;
-        }else {
+        if (self.signTypeSelectView.signType == 1) {
             self.submitButton.enabled = YES;
+        }else{
+            if (self.signScopeSelectView.signScopeType == 1) {
+                self.submitButton.enabled = !isEmpty(self.locatonView.locationStr);
+            }else{
+                self.submitButton.enabled = self.placeView.buttonEnabled;
+            }
         }
     }else {
         self.submitButton.enabled = NO;
     }
+}
+
+- (void)refreshPlaceView{
+    if (isEmpty(self.groupSignInfo)) {
+        return ;
+    }
+
+    if (isEmpty(self.defaultSignInExts)){
+        return ;
+    }
+    [self.groupSignInfo enumerateObjectsUsingBlock:^(GroupListRequest_Item_groups *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        for (SignInDetailRequest_Item_signInExts *signInExts in self.defaultSignInExts) {
+            if ([signInExts.groupId isEqualToString:obj.groupsId]) {
+                [self.placeView setDefaultDict:signInExts.toDictionary atIndex:idx];
+                break;
+            }
+        }
+    }];
+}
+
+#pragma mark - action
+- (void)showSignSelectWithIsType:(BOOL)isType{
+    [self.titleView resignFirstResponder];
+    [self.promptView resignFirstResponder];
+    FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    actionSheetView.titleArray =  isType? @[@{@"title":@"扫码签到"}, @{@"title":@"位置签到"}] : @[@{@"title":@"班级签到"}, @{@"title":@"小组签到"}] ;
+    self.alertView = [[AlertView alloc] init];
+    self.alertView.backgroundColor = [UIColor clearColor];
+    self.alertView.hideWhenMaskClicked = YES;
+    self.alertView.contentView = actionSheetView;
+    WEAK_SELF
+    [self.alertView setHideBlock:^(AlertView *view) {
+        STRONG_SELF
+        [UIView animateWithDuration:0.3 animations:^{
+            [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(view.mas_left);
+                make.right.equalTo(view.mas_right);
+                make.top.equalTo(view.mas_bottom);
+                make.height.mas_offset(155.0f);
+            }];
+            [view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
+        }];
+    }];
+    [self.alertView showWithLayout:^(AlertView *view) {
+        STRONG_SELF
+        [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(view.mas_left);
+            make.right.equalTo(view.mas_right);
+            make.top.equalTo(view.mas_bottom);
+            make.height.mas_offset(155.0f );
+        }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.3 animations:^{
+                [actionSheetView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_left);
+                    make.right.equalTo(view.mas_right);
+                    if (@available(iOS 11.0, *)) {
+                        make.bottom.mas_equalTo(view.mas_safeAreaLayoutGuideBottom);
+                    } else {
+                        make.bottom.mas_equalTo(0);
+                    }
+                    make.height.mas_offset(155.0f);
+                }];
+                [view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+
+            }];
+        });
+    }];
+    actionSheetView.actionSheetBlock = ^(NSInteger integer) {
+        STRONG_SELF
+        if (isType) {
+            self.signTypeSelectView.signType = integer;
+            if (integer == 1) {
+                [self.signScopeSelectView setHidden:YES];
+                [self.placeView setHidden:YES];
+                [self.locatonView setHidden:YES];
+                [self.dynamicView setHidden:NO];
+                [self.dynamicView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                    make.bottom.mas_equalTo(0);
+                }];
+            }else if(integer == 2){
+                [self.dynamicView setHidden:YES];
+                [self.placeView setHidden:YES];
+                [self.signScopeSelectView setHidden:NO];
+                [self.dynamicView mas_remakeConstraints:^(MASConstraintMaker *make) {
+
+                }];
+                [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                }];
+                [self.locatonView setHidden:NO];
+                [self.locatonView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                    make.bottom.mas_equalTo(0);
+                }];
+            }
+        }else{
+            self.signScopeSelectView.signScopeType = integer;
+            if (integer == 1) {
+                [self.placeView setHidden:YES];
+                [self.signScopeSelectView setHidden:NO];
+                [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                }];
+                [self.locatonView setHidden:NO];
+                [self.locatonView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                    make.bottom.mas_equalTo(0);
+                }];
+            }else if(integer == 2){
+                [self.locatonView setHidden:YES];
+                [self.locatonView mas_remakeConstraints:^(MASConstraintMaker *make) {
+
+                }];
+                [self.placeView setHidden:NO];
+                [self.signScopeSelectView setHidden:NO];
+                [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                }];
+                [self.placeView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.bottom.mas_equalTo(0);
+                }];
+            }
+        }
+        [self.view layoutSubviews];
+        [self.alertView hide];
+        [self refreshSubmitButton];
+    };
 }
 
 - (void)showSelectionViewFrom:(SignInDateTimeView *)from {
@@ -377,14 +476,18 @@
     }];
 }
 
-- (void)showSignInPlaceSelectionVC {
+- (void)showSignInPlaceSelectionVCFromIndex:(NSInteger)index {
     SignInPlaceViewController *vc = [[SignInPlaceViewController alloc]init];
     vc.nearbyPoi = self.selectedPoi;
     WEAK_SELF
     [vc setSelectBlock:^(BMKPoiInfo *info) {
         STRONG_SELF
-        self.locatonView.title = info.name;
-        self.selectedPoi = info;
+        if (index == -1) {
+            self.locatonView.locationStr = info.name;
+            self.selectedPoi = info;
+        }else{
+            [self.placeView setBMKInfo:info atIndex:index];
+        }
         [self refreshSubmitButton];
     }];
     [self.navigationController pushViewController:vc animated:YES];
@@ -411,7 +514,7 @@
     self.createSignInRequest.qrcodeRefreshRate = [NSString stringWithFormat:@"%@",@(self.dynamicView.isOn)];
     self.createSignInRequest.startTime = start;
     self.createSignInRequest.endTime = end;
-    self.createSignInRequest.signinType = self.codeTypeView.isSelected? @"1":@"2";
+    self.createSignInRequest.signinType = [NSString stringWithFormat:@"%lu",(unsigned long)self.signTypeSelectView.signType];
     self.createSignInRequest.signinPosition = [NSString stringWithFormat:@"%@,%@",@(self.selectedPoi.pt.longitude),@(self.selectedPoi.pt.latitude)];
     self.createSignInRequest.positionSite = self.selectedPoi.name;
     [self.view nyx_startLoading];
@@ -448,6 +551,154 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - request
+- (void)requestGroupList{
+    [self.grouplistRequest stopRequest];
+    self.grouplistRequest = [[GroupListRequest alloc] init];
+    self.grouplistRequest.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
+    WEAK_SELF
+    [self.grouplistRequest startRequestWithRetClass:[GroupListRequest_Item class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        if (error) {
+            [self.placeView removeFromSuperview];
+            return;
+        }
+        GroupListRequest_Item *item = (GroupListRequest_Item *)retItem;
+        self.groupSignInfo = item.data.groups;
+        if(item.data.groups.count == 0){
+            [self.signScopeSelectView setCanSelect:NO];
+            [self.placeView removeFromSuperview];
+        }else {
+            [self.signScopeSelectView setCanSelect:YES];
+            [self.placeView setGroupsArray:item.data.groups];
+        }
+        [self refreshPlaceView];
+    }];
+}
+
+- (void)requestDetail {
+    [self.detailRequest stopRequest];
+    self.detailRequest = [[SignInDetailRequest alloc]init];
+    self.detailRequest.stepId = self.stepId;
+    WEAK_SELF
+    [self.detailRequest startRequestWithRetClass:[SignInDetailRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        if (error) {
+            return;
+        }
+        SignInDetailRequestItem *item = (SignInDetailRequestItem *)retItem;
+        [self.titleView setText:item.data.signIn.title];
+        NSArray *startArr = [item.data.signIn.startTime componentsSeparatedByString:@" "];
+        [self.dateView setContent:[NSString stringWithFormat:@"%@",startArr.firstObject]];
+        NSString *startTime = [startArr.lastObject substringToIndex:5];
+        [self.begintimeView setContent:startTime];
+        NSArray *endArr = [item.data.signIn.endTime componentsSeparatedByString:@" "];
+        NSString *endTime = [endArr.lastObject substringToIndex:5];
+        [self.endtimeView setContent:endTime];
+        self.signTypeSelectView.signType = item.data.signIn.signinType.integerValue;
+        self.signTypeSelectView.canSelect = NO;
+        if ([item.data.signIn.signinType isEqualToString:@"1"]) {
+            self.dynamicView.isOn = item.data.signIn.qrcodeRefreshRate.integerValue;
+        }else{
+            [self.dynamicView setHidden:YES];
+            if (item.data.signIn.signinPosition.length > 0) {
+                self.signScopeSelectView.signScopeType = SignInScopeType_Class;
+                self.defaultSignInPosition = item.data.signIn.signinPosition;
+                self.locatonView.locationStr = item.data.signIn.positionSite;
+                [self.placeView setHidden:YES];
+                [self.signScopeSelectView setHidden:NO];
+                [self.dynamicView mas_remakeConstraints:^(MASConstraintMaker *make) {
+
+                }];
+                [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                }];
+                [self.locatonView setHidden:NO];
+                [self.locatonView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                    make.bottom.mas_equalTo(0);
+                }];
+
+            }else{
+                self.defaultSignInExts = item.data.signIn.signInExts;
+                self.signScopeSelectView.signScopeType = SignInScopeType_Group;
+                [self.locatonView setHidden:YES];
+                [self.dynamicView mas_remakeConstraints:^(MASConstraintMaker *make) {
+
+                }];
+                [self.signScopeSelectView setHidden:NO];
+                [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.height.mas_equalTo(50);
+                }];
+                [self.placeView setHidden:NO];
+                [self.placeView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(0);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.bottom.mas_equalTo(0);
+                }];
+                [self refreshPlaceView];
+            }
+        }
+        [self refreshSubmitButton];
+    }];
+}
+
+
+- (void)updateSignInRequest{
+    NSString *date = [self.dateView.content stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+    NSString *start = [NSString stringWithFormat:@"%@ %@",date,self.begintimeView.content];
+    NSString *end = [NSString stringWithFormat:@"%@ %@",date,self.endtimeView.content];
+    int i = [start isAscendingCompareDate:end];
+    if (i < 1) {
+        [self.view nyx_showToast:@"结束时间必须大于开始时间"];
+        return;
+    }
+    if (self.dynamicView.isOn) {
+        [TalkingData trackEvent:@"使用动态二维码"];
+    }
+    [self.updateRequest stopRequest];
+    self.updateRequest = [[UpdateSignInRequest alloc] init];
+    self.updateRequest.stepId = self.stepId;
+    self.updateRequest.title = self.titleView.text;
+    self.updateRequest.startTime = start;
+    self.updateRequest.endTime = end;
+    self.updateRequest.antiCheat = [NSString stringWithFormat:@"%@",@(YES)];
+    if (self.signTypeSelectView.signType == SignInType_Code) {
+        self.updateRequest.qrcodeRefreshRate = [NSString stringWithFormat:@"%@",@(self.dynamicView.isOn)];
+    }else{
+        if (self.signScopeSelectView.signScopeType == SignInScopeType_Class) {
+            self.updateRequest.positionSite = self.locatonView.locationStr;
+            if (self.selectedPoi) {
+                self.updateRequest.signinPosition = [NSString stringWithFormat:@"%@,%@",@(self.selectedPoi.pt.longitude),@(self.selectedPoi.pt.latitude)];
+            }else{
+                self.updateRequest.signinPosition = self.defaultSignInPosition;
+            }
+        }else{
+            self.updateRequest.signinExts = self.placeView.signInExts;
+        }
+    }
+    self.updateRequest.successPrompt = self.promptView.text;
+    [self.view nyx_startLoading];
+    WEAK_SELF
+    [self.updateRequest startRequestWithRetClass:[HttpBaseRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+        STRONG_SELF
+        [self.view nyx_stopLoading];
+        if (error) {
+            [self.view nyx_showToast:error.localizedDescription];
+            return;
+        }
+        BLOCK_EXEC(self.comleteBlock);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+
 }
 
 @end

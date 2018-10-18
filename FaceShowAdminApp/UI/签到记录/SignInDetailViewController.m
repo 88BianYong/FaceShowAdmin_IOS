@@ -16,6 +16,7 @@
 #import "DeleteStepRequest.h"
 #import "AlertView.h"
 #import "FDActionSheetView.h"
+#import "CreateSignInViewController.h"
 
 @interface SignInDetailViewController ()
 @property (nonatomic, strong) NSMutableArray<UIViewController *> *tabControllers;
@@ -48,7 +49,7 @@
 
 - (void)showAlertView {
     FDActionSheetView *actionSheetView = [[FDActionSheetView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    actionSheetView.titleArray = @[@{@"title":@"删除"}];
+    actionSheetView.titleArray = @[@{@"title":@"编辑"},@{@"title":@"删除"}];
     self.alertView = [[AlertView alloc]init];
     self.alertView.backgroundColor = [UIColor clearColor];
     self.alertView.hideWhenMaskClicked = YES;
@@ -61,7 +62,7 @@
                 make.left.equalTo(view.mas_left);
                 make.right.equalTo(view.mas_right);
                 make.top.equalTo(view.mas_bottom);
-                make.height.mas_offset(105.0f);
+                make.height.mas_offset(155.0f);
             }];
             [view layoutIfNeeded];
         } completion:^(BOOL finished) {
@@ -74,7 +75,7 @@
             make.left.equalTo(view.mas_left);
             make.right.equalTo(view.mas_right);
             make.top.equalTo(view.mas_bottom);
-            make.height.mas_offset(105.0f );
+            make.height.mas_offset(155.0f );
         }];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.3 animations:^{
@@ -86,7 +87,7 @@
                     } else {
                         make.bottom.mas_equalTo(0);
                     }
-                    make.height.mas_offset(105.0f);
+                    make.height.mas_offset(155.0f);
                 }];
                 [view layoutIfNeeded];
             } completion:^(BOOL finished) {
@@ -97,6 +98,8 @@
     actionSheetView.actionSheetBlock = ^(NSInteger integer) {
         STRONG_SELF
         if (integer == 1) {
+            [self updateSignIn];
+        }else if(integer == 2){
             [TalkingData trackEvent:@"删除签到"];
             [self deleteSignIn];
         }
@@ -118,9 +121,25 @@
             return;
         }
         [self.view.window nyx_showToast:@"删除成功"];
-        BLOCK_EXEC(self.deleteBlock);
+        if (self.deleteBlock) {
+            self.deleteBlock();
+        }else{
+
+        }
+//        BLOCK_EXEC(self.deleteBlock);
         [self.navigationController popViewControllerAnimated:YES];
     }];
+}
+
+- (void)updateSignIn{
+    CreateSignInViewController *create = [[CreateSignInViewController alloc] init];
+    WEAK_SELF
+    create.comleteBlock = ^{
+        STRONG_SELF
+        [self refreshDetail];
+    };
+    create.stepId = self.headerView.data.stepId;
+    [self.navigationController pushViewController:create animated:YES];
 }
 
 - (void)setupObserver {

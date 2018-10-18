@@ -6,9 +6,9 @@
 //  Copyright © 2017年 niuzhaowang. All rights reserved.
 //
 
-#import "YXGetRequest.h"
+#import "YXPostRequest.h"
 
-@interface CreateSignInRequest : YXGetRequest
+@interface CreateSignInRequest : YXPostRequest
 @property (nonatomic, strong) NSString<Optional> *courseId;
 @property (nonatomic, strong) NSString<Optional> *clazsId;
 @property (nonatomic, strong) NSString<Optional> *title;

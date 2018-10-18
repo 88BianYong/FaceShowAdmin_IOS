@@ -9,9 +9,10 @@
 #import "SignInListViewController.h"
 #import "SignInListFetcher.h"
 #import "SignInListCell.h"
-#import "CreateSignInViewController.h"
+//#import "CreateSignInViewController.h"
 #import "SignInDetailViewController.h"
 #import "UnsignedMemberListViewController.h"
+#import "ChooseCreateSignInViewController.h"
 
 @interface SignInListViewController ()
 
@@ -64,14 +65,15 @@
 }
 
 - (void)createSignIn {
-    [TalkingData trackEvent:@"发布签到"];
-    CreateSignInViewController *vc = [[CreateSignInViewController alloc]init];
-    WEAK_SELF
-    [vc setComleteBlock:^{
-        STRONG_SELF
-        [self firstPageFetch];
-    }];
-    [self.navigationController pushViewController:vc animated:YES];
+    ChooseCreateSignInViewController *choose = [[ChooseCreateSignInViewController alloc] init];
+    choose.isMultiple = YES;
+//    CreateSignInViewController *vc = [[CreateSignInViewController alloc]init];
+//    WEAK_SELF
+//    [vc setComleteBlock:^{
+//        STRONG_SELF
+//        [self firstPageFetch];
+//    }];
+    [self.navigationController pushViewController:choose animated:YES];
 }
 
 - (void)setupUI {

@@ -22,7 +22,7 @@
 #import "CreateWorkViewController.h"
 #import "CreateComplexViewController.h"
 #import "CreateCommentViewController.h"
-#import "CreateSignInViewController.h"
+#import "ChooseCreateSignInViewController.h"
 #import "TaskFilterView.h"
 #import "CreateEvaluateViewController.h"
 #import "HomeworkDetailViewController.h"
@@ -257,13 +257,14 @@
         switch (type) {
             case 0:
             {
-                CreateSignInViewController *vc = [[CreateSignInViewController alloc]init];
-                WEAK_SELF
-                [vc setComleteBlock:^{
-                    STRONG_SELF
-                    self.currentType = InteractType_SignIn;
-                    [self requestTaskInfo];
-                }];
+                ChooseCreateSignInViewController *vc = [[ChooseCreateSignInViewController alloc]init];
+                vc.isMultiple = NO;
+//                WEAK_SELF
+//                [vc setComleteBlock:^{
+//                    STRONG_SELF
+//                    self.currentType = InteractType_SignIn;
+//                    [self requestTaskInfo];
+//                }];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;

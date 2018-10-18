@@ -11,6 +11,5 @@
 @interface SignInLocationView : UIView
 @property (nonatomic, strong) void(^selectionBlock)(void);
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *placeholderStr;
+@property (nonatomic, strong) NSString *locationStr;
 @end

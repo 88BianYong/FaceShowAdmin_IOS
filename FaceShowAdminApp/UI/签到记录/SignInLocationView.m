@@ -9,10 +9,9 @@
 #import "SignInLocationView.h"
 
 @interface SignInLocationView()
-@property (nonatomic, strong) UIButton *iconButton;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *plcaeholderLabel;
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UILabel *totalLabel;
+@property (nonatomic, strong) UILabel *locationLabel;
+@property (nonatomic, strong) UIButton *changeButton;
 @end
 
 @implementation SignInLocationView
@@ -29,47 +28,45 @@
 - (void)setupUI {
     self.backgroundColor = [UIColor whiteColor];
     
-    self.iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.iconButton setImage:[UIImage imageNamed:@"位置"] forState:UIControlStateNormal];
-    [self addSubview:self.iconButton];
-    [self.iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.totalLabel = [[UILabel alloc] init];
+    [self.totalLabel setText:@"全体学员"];
+    [self.totalLabel setTextColor:[UIColor colorWithHexString:@"333333"]];
+    [self.totalLabel setFont:[UIFont systemFontOfSize:14]];
+    [self addSubview:self.totalLabel];
+    CGSize size = [@"全体学员" sizeWithFont:[UIFont systemFontOfSize:14]];
+    [self.totalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
         make.centerY.mas_equalTo(0);
+        make.size.mas_equalTo(size);
     }];
-    
-    self.titleLabel = [[UILabel alloc]init];
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    self.titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
-    [self addSubview:self.titleLabel];
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.iconButton.mas_right).mas_offset(4);
-        make.centerY.mas_equalTo(0);
-    }];
-    UILabel *plcaeholderLabel = [self.titleLabel clone];
-    self.plcaeholderLabel = plcaeholderLabel;
-    [self.titleLabel addSubview:plcaeholderLabel];
-    [plcaeholderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
-    
-    UIImageView *enterImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"进入页面按钮正常态"] highlightedImage:[UIImage imageNamed:@"进入页面按钮点击态"]];
-    [self addSubview:enterImageView];
-    [enterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-5);
-        make.centerY.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
-    }];
-    
-    UIButton *b = [[UIButton alloc]init];
-    [b addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:b];
-    [b mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
+
+    self.changeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.changeButton setTitle:@"修改位置" forState:UIControlStateNormal];
+    [self.changeButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
+    self.changeButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.changeButton.layer.cornerRadius = 12.5;
+    self.changeButton.layer.masksToBounds = YES;
+    self.changeButton.layer.borderColor = [UIColor colorWithHexString:@"0068bd"].CGColor;
+    self.changeButton.layer.borderWidth = 1.0f;
     WEAK_SELF
-    [RACObserve(b, highlighted) subscribeNext:^(id x) {
+    [[self.changeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         STRONG_SELF
-        enterImageView.highlighted = [x boolValue];
+        BLOCK_EXEC(self.selectionBlock);
+    }];
+    [self addSubview:self.changeButton];
+    [self.changeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-15);
+        make.centerY.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(80, 25));
+    }];
+
+    self.locationLabel = [self.totalLabel clone];
+    [self.locationLabel setText:@""];
+    [self addSubview:self.locationLabel];
+    [self.locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(0);
+        make.left.mas_equalTo(self.totalLabel.mas_right).offset(15);
+        make.right.mas_equalTo(self.changeButton.mas_left).offset(-15);
     }];
 }
 
@@ -77,15 +74,10 @@
     BLOCK_EXEC(self.selectionBlock);
 }
 
-- (void)setTitle:(NSString *)title {
-    _title = title;
-    self.plcaeholderLabel.hidden = YES;
-    self.titleLabel.text = title;
+- (void)setLocationStr:(NSString *)locationStr{
+    _locationStr = locationStr;
+    [self.locationLabel setText:locationStr];
 }
 
-- (void)setPlaceholderStr:(NSString *)placeholderStr {
-    _placeholderStr = placeholderStr;
-    self.plcaeholderLabel.text = placeholderStr;
-}
 @end
 

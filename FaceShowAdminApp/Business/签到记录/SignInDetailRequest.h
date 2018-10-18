@@ -9,9 +9,22 @@
 #import "YXGetRequest.h"
 #import "SignInListRequest.h"
 
+
+@protocol SignInDetailRequest_Item_signInExts <NSObject> @end
+@interface SignInDetailRequest_Item_signInExts : JSONModel
+@property (nonatomic, strong) NSString<Optional> *signinPosition;
+@property (nonatomic, strong) NSString<Optional> *positionSite;
+@property (nonatomic, strong) NSString<Optional> *positionRange;
+@property (nonatomic, strong) NSString<Optional> *groupId;
+@end
+
+@interface SignInDetailRequestItem_data_signIns : SignInListRequestItem_signIns
+@property (nonatomic, strong) NSArray<SignInDetailRequest_Item_signInExts,Optional> *signInExts;
+@end
+
 @interface SignInDetailRequestItem_data: JSONModel
 @property (nonatomic, strong) NSString<Optional> *interactType;
-@property (nonatomic, strong) SignInListRequestItem_signIns<Optional> *signIn;
+@property (nonatomic, strong) SignInDetailRequestItem_data_signIns<Optional> *signIn;
 @end
 
 @interface SignInDetailRequestItem: HttpBaseRequestItem
