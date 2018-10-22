@@ -226,6 +226,7 @@
         }else{
             ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
             vc.userId = data.userId;
+            vc.fromGroupTopicId = [UserManager sharedInstance].userModel.currentClass.topicId;
             vc.isAdministrator = indexPath.section == 0;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -234,12 +235,14 @@
         HubeiContactsDetailViewController *vc = [[HubeiContactsDetailViewController alloc] init];
         GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
         vc.userId = data.userId;
+        vc.fromGroupTopicId = [UserManager sharedInstance].userModel.currentClass.topicId;
         vc.isAdministrator = indexPath.section == 0;
         [self.navigationController pushViewController:vc animated:YES];
 #else
         ContactsDetailViewController *vc = [[ContactsDetailViewController alloc] init];
         GetUserInfoRequestItem_Data *data = self.dataArray[indexPath.section][indexPath.row];
         vc.userId = data.userId;
+        vc.fromGroupTopicId = [UserManager sharedInstance].userModel.currentClass.topicId;
         vc.isAdministrator = indexPath.section == 0;
         [self.navigationController pushViewController:vc animated:YES];
 #endif

@@ -10,5 +10,6 @@
 
 @interface ContactsDetailViewController : ScrollBaseViewController
 @property (nonatomic, strong) NSString *userId;
+@property (nonatomic, strong) NSString *fromGroupTopicId;
 @property (nonatomic, assign) BOOL isAdministrator;
 @end

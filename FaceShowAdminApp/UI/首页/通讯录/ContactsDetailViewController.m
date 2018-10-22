@@ -102,7 +102,7 @@
 - (void)requestMemberIdAndComplete:(void(^)(NSError *error))completeBlock{
     self.memberIdRequest = [[GetMemberIdRequest alloc]init];
     self.memberIdRequest.userId = self.userId;
-    self.memberIdRequest.fromGroupTopicId = [UserManager sharedInstance].userModel.currentClass.topicId;
+    self.memberIdRequest.fromGroupTopicId = self.fromGroupTopicId;
     WEAK_SELF
     [self.memberIdRequest startRequestWithRetClass:[GetMemberIdRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
