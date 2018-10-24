@@ -382,13 +382,13 @@
                 }];
                 [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                 }];
                 [self.locatonView setHidden:NO];
                 [self.locatonView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                     make.bottom.mas_equalTo(0);
                 }];
@@ -400,13 +400,13 @@
                 [self.signScopeSelectView setHidden:NO];
                 [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                 }];
                 [self.locatonView setHidden:NO];
                 [self.locatonView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                     make.bottom.mas_equalTo(0);
                 }];
@@ -419,12 +419,12 @@
                 [self.signScopeSelectView setHidden:NO];
                 [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                 }];
                 [self.placeView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(5);
                     make.bottom.mas_equalTo(0);
                 }];
             }
@@ -632,13 +632,13 @@
                 }];
                 [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                 }];
                 [self.locatonView setHidden:NO];
                 [self.locatonView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                     make.bottom.mas_equalTo(0);
                 }];
@@ -653,13 +653,13 @@
                 [self.signScopeSelectView setHidden:NO];
                 [self.signScopeSelectView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signTypeSelectView.mas_bottom).offset(5);
                     make.height.mas_equalTo(50);
                 }];
                 [self.placeView setHidden:NO];
                 [self.placeView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.left.right.mas_equalTo(0);
-                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(1);
+                    make.top.mas_equalTo(self.signScopeSelectView.mas_bottom).offset(5);
                     make.bottom.mas_equalTo(0);
                 }];
                 [self refreshPlaceView];

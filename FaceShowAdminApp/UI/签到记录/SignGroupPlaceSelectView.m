@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UIButton *changeButton;
 @property (nonatomic, copy) NSString *groupName;
 @property (nonatomic, copy) NSString *placeStr;
+@property (nonatomic, strong) UIView *lineView;
 
 
 @end
@@ -33,18 +34,6 @@
 
 - (void)setupUI{
 
-    self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.text = self.groupName;
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
-    self.titleLabel.textColor = [UIColor blackColor];
-    [self addSubview:self.titleLabel];
-    CGSize size = [self.groupName sizeWithFont:[UIFont systemFontOfSize:14]];
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(10);
-        make.centerY.mas_equalTo(0);
-        make.size.mas_equalTo(size);
-    }];
-
     self.changeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.changeButton setTitle:@"修改位置" forState:UIControlStateNormal];
     [self.changeButton setTitleColor:[UIColor colorWithHexString:@"0068bd"] forState:UIControlStateNormal];
@@ -61,21 +50,44 @@
     [self addSubview:self.changeButton];
     [self.changeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-15);
-        make.centerY.mas_equalTo(0);
+        make.top.mas_equalTo(10);
         make.size.mas_equalTo(CGSizeMake(80, 25));
     }];
+
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.text = self.groupName;
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.textColor = [UIColor blackColor];
+    self.titleLabel.numberOfLines = 1;
+    [self addSubview:self.titleLabel];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(10);
+        make.centerY.mas_equalTo(self.changeButton);
+        make.right.mas_equalTo(self.changeButton.mas_left).offset(-15);
+    }];
+
 
     self.placeLabel = [[UILabel alloc] init];
     self.placeLabel.text = self.placeStr;
     self.placeLabel.font = [UIFont systemFontOfSize:14];
     self.placeLabel.textColor = [UIColor blackColor];
-    self.placeLabel.textAlignment = NSTextAlignmentRight;
+    self.placeLabel.numberOfLines = 0;
     self.placeLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     [self addSubview:self.placeLabel];
     [self.placeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(0);
-        make.left.mas_equalTo(self.titleLabel.mas_right).offset(15);
-        make.right.mas_equalTo(self.changeButton.mas_left).offset(-15);
+        make.left.mas_equalTo(self.titleLabel);
+        make.right.mas_equalTo(-15);
+        make.top.mas_equalTo(self.changeButton.mas_bottom).offset(5);
+        make.bottom.mas_equalTo(-5);
+    }];
+
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
+    [self addSubview:self.lineView];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.right.mas_equalTo(0);
+        make.left.mas_equalTo(15);
+        make.height.mas_equalTo(1);
     }];
 }
 

@@ -12,7 +12,6 @@
 @interface SignGroupPlaceView()
 @property (nonatomic, strong) UILabel *placeLabel;
 @property (nonatomic, strong) MASViewAttribute *lastBottom;
-@property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) NSMutableArray<SignGroupPlaceSelectView *> *viewArr;
 
 @end
@@ -30,18 +29,11 @@
 - (void)setupUI{
     self.backgroundColor = [UIColor whiteColor];
     self.viewArr = [NSMutableArray array];
-    self.contentView = [[UIView alloc] init];
-    self.contentView.backgroundColor = [UIColor colorWithHexString:@"ebeff2"];
-    [self addSubview:self.contentView];
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.mas_equalTo(5);
-        make.bottom.right.mas_equalTo(-5);
-    }];
 
     UILabel *placeLabel = [[UILabel alloc] init];
     placeLabel.text = @"指定小组签到地点";
     placeLabel.font = [UIFont boldSystemFontOfSize:14];
-    [self.contentView addSubview:placeLabel];
+    [self addSubview:placeLabel];
     [placeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(5);
         make.left.mas_equalTo(10);
@@ -63,12 +55,11 @@
     [groupArray enumerateObjectsUsingBlock:^(GroupListRequest_Item_groups * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         SignGroupPlaceSelectView *selectView = [[SignGroupPlaceSelectView alloc] initWithGroupName:obj.groupName andPlaceString:nil];
         selectView.tag = obj.groupsId.integerValue + 100;
-        [self.contentView addSubview:selectView];
+        [self addSubview:selectView];
         [self.viewArr addObject:selectView];
         [selectView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.lastBottom);
             make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(40);
             if (idx == groupArray.count - 1) {
                 make.bottom.mas_equalTo(0);
             }
