@@ -84,17 +84,15 @@
     }];
 }
 
-- (void)setData:(ContactMemberContactsRequestItem_Data_Gcontacts_ContactsInfo *)data {
+- (void)setData:(GetContactRequestItem_Data_Gcontacts_ContactsInfo *)data{
     _data = data;
     self.avatarImageView.contentMode = UIViewContentModeCenter;
-    
     WEAK_SELF
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:data.memberInfo.avatar] placeholderImage:[UIImage imageNamed:@"班级圈小默认头像"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         STRONG_SELF
         self.avatarImageView.contentMode = isEmpty(image) ? UIViewContentModeCenter : UIViewContentModeScaleToFill;
     }];
     self.nameLabel.text = data.memberInfo.memberName;
-//    self.numberLabel.text = data.mobilePhone;
 }
 
 - (void)setIsShowLine:(BOOL)isShowLine {

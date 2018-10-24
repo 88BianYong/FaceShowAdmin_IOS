@@ -193,6 +193,7 @@
 		7CCB29192178D236003E98A3 /* IMGroupMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB29172178D236003E98A3 /* IMGroupMemberView.m */; };
 		7CCB291C2178D2AB003E98A3 /* IMGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291B2178D2AB003E98A3 /* IMGroupMemberViewController.m */; };
 		7CCB291F2178D3CD003E98A3 /* GetContactRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291D2178D3CD003E98A3 /* GetContactRequest.m */; };
+		7CCB296D217D9E69003E98A3 /* AboutFaceShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB296C217D9E69003E98A3 /* AboutFaceShowViewController.m */; };
 		7CCD2D98217582CC00971FC5 /* SignGroupPlaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D97217582CC00971FC5 /* SignGroupPlaceView.m */; };
 		7CCD2D9B217584A500971FC5 /* MultipleCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D9A217584A500971FC5 /* MultipleCreateViewController.m */; };
 		7CCD2D9E21758AFF00971FC5 /* SignGroupPlaceSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCD2D9D21758AFF00971FC5 /* SignGroupPlaceSelectView.m */; };
@@ -971,6 +972,8 @@
 		7CCB291B2178D2AB003E98A3 /* IMGroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGroupMemberViewController.m; sourceTree = "<group>"; };
 		7CCB291D2178D3CD003E98A3 /* GetContactRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetContactRequest.m; sourceTree = "<group>"; };
 		7CCB291E2178D3CD003E98A3 /* GetContactRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetContactRequest.h; sourceTree = "<group>"; };
+		7CCB296B217D9E69003E98A3 /* AboutFaceShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutFaceShowViewController.h; sourceTree = "<group>"; };
+		7CCB296C217D9E69003E98A3 /* AboutFaceShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutFaceShowViewController.m; sourceTree = "<group>"; };
 		7CCD2D96217582CC00971FC5 /* SignGroupPlaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignGroupPlaceView.h; sourceTree = "<group>"; };
 		7CCD2D97217582CC00971FC5 /* SignGroupPlaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignGroupPlaceView.m; sourceTree = "<group>"; };
 		7CCD2D99217584A500971FC5 /* MultipleCreateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleCreateViewController.h; sourceTree = "<group>"; };
@@ -2924,6 +2927,8 @@
 				7CEFC9261FA07F40001D8C84 /* MineViewController.m */,
 				436E6DF31FB3F146009950EA /* MyInfoViewController.h */,
 				436E6DF41FB3F146009950EA /* MyInfoViewController.m */,
+				7CCB296B217D9E69003E98A3 /* AboutFaceShowViewController.h */,
+				7CCB296C217D9E69003E98A3 /* AboutFaceShowViewController.m */,
 				436E6E0A1FB40348009950EA /* UpdateTextInfoViewController.h */,
 				436E6E0B1FB40348009950EA /* UpdateTextInfoViewController.m */,
 			);
@@ -4153,6 +4158,7 @@
 				921DE2E81FB14EE000CF39DE /* ResourceListCell.m in Sources */,
 				7C06897920D1190A00C7CA14 /* ProjectFilterViewController.m in Sources */,
 				7C672B121FB01081004D93DF /* CourseListItemCell.m in Sources */,
+				7CCB296D217D9E69003E98A3 /* AboutFaceShowViewController.m in Sources */,
 				7CEFC9271FA07F40001D8C84 /* MineViewController.m in Sources */,
 				E9540C3720CA1F0D00D7DDA2 /* IMNewTopicEventHandler.m in Sources */,
 				7C6CE7BB2133A64A00BA6594 /* GetNoticeListRequest.m in Sources */,

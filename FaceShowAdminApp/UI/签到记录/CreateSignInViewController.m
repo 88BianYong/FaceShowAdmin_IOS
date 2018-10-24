@@ -537,6 +537,7 @@
             return;
         }
         BLOCK_EXEC(self.comleteBlock);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kReplenishSignInDidSuccessNotification" object:nil];
         for (UIViewController *vc in self.navigationController.childViewControllers) {
             if ([vc isKindOfClass:[TaskViewController class]]) {
                 [self.navigationController popToViewController:vc animated:YES];

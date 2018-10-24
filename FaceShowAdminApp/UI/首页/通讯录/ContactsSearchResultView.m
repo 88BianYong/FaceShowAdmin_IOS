@@ -106,6 +106,7 @@
     ClazsMemberListFetcher *fetcher = [[ClazsMemberListFetcher alloc] init];
     fetcher.pagesize = 10;
     fetcher.keyWords = self.searchText;
+    fetcher.clazsId = [UserManager sharedInstance].userModel.currentClass.clazsId;
     self.dataFetcher = fetcher;
     @weakify(self);
     [self.dataFetcher startWithBlock:^(int total, NSArray *retItemArray, NSError *error) {

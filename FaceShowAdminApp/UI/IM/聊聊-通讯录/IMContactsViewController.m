@@ -15,7 +15,6 @@
 #import "IMConfig.h"
 #import "IMMember.h"
 #import "IMUserInterface.h"
-#import "IMTopicInfoItem.h"
 #import "ContactsDetailViewController.h"
 #import "HubeiContactsDetailViewController.h"
 #import "ClassListRequest.h"

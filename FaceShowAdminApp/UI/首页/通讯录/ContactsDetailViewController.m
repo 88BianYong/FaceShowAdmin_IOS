@@ -318,7 +318,11 @@
             return;
         }
         UserSignInPercentRequestItem *item = (UserSignInPercentRequestItem *)retItem;
-        self.percentCell.contentLabel.text = [NSString stringWithFormat:@"%.f%%", roundf(item.data.userSigninNum.floatValue/item.data.totalSigninNum.floatValue*100)];
+        if ([item.data.totalSigninNum isEqualToString:@"0"]) {
+            self.percentCell.contentLabel.text = @"0%";
+        }else{
+            self.percentCell.contentLabel.text = [NSString stringWithFormat:@"%.f%%", roundf(item.data.userSigninNum.floatValue/item.data.totalSigninNum.floatValue*100)];
+        }
     }];
 }
 

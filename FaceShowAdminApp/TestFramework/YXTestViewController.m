@@ -17,12 +17,13 @@
 #import "MultipleCreateViewController.h"
 #import "CreateSignInViewController.h"
 #import "SignInListViewController.h"
+#import "AboutFaceShowViewController.h"
 @interface YXTestViewController ()
 @end
 
 @implementation YXTestViewController
 - (void)viewDidLoad {
-    self.devTestActions = @[@"testSigninPlace",@"testTrainingProfile",@"testMyProject",@"testProjectDetail",@"testFilter",@"testHomeworkDetail",@"testMultipleCreateViewController",@"testCreateSignInViewController",@"testSignInListViewController"];
+    self.devTestActions = @[@"testSigninPlace",@"testTrainingProfile",@"testMyProject",@"testProjectDetail",@"testFilter",@"testHomeworkDetail",@"testMultipleCreateViewController",@"testCreateSignInViewController",@"testSignInListViewController",@"testAboutFaceShowViewController"];
     [super viewDidLoad];
 }
 
@@ -62,6 +63,10 @@
 - (void)testSignInListViewController{
     SignInListViewController *list = [[SignInListViewController alloc] init];
     [self.navigationController pushViewController:list animated:YES];
+}
+- (void)testAboutFaceShowViewController{
+    AboutFaceShowViewController *vc = [[AboutFaceShowViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
 

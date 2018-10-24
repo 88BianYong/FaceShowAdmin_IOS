@@ -355,6 +355,14 @@
 //        task.stepFinished = @"1";
 //        [self.tableView reloadRowsAtIndexPaths:@[currentIndex] withRowAnimation:UITableViewRowAnimationNone];
 //    }];
+    WEAK_SELF
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kReplenishSignInDidSuccessNotification" object:nil] subscribeNext:^(id x) {
+        STRONG_SELF
+        if (self.currentType == InteractType_SignIn) {
+            [self requestTaskInfo];
+        }
+    }];
+
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
