@@ -36,7 +36,7 @@
     CGSize size = [@"全体学员" sizeWithFont:[UIFont systemFontOfSize:14]];
     [self.totalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
-        make.centerY.mas_equalTo(0);
+        make.top.mas_equalTo(10);
         make.size.mas_equalTo(size);
     }];
 
@@ -56,7 +56,7 @@
     [self addSubview:self.changeButton];
     [self.changeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-15);
-        make.centerY.mas_equalTo(0);
+        make.centerY.mas_equalTo(self.totalLabel);
         make.size.mas_equalTo(CGSizeMake(80, 25));
     }];
 
@@ -64,9 +64,10 @@
     [self.locationLabel setText:@""];
     [self addSubview:self.locationLabel];
     [self.locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(0);
-        make.left.mas_equalTo(self.totalLabel.mas_right).offset(15);
-        make.right.mas_equalTo(self.changeButton.mas_left).offset(-15);
+        make.top.mas_equalTo(self.changeButton.mas_bottom).offset(5);
+        make.left.mas_equalTo(15);
+        make.right.mas_equalTo(-15);
+        make.bottom.mas_equalTo(-5);
     }];
 }
 
