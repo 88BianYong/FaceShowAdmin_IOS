@@ -69,6 +69,7 @@
 		7C2558331FBBD97800C9BE38 /* PageNameMappingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558321FBBD97800C9BE38 /* PageNameMappingTable.m */; };
 		7C2558361FBBEBC200C9BE38 /* SaveUserCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */; };
 		7C2558391FBD47BF00C9BE38 /* DeleteStepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */; };
+		7C28E52D21816C8000564B2C /* AboutItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28E52C21816C7F00564B2C /* AboutItemView.m */; };
 		7C2DC37A20F30E0300B689C0 /* CreateUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */; };
 		7C2DC38220F314EA00B689C0 /* HubeiContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38120F314EA00B689C0 /* HubeiContactsDetailViewController.m */; };
 		7C2DC38520F334D800B689C0 /* HubeiAddMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DC38420F334D800B689C0 /* HubeiAddMemberViewController.m */; };
@@ -729,6 +730,8 @@
 		7C2558351FBBEBC200C9BE38 /* SaveUserCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveUserCommentRequest.m; sourceTree = "<group>"; };
 		7C2558371FBD47BF00C9BE38 /* DeleteStepRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteStepRequest.h; sourceTree = "<group>"; };
 		7C2558381FBD47BF00C9BE38 /* DeleteStepRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteStepRequest.m; sourceTree = "<group>"; };
+		7C28E52B21816C7F00564B2C /* AboutItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutItemView.h; sourceTree = "<group>"; };
+		7C28E52C21816C7F00564B2C /* AboutItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutItemView.m; sourceTree = "<group>"; };
 		7C2DC37820F30E0300B689C0 /* CreateUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateUserRequest.h; sourceTree = "<group>"; };
 		7C2DC37920F30E0300B689C0 /* CreateUserRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateUserRequest.m; sourceTree = "<group>"; };
 		7C2DC38020F314EA00B689C0 /* HubeiContactsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HubeiContactsDetailViewController.h; sourceTree = "<group>"; };
@@ -1844,6 +1847,8 @@
 				436E6DFC1FB3F609009950EA /* UserInfoHeaderCell.m */,
 				436E6E021FB3F642009950EA /* UserInfoDefaultCell.h */,
 				436E6E011FB3F642009950EA /* UserInfoDefaultCell.m */,
+				7C28E52B21816C7F00564B2C /* AboutItemView.h */,
+				7C28E52C21816C7F00564B2C /* AboutItemView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4237,6 +4242,7 @@
 				E94DDE0520D36EEF00729A67 /* SetClazsScoreConfigRequest.m in Sources */,
 				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
 				7C3F6BE3213D0A87007B2A28 /* GetMemberIdRequest.m in Sources */,
+				7C28E52D21816C8000564B2C /* AboutItemView.m in Sources */,
 				7C672AEC1FAAADB3004D93DF /* UserSignInListRequest.m in Sources */,
 				436A6B201FB2F7E0008E461B /* DetailWithAttachmentCellView.m in Sources */,
 				7CEFC89E1FA06614001D8C84 /* YXSmartDashLineView.m in Sources */,
@@ -4840,10 +4846,10 @@
 					"\"Metal\"",
 					"-w",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin.hubei;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "888fa854-faf4-4007-831b-e3a5bc9b73c7";
-				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Hubei_Dev;
+				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
@@ -4980,10 +4986,10 @@
 					"\"Metal\"",
 					"-w",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin.hubei;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanxiu.faceshowadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "92481ff3-672b-44d6-a225-912267f3d450";
-				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Hubei_Rel;
+				PROVISIONING_PROFILE_SPECIFIER = FaceShowAdmin_Rel;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};

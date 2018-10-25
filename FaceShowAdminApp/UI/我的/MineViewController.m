@@ -14,6 +14,7 @@
 #import "YXDrawerController.h"
 #import "ProjectListViewController.h"
 #import "ForgotPasswordViewController.h"
+#import "AboutFaceShowViewController.h"
 
 @interface MineViewController ()
 @property (nonatomic, strong) UIImageView *avatarImageView;
@@ -183,6 +184,13 @@
         make.centerX.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
     }];
+    UIButton *about = [self optionBtnWithTitle:@"关于我们" normalImage:@"关于" highlightedImage:@"关于点击"];
+    [self.view addSubview:about];
+    [about mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(password.mas_bottom).offset(30);
+        make.centerX.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+    }];
     
     UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     logoutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -312,6 +320,9 @@
         vc.isModify = YES;
         vc.phoneNum = [UserManager sharedInstance].userModel.mobilePhone;
         [self.navigationController pushViewController:vc animated:YES];
+    }else if ([sender.titleLabel.text isEqualToString:@"关于我们"]){
+        AboutFaceShowViewController *about = [[AboutFaceShowViewController alloc] init];
+        [self.navigationController pushViewController:about animated:YES];
     }
 }
 

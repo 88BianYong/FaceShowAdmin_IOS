@@ -7,6 +7,7 @@
 //
 
 #import "AboutFaceShowViewController.h"
+#import "AboutItemView.h"
 
 @interface AboutFaceShowViewController ()
 @property (nonatomic, strong) MASViewAttribute *lastArribute;
@@ -22,39 +23,47 @@
     [super viewDidLoad];
     self.navigationItem.title = @"关于App";
 
-    UIButton *update = [UIButton buttonWithType:UIButtonTypeCustom];
-    [update setBackgroundColor:[UIColor randomColor]];
-    [update setTitle:@"版本更新" forState:UIControlStateNormal];
-    [self.view addSubview:update];
-    [update mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(100, 35));
-        make.top.mas_equalTo(100);
+
+#ifdef HuBeiApp
+    NSString *imageName = @"湖北师训管理端";
+    NSString *updateURL = @"https://itunes.apple.com/cn/app/id1400673895?mt=8";
+#else
+    NSString *imageName = @"研修宝管理端";
+    NSString *updateURL = @"https://itunes.apple.com/cn/app/id1287432795?mt=8";
+#endif
+
+    UIImageView *appIconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    [self.view addSubview:appIconImageView];
+    [appIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.top.mas_equalTo(30);
+        make.size.mas_equalTo(CGSizeMake(65, 65));
     }];
 
-    self.lastArribute = update.mas_bottom;
-
-    NSArray<NSString *> *arr = @[@"FaceShowAdmin",@"FaceShowAdmin_Hubei",@"FaceShow",@"FaceShow_Hubei"];
-    NSArray<NSString *> *appId = @[@"1287432795",@"1400673895",@"1287430670",@"1400673669"];
-
-    [arr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIButton *appBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [appBtn setTitle:obj forState:UIControlStateNormal];
-        [appBtn setBackgroundColor:[UIColor randomColor]];
-        [self.view addSubview:appBtn];
-        [appBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(50);
-            make.top.mas_equalTo(self.lastArribute).offset(1);
-        }];
-        self.lastArribute = appBtn.mas_bottom;
-        [[appBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",appId[idx]];
-            NSURL *url = [NSURL URLWithString:urlStr];
-            [[UIApplication sharedApplication] openURL:url];
-        }];
+    UILabel *versionLabel = [[UILabel alloc] init];
+    versionLabel.text = [NSString stringWithFormat:@"当前版本：V%@",[ConfigManager sharedInstance].clientVersion];
+    versionLabel.font = [UIFont systemFontOfSize:17];
+    versionLabel.textAlignment = NSTextAlignmentCenter;
+    versionLabel.textColor = [UIColor colorWithHexString:@"B1B4B7"];
+    [self.view addSubview:versionLabel];
+    [versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(appIconImageView.mas_bottom).offset(18);
+        make.left.right.mas_equalTo(0);
     }];
 
+    AboutItemView *updateItem = [[AboutItemView alloc] initWithItemName:@"检查新版本"];
+    updateItem.showLine = NO;
+    WEAK_SELF
+    updateItem.clickBlock = ^{
+        STRONG_SELF
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:updateURL]];
+    };
+    [self.view addSubview:updateItem];
+    [updateItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(versionLabel.mas_bottom).offset(25);
+        make.height.mas_equalTo(45);
+    }];
 }
 
 /*
