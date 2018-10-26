@@ -118,7 +118,12 @@
 -(void)setData:(GetHomeworkRequestItem_data *)data {
     _data = data;
     self.titleLabel.text = data.title;
-    NSString *desc = data.desc;
+    NSString *desc;
+    if (isEmpty(data.desc)) {
+        desc = @"";
+    }else{
+        desc = [NSString stringWithFormat:@"%@",data.desc];
+    }
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineHeightMultiple = 1.4f;
     paragraphStyle.alignment = NSTextAlignmentCenter;
