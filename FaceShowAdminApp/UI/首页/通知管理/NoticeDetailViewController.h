@@ -6,9 +6,9 @@
 //  Copyright © 2017年 niuzhaowang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "ScrollBaseViewController.h"
 #import "NoticeListRequest.h"
-@interface NoticeDetailViewController : BaseViewController
+@interface NoticeDetailViewController : ScrollBaseViewController
 @property (nonatomic, strong) NoticeListRequestItem_Data_NoticeInfos_Elements *element;
 @property (nonatomic, strong) NSString *studentNum;
 @property (nonatomic, copy) void(^noticeDetailDeleteBlock)(void);
