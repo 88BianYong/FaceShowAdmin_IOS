@@ -10,4 +10,5 @@
 #import "ClazsGetClazsRequest.h"
 @interface MainClassDetailView : UIView
 @property (nonatomic, strong) ClazsGetClazsRequestItem_Data *itemData;
+@property (nonatomic, copy) void(^showImageBlock)(NSString *url,UIImageView *imageView);
 @end

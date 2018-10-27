@@ -11,7 +11,7 @@
 @interface MainPageTopView()
 @property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, strong) UILabel *projectLabel;
-@property (nonatomic, strong) UILabel *classLabel;
+@property (nonatomic, strong) UIButton *classButton;
 @property (nonatomic, strong) UILabel *studentLabel;
 @property (nonatomic, strong) UILabel *teacherLabel;
 @end
@@ -68,15 +68,19 @@
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
-    self.classLabel = [[UILabel alloc]init];
-    self.classLabel.textColor = [UIColor whiteColor];
-    self.classLabel.font = [UIFont boldSystemFontOfSize:13];
-    self.classLabel.textAlignment = NSTextAlignmentCenter;
-    self.classLabel.layer.cornerRadius = 6;
-    self.classLabel.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.classLabel.layer.borderWidth = 1;
-    [self addSubview:self.classLabel];
-    [self.classLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.classButton = [[UIButton alloc]init];
+    [self.classButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.classButton.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    self.classButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.classButton.font = [UIFont boldSystemFontOfSize:13];
+    self.classButton.layer.cornerRadius = 6;
+    self.classButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.classButton.layer.borderWidth = 1;
+    self.classButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, -5);
+    self.classButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 5);
+    [self.classButton setImage:[UIImage imageNamed:@"点击二维码"] forState:UIControlStateNormal];
+    [self addSubview:self.classButton];
+    [self.classButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(topView.mas_bottom).mas_offset(67);
         make.centerX.mas_equalTo(0);
         make.height.mas_equalTo(26);
@@ -93,21 +97,22 @@
         make.left.mas_equalTo(30);
         make.right.mas_equalTo(-30);
         make.top.mas_equalTo(topView.mas_bottom);
-        make.bottom.mas_equalTo(self.classLabel.mas_top);
+        make.bottom.mas_equalTo(self.classButton.mas_top);
     }];
 }
 #pragma mark - set
 - (void)setClazsInfo:(ClazsGetClazsRequestItem_Data_ClazsInfo *)clazsInfo {
     _clazsInfo = clazsInfo;
-    self.classLabel.text = _clazsInfo.clazsName;
-    [self.classLabel sizeToFit];
-    [self.classLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(self.classLabel.width+20);
-    }];
-    [self setNeedsLayout];
-    if (self.classLabel.text.length == 0) {
-        self.classLabel.hidden = YES;
+    if (_clazsInfo.clazsName.length == 0) {
+        [self.classButton setHidden:YES];
+        return;
     }
+    [self.classButton setTitle:_clazsInfo.clazsName forState:UIControlStateNormal];
+    CGSize size = [_clazsInfo.clazsName sizeWithFont:[UIFont boldSystemFontOfSize:13]];
+    [self.classButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(size.width + 20 + 30);
+        make.height.mas_equalTo(20 + 10);
+    }];
 
 }
 - (void)setProjectInfo:(ClazsGetClazsRequestItem_Data_ProjectInfo *)projectInfo {

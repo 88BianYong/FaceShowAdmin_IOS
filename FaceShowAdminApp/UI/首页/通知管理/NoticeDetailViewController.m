@@ -120,11 +120,6 @@
     self.imageView.backgroundColor = [UIColor colorWithHexString:@"dadde0"];
     [self.contentView addSubview:self.imageView];
     if (self.element.attachUrl.length > 0) {
-//        UIImageView *placeholderImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"朋友圈一张图加载失败图片"]];
-//        [self.imageView addSubview:placeholderImageView];
-//        [placeholderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.center.equalTo(self.imageView);
-//        }];
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.element.attachUrl] placeholderImage:[UIImage imageNamed:@"朋友圈一张图加载失败图片"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             STRONG_SELF
             if (error == nil) {
@@ -144,7 +139,6 @@
         [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10);
         }];
-
     }
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [self.imageView addGestureRecognizer:tap];

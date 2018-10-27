@@ -10,6 +10,7 @@
 #import "DetailContainerView.h"
 #import "MainProjectDetailView.h"
 #import "MainClassDetailView.h"
+#import "YXShowPhotosViewController.h"
 @interface MainPageDetailViewController ()
 @property (nonatomic, strong) DetailContainerView *containerView;
 @property (nonatomic, strong) MainProjectDetailView *projectView;
@@ -33,6 +34,16 @@
 - (void)setupUI {
     self.projectView = [[MainProjectDetailView alloc] initWithFrame:CGRectZero];
     self.classView = [[MainClassDetailView alloc] initWithFrame:CGRectZero];
+    WEAK_SELF
+    self.classView.showImageBlock = ^(NSString *url, UIImageView *imageView) {
+        STRONG_SELF
+        YXShowPhotosViewController *VC = [[YXShowPhotosViewController alloc] init];
+        VC.imageURLMutableArray = [NSMutableArray arrayWithObjects:url, nil];
+        VC.animateRect = [self.view convertRect:imageView.frame toView:self.view];
+        [self.navigationController presentViewController:VC animated:YES completion:^{
+
+        }];
+    };
     self.containerView = [[DetailContainerView alloc] initWithFrame:self.view.bounds];
     self.containerView.contentViews = @[self.projectView,self.classView];
     self.containerView.backgroundColor = [UIColor whiteColor];

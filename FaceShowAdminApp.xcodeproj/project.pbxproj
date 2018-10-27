@@ -62,6 +62,7 @@
 		7C07F04120DDE2BF00E6BCE2 /* GetSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04020DDE2BF00E6BCE2 /* GetSummaryRequest.m */; };
 		7C07F04420DE1F9F00E6BCE2 /* ProjectDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04320DE1F9F00E6BCE2 /* ProjectDetailRequest.m */; };
 		7C07F04720DE296100E6BCE2 /* GetCountClazsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F04620DE296100E6BCE2 /* GetCountClazsRequest.m */; };
+		7C17DC0621845C81009353A9 /* YXShowPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17DC0421845C80009353A9 /* YXShowPhotosViewController.m */; };
 		7C25582A1FBAD0A200C9BE38 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2558281FBAD0A100C9BE38 /* libTalkingData.a */; };
 		7C25582C1FBAD23300C9BE38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */; };
 		7C25582E1FBAD27200C9BE38 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C25582D1FBAD26A00C9BE38 /* CoreMotion.framework */; };
@@ -719,6 +720,8 @@
 		7C07F04320DE1F9F00E6BCE2 /* ProjectDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailRequest.m; sourceTree = "<group>"; };
 		7C07F04520DE296100E6BCE2 /* GetCountClazsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCountClazsRequest.h; sourceTree = "<group>"; };
 		7C07F04620DE296100E6BCE2 /* GetCountClazsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCountClazsRequest.m; sourceTree = "<group>"; };
+		7C17DC0421845C80009353A9 /* YXShowPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXShowPhotosViewController.m; sourceTree = "<group>"; };
+		7C17DC0521845C80009353A9 /* YXShowPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXShowPhotosViewController.h; sourceTree = "<group>"; };
 		7C2558281FBAD0A100C9BE38 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
 		7C2558291FBAD0A100C9BE38 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		7C25582B1FBAD22400C9BE38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -1987,6 +1990,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7C17DC0321845C80009353A9 /* 查看大图 */ = {
+			isa = PBXGroup;
+			children = (
+				7C17DC0421845C80009353A9 /* YXShowPhotosViewController.m */,
+				7C17DC0521845C80009353A9 /* YXShowPhotosViewController.h */,
+			);
+			path = "查看大图";
+			sourceTree = "<group>";
+		};
 		7C2558271FBAD0A100C9BE38 /* TalkingData */ = {
 			isa = PBXGroup;
 			children = (
@@ -2957,6 +2969,7 @@
 		7CEFC92C1FA0804C001D8C84 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				7C17DC0321845C80009353A9 /* 查看大图 */,
 				9235F9801FB3ED8C003A9027 /* 日程 */,
 				921DE2D51FB145A200CF39DE /* 资源 */,
 				43FDDF4E1FB0716C001D2127 /* 通讯录 */,
@@ -4072,6 +4085,7 @@
 				921DE2E11FB1467600CF39DE /* ResourceDetailViewController.m in Sources */,
 				7C96A858215F3056007AAD82 /* AppUseRecordManager.m in Sources */,
 				7C2DC38D20F347AF00B689C0 /* StageSubjectManager.m in Sources */,
+				7C17DC0621845C81009353A9 /* YXShowPhotosViewController.m in Sources */,
 				7CDF127A20902FBF0044DD95 /* ClassMomentPublishRequest.m in Sources */,
 				7C6CE78621339B8D00BA6594 /* GeTuiConfig.m in Sources */,
 				E94DDEB220DB523600729A67 /* TaskRankingViewController.m in Sources */,

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UILabel *studentLabel;
 @property (nonatomic, strong) UILabel *teacherLabel;
+@property (nonatomic, strong) UIImageView *qrCodeImageView;
 @property (nonatomic, strong) UIView *lineView;
 @end
 @implementation MainClassDetailView
@@ -53,8 +54,22 @@
     
     self.studentLabel.text = [NSString stringWithFormat:@"班级学员: %@人",_itemData.clazsStatisticView.studensNum?:@""];
     self.teacherLabel.text = [NSString stringWithFormat:@"班主任: %@人",_itemData.clazsStatisticView.masterNum?:@""];
+
+    NSString *qrURL = [NSString stringWithFormat:@"%@?method=clazs.getClazsQrcode&clazsId=%@",[ConfigManager sharedInstance].server,_itemData.clazsInfo.clazsId];
+    [self.qrCodeImageView sd_setImageWithURL:[NSURL URLWithString:qrURL] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+
+    }];
+    UITapGestureRecognizer *qrTap = [[UITapGestureRecognizer alloc] init];
+    self.qrCodeImageView.userInteractionEnabled = YES;
+    [self.qrCodeImageView addGestureRecognizer:qrTap];
+    WEAK_SELF
+    [[qrTap rac_gestureSignal] subscribeNext:^(id x) {
+        STRONG_SELF
+        BLOCK_EXEC(self.showImageBlock,qrURL,self.qrCodeImageView);
+    }];
     
     NSInteger height = ceilf([self.contentLabel sizeThatFits:CGSizeMake(self.contentLabel.bounds.size.width, MAXFLOAT)].height);
+    height += SCREEN_WIDTH - 30;
     self.scroolView.contentSize = CGSizeMake(SCREEN_WIDTH- 10.0f, height + 120.0f);
 }
 #pragma mark - setupUI
@@ -118,6 +133,9 @@
     self.lineView = [[UIView alloc] init];
     self.lineView.backgroundColor = [UIColor colorWithHexString:@"939699"];
     [self.containerView addSubview:self.lineView];
+
+    self.qrCodeImageView = [[UIImageView alloc] init];
+    [self.containerView addSubview:self.qrCodeImageView];
 }
 - (void)setupLayout {
     [self.scroolView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -171,10 +189,15 @@
         make.centerX.equalTo(self.containerView.mas_centerX);
         make.top.equalTo(self.studentLabel.mas_bottom).offset(18.0f);
     }];
+    [self.qrCodeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.descLabel.mas_bottom).offset(15.0f);
+        make.left.right.mas_equalTo(self.descLabel);
+        make.height.mas_equalTo(self.qrCodeImageView.mas_width);
+    }];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.containerView.mas_left).offset(15.0f);
         make.right.equalTo(self.containerView.mas_right).offset(-15.0f);
-        make.top.equalTo(self.descLabel.mas_bottom).offset(12.0f);
+        make.top.equalTo(self.qrCodeImageView.mas_bottom).offset(12.0f);
         make.bottom.equalTo(self.containerView.mas_bottom);
     }];
 }
