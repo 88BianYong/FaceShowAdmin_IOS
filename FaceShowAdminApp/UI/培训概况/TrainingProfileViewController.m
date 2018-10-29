@@ -19,6 +19,7 @@
 #import "ErrorView.h"
 #import "MJRefresh.h"
 #import "ProjectsByTypeViewController.h"
+#import "TrainingEmptyCell.h"
 
 
 @interface TrainingProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -97,6 +98,7 @@
     [self.tableView registerClass:[ProjectLevelDistributingCell class] forCellReuseIdentifier:@"ProjectLevelDistributingCell"];
     [self.tableView registerClass:[ProjectAreaDistributingCell class] forCellReuseIdentifier:@"ProjectAreaDistributingCell"];
     [self.tableView registerClass:[TitleHeaderView class] forHeaderFooterViewReuseIdentifier:@"TitleHeaderView"];
+    [self.tableView registerClass:[TrainingEmptyCell class] forCellReuseIdentifier:@"TrainingEmptyCell"];
     
     self.headerView = [[TrainingProfileHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 324)];
     self.tableView.tableHeaderView = self.headerView;
@@ -168,9 +170,9 @@
         return 1;
     }
     if (section == 3) {
-        return self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count;
+        return self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count > 0 ? self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count : 1;
     }else {
-        return self.requestItem.data.platformStatisticInfo.onGoingprojectList.count;
+        return self.requestItem.data.platformStatisticInfo.onGoingprojectList.count > 0 ? self.requestItem.data.platformStatisticInfo.onGoingprojectList.count : 1;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -221,17 +223,27 @@
         };
         return cell;
     }else if (indexPath.section == 3) {
-        TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
-        GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
-        [cell reloadTraining:top.project.projectName percent:[NSString stringWithFormat:@"%.0f%%",[top.percent floatValue] * 100] level:indexPath.row + 1];
-        cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count-1;
-        return cell;
+        if (self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count > 0) {
+            TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
+            GetSummaryRequestItem_projectSatisfiedTop *top = self.requestItem.data.platformStatisticInfo.projectSatisfiedTop[indexPath.row];
+            [cell reloadTraining:top.project.projectName percent:[NSString stringWithFormat:@"%.0f%%",[top.percent floatValue] * 100] level:indexPath.row + 1];
+            cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count-1;
+            return cell;
+        }else{
+            TrainingEmptyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingEmptyCell"];
+            return cell;
+        }
     }else {
-        TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
-        GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
-        cell.name = ongoing.projectName;
-        cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.onGoingprojectList.count-1;
-        return cell;
+        if(self.requestItem.data.platformStatisticInfo.onGoingprojectList.count > 0){
+            TrainingProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingProjectCell"];
+            GetSummaryRequestItem_onGoingprojectList *ongoing = self.requestItem.data.platformStatisticInfo.onGoingprojectList[indexPath.row];
+            cell.name = ongoing.projectName;
+            cell.lineHidden = indexPath.row==self.requestItem.data.platformStatisticInfo.onGoingprojectList.count-1;
+            return cell;
+        }else{
+            TrainingEmptyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingEmptyCell"];
+            return cell;
+        }
     }
 }
 #pragma mark - UITableViewDelegate
@@ -264,7 +276,19 @@
         return 380;
     }else if (indexPath.section == 2) {
         return 350;
-    }else {
+    }else if (indexPath.section == 3){
+        if (self.requestItem.data.platformStatisticInfo.projectSatisfiedTop.count > 0) {
+            return 50;
+        }else{
+            return 150;
+        }
+    }else if (indexPath.section == 4){
+        if(self.requestItem.data.platformStatisticInfo.onGoingprojectList.count > 0){
+            return 50;
+        }else{
+            return 150;
+        }
+    }else{
         return 50;
     }
 }
