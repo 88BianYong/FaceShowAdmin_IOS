@@ -76,8 +76,8 @@
     self.classButton.layer.cornerRadius = 6;
     self.classButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.classButton.layer.borderWidth = 1;
-    self.classButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, -5);
-    self.classButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 5);
+    self.classButton.titleEdgeInsets = UIEdgeInsetsMake(0, 4, 0, -4);
+    self.classButton.imageEdgeInsets = UIEdgeInsetsMake(0, -4, 0, 4);
     [self.classButton setImage:[UIImage imageNamed:@"点击二维码"] forState:UIControlStateNormal];
     [self addSubview:self.classButton];
     [self.classButton mas_makeConstraints:^(MASConstraintMaker *make) {

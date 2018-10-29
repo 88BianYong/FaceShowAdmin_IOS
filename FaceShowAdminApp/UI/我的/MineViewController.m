@@ -50,18 +50,12 @@
     if ([data roleExists:UserRole_AreaAdmin]) {
         [array addObject:@"区域管理员"];
     }
-#ifdef HuBeiApp
     if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
         [array addObject:@"机构管理员"];
     }
     if ([data roleExists:UserRole_ProvinceAdmin]) {
         [array addObject:@"省级管理员"];
     }
-#else
-    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
-        [array addObject:@"项目管理员"];
-    }
-#endif
     if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
         [array addObject:@"班主任"];
     }
@@ -74,7 +68,6 @@
 - (void)setupModules {
     GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
     NSMutableArray *array = [NSMutableArray array];
-#ifdef HuBeiApp
     if ([data roleExists:UserRole_PlatformAdmin]||
         [data roleExists:UserRole_AreaAdmin]||
         [data roleExists:UserRole_ProjectAdmin]||
@@ -88,14 +81,6 @@
     if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
         [array addObject:@"我的项目"];
     }
-#else
-    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
-        [array addObject:@"培训概况"];
-    }
-    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
-        [array addObject:@"我的项目"];
-    }
-#endif
     if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
         [array addObject:@"我的班级"];
     }
