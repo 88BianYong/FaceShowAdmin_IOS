@@ -48,14 +48,14 @@
     if ([data roleExists:UserRole_PlatformAdmin]) {
         [array addObject:@"平台管理员"];
     }
-    if ([data roleExists:UserRole_AreaAdmin]) {
+    if ([data roleExists:UserRole_PlatAdmin]) {
         [array addObject:@"区域管理员"];
-    }
-    if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
-        [array addObject:@"机构管理员"];
     }
     if ([data roleExists:UserRole_ProvinceAdmin]) {
         [array addObject:@"省级管理员"];
+    }
+    if ([data roleExists:UserRole_ProjectSteward] || [data roleExists:UserRole_ProjectAdmin]){
+        [array addObject:@"机构管理员"];
     }
     if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
         [array addObject:@"班主任"];
@@ -70,10 +70,10 @@
     GetUserRolesRequestItem_data *data = [UserManager sharedInstance].userModel.roleRequestItem.data;
     NSMutableArray *array = [NSMutableArray array];
     if ([data roleExists:UserRole_PlatformAdmin]||
-        [data roleExists:UserRole_AreaAdmin]||
+        [data roleExists:UserRole_PlatAdmin]||
+        [data roleExists:UserRole_ProvinceAdmin] ||
         [data roleExists:UserRole_ProjectAdmin]||
-        [data roleExists:UserRole_ProjectSteward]||
-        [data roleExists:UserRole_ProvinceAdmin]) {
+        [data roleExists:UserRole_ProjectSteward]) {
         [array addObject:@"培训概况"];
     }
     if ([data roleExists:UserRole_ProvinceAdmin]) {

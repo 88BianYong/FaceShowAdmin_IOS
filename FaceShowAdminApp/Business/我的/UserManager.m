@@ -45,25 +45,32 @@ NSString * const kUserDidLogoutNotification = @"kUserDidLogoutNotification";
 - (void)setUserModel:(UserModel *)userModel {
     _userModel = userModel;
     GetUserRolesRequestItem_data *data = self.userModel.roleRequestItem.data;
-#ifdef HuBeiApp
-    if ([data roleExists:UserRole_PlatformAdmin]||
-        [data roleExists:UserRole_AreaAdmin]||
-        [data roleExists:UserRole_ProjectAdmin]||
-        [data roleExists:UserRole_ProjectSteward]||
-        [data roleExists:UserRole_ProvinceAdmin]) {
+    if ([data roleExists:UserRole_PlatformAdmin] || [data roleExists:UserRole_PlatAdmin] || [data roleExists:UserRole_ProvinceAdmin] || [data roleExists:UserRole_ProjectAdmin] || [data roleExists:UserRole_ProjectSteward]) {
         self.mainPage = MainPage_TrainingProfile;
-    }else if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+    }else {
         self.mainPage = MainPage_ClassDetail;
-    }
-#else
-    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]) {
-        self.mainPage = MainPage_TrainingProfile;
-    }else if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
-        self.mainPage = MainPage_MyProject;
-    }else if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
-        self.mainPage = MainPage_ClassDetail;
-    }
-#endif
+    };
+//
+//
+//#ifdef HuBeiApp
+//    if ([data roleExists:UserRole_PlatformAdmin]||
+//        [data roleExists:UserRole_AreaAdmin]||
+//        [data roleExists:UserRole_ProjectAdmin]||
+//        [data roleExists:UserRole_ProjectSteward]||
+//        [data roleExists:UserRole_ProvinceAdmin]) {
+//        self.mainPage = MainPage_TrainingProfile;
+//    }else if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+//        self.mainPage = MainPage_ClassDetail;
+//    }
+//#else
+//    if ([data roleExists:UserRole_PlatformAdmin]||[data roleExists:UserRole_AreaAdmin]||[data roleExists:UserRole_ProvinceAdmin]) {
+//        self.mainPage = MainPage_TrainingProfile;
+//    }else if ([data roleExists:UserRole_ProjectAdmin]||[data roleExists:UserRole_ProjectSteward]) {
+//        self.mainPage = MainPage_MyProject;
+//    }else if ([data roleExists:UserRole_Teacher]||[data roleExists:UserRole_UnknownTeacher]) {
+//        self.mainPage = MainPage_ClassDetail;
+//    }
+//#endif
     [self saveData];
 }
 

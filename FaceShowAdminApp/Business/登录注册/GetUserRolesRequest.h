@@ -10,10 +10,10 @@
 
 typedef NS_ENUM(NSUInteger, UserRoleType) {
     UserRole_PlatformAdmin = 500,
-    UserRole_AreaAdmin = 480,
-    UserRole_ProjectAdmin = 400,
-    UserRole_ProjectSteward = 450,
+    UserRole_PlatAdmin = 480,
     UserRole_ProvinceAdmin = 460,
+    UserRole_ProjectSteward = 450,
+    UserRole_ProjectAdmin = 400,
     UserRole_Teacher = 300,
     UserRole_UnknownTeacher = 310,
     UserRole_Student = 200
