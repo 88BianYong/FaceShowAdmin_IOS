@@ -39,6 +39,7 @@ static const NSUInteger kTagBase = 3333;
     self.bottomScrollView.directionalLockEnabled = YES;
     self.bottomScrollView.bounces = NO;
     self.bottomScrollView.delegate = self;
+    self.bottomScrollView.contentSize = CGSizeMake(self.bottomScrollView.frame.size.width*self.tabItemArray.count, self.bottomScrollView.frame.size.height);
     [self addSubview:self.bottomScrollView];
     
     self.sliderView = [[UIView alloc]init];
@@ -68,17 +69,15 @@ static const NSUInteger kTagBase = 3333;
         [b addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         b.tag = kTagBase + idx;
         [self.topView addSubview:b];
-        if (idx == 0) {
+        if (idx == 1) {
             b.selected = YES;
         }
     }];
     self.sliderView.center = CGPointMake(self.topView.frame.size.width/self.tabItemArray.count/2, self.topView.frame.size.height-1);
     [self addSubview:self.sliderView];
+    self.bottomScrollView.contentOffset = CGPointMake(self.bottomScrollView.frame.size.width, 0);
 }
 
-- (void)layoutSubviews{
-    self.bottomScrollView.contentSize = CGSizeMake(self.bottomScrollView.frame.size.width*self.contentViews.count, self.bottomScrollView.frame.size.height);
-}
 
 - (void)btnAction:(UIButton *)sender{
     if (sender.selected) {
