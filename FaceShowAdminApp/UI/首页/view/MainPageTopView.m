@@ -87,6 +87,10 @@
         make.left.mas_greaterThanOrEqualTo(15);
         make.right.mas_lessThanOrEqualTo(-15);
     }];
+    [[self.classButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        STRONG_SELF
+        BLOCK_EXEC(self.mainPagePushDetailBlock);
+    }];
     self.projectLabel = [[UILabel alloc]init];
     self.projectLabel.textColor = [UIColor whiteColor];
     self.projectLabel.font = [UIFont boldSystemFontOfSize:18];
