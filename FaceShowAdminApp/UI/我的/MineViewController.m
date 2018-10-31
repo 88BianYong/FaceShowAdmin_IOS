@@ -25,6 +25,7 @@
 @property (nonatomic, strong) UILabel *roleLabel;
 @property (nonatomic, strong) NSString *roles;
 @property (nonatomic, strong) NSMutableArray *moduleArray;
+@property (nonatomic, strong) UIButton *aboutButton;
 @end
 
 @implementation MineViewController
@@ -170,20 +171,9 @@
         make.centerX.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
     }];
-    UIButton *about = [self optionBtnWithTitle:@"关于我们" normalImage:@"关于" highlightedImage:@"关于点击"];
-    if ([YXInitHelper sharedHelper].hasNewVersion) {
-        UIView *redPointView = [[UIView alloc] init];
-        redPointView.layer.cornerRadius = 4.5f;
-        redPointView.backgroundColor = [UIColor colorWithHexString:@"ff0000"];
-        [about.titleLabel addSubview:redPointView];
-        [redPointView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(about.titleLabel.mas_right);
-            make.top.mas_equalTo(-3.5);
-            make.size.mas_equalTo(CGSizeMake(9, 9));
-        }];
-    }
-    [self.view addSubview:about];
-    [about mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.aboutButton = [self optionBtnWithTitle:@"关于我们" normalImage:@"关于" highlightedImage:@"关于点击"];
+    [self.view addSubview:self.aboutButton];
+    [self.aboutButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(password.mas_bottom).offset(30);
         make.centerX.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
@@ -267,6 +257,20 @@
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateProjectInfoNotification" object:nil] subscribeNext:^(id x) {
         STRONG_SELF
         self.projectLabel.text = [UserManager sharedInstance].userModel.currentProject.projectName;
+    }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:YXInitSuccessNotification object:nil] subscribeNext:^(id x) {
+        STRONG_SELF
+        if ([YXInitHelper sharedHelper].hasNewVersion) {
+            UIView *redPointView = [[UIView alloc] init];
+            redPointView.layer.cornerRadius = 4.5f;
+            redPointView.backgroundColor = [UIColor colorWithHexString:@"ff0000"];
+            [self.aboutButton.titleLabel addSubview:redPointView];
+            [redPointView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(self.aboutButton.titleLabel.mas_right);
+                make.top.mas_equalTo(-3.5);
+                make.size.mas_equalTo(CGSizeMake(9, 9));
+            }];
+        }
     }];
 }
 
