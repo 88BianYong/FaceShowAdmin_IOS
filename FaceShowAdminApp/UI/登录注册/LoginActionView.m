@@ -25,8 +25,9 @@
 - (void)setupUI {
     self.actionButton = [[UIButton alloc]init];
     [self.actionButton setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateNormal];
-    [self.actionButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068BD"]] forState:UIControlStateNormal];
-    UIColor *color = [[UIColor colorWithHexString:@"0068BD"]colorWithAlphaComponent:0.25];
+    UIColor *themeColor = [UIColor colorWithHexString:@"4C9EEB"];
+    [self.actionButton setBackgroundImage:[UIImage imageWithColor:themeColor] forState:UIControlStateNormal];
+    UIColor *color = [themeColor colorWithAlphaComponent:0.25];
     [self.actionButton setBackgroundImage:[UIImage imageWithColor:color] forState:UIControlStateDisabled];
     self.actionButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     self.actionButton.layer.cornerRadius = 6;
