@@ -24,13 +24,21 @@
 }
 
 - (void)setupUI {
+    self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 6;
-    self.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.layer.borderWidth = 2;
-//    self.backgroundColor = [UIColor colorWithHexString:@"69ad0a"];
+    self.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
+    self.inputView = [[LoginInputView alloc]init];
+    self.inputView.placeHolder = @"请输入账号";
+    self.inputView.textField.keyboardType = UIKeyboardTypeASCIICapable;
+    self.inputView.textField.delegate = self;
+    [self addSubview:self.inputView];
+    [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+
     self.clearButton = [[UIButton alloc]init];
     [self.clearButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
-    [self.clearButton setBackgroundImage:[UIImage imageNamed:@"删除按钮-正常态"] forState:UIControlStateNormal];
+    [self.clearButton setBackgroundImage:[UIImage imageNamed:@"删除按钮"] forState:UIControlStateNormal];
     [self.clearButton setBackgroundImage:[UIImage imageNamed:@"删除按钮-点击态"] forState:UIControlStateHighlighted];
     [self.clearButton addTarget:self action:@selector(clearAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.clearButton];
@@ -38,16 +46,6 @@
         make.right.mas_equalTo(-7);
         make.centerY.mas_equalTo(0);
         make.size.mas_equalTo(CGSizeMake(18, 18));
-    }];
-    self.inputView = [[LoginInputView alloc]init];
-    self.inputView.placeHolder = @"请输入账号";
-    self.inputView.textField.keyboardType = UIKeyboardTypeASCIICapable;
-    self.inputView.textField.delegate = self;
-    [self addSubview:self.inputView];
-    [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(12);
-        make.right.mas_equalTo(self.clearButton.mas_left).mas_offset(-5);
-        make.top.bottom.mas_equalTo(0);
     }];
 }
 

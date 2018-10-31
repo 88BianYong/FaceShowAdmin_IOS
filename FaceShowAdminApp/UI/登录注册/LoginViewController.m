@@ -40,7 +40,7 @@
 
 - (void)setupUI {
     self.scrollView.bounces = NO;
-    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"背景"]];
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"管理登录背景"]];
     bgImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.contentView addSubview:bgImageView];
     [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -50,19 +50,29 @@
     UIImageView *logoView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo"]];
     [self.contentView addSubview:logoView];
     [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(127*kPhoneHeightRatio);
+        if (@available(iOS 11.0, *)) {
+            make.top.mas_equalTo(self.contentView.mas_safeAreaLayoutGuideTop).offset(100);
+        } else {
+            // Fallback on earlier versions
+            make.top.mas_equalTo(100);
+        }
         make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(175*kPhoneWidthRatio, 100*kPhoneWidthRatio));
+//        make.size.mas_equalTo(CGSizeMake(175*kPhoneWidthRatio, 100*kPhoneWidthRatio));
     }];
     UIButton *forgetPwdButton = [[UIButton alloc]init];
     [forgetPwdButton setTitle:@"忘记密码?" forState:UIControlStateNormal];
-    [forgetPwdButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [forgetPwdButton setTitleColor:[UIColor colorWithHexString:@"9D9CA1"] forState:UIControlStateNormal];
     forgetPwdButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [forgetPwdButton addTarget:self action:@selector(goForgetPassword) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:forgetPwdButton];
     [forgetPwdButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(-44*kPhoneHeightRatio);
-        make.right.mas_equalTo(-(SCREEN_WIDTH-250*kPhoneWidthRatio)/2);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(self.contentView.mas_safeAreaLayoutGuideBottom).offset(-154);
+        } else {
+            // Fallback on earlier versions
+            make.bottom.mas_equalTo(-154);
+        }
+        make.right.mas_equalTo(-37);
     }];
     LoginActionView *loginView = [[LoginActionView alloc]init];
     self.loginView = loginView;
@@ -75,11 +85,10 @@
     [self.contentView addSubview:loginView];
     [loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
-        make.bottom.mas_equalTo(forgetPwdButton.mas_top).mas_offset(-24);
-        make.size.mas_equalTo(CGSizeMake(250*kPhoneWidthRatio, 40));
+        make.bottom.mas_equalTo(forgetPwdButton.mas_top).mas_offset(-10);
+        make.size.mas_equalTo(CGSizeMake(300*kPhoneWidthRatio, 46));
     }];
     self.passwordView = [[PasswordInputView alloc]init];
-    self.passwordView.inputView.textField.tintColor = [UIColor whiteColor];
     [self.passwordView setTextChangeBlock:^{
         STRONG_SELF
         [self refreshLoginButton];
@@ -88,22 +97,18 @@
     [self.passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.loginView.mas_top).mas_offset(-20);
         make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(250*kPhoneWidthRatio, 40));
+        make.size.mas_equalTo(CGSizeMake(300*kPhoneWidthRatio, 46));
     }];
     self.accountView = [[AccountInputView alloc]init];
-    self.accountView.inputView.textField.tintColor = [UIColor whiteColor];
     [self.accountView setTextChangeBlock:^{
         STRONG_SELF
-        //        if (self.accountView.text.length>16) {
-        //            self.accountView.inputView.textField.text = [self.accountView.text substringToIndex:16];
-        //        }
         [self refreshLoginButton];
     }];
     [self.contentView addSubview:self.accountView];
     [self.accountView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.passwordView.mas_top).mas_offset(-10);
         make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(250*kPhoneWidthRatio, 40));
+        make.size.mas_equalTo(CGSizeMake(300*kPhoneWidthRatio, 46));
     }];
     NSString *lastAccount = (NSString *)[[NSUserDefaults standardUserDefaults]valueForKey:@"last_login_user_mobile"];
     self.accountView.inputView.textField.text = lastAccount;

@@ -36,20 +36,22 @@
     self.clipsToBounds = YES;
     self.textField = [[LoginInputField alloc]init];
     self.textField.font = [UIFont boldSystemFontOfSize:14];
-    self.textField.textColor = [UIColor whiteColor];
-//    [self.textField setTintColor:[UIColor colorWithHexString:@"89e00d"]];
+    self.textField.textColor = [UIColor colorWithHexString:@"333333"];
+    self.textField.tintColor = [UIColor colorWithHexString:@"333333"];
+    self.textField.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
     self.textField.delegate = self;
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.clipsToBounds = YES;
     [self addSubview:self.textField];
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
+        make.top.right.bottom.mas_equalTo(0);
+        make.left.mas_equalTo(12);
     }];
 }
 
 - (void)setPlaceHolder:(NSString *)placeHolder {
     _placeHolder = placeHolder;
-    self.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:placeHolder attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    self.textField.attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:placeHolder attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"B5B4B9"],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
 }
 
 #pragma mark - UITextFieldDelegate

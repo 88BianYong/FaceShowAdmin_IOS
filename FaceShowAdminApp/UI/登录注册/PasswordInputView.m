@@ -25,20 +25,8 @@
 
 - (void)setupUI {
     self.layer.cornerRadius = 6;
-    self.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.layer.borderWidth = 2;
-//    self.backgroundColor = [UIColor colorWithHexString:@"69ad0a"];
-    self.showHideButton = [[UIButton alloc]init];
-    [self.showHideButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
-    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码2正常态"] forState:UIControlStateNormal];
-    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码2点击态"] forState:UIControlStateHighlighted];
-    [self.showHideButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.showHideButton];
-    [self.showHideButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-7);
-        make.centerY.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(18, 18));
-    }];
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
     self.inputView = [[LoginInputView alloc]init];
     self.inputView.textField.secureTextEntry = YES;
     self.inputView.textField.keyboardType = UIKeyboardTypeASCIICapable;
@@ -47,9 +35,21 @@
     self.inputView.textField.delegate = self;
     [self addSubview:self.inputView];
     [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(12);
-        make.right.mas_equalTo(self.showHideButton.mas_left).mas_offset(-5);
-        make.top.bottom.mas_equalTo(0);
+        make.edges.mas_equalTo(0);
+    }];
+
+    self.showHideButton = [[UIButton alloc]init];
+    [self.showHideButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
+    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏秘密正常态"] forState:UIControlStateNormal];
+    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏秘密点击态"] forState:UIControlStateHighlighted];
+    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"显示密码正常态"] forState:UIControlStateSelected];
+    [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"显示密码点击态"] forState:UIControlStateSelected | UIControlStateHighlighted];
+    [self.showHideButton addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.showHideButton];
+    [self.showHideButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-7);
+        make.centerY.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(18, 18));
     }];
 }
 
@@ -61,15 +61,9 @@
     }];
 }
 
-- (void)btnAction {
+- (void)btnAction:(UIButton *)sender {
     self.inputView.textField.secureTextEntry = !self.inputView.textField.secureTextEntry;
-    if (self.inputView.textField.secureTextEntry) {
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码正常态"] forState:UIControlStateNormal];
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"隐藏密码点击态"] forState:UIControlStateHighlighted];
-    }else {
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"显示密码正常态"] forState:UIControlStateNormal];
-        [self.showHideButton setBackgroundImage:[UIImage imageNamed:@"显示密码点击态"] forState:UIControlStateHighlighted];
-    }
+    sender.selected = !sender.selected;
 }
 
 - (NSString *)text {
