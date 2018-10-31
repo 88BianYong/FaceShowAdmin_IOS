@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSString *roles;
 @property (nonatomic, strong) NSMutableArray *moduleArray;
 @property (nonatomic, strong) UIButton *aboutButton;
+@property (nonatomic, strong) MASViewAttribute *lastBottom;
 @end
 
 @implementation MineViewController
@@ -144,41 +145,7 @@
         make.left.top.right.mas_equalTo(0);
         make.bottom.mas_equalTo(self.roleLabel.mas_bottom).mas_offset(20);
     }];
-    
-    UIView *topView = backImageView;
-    for (NSString *item in self.moduleArray) {
-        UIButton *btn = [self optionBtnWithItem:item];
-        [self.view addSubview:btn];
-        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(topView.mas_bottom).offset(30);
-            make.centerX.mas_equalTo(0);
-            make.left.right.mas_equalTo(0);
-        }];
-        topView = btn;
-    }
-    
-    UIButton *btn = [self optionBtnWithTitle:@"我的资料" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
-    [self.view addSubview:btn];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(topView.mas_bottom).offset(30);
-        make.centerX.mas_equalTo(0);
-        make.left.right.mas_equalTo(0);
-    }];
-    UIButton *password = [self optionBtnWithTitle:@"修改密码" normalImage:@"忘记密码icon正常态管理端" highlightedImage:@"忘记密码icon选择态管理端"];
-    [self.view addSubview:password];
-    [password mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(btn.mas_bottom).offset(30);
-        make.centerX.mas_equalTo(0);
-        make.left.right.mas_equalTo(0);
-    }];
-    self.aboutButton = [self optionBtnWithTitle:@"关于我们" normalImage:@"关于" highlightedImage:@"关于点击"];
-    [self.view addSubview:self.aboutButton];
-    [self.aboutButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(password.mas_bottom).offset(30);
-        make.centerX.mas_equalTo(0);
-        make.left.right.mas_equalTo(0);
-    }];
-    
+
     UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     logoutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [logoutBtn setTitle:@"退出" forState:UIControlStateNormal];
@@ -188,19 +155,17 @@
     [logoutBtn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0068bd"]] forState:UIControlStateHighlighted];
     [logoutBtn addTarget:self action:@selector(logoutBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:logoutBtn];
-    
-    
     [logoutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(49);
-        
+
         if (@available(iOS 11.0, *)) {
             make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
         } else {
             make.bottom.mas_equalTo(0);
         }
     }];
-    
+
     UILabel *versionLabel = [[UILabel alloc]init];
     versionLabel.textColor = [UIColor colorWithHexString:@"a4acb8"];
     versionLabel.text = [NSString stringWithFormat:@"版本号：V%@",[ConfigManager sharedInstance].clientVersion];
@@ -211,6 +176,59 @@
         make.bottom.mas_equalTo(logoutBtn.mas_top).mas_offset(-20);
         make.centerX.mas_equalTo(0);
     }];
+
+    UIScrollView *scroll = [[UIScrollView alloc]init];
+    scroll.backgroundColor = [UIColor clearColor];
+    scroll.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:scroll];
+    [scroll mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(backImageView.mas_bottom);
+        make.bottom.mas_equalTo(versionLabel.mas_top);
+        make.left.right.mas_equalTo(0);
+    }];
+
+    UIView *contentView = [[UIView alloc] init];
+    [scroll addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+        make.width.mas_equalTo(scroll);
+    }];
+
+    self.lastBottom = contentView.mas_top;
+    [self.moduleArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIButton *btn = [self optionBtnWithItem:[NSString stringWithFormat:@"%@",obj]];
+        [contentView addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.lastBottom).offset(30);
+            make.centerX.mas_equalTo(0);
+            make.left.right.mas_equalTo(0);
+        }];
+        self.lastBottom = btn.mas_bottom;
+    }];
+    
+    UIButton *btn = [self optionBtnWithTitle:@"我的资料" normalImage:@"我的icon正常态" highlightedImage:@"我的icon点击态"];
+    [contentView addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.lastBottom).offset(30);
+        make.centerX.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+    }];
+    UIButton *password = [self optionBtnWithTitle:@"修改密码" normalImage:@"忘记密码icon正常态管理端" highlightedImage:@"忘记密码icon选择态管理端"];
+    [contentView addSubview:password];
+    [password mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(btn.mas_bottom).offset(30);
+        make.centerX.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+    }];
+    self.aboutButton = [self optionBtnWithTitle:@"关于我们" normalImage:@"关于" highlightedImage:@"关于点击"];
+    [contentView addSubview:self.aboutButton];
+    [self.aboutButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(password.mas_bottom).offset(30);
+        make.centerX.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(-10);
+    }];
+    
 }
 
 - (UIButton *)optionBtnWithItem:(NSString *)item {
