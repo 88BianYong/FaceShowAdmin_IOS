@@ -318,7 +318,6 @@
         vc.phoneNum = [UserManager sharedInstance].userModel.mobilePhone;
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([sender.titleLabel.text isEqualToString:@"关于我们"]){
-        [sender.titleLabel removeSubviews];
         AboutFaceShowViewController *about = [[AboutFaceShowViewController alloc] init];
         [self.navigationController pushViewController:about animated:YES];
     }
