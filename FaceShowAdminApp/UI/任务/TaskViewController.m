@@ -63,6 +63,10 @@
         STRONG_SELF
         [YXDrawerController showDrawer];
     }];
+    [self nyx_setupRightWithTitle:@"发布任务" action:^{
+        STRONG_SELF
+        [self showAlertView];
+    }];
     [self setupErrorView];
     [self setupObserver];
     [self requestTaskInfo];
@@ -129,10 +133,6 @@
         STRONG_SELF
         [self requestTaskInfo];
     };
-    [self nyx_setupRightWithTitle:@"发布任务" action:^{
-        STRONG_SELF
-        [self showAlertView];
-    }];
 }
 
 - (void)requestTaskInfo {
