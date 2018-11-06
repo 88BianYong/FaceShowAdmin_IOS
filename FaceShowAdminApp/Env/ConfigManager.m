@@ -19,11 +19,13 @@ BOOL testFrameworkOn = NO;
 NSString * const kServer = @"http://hbyxb.ymd.yanxiu.com/pxt/platform/data.api";
 NSString * const kServer1_1 = @"http://hbyxb.ymd.yanxiu.com/pxt/v1.1/platform/data.api";
 NSString * const kLoginServer = @"http://hbyxb.ymd.yanxiu.com/uc/appLogin";
+NSString * const kQuickLoginServer = @"http://hbyxb.ymd.yanxiu.com/uc/AppCodeLogin";
 NSString * const kEasygoServer = @"http://hbyxb.ymd.yanxiu.com/easygo/multiUpload";
 #else
 NSString * const kServer = @"http://jspx1.e21.cn/pxt/platform/data.api";
 NSString * const kServer1_1 = @"http://jspx1.e21.cn/pxt/v1.1/platform/data.api";
 NSString * const kLoginServer = @"http://jspx1.e21.cn/uc/appLogin";
+NSString * const kQuickLoginServer = @"http://jspx1.e21.cn/uc/AppCodeLogin";
 NSString * const kEasygoServer = @"http://jspx1.e21.cn/easygo/multiUpload";
 #endif
 
@@ -33,11 +35,13 @@ NSString * const kEasygoServer = @"http://jspx1.e21.cn/easygo/multiUpload";
 NSString * const kServer = @"http://orz.yanxiu.com/pxt/platform/data.api";
 NSString * const kServer1_1 = @"http://orz.yanxiu.com/pxt/v1.1/platform/data.api";
 NSString * const kLoginServer = @"http://orz.yanxiu.com/uc/appLogin";
+NSString * const kQuickLoginServer = @"http://orz.yanxiu.com/uc/AppCodeLogin";
 NSString * const kEasygoServer = @"http://orz.yanxiu.com/easygo/multiUpload";
 #else
 NSString * const kServer = @"http://yxb.yanxiu.com/pxt/platform/data.api";
 NSString * const kServer1_1 = @"http://yxb.yanxiu.com/pxt/v1.1/platform/data.api";
 NSString * const kLoginServer = @"http://pp.yanxiu.com/uc/appLogin";
+NSString * const kQuickLoginServer = @"http://pp.yanxiu.com/uc/AppCodeLogin";
 NSString * const kEasygoServer = @"http://b.yanxiu.com/easygo/multiUpload";
 #endif
 
@@ -66,6 +70,10 @@ NSString * const kEasygoServer = @"http://b.yanxiu.com/easygo/multiUpload";
 
 - (NSString *)loginServer {
     return kLoginServer;
+}
+
+- (NSString *)quickLoginServer{
+    return kQuickLoginServer;
 }
 
 - (NSString *)easygo {

@@ -192,6 +192,13 @@
 		7CA81737213D3EB300824589 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81736213D3EB300824589 /* SystemConfiguration.framework */; };
 		7CA81739213D3ECA00824589 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA81738213D3EC900824589 /* libsqlite3.0.tbd */; };
 		7CA81742213F79F500824589 /* ApnsChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA81741213F79F500824589 /* ApnsChatViewController.m */; };
+		7CBDFB73219191AB00AA1805 /* YXInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDFB6D219191A800AA1805 /* YXInputView.m */; };
+		7CBDFB74219191AB00AA1805 /* DefaultLoginContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDFB6E219191A800AA1805 /* DefaultLoginContainerView.m */; };
+		7CBDFB75219191AB00AA1805 /* QuickLoginContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDFB6F219191A900AA1805 /* QuickLoginContainerView.m */; };
+		7CBDFB7A219194C500AA1805 /* MineVerifyCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDFB77219194C400AA1805 /* MineVerifyCodeInputView.m */; };
+		7CBDFB7B219194C500AA1805 /* MinePhoneInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDFB78219194C400AA1805 /* MinePhoneInputView.m */; };
+		7CBDFB7E219199FA00AA1805 /* MineInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDFB7D219199FA00AA1805 /* MineInputView.m */; };
+		7CBDFB812191B9EE00AA1805 /* AppCodeLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDFB802191B9EE00AA1805 /* AppCodeLoginRequest.m */; };
 		7CCB291621786DCA003E98A3 /* ChooseCreateSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291521786DCA003E98A3 /* ChooseCreateSignInViewController.m */; };
 		7CCB29192178D236003E98A3 /* IMGroupMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB29172178D236003E98A3 /* IMGroupMemberView.m */; };
 		7CCB291C2178D2AB003E98A3 /* IMGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB291B2178D2AB003E98A3 /* IMGroupMemberViewController.m */; };
@@ -973,6 +980,20 @@
 		7CA81738213D3EC900824589 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7CA81740213F79F500824589 /* ApnsChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApnsChatViewController.h; sourceTree = "<group>"; };
 		7CA81741213F79F500824589 /* ApnsChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApnsChatViewController.m; sourceTree = "<group>"; };
+		7CBDFB6D219191A800AA1805 /* YXInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXInputView.m; sourceTree = "<group>"; };
+		7CBDFB6E219191A800AA1805 /* DefaultLoginContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultLoginContainerView.m; sourceTree = "<group>"; };
+		7CBDFB6F219191A900AA1805 /* QuickLoginContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickLoginContainerView.m; sourceTree = "<group>"; };
+		7CBDFB70219191AA00AA1805 /* DefaultLoginContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultLoginContainerView.h; sourceTree = "<group>"; };
+		7CBDFB71219191AA00AA1805 /* YXInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXInputView.h; sourceTree = "<group>"; };
+		7CBDFB72219191AB00AA1805 /* QuickLoginContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickLoginContainerView.h; sourceTree = "<group>"; };
+		7CBDFB76219194C400AA1805 /* MineVerifyCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineVerifyCodeInputView.h; sourceTree = "<group>"; };
+		7CBDFB77219194C400AA1805 /* MineVerifyCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineVerifyCodeInputView.m; sourceTree = "<group>"; };
+		7CBDFB78219194C400AA1805 /* MinePhoneInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePhoneInputView.m; sourceTree = "<group>"; };
+		7CBDFB79219194C500AA1805 /* MinePhoneInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePhoneInputView.h; sourceTree = "<group>"; };
+		7CBDFB7C219199F900AA1805 /* MineInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInputView.h; sourceTree = "<group>"; };
+		7CBDFB7D219199FA00AA1805 /* MineInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInputView.m; sourceTree = "<group>"; };
+		7CBDFB7F2191B9ED00AA1805 /* AppCodeLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCodeLoginRequest.h; sourceTree = "<group>"; };
+		7CBDFB802191B9EE00AA1805 /* AppCodeLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCodeLoginRequest.m; sourceTree = "<group>"; };
 		7CCB291421786DCA003E98A3 /* ChooseCreateSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseCreateSignInViewController.h; sourceTree = "<group>"; };
 		7CCB291521786DCA003E98A3 /* ChooseCreateSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseCreateSignInViewController.m; sourceTree = "<group>"; };
 		7CCB29172178D236003E98A3 /* IMGroupMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGroupMemberView.m; sourceTree = "<group>"; };
@@ -2878,6 +2899,8 @@
 		7CEFC9001FA06958001D8C84 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				7CBDFB7F2191B9ED00AA1805 /* AppCodeLoginRequest.h */,
+				7CBDFB802191B9EE00AA1805 /* AppCodeLoginRequest.m */,
 				7CEFC8E51FA06791001D8C84 /* LoginRequest.h */,
 				7CEFC8DE1FA06790001D8C84 /* LoginRequest.m */,
 				7CEFC8DF1FA06790001D8C84 /* GetUserInfoRequest.h */,
@@ -3040,6 +3063,18 @@
 		7CEFC9501FA6D315001D8C84 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7CBDFB70219191AA00AA1805 /* DefaultLoginContainerView.h */,
+				7CBDFB6E219191A800AA1805 /* DefaultLoginContainerView.m */,
+				7CBDFB72219191AB00AA1805 /* QuickLoginContainerView.h */,
+				7CBDFB6F219191A900AA1805 /* QuickLoginContainerView.m */,
+				7CBDFB71219191AA00AA1805 /* YXInputView.h */,
+				7CBDFB6D219191A800AA1805 /* YXInputView.m */,
+				7CBDFB79219194C500AA1805 /* MinePhoneInputView.h */,
+				7CBDFB78219194C400AA1805 /* MinePhoneInputView.m */,
+				7CBDFB76219194C400AA1805 /* MineVerifyCodeInputView.h */,
+				7CBDFB77219194C400AA1805 /* MineVerifyCodeInputView.m */,
+				7CBDFB7C219199F900AA1805 /* MineInputView.h */,
+				7CBDFB7D219199FA00AA1805 /* MineInputView.m */,
 				7CEFC95A1FA6D331001D8C84 /* AccountInputView.h */,
 				7CEFC9581FA6D330001D8C84 /* AccountInputView.m */,
 				7CEFC9511FA6D330001D8C84 /* LoginActionView.h */,
@@ -4072,6 +4107,7 @@
 				921860701FA9B0160018D982 /* NoticeListRequest.m in Sources */,
 				E94DDEE220DB5AC000729A67 /* TaskAverageView.m in Sources */,
 				4359B9631FB2A44B007D7F30 /* UserSignInPercentRequest.m in Sources */,
+				7CBDFB7A219194C500AA1805 /* MineVerifyCodeInputView.m in Sources */,
 				7CEFC86B1FA065B3001D8C84 /* ConfigManager.m in Sources */,
 				7CEFC92F1FA08067001D8C84 /* MainPageViewController.m in Sources */,
 				7C6BC15B211BD897002DF5B0 /* ProjectListRequest.m in Sources */,
@@ -4165,6 +4201,7 @@
 				7CEFC86D1FA065B3001D8C84 /* GlobalUtils.m in Sources */,
 				7C672B1A1FB03815004D93DF /* GetTaskRequest.m in Sources */,
 				7C06895620CF9E8100C7CA14 /* ProjectLevelDistributingCell.m in Sources */,
+				7CBDFB75219191AB00AA1805 /* QuickLoginContainerView.m in Sources */,
 				E9B39A81212E9815007ABA54 /* IMContactsViewController.m in Sources */,
 				E91481B1209062C4001B7EB5 /* IMTextMessageLeftCell.m in Sources */,
 				E94DDEE920DCD31B00729A67 /* GetUserHomeworkDetailRequest.m in Sources */,
@@ -4225,10 +4262,12 @@
 				7CDF128220902FBF0044DD95 /* ClassMomentUserListRequest.m in Sources */,
 				E9A9537920E48F1400779590 /* LearningSituationView.m in Sources */,
 				7CDF127D20902FBF0044DD95 /* ClassMomentDetailRequest.m in Sources */,
+				7CBDFB812191B9EE00AA1805 /* AppCodeLoginRequest.m in Sources */,
 				921860761FA9B0550018D982 /* NoticeUpDateRequest.m in Sources */,
 				436CB22B1FB19C6A00A31585 /* AddMemberViewController.m in Sources */,
 				7CEFC8C91FA06627001D8C84 /* UIImage+FixOrientation.m in Sources */,
 				436A6B2C1FB30865008E461B /* UserSignInListCell.m in Sources */,
+				7CBDFB74219191AB00AA1805 /* DefaultLoginContainerView.m in Sources */,
 				7CEFC89B1FA06614001D8C84 /* YXGradientView.m in Sources */,
 				7CEFC91D1FA071BE001D8C84 /* EmptyView.m in Sources */,
 				7C672B901FB53967004D93DF /* CourseCommentDataFetcher.m in Sources */,
@@ -4259,6 +4298,7 @@
 				E94DDECB20DB551D00729A67 /* ScroeDetailTabContainerView.m in Sources */,
 				7CEFC9C61FA9B2B5001D8C84 /* UnsignedMemberListViewController.m in Sources */,
 				E932CD8020BBEE39009F5BC6 /* SignInLocationView.m in Sources */,
+				7CBDFB7E219199FA00AA1805 /* MineInputView.m in Sources */,
 				E94DDE0520D36EEF00729A67 /* SetClazsScoreConfigRequest.m in Sources */,
 				7C672B3B1FB1A567004D93DF /* ClassUserQuestionFetcher.m in Sources */,
 				7C3F6BE3213D0A87007B2A28 /* GetMemberIdRequest.m in Sources */,
@@ -4559,6 +4599,7 @@
 				E97D2E8C2136765A00FECFE0 /* ForbidTalkingView.m in Sources */,
 				7CCB29192178D236003E98A3 /* IMGroupMemberView.m in Sources */,
 				7CA81742213F79F500824589 /* ApnsChatViewController.m in Sources */,
+				7CBDFB73219191AB00AA1805 /* YXInputView.m in Sources */,
 				7CEFC97C1FA813E3001D8C84 /* SignInListViewController.m in Sources */,
 				7CEFC86E1FA065B3001D8C84 /* LogFormatter.m in Sources */,
 				928216FA20CE52330052E486 /* PublishTaskCell.m in Sources */,
@@ -4620,6 +4661,7 @@
 				7C06894720CF72FF00C7CA14 /* PercentStatisticItemView.m in Sources */,
 				E97D2EB421391ED200FECFE0 /* YXSlideProgressView.m in Sources */,
 				7CDF121C20902EC10044DD95 /* UITableView+TemplateLayoutHeaderView.m in Sources */,
+				7CBDFB7B219194C500AA1805 /* MinePhoneInputView.m in Sources */,
 				7C06894D20CF79C700C7CA14 /* TrainingProfileHeaderView.m in Sources */,
 				E94DDEE320DB5AC000729A67 /* ScoreAverageView.m in Sources */,
 			);

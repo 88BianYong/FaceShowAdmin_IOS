@@ -8,6 +8,7 @@
 
 #import "LoginDataManager.h"
 #import "LoginRequest.h"
+#import "AppCodeLoginRequest.h"
 #import "GetUserInfoRequest.h"
 #import "ClassListRequest.h"
 #import "GetUserPlatformRequest.h"
@@ -15,11 +16,13 @@
 #import "AppUseRecordManager.h"
 
 @interface LoginDataManager()
-@property (nonatomic, strong) LoginRequest *loginRequest;
+//@property (nonatomic, strong) LoginRequest *loginRequest;
+@property (nonatomic, strong) YXGetRequest *loginBaseRequest;
 @property (nonatomic, strong) ClassListRequest *getClassRequest;
 @property (nonatomic, strong) GetUserInfoRequest *getUserInfoRequest;
 @property (nonatomic, strong) GetUserPlatformRequest *platformRequest;
 @property (nonatomic, strong) GetUserRolesRequest *roleRequest;
+@property (nonatomic, copy) void(^loginBlock)(NSError *error);
 @end
 
 @implementation LoginDataManager
@@ -33,14 +36,34 @@
     return manager;
 }
 
-+ (void)loginWithName:(NSString *)name password:(NSString *)password completeBlock:(void (^)(NSError *))completeBlock {
++ (YXGetRequest *)getRequestWithName:(NSString *)name password:(NSString *)password LoginType:(AppLoginType)type{
+    switch (type) {
+        case AppLoginType_AccountLogin:
+        {
+            LoginRequest *loginRequest = [[LoginRequest alloc]init];
+            loginRequest.loginName = name;
+            loginRequest.password = [password md5];
+            return loginRequest;
+        }
+        case AppLoginType_AppCodeLogin:
+        {
+            AppCodeLoginRequest *appCodeLoginRequest = [[AppCodeLoginRequest alloc] init];
+            appCodeLoginRequest.mobile = name;
+            appCodeLoginRequest.code = password;
+            return appCodeLoginRequest;
+        }
+        default:
+            return nil;
+    }
+}
+
+
++ (void)loginWithName:(NSString *)name password:(NSString *)password loginType:(AppLoginType)type completeBlock:(void(^)(NSError *error))completeBlock{
     LoginDataManager *manager = [LoginDataManager sharedInstance];
-    [manager.loginRequest stopRequest];
-    manager.loginRequest = [[LoginRequest alloc]init];
-    manager.loginRequest.loginName = name;
-    manager.loginRequest.password = [password md5];
+    [manager.loginBaseRequest stopRequest];
+    manager.loginBaseRequest = [self getRequestWithName:name password:password LoginType:type];
     WEAK_SELF
-    [manager.loginRequest startRequestWithRetClass:[LoginRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+    [manager.loginBaseRequest startRequestWithRetClass:[LoginRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
         STRONG_SELF
         if (error) {
             BLOCK_EXEC(completeBlock, error);
@@ -50,7 +73,31 @@
         UserModel *userModel = [[UserModel alloc] init];
         userModel.token = item.token;
         userModel.passport = item.passport;
-        
+        manager.loginBlock = completeBlock;
+
+//        [manager fetchClazsRequestWithUserModel:userModel];
+//    }];
+//
+//}
+//
+//+ (void)loginWithName:(NSString *)name password:(NSString *)password completeBlock:(void (^)(NSError *))completeBlock {
+//    LoginDataManager *manager = [LoginDataManager sharedInstance];
+//    [manager.loginRequest stopRequest];
+//    manager.loginRequest = [[LoginRequest alloc]init];
+//    manager.loginRequest.loginName = name;
+//    manager.loginRequest.password = [password md5];
+//    WEAK_SELF
+//    [manager.loginRequest startRequestWithRetClass:[LoginRequestItem class] andCompleteBlock:^(id retItem, NSError *error, BOOL isMock) {
+//        STRONG_SELF
+//        if (error) {
+//            BLOCK_EXEC(completeBlock, error);
+//            return;
+//        }
+//        LoginRequestItem *item = (LoginRequestItem *)retItem;
+//        UserModel *userModel = [[UserModel alloc] init];
+//        userModel.token = item.token;
+//        userModel.passport = item.passport;
+
         [self requestPlatformAndRoleWithToken:item.token completeBlock:^(GetUserPlatformRequestItem *platform, GetUserRolesRequestItem *roles, NSError *error) {
             if (error) {
                 BLOCK_EXEC(completeBlock, error);
